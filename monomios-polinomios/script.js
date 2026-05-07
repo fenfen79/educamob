@@ -1,99 +1,94 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Intersection Observer for Scroll Animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+document.addEventListener('DOMContentLoaded', () => {
 
-    const observer = new IntersectionObserver((entries) => {
+    // 1. Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
+                revealObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => revealObserver.observe(el));
 
-    const animatedElements = document.querySelectorAll('.fade-in, .scroll-reveal');
-    animatedElements.forEach(el => observer.observe(el));
+    // 2. Quiz Logic with block feedback
+    const quizCards = document.querySelectorAll('.quiz-card');
+    const blockScores = {};
 
-    // 2. Quiz Gamification Logic
-    const questions = document.querySelectorAll('.quiz-card');
+    quizCards.forEach(card => {
+        const buttons = card.querySelectorAll('.opt-btn');
+        const explanation = card.querySelector('.explanation');
+        const blockId = card.closest('.quiz-container')?.dataset.block;
 
-    questions.forEach(question => {
-        const options = question.querySelectorAll('.opt-btn');
-        const explanation = question.querySelector('.explanation');
+        if (blockId && !blockScores[blockId]) {
+            blockScores[blockId] = { total: 0, correct: 0 };
+        }
+        if (blockId) {
+            blockScores[blockId].total++;
+        }
 
-        options.forEach(btn => {
+        buttons.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Disable options after click
-                options.forEach(b => {
-                    b.disabled = true;
-                    b.style.cursor = 'not-allowed';
+                // Disable all buttons
+                buttons.forEach(b => {
+                    b.classList.add('disabled');
+                    b.setAttribute('disabled', true);
                 });
 
-                const isCorrect = btn.getAttribute('data-correct') === 'true';
+                const isCorrect = btn.dataset.correct === 'true';
 
                 if (isCorrect) {
                     btn.classList.add('correct');
-                    if (explanation) {
-                        explanation.classList.remove('hidden');
-                        explanation.classList.add('success-msg');
-                        explanation.innerHTML = "<strong>✓ Resposta Correta!</strong> " + explanation.innerHTML;
-                    }
+                    if (blockId) blockScores[blockId].correct++;
                 } else {
                     btn.classList.add('wrong');
+                    // Highlight correct answer
+                    buttons.forEach(b => {
+                        if (b.dataset.correct === 'true') b.classList.add('correct');
+                    });
                     if (explanation) {
                         explanation.classList.remove('hidden');
                         explanation.classList.add('error-msg');
-                        explanation.innerHTML = "<strong>✗ Ops, Incorreto.</strong> " + explanation.innerHTML;
                     }
+                }
 
-                    // Highlight the correct answer
-                    options.forEach(b => {
-                        if (b.getAttribute('data-correct') === 'true') {
-                            b.classList.add('correct');
-                        }
-                    });
+                // Check if all questions in block answered
+                if (blockId) {
+                    checkBlockComplete(blockId);
                 }
             });
         });
     });
 
-    // 3. Table of Contents Navigation Dots
-    const tocDots = document.querySelectorAll('.toc-dot');
-    const sections = [];
+    function checkBlockComplete(blockId) {
+        const container = document.querySelector(`[data-block="${blockId}"]`);
+        if (!container) return;
+        const allCards = container.querySelectorAll('.quiz-card');
+        const answeredCards = container.querySelectorAll('.quiz-card .opt-btn.disabled');
 
-    tocDots.forEach(dot => {
-        const targetId = dot.getAttribute('data-target');
-        const targetEl = document.getElementById(targetId);
-        if (targetEl) sections.push({ dot, el: targetEl });
+        // Count how many cards have been answered (at least one disabled button per card)
+        let answeredCount = 0;
+        allCards.forEach(card => {
+            const hasDisabled = card.querySelector('.opt-btn.disabled');
+            if (hasDisabled) answeredCount++;
+        });
 
-        dot.addEventListener('click', () => {
-            if (targetEl) {
-                targetEl.scrollIntoView({ behavior: 'smooth' });
+        if (answeredCount === allCards.length) {
+            const feedbackEl = container.querySelector('.block-feedback');
+            if (!feedbackEl) return;
+
+            const score = blockScores[blockId];
+            const pct = (score.correct / score.total) * 100;
+
+            if (pct >= 70) {
+                feedbackEl.textContent = 'Mandou Bem! 👍🏾 (' + score.correct + '/' + score.total + ')';
+                feedbackEl.classList.add('good');
+            } else {
+                feedbackEl.textContent = 'Vamos Melhorar? 💪🏾 (' + score.correct + '/' + score.total + ')';
+                feedbackEl.classList.add('improve');
             }
-        });
-    });
-
-    // Highlight active section in TOC
-    const tocObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                tocDots.forEach(d => d.classList.remove('active'));
-                const activeDot = document.querySelector(`.toc-dot[data-target="${entry.target.id}"]`);
-                if (activeDot) activeDot.classList.add('active');
-            }
-        });
-    }, { root: null, rootMargin: '-30% 0px -60% 0px', threshold: 0 });
-
-    sections.forEach(s => tocObserver.observe(s.el));
-
-    // 4. Theme Toggle Logic
-    const themeBtn = document.getElementById('theme-toggle');
-    if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-        });
+            feedbackEl.classList.add('show');
+        }
     }
 });

@@ -7,32 +7,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Tema">
-        <span class="icon-sun">☀️</span>
-        <span class="icon-moon">🌙</span>
-    </button>
-
-    <!-- TOC Navigation -->
-    <nav class="toc-nav">
-        <div class="toc-dot active" data-target="hero">
-            <span class="toc-label">Início</span>
-        </div>
-        <div class="toc-dot" data-target="cap4">
-            <span class="toc-label">Capítulo 4: Monômios</span>
-        </div>
-        <div class="toc-dot" data-target="cap5">
-            <span class="toc-label">Capítulo 5: Polinômios</span>
-        </div>
-        <div class="toc-dot" data-target="cap6">
-            <span class="toc-label">Capítulo 6: Produtos Notáveis</span>
-        </div>
-    </nav>
 
     <header class="hero" id="hero">
-        <img src="hq_monomios_hero_br.png" alt="Estudante em fliperama com moedas holográficas de monômios" class="hero-bg">
+        <img src="hq_monomios_moedas.png" alt="Estudante jogando RPG com moedas de monômios" class="hero-bg">
         <div class="hero-overlay"></div>
-        <div class="hero-content fade-in">
+        <div class="hero-content">
             <img src="logo_educamob.png" alt="Logo Educamob" class="educamob-logo">
             <span class="badge">Matemática • 8º Ano</span>
             <h1>Monômios e Polinômios</h1>
@@ -42,1089 +21,329 @@
     </header>
 
     <main class="content-container">
-        
-        <!-- ============================================== -->
-        <!-- CAPÍTULO 4: MONÔMIOS -->
-        <!-- ============================================== -->
-        <section id="cap4" class="chapter-divider scroll-reveal">
-            <h2>Capítulo 4</h2>
+
+        <!-- ====== CAPÍTULO 7: MONÔMIOS ====== -->
+        <section id="cap7" class="chapter-divider scroll-reveal">
+            <h2>Capítulo 7</h2>
             <p>Monômios - A Base da Álgebra</p>
         </section>
 
         <section class="topic-section">
             <div class="text-block scroll-reveal">
-                <h2>4.1 Identificação e Grau</h2>
-                <p>O <strong>monômio</strong> é a peça fundamental da álgebra. Ele é formado por um número (coeficiente) grudado em letras (parte literal). <strong>Não há sinais de + ou -</strong> separando as partes de um único monômio.</p>
-                
-                <div class="highlight-box orange-glow">
+                <h2>7.1 Identificação e Grau</h2>
+                <p>O <strong>monômio</strong> é a peça fundamental (o bloco de Lego) da álgebra. Ele é formado por um número (chamado de <strong>coeficiente</strong>) grudado em letras (chamadas de <strong>parte literal</strong>). <strong>Não há sinais de + ou -</strong> separando as partes dentro de um monômio isolado.</p>
+                <div class="highlight-box">
                     <h3>Na Prática:</h3>
-                    <p>Um monômio é como uma "moeda" de um jogo. O número 3 (coeficiente) diz a quantidade de moedas, e o "x²" (parte literal) diz de qual tipo ela é. Então 3x² são 3 moedas do tipo x².</p>
+                    <p>Imagine que um monômio é como uma "moeda" em um jogo de videogame RPG. O número 3 (coeficiente) diz a quantidade de moedas, e a letra "x²" (parte literal) diz de qual tipo ela é (se é de ouro, prata ou bronze). Então, 3x² significa simplesmente que você tem 3 moedas do tipo "x ao quadrado" no seu inventário.</p>
                 </div>
-                
-                <p>O <strong>grau do monômio</strong> é a soma dos expoentes das letras. Se a letra não tem expoente visível, ele vale 1.<br>Exemplo: 5x²y³ tem grau 5 (2+3).</p>
-            </div>
-        </section>
-
-        <!-- QUIZ 4.1 -->
-        <section class="quiz-section scroll-reveal">
-            <div class="quiz-container">
-                <h3>Quiz de Fixação (4.1)</h3>
-                
-                <div class="quiz-card" data-question="4.1.1">
-                    <p><strong>1.</strong> No monômio -8m³n², a parte literal é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) -8</button>
-                        <button class="opt-btn" data-correct="false">b) m³</button>
-                        <button class="opt-btn" data-correct="false">c) n²</button>
-                        <button class="opt-btn" data-correct="true">d) m³n²</button>
-                        <button class="opt-btn" data-correct="false">e) -8m</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> A parte literal compreende todas as letras e seus expoentes juntos: m³n².</div>
-                </div>
-
-                <div class="quiz-card" data-question="4.1.2">
-                    <p><strong>2.</strong> Qual o grau de 7x²y⁴z?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 6</button>
-                        <button class="opt-btn" data-correct="true">b) 7</button>
-                        <button class="opt-btn" data-correct="false">c) 4</button>
-                        <button class="opt-btn" data-correct="false">d) 2</button>
-                        <button class="opt-btn" data-correct="false">e) 8</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Soma dos expoentes: 2 (do x) + 4 (do y) + 1 (do z, que fica invisível) = 7.</div>
-                </div>
-
-                <div class="quiz-card" data-question="4.1.3">
-                    <p><strong>3.</strong> São monômios semelhantes aqueles que têm:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) Mesmo coeficiente</button>
-                        <button class="opt-btn" data-correct="true">b) Mesma parte literal</button>
-                        <button class="opt-btn" data-correct="false">c) Mesmo grau</button>
-                        <button class="opt-btn" data-correct="false">d) Mesma letra x</button>
-                        <button class="opt-btn" data-correct="false">e) Sinais iguais</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Semelhantes têm a mesma "fruta" (letras e expoentes idênticos).</div>
-                </div>
-
-                <div class="quiz-card" data-question="4.1.4">
-                    <p><strong>4.</strong> O coeficiente do monômio -x² é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 0</button>
-                        <button class="opt-btn" data-correct="false">b) 1</button>
-                        <button class="opt-btn" data-correct="true">c) -1</button>
-                        <button class="opt-btn" data-correct="false">d) x</button>
-                        <button class="opt-btn" data-correct="false">e) 2</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Quando não há número, é 1. Como tem o sinal de menos, o coeficiente é -1.</div>
-                </div>
-
-                <div class="quiz-card" data-question="4.1.5">
-                    <p><strong>5.</strong> O monômio 10 (apenas o número) tem grau:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 1</button>
-                        <button class="opt-btn" data-correct="true">b) 0</button>
-                        <button class="opt-btn" data-correct="false">c) 10</button>
-                        <button class="opt-btn" data-correct="false">d) Inexistente</button>
-                        <button class="opt-btn" data-correct="false">e) Infinito</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Como não tem letras, a soma dos expoentes das letras é zero.</div>
-                </div>
+                <p>O <strong>grau do monômio</strong> (seu nível de poder no jogo) é simplesmente a soma dos expoentes das letras. Se a letra não tem expoente desenhado no papel, ele vale 1 invisível.</p>
+                <p><em>Exemplo:</em> 5x²y³ tem grau 5 (pois 2+3=5).</p>
             </div>
         </section>
 
         <section class="image-section scroll-reveal">
-            <img src="hq_monomios_frutas_br.png" alt="Supermercado com frutas algébricas sendo separadas" class="content-img">
+            <img src="hq_monomios_moedas.png" alt="Moedas de monômios em inventário de RPG" class="content-img">
         </section>
 
+        <!-- QUIZ 7.1 -->
+        <section class="quiz-section scroll-reveal">
+            <div class="quiz-container" data-block="q71">
+                <h3>Quiz de Fixação (7.1)</h3>
+                <div class="quiz-card"><span class="step-indicator">Passo 1 de 5</span><p class="question-text"><span class="q-number">1.</span> No monômio -8m³n², a parte literal é:</p><div class="options"><button class="opt-btn" data-correct="false">a) -8</button><button class="opt-btn" data-correct="false">b) m³</button><button class="opt-btn" data-correct="false">c) n²</button><button class="opt-btn" data-correct="true">d) m³n²</button><button class="opt-btn" data-correct="false">e) -8m</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. O monômio é dividido em Coeficiente (número) e Parte Literal (letras).<br>2. O número é -8.<br>3. Tudo o que sobra são as letras com seus expoentes: <strong>m³n²</strong>.</div></div>
+
+                <div class="quiz-card"><span class="step-indicator">Passo 2 de 5</span><p class="question-text"><span class="q-number">2.</span> Qual o grau de 7x²y⁴z?</p><div class="options"><button class="opt-btn" data-correct="false">a) 6</button><button class="opt-btn" data-correct="true">b) 7</button><button class="opt-btn" data-correct="false">c) 4</button><button class="opt-btn" data-correct="false">d) 2</button><button class="opt-btn" data-correct="false">e) 8</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Identifique os expoentes de cada letra: x=2, y=4, z=1 (invisível).<br>2. Some todos esses valores: 2 + 4 + 1.<br>3. O total é <strong>7</strong>.</div></div>
+
+                <div class="quiz-card"><span class="step-indicator">Passo 2 de 5</span><p class="question-text"><span class="q-number">2.</span> Qual o grau de 7x²y⁴z?</p><div class="options"><button class="opt-btn" data-correct="false">a) 6</button><button class="opt-btn" data-correct="true">b) 7</button><button class="opt-btn" data-correct="false">c) 4</button><button class="opt-btn" data-correct="false">d) 2</button><button class="opt-btn" data-correct="false">e) 8</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Identifique os expoentes de cada letra: x=2, y=4, z=1 (invisível).<br>2. Some todos esses valores: 2 + 4 + 1.<br>3. O total é <strong>7</strong>.</div></div>
+
+                <div class="quiz-card"><span class="step-indicator">Passo 3 de 5</span><p class="question-text"><span class="q-number">3.</span> São monômios chamados de "semelhantes" aqueles que possuem:</p><div class="options"><button class="opt-btn" data-correct="false">a) Mesmo coeficiente numérico</button><button class="opt-btn" data-correct="true">b) Mesma parte literal exata</button><button class="opt-btn" data-correct="false">c) Mesmo grau</button><button class="opt-btn" data-correct="false">d) Mesma letra x</button><button class="opt-btn" data-correct="false">e) Sinais iguais</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Monômios são como frutas: você só mistura maçãs com maçãs.<br>2. Para serem semelhantes, as letras <strong>e os expoentes</strong> devem ser idênticos.<br>3. O coeficiente (número da frente) pode ser diferente.</div></div>
+
+                <div class="quiz-card"><span class="step-indicator">Passo 4 de 5</span><p class="question-text"><span class="q-number">4.</span> O coeficiente (número) escondido do monômio -x² é:</p><div class="options"><button class="opt-btn" data-correct="false">a) 0</button><button class="opt-btn" data-correct="false">b) 1</button><button class="opt-btn" data-correct="true">c) -1</button><button class="opt-btn" data-correct="false">d) x</button><button class="opt-btn" data-correct="false">e) 2</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Quando uma letra está sozinha, o número 1 está escondido na frente dela.<br>2. Observe o sinal antes da letra: é um sinal de menos.<br>3. Juntando o sinal com o 1 invisível, temos <strong>-1</strong>.</div></div>
+
+                <div class="quiz-card"><span class="step-indicator">Passo 5 de 5</span><p class="question-text"><span class="q-number">5.</span> O monômio 10 (apenas o número, sem letra) tem grau:</p><div class="options"><button class="opt-btn" data-correct="false">a) 1</button><button class="opt-btn" data-correct="true">b) 0</button><button class="opt-btn" data-correct="false">c) 10</button><button class="opt-btn" data-correct="false">d) Inexistente</button><button class="opt-btn" data-correct="false">e) Infinito</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. O grau é a soma dos expoentes das letras.<br>2. Se não existem letras, não há expoentes para somar.<br>3. Matematicamente, qualquer número sozinho tem grau <strong>0</strong>.</div></div>
+
+                <div class="block-feedback"></div>
+            </div>
+        </section>
+
+        <!-- 7.2 Operações com Monômios -->
         <section class="topic-section">
             <div class="text-block scroll-reveal">
-                <h2>4.2 Operações com Monômios</h2>
-                <p>Assim como os números normais, podemos fazer as 4 operações básicas com os monômios, mas existem regras estritas sobre como lidar com as letras.</p>
-                
+                <h2>7.2 Operações com Monômios</h2>
+                <p>Assim como fazemos com o dinheiro na vida real, podemos fazer as 4 operações básicas com os monômios, mas existem regras estritas sobre como misturar as letras.</p>
+
                 <div class="highlight-box">
                     <h3>1. Adição e Subtração:</h3>
-                    <p>A regra de ouro aqui é: <strong>só podemos somar ou subtrair monômios se eles forem idênticos na parte literal</strong>. Eles precisam ser "semelhantes".</p>
-                    <p><em>Na Prática:</em> Pense nas letras como frutas no supermercado. Se você pegar 3 maçãs (3x) e depois colocar mais 4 maçãs (4x) no carrinho, você tem 7 maçãs (7x). A conta é simples: 3x + 4x = 7x.</p>
-                    <p>Mas, e se você tentar somar 3 maçãs (3x) com 2 bananas (2y)? O resultado não é uma "maçanana". O resultado é apenas uma cesta com 3 maçãs e 2 bananas (3x + 2y). Elas não se misturam!</p>
+                    <p>A regra de ouro aqui é: <strong>só podemos somar ou subtrair monômios se eles forem IDÊNTICOS na parte literal</strong>. Eles precisam ser "semelhantes".</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>Na Prática:</h3>
+                    <p>Pense nas letras como frutas no supermercado. Se você pegar 3 maçãs (3x) e depois colocar mais 4 maçãs (4x) na sacola, você tem 7 maçãs (7x). A conta é simples: 3x + 4x = 7x.</p>
+                    <p>Mas, e se você tentar somar 3 maçãs (3x) com 2 bananas (2y)? O resultado não é uma "maçanana". A resposta é apenas deixar indicado: uma cesta com 3 maçãs e 2 bananas (3x + 2y). Elas não se misturam!</p>
+                    <p><strong>Aviso vital:</strong> A regra vale para os expoentes. 2x² não se soma com 3x. É como tentar somar caixas de maçãs com maçãs soltas.</p>
                 </div>
 
                 <div class="highlight-box">
                     <h3>2. Multiplicação:</h3>
-                    <p>Aqui é terra sem lei! Você pode multiplicar qualquer monômio por qualquer monômio. A regra é: <strong>número multiplica número, letra multiplica letra igual</strong>. Na hora de multiplicar as letras iguais, você <strong>soma</strong> os expoentes.</p>
-                    <p><em>Na Prática:</em> Imagine que você comprou 2 pacotes de figurinhas (2x²). Cada pacote vem com 3 cartas super raras (3x⁴). Qual é o seu total de poder? Você multiplica as quantidades normais: 2 × 3 = 6. E soma a "força" mágica das letras: x² × x⁴ = x⁶. Resultado: 6x⁶.</p>
+                    <p>Aqui é terra sem lei! Você pode multiplicar qualquer monômio por qualquer monômio. A regra é: <strong>número multiplica número, letra multiplica letra igual</strong>. Na hora de multiplicar as letras, você <strong>soma</strong> os expoentes.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>Na Prática:</h3>
+                    <p>Imagine que você comprou 2 pacotes de figurinhas da Copa (2x²). Cada pacote vem com 3 cartas brilhantes super raras (3x⁴). Qual é o seu total de poder? Multiplica-se os números: 2 × 3 = 6. Soma-se a "força" das letras: x² × x⁴ = x⁶. Resultado: 6x⁶.</p>
                 </div>
 
                 <div class="highlight-box">
                     <h3>3. Divisão:</h3>
                     <p>A divisão é o inverso exato da multiplicação. Você <strong>divide os números</strong> e <strong>subtrai os expoentes</strong> das letras que forem iguais.</p>
-                    <p><em>Na Prática:</em> Imagine que você tem um prêmio total de 20x⁵ moedas virtuais e precisa dividir igualmente entre 4x² jogadores do seu time. Divida o montante: 20 ÷ 4 = 5. Subtraia os "impostos" das letras: x⁵ ÷ x² = x³. Cada jogador leva 5x³.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>Na Prática:</h3>
+                    <p>Você tem um prêmio de 20x⁵ moedas virtuais de um baú e precisa rachar igualmente entre 4x² jogadores da sua guilda. Divida o dinheiro: 20 ÷ 4 = 5. Subtraia os impostos das letras: x⁵ ÷ x² = x³. Cada membro ganha 5x³.</p>
                 </div>
             </div>
         </section>
 
-        <!-- QUIZ 4.2 -->
+        <section class="image-section scroll-reveal">
+            <img src="hq_frutas_supermercado.png" alt="Supermercado com frutas algébricas" class="content-img">
+        </section>
+
+        <!-- QUIZ 7.2 -->
         <section class="quiz-section scroll-reveal">
-            <div class="quiz-container">
-                <h3>Quiz de Fixação (4.2)</h3>
-                
-                <div class="quiz-card" data-question="4.2.1">
-                    <p><strong>1.</strong> 5ab + 3ab resulta em:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 8a²b²</button>
-                        <button class="opt-btn" data-correct="false">b) 15ab</button>
-                        <button class="opt-btn" data-correct="true">c) 8ab</button>
-                        <button class="opt-btn" data-correct="false">d) 2ab</button>
-                        <button class="opt-btn" data-correct="false">e) 8a+b</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Somamos os coeficientes (5+3=8) e conservamos a parte literal (ab).</div>
-                </div>
+            <div class="quiz-container" data-block="q72">
+                <h3>Quiz de Fixação (7.2)</h3>
+                <div class="quiz-card"><span class="step-indicator">Passo 1 de 5</span><p class="question-text"><span class="q-number">1.</span> 5ab + 3ab resulta em:</p><div class="options"><button class="opt-btn" data-correct="false">a) 8a²b²</button><button class="opt-btn" data-correct="false">b) 15ab</button><button class="opt-btn" data-correct="true">c) 8ab</button><button class="opt-btn" data-correct="false">d) 2ab</button><button class="opt-btn" data-correct="false">e) 8a+b</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Verifique se a parte literal é igual: ambos são "ab".<br>2. Some os números (coeficientes): 5 + 3 = 8.<br>3. Mantenha a mesma parte literal ao lado do resultado: <strong>8ab</strong>.</div></div>
 
-                <div class="quiz-card" data-question="4.2.2">
-                    <p><strong>2.</strong> (-4x³) × (2x²) é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) -8x⁵</button>
-                        <button class="opt-btn" data-correct="false">b) -8x⁶</button>
-                        <button class="opt-btn" data-correct="false">c) -2x⁵</button>
-                        <button class="opt-btn" data-correct="false">d) -6x⁵</button>
-                        <button class="opt-btn" data-correct="false">e) 8x⁵</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Multiplica coeficientes: (-4)×2 = -8. Soma expoentes: x^(3+2) = x⁵.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 2 de 5</span><p class="question-text"><span class="q-number">2.</span> (-4x³) × (2x²) é igual a:</p><div class="options"><button class="opt-btn" data-correct="true">a) -8x⁵</button><button class="opt-btn" data-correct="false">b) -8x⁶</button><button class="opt-btn" data-correct="false">c) -2x⁵</button><button class="opt-btn" data-correct="false">d) -6x⁵</button><button class="opt-btn" data-correct="false">e) 8x⁵</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Multiplique os números: (-4) × 2 = -8.<br>2. Multiplique as letras iguais somando seus expoentes: x³ × x² = x^(3+2) = x⁵.<br>3. Resultado final: <strong>-8x⁵</strong>.</div></div>
 
-                <div class="quiz-card" data-question="4.2.3">
-                    <p><strong>3.</strong> 15a⁴b³ ÷ 3a²b resulta em:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) 5a²b²</button>
-                        <button class="opt-btn" data-correct="false">b) 5a⁶b⁴</button>
-                        <button class="opt-btn" data-correct="false">c) 12a²b²</button>
-                        <button class="opt-btn" data-correct="false">d) 5a²b³</button>
-                        <button class="opt-btn" data-correct="false">e) 18a⁶b⁴</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Divide coeficientes (15/3=5). Subtrai expoentes de a (4-2=2) e b (3-1=2). Fica 5a²b².</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 3 de 5</span><p class="question-text"><span class="q-number">3.</span> 15a⁴b³ ÷ 3a²b resulta em:</p><div class="options"><button class="opt-btn" data-correct="true">a) 5a²b²</button><button class="opt-btn" data-correct="false">b) 5a⁶b⁴</button><button class="opt-btn" data-correct="false">c) 12a²b²</button><button class="opt-btn" data-correct="false">d) 5a²b³</button><button class="opt-btn" data-correct="false">e) 18a⁶b⁴</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Divida os números: 15 ÷ 3 = 5.<br>2. Subtraia os expoentes de "a": 4 - 2 = 2.<br>3. Subtraia os expoentes de "b": 3 - 1 = 2.<br>4. Junte tudo: <strong>5a²b²</strong>.</div></div>
 
-                <div class="quiz-card" data-question="4.2.4">
-                    <p><strong>4.</strong> Qual o resultado de 10x - 4x + x?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 6x</button>
-                        <button class="opt-btn" data-correct="true">b) 7x</button>
-                        <button class="opt-btn" data-correct="false">c) 15x</button>
-                        <button class="opt-btn" data-correct="false">d) 5x</button>
-                        <button class="opt-btn" data-correct="false">e) 11x</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 10x - 4x = 6x. Depois 6x + 1x = 7x.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 4 de 5</span><p class="question-text"><span class="q-number">4.</span> Qual o resultado de 10x - 4x + x?</p><div class="options"><button class="opt-btn" data-correct="false">a) 6x</button><button class="opt-btn" data-correct="true">b) 7x</button><button class="opt-btn" data-correct="false">c) 15x</button><button class="opt-btn" data-correct="false">d) 5x</button><button class="opt-btn" data-correct="false">e) 11x</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Todos os termos têm a mesma letra (x), então podemos operar.<br>2. Faça a primeira parte: 10 - 4 = 6.<br>3. Agora some o último termo (lembre-se que x é o mesmo que 1x): 6 + 1 = 7.<br>4. Resultado: <strong>7x</strong>.</div></div>
 
-                <div class="quiz-card" data-question="4.2.5">
-                    <p><strong>5.</strong> O produto de 3x × 2y é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 6x</button>
-                        <button class="opt-btn" data-correct="false">b) 6y</button>
-                        <button class="opt-btn" data-correct="true">c) 6xy</button>
-                        <button class="opt-btn" data-correct="false">d) 5xy</button>
-                        <button class="opt-btn" data-correct="false">e) 3x2y</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Multiplica 3×2 = 6, e junta as letras x e y. Resultado 6xy.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 5 de 5</span><p class="question-text"><span class="q-number">5.</span> O produto de 3x × 2y é:</p><div class="options"><button class="opt-btn" data-correct="false">a) 6x</button><button class="opt-btn" data-correct="false">b) 6y</button><button class="opt-btn" data-correct="true">c) 6xy</button><button class="opt-btn" data-correct="false">d) 5xy</button><button class="opt-btn" data-correct="false">e) 3x2y</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Multiplique os números: 3 × 2 = 6.<br>2. Multiplique as letras: x × y = xy (elas apenas se juntam porque são diferentes).<br>3. Resultado: <strong>6xy</strong>.</div></div>
+
+                <div class="block-feedback"></div>
             </div>
         </section>
 
-        <!-- AVALIAÇÃO FINAL CAPÍTULO 4 -->
+        <!-- AVALIAÇÃO CAP 7 -->
         <section class="quiz-section scroll-reveal final-eval">
-            <div class="quiz-container">
-                <h2 class="eval-title">Avaliação de Aprendizagem: Capítulo 4</h2>
-                
+            <div class="quiz-container" data-block="eval7">
+                <h2 class="eval-title">Avaliação de Aprendizagem: Capítulo 7</h2>
                 <h3 class="level-title">Nível Intermediário</h3>
-                
-                <div class="quiz-card" data-question="eval4.1">
-                    <p><strong>1.</strong> Qual o grau do monômio 4x²yz³?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 5</button>
-                        <button class="opt-btn" data-correct="true">b) 6</button>
-                        <button class="opt-btn" data-correct="false">c) 4</button>
-                        <button class="opt-btn" data-correct="false">d) 3</button>
-                        <button class="opt-btn" data-correct="false">e) 7</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> x(2) + y(1) + z(3) = 6.</div>
-                </div>
 
-                <div class="quiz-card" data-question="eval4.2">
-                    <p><strong>2.</strong> Resultado de 12x²y - 5x²y:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) 7x²y</button>
-                        <button class="opt-btn" data-correct="false">b) 17x²y</button>
-                        <button class="opt-btn" data-correct="false">c) 7x</button>
-                        <button class="opt-btn" data-correct="false">d) 7y</button>
-                        <button class="opt-btn" data-correct="false">e) 0</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Subtrai os coeficientes: 12 - 5 = 7. Mantém a parte literal x²y.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 1 de 10</span><p class="question-text"><span class="q-number">1.</span> Qual o grau do monômio 4x²yz³?</p><div class="options"><button class="opt-btn" data-correct="false">a) 5</button><button class="opt-btn" data-correct="true">b) 6</button><button class="opt-btn" data-correct="false">c) 4</button><button class="opt-btn" data-correct="false">d) 3</button><button class="opt-btn" data-correct="false">e) 7</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Identifique os expoentes: x=2, y=1, z=3.<br>2. Some os expoentes: 2 + 1 + 3 = 6.<br>3. Grau final: <strong>6</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval4.3">
-                    <p><strong>3.</strong> Produto de (3ab) × (5a²b):</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 15ab</button>
-                        <button class="opt-btn" data-correct="true">b) 15a³b²</button>
-                        <button class="opt-btn" data-correct="false">c) 8a³b²</button>
-                        <button class="opt-btn" data-correct="false">d) 15a²b²</button>
-                        <button class="opt-btn" data-correct="false">e) 15a³b</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 3×5=15. a¹×a²=a³. b¹×b¹=b². Logo 15a³b².</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 2 de 10</span><p class="question-text"><span class="q-number">2.</span> Reduza: 12x²y - 5x²y:</p><div class="options"><button class="opt-btn" data-correct="true">a) 7x²y</button><button class="opt-btn" data-correct="false">b) 17x²y</button><button class="opt-btn" data-correct="false">c) 7x</button><button class="opt-btn" data-correct="false">d) 7y</button><button class="opt-btn" data-correct="false">e) 0</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. São termos semelhantes? Sim, ambos têm "x²y".<br>2. Subtraia os números: 12 - 5 = 7.<br>3. Repita a parte literal: <strong>7x²y</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval4.4">
-                    <p><strong>4.</strong> Quociente de 20x⁶ ÷ 4x²:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 5x³</button>
-                        <button class="opt-btn" data-correct="true">b) 5x⁴</button>
-                        <button class="opt-btn" data-correct="false">c) 16x⁴</button>
-                        <button class="opt-btn" data-correct="false">d) 24x⁴</button>
-                        <button class="opt-btn" data-correct="false">e) 5x⁸</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 20÷4=5 e x⁶÷x² = x^(6-2) = x⁴. Fica 5x⁴.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 3 de 10</span><p class="question-text"><span class="q-number">3.</span> Produto de (3ab) × (5a²b):</p><div class="options"><button class="opt-btn" data-correct="false">a) 15ab</button><button class="opt-btn" data-correct="true">b) 15a³b²</button><button class="opt-btn" data-correct="false">c) 8a³b²</button><button class="opt-btn" data-correct="false">d) 15a²b²</button><button class="opt-btn" data-correct="false">e) 15a³b</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Multiplique 3 por 5 = 15.<br>2. Multiplique "a" somando expoentes: a¹ × a² = a³.<br>3. Multiplique "b" somando expoentes: b¹ × b¹ = b².<br>4. Resultado: <strong>15a³b²</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval4.5">
-                    <p><strong>5.</strong> Monômio semelhante a 2xy²:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 2x²y</button>
-                        <button class="opt-btn" data-correct="true">b) 5xy²</button>
-                        <button class="opt-btn" data-correct="false">c) 2xy</button>
-                        <button class="opt-btn" data-correct="false">d) xy</button>
-                        <button class="opt-btn" data-correct="false">e) x²y²</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> A parte literal deve ser exatamente xy².</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 4 de 10</span><p class="question-text"><span class="q-number">4.</span> Quociente de 20x⁶ ÷ 4x²:</p><div class="options"><button class="opt-btn" data-correct="false">a) 5x³</button><button class="opt-btn" data-correct="true">b) 5x⁴</button><button class="opt-btn" data-correct="false">c) 16x⁴</button><button class="opt-btn" data-correct="false">d) 24x⁴</button><button class="opt-btn" data-correct="false">e) 5x⁸</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Divida os números: 20 ÷ 4 = 5.<br>2. Subtraia os expoentes das letras: 6 - 2 = 4.<br>3. Resultado: <strong>5x⁴</strong>.</div></div>
+
+                <div class="quiz-card"><span class="step-indicator">Passo 5 de 10</span><p class="question-text"><span class="q-number">5.</span> Assinale o monômio semelhante a 2xy²:</p><div class="options"><button class="opt-btn" data-correct="false">a) 2x²y</button><button class="opt-btn" data-correct="true">b) 5xy²</button><button class="opt-btn" data-correct="false">c) 2xy</button><button class="opt-btn" data-correct="false">d) xy</button><button class="opt-btn" data-correct="false">e) x²y²</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Semelhantes devem ter exatamente as mesmas letras com os mesmos expoentes.<br>2. O modelo é "xy²" (x¹ e y²).<br>3. A única opção com "xy²" é a b) <strong>5xy²</strong>.</div></div>
 
                 <h3 class="level-title">Nível Avançado (Contexto Real)</h3>
 
-                <div class="quiz-card" data-question="eval4.6">
-                    <p><strong>6.</strong> (Piscina) O volume de água de uma piscina retangular pode ser representado pelo monômio V = 3x²y m³, onde x é a largura e y é a profundidade. Se a piscina do condomínio tem x = 4 metros de largura e y = 2 metros de profundidade, qual o volume total de água?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 48 m³</button>
-                        <button class="opt-btn" data-correct="true">b) 96 m³</button>
-                        <button class="opt-btn" data-correct="false">c) 24 m³</button>
-                        <button class="opt-btn" data-correct="false">d) 72 m³</button>
-                        <button class="opt-btn" data-correct="false">e) 192 m³</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Substituindo: 3 × (4)² × 2 = 3 × 16 × 2 = 96 m³.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 6 de 10</span><p class="question-text"><span class="q-number">6.</span> (Engenharia Hidráulica) Imagine que você é um engenheiro hidráulico e recebeu a missão de calcular o volume de uma nova piscina olímpica em um resort de luxo. O volume bruto é modelado pelo monômio V = 3x²y. Sabendo que o resort exige uma largura de x = 4m e uma profundidade segura de y = 2m para a área infantil, qual a capacidade total em metros cúbicos?</p><div class="options"><button class="opt-btn" data-correct="false">a) 48 m³</button><button class="opt-btn" data-correct="true">b) 96 m³</button><button class="opt-btn" data-correct="false">c) 24 m³</button><button class="opt-btn" data-correct="false">d) 72 m³</button><button class="opt-btn" data-correct="false">e) 192 m³</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Pegue a fórmula: 3x²y.<br>2. Substitua x por 4 e y por 2: 3 × (4²) × 2.<br>3. Resolva a potência primeiro: 4² = 16.<br>4. Multiplique tudo: 3 × 16 × 2 = 48 × 2 = <strong>96 m³</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval4.7">
-                    <p><strong>7.</strong> (Fazenda) Um agricultor calcula a produção total de uma lavoura pela expressão (2x)³ × (x²) quilos, onde x representa o número de hectares produtivos. Simplifique essa expressão.</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 6x⁵</button>
-                        <button class="opt-btn" data-correct="true">b) 8x⁵</button>
-                        <button class="opt-btn" data-correct="false">c) 8x⁶</button>
-                        <button class="opt-btn" data-correct="false">d) 2x⁶</button>
-                        <button class="opt-btn" data-correct="false">e) 8x⁸</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> (2³) × (x³) × x² = 8x³ × x² = 8x⁵.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 7 de 10</span><p class="question-text"><span class="q-number">7.</span> (Agronegócio Tecnológico) Um produtor de soja utiliza drones para calcular a colheita. O software indica que a produção total em quilos é dada pela expressão (2x)³ × (x²), onde x é o índice de fertilidade do solo. Simplifique essa expressão para que o produtor possa inserir o dado no sistema de gestão.</p><div class="options"><button class="opt-btn" data-correct="false">a) 6x⁵</button><button class="opt-btn" data-correct="true">b) 8x⁵</button><button class="opt-btn" data-correct="false">c) 8x⁶</button><button class="opt-btn" data-correct="false">d) 2x⁶</button><button class="opt-btn" data-correct="false">e) 8x⁸</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Resolva a potência (2x)³: o expoente 3 vale para o 2 e para o x. Fica 2³x³, que é 8x³.<br>2. Multiplique pelo termo restante: 8x³ × x².<br>3. Some os expoentes das letras: 8x^(3+2) = <strong>8x⁵</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval4.8">
-                    <p><strong>8.</strong> (Engenharia) Um engenheiro está projetando um piso quadrado para uma praça. Cada lado do quadrado mede 3x metros. A expressão que representa a área total do piso é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 6x</button>
-                        <button class="opt-btn" data-correct="false">b) 9x</button>
-                        <button class="opt-btn" data-correct="true">c) 9x²</button>
-                        <button class="opt-btn" data-correct="false">d) 6x²</button>
-                        <button class="opt-btn" data-correct="false">e) 3x²</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Área = Lado × Lado. (3x) × (3x) = 9x².</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 8 de 10</span><p class="question-text"><span class="q-number">8.</span> (Arquiteto Urbano) Um arquiteto está projetando uma praça central em formato de quadrado perfeito. Cada lado da praça mede exatos 3x metros. Para encomendar o piso antiderrapante, ele precisa calcular a área total da praça. Qual expressão monomial representa essa área?</p><div class="options"><button class="opt-btn" data-correct="false">a) 6x</button><button class="opt-btn" data-correct="false">b) 9x</button><button class="opt-btn" data-correct="true">c) 9x²</button><button class="opt-btn" data-correct="false">d) 6x²</button><button class="opt-btn" data-correct="false">e) 3x²</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Área do quadrado = Lado × Lado.<br>2. Monte a conta: (3x) × (3x).<br>3. Multiplique os números: 3 × 3 = 9.<br>4. Multiplique as letras: x × x = x².<br>5. Resultado: <strong>9x²</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval4.9">
-                    <p><strong>9.</strong> (Fábrica de Doces) Uma fábrica produz 10x⁵y² unidades de doces por dia e distribui igualmente entre 2x²y lojas parceiras. Quantos doces cada loja recebe por dia?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) 5x³y</button>
-                        <button class="opt-btn" data-correct="false">b) 5x⁷y³</button>
-                        <button class="opt-btn" data-correct="false">c) 8x³y</button>
-                        <button class="opt-btn" data-correct="false">d) 5x³</button>
-                        <button class="opt-btn" data-correct="false">e) 5y</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Divisão: (10÷2)x^(5-2)y^(2-1) = 5x³y.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 9 de 10</span><p class="question-text"><span class="q-number">9.</span> (Logística de E-commerce) Um centro de distribuição automatizado produz 10x⁵y² pacotes por dia. Os robôs precisam distribuir todo esse volume igualmente entre 2x²y caminhões autônomos. Feita a divisão, qual é a quantidade exata de pacotes que cada caminhão levará?</p><div class="options"><button class="opt-btn" data-correct="true">a) 5x³y</button><button class="opt-btn" data-correct="false">b) 5x⁷y³</button><button class="opt-btn" data-correct="false">c) 8x³y</button><button class="opt-btn" data-correct="false">d) 5x³</button><button class="opt-btn" data-correct="false">e) 5y</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Divida os números: 10 ÷ 2 = 5.<br>2. Subtraia expoentes de x: 5 - 2 = 3.<br>3. Subtraia expoentes de y: 2 - 1 = 1.<br>4. Resultado: <strong>5x³y</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval4.10">
-                    <p><strong>10.</strong> (Farmácia) A dosagem de um medicamento infantil (em mL) é calculada pela fórmula 5x³, onde x é um fator baseado no peso da criança. Se para uma criança específica o fator é x = 2, quantos mililitros de medicamento devem ser administrados?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 30 mL</button>
-                        <button class="opt-btn" data-correct="true">b) 40 mL</button>
-                        <button class="opt-btn" data-correct="false">c) 15 mL</button>
-                        <button class="opt-btn" data-correct="false">d) 25 mL</button>
-                        <button class="opt-btn" data-correct="false">e) 80 mL</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 5 × (2)³ = 5 × 8 = 40 mL.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 10 de 10</span><p class="question-text"><span class="q-number">10.</span> (Laboratório Bioquímico) A dosagem diária de uma enzima para experimentos (em mL) é calculada pela fórmula 5x³. Se o bioquímico identificou que o fator de peso para a amostra atual é x = 2, qual o volume total de enzima que ele deve preparar na pipeta?</p><div class="options"><button class="opt-btn" data-correct="false">a) 30 mL</button><button class="opt-btn" data-correct="true">b) 40 mL</button><button class="opt-btn" data-correct="false">c) 15 mL</button><button class="opt-btn" data-correct="false">d) 25 mL</button><button class="opt-btn" data-correct="false">e) 80 mL</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Fórmula: 5x³.<br>2. Substitua x por 2: 5 × (2³).<br>3. Resolva a potência primeiro: 2 × 2 × 2 = 8.<br>4. Multiplique pelo 5: 5 × 8 = <strong>40 mL</strong>.</div></div>
+
+                <div class="block-feedback"></div>
             </div>
         </section>
 
-        <!-- ============================================== -->
-        <!-- CAPÍTULO 5: POLINÔMIOS -->
-        <!-- ============================================== -->
-        <section id="cap5" class="chapter-divider scroll-reveal">
-            <h2>Capítulo 5</h2>
+        <!-- ====== CAPÍTULO 8: POLINÔMIOS ====== -->
+        <section id="cap8" class="chapter-divider scroll-reveal">
+            <h2>Capítulo 8</h2>
             <p>Polinômios - Organizando Termos</p>
         </section>
 
         <section class="topic-section">
             <div class="text-block scroll-reveal">
-                <h2>5.1 Definição e Grau de um Polinômio</h2>
-                <p>Se você entendeu o monômio como um bloco de montar individual (como um Lego), o <strong>polinômio</strong> é a estrutura inteira construída ao juntar vários desses blocos. Em termos matemáticos, um polinômio é uma cadeia formada pela adição (+) ou subtração (-) de vários monômios diferentes que não podem ser somados entre si.</p>
-                
+                <h2>8.1 Definição e Grau de um Polinômio</h2>
+                <p>Se o monômio era apenas um tijolo de construção isolado, o <strong>polinômio</strong> é a parede inteira já construída juntando vários desses tijolos com cimento (sinais de + ou -). Um polinômio é uma cadeia formada por vários monômios diferentes que, por terem "frutas diferentes" (partes literais diferentes), não podem ser somados em um só.</p>
+                <p>Os polinômios ganham apelidos pelo seu tamanho:</p>
+                <ul>
+                    <li><strong>Binômio:</strong> Formado por 2 termos (ex: 2x + 3y).</li>
+                    <li><strong>Trinômio:</strong> Formado por 3 termos (ex: x² + 5x + 6).</li>
+                    <li>De 4 termos para cima, chamamos genericamente de polinômio.</li>
+                </ul>
                 <div class="highlight-box">
-                    <p>Eles ganham apelidos charmosos dependendo do tamanho:</p>
-                    <ul>
-                        <li><strong>Binômio:</strong> Formado por 2 termos (ex: 2x + 3y).</li>
-                        <li><strong>Trinômio:</strong> Formado por 3 termos (ex: x² + 5x + 6).</li>
-                        <li>De 4 termos em diante, chamamos apenas de polinômio genérico.</li>
-                    </ul>
-                </div>
-
-                <div class="highlight-box orange-glow">
                     <h3>Na Prática:</h3>
-                    <p>Pense num jogo de cartas colecionáveis (como Pokémon ou Yu-Gi-Oh!). Uma carta sozinha é um monômio. O seu baralho inteiro, que mistura cartas de ataque, defesa e magias diferentes, é o seu <strong>polinômio</strong>. É um conjunto organizado de vários elementos distintos.</p>
+                    <p>Pense num jogo de cartas colecionáveis (como Pokémon ou Magic!). Uma carta sozinha de Fogo em cima da mesa é um monômio. O seu baralho inteiro na sua mão, que mistura cartas de Fogo, Água, Defesa e Magias diferentes (cartas que não se fundem), é o seu <strong>Polinômio</strong>. É o conjunto do arsenal.</p>
                 </div>
-                
                 <h3>Grau do Polinômio</h3>
-                <p>Para descobrir o grau de um polinômio inteiro, basta olhar para todos os monômios que formam ele e escolher o "campeão". O monômio com o maior expoente define o grau do polinômio inteiro.</p>
-                <p><em>Exemplo:</em> No polinômio 4x⁵ - 2x³ + 8x - 1, temos quatro cartas. A primeira tem poder 5. O grau desse polinômio é 5, porque 4x⁵ é a carta mais forte!</p>
+                <p>Para descobrir o grau (o nível de poder) de um polinômio gigante, você não soma tudo. Você faz uma "batalha de monômios". O monômio que tiver o maior expoente sozinho é declarado o campeão e define o grau do polinômio inteiro.</p>
+                <div class="highlight-box">
+                    <h3>Na Prática:</h3>
+                    <p>Qual é o nível do seu baralho no jogo? O nível da sua coleção é ditado pela sua carta mais forte e rara, e não pelas cartas fracas. No polinômio 4x⁵ - 2x³ + 8x - 1, nós temos quatro cartas. A primeira tem poder 5 (x⁵). O grau desse polinômio inteiro é 5, porque 4x⁵ é a carta mais forte da mesa!</p>
+                </div>
             </div>
         </section>
-        
+
         <section class="image-section scroll-reveal">
-            <img src="hq_polinomios_lego_br.png" alt="Construção robótica de polinômios como blocos de lego" class="content-img">
+            <img src="hq_cartas_baralho.png" alt="Cartas colecionáveis representando polinômios" class="content-img">
         </section>
 
-        <!-- QUIZ 5.1 -->
+        <!-- QUIZ 8.1 -->
         <section class="quiz-section scroll-reveal">
-            <div class="quiz-container">
-                <h3>Quiz de Fixação (5.1)</h3>
-                
-                <div class="quiz-card" data-question="5.1.1">
-                    <p><strong>1.</strong> O polinômio 3x⁴ - x² + 5x - 7 tem grau:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) 4</button>
-                        <button class="opt-btn" data-correct="false">b) 3</button>
-                        <button class="opt-btn" data-correct="false">c) 2</button>
-                        <button class="opt-btn" data-correct="false">d) 1</button>
-                        <button class="opt-btn" data-correct="false">e) 7</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> O maior expoente presente é o 4 (no termo 3x⁴).</div>
-                </div>
+            <div class="quiz-container" data-block="q81">
+                <h3>Quiz de Fixação (8.1)</h3>
+                <div class="quiz-card"><span class="step-indicator">Passo 1 de 5</span><p class="question-text"><span class="q-number">1.</span> O polinômio 3x⁴ - x² + 5x - 7 possui o grau:</p><div class="options"><button class="opt-btn" data-correct="true">a) 4</button><button class="opt-btn" data-correct="false">b) 3</button><button class="opt-btn" data-correct="false">c) 2</button><button class="opt-btn" data-correct="false">d) 1</button><button class="opt-btn" data-correct="false">e) 7</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Observe todos os expoentes das letras: 4, 2 e 1.<br>2. Identifique qual é o maior deles.<br>3. O maior expoente é o 4. Portanto, o grau é <strong>4</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.1.2">
-                    <p><strong>2.</strong> Como chamamos um polinômio com exatamente dois termos?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) Monômio</button>
-                        <button class="opt-btn" data-correct="true">b) Binômio</button>
-                        <button class="opt-btn" data-correct="false">c) Trinômio</button>
-                        <button class="opt-btn" data-correct="false">d) Quadrinômio</button>
-                        <button class="opt-btn" data-correct="false">e) Sistema</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Dois termos = Binômio.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 2 de 5</span><p class="question-text"><span class="q-number">2.</span> Como é chamado um polinômio com exatamente dois termos?</p><div class="options"><button class="opt-btn" data-correct="false">a) Monômio</button><button class="opt-btn" data-correct="true">b) Binômio</button><button class="opt-btn" data-correct="false">c) Trinômio</button><button class="opt-btn" data-correct="false">d) Quadrinômio</button><button class="opt-btn" data-correct="false">e) Sistema</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Conte quantos monômios estão somados ou subtraídos.<br>2. "Bi" significa dois (como bicampeão).<br>3. Logo, dois termos formam um <strong>Binômio</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.1.3">
-                    <p><strong>3.</strong> Qual o grau de xy + x + y?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 1</button>
-                        <button class="opt-btn" data-correct="true">b) 2</button>
-                        <button class="opt-btn" data-correct="false">c) 3</button>
-                        <button class="opt-btn" data-correct="false">d) 0</button>
-                        <button class="opt-btn" data-correct="false">e) 4</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> O termo 'xy' tem grau 2 (x¹ + y¹), que é o maior do polinômio.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 3 de 5</span><p class="question-text"><span class="q-number">3.</span> Qual o grau da expressão xy + x + y?</p><div class="options"><button class="opt-btn" data-correct="false">a) 1</button><button class="opt-btn" data-correct="true">b) 2</button><button class="opt-btn" data-correct="false">c) 3</button><button class="opt-btn" data-correct="false">d) 0</button><button class="opt-btn" data-correct="false">e) 4</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. O termo "xy" tem grau 2 (x¹ + y¹ = 2).<br>2. O termo "x" tem grau 1.<br>3. O termo "y" tem grau 1.<br>4. O maior grau individual entre os termos é <strong>2</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.1.4">
-                    <p><strong>4.</strong> No polinômio 2x² - 5x + 3, qual o termo independente (sem letra)?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 2</button>
-                        <button class="opt-btn" data-correct="false">b) -5</button>
-                        <button class="opt-btn" data-correct="true">c) 3</button>
-                        <button class="opt-btn" data-correct="false">d) x</button>
-                        <button class="opt-btn" data-correct="false">e) 0</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> O número 3 não tem nenhuma variável associada a ele.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 4 de 5</span><p class="question-text"><span class="q-number">4.</span> No trinômio 2x² - 5x + 3, qual é o termo independente (sumário sem letra)?</p><div class="options"><button class="opt-btn" data-correct="false">a) 2</button><button class="opt-btn" data-correct="false">b) -5</button><button class="opt-btn" data-correct="true">c) 3</button><button class="opt-btn" data-correct="false">d) x</button><button class="opt-btn" data-correct="false">e) 0</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Termo independente é aquele que não tem nenhuma letra grudada.<br>2. O 2 tem x², o -5 tem x.<br>3. O único número "sozinho" é o <strong>3</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.1.5">
-                    <p><strong>5.</strong> O polinômio 0x² + 3x + 1 é de qual grau real?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 2</button>
-                        <button class="opt-btn" data-correct="true">b) 1</button>
-                        <button class="opt-btn" data-correct="false">c) 0</button>
-                        <button class="opt-btn" data-correct="false">d) 3</button>
-                        <button class="opt-btn" data-correct="false">e) Nulo</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Como o termo x² tem coeficiente 0, ele some. Sobra 3x + 1, de grau 1.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 5 de 5</span><p class="question-text"><span class="q-number">5.</span> O polinômio 0x² + 3x + 1 é de qual grau real?</p><div class="options"><button class="opt-btn" data-correct="false">a) 2</button><button class="opt-btn" data-correct="true">b) 1</button><button class="opt-btn" data-correct="false">c) 0</button><button class="opt-btn" data-correct="false">d) 3</button><button class="opt-btn" data-correct="false">e) Nulo</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. O termo 0x² vale zero, então ele não conta.<br>2. Sobra apenas 3x + 1.<br>3. A maior potência de x agora é 1. Grau final: <strong>1</strong>.</div></div>
+
+                <div class="block-feedback"></div>
             </div>
         </section>
 
+        <!-- 8.2 -->
         <section class="topic-section">
             <div class="text-block scroll-reveal">
-                <h2>5.2 Adição, Subtração e Multiplicação</h2>
-                
+                <h2>8.2 Adição, Subtração e Multiplicação de Polinômios</h2>
                 <div class="highlight-box">
                     <h3>1. Adição e Subtração</h3>
-                    <p>O segredo aqui é agrupar "o que é igual com o que é igual". Você vai alinhar os polinômios e somar apenas os termos que têm a mesma parte literal. Atenção à subtração: o sinal de "menos" na frente de um parêntese inverte o sinal de todo mundo lá dentro!</p>
-                    <p><em>Na Prática:</em> Imagine que você e seu amigo juntaram suas caixas de brinquedos. Sua caixa: (3 carrinhos + 2 bolas). Caixa dele: (5 carrinhos - 1 bola perdida). Quando vocês juntam tudo, vocês não misturam carros com bolas. (3x² + 2x) + (5x² - x) = 8x² + x. Cada um no seu quadrado!</p>
+                    <p>Você precisa agrupar "o que é igual com o que é igual". Ao somar polinômios, você só soma os monômios que possuem a exata mesma letra e expoente.</p>
+                    <p>Cuidado na subtração: O sinal negativo (-) na frente de um parêntese funciona como um feitiço reverso, ele inverte o sinal de <strong>absolutamente todo mundo</strong> que está lá dentro!</p>
                 </div>
-
                 <div class="highlight-box">
-                    <h3>2. Multiplicação (A Propriedade Distributiva)</h3>
-                    <p>Para multiplicar um termo por um polinômio inteiro (dentro de parênteses), você deve multiplicar o termo de fora por TODOS os termos lá de dentro. Nós chamamos isso carinhosamente de "Chuveirinho".</p>
-                    <p><em>Na Prática:</em> Imagine o "Chuveirinho" como um garçom muito educado servindo champanhe em uma festa. A mesa 1 tem 3 convidados: (x² + 2x + 5). O garçom é o termo de fora: 3x. Ele enche a taça de todos:<br>- Convidado 1: 3x × x² = 3x³.<br>- Convidado 2: 3x × 2x = 6x².<br>- Convidado 3: 3x × 5 = 15x.<br>Resultado: 3x³ + 6x² + 15x.</p>
+                    <h3>Na Prática:</h3>
+                    <p>Imagine sua caixa de brinquedos: (3 carrinhos + 2 bolas). A caixa do seu irmão tem: (5 carrinhos - 1 bola perdida). Ao jogar tudo no chão e somar, você junta carros com carros (3 + 5 = 8) e avalia as bolas separadamente (2 - 1 = 1). Resposta: 8x² + x.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>2. Multiplicação (O "Chuveirinho")</h3>
+                    <p>Para multiplicar um termo de fora por um polinômio inteiro preso nos parênteses, você deve atirar o multiplicador em CADA UM dos membros lá de dentro.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>Na Prática:</h3>
+                    <p>O "Chuveirinho" é igual a um garçom numa festa chique. A mesa VIP (os parênteses) tem 3 convidados sentados: (x² + 2x + 5). O garçom é o monômio de fora: 3x. O garçom tem a regra de servir a taça de todos:</p>
+                    <ul>
+                        <li>Serve o convidado 1: 3x × x² = 3x³.</li>
+                        <li>Serve o convidado 2: 3x × 2x = 6x².</li>
+                        <li>Serve o convidado 3: 3x × 5 = 15x.</li>
+                    </ul>
+                    <p>Resultado: 3x³ + 6x² + 15x.</p>
                 </div>
             </div>
         </section>
 
         <section class="image-section scroll-reveal">
-            <img src="hq_chuveirinho_br.png" alt="Garçom servindo convidados num restaurante, representando o chuveirinho" class="content-img">
+            <img src="hq_chuveirinho_garcom.png" alt="Garçom robótico servindo convidados" class="content-img">
         </section>
 
-        <!-- QUIZ 5.2 -->
+        <!-- QUIZ 8.2 -->
         <section class="quiz-section scroll-reveal">
-            <div class="quiz-container">
-                <h3>Quiz de Fixação (5.2)</h3>
-                
-                <div class="quiz-card" data-question="5.2.1">
-                    <p><strong>1.</strong> (4x² - 3x) - (x² + 2x) resulta em:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 5x² - 5x</button>
-                        <button class="opt-btn" data-correct="false">b) 3x² - x</button>
-                        <button class="opt-btn" data-correct="true">c) 3x² - 5x</button>
-                        <button class="opt-btn" data-correct="false">d) 3x² + 5x</button>
-                        <button class="opt-btn" data-correct="false">e) 5x² - x</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Inverte os sinais do 2º parêntese: 4x² - x² = 3x² e -3x - 2x = -5x.</div>
-                </div>
+            <div class="quiz-container" data-block="q82">
+                <h3>Quiz de Fixação (8.2)</h3>
+                <div class="quiz-card"><span class="step-indicator">Passo 1 de 5</span><p class="question-text"><span class="q-number">1.</span> (4x² - 3x) - (x² + 2x) resulta em:</p><div class="options"><button class="opt-btn" data-correct="false">a) 5x² - 5x</button><button class="opt-btn" data-correct="false">b) 3x² - x</button><button class="opt-btn" data-correct="true">c) 3x² - 5x</button><button class="opt-btn" data-correct="false">d) 3x² + 5x</button><button class="opt-btn" data-correct="false">e) 5x² - x</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Elimine os parênteses invertendo os sinais do segundo bloco: 4x² - 3x - x² - 2x.<br>2. Junte os termos com x²: 4x² - x² = 3x².<br>3. Junte os termos com x: -3x - 2x = -5x.<br>4. Resultado: <strong>3x² - 5x</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.2.2">
-                    <p><strong>2.</strong> O produto de (x + 4)(x + 1) é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) x² + 4</button>
-                        <button class="opt-btn" data-correct="true">b) x² + 5x + 4</button>
-                        <button class="opt-btn" data-correct="false">c) x² + 4x + 1</button>
-                        <button class="opt-btn" data-correct="false">d) 2x + 5</button>
-                        <button class="opt-btn" data-correct="false">e) x² + 5</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Distributiva: x² + x + 4x + 4 = x² + 5x + 4.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 2 de 5</span><p class="question-text"><span class="q-number">2.</span> O produto de (x + 4)(x + 1) é:</p><div class="options"><button class="opt-btn" data-correct="false">a) x² + 4</button><button class="opt-btn" data-correct="true">b) x² + 5x + 4</button><button class="opt-btn" data-correct="false">c) x² + 4x + 1</button><button class="opt-btn" data-correct="false">d) 2x + 5</button><button class="opt-btn" data-correct="false">e) x² + 5</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Faça a distributiva (chuveirinho): x*x, x*1, 4*x, 4*1.<br>2. Temos: x² + 1x + 4x + 4.<br>3. Some os termos semelhantes (x): 1x + 4x = 5x.<br>4. Resultado final: <strong>x² + 5x + 4</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.2.3">
-                    <p><strong>3.</strong> 3x × (2x² - 5) resulta em:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) 6x³ - 15x</button>
-                        <button class="opt-btn" data-correct="false">b) 6x² - 15</button>
-                        <button class="opt-btn" data-correct="false">c) 5x³ - 8x</button>
-                        <button class="opt-btn" data-correct="false">d) 6x³ - 5</button>
-                        <button class="opt-btn" data-correct="false">e) 6x - 15x</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 3x × 2x² = 6x³. 3x × (-5) = -15x.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 3 de 5</span><p class="question-text"><span class="q-number">3.</span> 3x × (2x² - 5) gera:</p><div class="options"><button class="opt-btn" data-correct="true">a) 6x³ - 15x</button><button class="opt-btn" data-correct="false">b) 6x² - 15</button><button class="opt-btn" data-correct="false">c) 5x³ - 8x</button><button class="opt-btn" data-correct="false">d) 6x³ - 5</button><button class="opt-btn" data-correct="false">e) 6x - 15x</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Multiplique o termo de fora (3x) pelo primeiro de dentro: 3x * 2x² = 6x³.<br>2. Multiplique o termo de fora pelo segundo de dentro: 3x * -5 = -15x.<br>3. Resultado: <strong>6x³ - 15x</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.2.4">
-                    <p><strong>4.</strong> Somando x² + x com 2x² - 3x, temos:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) 3x² - 2x</button>
-                        <button class="opt-btn" data-correct="false">b) 3x² + 4x</button>
-                        <button class="opt-btn" data-correct="false">c) 2x² - 2x</button>
-                        <button class="opt-btn" data-correct="false">d) 3x⁴ - 2x²</button>
-                        <button class="opt-btn" data-correct="false">e) x² - 2x</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> x² + 2x² = 3x² e x - 3x = -2x.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 4 de 5</span><p class="question-text"><span class="q-number">4.</span> Somando x² + x com 2x² - 3x, obtemos:</p><div class="options"><button class="opt-btn" data-correct="true">a) 3x² - 2x</button><button class="opt-btn" data-correct="false">b) 3x² + 4x</button><button class="opt-btn" data-correct="false">c) 2x² - 2x</button><button class="opt-btn" data-correct="false">d) 3x⁴ - 2x²</button><button class="opt-btn" data-correct="false">e) x² - 2x</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Agrupe o que é igual: (x² + 2x²) e (x - 3x).<br>2. Resolva: 1x² + 2x² = 3x².<br>3. Resolva: 1x - 3x = -2x.<br>4. Resultado: <strong>3x² - 2x</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.2.5">
-                    <p><strong>5.</strong> A área de um retângulo de lados x e (x+5) é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 2x + 5</button>
-                        <button class="opt-btn" data-correct="false">b) x² + 5</button>
-                        <button class="opt-btn" data-correct="true">c) x² + 5x</button>
-                        <button class="opt-btn" data-correct="false">d) x + 5x</button>
-                        <button class="opt-btn" data-correct="false">e) 5x²</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Área = x(x+5) = x² + 5x.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 5 de 5</span><p class="question-text"><span class="q-number">5.</span> A área de um retângulo de lados x e (x+5) é:</p><div class="options"><button class="opt-btn" data-correct="false">a) 2x + 5</button><button class="opt-btn" data-correct="false">b) x² + 5</button><button class="opt-btn" data-correct="true">c) x² + 5x</button><button class="opt-btn" data-correct="false) d) x + 5x</button><button class="opt-btn" data-correct="false">e) 5x²</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Área = Base × Altura.<br>2. Monte a conta: x * (x + 5).<br>3. Aplique a distributiva: x*x + x*5.<br>4. Resultado: <strong>x² + 5x</strong>.</div></div>
+
+                <div class="block-feedback"></div>
             </div>
         </section>
 
+        <!-- 8.3 Divisão -->
         <section class="topic-section">
             <div class="text-block scroll-reveal">
-                <h2>5.3 Divisão de Polinômios</h2>
-                
+                <h2>8.3 Divisão de Polinômios</h2>
                 <div class="highlight-box">
-                    <h3>1. Dividindo um Polinômio por um único Monômio</h3>
-                    <p>Você pega o divisor e o aplica a cada um dos membros do polinômio de cima, separadamente.</p>
-                    <p><em>Na Prática:</em> Rache a conta de R$ 40 em hambúrgueres (40x³) + R$ 20 em refrigerantes (20x²) com 4 pessoas (4x). Hambúrguer: 40x³ / 4x = 10x². Refrigerante: 20x² / 4x = 5x. Cada um paga 10x² + 5x.</p>
+                    <h3>1. Dividindo Polinômio por um Monômio</h3>
+                    <p>Se o divisor é um número/letra sozinho, é super democrático. Você pega o divisor e o divide por CADA membro do polinômio de cima, rachando a conta separadamente.</p>
                 </div>
-
                 <div class="highlight-box">
-                    <h3>2. Dividindo Polinômio por Polinômio (O Método da Chave)</h3>
-                    <p>O processo segue um ciclo infinito até o resto zerar: Divide, Multiplica, Troca o Sinal e Soma.</p>
-                    <p><em>Na Prática:</em> Pense no método da chave como um duelo de espadas em um RPG. Você ataca o Líder inimigo (termo de maior grau) com o Seu Líder. Ao cortá-lo, você lida com os capangas (o resto) e avança para a próxima fileira até não sobrar ninguém (resto zero).</p>
+                    <h3>Na Prática:</h3>
+                    <p>Imagine uma conta de lanchonete: R$ 40 em hambúrgueres (40x³) + R$ 20 em batatas (20x²). O divisor são 4 amigos (4x). Hambúrguer: 40x³/4x = 10x². Batata: 20x²/4x = 5x. Resposta: 10x² + 5x.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>2. Divisão na Chave (Polinômio por Polinômio)</h3>
+                    <p>Quando o divisor é grande (ex: x-2), usamos a divisão na Chave em formato de "L", idêntica à da 4ª série, mas com letras.</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>Na Prática:</h3>
+                    <p>O "RPG de Turnos": A divisão na chave é um combate tático. O exército inimigo está dentro da chave. Você ataca sempre usando o seu Líder (o termo de fora de maior grau) mirando apenas no Líder inimigo (termo de dentro de maior grau). Você o divide. Depois, multiplica o resultado por todos os capangas, inverte o sinal e ataca até o Resto ser zero!</p>
                 </div>
             </div>
         </section>
 
         <section class="image-section scroll-reveal">
-            <img src="hq_divisao_chave_br.png" alt="Duelo de RPG representando o método da chave na divisão de polinômios" class="content-img">
+            <img src="hq_rpg_divisao.png" alt="Batalha RPG representando divisão de polinômios" class="content-img">
         </section>
 
-        <!-- QUIZ 5.3 -->
+        <!-- QUIZ 8.3 -->
         <section class="quiz-section scroll-reveal">
-            <div class="quiz-container">
-                <h3>Quiz de Fixação (5.3)</h3>
-                
-                <div class="quiz-card" data-question="5.3.1">
-                    <p><strong>1.</strong> (4x³ + 8x²) ÷ 2x resulta em:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) 2x² + 4x</button>
-                        <button class="opt-btn" data-correct="false">b) 2x³ + 4x²</button>
-                        <button class="opt-btn" data-correct="false">c) 8x⁴ + 16x³</button>
-                        <button class="opt-btn" data-correct="false">d) 2x + 4</button>
-                        <button class="opt-btn" data-correct="false">e) 6x²</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 4x³/2x = 2x² e 8x²/2x = 4x.</div>
-                </div>
+            <div class="quiz-container" data-block="q83">
+                <h3>Quiz de Fixação (8.3)</h3>
+                <div class="quiz-card"><span class="step-indicator">Passo 1 de 5</span><p class="question-text"><span class="q-number">1.</span> (4x³ + 8x²) ÷ 2x resulta em:</p><div class="options"><button class="opt-btn" data-correct="true">a) 2x² + 4x</button><button class="opt-btn" data-correct="false">b) 2x³ + 4x²</button><button class="opt-btn" data-correct="false">c) 8x⁴ + 16x³</button><button class="opt-btn" data-correct="false">d) 2x + 4</button><button class="opt-btn" data-correct="false">e) 6x²</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Divida o primeiro termo pelo divisor: 4x³ / 2x = 2x².<br>2. Divida o segundo termo pelo divisor: 8x² / 2x = 4x.<br>3. Junte os resultados: <strong>2x² + 4x</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.3.2">
-                    <p><strong>2.</strong> Na divisão (x² - 4) ÷ (x - 2), o primeiro passo é dividir:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) -4 por -2</button>
-                        <button class="opt-btn" data-correct="true">b) x² por x</button>
-                        <button class="opt-btn" data-correct="false">c) x² por -2</button>
-                        <button class="opt-btn" data-correct="false">d) -4 por x</button>
-                        <button class="opt-btn" data-correct="false">e) x por x</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Pelo método da chave, divide-se primeiro o termo de maior grau pelo de maior grau.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 2 de 5</span><p class="question-text"><span class="q-number">2.</span> Na divisão de (x² - 4) por (x - 2), o primeiro passo é dividir:</p><div class="options"><button class="opt-btn" data-correct="false">a) -4 por -2</button><button class="opt-btn" data-correct="true) b) x² por x</button><button class="opt-btn" data-correct="false">c) x² por -2</button><button class="opt-btn" data-correct="false">d) -4 por x</button><button class="opt-btn" data-correct="false">e) Multiplicar x por x</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Na divisão por chave, pegamos o termo de maior grau do dividendo (x²).<br>2. Pegamos o termo de maior grau do divisor (x).<br>3. O primeiro passo é sempre a divisão desses dois: <strong>x² ÷ x</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.3.3">
-                    <p><strong>3.</strong> O quociente de (x² - 5x + 6) ÷ (x - 2) é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) x+3</button>
-                        <button class="opt-btn" data-correct="true">b) x-3</button>
-                        <button class="opt-btn" data-correct="false">c) x-5</button>
-                        <button class="opt-btn" data-correct="false">d) x+5</button>
-                        <button class="opt-btn" data-correct="false">e) x</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Realizando a divisão (ou fatorando x² - 5x + 6 como (x-2)(x-3)), o resultado é x-3.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 3 de 5</span><p class="question-text"><span class="q-number">3.</span> O quociente de (x² - 5x + 6) ÷ (x - 2) é:</p><div class="options"><button class="opt-btn" data-correct="false">a) x+3</button><button class="opt-btn" data-correct="true">b) x-3</button><button class="opt-btn" data-correct="false">c) x-5</button><button class="opt-btn" data-correct="false">d) x+5</button><button class="opt-btn" data-correct="false">e) x</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Divida x² por x = x.<br>2. Multiplique x por (x-2) = x² - 2x. Inverta o sinal e some: -5x + 2x = -3x.<br>3. Divida -3x por x = -3.<br>4. O quociente final é <strong>x - 3</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.3.4">
-                    <p><strong>4.</strong> Se o resto de uma divisão de polinômios é zero, dizemos que a divisão é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) Incompleta</button>
-                        <button class="opt-btn" data-correct="true">b) Exata</button>
-                        <button class="opt-btn" data-correct="false">c) Irracional</button>
-                        <button class="opt-btn" data-correct="false">d) Nula</button>
-                        <button class="opt-btn" data-correct="false">e) Complexa</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Resto zero significa que é uma divisão exata.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 4 de 5</span><p class="question-text"><span class="q-number">4.</span> Se o resto de uma divisão de polinômios é zero, a divisão é chamada de:</p><div class="options"><button class="opt-btn" data-correct="false">a) Incompleta</button><button class="opt-btn" data-correct="true">b) Exata</button><button class="opt-btn" data-correct="false">c) Irracional</button><button class="opt-btn" data-correct="false">d) Nula</button><button class="opt-btn" data-correct="false">e) Complexa</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Resto zero significa que o número ou polinômio coube perfeitamente dentro do outro.<br>2. Na matemática, toda divisão sem sobras é uma <strong>Divisão Exata</strong>.</div></div>
 
-                <div class="quiz-card" data-question="5.3.5">
-                    <p><strong>5.</strong> Ao dividir 10x⁴ por 2x², o resultado é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 5x⁶</button>
-                        <button class="opt-btn" data-correct="true">b) 5x²</button>
-                        <button class="opt-btn" data-correct="false">c) 8x²</button>
-                        <button class="opt-btn" data-correct="false">d) 5x</button>
-                        <button class="opt-btn" data-correct="false">e) 20x⁶</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 10/2=5 e x⁴/x² = x². Resultado: 5x².</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 5 de 5</span><p class="question-text"><span class="q-number">5.</span> Ao dividir 10x⁴ por 2x², o resultado é:</p><div class="options"><button class="opt-btn" data-correct="false">a) 5x⁶</button><button class="opt-btn" data-correct="true">b) 5x²</button><button class="opt-btn" data-correct="false">c) 8x²</button><button class="opt-btn" data-correct="false">d) 5x</button><button class="opt-btn" data-correct="false">e) 20x⁶</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Divida os números: 10 ÷ 2 = 5.<br>2. Subtraia os expoentes: 4 - 2 = 2.<br>3. Resultado: <strong>5x²</strong>.</div></div>
+
+                <div class="block-feedback"></div>
             </div>
         </section>
 
-        <!-- AVALIAÇÃO FINAL CAPÍTULO 5 -->
+        <section class="image-section scroll-reveal">
+            <img src="hq_lego_polinomios.png" alt="Blocos de construção representando polinômios" class="content-img">
+        </section>
+
+        <!-- AVALIAÇÃO FINAL CAP 8 -->
         <section class="quiz-section scroll-reveal final-eval">
-            <div class="quiz-container">
-                <h2 class="eval-title">Avaliação de Aprendizagem: Capítulo 5</h2>
-                
+            <div class="quiz-container" data-block="eval8">
+                <h2 class="eval-title">Avaliação de Aprendizagem: Capítulo 8</h2>
                 <h3 class="level-title">Nível Intermediário</h3>
-                
-                <div class="quiz-card" data-question="eval5.1">
-                    <p><strong>1.</strong> Qual o grau de x⁵ - 2x² + 10?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) 5</button>
-                        <button class="opt-btn" data-correct="false">b) 2</button>
-                        <button class="opt-btn" data-correct="false">c) 10</button>
-                        <button class="opt-btn" data-correct="false">d) 7</button>
-                        <button class="opt-btn" data-correct="false">e) 1</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> O maior expoente do polinômio é 5.</div>
-                </div>
 
-                <div class="quiz-card" data-question="eval5.2">
-                    <p><strong>2.</strong> Reduza: (3x+2) + (2x-5):</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 5x+7</button>
-                        <button class="opt-btn" data-correct="true">b) 5x-3</button>
-                        <button class="opt-btn" data-correct="false">c) x-3</button>
-                        <button class="opt-btn" data-correct="false">d) 6x-10</button>
-                        <button class="opt-btn" data-correct="false">e) 5x+3</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 3x+2x = 5x e 2-5 = -3. Fica 5x - 3.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 1 de 10</span><p class="question-text"><span class="q-number">1.</span> Qual o grau do polinômio x⁵ - 2x² + 10?</p><div class="options"><button class="opt-btn" data-correct="true">a) 5</button><button class="opt-btn" data-correct="false">b) 2</button><button class="opt-btn" data-correct="false">c) 10</button><button class="opt-btn" data-correct="false">d) 7</button><button class="opt-btn" data-correct="false">e) 1</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Expoentes: 5, 2 e 0.<br>2. O maior deles é 5.<br>3. Grau: <strong>5</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval5.3">
-                    <p><strong>3.</strong> Produto (x+2)(x-3):</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) x²-6</button>
-                        <button class="opt-btn" data-correct="true">b) x²-x-6</button>
-                        <button class="opt-btn" data-correct="false">c) x²+x-6</button>
-                        <button class="opt-btn" data-correct="false">d) x²-5x-6</button>
-                        <button class="opt-btn" data-correct="false">e) 2x-1</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> x² - 3x + 2x - 6 = x² - x - 6.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 2 de 10</span><p class="question-text"><span class="q-number">2.</span> Reduza: (3x+2) + (2x-5):</p><div class="options"><button class="opt-btn" data-correct="false">a) 5x+7</button><button class="opt-btn" data-correct="true">b) 5x-3</button><button class="opt-btn" data-correct="false">c) x-3</button><button class="opt-btn" data-correct="false">d) 6x-10</button><button class="opt-btn" data-correct="false">e) 5x+3</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Some x com x: 3x + 2x = 5x.<br>2. Some número com número: 2 + (-5) = -3.<br>3. Resultado: <strong>5x - 3</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval5.4">
-                    <p><strong>4.</strong> Divisão (6x² - 4x) ÷ 2x:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) 3x-2</button>
-                        <button class="opt-btn" data-correct="false">b) 3x-4</button>
-                        <button class="opt-btn" data-correct="false">c) 4x-2</button>
-                        <button class="opt-btn" data-correct="false">d) 3x²-2</button>
-                        <button class="opt-btn" data-correct="false">e) 3x-2x</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 6x²/2x = 3x e -4x/2x = -2. Fica 3x - 2.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 3 de 10</span><p class="question-text"><span class="q-number">3.</span> Produto (x+2)(x-3):</p><div class="options"><button class="opt-btn" data-correct="false">a) x²-6</button><button class="opt-btn" data-correct="true">b) x²-x-6</button><button class="opt-btn" data-correct="false">c) x²+x-6</button><button class="opt-btn" data-correct="false">d) x²-5x-6</button><button class="opt-btn" data-correct="false">e) 2x-1</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Distributiva: x*x, x*(-3), 2*x, 2*(-3).<br>2. Termos: x² - 3x + 2x - 6.<br>3. Agrupe x: -3x + 2x = -1x.<br>4. Resultado: <strong>x² - x - 6</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval5.5">
-                    <p><strong>5.</strong> Trinômio tem quantos termos?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 1</button>
-                        <button class="opt-btn" data-correct="false">b) 2</button>
-                        <button class="opt-btn" data-correct="true">c) 3</button>
-                        <button class="opt-btn" data-correct="false">d) 4</button>
-                        <button class="opt-btn" data-correct="false">e) 0</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Trinômio indica a presença de três termos algébricos.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 4 de 10</span><p class="question-text"><span class="q-number">4.</span> Divisão (6x² - 4x) ÷ 2x:</p><div class="options"><button class="opt-btn" data-correct="true">a) 3x-2</button><button class="opt-btn" data-correct="false">b) 3x-4</button><button class="opt-btn" data-correct="false">c) 4x-2</button><button class="opt-btn" data-correct="false">d) 3x²-2</button><button class="opt-btn" data-correct="false">e) 3x-2x</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Divida 6x² por 2x = 3x.<br>2. Divida -4x por 2x = -2.<br>3. Resultado: <strong>3x - 2</strong>.</div></div>
+
+                <div class="quiz-card"><span class="step-indicator">Passo 5 de 10</span><p class="question-text"><span class="q-number">5.</span> Trinômio tem quantos termos?</p><div class="options"><button class="opt-btn" data-correct="false">a) 1</button><button class="opt-btn" data-correct="false">b) 2</button><button class="opt-btn" data-correct="true">c) 3</button><button class="opt-btn" data-correct="false">d) 4</button><button class="opt-btn" data-correct="false">e) 0</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Monômio (1), Binômio (2), Trinômio (3).<br>2. "Tri" remete a 3.<br>3. Resposta: <strong>3 termos</strong>.</div></div>
 
                 <h3 class="level-title">Nível Avançado (Contexto Real)</h3>
 
-                <div class="quiz-card" data-question="eval5.6">
-                    <p><strong>6.</strong> (Terreno) A área de um terreno retangular é representada pelo polinômio x² - 9 metros quadrados. O proprietário descobriu que um dos lados mede (x + 3) metros. Usando a divisão de polinômios, qual é a medida do outro lado?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) (x+3) metros</button>
-                        <button class="opt-btn" data-correct="true">b) (x-3) metros</button>
-                        <button class="opt-btn" data-correct="false">c) (x-9) metros</button>
-                        <button class="opt-btn" data-correct="false">d) (x+9) metros</button>
-                        <button class="opt-btn" data-correct="false">e) x metros</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> (x² - 9) ÷ (x + 3) = x - 3.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 6 de 10</span><p class="question-text"><span class="q-number">6.</span> (Topografia e Terrenos) A prefeitura disponibilizou a planta de um terreno retangular cuja área total é representada pelo polinômio x² - 9 metros quadrados. Um corretor mediu o local e descobriu que um dos lados vale exatamente (x + 3) metros. Qual é o polinômio que expressa a medida do outro lado da cerca?</p><div class="options"><button class="opt-btn" data-correct="false">a) (x+3) metros</button><button class="opt-btn" data-correct="true">b) (x-3) metros</button><button class="opt-btn" data-correct="false">c) (x-9) metros</button><button class="opt-btn" data-correct="false">d) (x+9) metros</button><button class="opt-btn" data-correct="false">e) x metros</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Área = Lado A × Lado B. Então, Lado B = Área ÷ Lado A.<br>2. Divida (x² - 9) por (x + 3).<br>3. Note que x² - 9 é um produto notável: (x+3)(x-3).<br>4. Ao dividir por (x+3), sobra o <strong>(x-3)</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval5.7">
-                    <p><strong>7.</strong> (Construção de Deck) Um arquiteto quer construir um deck de madeira com formato retangular. Se a largura do deck é um binômio de grau 2 (como x² + 1) e o comprimento é um monômio de grau 1 (como 3x), qual será o grau do polinômio que representa a área total do deck?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 2</button>
-                        <button class="opt-btn" data-correct="true">b) 3</button>
-                        <button class="opt-btn" data-correct="false">c) 1</button>
-                        <button class="opt-btn" data-correct="false">d) 4</button>
-                        <button class="opt-btn" data-correct="false">e) 5</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Área = largura × comprimento = (x²+1)(3x) = 3x³ + 3x, cujo grau é 3.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 7 de 10</span><p class="question-text"><span class="q-number">7.</span> (Design de Interiores High-Tech) Um arquiteto vai montar um deck de madeira em formato de L. A largura do deck é modelada por um binômio de grau 2 (x² + 1) e o comprimento é um monômio de grau 1 (3x). Ao calcular a área total para encomendar o verniz, qual será o novo grau máximo do polinômio gerado?</p><div class="options"><button class="opt-btn" data-correct="false">a) 2</button><button class="opt-btn" data-correct="true">b) 3</button><button class="opt-btn" data-correct="false">c) 1</button><button class="opt-btn" data-correct="false">d) 4</button><button class="opt-btn" data-correct="false">e) 5</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Área = (x² + 1) × (3x).<br>2. Distribua: 3x * x² = 3x³ e 3x * 1 = 3x.<br>3. O polinômio resultante é 3x³ + 3x.<br>4. O maior expoente é <strong>3</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval5.8">
-                    <p><strong>8.</strong> (Lucro de Empresa) O lucro mensal é modelado por P(x) = x² - 5x + 6 (em milhares), onde x é o número de meses. No 3º mês (x = 3), qual foi o lucro?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) R$ 6 mil</button>
-                        <button class="opt-btn" data-correct="true">b) R$ 0 (ponto de equilíbrio)</button>
-                        <button class="opt-btn" data-correct="false">c) R$ -1 mil (prejuízo)</button>
-                        <button class="opt-btn" data-correct="false">d) R$ 2 mil</button>
-                        <button class="opt-btn" data-correct="false">e) R$ 30 mil</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> (3)² - 5(3) + 6 = 9 - 15 + 6 = 0.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 8 de 10</span><p class="question-text"><span class="q-number">8.</span> (Gestão Financeira de Startups) O lucro líquido mensal de uma nova empresa de tecnologia foi modelado pelo analista de dados com a curva do trinômio P(x) = x² - 5x + 6 (em milhares de reais), onde x é o tempo em meses. Exatamente no 3º mês após o lançamento, qual foi a situação financeira real da empresa?</p><div class="options"><button class="opt-btn" data-correct="false">a) R$ 6 mil de lucro</button><button class="opt-btn" data-correct="true">b) R$ 0 (atingiu o Ponto de Equilíbrio)</button><button class="opt-btn" data-correct="false">c) R$ -1 mil (prejuízo)</button><button class="opt-btn" data-correct="false">d) R$ 2 mil de lucro</button><button class="opt-btn" data-correct="false">e) R$ 30 mil</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Substitua x por 3 na fórmula: (3)² - 5(3) + 6.<br>2. Resolva: 9 - 15 + 6.<br>3. Calcule: 9 + 6 = 15. E 15 - 15 = <strong>0</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval5.9">
-                    <p><strong>9.</strong> (Controle de Qualidade) A máquina verifica peças por Q(x) = x² + 1. Ao dividir por (x - 1), o engenheiro encontra um resto diferente de zero. Qual é o valor desse resto?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 0</button>
-                        <button class="opt-btn" data-correct="false">b) 1</button>
-                        <button class="opt-btn" data-correct="true">c) 2</button>
-                        <button class="opt-btn" data-correct="false">d) -1</button>
-                        <button class="opt-btn" data-correct="false">e) 3</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Pelo Teorema do Resto, substituímos x por 1 em Q(x). Q(1) = 1² + 1 = 2.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 9 de 10</span><p class="question-text"><span class="q-number">9.</span> (Engenharia de Robótica) Um braço robótico industrial opera seguindo um desvio de precisão modelado pelo polinômio Q(x) = x² + 1. O auditor de qualidade divide esse polinômio pelo fator de ajuste de máquina (x - 1) para calibrar os sensores. Ao realizar a divisão, qual é o valor matemático do "resto" encontrado?</p><div class="options"><button class="opt-btn" data-correct="false">a) 0</button><button class="opt-btn" data-correct="false">b) 1</button><button class="opt-btn" data-correct="true">c) 2</button><button class="opt-btn" data-correct="false">d) -1</button><button class="opt-btn" data-correct="false">e) 3</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Use o Teorema do Resto: substitua o x pelo valor que zera o divisor (x-1 = 0, então x = 1).<br>2. Calcule Q(1): (1)² + 1.<br>3. Resolva: 1 + 1 = <strong>2</strong>.</div></div>
 
-                <div class="quiz-card" data-question="eval5.10">
-                    <p><strong>10.</strong> (Embalagem) Uma caixa tem dimensões (x² + 1) e (x² + 1). O polinômio resultante da multiplicação, (x²+1)², terá grau:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 2</button>
-                        <button class="opt-btn" data-correct="true">b) 4</button>
-                        <button class="opt-btn" data-correct="false">c) 3</button>
-                        <button class="opt-btn" data-correct="false">d) 1</button>
-                        <button class="opt-btn" data-correct="false">e) 5</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> (x²)² = x⁴, que é o grau 4.</div>
-                </div>
+                <div class="quiz-card"><span class="step-indicator">Passo 10 de 10</span><p class="question-text"><span class="q-number">10.</span> (Logística de Embalagens) Uma transportadora projeta caixas de papelão customizadas onde a largura e a altura são definidas pela expressão (x² + 1) centímetros. Se multiplicarmos apenas essas duas dimensões para encontrar a área da face frontal, qual será o grau dominante da expressão resultante?</p><div class="options"><button class="opt-btn" data-correct="false">a) 2</button><button class="opt-btn" data-correct="true">b) 4</button><button class="opt-btn" data-correct="false">c) 3</button><button class="opt-btn" data-correct="false">d) 1</button><button class="opt-btn" data-correct="false">e) 5</button></div><div class="explanation hidden"><strong>Passo a passo:</strong><br>1. Multiplicação: (x² + 1) * (x² + 1).<br>2. Na multiplicação de letras iguais, somamos os expoentes do maior termo: x² * x² = x^(2+2) = x⁴.<br>3. O maior grau será <strong>4</strong>.</div></div>
+
+                <div class="block-feedback"></div>
             </div>
         </section>
 
-        <!-- ============================================== -->
-        <!-- CAPÍTULO 6: PRODUTOS NOTÁVEIS -->
-        <!-- ============================================== -->
-        <section id="cap6" class="chapter-divider scroll-reveal">
-            <h2>Capítulo 6</h2>
-            <p>Produtos Notáveis - Atalhos Matemáticos</p>
-        </section>
-
-        <section class="topic-section">
-            <div class="text-block scroll-reveal">
-                <h2>6.1 Os 4 Produtos Básicos</h2>
-                <p>Muitas multiplicações aparecem tanto que criamos "atalhos" para não precisar fazer o chuveirinho toda hora.</p>
-                
-                <div class="formula-grid">
-                    <div class="formula-card">
-                        <h4>1. Quadrado da Soma</h4>
-                        <div class="formula">(a+b)² = a² + 2ab + b²</div>
-                        <p class="formula-desc">Quadrado do 1º + 2x o 1º pelo 2º + Quadrado do 2º.</p>
-                    </div>
-                    <div class="formula-card">
-                        <h4>2. Quadrado da Diferença</h4>
-                        <div class="formula">(a-b)² = a² - 2ab + b²</div>
-                        <p class="formula-desc">Apenas o sinal do meio muda para menos.</p>
-                    </div>
-                    <div class="formula-card">
-                        <h4>3. Produto da Soma pela Diferença</h4>
-                        <div class="formula">(a+b)(a-b) = a² - b²</div>
-                        <p class="formula-desc">O mais rápido: Quadrado do 1º menos Quadrado do 2º.</p>
-                    </div>
-                    <div class="formula-card">
-                        <h4>4. Produto de Stevin</h4>
-                        <div class="formula">(x+a)(x+b) = x² + (a+b)x + ab</div>
-                        <p class="formula-desc">Termo do meio é a SOMA, último é o PRODUTO.</p>
-                    </div>
-                </div>
-
-                <div class="highlight-box orange-glow">
-                    <h3>Na Prática:</h3>
-                    <p>Usar o Produto Notável é como ter um "Fast Pass" na Disney. Enquanto todo mundo está na fila fazendo o chuveirinho demorado termo por termo, você usa a fórmula e pula direto para o resultado final em 2 segundos.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="image-section scroll-reveal">
-            <img src="hq_produtos_notaveis_br.png" alt="Estudante pulando fila com passe vip Produtos Notáveis" class="content-img">
-        </section>
-
-        <!-- QUIZ 6.1 -->
-        <section class="quiz-section scroll-reveal">
-            <div class="quiz-container">
-                <h3>Quiz de Fixação (6.1)</h3>
-                
-                <div class="quiz-card" data-question="6.1.1">
-                    <p><strong>1.</strong> (x+5)² resulta em:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) x²+25</button>
-                        <button class="opt-btn" data-correct="false">b) x²+5x+25</button>
-                        <button class="opt-btn" data-correct="true">c) x²+10x+25</button>
-                        <button class="opt-btn" data-correct="false">d) 2x+10</button>
-                        <button class="opt-btn" data-correct="false">e) x²+10</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> x² + 2(x)(5) + 5² = x² + 10x + 25.</div>
-                </div>
-
-                <div class="quiz-card" data-question="6.1.2">
-                    <p><strong>2.</strong> (y+4)(y-4) resulta em:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) y²+16</button>
-                        <button class="opt-btn" data-correct="true">b) y²-16</button>
-                        <button class="opt-btn" data-correct="false">c) y²-8y+16</button>
-                        <button class="opt-btn" data-correct="false">d) 2y</button>
-                        <button class="opt-btn" data-correct="false">e) y²-8</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> y² - 4² = y² - 16.</div>
-                </div>
-
-                <div class="quiz-card" data-question="6.1.3">
-                    <p><strong>3.</strong> (x+2)(x+3) pelo Produto de Stevin é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) x²+5x+6</button>
-                        <button class="opt-btn" data-correct="false">b) x²+6x+5</button>
-                        <button class="opt-btn" data-correct="false">c) x²+5x+5</button>
-                        <button class="opt-btn" data-correct="false">d) x²+x+6</button>
-                        <button class="opt-btn" data-correct="false">e) 2x+5</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> x² + (2+3)x + (2×3) = x² + 5x + 6.</div>
-                </div>
-
-                <div class="quiz-card" data-question="6.1.4">
-                    <p><strong>4.</strong> (2a-3)² resulta em:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 4a²-9</button>
-                        <button class="opt-btn" data-correct="false">b) 2a²-12a+9</button>
-                        <button class="opt-btn" data-correct="false">c) 4a²-6a+9</button>
-                        <button class="opt-btn" data-correct="true">d) 4a²-12a+9</button>
-                        <button class="opt-btn" data-correct="false">e) 4a²+12a+9</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> (2a)² - 2(2a)(3) + 3² = 4a² - 12a + 9.</div>
-                </div>
-
-                <div class="quiz-card" data-question="6.1.5">
-                    <p><strong>5.</strong> O termo central de (x+10)² é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 10x</button>
-                        <button class="opt-btn" data-correct="true">b) 20x</button>
-                        <button class="opt-btn" data-correct="false">c) 100x</button>
-                        <button class="opt-btn" data-correct="false">d) 2x</button>
-                        <button class="opt-btn" data-correct="false">e) x</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 2 × x × 10 = 20x.</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="topic-section">
-            <div class="text-block scroll-reveal">
-                <h2>6.2 Produtos Avançados (Cubos e Fatoração)</h2>
-                <p>Aqui lidamos com a 3ª potência (cubo) e a decomposição de termos.</p>
-                
-                <div class="formula-grid">
-                    <div class="formula-card">
-                        <h4>5. Cubo da Soma</h4>
-                        <div class="formula">(a+b)³ = a³ + 3a²b + 3ab² + b³</div>
-                    </div>
-                    <div class="formula-card">
-                        <h4>6. Cubo da Diferença</h4>
-                        <div class="formula">(a-b)³ = a³ - 3a²b + 3ab² - b³</div>
-                    </div>
-                    <div class="formula-card">
-                        <h4>7. Soma de Cubos</h4>
-                        <div class="formula">a³ + b³ = (a+b)(a² - ab + b²)</div>
-                    </div>
-                    <div class="formula-card">
-                        <h4>8. Diferença de Cubos</h4>
-                        <div class="formula">a³ - b³ = (a-b)(a² + ab + b²)</div>
-                    </div>
-                </div>
-
-                <div class="highlight-box">
-                    <h3>Na Prática:</h3>
-                    <p>A fatoração (itens 7 e 8) é como o botão "Desfazer" (Ctrl+Z). Você tem o resultado final (a³ - b³) e quer desmembrá-lo para ver quais peças originais o formaram. Isso ajuda muito a simplificar frações cabeludas depois!</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="image-section scroll-reveal">
-            <img src="hq_fatoracao_cubos_br.png" alt="Botão Ctrl+Z holográfico desfazendo cubos algébricos" class="content-img">
-        </section>
-
-        <!-- QUIZ 6.2 -->
-        <section class="quiz-section scroll-reveal">
-            <div class="quiz-container">
-                <h3>Quiz de Fixação (6.2)</h3>
-                
-                <div class="quiz-card" data-question="6.2.1">
-                    <p><strong>1.</strong> (x+2)³ começa com x³ e termina com:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 4</button>
-                        <button class="opt-btn" data-correct="true">b) 8</button>
-                        <button class="opt-btn" data-correct="false">c) 6</button>
-                        <button class="opt-btn" data-correct="false">d) 2</button>
-                        <button class="opt-btn" data-correct="false">e) 12</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> O último termo é b³, ou seja, 2³ = 8.</div>
-                </div>
-
-                <div class="quiz-card" data-question="6.2.2">
-                    <p><strong>2.</strong> No cubo da diferença, os sinais são:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) Todos +</button>
-                        <button class="opt-btn" data-correct="false">b) Todos -</button>
-                        <button class="opt-btn" data-correct="true">c) Alternados (+ - + -)</button>
-                        <button class="opt-btn" data-correct="false">d) Apenas o último -</button>
-                        <button class="opt-btn" data-correct="false">e) Aleatórios</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> a³ - 3a²b + 3ab² - b³. Os sinais alternam.</div>
-                </div>
-
-                <div class="quiz-card" data-question="6.2.3">
-                    <p><strong>3.</strong> x³ - 27 faturado começa com:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) (x+3)</button>
-                        <button class="opt-btn" data-correct="true">b) (x-3)</button>
-                        <button class="opt-btn" data-correct="false">c) (x²-9)</button>
-                        <button class="opt-btn" data-correct="false">d) (x-27)</button>
-                        <button class="opt-btn" data-correct="false">e) (x+27)</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> x³ - 3³, que fatorado pela diferença de cubos começa com (x-3).</div>
-                </div>
-
-                <div class="quiz-card" data-question="6.2.4">
-                    <p><strong>4.</strong> A fórmula (a-b)(a² + ab + b²) resulta em:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) (a-b)³</button>
-                        <button class="opt-btn" data-correct="false">b) a³+b³</button>
-                        <button class="opt-btn" data-correct="true">c) a³-b³</button>
-                        <button class="opt-btn" data-correct="false">d) a²-b²</button>
-                        <button class="opt-btn" data-correct="false">e) (a+b)³</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> É a fatoração exata da diferença de cubos.</div>
-                </div>
-
-                <div class="quiz-card" data-question="6.2.5">
-                    <p><strong>5.</strong> O termo do meio de a³+b³ faturado é -ab. O erro comum é colocar:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) -2ab</button>
-                        <button class="opt-btn" data-correct="false">b) +ab</button>
-                        <button class="opt-btn" data-correct="false">c) ab²</button>
-                        <button class="opt-btn" data-correct="false">d) 0</button>
-                        <button class="opt-btn" data-correct="false">e) a²b</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Confunde-se muito com o quadrado da diferença que tem o termo -2ab.</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AVALIAÇÃO FINAL CAPÍTULO 6 -->
-        <section class="quiz-section scroll-reveal final-eval">
-            <div class="quiz-container">
-                <h2 class="eval-title">Avaliação de Aprendizagem: Capítulo 6</h2>
-                
-                <h3 class="level-title">Nível Intermediário</h3>
-                
-                <div class="quiz-card" data-question="eval6.1">
-                    <p><strong>1.</strong> Desenvolva (x+3)²:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) x²+9</button>
-                        <button class="opt-btn" data-correct="true">b) x²+6x+9</button>
-                        <button class="opt-btn" data-correct="false">c) x²+3x+9</button>
-                        <button class="opt-btn" data-correct="false">d) 2x+6</button>
-                        <button class="opt-btn" data-correct="false">e) x²+6</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> x² + 2(x)(3) + 3² = x² + 6x + 9.</div>
-                </div>
-
-                <div class="quiz-card" data-question="eval6.2">
-                    <p><strong>2.</strong> Desenvolva (x-5)²:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) x²-25</button>
-                        <button class="opt-btn" data-correct="true">b) x²-10x+25</button>
-                        <button class="opt-btn" data-correct="false">c) x²+10x+25</button>
-                        <button class="opt-btn" data-correct="false">d) x²-5x+25</button>
-                        <button class="opt-btn" data-correct="false">e) x²-10</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> x² - 2(x)(5) + 5² = x² - 10x + 25.</div>
-                </div>
-
-                <div class="quiz-card" data-question="eval6.3">
-                    <p><strong>3.</strong> Resultado de (x+2)(x-2):</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) x²+4</button>
-                        <button class="opt-btn" data-correct="true">b) x²-4</button>
-                        <button class="opt-btn" data-correct="false">c) x²-2x-4</button>
-                        <button class="opt-btn" data-correct="false">d) x²+4x+4</button>
-                        <button class="opt-btn" data-correct="false">e) 2x</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Diferença de quadrados: x² - 2² = x² - 4.</div>
-                </div>
-
-                <div class="quiz-card" data-question="eval6.4">
-                    <p><strong>4.</strong> Trinômio de Stevin para (x+1)(x+4):</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) x²+5x+4</button>
-                        <button class="opt-btn" data-correct="false">b) x²+4x+1</button>
-                        <button class="opt-btn" data-correct="false">c) x²+4</button>
-                        <button class="opt-btn" data-correct="false">d) x²+5</button>
-                        <button class="opt-btn" data-correct="false">e) x+5x+4</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> x² + (1+4)x + (1×4) = x² + 5x + 4.</div>
-                </div>
-
-                <div class="quiz-card" data-question="eval6.5">
-                    <p><strong>5.</strong> Quadrado de (2x+1)²:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 4x²+1</button>
-                        <button class="opt-btn" data-correct="true">b) 4x²+4x+1</button>
-                        <button class="opt-btn" data-correct="false">c) 2x²+2x+1</button>
-                        <button class="opt-btn" data-correct="false">d) 4x²+2x+1</button>
-                        <button class="opt-btn" data-correct="false">e) 4x+2</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> (2x)² + 2(2x)(1) + 1² = 4x² + 4x + 1.</div>
-                </div>
-
-                <h3 class="level-title">Nível Avançado (Contexto Real)</h3>
-
-                <div class="quiz-card" data-question="eval6.6">
-                    <p><strong>6.</strong> (Cubo Mágico) Um cubo mágico especial tem aresta (x+1) cm. Para o volume desenvolva (x+1)³. Qual o polinômio resultante?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) x³+1</button>
-                        <button class="opt-btn" data-correct="true">b) x³+3x²+3x+1</button>
-                        <button class="opt-btn" data-correct="false">c) x³+3x+1</button>
-                        <button class="opt-btn" data-correct="false">d) x³+x²+x+1</button>
-                        <button class="opt-btn" data-correct="false">e) 3x+3</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Cubo da soma: x³ + 3(x²)(1) + 3(x)(1²) + 1³.</div>
-                </div>
-
-                <div class="quiz-card" data-question="eval6.7">
-                    <p><strong>7.</strong> (Terreno Cercado) Área útil é (x+10)(x-10). Usando produtos notáveis, a expressão simplificada é:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) (x-10)²</button>
-                        <button class="opt-btn" data-correct="true">b) x² - 100</button>
-                        <button class="opt-btn" data-correct="false">c) (x+10)²</button>
-                        <button class="opt-btn" data-correct="false">d) (x-50)²</button>
-                        <button class="opt-btn" data-correct="false">e) (x+10)</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> Produto da soma pela diferença: x² - 10² = x² - 100.</div>
-                </div>
-
-                <div class="quiz-card" data-question="eval6.8">
-                    <p><strong>8.</strong> (Reservatório Industrial) Fatorar a expressão x³ + 8 usando soma de cubos:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="true">a) (x+2)(x²-2x+4)</button>
-                        <button class="opt-btn" data-correct="false">b) (x+2)³</button>
-                        <button class="opt-btn" data-correct="false">c) (x+2)(x²+2x+4)</button>
-                        <button class="opt-btn" data-correct="false">d) (x-2)(x²+2x+4)</button>
-                        <button class="opt-btn" data-correct="false">e) x+2</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> x³ + 2³ = (x+2)(x² - 2x + 4).</div>
-                </div>
-
-                <div class="quiz-card" data-question="eval6.9">
-                    <p><strong>9.</strong> (Cálculo Mental) (100+1)² = 100² + 2×100×1 + 1² resulta em:</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 10.001</button>
-                        <button class="opt-btn" data-correct="true">b) 10.201</button>
-                        <button class="opt-btn" data-correct="false">c) 10.101</button>
-                        <button class="opt-btn" data-correct="false">d) 11.001</button>
-                        <button class="opt-btn" data-correct="false">e) 10.021</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 10000 + 200 + 1 = 10201.</div>
-                </div>
-
-                <div class="quiz-card" data-question="eval6.10">
-                    <p><strong>10.</strong> (Investimento) Sabendo que a+b=5 e ab=6, qual é o valor de a² + b² (lembrando que (a+b)² = a² + 2ab + b²)?</p>
-                    <div class="options">
-                        <button class="opt-btn" data-correct="false">a) 25</button>
-                        <button class="opt-btn" data-correct="true">b) 13</button>
-                        <button class="opt-btn" data-correct="false">c) 19</button>
-                        <button class="opt-btn" data-correct="false">d) 12</button>
-                        <button class="opt-btn" data-correct="false">e) 31</button>
-                    </div>
-                    <div class="explanation hidden"><strong>Feedback:</strong> 5² = a² + 2(6) + b² => 25 = a² + 12 + b² => a² + b² = 13.</div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="footer fade-in">
+        <footer class="footer">
             <p><strong>Educamob</strong> - Escola é onde vc aprende</p>
         </footer>
     </main>
-
     <script src="script.js"></script>
 </body>
 </html>
