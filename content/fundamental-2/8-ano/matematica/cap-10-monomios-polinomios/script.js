@@ -41,6 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (isCorrect) {
                     btn.classList.add('correct');
                     if (blockId) blockScores[blockId].correct++;
+                    if (explanation) {
+                        explanation.classList.remove('hidden');
+                        explanation.classList.add('success-msg');
+                    }
                 } else {
                     btn.classList.add('wrong');
                     // Highlight correct answer

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educamob - Streaming de Aprendizagem</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+        :root {
+            --primary: #FF6A00;
+            --bg: #0a0a0a;
+            --card-bg: #141414;
+            --text: #ffffff;
+            --text-muted: #a3a3a3;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 4%;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+            transition: background 0.5s ease;
+        }
+
+        header.scrolled {
+            background: var(--bg);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav {
+            margin-left: 2.5rem;
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--text-muted);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 85vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 4%;
+            background-size: cover;
+            background-position: center;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.1) 80%), url('../../../.gemini/antigravity/brain/5cee01a4-a838-4298-9799-f4087559ee60/hero_matematica_cinematic_1778276775175.png');
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,106,0,0.2);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--text);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(255,255,255,0.75);
+        }
+
+        .btn-secondary {
+            background-color: rgba(109, 109, 110, 0.7);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(109, 109, 110, 0.4);
+        }
+
+        /* --- Content Rows --- */
+        .content-container {
+            margin-top: -100px;
+            padding-bottom: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .row {
+            margin-bottom: 3rem;
+            padding: 0 4%;
+        }
+
+        .row h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #e5e5e5;
+        }
+
+        .row-slider {
+            display: flex;
+            gap: 0.8rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .row-slider::-webkit-scrollbar {
+            display: none; /* Chrome, Safari */
+        }
+
+        .card {
+            min-width: 200px;
+            height: 300px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            z-index: 20;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover .card-info {
+            opacity: 1;
+        }
+
+        .card-info h3 {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-info p {
+            font-size: 0.7rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 3rem 4%;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer span {
+            color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <a href="#" class="logo">educa<span>mob</span></a>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Matemática</a>
+            <a href="#">Ciências</a>
+            <a href="#">Português</a>
+            <a href="#">Minha Lista</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Em Destaque: Matemática</span>
+            <h1>A Linguagem do Universo</h1>
+            <p>Descubra como os números regem tudo ao seu redor, desde as estrelas até o algoritmo do seu feed. Uma jornada cinematográfica pela lógica e beleza da matemática.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    Começar Agora
+                </button>
+                <button class="btn btn-secondary">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                    Ver Detalhes
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="content-container">
+        <div class="row">
+            <h2>Séries Educamob: Álgebra</h2>
+            <div class="row-slider">
+                <div class="card">
+                    <img src="../../../.gemini/antigravity/brain/5cee01a4-a838-4298-9799-f4087559ee60/cover_algebra_monomios_1778276791936.png" alt="Monômios">
+                    <div class="card-info">
+                        <h3>Monômios & Polinômios</h3>
+                        <p>Matemática · 8º Ano</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../../../.gemini/antigravity/brain/5cee01a4-a838-4298-9799-f4087559ee60/cover_geometria_moderna_1778276811623.png" alt="Geometria">
+                    <div class="card-info">
+                        <h3>Geometria Espacial</h3>
+                        <p>Matemática · 9º Ano</p>
+                    </div>
+                </div>
+                <!-- Placeholder cards with CSS gradients since we only have 2 real thumbnails -->
+                <div class="card" style="background: linear-gradient(45deg, #1a1a1a, #333);">
+                    <div class="card-info" style="opacity: 1;">
+                        <h3>Potenciação Turbo</h3>
+                        <p>Matemática · 8º Ano</p>
+                    </div>
+                </div>
+                <div class="card" style="background: linear-gradient(45deg, #1a1a1a, #222);">
+                    <div class="card-info" style="opacity: 1;">
+                        <h3>Equações do 2º Grau</h3>
+                        <p>Matemática · 9º Ano</p>
+                    </div>
+                </div>
+                <div class="card" style="background: linear-gradient(45deg, #1a1a1a, #282828);">
+                    <div class="card-info" style="opacity: 1;">
+                        <h3>Produtos Notáveis</h3>
+                        <p>Matemática · 8º Ano</p>
+                    </div>
+                </div>
+                <div class="card" style="background: linear-gradient(45deg, #1a1a1a, #111);">
+                    <div class="card-info" style="opacity: 1;">
+                        <h3>Radiciação</h3>
+                        <p>Matemática · 8º Ano</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2>Populares na Matemática</h2>
+            <div class="row-slider">
+                <div class="card" style="background: linear-gradient(135deg, #FF6A00, #000);">
+                     <div class="card-info" style="opacity: 1;">
+                        <h3>Grandezas & Medidas</h3>
+                        <p>Matemática · 7º Ano</p>
+                    </div>
+                </div>
+                <div class="card" style="background: linear-gradient(135deg, #222, #000);">
+                     <div class="card-info" style="opacity: 1;">
+                        <h3>Probabilidade</h3>
+                        <p>Matemática · 9º Ano</p>
+                    </div>
+                </div>
+                <div class="card" style="background: linear-gradient(135deg, #111, #000);">
+                     <div class="card-info" style="opacity: 1;">
+                        <h3>Estatística</h3>
+                        <p>Matemática · 8º Ano</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 educa<span>mob</span> — Escola é onde você aprende.</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
