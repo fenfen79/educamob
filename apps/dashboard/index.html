@@ -1,28 +1,325 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educamob - Desempenho</title>
-    <link rel="stylesheet" href="../../shared/css/design-system.css">
-    <script src="../../shared/components/header.js" type="module"></script>
-    <script src="../../shared/components/footer.js" type="module"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Estudos - Educamob</title>
+  
+  <link rel="stylesheet" href="../../shared/css/design-system.css?v=3">
+  
+  <style>
+    .hero-compact {
+      background: linear-gradient(to bottom, var(--bg-elevated), var(--bg));
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .dashboard-container {
+      margin: 3rem auto 4rem;
+    }
+
+    .table-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+    }
+
+    .dashboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .dashboard-table th {
+      background: var(--bg-elevated);
+      padding: 1.2rem 1.5rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dashboard-table td {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    .dashboard-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .subject-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .subject-icon {
+      font-size: 2rem;
+    }
+
+    .subject-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .subject-type {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .status-green {
+      background: rgba(76, 175, 80, 0.1);
+      color: #2e7d32;
+      border: 1px solid #4caf50;
+    }
+
+    .status-yellow {
+      background: rgba(212, 160, 23, 0.1);
+      color: #d4a017;
+      border: 1px solid #d4a017;
+    }
+
+    .status-red {
+      background: rgba(244, 67, 54, 0.1);
+      color: #c62828;
+      border: 1px solid #f44336;
+    }
+
+    .status-pending {
+      background: var(--bg-elevated);
+      color: var(--text-muted);
+      border: 1px dashed var(--border);
+    }
+
+    .score-text {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-table thead {
+        display: none;
+      }
+      .dashboard-table, .dashboard-table tbody, .dashboard-table tr, .dashboard-table td {
+        display: block;
+        width: 100%;
+      }
+      .dashboard-table tr {
+        margin-bottom: 1.5rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .dashboard-table td {
+        text-align: right;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .dashboard-table td:last-child {
+        border-bottom: none;
+      }
+      .dashboard-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        margin-right: 1rem;
+        text-align: left;
+      }
+      /* A primeira célula (Atividade) fica diferenciada */
+      .dashboard-table td:first-child {
+        background: var(--bg-elevated);
+        text-align: left;
+        justify-content: flex-start;
+      }
+      .dashboard-table td:first-child::before {
+        display: none;
+      }
+      .table-wrapper {
+        border: none;
+        background: transparent;
+      }
+    } /* Fim do @media (max-width: 768px) para as tabelas */
+
+    /* Filtros (Fora do media query, visível no Desktop) */
+    .filters-bar {
+      margin: 1rem auto 2rem;
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 900px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 200px;
+    }
+    .filter-group label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .filter-select {
+      background-color: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* Ajuste mobile dos filtros */
+    @media (max-width: 768px) {
+      .filters-bar {
+        flex-direction: column;
+        margin-top: 0;
+        border-radius: 0;
+      }
+      .filter-group {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script src="../../shared/components/header.js?v=15"></script>
+  <script src="../../shared/components/footer.js"></script>
+
+  <!-- Supabase & Auth Guard -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../shared/js/supabase-client.js"></script>
+  <script src="../../shared/js/auth-guard.js"></script>
 </head>
 <body>
-    <educamob-header></educamob-header>
 
-    <div class="container" style="flex-grow: 1; display: flex; flex-direction: column;">
-        <div class="empty-state">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="3" y1="9" x2="21" y2="9"></line>
-                <line x1="9" y1="21" x2="9" y2="9"></line>
-            </svg>
-            <p>Em breve 🚧</p>
-            <span style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Seu dashboard de desempenho está sendo construído.</span>
+  <educamob-header back-url="#PORTAL_WIX"></educamob-header>
+
+  <main>
+    <section class="hero-compact">
+      <div class="container">
+        <h1 class="hero-title">Meu Desempenho</h1>
+        <p class="hero-subtitle">Estudos e Revisões</p>
+      </div>
+    </section>
+
+    <div class="container dashboard-container">
+      <div class="filters-bar">
+        <div class="filter-group">
+          <label for="filter-period">Período</label>
+          <select id="filter-period" class="filter-select">
+            <option value="all">Todos os Períodos</option>
+            <option value="today">Hoje</option>
+            <option value="7days">Últimos 7 dias</option>
+            <option value="30days">Últimos 30 dias</option>
+          </select>
         </div>
-    </div>
+        <div class="filter-group">
+          <label for="filter-subject">Matéria</label>
+          <select id="filter-subject" class="filter-select">
+            <option value="all">Todas as Matérias</option>
+            <option value="Matemática">Matemática</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-status">Desempenho</label>
+          <select id="filter-status" class="filter-select">
+            <option value="all">Todos os Status</option>
+            <option value="green">🟢 Ótimo</option>
+            <option value="yellow">🟡 Atenção</option>
+            <option value="red">🔴 Reforçar</option>
+            <option value="pending">⏳ Em andamento</option>
+          </select>
+        </div>
+      </div>
 
-    <educamob-footer></educamob-footer>
+      <div id="section-estudos" style="margin-bottom: 3rem;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text);">Estudos</h2>
+        <div class="table-wrapper">
+          <table class="dashboard-table">
+            <thead>
+              <tr>
+                <th>Atividade</th>
+                <th style="text-align: center;">Aproveitamento</th>
+                <th style="text-align: center;">Exercícios realizados</th>
+              </tr>
+            </thead>
+            <tbody id="dashboard-estudos-tbody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="section-revisoes">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text);">Revisões</h2>
+        <div class="table-wrapper">
+          <table class="dashboard-table">
+            <thead>
+              <tr>
+                <th>Atividade</th>
+                <th style="text-align: center;">Aproveitamento</th>
+                <th style="text-align: center;">Exercícios realizados</th>
+              </tr>
+            </thead>
+            <tbody id="dashboard-revisoes-tbody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="empty-state" class="empty-state" style="display: none; padding: 2rem; text-align: center;">
+         <p>Nenhuma atividade registrada ainda.</p>
+      </div>
+    </div>
+  </main>
+
+  <educamob-footer></educamob-footer>
+
+  <!-- O Quiz Data é necessário apenas para buscar os ícones e nomes das matérias mockadas -->
+  <script src="../../shared/js/quiz.js?v=2"></script>
+  <script src="../../shared/js/dashboard.js?v=13"></script>
 </body>
 </html>

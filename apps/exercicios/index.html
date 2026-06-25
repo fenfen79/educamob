@@ -1,27 +1,402 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educamob - Exercícios</title>
-    <link rel="stylesheet" href="../../shared/css/design-system.css">
-    <script src="../../shared/components/header.js" type="module"></script>
-    <script src="../../shared/components/footer.js" type="module"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisões - Educamob</title>
+  
+  <link rel="stylesheet" href="../../shared/css/design-system.css?v=3">
+  
+  <style>
+    .hero-compact {
+      background: linear-gradient(to bottom, var(--bg-elevated), var(--bg));
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .filters-bar {
+      margin: 1rem auto 2rem;
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 900px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .search-wrapper {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    .search-input {
+      width: 100%;
+      background-color: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.15);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .filter-group label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .filter-select {
+      background-color: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .card:hover {
+      border-color: var(--primary);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 180px;
+      background: var(--bg-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
+      align-items: center;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .card-badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+    }
+
+    .results-meta {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+
+  <script src="../../shared/components/header.js?v=15"></script>
+  <script src="../../shared/components/footer.js"></script>
+
+  <!-- Supabase & Auth Guard -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../shared/js/supabase-client.js"></script>
+  <script src="../../shared/js/auth-guard.js"></script>
 </head>
 <body>
-    <educamob-header></educamob-header>
 
-    <div class="container" style="flex-grow: 1; display: flex; flex-direction: column;">
-        <div class="empty-state">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 20h9"></path>
-                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-            </svg>
-            <p>Em breve 🚧</p>
-            <span style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Estamos preparando a melhor biblioteca de exercícios para você.</span>
+  <educamob-header back-url="#PORTAL_WIX"></educamob-header>
+
+  <main>
+    <section class="hero-compact">
+      <div class="container">
+        <h1 class="hero-title">Revisa!</h1>
+        <p class="hero-subtitle">Teste seus conhecimentos</p>
+      </div>
+    </section>
+
+    <div class="container">
+      
+      <div class="filters-bar">
+        <div class="search-wrapper">
+          <input type="search" id="filter-search" class="search-input" placeholder="Busque por assunto ou palavra-chave">
         </div>
-    </div>
 
-    <educamob-footer></educamob-footer>
+        <div class="filter-group">
+          <label for="filter-nivel">Nível</label>
+          <select id="filter-nivel" class="filter-select">
+            <option value="todos">Todos os níveis</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="filter-serie">Série</label>
+          <select id="filter-serie" class="filter-select" disabled>
+            <option value="todos">Todas as séries</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="filter-disciplina">Matéria</label>
+          <select id="filter-disciplina" class="filter-select" disabled>
+            <option value="todos">Todas as matérias</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="results-meta">
+        <span id="results-count">Carregando conteúdos...</span>
+      </div>
+
+      <div id="subjects-container" class="cards-grid">
+        <!-- Subjects will be rendered here via JS -->
+      </div>
+      
+      <div id="empty-state" class="empty-state" style="display: none; text-align: center; padding: 3rem;">
+        <p>Nenhuma revisão encontrada para esse filtro.</p>
+        <button id="btn-clear-filters" class="btn btn-secondary" style="margin-top:1rem;">Limpar Filtros</button>
+      </div>
+    </div>
+  </main>
+
+  <educamob-footer></educamob-footer>
+
+  <script src="../../shared/js/quiz.js?v=2"></script>
+  <script src="js/engine.js?v=2"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('subjects-container');
+      const elSearch = document.getElementById('filter-search');
+      const elNivel = document.getElementById('filter-nivel');
+      const elSerie = document.getElementById('filter-serie');
+      const elDisciplina = document.getElementById('filter-disciplina');
+      const elCount = document.getElementById('results-count');
+      const elEmpty = document.getElementById('empty-state');
+      const elBtnClear = document.getElementById('btn-clear-filters');
+      
+      // Converte o objeto MOCK_QUIZZES em um array para podermos filtrar
+      const rawQuizzes = window.MOCK_QUIZZES || {};
+      const quizzesList = Object.keys(rawQuizzes).map(id => {
+        return { id, ...rawQuizzes[id] };
+      });
+
+      if (quizzesList.length === 0) {
+         container.innerHTML = '';
+         elEmpty.style.display = 'block';
+         elCount.textContent = "0 revisões";
+         return;
+      }
+
+      // Funções auxiliares de Filtro
+      const getUnique = (data, key) => [...new Set(data.map(item => item[key]))].filter(Boolean).sort();
+      const populateSelect = (selectEl, options, defaultText) => {
+        selectEl.innerHTML = `<option value="todos">${defaultText}</option>`;
+        options.forEach(opt => {
+          selectEl.innerHTML += `<option value="${opt}">${opt}</option>`;
+        });
+        selectEl.disabled = options.length === 0;
+      };
+
+      // Inicializa Nível
+      populateSelect(elNivel, getUnique(quizzesList, 'nivel'), "Todos os níveis");
+
+      // Cascata
+      const updateFilters = () => {
+        const selectedNivel = elNivel.value;
+        const selectedSerie = elSerie.value;
+
+        let dataLevel1 = quizzesList;
+        if (selectedNivel !== 'todos') {
+          dataLevel1 = quizzesList.filter(item => item.nivel === selectedNivel);
+        }
+        
+        let dataLevel2 = dataLevel1;
+        if (selectedSerie !== 'todos') {
+          dataLevel2 = dataLevel1.filter(item => item.serie === selectedSerie);
+        }
+
+        const currentSerie = elSerie.value;
+        populateSelect(elSerie, getUnique(dataLevel1, 'serie'), "Todas as séries");
+        if (getUnique(dataLevel1, 'serie').includes(currentSerie)) elSerie.value = currentSerie;
+
+        const currentDisc = elDisciplina.value;
+        populateSelect(elDisciplina, getUnique(dataLevel2, 'disciplina'), "Todas as matérias");
+        if (getUnique(dataLevel2, 'disciplina').includes(currentDisc)) elDisciplina.value = currentDisc;
+
+        renderCards();
+      };
+
+      const renderCards = () => {
+        const searchTerm = elSearch.value.toLowerCase().trim();
+        const selectedNivel = elNivel.value;
+        const selectedSerie = elSerie.value;
+        const selectedDisciplina = elDisciplina.value;
+
+        const filtered = quizzesList.filter(item => {
+          const matchNivel = (selectedNivel === 'todos' || item.nivel === selectedNivel);
+          const matchSerie = (selectedSerie === 'todos' || item.serie === selectedSerie);
+          const matchDisciplina = (selectedDisciplina === 'todos' || item.disciplina === selectedDisciplina);
+          
+          let matchText = true;
+          if (searchTerm !== '') {
+            const tagsStr = (item.tags || []).join(' ').toLowerCase();
+            const titleStr = (item.title || '').toLowerCase();
+            const descStr = (item.descricao || '').toLowerCase();
+            matchText = titleStr.includes(searchTerm) || descStr.includes(searchTerm) || tagsStr.includes(searchTerm);
+          }
+
+          return matchNivel && matchSerie && matchDisciplina && matchText;
+        });
+
+        elCount.textContent = `Mostrando ${filtered.length} revisão(ões)`;
+
+        if (filtered.length === 0) {
+          container.innerHTML = '';
+          elEmpty.style.display = 'block';
+          return;
+        }
+
+        elEmpty.style.display = 'none';
+        
+        let html = '';
+        filtered.forEach((subject, index) => {
+          const delay = index * 0.05;
+          const savedState = localStorage.getItem(`educamob_quiz_${subject.id}`);
+          let badgeHtml = '';
+          let btnText = 'Iniciar Revisão';
+          
+          if (savedState) {
+            const state = JSON.parse(savedState);
+            if (state.finished) {
+               const score = (state.correctCount / state.totalQuestions) * 100;
+               let color = 'var(--text-muted)';
+               if (score >= 75) color = '#4caf50';
+               else if (score >= 50) color = '#d4a017';
+               else color = '#f44336';
+               badgeHtml = `<span class="card-badge" style="background:transparent; border: 1px solid ${color}; color: ${color}">Concluído: ${Math.round(score)}%</span>`;
+               btnText = 'Refazer Revisão';
+            } else {
+               badgeHtml = `<span class="card-badge" style="background: rgba(212, 160, 23, 0.15); color: #d4a017;">Em andamento (${state.currentQuestionIndex}/${state.totalQuestions})</span>`;
+               btnText = 'Continuar Revisão';
+            }
+          }
+
+          const imgHtml = subject.thumbnail 
+            ? `<div class="card-image"><img src="../../${subject.thumbnail}" alt="${subject.title}"></div>`
+            : `<div class="card-image">${subject.icon}</div>`;
+
+          html += `
+            <div class="card" style="animation-delay: ${delay}s" onclick="window.location.href='quiz.html?subject=${subject.id}'">
+              ${imgHtml}
+              <div class="card-content">
+                <h3 class="card-title">${subject.title}</h3>
+                <div class="card-meta">${subject.serie || ''} • ${subject.disciplina || ''}</div>
+                ${badgeHtml}
+                <div style="margin-top: 1.5rem">
+                   <button class="btn btn-secondary">${btnText}</button>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        container.innerHTML = html;
+      };
+
+      // Listeners
+      elNivel.addEventListener('change', () => { elSerie.value = 'todos'; elDisciplina.value = 'todos'; updateFilters(); });
+      elSerie.addEventListener('change', () => { elDisciplina.value = 'todos'; updateFilters(); });
+      elDisciplina.addEventListener('change', updateFilters);
+      
+      let timeout = null;
+      elSearch.addEventListener('input', () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(renderCards, 300);
+      });
+
+      elBtnClear.addEventListener('click', () => {
+         elSearch.value = '';
+         elNivel.value = 'todos';
+         updateFilters();
+      });
+
+      updateFilters();
+    });
+  </script>
 </body>
 </html>

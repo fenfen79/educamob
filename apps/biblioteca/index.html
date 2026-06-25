@@ -6,7 +6,7 @@
   <title>Biblioteca de Conteúdos - Educamob</title>
   
   <!-- CSS Compartilhado -->
-  <link rel="stylesheet" href="../../shared/css/design-system.css">
+  <link rel="stylesheet" href="../../shared/css/design-system.css?v=2">
   
   <!-- Estilos Locais da Biblioteca -->
   <style>
@@ -38,6 +38,28 @@
       max-width: 900px;
       z-index: 10;
       position: relative;
+    }
+
+    .search-wrapper {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    .search-input {
+      width: 100%;
+      background-color: var(--bg-card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.15);
     }
 
     .filter-group {
@@ -100,10 +122,36 @@
     }
 
     .card {
+      padding: 0;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       height: 100%;
       animation: slideUp 0.4s ease forwards;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 180px;
+      background: var(--bg-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
 
     .card-title {
@@ -117,8 +165,25 @@
       color: var(--text-muted);
       font-size: 0.95rem;
       line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
       margin-bottom: 1.5rem;
       flex-grow: 1;
+      align-items: flex-start;
+    }
+
+    .tag {
+      background: rgba(128, 128, 128, 0.1);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
     }
 
     .card-footer {
@@ -140,6 +205,10 @@
       gap: 5px;
     }
 
+    .btn-clear {
+      margin-top: 1rem;
+    }
+
     @media (max-width: 768px) {
       .filters-bar {
         flex-direction: column;
@@ -153,10 +222,15 @@
   </style>
 
   <!-- Componentes e Dados -->
-  <script src="../../shared/components/header.js"></script>
+  <script src="../../shared/components/header.js?v=15"></script>
   <script src="../../shared/components/footer.js"></script>
   <script src="../../shared/js/data-registry.js"></script>
   <script src="../../shared/js/analytics.js"></script>
+
+  <!-- Supabase & Auth Guard -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../shared/js/supabase-client.js"></script>
+  <script src="../../shared/js/auth-guard.js"></script>
 </head>
 <body>
 
@@ -165,13 +239,16 @@
   <main>
     <section class="hero-compact">
       <div class="container">
-        <h1 class="hero-title">📚 Biblioteca de Conteúdos</h1>
-        <p class="hero-subtitle">Explore conteúdos interativos por série e disciplina</p>
+        <h1 class="hero-title">O que vamos estudar hoje?</h1>
       </div>
     </section>
 
     <div class="container">
       <div class="filters-bar glass">
+        <div class="search-wrapper">
+          <input type="search" id="filter-search" class="search-input" placeholder="Busque por assunto ou palavra-chave">
+        </div>
+
         <div class="filter-group">
           <label for="filter-nivel">Nível</label>
           <select id="filter-nivel" class="filter-select">
@@ -187,9 +264,9 @@
         </div>
         
         <div class="filter-group">
-          <label for="filter-disciplina">Disciplina</label>
+          <label for="filter-disciplina">Matéria</label>
           <select id="filter-disciplina" class="filter-select" disabled>
-            <option value="todos">Todas as disciplinas</option>
+            <option value="todos">Todas as matérias</option>
           </select>
         </div>
       </div>
@@ -208,6 +285,7 @@
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
         <p id="empty-message">Nenhum conteúdo encontrado para esse filtro 🔍</p>
+        <button id="btn-clear-filters" class="btn btn-secondary btn-clear">Limpar Filtros</button>
       </div>
     </div>
   </main>
@@ -221,6 +299,7 @@
       const registry = window.EDUCAMOB_REGISTRY || [];
       const spas = registry.filter(item => item.tipo === 'spa');
       
+      const elSearch = document.getElementById('filter-search');
       const elNivel = document.getElementById('filter-nivel');
       const elSerie = document.getElementById('filter-serie');
       const elDisciplina = document.getElementById('filter-disciplina');
@@ -228,12 +307,15 @@
       const elCount = document.getElementById('results-count');
       const elEmpty = document.getElementById('empty-state');
       const elEmptyMsg = document.getElementById('empty-message');
+      const elBtnClear = document.getElementById('btn-clear-filters');
 
       if (spas.length === 0) {
         elEmptyMsg.textContent = "Conteúdos em desenvolvimento 🚧";
         elCount.textContent = "0 conteúdos";
         elEmpty.style.display = "flex";
         elNivel.disabled = true;
+        elSearch.disabled = true;
+        elBtnClear.style.display = 'none';
         return;
       }
 
@@ -275,7 +357,7 @@
         if (getUnique(dataLevel1, 'serie').includes(currentSerie)) elSerie.value = currentSerie;
 
         const currentDisc = elDisciplina.value;
-        populateSelect(elDisciplina, getUnique(dataLevel2, 'disciplina'), "Todas as disciplinas");
+        populateSelect(elDisciplina, getUnique(dataLevel2, 'disciplina'), "Todas as matérias");
         if (getUnique(dataLevel2, 'disciplina').includes(currentDisc)) elDisciplina.value = currentDisc;
 
         renderCards();
@@ -283,21 +365,33 @@
 
       // 5. Renderização dos cards
       const renderCards = () => {
+        const searchTerm = elSearch.value.toLowerCase().trim();
         const selectedNivel = elNivel.value;
         const selectedSerie = elSerie.value;
         const selectedDisciplina = elDisciplina.value;
 
         const filtered = spas.filter(item => {
-          return (selectedNivel === 'todos' || item.nivel === selectedNivel) &&
-                 (selectedSerie === 'todos' || item.serie === selectedSerie) &&
-                 (selectedDisciplina === 'todos' || item.disciplina === selectedDisciplina);
+          // Filtro por menus dropdown
+          const matchNivel = (selectedNivel === 'todos' || item.nivel === selectedNivel);
+          const matchSerie = (selectedSerie === 'todos' || item.serie === selectedSerie);
+          const matchDisciplina = (selectedDisciplina === 'todos' || item.disciplina === selectedDisciplina);
+          
+          // Filtro de texto (busca em título, descrição e tags)
+          let matchText = true;
+          if (searchTerm !== '') {
+            const tagsStr = (item.tags || []).join(' ').toLowerCase();
+            const titleStr = (item.titulo || '').toLowerCase();
+            const descStr = (item.descricao || '').toLowerCase();
+            matchText = titleStr.includes(searchTerm) || descStr.includes(searchTerm) || tagsStr.includes(searchTerm);
+          }
+
+          return matchNivel && matchSerie && matchDisciplina && matchText;
         });
 
         elCount.textContent = `Mostrando ${filtered.length} conteúdo(s)`;
 
         if (filtered.length === 0) {
           elCards.innerHTML = '';
-          elEmptyMsg.textContent = "Nenhum conteúdo encontrado para esse filtro 🔍";
           elEmpty.style.display = "flex";
           return;
         }
@@ -307,13 +401,23 @@
         let html = '';
         filtered.forEach((item, index) => {
           const delay = index * 0.05; // Cascading animation
+          
+          const tagsHtml = (item.tags || []).map(t => `<span class="tag">#${t}</span>`).join('');
+          const imgHtml = item.thumbnail 
+            ? `<div class="card-image"><img src="../../${item.thumbnail}" alt="${item.titulo}"></div>`
+            : `<div class="card-image">📚</div>`;
+
           html += `
             <div class="card" style="animation-delay: ${delay}s">
-              <span class="card-badge">${item.serie || ''} • ${item.disciplina || ''}</span>
-              <h3 class="card-title">${item.titulo}</h3>
-              <p class="card-desc">${item.descricao || ''}</p>
-              <div class="card-footer">
-                <a href="../../${item.path}" class="card-link" onclick="handleAccess('${item.id}', event)">Abrir Conteúdo ➔</a>
+              ${imgHtml}
+              <div class="card-content">
+                <span class="card-badge">${item.serie || ''} • ${item.disciplina || ''}</span>
+                <h3 class="card-title">${item.titulo}</h3>
+                <p class="card-desc">${item.descricao || ''}</p>
+                <div class="card-tags">${tagsHtml}</div>
+                <div class="card-footer">
+                  <a href="../../${item.path}" class="card-link" onclick="handleAccess('${item.id}', event)">Abrir Conteúdo ➔</a>
+                </div>
               </div>
             </div>
           `;
@@ -322,10 +426,26 @@
         elCards.innerHTML = html;
       };
 
+      // Limpar Filtros
+      const clearFilters = () => {
+        elSearch.value = '';
+        elNivel.value = 'todos';
+        updateFilters(); // cascata cuida do resto
+      };
+
       // 6. Listeners
       elNivel.addEventListener('change', () => { elSerie.value = 'todos'; elDisciplina.value = 'todos'; updateFilters(); });
       elSerie.addEventListener('change', () => { elDisciplina.value = 'todos'; updateFilters(); });
       elDisciplina.addEventListener('change', updateFilters);
+      
+      // Debounce simples para a busca
+      let timeout = null;
+      elSearch.addEventListener('input', () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(renderCards, 300);
+      });
+
+      elBtnClear.addEventListener('click', clearFilters);
 
       // Função global para o onclick
       window.handleAccess = function(id, e) {

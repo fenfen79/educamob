@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador WhatsApp - Educamob</title>
+  
+  <style>
+    /* Estilos minimalistas para o simulador web do WhatsApp */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+    body {
+      background-color: #e5ddd5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .device {
+      width: 100%;
+      max-width: 450px;
+      height: 100vh;
+      background: #efe7dd url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    @media (min-width: 450px) {
+      .device {
+        height: 90vh;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+    }
+
+    .chat-header {
+      background-color: #008069;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      z-index: 10;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .contact-info h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .contact-info span {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .chat-window {
+      flex-grow: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      position: relative;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .message.received {
+      background-color: white;
+      align-self: flex-start;
+      border-top-left-radius: 0;
+    }
+
+    .message.sent {
+      background-color: #d9fdd3;
+      align-self: flex-end;
+      border-top-right-radius: 0;
+    }
+
+    .message-time {
+      font-size: 0.7rem;
+      color: #667781;
+      text-align: right;
+      margin-top: 0.2rem;
+    }
+
+    .chat-input-area {
+      background-color: #f0f2f5;
+      padding: 0.8rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-end;
+    }
+
+    .chat-input {
+      flex-grow: 1;
+      background: white;
+      border: none;
+      padding: 0.8rem 1rem;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      outline: none;
+      resize: none;
+      max-height: 100px;
+    }
+
+    .send-btn {
+      background-color: #00a884;
+      color: white;
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="device">
+    <div class="chat-header">
+      <div class="avatar">🤖</div>
+      <div class="contact-info">
+        <h2>Educamob Bot</h2>
+        <span>online</span>
+      </div>
+    </div>
+    
+    <div class="chat-window" id="chat-window">
+      <!-- Chat inicial -->
+      <div class="message received">
+        Olá! Eu sou a assistente da Educamob. 📚
+Você pode me perguntar como estão os estudos do seu filho hoje.
+Tente enviar algo como: "O que o João estudou hoje?"
+        <div class="message-time">Agora</div>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <textarea id="msg-input" class="chat-input" placeholder="Mensagem" rows="1"></textarea>
+      <button class="send-btn" id="send-btn">➤</button>
+    </div>
+  </div>
+
+  <!-- Banco mockado para referências -->
+  <script src="../../shared/js/quiz.js"></script>
+  
+  <script>
+    const chatWindow = document.getElementById('chat-window');
+    const msgInput = document.getElementById('msg-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    function getTime() {
+      const now = new Date();
+      return now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+    }
+
+    function addMessage(text, type) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `message ${type}`;
+      
+      // Converte o padrão do WhatsApp (*negrito*, _itálico_) para HTML
+      let formattedText = text
+        .replace(/\*(.*?)\*/g, '<strong>$1</strong>')
+        .replace(/_(.*?)_/g, '<em>$1</em>');
+        
+      msgDiv.innerHTML = `${formattedText}<div class="message-time">${getTime()}</div>`;
+      chatWindow.appendChild(msgDiv);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    function processBotResponse(userMsg) {
+      const lowerMsg = userMsg.toLowerCase();
+      
+      // Checa se a mensagem pede status
+      if (lowerMsg.includes('estudou') || lowerMsg.includes('fez') || lowerMsg.includes('resumo') || lowerMsg.includes('hoje')) {
+        
+        const quizzes = window.MOCK_QUIZZES || {};
+        let reportLines = [];
+
+        // Consulta o "Banco de Dados" local
+        Object.keys(quizzes).forEach(subjectId => {
+          const savedState = localStorage.getItem(`educamob_quiz_${subjectId}`);
+          if (savedState) {
+            const state = JSON.parse(savedState);
+            const subject = quizzes[subjectId];
+            
+            if (state.finished) {
+              const score = (state.correctCount / state.totalQuestions) * 100;
+              let farol = '';
+              if (score >= 75) farol = '🟢 Ótimo';
+              else if (score >= 50) farol = '🟡 Atenção';
+              else farol = '🔴 Reforçar';
+              
+              reportLines.push(`📚 *${subject.title}*\nStatus: Concluído\nAcertos: ${Math.round(score)}% ${farol}`);
+            } else {
+              reportLines.push(`⏳ *${subject.title}*\nStatus: Em andamento\nProgresso: ${state.currentQuestionIndex} de ${state.totalQuestions} questões respondidas.`);
+            }
+          }
+        });
+
+        if (reportLines.length > 0) {
+          return `Olá! Tudo bem? Aqui está o resumo das atividades do seu filho hoje:\n\n${reportLines.join('\n\n')}\n\nSe precisar de mais alguma coisa, é só chamar! 😊`;
+        } else {
+          return "Poxa, ainda não encontrei nenhuma atividade registrada hoje. Talvez ele ainda não tenha iniciado as revisões! 📉";
+        }
+      }
+
+      return "Desculpe, eu sou um robô focado no Controle de Estudos. Para saber o rendimento, pergunte algo como: 'O que ele fez hoje?'";
+    }
+
+    function sendMessage() {
+      const text = msgInput.value.trim();
+      if (!text) return;
+
+      addMessage(text, 'sent');
+      msgInput.value = '';
+
+      // Simula o tempo de digitação do Bot
+      setTimeout(() => {
+        const reply = processBotResponse(text);
+        addMessage(reply, 'received');
+      }, 1000);
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    msgInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>

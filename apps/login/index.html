@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Educamob Escola Digital</title>
+  
+  <!-- Design System Base -->
+  <link rel="stylesheet" href="../../shared/css/design-system.css">
+  
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh; /* dvh corrige a folga de altura em celulares (barra de navegação) */
+      margin: 0;
+      /* Fundo animado sofisticado estilo Gemini (Mantido Escuro) */
+      background: linear-gradient(-45deg, #050505, #110803, #0a0a14, #120b00);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Nebulosas flutuantes ao fundo (efeito IA Premium) */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 60vw;
+      height: 60vw;
+      min-width: 400px;
+      min-height: 400px;
+      background: radial-gradient(circle, rgba(255, 107, 0, 0.15) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      top: -20vh;
+      right: -10vw;
+      z-index: -1;
+      animation: nebulaFloat 20s infinite ease-in-out alternate;
+    }
+    body::after {
+      content: '';
+      position: absolute;
+      width: 50vw;
+      height: 50vw;
+      min-width: 300px;
+      min-height: 300px;
+      background: radial-gradient(circle, rgba(100, 50, 255, 0.1) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      bottom: -20vh;
+      left: -10vw;
+      z-index: -1;
+      animation: nebulaFloat 25s infinite ease-in-out alternate-reverse;
+    }
+    
+    @keyframes nebulaFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-5vw, 10vh) scale(1.1); }
+    }
+    
+    .login-container {
+      width: 100%;
+      max-width: 360px;
+      padding: 1.2rem 1.5rem; /* Padding vertical no mínimo absoluto */
+      text-align: center;
+      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 16px;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1);
+      position: relative;
+      z-index: 1;
+    }
+    
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem; /* Reduz a folga externa no celular */
+      }
+      .login-container {
+      padding: 1rem 1.2rem; /* Esmagado no celular */
+      border-radius: 16px;
+      }
+      .logo img {
+        width: 170px; /* Aumentado 30% no celular */
+      }
+    }
+    
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0.5rem; /* Margem quase zero */
+      width: 100%;
+    }
+    .logo img {
+      width: 220px; /* Aumentado 30% no desktop */
+      height: auto;
+      margin: -30px 0; /* Margem negativa ajustada para cortar a área invisível maior */
+    }
+    
+
+
+    .form-group {
+      margin-bottom: 0.5rem; /* Margem minúscula entre campos */
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.75rem; /* Label minúscula */
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.1rem; /* Colada no input */
+    }
+    .form-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #1a1a1a;
+      padding: 0.5rem 0.6rem; /* Input esmagado */
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.9rem; /* Letra menor */
+      transition: var(--transition);
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.2);
+    }
+
+    .btn-block {
+      width: 100%;
+      margin-top: 0.2rem; /* Quase colado */
+      padding: 0.6rem; /* Botão esmagado */
+      font-size: 0.9rem;
+    }
+    
+    .error-box {
+      display: none;
+      background: rgba(244, 67, 54, 0.1);
+      border: 1px solid rgba(244, 67, 54, 0.3);
+      color: #ff5252;
+      padding: 0.8rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+
+    .loader {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card login-container">
+    <div class="logo">
+      <img src="../../shared/assets/BASE-V1-cropped.png" alt="Educamob BASE">
+    </div>
+    
+    <div id="error-message" class="error-box"></div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" class="form-input" placeholder="exemplo@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="password" style="display: flex; justify-content: space-between;">
+          Senha
+          <a href="#" id="forgot-password-link" style="color: var(--primary); text-decoration: none; font-weight: normal;">Esqueci a senha</a>
+        </label>
+        <input type="password" id="password" class="form-input" placeholder="sua senha" required>
+      </div>
+      
+      <button type="submit" class="btn btn-primary btn-block" id="btn-submit">
+        <span id="btn-text">Entrar</span>
+        <div id="btn-loader" class="loader"></div>
+      </button>
+    </form>
+
+    <!-- Formulário de Envio de E-mail de Recuperação -->
+    <form id="recovery-form" style="display: none;">
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Digite seu e-mail para receber um link de redefinição de senha.</p>
+      <div class="form-group">
+        <label for="recovery-email">E-mail</label>
+        <input type="email" id="recovery-email" class="form-input" placeholder="exemplo@email.com" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="btn-recovery-submit">
+        <span id="btn-recovery-text">Enviar Link Seguro</span>
+      </button>
+      <a href="#" id="back-to-login" style="display: block; margin-top: 1rem; color: var(--text-muted); font-size: 0.85rem; text-decoration: none;">← Voltar ao login</a>
+    </form>
+
+    <!-- Formulário de Digitar a Nova Senha (Aparece após clicar no link do email) -->
+    <form id="reset-password-form" style="display: none;">
+      <p style="color: var(--primary); font-weight: 600; margin-bottom: 1rem;">Quase lá! Escolha sua nova senha.</p>
+      <div class="form-group">
+        <label for="new-password">Nova Senha</label>
+        <input type="password" id="new-password" class="form-input" placeholder="Sua nova senha secreta" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="btn-reset-submit">
+        <span id="btn-reset-text">Salvar e Entrar</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- Supabase SDK (Carregado via CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- Configuração e Cliente -->
+  <script src="../../shared/js/supabase-client.js"></script>
+  <!-- Lógica da Tela de Login -->
+  <script src="login.js"></script>
+</body>
+</html>

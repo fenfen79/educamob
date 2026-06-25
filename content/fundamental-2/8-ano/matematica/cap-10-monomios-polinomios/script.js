@@ -61,6 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (blockId) {
                     checkBlockComplete(blockId);
                 }
+
+                // Update global dashboard tracking
+                updateSPADashboard();
             });
         });
     });
@@ -93,6 +96,67 @@ document.addEventListener('DOMContentLoaded', () => {
                 feedbackEl.classList.add('improve');
             }
             feedbackEl.classList.add('show');
+        }
+    }
+
+    // 3. Global Tracking for Dashboard
+    async function updateSPADashboard() {
+        let totalQuestions = document.querySelectorAll('.quiz-card').length;
+        let answeredCards = 0;
+        let correctCards = 0;
+
+        document.querySelectorAll('.quiz-card').forEach(card => {
+            let isAnswered = false;
+            card.querySelectorAll('.opt-btn').forEach(b => { 
+                if (b.classList.contains('disabled')) isAnswered = true; 
+            });
+            
+            if (isAnswered) {
+                answeredCards++;
+                const hasWrong = card.querySelector('.opt-btn.wrong');
+                if (!hasWrong) {
+                    correctCards++;
+                }
+            }
+        });
+
+        const state = {
+            currentQuestionIndex: answeredCards,
+            totalQuestions: totalQuestions,
+            correctCount: correctCards,
+            finished: answeredCards === totalQuestions,
+            timestamp: Date.now(),
+            type: "spa" // Identificador para o Dashboard
+        };
+
+        localStorage.setItem('educamob_spa_matematica_8_monomios', JSON.stringify(state));
+
+        // Envio para a Nuvem (Supabase)
+        if (state.finished && window.supabaseClient) {
+            try {
+                const { data: { session } } = await window.supabaseClient.auth.getSession();
+                if (session) {
+                    const score = state.totalQuestions > 0 ? (state.correctCount / state.totalQuestions) * 100 : 0;
+                    const { error } = await window.supabaseClient.from('student_progress').insert([
+                        {
+                            user_id: session.user.id,
+                            subject_id: 'matematica_8_monomios',
+                            subject_name: 'Monômios e Polinômios',
+                            score: score,
+                            total_questions: state.totalQuestions,
+                            activity_type: 'spa'
+                        }
+                    ]);
+                    
+                    if (error) {
+                        console.error("Erro ao salvar no Supabase:", error);
+                    } else {
+                        console.log("🚀 Nota salva na nuvem com sucesso!");
+                    }
+                }
+            } catch (err) {
+                console.error("Erro de conexão com Supabase:", err);
+            }
         }
     }
 });

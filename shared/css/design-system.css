@@ -18,12 +18,12 @@
 }
 
 [data-theme="dark"] {
-  --bg: #0a0a12;
-  --bg-card: #16162a;
-  --bg-elevated: #12121e;
-  --text: #f0f0f8;
-  --text-muted: #6b6b8d;
-  --border: rgba(255, 255, 255, 0.06);
+  --bg: #0a0a0a;
+  --bg-card: #141414;
+  --bg-elevated: #1a1a1a;
+  --text: #ffffff;
+  --text-muted: #a3a3a3;
+  --border: rgba(255, 255, 255, 0.08);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');

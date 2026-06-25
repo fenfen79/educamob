@@ -43,6 +43,18 @@ class EducamobHeader extends HTMLElement {
           color: #FF6A00;
         }
         
+        .logo img {
+          height: 40px;
+          transform: scale(3.5);
+          transform-origin: center;
+          display: block;
+          transition: transform 0.3s ease;
+        }
+        
+        .logo:hover img {
+          transform: scale(3.6);
+        }
+        
         .back-link {
           font-family: 'Inter', sans-serif;
           font-size: 0.9rem;
@@ -53,6 +65,7 @@ class EducamobHeader extends HTMLElement {
           gap: 6px;
           transition: color 0.3s;
           font-weight: 600;
+          flex: 1;
         }
         
         .back-link:hover {
@@ -63,6 +76,8 @@ class EducamobHeader extends HTMLElement {
         .theme-switch-wrapper {
           display: flex;
           align-items: center;
+          flex: 1;
+          justify-content: flex-end;
         }
         .theme-switch {
           position: relative;
@@ -96,9 +111,11 @@ class EducamobHeader extends HTMLElement {
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
-          Voltar ao Portal
+          Voltar ao Hub
         </a>
-        <a href="${backUrl}" class="logo">educa<span>mob</span></a>
+        <a href="${backUrl}" class="logo" style="display: flex; align-items: center; flex: 1; justify-content: center;">
+          <img src="../../shared/assets/BASE-V1-cropped.png" alt="BASE">
+        </a>
         
         <div class="theme-switch-wrapper" title="Alternar tema">
           <label class="theme-switch">

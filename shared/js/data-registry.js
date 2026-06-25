@@ -20,7 +20,7 @@ window.EDUCAMOB_REGISTRY = [
     titulo: "Monômios, Polinômios e Produtos Notáveis",
     descricao: "Operações com monômios, polinômios, divisão pela chave e os 8 produtos notáveis.",
     path: "content/fundamental-2/8-ano/matematica/cap-10-monomios-polinomios/index.html",
-    thumbnail: "content/fundamental-2/8-ano/matematica/cap-10-monomios-polinomios/hq_monomios_hero_br.png",
+    thumbnail: "content/fundamental-2/8-ano/matematica/cap-10-monomios-polinomios/hero_colorido.png",
     tags: ["algebra", "monomios", "polinomios"]
   }
 ];
