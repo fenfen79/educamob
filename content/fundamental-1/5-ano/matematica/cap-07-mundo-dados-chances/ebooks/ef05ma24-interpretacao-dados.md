@@ -41,38 +41,126 @@ Imagine ler um gráfico de colunas em uma notícia sobre acidentes de trânsito.
 ## Teste Seus Conhecimentos
 
 <!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: basico -->
-1. Para mostrar o crescimento da altura de uma criança do 1º ao 5º ano da escola, qual o gráfico mais indicado?
-   a) Gráfico de colunas
-   b) Gráfico de setores (pizza)
-   c) Gráfico de linhas
-   d) Um mapa
-   e) Apenas um texto sem imagem
+1. Qual é a principal função de um gráfico de colunas?
+   a) Mostrar a localização exata de cidades.
+   b) Comparar quantidades diferentes visualmente.
+   c) Substituir um texto longo sem usar números.
+   d) Medir a temperatura ambiente.
+   e) Decorar o caderno de matemática.
+
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: basico -->
+2. O que representam os eixos em um gráfico?
+   a) As margens do papel onde o gráfico foi desenhado.
+   b) Apenas a decoração visual do gráfico.
+   c) As linhas horizontal e vertical que indicam as categorias e os valores que estão sendo medidos.
+   d) As cores usadas nas colunas.
+   e) O título da pesquisa.
+
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: basico -->
+3. Em uma tabela sobre o sabor de sorvete preferido, qual informação geralmente fica na primeira coluna (da esquerda)?
+   a) A quantidade de votos.
+   b) O nome do entrevistador.
+   c) A data da entrevista.
+   d) As opções de sabores (morango, chocolate, etc.).
+   e) O endereço da sorveteria.
+
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: basico -->
+4. Quando queremos mostrar como algo evoluiu ou mudou com o passar do tempo (ex: a temperatura ao longo do dia), qual gráfico é mais adequado?
+   a) Gráfico de setores (pizza).
+   b) Gráfico de colunas.
+   c) Gráfico de linhas.
+   d) Tabela simples.
+   e) Gráfico de barras horizontais.
+
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: basico -->
+5. Se uma tabela mostra que 30 crianças preferem cães e 20 preferem gatos, quantas crianças responderam à pesquisa no total (considerando que cada uma votou apenas uma vez)?
+   a) 20
+   b) 30
+   c) 40
+   d) 50
+   e) 60
 
 <!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: intermediario -->
-2. Um gráfico de colunas mostra o esporte favorito: Futebol (20 alunos), Vôlei (15 alunos), Basquete (10 alunos). Qual é a síntese correta desses dados?
-   a) Ninguém na escola gosta de basquete.
-   b) O vôlei é o esporte menos praticado.
-   c) O futebol é o esporte favorito da maioria dos alunos pesquisados.
-   d) Todos os esportes têm a mesma quantidade de alunos.
-   e) Foram entrevistados exatamente 30 alunos no total.
+6. Uma professora fez um gráfico de colunas com as notas da turma. A coluna referente à nota 8,0 é mais alta que a coluna referente à nota 10,0. O que isso significa?
+   a) Todos os alunos tiraram nota 8,0.
+   b) Ninguém tirou nota 10,0.
+   c) Mais alunos tiraram nota 8,0 do que 10,0.
+   d) A maior nota possível na prova era 8,0.
+   e) A nota 8,0 é mais importante que a nota 10,0.
 
 <!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: intermediario -->
-3. O que você sempre deve ler primeiro para entender sobre o que um gráfico ou tabela está falando?
-   a) Apenas a barra mais alta.
-   b) O título e as informações dos eixos.
-   c) A cor das linhas.
-   d) A primeira linha da tabela apenas.
-   e) O ano em que o livro foi publicado.
+7. João observou um gráfico de linhas sobre a venda de guarda-chuvas ao longo dos meses do ano. Ele notou que a linha atinge seu ponto mais alto nos meses de janeiro e fevereiro. Qual conclusão podemos tirar?
+   a) Janeiro e fevereiro são os meses com menos chuva no ano.
+   b) Os guarda-chuvas ficaram mais baratos em janeiro e fevereiro.
+   c) As vendas de guarda-chuvas foram maiores em janeiro e fevereiro.
+   d) Ninguém comprou guarda-chuvas no resto do ano.
+   e) O gráfico não serve para mostrar esse tipo de informação.
+
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: intermediario -->
+8. Uma tabela apresenta os seguintes dados de consumo de frutas por semana: Banana (15), Maçã (10), Laranja (12), Pera (8). Qual o total de frutas consumidas e qual a menos consumida?
+   a) 45 frutas, menos consumida: Banana.
+   b) 35 frutas, menos consumida: Maçã.
+   c) 45 frutas, menos consumida: Pera.
+   d) 40 frutas, menos consumida: Laranja.
+   e) 50 frutas, menos consumida: Pera.
+
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: intermediario -->
+9. O título de um gráfico é "Quantidade de Livros Lidos por Turma em 2023". No eixo horizontal estão as turmas (3º ano, 4º ano, 5º ano) e no eixo vertical os números vão de 0 a 100, contando de 10 em 10. Se a coluna do 5º ano para na linha do 80, quantos livros eles leram?
+   a) 5
+   b) 10
+   c) 8
+   d) 80
+   e) 100
+
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: intermediario -->
+10. Maria quer criar um gráfico para representar o número de irmãos de cada aluno da sua classe (0 irmãos, 1 irmão, 2 irmãos, 3 ou mais). Para isso, ela deve primeiro:
+    a) Desenhar as colunas e depois pensar nos números.
+    b) Fazer uma pesquisa com os colegas e organizar as respostas em uma tabela.
+    c) Escolher as cores do gráfico antes de saber o tema.
+    d) Copiar um gráfico pronto da internet.
+    e) Usar apenas um gráfico de linhas.
 
 <!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: avancado -->
-4. Uma tabela mostra os casos de gripe: Jan (50), Fev (80), Mar (100), Abr (40). O que podemos concluir da leitura desses dados?
-   a) Os casos só aumentaram durante os quatro meses.
-   b) Abril foi o mês com maior número de casos.
-   c) Os casos aumentaram até março e depois caíram em abril.
-   d) Janeiro não teve nenhum caso de gripe.
-   e) Houve um total de 300 casos ao todo.
+11. Em uma campanha de arrecadação de agasalhos, a escola montou um gráfico de colunas. O 3º ano arrecadou 120 peças, o 4º ano 150 peças e o 5º ano arrecadou o dobro do 3º ano. Quantas peças o 5º ano arrecadou e qual o total da campanha?
+    a) 5º ano: 240; Total: 510.
+    b) 5º ano: 120; Total: 390.
+    c) 5º ano: 300; Total: 570.
+    d) 5º ano: 240; Total: 410.
+    e) 5º ano: 150; Total: 420.
 
-`Gabarito: 1.c | 2.c | 3.b | 4.c`
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: avancado -->
+12. Um gráfico de linhas mostra a variação de temperatura de uma cidade durante o dia: às 8h (15°C), às 12h (25°C), às 16h (22°C) e às 20h (18°C). Qual foi a diferença entre a temperatura máxima registrada e a temperatura registrada às 20h?
+    a) 3°C
+    b) 5°C
+    c) 7°C
+    d) 10°C
+    e) 15°C
+
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: avancado -->
+13. Uma loja de brinquedos anotou suas vendas do fim de semana em uma tabela, mas um número manchou: Sexta-feira (45 vendas), Sábado (???), Domingo (60 vendas). Sabendo que o total de vendas nesses três dias foi de 180 brinquedos, quantas vendas ocorreram no Sábado?
+    a) 60
+    b) 65
+    c) 70
+    d) 75
+    e) 80
+
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: avancado -->
+14. Analisando dois gráficos, um de colunas que mostra a população de uma cidade em 2010 (50.000 habitantes) e 2020 (75.000 habitantes), um estudante escreveu o seguinte texto: "A cidade perdeu muitos habitantes na última década". Essa síntese está:
+    a) Correta, pois 50 é menor que 75.
+    b) Incorreta, pois a população permaneceu exatamente a mesma.
+    c) Incorreta, pois a população aumentou em 25.000 habitantes.
+    d) Correta, mas ele esqueceu de citar o nome da cidade.
+    e) Incorreta, pois não é possível ler essa informação no gráfico.
+
+<!-- tipo: multipla-escolha | habilidade: EF05MA24 | dificuldade: avancado -->
+15. O dono de uma cantina quer parar de vender o salgado menos procurado e aumentar a produção do mais procurado. Ele analisou um gráfico semanal que indica: Coxinha (120), Pastel (90), Empada (45), Esfiha (80), Kibe (50). Quais atitudes ele deve tomar com base nesses dados?
+    a) Parar de vender Pastel e produzir mais Kibe.
+    b) Parar de vender Empada e produzir mais Coxinha.
+    c) Parar de vender Esfiha e produzir mais Pastel.
+    d) Parar de vender Coxinha e produzir mais Empada.
+    e) Parar de vender Kibe e produzir mais Esfiha.
+
+`Gabarito: 1.b | 2.c | 3.d | 4.c | 5.d | 6.c | 7.c | 8.c | 9.d | 10.b | 11.a | 12.c | 13.d | 14.c | 15.b`
 
 ---
 ## Referências

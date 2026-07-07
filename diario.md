@@ -262,3 +262,31 @@ Todos os e-books atômicos (6 arquivos) deste lote (Batch 3) foram produzidos le
 - **Capítulo 20:** Perímetros e Áreas (EF06MA29)
 
 Todos os e-books atômicos (8 arquivos) deste lote (Batch 4) foram produzidos com consulta estrita ao `mapa_oficial.md` para garantir o texto exato de cada habilidade BNCC, assegurando a aderência ao Objeto de Conhecimento. A estrutura de microaprendizagem foi preenchida seguindo as regras da skill E-book Creator, contemplando YAML com 11 atributos, tags HTML invisíveis em todas as 4 questões de cada quiz e as seções pedagógicas obrigatórias. A auto-validação foi concluída com sucesso.
+
+### Entregas Realizadas (Refatoração Matemática 5º Ano - Capítulos 5, 6 e 7):
+- **Refatoração de Quizzes:** Os arquivos dos capítulos 05 (Explorando Espaço e Formas), 06 (Medindo o Nosso Mundo) e 07 (O Mundo dos Dados e Chances) foram inteiramente refatorados.
+- **Expansão de Exercícios:** Cada um dos 12 e-books (`ef05ma14` a `ef05ma25`) foi atualizado para conter **exatamente 15 exercícios**.
+- **Distribuição de Dificuldade:** A distribuição seguiu o padrão rigoroso de 5 questões Básicas (1-5), 5 Intermediárias (6-10) e 5 Avançadas/Situação-problema (11-15).
+- **Adequação para Telemetria:** As tags HTML de metadados (`<!-- tipo: multipla-escolha | habilidade: <HAB> | dificuldade: <nivel> -->`) foram aplicadas a todas as 180 questões geradas (15 por e-book), além da unificação e preservação do Gabarito e da seção de Referências.
+- **Paralelização Autônoma:** A refatoração foi conduzida em tempo recorde através da orquestração de 12 sub-agentes autônomos simultâneos.
+
+### Entregas Realizadas (Refatoração Matemática 6º Ano - Capítulos 9 a 16):
+- **Refatoração de Quizzes:** Os arquivos dos capítulos 09 ao 16 (10 arquivos `.md` no total, englobando as habilidades `EF06MA14` a `EF06MA23`) foram inteiramente refatorados.
+- **Expansão de Exercícios:** Cada um dos 10 e-books foi atualizado para conter **exatamente 15 exercícios**.
+- **Distribuição de Dificuldade:** A distribuição seguiu o padrão rigoroso de 5 questões Básicas (1-5), 5 Intermediárias (6-10) e 5 Avançadas/Situação-problema (11-15).
+- **Adequação para Telemetria:** As tags HTML de metadados (`<!-- tipo: multipla-escolha | habilidade: <HAB> | dificuldade: <nivel> -->`) foram aplicadas rigorosamente a todas as 150 questões geradas (15 por e-book), além da unificação e preservação do Gabarito.
+- **Substituição Direta:** A refatoração preservou o conteúdo teórico intacto, modificando unicamente o bloco `Teste Seus Conhecimentos`.
+
+### Entregas Realizadas (Refatoração Matemática 6º Ano - Capítulos 17 a 23):
+- **Refatoração de Quizzes:** Os arquivos dos capítulos 17 ao 23 (11 arquivos `.md` no total, englobando as habilidades `EF06MA24` a `EF06MA34`) foram inteiramente refatorados.
+- **Expansão de Exercícios:** Cada um dos 11 e-books foi atualizado para conter **exatamente 15 exercícios**.
+- **Distribuição de Dificuldade:** A distribuição seguiu o padrão rigoroso de 5 questões Básicas (1-5), 5 Intermediárias (6-10) e 5 Avançadas/Situação-problema (11-15).
+- **Adequação para Telemetria:** As tags HTML de metadados (`<!-- tipo: multipla-escolha | habilidade: <HAB> | dificuldade: <nivel> -->`) foram aplicadas rigorosamente a todas as 165 questões geradas (15 por e-book), além da unificação e preservação do Gabarito.
+- **Substituição Direta:** A refatoração preservou o conteúdo teórico intacto, modificando unicamente o bloco `Teste Seus Conhecimentos`.
+
+### Entregas Realizadas (Refatoração Matemática 6º Ano - Capítulos 1 a 8):
+- **Refatoração de Quizzes:** Os arquivos dos capítulos 01 ao 08 (13 arquivos `.md` no total, englobando as habilidades `EF06MA01` a `EF06MA13`) foram inteiramente refatorados.
+- **Expansão de Exercícios:** Cada um dos 13 e-books foi atualizado para conter **exatamente 15 exercícios**.
+- **Distribuição de Dificuldade:** A distribuição seguiu o padrão rigoroso de 5 questões Básicas (1-5), 5 Intermediárias (6-10) e 5 Avançadas/Situação-problema (11-15).
+- **Adequação para Telemetria:** As tags HTML de metadados (`<!-- tipo: multipla-escolha | habilidade: <HAB> | dificuldade: <nivel> -->`) foram aplicadas rigorosamente a todas as 195 questões geradas (15 por e-book), além da unificação e preservação do Gabarito.
+- **Substituição Direta e Paralelização:** A refatoração preservou o conteúdo teórico e referências intactos, modificando unicamente o bloco `Teste Seus Conhecimentos`, orquestrada de forma eficiente por múltiplos agentes.
