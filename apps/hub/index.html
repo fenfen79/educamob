@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Aprendizagem - Educamob</title>
+    
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../shared/js/supabase-client.js"></script>
+    <!-- Auth Guard -->
+    <script src="../../shared/js/auth-guard.js"></script>
+
+    <!-- Design System -->
+    <link rel="stylesheet" href="../../shared/css/design-system.css?v=9">
+    <script src="../../shared/components/header.js"></script>
+
+    <style>
+        body {
+            background-color: var(--bg);
+            position: relative;
+            overflow-x: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Abstract ambient glow */
+        .ambient-glow {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .ambient-glow::before, .ambient-glow::after {
+            content: '';
+            position: absolute;
+            width: 80vw;
+            height: 80vh;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.12;
+            animation: breathe 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .ambient-glow::before {
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            top: -20%; left: -20%;
+        }
+        .ambient-glow::after {
+            background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+            bottom: -20%; right: -20%;
+            animation-delay: -12s;
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.2) translate(5%, 10%); }
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 1rem;
+        }
+
+        .hero-hub {
+            padding: 1.5rem 1rem 2.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+            color: var(--text);
+            letter-spacing: -1.5px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+            letter-spacing: -0.2px;
+        }
+
+        /* Minimalist Grid */
+        .hub-container {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 1rem 1rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .hub-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+                padding: 0 2rem 2rem;
+            }
+            .hero-title { font-size: 3.2rem; }
+            .hero-subtitle { font-size: 1.15rem; }
+            .hero-hub { padding: 3rem 2rem 4rem; }
+        }
+
+        /* Conceptual Card Design */
+        .hub-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* The glowing wireframe top edge */
+        .hub-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 15%; right: 15%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,106,0,0.5), transparent);
+            opacity: 0.3;
+            transition: opacity 0.5s ease, left 0.5s ease, right 0.5s ease;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4),
+                        0 0 40px -10px rgba(255, 106, 0, 0.1);
+        }
+
+        .hub-card:hover::before {
+            opacity: 1;
+            left: 0; right: 0;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Conceptual SVG Icon Container */
+        .card-icon-svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .card-icon-svg svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .hub-card:hover .card-icon-svg {
+            transform: scale(1.08) translateY(-4px);
+        }
+
+        /* Typography */
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 0;
+            letter-spacing: -0.3px;
+            transition: color 0.3s ease;
+        }
+
+        .card-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hub-card:hover .card-title {
+            color: #ffffff;
+        }
+
+        .hub-card:hover .card-desc {
+            opacity: 1;
+            transform: translateY(0);
+            color: var(--primary);
+        }
+
+        @media (min-width: 768px) {
+            .card-title { font-size: 1.3rem; }
+            .card-icon-svg { width: 100px; height: 100px; margin-bottom: 2rem; }
+        }
+
+        /* Minimal Logout */
+        .logout-container {
+            text-align: center;
+            margin: auto 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-logout {
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+        
+        .btn-logout:hover {
+            color: var(--text);
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* SVG Internal Animations */
+        .svg-rotate-slow { animation: rotate 20s linear infinite; transform-origin: center; }
+        .svg-rotate-fast-reverse { animation: rotateReverse 15s linear infinite; transform-origin: center; }
+        .svg-pulse { animation: pulseOpac 3s ease-in-out infinite alternate; }
+        .svg-float-concept { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); transform-origin: center; }
+        
+        .hub-card:hover .svg-float-concept { transform: translateY(-5px) scale(1.05); }
+
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
+        @keyframes rotateReverse { 100% { transform: rotate(-360deg); } }
+        @keyframes pulseOpac { 0% { opacity: 0.4; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <!-- Definição de Gradientes Abstratos -->
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <!-- Gradientes Sutis de Fio/Wireframe -->
+            <linearGradient id="wireGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.8)" />
+                <stop offset="100%" stop-color="rgba(255,255,255,0.1)" />
+            </linearGradient>
+            
+            <linearGradient id="primaryWire" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#FF6A00" />
+                <stop offset="100%" stop-color="#FF3D00" />
+            </linearGradient>
+
+            <linearGradient id="accentWire" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+            </linearGradient>
+            
+            <!-- Glow Filters -->
+            <filter id="etherealGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+            
+            <filter id="orangeGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="5" result="blur" />
+                <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+    </svg>
+
+    <educamob-header back-url="#"></educamob-header>
+
+    <main>
+        <section class="hero-hub">
+            <h1 class="hero-title" id="welcome-text">Olá, Estudante</h1>
+            <p class="hero-subtitle">Como vamos aprender hoje?</p>
+        </section>
+
+        <section class="hub-container">
+            <!-- Mob.me (Concept: Neural Node / AI Core) -->
+            <a href="../tutor/index.html" class="hub-card">
+                <div class="card-content">
+                    <div class="card-icon-svg">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background pulse -->
+                            <circle cx="50" cy="50" r="15" fill="var(--primary)" filter="url(#orangeGlow)" opacity="0.1" class="svg-pulse"/>
+                            <g class="svg-float-concept">
+                                <!-- Orbital Rings -->
+                                <circle cx="50" cy="50" r="35" fill="none" stroke="url(#wireGradient)" stroke-width="0.5" class="svg-rotate-slow"/>
+                                <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="url(#primaryWire)" stroke-width="1.5" transform="rotate(45 50 50)" class="svg-rotate-fast-reverse"/>
+                                <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" transform="rotate(-45 50 50)" class="svg-rotate-slow"/>
+                                <!-- Core Core -->
+                                <circle cx="50" cy="50" r="4" fill="#ffffff" filter="url(#etherealGlow)"/>
+                                <circle cx="50" cy="50" r="8" fill="none" stroke="url(#primaryWire)" stroke-width="2"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Mob.me</h3>
+                    <div class="card-desc">Tutor de IA</div>
+                </div>
+            </a>
+
+            <!-- Biblioteca (Concept: Stacked Knowledge / Data Prism) -->
+            <a href="../biblioteca/index.html" class="hub-card">
+                <div class="card-content">
+                    <div class="card-icon-svg">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="15" fill="var(--primary)" filter="url(#orangeGlow)" opacity="0.08" class="svg-pulse"/>
+                            <g class="svg-float-concept">
+                                <!-- Base Grid -->
+                                <path d="M50 80 L20 65 L50 50 L80 65 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-linejoin="round"/>
+                                <!-- Middle Layer -->
+                                <path d="M50 65 L20 50 L50 35 L80 50 Z" fill="none" stroke="url(#wireGradient)" stroke-width="1.5" stroke-linejoin="round"/>
+                                <!-- Top Glowing Layer -->
+                                <path d="M50 50 L20 35 L50 20 L80 35 Z" fill="rgba(255,106,0,0.05)" stroke="url(#primaryWire)" stroke-width="2" stroke-linejoin="round" filter="url(#etherealGlow)"/>
+                                <!-- Vertical Connection Data Lines -->
+                                <line x1="20" y1="35" x2="20" y2="65" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2 4"/>
+                                <line x1="80" y1="35" x2="80" y2="65" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2 4"/>
+                                <line x1="50" y1="20" x2="50" y2="80" stroke="url(#primaryWire)" stroke-width="2" opacity="0.8"/>
+                                <circle cx="50" cy="20" r="3" fill="#ffffff" filter="url(#etherealGlow)"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Biblioteca</h3>
+                    <div class="card-desc">Acervo Digital</div>
+                </div>
+            </a>
+
+            <!-- Revisa (Concept: Convergence / Precision / Focus) -->
+            <a href="../exercicios/index.html" class="hub-card">
+                <div class="card-content">
+                    <div class="card-icon-svg">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="15" fill="var(--primary)" filter="url(#orangeGlow)" opacity="0.08" class="svg-pulse"/>
+                            <g class="svg-float-concept">
+                                <!-- Outer Crosshairs -->
+                                <line x1="10" y1="50" x2="30" y2="50" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                                <line x1="70" y1="50" x2="90" y2="50" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                                <line x1="50" y1="10" x2="50" y2="30" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                                <line x1="50" y1="70" x2="50" y2="90" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                                
+                                <!-- Concentric Hexagons -->
+                                <polygon points="50,20 76,35 76,65 50,80 24,65 24,35" fill="none" stroke="url(#wireGradient)" stroke-width="1" class="svg-rotate-slow"/>
+                                <polygon points="50,30 67,40 67,60 50,70 33,60 33,40" fill="none" stroke="url(#primaryWire)" stroke-width="2" class="svg-rotate-fast-reverse" filter="url(#etherealGlow)"/>
+                                
+                                <!-- Center Point -->
+                                <circle cx="50" cy="50" r="4" fill="#ffffff"/>
+                                <circle cx="50" cy="50" r="10" fill="none" stroke="url(#primaryWire)" stroke-width="1.5" stroke-dasharray="4 4" class="svg-rotate-slow"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Revisa</h3>
+                    <div class="card-desc">Exercícios</div>
+                </div>
+            </a>
+
+            <!-- Dashboard (Concept: Data Flow / Abstract Graph) -->
+            <a href="../dashboard/index.html" class="hub-card">
+                <div class="card-content">
+                    <div class="card-icon-svg">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="15" fill="var(--primary)" filter="url(#orangeGlow)" opacity="0.08" class="svg-pulse"/>
+                            <g class="svg-float-concept">
+                                <!-- Abstract Data Waves -->
+                                <path d="M10 70 Q 30 70 40 50 T 70 40 T 90 20" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 80 Q 35 80 50 60 T 75 45 T 95 25" fill="none" stroke="url(#wireGradient)" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M5 60 Q 25 60 35 30 T 60 25 T 85 5" fill="none" stroke="url(#primaryWire)" stroke-width="3" stroke-linecap="round" filter="url(#etherealGlow)"/>
+                                
+                                <!-- Floating Data Points -->
+                                <circle cx="35" cy="30" r="3" fill="#ffffff"/>
+                                <circle cx="60" cy="25" r="4" fill="#ffffff" filter="url(#etherealGlow)"/>
+                                <circle cx="85" cy="5" r="5" fill="#ffffff" filter="url(#orangeGlow)"/>
+                                
+                                <!-- Vertical Data Pillars -->
+                                <line x1="35" y1="30" x2="35" y2="85" stroke="url(#primaryWire)" stroke-width="1" stroke-dasharray="2 4" opacity="0.5"/>
+                                <line x1="60" y1="25" x2="60" y2="85" stroke="url(#primaryWire)" stroke-width="1" stroke-dasharray="2 4" opacity="0.5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Desempenho</h3>
+                    <div class="card-desc">Relatórios</div>
+                </div>
+            </a>
+        </section>
+
+        <div class="logout-container">
+            <button id="btn-logout" class="btn-logout">Sair da Conta</button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const welcomeText = document.getElementById('welcome-text');
+            const btnLogout = document.getElementById('btn-logout');
+
+            // Set user name
+            try {
+                const { data: { user } } = await window.supabaseClient.auth.getUser();
+                if (user && user.user_metadata && user.user_metadata.name) {
+                    // Pega o primeiro nome
+                    const firstName = user.user_metadata.name.split(' ')[0];
+                    welcomeText.innerHTML = `Olá, <span>${firstName}</span>`;
+                }
+            } catch (err) {
+                console.log("Erro ao buscar nome do usuário", err);
+            }
+
+            // Logout
+            btnLogout.addEventListener('click', async () => {
+                await window.supabaseClient.auth.signOut();
+                window.location.href = '../login/index.html';
+            });
+        });
+    </script>
+</body>
+</html>

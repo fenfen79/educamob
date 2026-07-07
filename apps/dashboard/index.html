@@ -5,26 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Controle de Estudos - Educamob</title>
   
-  <link rel="stylesheet" href="../../shared/css/design-system.css?v=3">
+  <link rel="stylesheet" href="../../shared/css/design-system.css?v=7">
   
   <style>
-    .hero-compact {
-      background: linear-gradient(to bottom, var(--bg-elevated), var(--bg));
-      padding: 3rem 1.5rem 2rem;
-      text-align: center;
-    }
-    
-    .hero-title {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-    
-    .hero-subtitle {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-    }
-
     .dashboard-container {
       margin: 3rem auto 4rem;
     }
@@ -173,59 +156,9 @@
       }
     } /* Fim do @media (max-width: 768px) para as tabelas */
 
-    /* Filtros (Fora do media query, visível no Desktop) */
-    .filters-bar {
-      margin: 1rem auto 2rem;
-      padding: 1.2rem;
-      border-radius: var(--radius);
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 900px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      position: relative;
-    }
-    .filter-group {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      min-width: 200px;
-    }
-    .filter-group label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .filter-select {
-      background-color: var(--bg);
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 0.8rem;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      cursor: pointer;
-      outline: none;
-    }
+    </style>
 
-    /* Ajuste mobile dos filtros */
-    @media (max-width: 768px) {
-      .filters-bar {
-        flex-direction: column;
-        margin-top: 0;
-        border-radius: 0;
-      }
-      .filter-group {
-        width: 100%;
-      }
-    }
-  </style>
-
-  <script src="../../shared/components/header.js?v=15"></script>
+  <script src="../../shared/components/header.js?v=16"></script>
   <script src="../../shared/components/footer.js"></script>
 
   <!-- Supabase & Auth Guard -->

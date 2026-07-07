@@ -44,15 +44,35 @@ class EducamobHeader extends HTMLElement {
         }
         
         .logo img {
-          height: 40px;
-          transform: scale(3.5);
-          transform-origin: center;
+          height: 50px;
           display: block;
           transition: transform 0.3s ease;
         }
         
         .logo:hover img {
-          transform: scale(3.6);
+          transform: scale(1.05);
+        }
+
+        @media (min-width: 768px) {
+          .logo img {
+            height: 40px;
+            transform: scale(3.5);
+          }
+          .logo:hover img {
+            transform: scale(3.6);
+          }
+          .hide-mobile {
+            display: inline;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .hide-mobile {
+            display: none;
+          }
+          header {
+            padding: 1rem 10px; /* Reduz o padding lateral no mobile */
+          }
         }
         
         .back-link {
@@ -111,7 +131,7 @@ class EducamobHeader extends HTMLElement {
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
-          Voltar ao Hub
+          Voltar <span class="hide-mobile">ao Hub</span>
         </a>
         <a href="${backUrl}" class="logo" style="display: flex; align-items: center; flex: 1; justify-content: center;">
           <img src="../../shared/assets/BASE-V1-cropped.png" alt="BASE">

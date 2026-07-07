@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const { data, error } = await window.supabaseClient.auth.getSession();
         if (data && data.session) {
-            window.location.href = '../dashboard/index.html';
+            window.location.href = '../hub/index.html';
         }
     };
     checkSession();
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showError("Erro ao fazer login: " + error.message);
             }
         } else {
-            window.location.href = '../dashboard/index.html';
+            window.location.href = '../hub/index.html';
         }
     });
 
@@ -186,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
             btnTextEl.textContent = "Salvar e Entrar";
             btnResetSubmit.disabled = false;
         } else {
-            // Senha trocada com sucesso, joga pro dashboard!
-            window.location.href = '../dashboard/index.html';
+            // Senha trocada com sucesso, joga pro hub!
+            window.location.href = '../hub/index.html';
         }
     });
 });
