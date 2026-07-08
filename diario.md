@@ -355,3 +355,13 @@ Todos os e-books atômicos (8 arquivos) deste lote (Batch 4) foram produzidos co
 - **Conteúdo Específico e Adequado:** Estruturados para alunos de 14-15 anos (9º Ano), abrangendo Introdução a Funções, Razão entre Grandezas, Proporcionalidade e Escalas, e Fatoração para Equações do 2º Grau.
 - **Formato Rígido e Telemetria:** O Frontmatter YAML completo e as tags HTML de telemetria invisíveis foram aplicados rigorosamente em todas as atividades dos 4 arquivos, junto com o scaffolding pedagógico exigido ("Na Prática", "Erros Comuns", "Conexões Interdisciplinares" e "Resumo para Revisão").
 - **Extensão Rigorosa (15 Questões):** Cada um dos 4 e-books foi estruturado para conter exatamente **15 questões** com 5 alternativas, divididas perfeitamente nas 3 faixas de dificuldade (Básico 1-5, Intermediário 6-10 e Avançado 11-15), totalizando 60 novas questões. O processo de auditoria os classificou como APROVADOS e prontos para compor SPAs/RAG.
+
+### Entregas Realizadas (Refatoração Teórica Matemática 9º Ano - Capítulos 01 a 04):
+- **Expansão de Conteúdo (Deep Dive):** As seções teóricas dos e-books `ef09ma01-ma02.md`, `ef09ma03.md`, `ef09ma04.md` e `ef09ma05.md` foram significativamente refatoradas e expandidas para a marca de ~2.500 caracteres cada.
+- **Riqueza de Contexto:** Inclusão de narrativas engajadoras, detalhamento passo a passo de conceitos e exemplos concretos, assegurando que o texto principal seja profundo o suficiente para suprir os motores RAG e a leitura offline.
+- **Preservação Estrutural:** O Frontmatter YAML, as tags de telemetria HTML, e as seções pedagógicas posteriores ("Na Prática", "Erros Comuns", "Exercícios") foram mantidas 100% intactas, garantindo compatibilidade contínua com a arquitetura.
+
+### Entregas Realizadas (Refatoração Teórica Matemática 9º Ano - Capítulos 09 a 15):
+- **Expansão de Conteúdo (Deep Dive):** As seções teóricas dos 7 e-books (`ef09ma10.md` a `ef09ma17.md`) do Batch 3 foram significativamente refatoradas e expandidas para atingirem de 2.500 a 3.000 caracteres cada.
+- **Riqueza de Contexto:** Foram inseridas narrativas detalhadas e estruturadas em tópicos sobre os temas complexos de Geometria (como Teoremas de Tales e Pitágoras, Vistas Ortogonais, Semelhança de Triângulos e Construção de Polígonos Regulares), enriquecendo o insumo para os motores RAG.
+- **Preservação Estrutural:** O Frontmatter YAML, tags de telemetria HTML, quizzes e as seções pedagógicas posteriores ("Na Prática", "Erros Comuns") foram mantidas 100% intactas, respeitando a arquitetura estabelecida.
