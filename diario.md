@@ -308,3 +308,27 @@ Todos os e-books atômicos (8 arquivos) deste lote (Batch 4) foram produzidos co
 - **Conteúdo Específico e Adequado:** Estruturados para alunos de 12-13 anos com base em consulta à BNCC, incluindo seções "Na Prática", "Erros Comuns" e "Conexões Interdisciplinares" em todos os 10 arquivos.
 - **Formato Rígido e Telemetria:** O Frontmatter YAML (11 metadados) e as tags HTML de telemetria invisíveis foram aplicados com precisão em todas as atividades.
 - **Auto-validação e Rigor de 15 Questões:** Cada um dos 10 e-books foi estruturado para conter exatamente **15 questões** com 5 alternativas, divididas nas 3 faixas de dificuldade (Básico 1-5, Intermediário 6-10 e Avançado 11-15), totalizando 150 novas questões. O processo de auto-validação confirmou a exatidão das quantidades.
+
+### Entregas Realizadas (Criação de E-books Matemática 8º Ano - Capítulos 13 a 17):
+- **Novos E-books Atômicos:** Foram gerados do zero os 5 e-books englobando as habilidades `EF08MA14` a `EF08MA18` (Capítulos 13 a 17), cobrindo Congruência de Triângulos, Construções de Mediatriz/Bissetriz, Hexágonos Regulares, Lugares Geométricos e Composições de Transformações Geométricas.
+- **Conteúdo Específico e Adequado:** Estruturados sob medida para alunos de 13-14 anos com base em consulta à BNCC. Inclusão das seções "Na Prática", "Erros Comuns" e "Conexões Interdisciplinares" em todos os 5 arquivos.
+- **Formato Rígido e Telemetria:** O Frontmatter YAML (11 metadados) e as tags HTML de telemetria invisíveis foram aplicados com rigor absoluto em todas as atividades.
+- **Auto-validação e Rigor de 15 Questões:** Cada um dos 5 e-books foi gerado contendo exatamente **15 questões** com 5 alternativas, segmentadas meticulosamente nas 3 faixas de dificuldade exigidas (Básico 1-5, Intermediário 6-10 e Avançado 11-15), totalizando 75 novas questões para o banco do 8º Ano. A validação e a formatação ABNT foram conferidas com sucesso.
+
+### Entregas Realizadas (Criação de E-books Matemática 8º Ano - Capítulos 1 a 5):
+- **Novos E-books Atômicos:** Foram gerados do zero os 5 e-books englobando as habilidades `EF08MA01` a `EF08MA05` (Capítulos 01 a 05).
+- **Conteúdo Específico e Adequado:** Estruturados para alunos de 13-14 anos (8º Ano), abrangendo Notação Científica, Radiciação, Princípio Multiplicativo, Porcentagens e Dízimas Periódicas.
+- **Formato Rígido:** O Frontmatter YAML completo e as tags HTML de telemetria invisíveis foram aplicados em todas as atividades dos 5 arquivos, junto com o scaffolding pedagógico exigido ("Na Prática", "Erros Comuns", etc).
+- **Extensão Rigorosa (15 Questões):** Cada um dos 5 e-books foi estruturado para conter exatamente **15 questões** com 5 alternativas, divididas perfeitamente nas 3 faixas de dificuldade, totalizando 75 novas questões para o 8º Ano. A auto-validação (via grep_search) confirmou a precisão dos metadados e estrutura.
+
+### Entregas Realizadas (Criação de E-books Matemática 8º Ano - Capítulos 18 a 24):
+- **Novos E-books Atômicos:** Foram gerados do zero 7 e-books englobando as habilidades `EF08MA19` a `EF08MA27` (Capítulos 18 a 24).
+- **Conteúdo Específico e Adequado:** Estruturados para alunos de 13-14 anos (8º Ano), abrangendo Área de Figuras Planas, Volume e Capacidade, Probabilidade, Gráficos Estatísticos, Frequências de Variáveis Contínuas, Medidas de Tendência Central e Pesquisas Amostrais.
+- **Formato Rígido:** O Frontmatter YAML completo (com status de revisão pendente) e as tags HTML de telemetria invisíveis foram aplicados com sucesso em todas as atividades dos 7 arquivos, incluindo as seções de "Na Prática", "Erros Comuns", "Conexões Interdisciplinares" e "Resumo".
+- **Extensão Rigorosa (15 Questões):** Cada um dos 7 e-books foi estruturado para conter exatamente **15 questões** com 5 alternativas, divididas perfeitamente nas 3 faixas de dificuldade (Básico 1-5, Intermediário 6-10 e Avançado 11-15), totalizando 105 novas questões para o 8º Ano. A validação confirmou a precisão e completude dos arquivos.
+
+### Entregas Realizadas (Criação de E-books Matemática 8º Ano - Capítulos 06 a 12):
+- **Novos E-books Atômicos:** Foram gerados do zero 7 e-books englobando as habilidades `EF08MA06` a `EF08MA13` (Capítulos 06 a 12).
+- **Conteúdo Específico e Adequado:** Estruturados para alunos de 13-14 anos (8º Ano), abrangendo Valor Numérico de Expressões Algébricas, Equações Lineares com Duas Incógnitas e Plano Cartesiano, Sistemas de Equações, Equações Incompletas do 2º Grau, Sequências e Problemas de Proporcionalidade.
+- **Formato Rígido e Telemetria:** O Frontmatter YAML completo e as tags HTML de telemetria invisíveis foram aplicados rigorosamente em todas as atividades dos 7 arquivos, junto com o scaffolding pedagógico exigido ("Na Prática", "Erros Comuns", "Conexões", "Resumo").
+- **Extensão Rigorosa (15 Questões):** Cada um dos 7 e-books foi estruturado para conter exatamente **15 questões** com 5 alternativas, divididas perfeitamente nas 3 faixas de dificuldade (Básico 1-5, Intermediário 6-10 e Avançado 11-15), totalizando 105 novas questões. Todos os 7 arquivos foram criados e validados com sucesso.
