@@ -14,10 +14,15 @@ status_revisao: "pendente"
 
 # Medindo e Transformando o Nosso Mundo
 
-Você já percebeu que medimos as coisas o tempo todo? Compramos carne em **quilogramas (kg)**, leite em **litros (L)**, medimos a altura em **metros (m)** e olhamos a previsão do tempo para ver os **graus Celsius (°C)**. Além disso, controlamos a hora no relógio e o tempo no calendário!
+Pare um minuto e olhe ao seu redor. Você já percebeu que a gente passa o dia inteiro medindo coisas sem nem perceber? Quando você vai à padaria comprar pão, a balança mede o peso em **quilogramas (kg)** ou gramas. Quando você vai tomar um suco bem gelado, a garrafa marca a quantidade em **litros (L)** ou mililitros. Quando você vai no pediatra, ele verifica o quanto você cresceu medindo a sua altura em **metros (m)** e centímetros. E antes de sair de casa para brincar, você sempre olha a previsão do tempo para saber se fará frio ou calor, verificando a temperatura em **graus Celsius (°C)**. Até mesmo para saber quanto tempo falta para o recreio, você está medindo os minutos e os segundos no relógio!
 
-Na Matemática, a gente chama tudo que pode ser medido de **grandeza**. E para cada grandeza, temos uma unidade de medida. Às vezes, precisamos **transformar** essas unidades. Por exemplo, 1 metro (m) é a mesma coisa que 100 centímetros (cm), e 1 quilograma (kg) vale 1000 gramas (g). Saber resolver problemas fazendo essas conversões ajuda muito a não errar em situações do dia a dia, como numa receita ou na hora de fazer uma viagem!
+Na linguagem poderosa da matemática e da ciência, tudo o que existe na natureza e que pode ser medido (ou seja, contado de alguma forma) recebe um nome especial: nós chamamos de **grandeza**. E para cada tipo de grandeza que existe, a humanidade inventou uma "régua" diferente, que chamamos de unidade de medida. 
 
+O grande desafio, e também a parte mais divertida, é que muitas vezes precisamos "traduzir" ou **transformar** essas medidas de um tamanho para o outro. Por que fazemos isso? Imagine que você quer medir o tamanho da sua formiga de estimação usando metros. Seria muito difícil e daria um número estranho, cheio de zeros! Por isso, para coisas pequenas, nós usamos os centímetros ou os milímetros. Para coisas pesadas, usamos os quilogramas, e para as muito levinhas, os gramas.
+
+Para fazer essa tradução matemática, nós usamos algumas regrinhas mágicas de conversão. Por exemplo, a régua diz que **1 metro (m)** inteiro é feito de exatos **100 centímetros (cm)** juntinhos. Da mesma forma, quando você segura um pacote de farinha que pesa **1 quilograma (kg)**, você está segurando nada menos do que **1000 gramas (g)**! O prefixo "quilo" na matemática quase sempre significa "mil vezes". É por isso que um quilômetro (km) são 1000 metros!
+
+Saber fazer essas transformações na ponta do lápis é como ter um superpoder para resolver problemas da vida real. Se você não souber converter medidas, pode acabar colocando sal demais na comida, perdendo a hora do seu filme favorito no cinema ou até errando o tamanho da mala na hora de viajar. A matemática das medidas organiza o nosso mundo e garante que as receitas de bolo deem certo no final!
 **Na Prática:**
 Imagina que você vai fazer um bolo. A receita pede 500 gramas de farinha, mas você só tem um pacote de 1 quilograma (kg). Como 1 kg é igual a 1000 gramas, você sabe que precisa usar exatamente a **metade** do pacote! Outro exemplo: se um filme dura 120 minutos, sabendo que 1 hora tem 60 minutos, você descobre rapidamente que o filme dura exatamente 2 horas.
 

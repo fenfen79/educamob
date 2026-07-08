@@ -14,21 +14,19 @@ status_revisao: "pendente"
 
 # O Clube dos Polígonos: Lados, Vértices e Ângulos
 
-Na geometria, as figuras planas (2D) mais famosas formam um clube muito restrito: os **Polígonos**. Para entrar nesse clube, a figura tem regras muito rígidas:
-1. Ela deve ser **totalmente fechada** (sem aberturas).
-2. Ela deve ser feita **apenas por linhas retas** (nada de curvas!).
-3. As linhas **não podem se cruzar**.
+Imagine que no vasto universo da geometria plana (aquela que desenhamos no papel, em 2D) existe um clube super exclusivo e muito famoso. Esse clube é chamado de **Clube dos Polígonos**. Mas atenção: não é qualquer desenho que pode entrar nesse clube! O "segurança" da porta exige que a figura cumpra três regras rigorosíssimas:
 
-Se um desenho atende a essas três regras, parabéns, ele é um polígono! Exemplos: Triângulos, Quadrados, Retângulos e Pentágonos. Círculos e corações não são polígonos, pois têm curvas.
+Primeiro, a figura precisa ser **totalmente fechada**. Imagine que a sua figura seja um cercadinho para ovelhas; se houver qualquer buraquinho ou espaço aberto por onde a ovelhinha possa fugir, o desenho é barrado na porta! 
+Segundo, a figura deve ser desenhada **apenas com linhas perfeitamente retas**. Isso significa que círculos, nuvens, corações ou qualquer outra forma que tenha uma curvinha sequer estão fora do clube. 
+E em terceiro lugar, essas linhas retas **não podem se cruzar** no meio do caminho, formando figuras que parecem a letra "X" ou laços.
 
-Todo polígono é formado por três partes fundamentais:
-- **Lados:** As linhas retas que formam o contorno.
-- **Vértices:** As "quinas" ou pontas, onde dois lados se encontram.
-- **Ângulos (internos):** A abertura que fica do lado de dentro, no encontro de dois lados.
+Se um desenho respeita todas essas três regras, parabéns, ele acaba de ser aceito como um **Polígono**! Os membros mais famosos que você já conhece são o Triângulo, o Quadrado e o Retângulo. 
 
-O nome do polígono depende do número de lados que ele tem. Por exemplo, 3 lados formam um triângulo, 4 lados formam um quadrilátero, 5 lados formam um pentágono e 6 lados formam um hexágono.
-Uma curiosidade mágica: em qualquer polígono simples, o número de lados é **sempre igual** ao número de vértices e ao número de ângulos!
+Dentro do clube, percebemos que todo polígono veste um "uniforme" padrão formado por três partes fundamentais. A primeira parte são os **Lados**: esses são os pedacinhos de linhas retas que usamos para desenhar o contorno da figura (as cercas do nosso cercadinho). A segunda parte são os **Vértices**: toda vez que duas dessas linhas retas (lados) batem de frente e se encontram, elas formam uma "quina" ou uma pontinha bem afiada; essa pontinha é o vértice. E a terceira parte são os **Ângulos internos**: sabe aquele espacinho ou abertura que fica do lado de dentro da figura, bem no cantinho onde as duas linhas se encontram? Esse é o ângulo!
 
+Para manter tudo organizado, o clube dá os nomes dos polígonos de acordo com a quantidade de lados que eles possuem. Uma figura de 3 lados é um *Triângulo*, uma de 4 lados é chamada de *Quadrilátero* (não é só o quadrado que mora aqui, o retângulo e o losango também são quadriláteros!), uma de 5 lados é um *Pentágono* e uma de 6 lados é um *Hexágono*.
+
+E quer saber de um segredo mágico da matemática? Em qualquer polígono desse clube, o número de lados será sempre, perfeitamente igual ao número de vértices e ao número de ângulos. Se você sabe que a figura tem 5 lados, não precisa nem contar: ela terá com certeza 5 vértices e 5 ângulos internos. É a matemática trabalhando para facilitar a nossa vida!
 **Na Prática:**
 Pense em uma placa de trânsito de "PARE". Ela é vermelha, fechada e tem 8 lados retos. Isso faz dela um polígono chamado **Octógono**. Se você contar, verá que ela tem exatamente 8 lados, 8 pontas (vértices) e 8 aberturas internas (ângulos). 
 

@@ -14,11 +14,17 @@ status_revisao: "pendente"
 
 # Área e Perímetro: Eles São Sempre Iguais?
 
-Muitas vezes, confundimos duas medidas muito importantes na geometria: a **Área** e o **Perímetro**. 
-Para não esquecer: **Perímetro** é o contorno da figura (como se fosse a cerca de um terreno). Já a **Área** é todo o espaço de dentro, a superfície (como se fosse a grama do terreno).
+Quando começamos a estudar a geometria das formas planas, acabamos esbarrando em duas palavras muito importantes e que muitas vezes dão um nó na nossa cabeça: a **Área** e o **Perímetro**. É muito comum as pessoas acharem que elas são a mesma coisa, mas elas medem partes completamente diferentes de uma figura geométrica!
 
-O grande mistério que vamos desvendar é: se duas figuras têm o mesmo contorno (perímetro igual), a área de dentro também será igual? A resposta é **NÃO**! Figuras com o mesmo perímetro podem ter áreas bem diferentes. E o contrário também acontece: figuras com a mesma área (mesmo espaço interno) podem ter contornos (perímetros) totalmente diferentes. 
+Para você nunca mais esquecer a diferença entre elas, feche os olhos e imagine que você comprou um terreno no campo para construir a sua casa. O **Perímetro** é exatamente a medida do contorno desse terreno. Se você precisar comprar rolos de cerca de arame ou tijolos para construir um muro ao redor do terreno, para que o seu cachorro não fuja, você precisa calcular o perímetro! Na matemática, nós descobrimos o perímetro de um polígono simplesmente somando o tamanho de todos os seus lados (as "paredes" de fora).
 
+Já a **Área** é uma coisa totalmente diferente. Ela representa todo o espaço de dentro do seu terreno, ou seja, toda a superfície do chão. Se você precisar comprar placas de grama verde para plantar no quintal, ou lajotas para colocar no chão da sala, você não pode comprar apenas para a bordinha, precisa cobrir o chão inteiro! Para calcular a área, nós precisamos descobrir quantos "quadradinhos" de um determinado tamanho cabem perfeitamente dentro daquele espaço, sem sobrar e nem faltar nada.
+
+Agora, chega o grande mistério dos detetives matemáticos: se duas figuras geométricas diferentes possuem o mesmo tamanho de muro em volta (o mesmo perímetro), a área da grama do lado de dentro também será obrigatoriamente do mesmo tamanho? A resposta para essa pergunta é um sonoro **NÃO**! 
+
+A matemática nos prova que figuras com o exato mesmo tamanho de contorno podem ter espaços internos completamente diferentes. Você pode pegar a mesma quantidade de cerca e montar um terreno fininho e comprido (que quase não tem espaço dentro para construir uma casa) ou montar um terreno mais "quadradinho" que será bem espaçoso por dentro. 
+
+E a regra mágica também funciona ao contrário: figuras que têm o mesmo tamanho de grama por dentro (a mesma área) podem gastar quantidades muito diferentes de tijolos para construir o muro (perímetros diferentes). Compreender como essas duas medidas brincam de esconde-esconde e se relacionam é o segredo dos maiores engenheiros e arquitetos do mundo para economizar materiais e construir os melhores prédios e quadras esportivas!
 **Na Prática:**
 Pense em uma malha quadriculada, como um caderno de quadradinhos. Se você desenhar um retângulo de 1x6 quadradinhos, a área será de 6 quadradinhos, mas o perímetro (contorno) será de 14 lados de quadradinho. Agora, desenhe um retângulo de 2x3 quadradinhos. A área continua sendo 6 quadradinhos (mesma área!), mas o perímetro agora é apenas 10 lados! Mudamos o contorno sem mudar o espaço interno.
 

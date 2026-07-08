@@ -14,12 +14,15 @@ status_revisao: "pendente"
 
 # O Que é Volume? Aprendendo com Cubos
 
-Você já brincou de blocos de montar, como Lego ou peças de madeira? Se sim, você já trabalhou com **Volume**!
+Você já parou para pensar na quantidade de espaço que as coisas ocupam ao seu redor? Se você já brincou de montar cidades com blocos de Lego, montou uma torre com pecinhas de madeira ou até mesmo tentou guardar todos os seus brinquedos dentro de uma caixa apertada, você já usou um dos conceitos mais incríveis da matemática sem nem perceber: você já trabalhou com **Volume**!
 
-Na geometria, diferentemente da Área (que é plana, deitada no papel), o Volume está no mundo **3D** (tridimensional). O volume representa o **espaço que um corpo (ou sólido geométrico) ocupa** no ambiente. Todo objeto que tem comprimento, largura e altura/profundidade possui volume: uma caixa de sapato, um guarda-roupa e até você mesmo!
+Na geometria, diferentemente do Perímetro e da Área, que moram no mundo "plano" e achatado do papel (o mundo 2D), o Volume é o rei do mundo **3D** (tridimensional). O volume representa exatamente o **espaço que um corpo (ou sólido geométrico) ocupa** no ambiente ao nosso redor. Para existir no mundo 3D e ter volume, o objeto precisa ter três dimensões: comprimento (o tamanho da frente), largura (a profundidade, o quão "gordinho" ele é) e altura (o tamanho de baixo para cima). Pense bem: uma caixa de sapatos tem volume, a sua mochila da escola tem volume, uma piscina cheia de água tem volume e, adivinhe, você também tem volume, pois o seu corpo ocupa um lugar super importante no espaço!
 
-A melhor forma de medir o volume de um objeto de forma simples é usar o **empilhamento de cubos**. Cada cubinho representa uma "unidade de volume". Se você constrói uma parede com 10 cubinhos mágicos, o volume dessa sua construção é de 10 cubinhos. Fácil, não é?
+Mas como os matemáticos fazem para medir o volume de um objeto sem usar réguas difíceis? A forma mais simples e divertida de entender e calcular o volume é usando o método do **empilhamento de cubos**. Pense em um cubinho de plástico perfeito (como um dado de jogo de tabuleiro) como se ele fosse um tijolo de construção. Cada um desses cubinhos representa uma "unidade de volume" inteira. 
 
+Se você pega esses cubinhos e começa a construir uma parede mágica, empilhando um em cima do outro e um do lado do outro, você está criando um volume! Se a sua parede final usou exatamente 10 cubinhos mágicos para ficar pronta, a matemática nos diz que o volume total dessa sua construção é de, adivinhe, 10 cubinhos! É como brincar de arquiteto. 
+
+O grande desafio dessa brincadeira começa quando as construções ficam grandes e gordinhas. Muitas vezes, para fazer uma torre bem alta e larga, você acaba colocando cubinhos no meio ou lá no fundo da construção. Quando olhamos de frente, não conseguimos ver esses blocos "escondidos" na parte de trás, mas eles estão lá sustentando a torre! Por isso, para calcular o volume perfeito, precisamos usar a inteligência matemática para descobrir quantas fileiras e quantas camadas de blocos existem, multiplicando esses números para nunca deixar nenhum cubinho de fora da conta!
 **Na Prática:**
 Imagine que você tem uma caixa transparente e quer saber o volume dela usando dados de jogos de tabuleiro (aqueles cubinhos perfeitos). Você começa a empilhar os dados lá dentro. Você faz uma camada no fundo com 6 dados. Depois, coloca mais uma camada de 6 dados em cima. Pronto, a caixa encheu! Qual é o volume dessa caixa? Exato: 12 dados de volume (6 da base + 6 de cima).
 

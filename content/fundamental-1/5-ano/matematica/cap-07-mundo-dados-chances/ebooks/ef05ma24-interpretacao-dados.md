@@ -14,13 +14,15 @@ status_revisao: "pendente"
 
 # Lendo o Mundo Através de Gráficos e Tabelas
 
-Todos os dias somos bombardeados por informações: quantos casos de gripe tivemos este mês, qual foi a média de gols do campeonato, qual a temperatura prevista para a semana. Para não nos perdermos em tantos números, a **Estatística** organiza tudo isso em **tabelas e gráficos** (que podem ser de colunas ou linhas).
+Preste muita atenção ao seu redor: todos os dias, a todo momento, nós somos literalmente bombardeados por uma quantidade gigantesca de informações. Na televisão, o jornal conta quantos casos de gripe tivemos na cidade este mês; na internet, o canal de esportes mostra qual foi a média de gols do campeonato nacional; e no aplicativo do celular, vemos qual será a temperatura exata prevista para o final de semana. Se nós tentássemos ler todos esses números escritos em um texto gigante, a nossa cabeça ficaria muito confusa!
 
-A sua missão com essa habilidade é olhar para esses desenhos e números e conseguir **interpretar o que eles dizem** e até escrever um pequeno texto resumindo as conclusões. Um gráfico bem lido conta uma história!
+É exatamente para nos salvar dessa confusão que existe uma área fantástica da matemática chamada **Estatística**. O superpoder da estatística é pegar um monte de informações bagunçadas e organizá-las perfeitamente dentro de caixinhas que chamamos de **tabelas**, ou transformar esses números em desenhos incríveis que chamamos de **gráficos** (que podem ser desenhados com colunas altas, como prédios, ou com linhas que sobem e descem, como montanhas-russas).
 
-- **Gráfico de Colunas:** Excelente para comparar quantidades diferentes (ex: o animal de estimação favorito da turma).
-- **Gráfico de Linhas:** Perfeito para mostrar como algo mudou com o passar do tempo (ex: a variação do peso de um bebê mês a mês).
+A sua grande missão como estudante agora não é apenas aprender a desenhar esses gráficos, mas sim ganhar o poder da visão: você precisa olhar para esses desenhos cheios de cores e números e conseguir **interpretar exatamente o que eles estão tentando nos dizer**. Depois de ler a imagem, o seu cérebro deve ser capaz de produzir um pequeno texto resumindo as conclusões principais, apontando quem ganhou, quem perdeu, o que aumentou ou o que diminuiu. Lembre-se sempre: um gráfico bem desenhado não é apenas uma pintura bonitinha, ele conta uma história real do nosso mundo!
 
+Para ler essas histórias, você precisa conhecer os dois modelos mais famosos. O primeiro é o **Gráfico de Colunas**. Ele é o melhor detetive quando precisamos comparar a quantidade de coisas diferentes de um jeito muito rápido. Sabe aquela pesquisa para descobrir qual é o animal de estimação favorito da turma? No gráfico de colunas, você só precisa bater o olho para descobrir qual coluna "cresceu" mais e venceu a competição.
+
+O segundo é o **Gráfico de Linhas**. Ao contrário das colunas, ele é o especialista em viagens no tempo! Ele é perfeito para mostrar como alguma coisa foi mudando, crescendo ou encolhendo, com o passar dos dias, meses ou anos. Um excelente exemplo é quando os médicos anotam o peso e o tamanho de um bebezinho durante o seu primeiro ano de vida: a linha vai subindo aos poucos, mostrando que a criança está crescendo forte e saudável. Dominar a leitura de gráficos é aprender um idioma novo que o mundo inteiro usa para se comunicar!
 **Na Prática:**
 Imagine ler um gráfico de colunas em uma notícia sobre acidentes de trânsito. A coluna de 2020 marca 150 acidentes e a coluna de 2021 marca 80 acidentes. Sintetizando a conclusão: *"Houve uma redução significativa no número de acidentes no trânsito de 2020 para 2021."* Você acabou de extrair e produzir conhecimento a partir da imagem.
 

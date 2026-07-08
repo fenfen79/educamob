@@ -365,3 +365,13 @@ Todos os e-books atômicos (8 arquivos) deste lote (Batch 4) foram produzidos co
 - **Expansão de Conteúdo (Deep Dive):** As seções teóricas dos 7 e-books (`ef09ma10.md` a `ef09ma17.md`) do Batch 3 foram significativamente refatoradas e expandidas para atingirem de 2.500 a 3.000 caracteres cada.
 - **Riqueza de Contexto:** Foram inseridas narrativas detalhadas e estruturadas em tópicos sobre os temas complexos de Geometria (como Teoremas de Tales e Pitágoras, Vistas Ortogonais, Semelhança de Triângulos e Construção de Polígonos Regulares), enriquecendo o insumo para os motores RAG.
 - **Preservação Estrutural:** O Frontmatter YAML, tags de telemetria HTML, quizzes e as seções pedagógicas posteriores ("Na Prática", "Erros Comuns") foram mantidas 100% intactas, respeitando a arquitetura estabelecida.
+
+### Entregas Realizadas (Refatoração Teórica Matemática 5º Ano - Capítulos 01 e 02):
+- **Expansão de Conteúdo (Deep Dive):** As seções teóricas dos 5 e-books atômicos (`EF05MA01.md` até `EF05MA05.md`) focados em Sistema de Numeração Decimal e Frações/Decimais foram inteiramente reescritas e expandidas para ~2.500 caracteres cada.
+- **Adequação de Linguagem:** O conteúdo foi enriquecido com narrativas cativantes, uso intensivo de exemplos práticos e explicações estruturadas, ajustando perfeitamente o tom e a linguagem para estudantes de 10 a 11 anos (5º Ano).
+- **Preservação Estrutural (Isolamento Cirúrgico):** A refatoração incidiu exclusivamente sobre a introdução teórica principal. O Frontmatter YAML, os 15 quizzes com tags HTML de telemetria, e as seções pedagógicas vitais ("Na Prática", "Erros Comuns", "Conexões Interdisciplinares") foram rigorosamente preservados intactos.
+
+### Entregas Realizadas (Refatoração Teórica Matemática 5º Ano - Capítulos 05, 06 e 07):
+- **Expansão de Conteúdo (Deep Dive):** As seções teóricas dos 12 e-books atômicos (`ef05ma14.md` até `ef05ma25.md`) focados em Espaço e Formas, Grandezas e Medidas, e Probabilidade e Estatística foram inteiramente reescritas e expandidas para a marca de ~2.500 caracteres cada.
+- **Adequação de Linguagem:** O conteúdo foi enriquecido com narrativas cativantes, analogias do cotidiano e explicações ricas, ajustando perfeitamente o tom e a linguagem para estudantes de 10 a 11 anos (5º Ano).
+- **Preservação Estrutural:** O Frontmatter YAML, as tags de telemetria HTML, e as seções pedagógicas posteriores ("Na Prática", "Erros Comuns", "Conexões", etc.) e as 15 questões foram mantidas 100% intactas.

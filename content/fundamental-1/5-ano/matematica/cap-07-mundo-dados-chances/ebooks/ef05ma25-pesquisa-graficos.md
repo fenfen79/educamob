@@ -14,14 +14,15 @@ status_revisao: "pendente"
 
 # O Pequeno Pesquisador: Coletando e Apresentando Dados
 
-Nas últimas etapas, você aprendeu a ler gráficos prontos. Mas e se **você** for o cientista responsável por descobrir as informações? Realizar uma pesquisa do início ao fim envolve criar a pergunta, coletar as respostas, organizar tudo e escrever um relatório final (usando papel e lápis ou até ferramentas digitais!).
+Até agora, nós aprendemos como grandes detetives conseguem ler e descobrir os segredos escondidos nos gráficos que já estão prontos. Mas já pensou como seria incrível se **você** fosse o cientista principal, responsável por criar a pesquisa do zero e descobrir informações novas que ninguém mais sabe? Fazer uma pesquisa matemática do início ao fim é uma das aventuras mais legais da escola. Você começa tendo uma grande ideia, cria a pergunta perfeita, sai entrevistando as pessoas para coletar as respostas, organiza toda a bagunça dos números e, no final, escreve um relatório de verdade (que pode ser no papel com lápis de cor ou até mesmo usando programas legais no computador!).
 
-Na pesquisa, nós lidamos com dois tipos de variáveis (respostas):
-- **Variáveis Categóricas:** As respostas são "categorias", palavras. Exemplo: Qual é o seu animal favorito? (Cachorro, Gato, Pássaro).
-- **Variáveis Numéricas:** As respostas são números. Exemplo: Qual é a sua idade? (10 anos, 11 anos, 12 anos) ou Qual o seu peso?
+O primeiro passo dessa aventura é entender o que vamos perguntar. Na linguagem secreta da pesquisa, tudo aquilo que queremos descobrir recebe o nome de "variável", porque a resposta pode variar de pessoa para pessoa. Existem dois grandes grupos de variáveis que você pode investigar:
+O primeiro grupo é o das **Variáveis Categóricas**. O nome é difícil, mas significa apenas que as respostas serão dadas em palavras, criando categorias. Por exemplo, se você perguntar "Qual é a sua cor favorita?" ou "Qual o animal de estimação que você tem em casa?", as respostas serão palavras como Azul, Amarelo, Cachorro ou Gato.
+O segundo grupo é o das **Variáveis Numéricas**. Como o próprio nome já grita, aqui as respostas são obrigatoriamente números! É o que acontece quando você pergunta para a turma da escola: "Quantos irmãos você tem?", "Qual é a sua altura em centímetros?" ou "Qual é a sua idade?". 
 
-Depois de coletar, você deve organizar os dados (em tabelas, gráficos de colunas, pictogramas que usam desenhos, ou linhas) e apresentar a **síntese dos resultados** escrevendo sobre o que descobriu.
+Depois de correr pelo pátio da escola com a sua prancheta coletando as respostas, você terá um monte de informações espalhadas. É a hora de organizar! Você deve arrumar esses dados construindo tabelas bem bonitas, gráficos de colunas gigantes ou até pictogramas (que são gráficos onde usamos desenhos, como desenhar uma maçãzinha para cada pessoa que escolheu maçã). 
 
+Mas o trabalho do cientista não acaba no desenho! O último e mais importante passo é escrever a **síntese dos resultados**. Isso significa que você vai escrever um pequeno texto contando para todo mundo qual foi a grande descoberta da sua pesquisa, explicando quem ganhou a votação, o que surpreendeu e por que aquela informação é importante. É a sua chance de apresentar a sua descoberta para o mundo inteiro!
 **Na Prática:**
 Você decide pesquisar o "Lanche Favorito do 5º Ano". Você faz uma votação na sala (Variável Categórica). 15 alunos escolhem sanduíche, 10 escolhem fruta e 5 escolhem biscoito. Você cria um gráfico de colunas desenhado no caderno e, ao lado, escreve: *"O objetivo da pesquisa foi descobrir a preferência de lanches. O resultado mostra que a maioria prefere sanduíche, indicando um gosto por lanches salgados."*
 

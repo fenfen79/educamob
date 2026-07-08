@@ -14,14 +14,17 @@ status_revisao: "pendente"
 
 # Desmontando o Mundo 3D: Planificação de Figuras Espaciais
 
-Você já reparou que uma caixa de papelão desmontada vira um pedaço de papelão totalmente plano? Isso é exatamente o que a matemática chama de **planificação**!
+Você já ajudou a desmontar uma caixa de papelão depois de uma mudança ou de abrir um presente muito grande? Quando você descola as bordas e abre a caixa no chão, ela deixa de ser um objeto alto e espaçoso para se tornar um grande pedaço de papelão totalmente liso e achatado, certo? Parabéns, sem perceber você acabou de realizar um dos truques mais legais da geometria: a **planificação**!
 
-As **figuras espaciais** (ou sólidos geométricos) são formas em 3D, ou seja, têm comprimento, largura e altura. Elas são divididas em dois grandes grupos:
-- **Poliedros:** Têm apenas superfícies planas (faces), quinas (vértices) e linhas (arestas). Exemplos: Prismas (como uma caixa de sapatos) e Pirâmides (como as do Egito).
-- **Corpos Redondos:** Têm pelo menos uma parte curva e podem rolar. Exemplos: Cilindros (como uma lata de refrigerante), Cones (como um chapéu de festa) e Esferas (como uma bola).
+Vivemos em um mundo "3D", ou seja, tridimensional. Tudo o que podemos pegar com as nossas mãos — como o seu estojo, uma bola de futebol, uma lata de suco ou o seu próprio quarto — possui três dimensões: comprimento (o tamanho da frente), largura (a profundidade) e altura (o tamanho de baixo para cima). Na matemática, chamamos essas formas gordinhas e palpáveis de **figuras espaciais** ou **sólidos geométricos**.
 
-**Planificar** um sólido significa "abrir" ou "desdobrar" sua superfície em um plano (2D). Ao fazermos isso, podemos ver exatamente quais figuras planas (quadrados, triângulos, retângulos, círculos) formam aquela figura 3D. 
+Para facilitar o nosso estudo, nós dividimos todas essas figuras espaciais em duas grandes "famílias":
+- **Poliedros:** O nome é estranho, mas significa "muitas faces". São figuras formadas apenas por partes retas e superfícies totalmente planas. Se você tentar empurrá-los pelo chão, eles não vão rolar, vão apenas escorregar. Os poliedros são cheios de "quinas" (que chamamos de vértices) e "linhas de dobra" (que chamamos de arestas). Os maiores exemplos dessa família são os **Prismas** (como uma caixa de sapatos, que tem o chão e o teto iguaizinhos) e as famosas **Pirâmides** (como aquelas gigantescas construídas no Egito antigo, que têm uma base e terminam todas em uma única ponta lá no alto).
+- **Corpos Redondos:** Essa é a família dos diferentões! São as figuras que têm pelo menos uma parte curva, arredondada. Por causa disso, se você os colocar em uma rampa, eles vão sair rolando! Os mais famosos são o **Cilindro** (parecido com uma lata de refrigerante ou um cano da parede), o **Cone** (que lembra muito aquele chapéu de festa de aniversário ou a casquinha do sorvete) e a **Esfera** (que é perfeitamente redonda para todos os lados, exatamente como a bola que usamos para jogar futebol ou basquete).
 
+A mágica acontece quando resolvemos **planificar** um desses sólidos. Planificar significa, literalmente, abrir, recortar nas dobras corretas e desdobrar a figura até que ela fique perfeitamente deitada em um plano de duas dimensões (2D). Ao fazer isso, nós conseguimos descobrir o "molde secreto" daquele objeto. 
+
+Descobrimos, por exemplo, que um dado (que é um cubo) não passa de seis quadradinhos colados de um jeito muito inteligente. Ou que uma pirâmide de base quadrada é formada por um quadrado rodeado por quatro triângulos. Compreender a planificação é o que permite que engenheiros e designers criem todas as embalagens incríveis que vemos no supermercado todos os dias!
 **Na Prática:**
 Se você pegar um **Cilindro** (rolo de papel higiênico) e cortá-lo para abrir, descobrirá que ele é formado por um grande retângulo enrolado e dois círculos (as tampas em cima e embaixo). A planificação revela o "molde" do objeto! 
 

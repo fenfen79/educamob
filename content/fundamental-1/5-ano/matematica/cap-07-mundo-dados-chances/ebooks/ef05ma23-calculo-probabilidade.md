@@ -14,17 +14,19 @@ status_revisao: "pendente"
 
 # Calculando Chances: A Matemática da Sorte
 
-Agora que já sabemos listar o que pode acontecer em um jogo, chegou a hora de dar um número para essa "sorte". A **Probabilidade** é a medida matemática de quão provável é que um evento aconteça. 
+Você já parou para pensar que as pessoas falam de sorte o tempo inteiro? É a sorte de ganhar em um sorteio, a sorte de acertar na loteria, a sorte de cair aquele número exato que você precisava no dado. Mas e se eu te contar que a "sorte" não é apenas mágica? Ela é ciência pura e tem até um nome super chique: **Probabilidade**! Essa é a área da matemática que descobre o número exato da sua sorte, calculando as chances reais de um determinado evento acontecer.
 
-Quando todos os resultados de um experimento têm a mesma chance de ocorrer (ou seja, são **equiprováveis**), nós podemos calcular a probabilidade usando uma regra simples de fração:
+No nosso último encontro, nós aprendemos a ser detetives e investigar todos os caminhos que um jogo pode tomar, listando os chamados "resultados possíveis". Agora, nós vamos transformar essa lista de possibilidades em uma conta matemática perfeita. Mas atenção, só podemos usar esse truque especial quando o nosso jogo é 100% justo, ou seja, quando todos os resultados do jogo têm a mesmíssima chance de ocorrer (nós chamamos esses resultados justos de **equiprováveis**).
 
-**Probabilidade = (O que eu quero que aconteça) / (Tudo que pode acontecer)**
+Se o seu jogo é justo, calcular a probabilidade de vitória é mais fácil do que montar um quebra-cabeça de duas peças. A gente resolve tudo usando uma regrinha básica que se transforma em uma fração. A regra secreta é a seguinte: 
 
-Por exemplo, qual a probabilidade de jogar um dado e tirar o número 4? 
-- **O que eu quero:** O número 4 (é apenas **1** face do dado).
-- **Tudo que pode acontecer:** Pode cair 1, 2, 3, 4, 5 ou 6 (são **6** faces no total).
-Portanto, a probabilidade é **1/6** (um em seis).
+**Probabilidade = (O que eu quero que aconteça) dividido por (Tudo o que pode acontecer)**
 
+Para você entender perfeitamente, imagine o famoso dado de seis lados. Se você quer rolar o dado e tirar exatamente o número 4 para ganhar a partida, como calculamos a sua "sorte"? 
+Primeiro, vamos olhar para o número de cima da fração (o numerador): "O que eu quero que aconteça?". Você quer que saia o número 4. Como no dado só existe um único lado desenhado com quatro bolinhas, você só tem **1** chance de vitória.
+Segundo, vamos olhar para o número de baixo da fração (o denominador): "Tudo o que pode acontecer?". Ao jogar o dado, ele pode cair mostrando o número 1, 2, 3, 4, 5 ou 6. Ou seja, existem **6** coisas diferentes que podem acontecer no total.
+
+Agora é só juntar as peças: você tem 1 chance de vitória no meio de 6 possibilidades no total. Então, a sua probabilidade de sucesso é a fração **1/6** (lemos como "um sexto" ou "uma chance em seis"). Toda vez que você montar essa fração, você deixará de depender apenas de "cruzar os dedos" e passará a usar a inteligência matemática para saber se vale a pena arriscar em um jogo!
 **Na Prática:**
 Em um sorteio de escola, há 10 bilhetes numerados de 1 a 10 dentro de um globo. Você comprou os bilhetes 3 e 7. Qual a sua probabilidade de ganhar?
 - O que você quer (seus bilhetes): **2** bilhetes.

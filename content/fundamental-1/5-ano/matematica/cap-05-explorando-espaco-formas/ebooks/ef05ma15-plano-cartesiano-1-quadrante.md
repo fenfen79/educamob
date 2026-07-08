@@ -14,15 +14,21 @@ status_revisao: "pendente"
 
 # O Primeiro Quadrante: Desbravando o Plano Cartesiano
 
-Agora que já sabemos usar malhas quadriculadas, vamos conhecer a ferramenta matemática oficial para localização: o **Plano Cartesiano**! 
+Você se lembra de quando brincávamos com malhas quadriculadas e jogos de tabuleiro para encontrar objetos escondidos? Agora que você já é craque nisso, chegou a hora de dar um passo muito importante na matemática: vamos conhecer a ferramenta oficial e mundialmente famosa para localização de pontos no espaço, o incrível **Plano Cartesiano**!
 
-No 5º ano, nós exploramos o **1º Quadrante** (a parte onde todos os números são positivos). Ele é formado por duas retas numéricas que se cruzam formando um "L":
-- O **eixo horizontal** (deitado) é chamado de **Eixo X** (ou eixo das abscissas).
-- O **eixo vertical** (em pé) é chamado de **Eixo Y** (ou eixo das ordenadas).
+O nome pode parecer um pouco complicado, mas a ideia é genial e muito simples. Ele foi inventado há centenas de anos por um matemático e filósofo muito inteligente chamado René Descartes (por isso o nome "cartesiano"). A ideia dele revolucionou o mundo porque permitiu que a matemática e a geometria trabalhassem juntas de uma forma perfeita. Hoje, graças a essa invenção, nós temos GPS, animações 3D no cinema e os gráficos dos videogames que você adora jogar.
 
-O ponto onde as duas retas se encontram é o zero, chamado de **Origem** (0,0). 
-Para encontrar um ponto qualquer, usamos um **par ordenado**, que sempre vem entre parênteses: **(X, Y)**. 
-A **regra de ouro** é: o primeiro número sempre indica a posição no eixo deitado (X) e o segundo número indica a altura no eixo em pé (Y).
+No 5º ano, nós vamos nos concentrar em uma parte especial dessa invenção: o **1º Quadrante**. Pense nele como a parte do mapa onde todos os números são amigáveis e positivos. Visualmente, ele se parece com uma grande letra "L" maiúscula desenhada no papel. Essa letra "L" é formada pelo cruzamento de duas retas numéricas infinitas que chamamos de eixos.
+
+A reta que fica deitada no chão da página é o nosso **eixo horizontal**. Na linguagem da matemática, nós a chamamos de **Eixo X** (ou, para os mais matemáticos, eixo das abscissas). Já a reta que fica em pé, como se fosse um prédio subindo para o céu, é o nosso **eixo vertical**. Nós a chamamos de **Eixo Y** (ou eixo das ordenadas). 
+
+O ponto exato onde essas duas retas se encontram, bem no cantinho do "L", é muito especial. Ele é o ponto de partida de tudo, o número zero de ambas as retas. Por isso, nós o chamamos de **Origem**. É dali que começamos a contar os nossos passos.
+
+Mas como fazemos para marcar a localização de um tesouro ou de um personagem dentro desse plano? Nós utilizamos algo chamado **par ordenado**. Como o próprio nome diz, é um "par" porque usamos sempre dois números, e é "ordenado" porque a ordem desses números importa muito! Escrevemos assim: sempre entre parênteses, com uma vírgula separando os números, no formato **(X, Y)**. 
+
+A **regra de ouro**, que você nunca pode esquecer, é a seguinte: o primeiro número do par sempre, sempre, sempre manda você andar pelo chão, ou seja, pelo Eixo X (na horizontal). Só depois de andar para o lado certo é que você olha para o segundo número. Ele manda você subir ou descer como se estivesse em um elevador, ou seja, pelo Eixo Y (na vertical). 
+
+Se você inverter a ordem e subir primeiro para depois ir para o lado, você vai acabar em um lugar completamente diferente! É como errar a rua e o número da casa de um amigo. Portanto, decore a regra do avião: primeiro o avião corre pela pista no chão (Eixo X) e só depois ele levanta voo para o céu (Eixo Y). Dominando o 1º Quadrante, você estará pronto para mapear qualquer coisa no universo matemático!
 
 **Na Prática:**
 Se você precisa marcar o ponto **(3, 5)** no plano, comece na origem (0,0). Ande 3 passos para o lado direito no Eixo X. Depois, suba 5 passos no Eixo Y. Faça um pontinho lá! Esse é o seu alvo. Nunca suba primeiro para depois ir para o lado, a ordem (X, Y) é uma lei!
