@@ -384,3 +384,17 @@ Todos os e-books atômicos (8 arquivos) deste lote (Batch 4) foram produzidos co
 ### Entregas Realizadas (Conclusão da Refatoração Teórica Matemática 6º Ano):
 - **Cobertura Total:** Todos os 34 e-books atômicos do 6º Ano (Capítulos 01 ao 23) foram inteiramente refatorados.
 - **Expansão de Conteúdo (Deep Dive):** O texto base teórico saltou de uma média de 936 caracteres para a robusta marca de **3.020 caracteres**, aprofundando amplamente o conteúdo, sem violar as camadas de telemetria e exercícios das 510 questões mantidas perfeitamente intactas.
+
+### Entregas Realizadas (Refatoração Teórica Matemática 7º Ano - Capítulos 13 ao 18):
+- **Expansão de Conteúdo (Deep Dive):** As seções teóricas dos 10 e-books atômicos (`ef07ma19.md` até `ef07ma28.md`) englobando os Capítulos 13 a 18 foram inteiramente reescritas e expandidas para a marca de ~2.500 caracteres cada.
+- **Adequação de Linguagem:** O conteúdo foi enriquecido com narrativas detalhadas, passo a passo de algoritmos e fluxogramas, além de exemplos práticos sobre Transformações, Simetrias, Triângulos e Polígonos Regulares, alinhando a linguagem para estudantes de 12 a 13 anos.
+- **Preservação Estrutural:** O Frontmatter YAML completo, as tags de telemetria HTML invisíveis e as seções pedagógicas posteriores ("Na Prática", "Erros Comuns", "Conexões") permaneceram 100% intactas, protegendo o banco de 150 questões.
+
+### Entregas Realizadas (Refatoração Teórica Matemática 7º Ano - Capítulos 01 ao 06):
+- **Expansão de Conteúdo (Deep Dive):** As seções teóricas dos 10 e-books atômicos (`ef07ma01.md` até `ef07ma10.md`) englobando os Capítulos 01 a 06 foram inteiramente reescritas e expandidas para a marca de ~2.500 a 3.500 caracteres cada.
+- **Adequação de Linguagem:** O conteúdo foi enriquecido com exemplos passo a passo, narrativas e analogias próximas ao cotidiano de adolescentes de 12 a 13 anos, abrangendo Múltiplos e Divisores, Porcentagens, Números Inteiros, Algoritmos, Frações e Racionais.
+- **Preservação Estrutural Cirúrgica:** A refatoração incidiu exclusivamente na introdução teórica. O Frontmatter YAML (11 campos), as tags de telemetria HTML das 15 questões e todas as seções pedagógicas ("Na Prática", "Erros Comuns", etc.) foram mantidas 100% intactas.
+
+### Entregas Realizadas (Conclusão da Refatoração Teórica Matemática 7º Ano):
+- **Cobertura Total:** Todos os 37 e-books atômicos do 7º Ano (Capítulos 01 ao 24) foram inteiramente refatorados.
+- **Expansão de Conteúdo (Deep Dive):** O texto base teórico saltou substancialmente (para quase ~3.000 caracteres em média), aprofundando o conteúdo e mantendo as camadas de telemetria das 555 questões perfeitamente intactas.
