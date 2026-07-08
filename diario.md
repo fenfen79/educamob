@@ -375,3 +375,12 @@ Todos os e-books atômicos (8 arquivos) deste lote (Batch 4) foram produzidos co
 - **Expansão de Conteúdo (Deep Dive):** As seções teóricas dos 12 e-books atômicos (`ef05ma14.md` até `ef05ma25.md`) focados em Espaço e Formas, Grandezas e Medidas, e Probabilidade e Estatística foram inteiramente reescritas e expandidas para a marca de ~2.500 caracteres cada.
 - **Adequação de Linguagem:** O conteúdo foi enriquecido com narrativas cativantes, analogias do cotidiano e explicações ricas, ajustando perfeitamente o tom e a linguagem para estudantes de 10 a 11 anos (5º Ano).
 - **Preservação Estrutural:** O Frontmatter YAML, as tags de telemetria HTML, e as seções pedagógicas posteriores ("Na Prática", "Erros Comuns", "Conexões", etc.) e as 15 questões foram mantidas 100% intactas.
+
+### Entregas Realizadas (Refatoração Teórica Matemática 6º Ano - Capítulos 13 ao 18):
+- **Expansão de Conteúdo (Deep Dive):** As seções teóricas de 9 e-books atômicos (englobando as habilidades `EF06MA19` a `EF06MA27`) focados em Geometria, Grandezas e Medidas (Triângulos, Quadriláteros, Construções e Ângulos) foram inteiramente reescritas e expandidas para a marca de ~2.500 caracteres cada.
+- **Adequação de Linguagem:** O conteúdo foi enriquecido com exemplos passo a passo detalhados, vocabulário direcionado e abordagens lógicas, ajustando perfeitamente o tom para estudantes de 11 a 12 anos (6º Ano).
+- **Preservação Estrutural Cirúrgica:** A refatoração modificou exclusivamente o bloco teórico inicial. O Frontmatter YAML (11 campos), as tags de telemetria HTML invisíveis das 15 questões e todas as seções pedagógicas posteriores ("Na Prática", "Erros Comuns", etc.) foram rigorosamente preservadas.
+
+### Entregas Realizadas (Conclusão da Refatoração Teórica Matemática 6º Ano):
+- **Cobertura Total:** Todos os 34 e-books atômicos do 6º Ano (Capítulos 01 ao 23) foram inteiramente refatorados.
+- **Expansão de Conteúdo (Deep Dive):** O texto base teórico saltou de uma média de 936 caracteres para a robusta marca de **3.020 caracteres**, aprofundando amplamente o conteúdo, sem violar as camadas de telemetria e exercícios das 510 questões mantidas perfeitamente intactas.
