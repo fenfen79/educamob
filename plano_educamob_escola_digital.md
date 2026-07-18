@@ -120,37 +120,40 @@ Para que o seu sistema de vendas (seja WIX, Hotmart, Kiwify, Stripe ou Asaas) co
 > - **BNCC (Base Nacional Comum Curricular)** → Âncora para todas as séries do Ensino Fundamental e Médio
 > - **Matriz de Habilidades do INEP** → Âncora para todos os conteúdos voltados ao ENEM
 >
-> **Regra de Ouro Arquitetural:** Granularidade (para o RAG da IA) vs. Integração (para a Trilha do Aluno no Frontend).
-> - **E-books** são blocos **atômicos**: `1 E-book = 1 Objeto de Conhecimento da BNCC`. O backend (FastAPI/Mob.me) precisa desses blocos separados para RAG preciso.
-> - **SPAs** são blocos **integrados**: `1 SPA = N Objetos de Conhecimento articulados em trilha coesa`. O aluno consome uma experiência fluida de 15-20 minutos.
-> - O SPA **NÃO é 100% offline**. Ele se conecta ao Supabase Client via `shared/js/quiz.js` para persistir telemetria por habilidade.
+> **Regra de Ouro Arquitetural:** Granularidade e Especialização.
+> - **E-books** são blocos **atômicos e 100% teóricos**: `1 E-book = 1 Objeto de Conhecimento da BNCC`. Servem como Base de Conhecimento (RAG).
+> - **Listas de Exercícios** são arquivos separados (`[objeto]-exercicios.md`) com 60 questões tagueadas HTML (20 básicas, 20 intermediárias, 20 difíceis).
+> - **SPAs** são blocos **focados em microaprendizagem**: `1 SPA = 1 Objeto de Conhecimento`. Articula o e-book teórico + 30 exercícios selecionados (10 de cada nível). Duração aproximada de 100 minutos.
+> - O SPA **NÃO é 100% offline**. Ele se conecta ao Supabase Client para persistir telemetria granular (`habilidade`, `dificuldade`, `objeto`).
 >
 > **Ciclo Completo da Plataforma:**
-> 1. Aluno acessa o **SPA** (que articulou objetos A, B e C) e responde aos quizzes (tagueados no E-book).
-> 2. O SPA envia desempenho detalhado (habilidade errada/acertada) para o **Supabase** (`student_progress`).
-> 3. Aluno vai ao **Mob.me**. O backend lê o histórico no Supabase e usa os E-books granulares (RAG) para explicar exatamente a habilidade com dificuldade.
-> 4. **Agente WhatsApp** consulta a mesma tabela e envia relatório aos pais.
+> 1. Aluno acessa o **SPA** (que articula 1 Objeto de Conhecimento teórico) e responde aos quizzes (selecionados da lista de 60 exercícios).
+> 2. O SPA (ou `quiz.js`) envia o desempenho detalhado (`habilidade`, `dificuldade`, `objeto`) para o **Supabase** (`student_progress`).
+> 3. Aluno vai ao **Mob.me**. O backend lê o histórico (`objeto`) no Supabase e usa o E-book correspondente (RAG) para explicar a teoria, ou sugere resolver até 15 exercícios restantes do arquivo `-exercicios.md`. Caso esses 15 se esgotem, o Mob.me poderá criar questões inéditas sob demanda.
+> 4. O **Revisa** utiliza 15 exercícios restantes (5 de cada nível, não selecionados pelo SPA nem pelo Mob.me) para compor o banco de questões e evitar repetição.
+> 5. **Agente WhatsApp** consulta a mesma tabela e envia relatório aos pais.
 >
 > **Rastreabilidade de Design — Cada seção do `.md` tem consumidor(es) no ecossistema:**
 >
-> | Seção do E-book | Mob.me (IA/RAG) | SPA (Quizzes) | Revisões (futuro) |
+> | Seção | Mob.me (IA/RAG) | SPA (Microaprendizagem) | Revisa (Banco de Questões) |
 > |---|---|---|---|
-> | YAML Frontmatter | Busca o arquivo certo por série/habilidade | Filtra questões por habilidade e dificuldade | Seleciona tópicos por série |
-> | Conceitos Fundamentais | Fundamenta respostas com citação | — | Conteúdo de revisão |
-> | Exemplos Resolvidos | Referencia ao explicar resolução | — | Relembrar procedimentos |
-> | Erros Comuns | Corrige o aluno proativamente | Gera distratores realistas | Alerta preventivo |
-> | Atividades (com tags HTML) | Sugere exercícios adicionais | **Extrai diretamente** para montar provas | Exercícios de fixação |
-> | Resumo para Revisão | Sintetiza respostas rápidas | — | **Alimenta diretamente** sessões |
-> | Referências | Cita fonte ao responder | — | — |
+> | Frontmatter (E-book) | Busca arquivo por série/objeto | — | Seleciona tópicos por série |
+> | Conceitos / Exemplos | Fundamenta respostas / deduções | Texto base de leitura do SPA | — |
+> | Erros Comuns | Corrige o aluno proativamente | Base para criar distratores no SPA | — |
+> | Resumo para Revisão | Sintetiza respostas rápidas | Conteúdo de fechamento | — |
+> | **Arquivo: 60 Exercícios** | Sugere prática adicional (15 exc) + Inéditas sob demanda | Extrai 30 exercícios (10 de cada nível) | Extrai 15 exercícios (5 de cada nível) |
 
-### Sprint 11 — Protocolo de Pesquisa Bibliográfica
+### Sprint 11 — Protocolo de Pesquisa Bibliográfica ✅ Concluído
 
 > **Status:** ✅ Concluído.  
 > **Complexidade:** 🔴 Alta  
 > **Skill a acionar:** Execução Direta (Planejador Estratégico + Pesquisa Web)  
 > **Pré-requisitos:** Nenhum
 
-**Objetivo:** Criar o **protocolo padrão e replicável** de pesquisa de conteúdos em fontes confiáveis, alinhado às normativas brasileiras de educação. Este protocolo será o manual operacional usado em toda produção de e-books futura.
+**Objetivo:** Criar o **protocolo padrão e replicável** de pesquisa de conteúdos em fontes confiáveis. 
+**Regras de Ouro:**
+1. Os arquivos base da BNCC e Matriz ENEM INEP devem ser os que estão na **pasta oficial do projeto**. NUNCA fazer essa busca online.
+2. Cada e-book deverá conter ao menos **5 fontes distintas**.
 
 **Entregas Esperadas:**
 
@@ -163,7 +166,7 @@ Contendo:
 - Regras de uso de PDFs próprios (livros do acervo pessoal) como fonte complementar
 - Protocolo de Garantia de Veracidade (7 critérios obrigatórios por informação factual):
   1. Fonte identificada — autor, instituição, URL rastreável
-  2. Triangulação — confirmada em ≥ 2 fontes independentes
+  2. Triangulação — confirmada em ≥ 5 fontes independentes
   3. Atualidade — dados de ≤ 5 anos (exceto clássicos/históricos)
   4. Autoridade — autor com credenciais na área
   5. Revisão por pares — preferencialmente de periódico/repositório com revisão
@@ -249,17 +252,18 @@ Contendo:
 | IA sem revisão pelo Agente Validador | Risco de alucinação |
 | Redes sociais | Sem revisão por pares |
 
-#### Entrega 2 — Mapa Curricular Completo por Disciplina (granularidade: Objetos de Conhecimento)
+#### Entrega 2 — Mapas Curriculares Independentes (Por Matéria e Segmento)
 
+Cada disciplina e segmento de ensino possuirá um arquivo físico individual `.md` (ex: `mapa_curricular_matematica_fundamental.md`, `mapa_curricular_matematica_medio.md`). A granularidade interna é por **Objetos de Conhecimento**:
 - **Matemática Fundamental (5º ao 9º):** Lista de todos os Objetos de Conhecimento da BNCC, com habilidades mapeadas (códigos EFxxMAxx)
-- **Matemática Ensino Médio (1ª a 3ª):** Objetos de Conhecimento BNCC + competências específicas
+- **Matemática Ensino Médio (1ª a 3ª):** Objetos de Conhecimento BNCC + competências e habilidades específicas
 - **Física Ensino Médio (1ª a 3ª):** Objetos de Conhecimento BNCC + habilidades
 - **Química Ensino Médio (1ª a 3ª):** Objetos de Conhecimento BNCC + habilidades
 - **ENEM (Matemática, Física, Química):** Competências e habilidades da Matriz de Referência INEP
 
 #### Entrega 3 — Ordem de Produção (Sem Priorização Interna)
 
-Documento formalizando que não há priorização entre conteúdos de uma mesma disciplina e que a produção seguirá a ordem completa sequencial.
+Documento formalizando que não há priorização entre conteúdos de uma mesma disciplina e que a produção obedecerá a demanda humana.
 
 #### Entrega 4 — Arquivos de Infraestrutura da Base Teórica
 
@@ -272,16 +276,12 @@ Documento formalizando que não há priorização entre conteúdos de uma mesma 
 #### Entrega 5 — Agente Validador Acadêmico (nova skill via Meta-Arquiteto)
 
 Criação de uma skill especializada em **validação de conteúdos acadêmicos**, substituindo a revisão humana por professor licenciado. O agente deve:
-- Verificar veracidade de toda afirmação factual (triangulação em ≥2 fontes)
+- Verificar veracidade de toda afirmação factual (triangulação em ≥5 fontes)
 - Validar alinhamento com habilidades BNCC/INEP declaradas no frontmatter
 - Conferir conformidade do template (seções obrigatórias, YAML, tags HTML)
 - Verificar adequação de linguagem à faixa etária
 - Checar conformidade ABNT das referências
 - Emitir parecer: `aprovado` | `revisão_necessária` (com apontamentos específicos)
-
-#### Entrega 6 — Atualização da Skill E-book Creator
-
-A skill atual (`C:\Users\nepov\.gemini\config\skills\ebook-creator\SKILL.md`) **não possui**: YAML Frontmatter, Tags HTML nos quizzes, seção Erros Comuns, seção Conexões Interdisciplinares, seção Resumo para Revisão, nem referências ABNT. Deve ser atualizada para incorporar o template enriquecido antes do início do Sprint 12.
 
 **Checklist de Validação do Sprint 11:**
 - [ ] Protocolo é autocontido e replicável por qualquer agente?
@@ -291,36 +291,32 @@ A skill atual (`C:\Users\nepov\.gemini\config\skills\ebook-creator\SKILL.md`) **
 - [ ] Template de ficha bibliográfica é claro e preenchível?
 - [ ] Granularidade atômica respeitada (1 ficha = 1 Objeto de Conhecimento)?
 - [ ] Arquivos de infraestrutura criados (`_index.md`, `_fontes-verificadas.md`, `_checklist-qualidade.md`)?
-- [ ] Skill E-book Creator atualizada com template enriquecido?
 - [ ] Agente Validador Acadêmico projetado (via Meta-Arquiteto)?
 - [ ] Pilar Financeiro respeitado (zero fontes pagas)?
 
 ---
 
 ### Sprint 12 — Produção de E-books Educacionais (Granulares e Atômicos)
+**✅ Concluído: Matemática do 6º Ano (100% Finalizado)**
+**✅ Concluído: Matemática do 7º Ano (100% Finalizado)**
+**✅ Concluído: Matemática do 8º Ano (100% Finalizado - 22 Capítulos Refatorados)**
+**✅ Concluído: Matemática do 9º Ano (100% Finalizado - 21 Capítulos Refatorados)**
 
 > **Complexidade:** 🔴 Alta — Sprint **cíclico e incremental** (múltiplas conversas — 1 conversa por Objeto de Conhecimento recomendado). Este sprint será executado repetidamente ao longo de meses.  
-> **Skill a acionar:** E-book Creator (atualizada no Sprint 11)  
-> **Pré-requisitos:** Sprint 11 concluído (protocolo + mapa curricular + fichas bibliográficas preenchidas + skill atualizada + Agente Validador criado)
+> **Skill a acionar:** E-book Creator
+> **Pré-requisitos:** Sprint 11 concluído (protocolo + mapa curricular + fichas bibliográficas preenchidas + Agente Validador criado)
 
 **Objetivo:** Produzir e-books **atômicos** em Markdown — **1 e-book por Objeto de Conhecimento da BNCC** — utilizando as fichas bibliográficas como matéria-prima. Os e-books são a base de conteúdo para: (1) alimentar o RAG do Mob.me, (2) servir de matéria-prima para os SPAs interativos, e (3) alimentar futuras sessões de revisão.
 
 **⚠️ Regra de Granularidade Estrita:**
 - **1 E-book = 1 Objeto de Conhecimento da BNCC** (bloco atômico)
 - O backend (FastAPI/Mob.me) precisa desses blocos separados para construir contextos RAG precisos
-- Um "capítulo" do mapa curricular pode conter 3-5 Objetos de Conhecimento = 3-5 e-books
-- **Desmembramento Específico de Habilidades Multitemáticas:** Habilidades abrangentes (ex: EF06MA24 e EF06MA25 que tratam de várias grandezas simultâneas) DEVEM ser desmembradas. O e-book deve focar estritamente no tipo de grandeza do capítulo em que está inserido (ex: Tempo, Massa, Capacidade) e usar sufixos explícitos no nome do arquivo (ex: `ef06ma24-tempo.md`, `ef06ma25-capacidade.md`) para não haver sobrescrição entre capítulos e para isolar o escopo semântico no RAG.
 
 **Metadados Obrigatórios (por e-book):**
 1. **YAML Frontmatter:** Cabeçalho com série, disciplina, unidade temática, objeto de conhecimento, habilidades BNCC/INEP (códigos), pré-requisitos (links relativos), nível de dificuldade, palavras-chave, tempo estimado de leitura, fonte bibliográfica, status de revisão
-2. **Tags HTML nos Quizzes (CRUCIAL):** Cada questão deve conter comentário HTML invisível com metadados de telemetria:
-   ```html
-   <!-- tipo: multipla-escolha | habilidade: EF08MA01 | dificuldade: basico -->
-   ```
-   Essas tags são lidas pelo JavaScript do SPA para persistir desempenho **por habilidade** no Supabase.
-3. **Andaimes Cognitivos:** Blocos "Na Prática" e Tabela de Erros Comuns obrigatórios.
-4. **Seção "Resumo para Revisão":** 3-5 pontos-chave concisos + link para próximo tópico na sequência. Alimenta futuras sessões de revisão.
-5. **Referências ABNT:** Lista de referências no padrão NBR 6023, com citações no texto no padrão NBR 10520.
+2. **Andaimes Cognitivos:** Blocos "Na Prática" e Tabela de Erros Comuns obrigatórios.
+3. **Seção "Resumo para Revisão":** 3-5 pontos-chave concisos + link para próximo tópico na sequência. Alimenta futuras sessões de revisão.
+4. **Referências ABNT:** Lista de referências no padrão NBR 6023 (não é necessário formatar citações no texto).
 
 **Estrutura de Execução (por Objeto de Conhecimento):**
 1. Consultar a ficha bibliográfica do Objeto (Sprint 11)
@@ -329,7 +325,6 @@ A skill atual (`C:\Users\nepov\.gemini\config\skills\ebook-creator\SKILL.md`) **
    - Objeto de Conhecimento específico e habilidades BNCC/INEP a cobrir
    - Fontes validadas da ficha bibliográfica
    - Instrução de YAML Frontmatter obrigatório
-   - Instrução de Tags HTML nos quizzes (`<!-- tipo | habilidade | dificuldade -->`)
    - Instrução de acessibilidade TDAH/Dislexia
    - Caminho absoluto de destino no workspace
 3. Submeter o e-book ao **Agente Validador Acadêmico** (Sprint 11, Entrega 5)
@@ -349,74 +344,93 @@ Antes de escalar a produção, o usuário pode solicitar um **ciclo piloto** com
 - Ajustar o processo antes de escalar
 
 **Ordem de Produção:**
-Não há priorização entre conteúdos de uma mesma disciplina. A produção ocorrerá abordando todo o conteúdo de forma sequencial:
-1. **Matemática**: Todo o conteúdo sequencial do 5º ano do Ensino Fundamental até a 3ª série do Ensino Médio e ENEM.
-2. **Física** e **Química** virão na sequência.
+Não há priorização entre conteúdos de uma mesma disciplina. A produção obedecerá a demanda humana:
+1. **Matemática**: Todo o conteúdo do 5º ano do Ensino Fundamental até a 3ª série do Ensino Médio e ENEM. *(Avanço atual: Capítulos 05 a 07 e 19 a 21 do 7º Ano; todos os capítulos do 5º Ano; e o 6º Ano em refatoração contínua (agora cobrindo os Capítulos 01 ao 10 completos) adaptados à nova arquitetura atômica 100% teórica, totalizando 0% de exercícios e alta densidade de conhecimento).*
 
 **Checklist de Validação (por e-book atômico):**
 - [ ] Granularidade respeitada (1 e-book = 1 Objeto de Conhecimento)?
+- [ ] E-book é 100% teórico (sem exercícios)?
 - [ ] YAML Frontmatter presente e completo (todos os campos obrigatórios)?
-- [ ] Tags HTML nos quizzes (`<!-- tipo | habilidade | dificuldade -->`) inseridas em todas as questões?
 - [ ] Conteúdo segue microaprendizagem (blocos curtos)?
 - [ ] Acessibilidade TDAH/Dislexia contemplada?
 - [ ] Scaffolding incluído (blocos "Na Prática" + Tabela de Erros Comuns)?
 - [ ] Seção "Resumo para Revisão" com 3-5 pontos-chave + link próximo tópico?
-- [ ] Quizzes com 5 alternativas e 3 níveis de dificuldade?
-- [ ] Mínimo 4 atividades com metadados completos?
 - [ ] Conexões interdisciplinares presentes?
 - [ ] Habilidades BNCC/INEP declaradas no frontmatter?
-- [ ] Referências ABNT (NBR 6023/10520)?
+- [ ] Referências ABNT (apenas NBR 6023)?
 - [ ] 100% das afirmações factuais com fonte rastreável?
 - [ ] Agente Validador Acadêmico emitiu parecer `aprovado`?
 
 ---
 
+### Sprint 12.5 — Produção de Exercícios (Exercise Creator) [NOVO]
+
+> **Complexidade:** 🔴 Alta (Cíclico e incremental, atrelado ao Sprint 12)
+> **Skill a acionar:** Exercise Creator
+> **Pré-requisitos:** E-book teórico do Objeto de Conhecimento correspondente aprovado (Sprint 12)
+
+**Objetivo:** Gerar baterias de exatos 60 exercícios de múltipla escolha para cada Objeto de Conhecimento (20 básicos, 20 intermediários, 20 difíceis). As questões devem estar rigorosamente alinhadas à teoria e seguir o "Protocolo de Telemetria".
+
+**Metadados e Regras:**
+1. **Tags HTML:** Imediatamente antes de cada questão, deve constar: `<!-- id: qXX | tipo: multipla-escolha | habilidade: [COD_BNCC] | dificuldade: [nivel] | objeto: [slug] -->`.
+2. **Resoluções:** Gabaritos devem conter explicação detalhada (em etapas lógicas para as questões difíceis).
+3. **Caminho de Destino:** `content/[nivel]/[serie]/[disciplina]/[capitulo]/ebooks/[objeto-de-conhecimento]-exercicios.md`.
+
+**Estrutura de Execução (por Lista de Exercícios):**
+1. Acionar a skill **Exercise Creator** fornecendo o e-book teórico aprovado (Sprint 12) como base.
+2. Aguardar a geração das 60 questões tagueadas.
+3. Submeter o arquivo `.md` resultante ao **Agente Validador de Exercícios**.
+4. Corrigir apontamentos (se houver) solicitando refação parcial ao Exercise Creator até obter o parecer `aprovado`.
+
+**Checklist de Validação (por Lista):**
+- [ ] O arquivo contém exatas 60 questões (20 básicas, 20 intermediárias, 20 difíceis)?
+- [ ] Todas as questões possuem 5 alternativas?
+- [ ] As tags HTML `<!-- id: | tipo: | habilidade: | dificuldade: | objeto: -->` estão presentes e corretas antes de cada questão?
+- [ ] Os gabaritos apresentam resoluções lógicas passo a passo (especialmente nas difíceis)?
+- [ ] O Agente Validador de Exercícios emitiu parecer `aprovado` para cobertura temática, balanceamento e qualidade geral?
+
+---
+
 ### Sprint 13 — Produção de SPAs Interativos (Articulação de Trilhas)
 
-> **Complexidade:** 🔴 Alta (múltiplas conversas — 1 conversa por capítulo/assunto recomendado)  
+> **Complexidade:** 🔴 Alta (múltiplas conversas — 1 conversa por SPA recomendado)  
 > **Skill a acionar:** SPA Creator  
-> **Pré-requisitos:** Todos os e-books atômicos do capítulo correspondente concluídos (Sprint 12)
+> **Pré-requisitos:** E-book teórico e Lista de Exercícios correspondentes concluídos (Sprints 12 e 12.5)
 
-**Objetivo:** Articular os e-books atômicos (Objetos de Conhecimento) de cada capítulo em um SPA (Single Page Application) interativo, cinematográfico e gamificado, criando uma **trilha de estudo unificada, coerente e harmônica** de 15-20 minutos.
+**Objetivo:** Transformar 1 E-book Teórico + 1 Lista de Exercícios em um SPA (Single Page Application) interativo e gamificado de microaprendizagem, com duração de ~100 minutos.
 
 **⚠️ Regra de Articulação:**
-- **Entrada:** Múltiplos arquivos `.md` (Objetos de Conhecimento de um mesmo capítulo/assunto)
-- **Saída:** 1 Web App (`index.html` + `styles.css` + `script.js` + assets)
-- O papel do SPA **NÃO** é empilhar e-books. Ele deve **articulá-los magistralmente**, criando pontes narrativas para que o aluno não sinta a divisão entre os objetos atômicos. O aprendizado flui naturalmente.
+- **Entrada:** 2 arquivos (Teoria `.md` + Exercícios `.md` do Objeto de Conhecimento)
+- **Saída:** 1 Web App (`index.html` + `styles.css` + `script.js` + assets) em subdiretório próprio (`content/.../[capitulo]/[objeto-de-conhecimento]/`)
+- O papel do SPA é **intercalar exercícios na teoria** para consolidar a microaprendizagem. Serão selecionados exatamente **30 exercícios** (10 básicos, 10 intermediários, 10 difíceis) para compor o SPA. Os 30 restantes ficam para revisões.
 
-**⚠️ Conectividade (NÃO É 100% OFFLINE):**
-- O SPA deve estar conectado à estrutura `shared/js/quiz.js` e ao **Supabase Client**
-- O JavaScript do SPA lê as **tags HTML secretas** dos quizzes (inseridas no Sprint 12)
-- Ao finalizar exercícios, o SPA captura o resultado, cruza com as tags (Habilidade, Dificuldade) e **salva na tabela `student_progress` no Supabase**
-- Zero CDN e zero libs externas continuam valendo — a única conexão externa é o Supabase Client (já presente em `shared/`)
+**⚠️ Conectividade:**
+- O SPA Creator lê as **tags HTML** dos exercícios e as converte em atributos **`data-*`** no HTML.
+- O `script.js` local do SPA gerencia a experiência de tela e salva a pontuação e a telemetria (`habilidade`, `dificuldade`, `objeto`) no Supabase.
 
-**Estrutura de Execução (por capítulo/assunto):**
-1. Confirmar que **todos** os e-books atômicos do capítulo estão aprovados
+**Estrutura de Execução (por Objeto de Conhecimento):**
+1. Confirmar que o e-book teórico e a lista de exercícios estão aprovados
 2. Acionar a skill **SPA Creator** com prompt contendo:
-   - Caminhos absolutos de **todos** os e-books fonte do capítulo (`content/.../[capitulo]/ebooks/*.md`)
+   - Caminhos absolutos dos **dois** arquivos fonte
    - Série, disciplina e capítulo
-   - Instrução explícita de **articulação harmônica** (pontes narrativas entre objetos)
-   - Referência aos SPAs existentes como padrão visual (`content/fundamental-2/8-ano/matematica/cap-09-potenciacao/` e `cap-10-monomios-polinomios/`)
-   - Instrução de leitura de tags HTML dos quizzes para telemetria por habilidade
-   - Instrução de integração com `shared/js/quiz.js` (persistência Supabase por habilidade)
-   - Instrução de integração com `shared/js/auth-guard.js` (autenticação)
+   - Instrução de selecionar exatamente 30 exercícios (10 de cada nível)
+   - Instrução de conversão de tags para `data-*` e script de persistência Supabase
    - Geração de imagens via `generate_image` (zero placeholders)
-3. Registrar o novo SPA no `window.EDUCAMOB_REGISTRY` da Biblioteca
+3. Registrar o novo SPA no `window.EDUCAMOB_REGISTRY` da Biblioteca com `duration: '~100 min'`
 
-**Caminho de Destino:**
+**Caminho de Destino (Subdiretório Próprio):**
 ```
-content/[nivel]/[serie]/[disciplina]/[capitulo]/index.html
-content/[nivel]/[serie]/[disciplina]/[capitulo]/styles.css
-content/[nivel]/[serie]/[disciplina]/[capitulo]/script.js
-content/[nivel]/[serie]/[disciplina]/[capitulo]/*.png (imagens geradas)
-content/[nivel]/[serie]/[disciplina]/[capitulo]/ebooks/*.md (e-books fonte — já existentes do Sprint 12)
+content/[nivel]/[serie]/[disciplina]/[capitulo]/[objeto-de-conhecimento]/index.html
+content/[nivel]/[serie]/[disciplina]/[capitulo]/[objeto-de-conhecimento]/styles.css
+content/[nivel]/[serie]/[disciplina]/[capitulo]/[objeto-de-conhecimento]/script.js
+content/[nivel]/[serie]/[disciplina]/[capitulo]/[objeto-de-conhecimento]/*.png
 ```
 
 **Checklist de Validação (por SPA):**
-- [ ] Articulação harmônica entre objetos (transições narrativas fluidas)?
-- [ ] Experiência de estudo de 15-20 minutos contínuos?
-- [ ] Leitura de tags HTML dos quizzes para telemetria por habilidade?
-- [ ] Persistência de notas por habilidade no Supabase (`student_progress`)?
+- [ ] 1 SPA focado inteiramente em 1 Objeto de Conhecimento (Duração ~100 min)?
+- [ ] Exatamente 30 exercícios (10 básicos, 10 inter, 10 difíceis) integrados no texto?
+- [ ] Leitura de tags HTML dos exercícios para `data-habilidade`, `data-dificuldade` e `data-objeto`?
+- [ ] Persistência de notas e telemetria granular no Supabase (`student_progress`) via `script.js`?
 - [ ] Zero CDN, zero libs externas (Supabase Client via `shared/` é permitido)?
 - [ ] Paleta visual Educamob respeitada (fundo claro, destaque laranja #ff6b00)?
 - [ ] Integrado ao `auth-guard.js` e `quiz.js`?

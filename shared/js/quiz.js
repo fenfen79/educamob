@@ -142,7 +142,8 @@ class QuizEngine {
           subject_name: this.quizData.title || this.subjectId,
           score: score,
           total_questions: this.state.totalQuestions,
-          activity_type: this.state.type
+          activity_type: this.state.type,
+          objeto: this.quizData.objeto || this.subjectId
         }
       ]);
 
