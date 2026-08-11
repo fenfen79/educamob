@@ -12,5 +12,7 @@ if (!window.supabase) {
 } else {
     // Inicializa o cliente e o deixa disponível globalmente para os outros scripts
     window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // FIX: The React chunk expects the initialized client to be at window.supabase
+    window.supabase = window.supabaseClient;
     console.log("Supabase Client inicializado com sucesso.");
 }
