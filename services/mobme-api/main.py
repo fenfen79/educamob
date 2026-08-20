@@ -3,37 +3,88 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import google.generativeai as genai
-from google import genai as genai_new
+from contextlib import asynccontextmanager
 import base64
 import os
 import time
-from supabase.client import Client, create_client
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+import asyncio
+import json
+from fastapi.responses import StreamingResponse
+from openai import AsyncOpenAI
+
+from supabase.client import AsyncClient, create_async_client
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores.supabase import SupabaseVectorStore
 from memory import get_or_create_user, get_or_create_session, save_message, get_session_history, get_user_sessions, update_session_title
 from whatsapp import process_whatsapp_message
 
 load_dotenv()
 
-# Configure Gemini API (old SDK for auxiliary tasks)
+# Configure Gemini API
 genai.configure(api_key=os.getenv("GEMINI_API_KEY", ""))
 
-# Configure new Gemini SDK (for fast streaming with thinking disabled)
-gemini_client = genai_new.Client(api_key=os.getenv("GEMINI_API_KEY", ""))
-
-# Configure Supabase & RAG
 SUPABASE_URL = os.getenv("SUPABASE_URL", "")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY", "")
 
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-2")
+supabase_client: AsyncClient = None
+vector_store = None
+deepinfra_client: AsyncOpenAI = None
+embeddings = None
 
-vector_store = SupabaseVectorStore(
-    client=supabase,
-    embedding=embeddings,
-    table_name="documents",
-    query_name="match_documents"
+from supabase.client import Client, create_client
+
+supabase_sync_client: Client = None
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global supabase_client, supabase_sync_client, vector_store, deepinfra_client, embeddings
+    
+    # Initialize Async Supabase Client for our operations
+    supabase_client = await create_async_client(SUPABASE_URL, SUPABASE_KEY)
+    
+    # Initialize DeepInfra OpenAI-Compatible Client
+    deepinfra_client = AsyncOpenAI(
+        api_key=os.getenv("DEEPINFRA_API_TOKEN", ""),
+        base_url="https://api.deepinfra.com/v1/openai"
+    )
+    
+    # Initialize Sync Client specifically for Langchain's VectorStore (which doesn't support AsyncClient yet)
+    supabase_sync_client = create_client(SUPABASE_URL, SUPABASE_KEY)
+    
+    # Initialize Vector Store with DeepInfra via OpenAI-Compatible API
+    embeddings = OpenAIEmbeddings(
+        model="BAAI/bge-m3",
+        openai_api_base="https://api.deepinfra.com/v1/openai",
+        openai_api_key=os.getenv("DEEPINFRA_API_TOKEN", "")
+    )
+    vector_store = SupabaseVectorStore(
+        client=supabase_sync_client,
+        embedding=embeddings,
+        table_name="documents",
+        query_name="match_documents"
+    )
+    yield
+
+app = FastAPI(title="Mob.me AI Tutor API", lifespan=lifespan)
+
+# CORS – allow the Next.js dev server
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "http://localhost:5500", "https://educamob.com.br", "https://app.educamob.com.br", "https://fenfen79.github.io"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
+
+
+class ChatRequest(BaseModel):
+    message: str
+    image_base64: str | None = None
+    user_id: str | None = "00000000-0000-0000-0000-000000000001"  # Mock UUID para testes
+    session_id: str | None = None
+
+class TitleUpdate(BaseModel):
+    title: str
 
 SYSTEM_PROMPT = r"""# PERSONA E TOM DE VOZ
 Você é a **Mob.me**, a Tutora Inteligente da Educamob. 
@@ -73,42 +124,40 @@ Toda interação em que o aluno tentar resolver um passo deve seguir este layout
 4. **Contexto:** Mantenha o contexto da conversa. Nunca peça informações que o aluno já forneceu nas mensagens anteriores.
 """
 
-app = FastAPI(title="Mob.me AI Tutor API")
+from tenacity import retry, stop_after_attempt, wait_exponential_jitter
 
-# CORS – allow the Next.js dev server
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5500", "https://educamob.com.br", "https://app.educamob.com.br"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+# Decorator para chamadas de API externas (Google/Gemini) com Jitter Orgânico
+api_retry = retry(
+    stop=stop_after_attempt(5),
+    wait=wait_exponential_jitter(initial=1, max=10),
+    reraise=True
 )
 
+@api_retry
+async def call_with_retry_async(func, *args, **kwargs):
+    """Executa uma função com retry e jitter exponencial (usando Tenacity)"""
+    return await func(*args, **kwargs)
 
-class ChatRequest(BaseModel):
-    message: str
-    image_base64: str | None = None
-    user_id: str | None = "00000000-0000-0000-0000-000000000001"  # Mock UUID para testes
-    session_id: str | None = None
+@api_retry
+async def extract_text_from_image(image_base64: str) -> str:
+    """Extrai informações da imagem e transcreve para texto seguindo diretrizes universais."""
+    prompt = """Você é um Transcritor Visual Universal de alta precisão. Seu papel é traduzir tudo o que existe nesta imagem para texto, para que outra IA (que não tem visão) possa resolvê-la. Não responda à pergunta, apenas extraia os dados seguindo estas regras:
+1. Textos: Transcreva fielmente todos os textos, enunciados e alternativas visíveis.
+2. Matemática, Química e Física (e outras matérias de cálculo também): Formate qualquer fórmula, equação, composto ou grandeza usando sintaxe MathJax/LaTeX rigorosa (ex: $H_2O$ ou $x^2$).
+3. Ciências da Natureza e Geografia: Se houver esquemas anatômicos, mapas, gráficos ou biomas, faça uma descrição literal e minuciosa do que está desenhado e para onde as setas apontam.
+4. Humanas: Se for uma foto histórica, charge ou pintura, descreva os elementos visuais, personagens e o layout.
+5. Tabelas: Converta tabelas para formato Markdown.
+Lembre-se: não resolva o problema, apenas descreva visualmente e transcreva o texto."""
 
-def call_with_retry(func, *args, **kwargs):
-    """Executa uma função e, se tomar bloqueio 429 ou erro 503, aguarda 15s e tenta de novo (máx 6 vezes para cobrir 1 minuto)."""
-    max_retries = 6
-    for attempt in range(max_retries):
-        try:
-            return func(*args, **kwargs)
-        except Exception as e:
-            error_str = str(e).lower()
-            if "429" in error_str or "quota" in error_str or "503" in error_str or "service unavailable" in error_str:
-                if attempt < max_retries - 1:
-                    print(f"AVISO: Instabilidade ou Limite do Google atingido. Aguardando 15 segundos (Tentativa {attempt + 1}/{max_retries})...")
-                    time.sleep(15)
-                else:
-                    raise
-            else:
-                raise e
+    model = genai.GenerativeModel("gemini-1.5-flash", generation_config={"temperature": 0.0})
+    parts = [
+        {"inline_data": {"mime_type": "image/jpeg", "data": image_base64}},
+        {"text": prompt}
+    ]
+    response = await call_with_retry_async(model.generate_content_async, parts)
+    return response.text.strip()
 
-def update_long_term_memory(user_id: str, db_history: list):
+async def update_long_term_memory(user_id: str, db_history: list):
     """Roda em background para analisar o histórico e atualizar o perfil do aluno no banco."""
     try:
         # Pega apenas as últimas 10 mensagens para não gastar muitos tokens
@@ -124,105 +173,114 @@ Gere um resumo em 1 ou 2 parágrafos curtos. Se não houver nada de novo, resuma
         model = genai.GenerativeModel("gemini-2.5-flash")
         
         # Chamada com Retry!
-        response = call_with_retry(model.generate_content, prompt)
+        response = await call_with_retry_async(model.generate_content_async, prompt)
         new_memory = response.text.strip()
 
         # Atualiza no banco
-        supabase.table("users").update({"long_term_memory": new_memory}).eq("id", user_id).execute()
+        await supabase_client.table("users").update({"long_term_memory": new_memory}).eq("id", user_id).execute()
         print(f"Memória de longo prazo atualizada para usuário {user_id}")
     except Exception as e:
         print(f"Erro ao atualizar memória de longo prazo: {e}")
 
-
-@app.get("/")
-def read_root():
-    return {"status": "Mob.me Backend is running!"}
-
-@app.get("/api/sessions/{user_id}")
-def get_sessions(user_id: str):
-    sessions = get_user_sessions(supabase, user_id)
-    return {"sessions": sessions}
-
-@app.get("/api/chat/{session_id}")
-def get_chat_history_endpoint(session_id: str):
-    history = get_session_history(supabase, session_id)
-    return {"history": history}
-
-def generate_title_bg(session_id: str, first_message: str):
+async def generate_title_bg(session_id: str, first_message: str):
     try:
         model = genai.GenerativeModel("gemini-2.5-flash")
         prompt = f"Crie um título extremamente curto (2 a 4 palavras no máximo) que resuma a intenção desta mensagem do aluno: '{first_message}'. Retorne APENAS o título, sem aspas, sem formatação e sem explicações."
-        response = call_with_retry(model.generate_content, prompt)
+        response = await call_with_retry_async(model.generate_content_async, prompt)
         new_title = response.text.strip().replace('"', '').replace('*', '').replace('#', '')
-        update_session_title(supabase, session_id, new_title)
+        await update_session_title(supabase_client, session_id, new_title)
         print(f"Título da sessão {session_id} atualizado para: {new_title}")
     except Exception as e:
         print(f"Erro ao gerar título da sessão: {e}")
 
-class TitleUpdate(BaseModel):
-    title: str
+@app.get("/")
+async def read_root():
+    return {"status": "Mob.me Backend is running (Pure Async)!"}
+
+@app.get("/api/sessions/{user_id}")
+async def get_sessions(user_id: str):
+    sessions = await get_user_sessions(supabase_client, user_id)
+    return {"sessions": sessions}
+
+@app.get("/api/chat/{session_id}")
+async def get_chat_history_endpoint(session_id: str):
+    history = await get_session_history(supabase_client, session_id)
+    for msg in history:
+        msg.pop("image_base64", None)
+    return {"history": history}
 
 @app.put("/api/sessions/{session_id}/title")
-def update_title_endpoint(session_id: str, data: TitleUpdate):
-    update_session_title(supabase, session_id, data.title)
+async def update_title_endpoint(session_id: str, data: TitleUpdate):
+    await update_session_title(supabase_client, session_id, data.title)
     return {"status": "success", "title": data.title}
 
+# Cache global de RAG para Request Coalescing (evita múltiplas requisições de embedding idênticas)
+RAG_CACHE = {}
 
 @app.post("/api/chat")
-def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks):
+async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks):
     t0 = time.time()
     if not request.user_id:
         raise HTTPException(status_code=400, detail="Usuário não autenticado. Faça login no portal.")
 
     try:
-        # 1. Recuperar Usuário e Sessão
+        # 1. Recuperar Usuário, Sessão e Histórico em Paralelo
         t_supa_start = time.time()
-        user = get_or_create_user(supabase, request.user_id)
         
-        is_new_session = False
-        if not request.session_id:
-            is_new_session = True
+        is_new_session = not bool(request.session_id)
+        
+        async def fetch_session_and_history():
+            sess_id = await get_or_create_session(supabase_client, request.user_id, request.session_id)
+            history = await get_session_history(supabase_client, sess_id)
+            return sess_id, history
             
-        current_session_id = get_or_create_session(supabase, request.user_id, request.session_id)
-        print(f"[{time.time()-t_supa_start:.2f}s] Supabase User/Session")
+        user_task = asyncio.create_task(get_or_create_user(supabase_client, request.user_id))
+        session_history_task = asyncio.create_task(fetch_session_and_history())
+        
+        user, (current_session_id, db_history) = await asyncio.gather(user_task, session_history_task)
+        
+        print(f"[{time.time()-t_supa_start:.2f}s] Supabase User/Session/History Paralelo")
 
         # Se for uma sessão recém criada, dispara a background task para gerar o título
         if is_new_session:
             background_tasks.add_task(generate_title_bg, current_session_id, request.message)
 
-        # 2. Salvar a mensagem do usuário no banco
-        t_save_start = time.time()
-        save_message(supabase, current_session_id, "user", request.message)
+        has_image = bool(request.image_base64)
+        extracted_text = ""
+        base_user_message = request.message
+
+        # PIPELINE HÍBRIDO: Extrai o texto da imagem ANTES de salvar no banco
+        if has_image:
+            print("Extrapolando imagem para texto via Gemini-1.5-Flash (Vision Frontline)...")
+            try:
+                extracted_text = await extract_text_from_image(request.image_base64)
+                base_user_message = f"[Imagem Anexada e Descrita pela IA Visual]:\n{extracted_text}\n\n{request.message}"
+            except Exception as e:
+                print(f"Erro na extração visual: {e}")
+                raise HTTPException(status_code=500, detail="Erro ao ler a imagem anexada.")
+
+        # 2. Salvar a mensagem (agora APENAS TEXTO, sem o base64 para evitar inchaço e amnésia)
+        background_tasks.add_task(save_message, supabase_client, current_session_id, "user", base_user_message, None)
 
         # 3. Injetar a "Memória de Longo Prazo" no prompt do sistema
-        dynamic_system_prompt = SYSTEM_PROMPT + f"\n\n--- PERFIL DO ALUNO ---\nNome: {user['name']}\nSérie: {user.get('grade_level', 'Não informada')}\nMemória sobre o aluno: {user.get('long_term_memory', '')}"
+        dynamic_system_prompt = SYSTEM_PROMPT + f"\n\n--- PERFIL DO ALUNO ---\nNome: {user.get('name', 'Estudante')}\nSérie: {user.get('grade_level', 'Não informada')}\nMemória sobre o aluno: {user.get('long_term_memory', '')}"
 
-        # 4. Recuperar o histórico da sessão do banco de dados (ignora o frontend)
-        db_history = get_session_history(supabase, current_session_id)
-        print(f"[{time.time()-t_save_start:.2f}s] Supabase Save/History")
+        # Montar histórico: Ambos recebem apenas texto!
+        google_contents = []
+        openai_messages = [{"role": "system", "content": dynamic_system_prompt}]
         
-        # Montar histórico no formato da nova SDK
-        contents = []
         for msg in db_history:
-            if msg["content"] == request.message and msg == db_history[-1]:
-                continue
-            contents.append({
+            # Como as imagens antigas agora já estão descritas no msg["content"], não tem image_base64!
+            google_contents.append({
                 "role": "model" if msg["role"] == "ai" else "user",
-                "parts": [{"text": msg["content"]}],
+                "parts": [{"text": msg["content"]}]
+            })
+            openai_messages.append({
+                "role": "assistant" if msg["role"] == "ai" else "user",
+                "content": msg["content"],
             })
 
-        # Build content parts for the current message
-        current_parts = []
-
-        if request.image_base64:
-            current_parts.append({
-                "inline_data": {
-                    "mime_type": "image/jpeg",
-                    "data": request.image_base64,
-                }
-            })
-
-        # Retrieve Context from Vector Store
+        # Retrieve Context from Vector Store with Request Coalescing
         try:
             msg_lower = request.message.strip().lower()
             greetings = {"oi", "ola", "olá", "bom dia", "boa tarde", "boa noite", "tudo bem", "tudo bem?", "ei", "hey", "opa", "fala", "e ai", "e aí"}
@@ -237,9 +295,46 @@ def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks):
                     last_ai_msg = db_history[-2]["content"]
                     search_query = f"{last_ai_msg}\nResposta do aluno: {request.message}"
 
-                docs = call_with_retry(vector_store.similarity_search, search_query, k=12)
-                print(f"[{time.time()-t_rag_start:.2f}s] Supabase Vector Search")
-                context_str = "\n\n".join([f"--- Contexto Recuperado ({d.metadata.get('source', 'Apostila')}) ---\n{d.page_content}" for d in docs])
+                cache_key = search_query.strip().lower()
+                
+                if cache_key in RAG_CACHE:
+                    print("Cache hit (ou aguardando co-requisição) para RAG...")
+                    future_or_str = RAG_CACHE[cache_key]
+                    if isinstance(future_or_str, asyncio.Future):
+                        context_str = await future_or_str
+                    else:
+                        context_str = future_or_str
+                    print(f"[{time.time()-t_rag_start:.2f}s] Recuperado do Cache Semântico")
+                else:
+                    # Inicia a busca original e salva um Future para as requisições concorrentes
+                    future = asyncio.Future()
+                    RAG_CACHE[cache_key] = future
+                    
+                    try:
+                        # PURE ASYNC RAG: Bypass Langchain's blocking ThreadPool
+                        # 1. Gerar embedding nativamente assíncrono via AsyncOpenAI
+                        embed_response = await deepinfra_client.embeddings.create(
+                            input=search_query,
+                            model="BAAI/bge-m3"
+                        )
+                        query_embedding = embed_response.data[0].embedding
+                        
+                        # 2. Buscar no Supabase nativamente assíncrono
+                        response = await supabase_client.rpc(
+                            "match_documents",
+                            {"query_embedding": query_embedding, "match_count": 12}
+                        ).execute()
+                        
+                        print(f"[{time.time()-t_rag_start:.2f}s] Supabase Vector Search (Pure Async)")
+                        
+                        context_str = "\n\n".join([f"--- Contexto Recuperado ({d.get('metadata', {}).get('source', 'Apostila')}) ---\n{d.get('content', '')}" for d in response.data])
+                        
+                        future.set_result(context_str)
+                        RAG_CACHE[cache_key] = context_str  # Substitui o Future pela string resolvida
+                    except Exception as e:
+                        future.set_exception(e)
+                        del RAG_CACHE[cache_key]
+                        raise e
         except Exception as e:
             print(f"Erro ao recuperar contexto: {e}")
             context_str = ""
@@ -250,75 +345,67 @@ def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks):
 {context_str}
 
 Pergunta/Mensagem do aluno:
-{request.message}"""
+{base_user_message}"""
         else:
-            prompt_with_context = request.message
+            prompt_with_context = base_user_message
 
-        current_parts.append({"text": prompt_with_context})
-        contents.append({"role": "user", "parts": current_parts})
+        google_contents.append({"role": "user", "parts": [{"text": prompt_with_context}]})
+        openai_messages.append({"role": "user", "content": prompt_with_context})
 
-        from fastapi.responses import StreamingResponse
-        import json
-
-        def generate_stream():
+        async def generate_stream():
             try:
                 # 1. Enviar o session_id imediatamente no primeiro chunk
                 yield f"data: {json.dumps({'session_id': current_session_id})}\n\n"
                 
-                # 2. Streaming com nova SDK + thinking desabilitado para máxima velocidade
-                t_gemini_start = time.time()
-                
-                response = None
-                max_retries = 3
-                current_model = "gemini-2.5-flash"
-                for attempt in range(max_retries):
-                    try:
-                        response = gemini_client.models.generate_content_stream(
-                            model=current_model,
-                            contents=contents,
-                            config={
-                                "system_instruction": dynamic_system_prompt,
-                            },
-                        )
-                        break
-                    except Exception as e:
-                        error_str = str(e).lower()
-                        if "429" in error_str or "quota" in error_str or "503" in error_str:
-                            if attempt < max_retries - 1:
-                                print(f"AVISO: Falha no modelo {current_model}. Mudando para fallback gemini-2.0-flash...")
-                                current_model = "gemini-2.0-flash" # Fallback invisível
-                            else:
-                                raise e
-                        else:
-                            raise e
-
+                # 2. Streaming Multi-LLM (DeepSeek Principal -> Gemini Fallback)
+                t_start = time.time()
                 full_text = ""
-                for chunk in response:
-                    try:
-                        text = chunk.text
-                    except ValueError:
-                        # Ocasionalmente a API não retorna partes de texto (ex: bloqueio de safety silencioso)
-                        continue
-                    if text:
-                        full_text += text
-                        yield f"data: {json.dumps({'chunk': text})}\n\n"
-                        # Nota: asyncio.sleep requer que esta função seja async ou rodar em thread
                 
-                # Fallback caso a API decida não enviar absolutamente nada (balão vazio)
+                try:
+                    # Rota Principal: DeepSeek via DeepInfra (Fail-Fast)
+                    response = await deepinfra_client.chat.completions.create(
+                        model="deepseek-ai/DeepSeek-V4-Flash-0731",
+                        messages=openai_messages,
+                        stream=True
+                    )
+                    
+                    async for chunk in response:
+                        if chunk.choices and chunk.choices[0].delta.content is not None:
+                            text = chunk.choices[0].delta.content
+                            full_text += text
+                            yield f"data: {json.dumps({'chunk': text})}\n\n"
+                            await asyncio.sleep(0)
+                            
+                except Exception as e:
+                    error_str = str(e).lower()
+                    print(f"[{time.time()-t_start:.2f}s] AVISO: Falha no DeepSeek ({error_str}). Acionando Fallback para Gemini...")
+                    
+                    # Fallback de Resiliência usando Gemini
+                    model = genai.GenerativeModel("gemini-2.5-flash", system_instruction=dynamic_system_prompt)
+                    response = await call_with_retry_async(model.generate_content_async, google_contents, stream=True)
+                    
+                    async for chunk in response:
+                        try:
+                            text = chunk.text
+                        except ValueError:
+                            continue
+                        if text:
+                            full_text += text
+                            yield f"data: {json.dumps({'chunk': text})}\n\n"
+                            await asyncio.sleep(0)
+                
                 if not full_text.strip():
                     full_text = "Hmm, não consegui entender isso muito bem. Você poderia tentar explicar de outra forma? 🤔"
                     yield f"data: {json.dumps({'chunk': full_text})}\n\n"
                 
-                print(f"[{time.time()-t_gemini_start:.2f}s] Gemini API Streaming Completed")
+                print(f"[{time.time()-t_start:.2f}s] API Streaming Completed")
 
-                # 3. Salvar resposta final da IA no banco
-                t_save_ai_start = time.time()
-                save_message(supabase, current_session_id, "ai", full_text)
-                print(f"[{time.time()-t_save_ai_start:.2f}s] Supabase Save AI Msg (Sync)")
+                # 3. Salvar resposta final da IA no banco em background
+                background_tasks.add_task(save_message, supabase_client, current_session_id, "ai", full_text)
 
                 # 4. Atualizar Memória Longo Prazo se necessário
                 if len(db_history) > 0 and len(db_history) % 5 == 0:
-                    update_long_term_memory(request.user_id, db_history)
+                    background_tasks.add_task(update_long_term_memory, request.user_id, db_history)
 
                 yield "data: [DONE]\n\n"
 
@@ -333,10 +420,10 @@ Pergunta/Mensagem do aluno:
         }
 
 @app.post("/api/webhook/whatsapp")
-def whatsapp_webhook(payload: dict, background_tasks: BackgroundTasks):
+async def whatsapp_webhook(payload: dict, background_tasks: BackgroundTasks):
     """
     Webhook receptor para a Evolution API.
     A Evolution API exige um retorno 2xx ultrarrápido, por isso passamos o processamento para background.
     """
-    background_tasks.add_task(process_whatsapp_message, supabase, payload)
+    background_tasks.add_task(process_whatsapp_message, supabase_client, payload)
     return {"status": "received"}
