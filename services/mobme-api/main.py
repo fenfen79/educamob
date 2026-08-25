@@ -170,7 +170,7 @@ async def update_long_term_memory(user_id: str, db_history: list):
 Extraia as principais dificuldades do aluno, suas preferências de aprendizado e qualquer detalhe pessoal relevante (ex: gosta de futebol, está com dificuldade em frações, aprende melhor com exemplos práticos).
 Gere um resumo em 1 ou 2 parágrafos curtos. Se não houver nada de novo, resuma o que já se sabe."""
 
-        model = genai.GenerativeModel("gemini-2.5-flash")
+        model = genai.GenerativeModel("gemini-1.5-flash")
         
         # Chamada com Retry!
         response = await call_with_retry_async(model.generate_content_async, prompt)
@@ -184,7 +184,7 @@ Gere um resumo em 1 ou 2 parágrafos curtos. Se não houver nada de novo, resuma
 
 async def generate_title_bg(session_id: str, first_message: str):
     try:
-        model = genai.GenerativeModel("gemini-2.5-flash")
+        model = genai.GenerativeModel("gemini-1.5-flash")
         prompt = f"Crie um título extremamente curto (2 a 4 palavras no máximo) que resuma a intenção desta mensagem do aluno: '{first_message}'. Retorne APENAS o título, sem aspas, sem formatação e sem explicações."
         response = await call_with_retry_async(model.generate_content_async, prompt)
         new_title = response.text.strip().replace('"', '').replace('*', '').replace('#', '')
@@ -364,7 +364,7 @@ Pergunta/Mensagem do aluno:
                 try:
                     # Rota Principal: DeepSeek via DeepInfra (Fail-Fast)
                     response = await deepinfra_client.chat.completions.create(
-                        model="deepseek-ai/DeepSeek-V4-Flash-0731",
+                        model="deepseek-ai/DeepSeek-V3",
                         messages=openai_messages,
                         stream=True
                     )
@@ -381,7 +381,7 @@ Pergunta/Mensagem do aluno:
                     print(f"[{time.time()-t_start:.2f}s] AVISO: Falha no DeepSeek ({error_str}). Acionando Fallback para Gemini...")
                     
                     # Fallback de Resiliência usando Gemini
-                    model = genai.GenerativeModel("gemini-2.5-flash", system_instruction=dynamic_system_prompt)
+                    model = genai.GenerativeModel("gemini-1.5-flash", system_instruction=dynamic_system_prompt)
                     response = await call_with_retry_async(model.generate_content_async, google_contents, stream=True)
                     
                     async for chunk in response:
