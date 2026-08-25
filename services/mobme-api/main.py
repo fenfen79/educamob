@@ -151,6 +151,11 @@ async def extract_text_from_image(image_base64: str) -> str:
 Lembre-se: não resolva o problema, apenas descreva visualmente e transcreva o texto."""
 
     model = genai.GenerativeModel("gemini-1.5-flash", generation_config={"temperature": 0.0})
+    
+    # Remove prefixo de data URI se existir
+    if "," in image_base64:
+        image_base64 = image_base64.split(",")[1]
+        
     parts = [
         {"inline_data": {"mime_type": "image/jpeg", "data": image_base64}},
         {"text": prompt}
