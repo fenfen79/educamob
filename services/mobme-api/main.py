@@ -150,7 +150,7 @@ async def extract_text_from_image(image_base64: str) -> str:
 5. Tabelas: Converta tabelas para formato Markdown.
 Lembre-se: não resolva o problema, apenas descreva visualmente e transcreva o texto."""
 
-    model = genai.GenerativeModel("gemini-1.5-flash", generation_config={"temperature": 0.0})
+    model = genai.GenerativeModel("gemini-2.5-flash", generation_config={"temperature": 0.0})
     
     # Remove prefixo de data URI se existir
     if "," in image_base64:
@@ -257,7 +257,7 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
 
         # PIPELINE HÍBRIDO: Extrai o texto da imagem ANTES de salvar no banco
         if has_image:
-            print("Extrapolando imagem para texto via Gemini-1.5-Flash (Vision Frontline)...")
+            print("Extrapolando imagem para texto via Gemini-2.5-Flash (Vision Frontline)...")
             try:
                 extracted_text = await extract_text_from_image(request.image_base64)
                 base_user_message = f"[Imagem Anexada e Descrita pela IA Visual]:\n{extracted_text}\n\n{request.message}"
