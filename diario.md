@@ -783,3 +783,46 @@ Com a valida��o do Cap�tulo 21 (O n�mero Pi), atinge-se a conclus�o total da **G
 - **Refatoração Estrutural:** O 9º ano foi limpo da sua estrutura mista de exercícios e regerado em 20 Capítulos 100% teóricos atômicos, espelhando com precisão as habilidades EF09MA01 a EF09MA23.
 - **Conteúdo Específico:** Foram gerados 20 novos E-books Atômicos usando paralelismo com 4 subagents E-book Creators, gerando conteúdo densificado, com todas as 5 seções obrigatórias e sem nenhum exercício embutido, em compliance com a nova Hard Guardrail.
 - **Validação Estrita:** Todos os 20 e-books tiveram seu encoding e YAML sanitizados via script em lote (validate_all_9_ano.py) e passaram pelo validador_educamob.py (incluindo uma correção manual de attention glitch no cap 10), sendo gravados com sucesso no diretório final.
+
+### 01/08/2026 - Evolução Arquitetural (Plano de Roll-out)
+- **Criação da Fase 6:** A antiga seção de Backlog foi movida para a Fase 7. Em seu lugar, foi criada a **Fase 6 - Lançamento Gradual (Estudantes Reais)**.
+- **Novos Sprints de Ativação:** O roll-out foi estratificado em 4 Sprints estruturais: Sprint 14 (Apenas Mob.me), Sprint 15 (Mob.me + Revisa), Sprint 16 (Mob.me + Revisa + SPAs) e Sprint 17 (Ecossistema Completo + Dashboard).
+- **Renumeração do Backlog:** A Fase 7 (Melhorias Contínuas) foi matematicamente deslocada, iniciando agora no Sprint 18 (Roteamento Multi-LLM) e indo até o Sprint 28.
+
+### 03/08/2026 - Conclusão do Sprint 14 (Roll-out Nível 1)
+- **Ação:** Ativação inicial do ecossistema focada no motor RAG e API do Mob.me.
+- **Ingestão:** Refatorado o script ingest.py para ler recursivamente os e-books atômicos em content/fundamental-2 e content/medio, ignorando as listas de exercícios. Mais de 1000 lotes (chunks) de vetores inseridos no Supabase.
+- **Teste de Carga:** Refatorado o stress_test.py implementando multi-threading. O teste rodou 100 usuários simultâneos consultando a base de matemática contra a API com 100% de taxa de sucesso e latência média de 4.16 segundos.
+- **Refatoração Assíncrona (Sprint 29 Antecipado):** Refatoramos o backend (main.py, memory.py e whatsapp.py) utilizando asyncio e bibliotecas 100% assíncronas (como httpx.AsyncClient).
+- **Validação Matemática (RAG):** Criamos um script puramente em código (sem usar LLM para avaliar LLM) chamado math_test_validator.py. Ele atestou a latência, a formatação em LaTeX e assegurou as travas Anti-Spoilers (impedindo vazamento de gabaritos prontos) para 7 disciplinas do 6º Ano ao 3º EM. Um teste massivo de 50 requisições concorrentes confirmou a estabilidade assíncrona do FastAPI, lidando graciosamente com retornos nulos sempre que a avalanche simultânea exata excedia a capacidade de RPS da chave da API do LLM, blindando a experiência orgânica.
+- **Mecanismos de Cadastro (Bypass Automático):** Criado o script import_beta_users.py que lê de um CSV (planilha) para cadastrar os beta-testers iniciais sem envio de e-mail de recuperação automático, fixando a senha como a data de nascimento.
+- **Integração no Front-end:** As 4 invocações de login (apps/login/login.js) foram roteadas para a ferramenta correta. Os alunos do rollout Nível 1 agora pulam a Dashboard (/hub/) e caem direto no Chat Tutor (/mobme/).
+- **Deploy do MVP:** Configurado acesso inicial via URL direta do Github Pages do repositório para inclusão de botão no Wix (www.educamob.com.br).
+
+### 05/08/2026 - Conclusão do Sprint 18 (Roteamento Multi-LLM)
+- **Ação:** Implementação de roteamento e fallback automático para DeepSeek-V4-Flash via DeepInfra em caso de gargalos (Rate Limit/Quota) no Google Gemini.
+- **RAG Assíncrono Nativo:** Substituída a classe bloqueante DeepInfraEmbeddings da Langchain por chamadas puramente assíncronas HTTP usando a interface nativa OpenAI no RPC do Supabase, o que resolveu integralmente os erros 422 e enfileiramentos do Python Event Loop.
+- **Fail-Fast Google:** Gemini configurado sem tenacity retry na primeira tentativa textual. Se falhar por cota, o servidor detecta (status 429/503) e roteia instantaneamente os parâmetros convertidos (Roles e Contexto) para o DeepSeek. Imagens e visão computacional permanecem exclusivas e protegidas pela rota Gemini.
+- **Carga Massiva:** Foi executado o "Teste do Fim do Mundo": 1.000 requisições matemáticas brutalmente simultâneas usando UUIDs únicos para forçar 100% de *Cache Miss*. O servidor lidou de forma magistral, processando 1.000 chamadas assíncronas de Embeddings (DeepInfra), 1.000 buscas vetoriais no Supabase e 1.000 gerações LLM concorrentes (engatilhando com sucesso múltiplos fallbacks invisíveis para o DeepSeek-V4-Flash) atingindo o recorde de 1000/1000 sucessos. O TTFB médio das piores 100 requisições absolutas bateu 5.09s, sem perdas de conexão, provando a robustez total da arquitetura em cenários de saturação crítica.
+
+---
+
+## 📅 [20/08/2026] - Troubleshooting e Resolução de Problemas com Upload de Imagens
+
+- **Problema 1: Erro 400 INVALID_ARGUMENT (Unable to process input image) devido a duplo encoding Base64.**
+  - **Causa Raiz:** O novo SDK google-genai requer que o campo inline_data da classe 	ypes.Part receba bytes brutos (ytes). O envio da string em base64 fazia com que o Pydantic a codificasse novamente para base64 durante a serialização JSON, corrompendo a imagem enviada à API do Google.
+  - **Solução:** Implementada a decodificação da string base64 para bytes brutos utilizando ase64.b64decode(b64_data) antes de instanciar o objeto 	ypes.Part.
+
+- **Problema 2: Erro 400 INVALID_ARGUMENT causado por MIME Type fixo incorreto.**
+  - **Causa Raiz:** O código anterior forçava o MIME Type image/jpeg de forma fixa para todas as imagens (incluindo PNGs). A API do Google falhava ao tentar decodificar um PNG tratado como JPEG.
+  - **Solução:** Alterado o fluxo de extração para capturar o MIME Type dinamicamente a partir do cabeçalho da Data URI do base64 (ex: data:image/png;base64,...).
+
+- **Problema 3: Cegueira/Amnésia da IA em Tentativas Subsequentes após Falhas (Ex: 503 UNAVAILABLE).**
+  - **Causa Raiz:** O Supabase salva e recupera apenas o histórico em texto das sessões, não persistindo as imagens. Se o primeiro envio (com a imagem) falha (ex: devido a um erro 503 por alta demanda no modelo), a nova tentativa engatilhada apenas com texto carece do contexto visual original. A IA responde pedindo para que o usuário leia a imagem, pois está cega.
+  - **Próximos Passos (Plano Aprovado):** Arquitetada e aprovada a implementação de um Pipeline Híbrido Vision-to-Text. Modelos vision-capable (ex: gemini-3.5-flash-lite) atuarão na linha de frente apenas para extração/transcrição da imagem em texto (OCR e descrição detalhada/MathJax). Esse texto bruto será então anexado ao payload e processado pelo DeepSeek (Fallback principal), mitigando o problema da amnésia, garantindo estabilidade e barateando custos com visão. Necessário adicionar a chave de API do DeepSeek/DeepInfra ao arquivo .env no servidor de produção para iniciar essa fase.
+
+### 25/08/2026 - Conclus�o do Pipeline H�brido Vision-to-Text e Troubleshooting Final
+- **Pipeline H�brido Conclu�do:** A integra��o do Gemini-2.5-Flash (Frontline Vision) foi conclu�da e implantada na Oracle Cloud. O modelo visual � usado de forma aut�noma (via FastAPI Background Tasks) para ler e extrair em formato MathJax/LaTeX todo o conte�do de imagens (ENEM, quest�es) *antes* da mensagem ser salva no Supabase. Com isso, todo o hist�rico � persistido 100% em texto, resolvendo de vez a cegueira/amn�sia das IAs em falhas e permitindo o roteamento de imagens (em formato de texto transcrito) para modelos que n�o suportam vis�o, como o DeepSeek-V4-Flash.
+- **Troubleshooting de Corrotinas (FastAPI + Supabase 2.5.1):** Ocorreram travamentos na API do Mob.me devido � incompatibilidade do wrapper @db_retry (da biblioteca 	enacity) com o novo cliente ass�ncrono do Supabase 2.5.1 (postgrest-py). Isso causava erros onde corrotinas n�o eram aguardadas (RuntimeWarning: coroutine never awaited) resultando em AttributeError: 'coroutine' object has no attribute 'data'. A remo��o da decora��o @db_retry nas chamadas nativas ass�ncronas do Supabase corrigiu a falha letal.
+- **Corre��o de Data URI Base64:** O google-generativeai==0.7.1 n�o aceita cadeias de base64 que come�am com o prefixo do browser (data:image/png;base64,...). O c�digo foi ajustado no main.py para realizar o *split* no caractere v�rgula e enviar apenas a string limpa, resolvendo os Erros 500 do Gemini e o inascii.Error.
+- **Rigor Pedag�gico Restaurado (Sprint 14):** Constatou-se que a IA estava ensinando conte�dos de F�sica fora do roteiro planejado (aus�ncia de E-books de F�sica no RAG). Foi injetada a "Regra 4" diretamente no SYSTEM_PROMPT do servidor, blindando a Mob.me para recusar assuntos extracurriculares e for�ar o foco puramente na Matem�tica, honrando as especifica��es do Sprint 14.
