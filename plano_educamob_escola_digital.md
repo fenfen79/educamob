@@ -69,7 +69,8 @@ Para que o seu sistema de vendas (seja WIX, Hotmart, Kiwify, Stripe ou Asaas) co
 > 1. **Otimização Extrema de Latência (Streaming):** Substituição do retorno em bloco por `StreamingResponse` no FastAPI e leitura de `ReadableStream` no Next.js, gerando efeito de digitação em tempo real (reduziu a percepção de latência de 10s para <1s).
 > 2. **Remoção de Gargalos Bloqueantes:** Supabase DB operations movidas para `Background Tasks` assíncronas em Python (`asyncio`).
 > 3. **High Availability & Fallback:** Resiliência contra o erro 503 do Google implementando fallback nativo para `gemini-2.0-flash`. (Roteamento Multi-Provedor com OpenAI em backlog).
-> 4. **UX Responsivo:** Menu mobile 100% funcional, contrastes de bolhas suavizados (Tom sobre Tom) e correção das "bolhas fantasmas".
+> 4. **UX Responsivo (Frontend Next.js):** Reconstrução completa do frontend SPA Mob.me em **Next.js (TailwindCSS)** após perda do código original, restaurando 100% da estética original. Correção definitiva do bug no mobile onde o teclado virtual bloqueava o botão de envio (resolvido através da semântica nativa `<form type="submit">`), e substituição de `crypto.randomUUID()` por `Date.now()` para plena compatibilidade mobile fora do HTTPS.
+> 5. **Concorrência e RAG Assíncrono:** Substituição do `DeepInfraEmbeddings` bloqueante da biblioteca Langchain por chamadas nativamente assíncronas (`httpx`) conectando a interface `OpenAIEmbeddings` direto ao RPC do Supabase, derrubando a fila do Python e estabilizando a performance de RAG em cenários de stress intenso (50+ chamadas simultâneas). O gargalo final (13s) provou-se restrito unicamente à cota concorrente (rate-limit) da API Gemini.
 
 ---
 
@@ -301,6 +302,14 @@ Criação de uma skill especializada em **validação de conteúdos acadêmicos*
 **✅ Concluído: Matemática do 7º Ano (100% Finalizado)**
 **✅ Concluído: Matemática do 8º Ano (100% Finalizado - 22 Capítulos Refatorados)**
 **✅ Concluído: Matemática do 9º Ano (100% Finalizado - 21 Capítulos Refatorados)**
+**✅ Concluído: Matemática do Ensino Médio (Batch 1 - Capítulos 01 ao 05)**
+**✅ Concluído: Matemática do Ensino Médio (Batch 2 - Capítulos 06 ao 10)**
+**✅ Concluído: Matemática do Ensino Médio (Batch 3 - Capítulos 11 ao 15)**
+**✅ Concluído: Matemática do Ensino Médio (Batch 4 - Capítulos 16 ao 20)**
+**✅ Concluído: Matemática do Ensino Médio (Batch 5 - Capítulos 21 ao 25)**
+**✅ Concluído: Matemática do Ensino Médio (Batch 6 - Capítulos 26 ao 30)**
+**✅ Concluído: Matemática do Ensino Médio (Batch 7 - Capítulos 31 ao 35)**
+**✅ Concluído: Matemática do Ensino Médio (Batch 8 - Capítulos 36 ao 38 - CONCLUSÃO FINAL)**
 
 > **Complexidade:** 🔴 Alta — Sprint **cíclico e incremental** (múltiplas conversas — 1 conversa por Objeto de Conhecimento recomendado). Este sprint será executado repetidamente ao longo de meses.  
 > **Skill a acionar:** E-book Creator
@@ -345,7 +354,7 @@ Antes de escalar a produção, o usuário pode solicitar um **ciclo piloto** com
 
 **Ordem de Produção:**
 Não há priorização entre conteúdos de uma mesma disciplina. A produção obedecerá a demanda humana:
-1. **Matemática**: Todo o conteúdo do 5º ano do Ensino Fundamental até a 3ª série do Ensino Médio e ENEM. *(Avanço atual: Capítulos 05 a 07 e 19 a 21 do 7º Ano; todos os capítulos do 5º Ano; e o 6º Ano em refatoração contínua (agora cobrindo os Capítulos 01 ao 10 completos) adaptados à nova arquitetura atômica 100% teórica, totalizando 0% de exercícios e alta densidade de conhecimento).*
+1. **Matemática**: Todo o conteúdo do 5º ano do Ensino Fundamental até a 3ª série do Ensino Médio e ENEM. *(Avanço atual: Capítulos 05 a 07 e 19 a 21 do 7º Ano; todos os capítulos do 5º Ano; e **o 6º Ano está 100% finalizado** (teoria atômica densa e 60 exercícios por objeto, cobrindo do Cap. 01 ao 23)). **[Sprint 12 e 12.5 - 6º Ano 100% CONCLUÍDOS]***
 
 **Checklist de Validação (por e-book atômico):**
 - [ ] Granularidade respeitada (1 e-book = 1 Objeto de Conhecimento)?
@@ -438,23 +447,41 @@ content/[nivel]/[serie]/[disciplina]/[capitulo]/[objeto-de-conhecimento]/*.png
 - [ ] Imagens geradas (sem placeholders)?
 - [ ] Responsivo (desktop + mobile)?
 
+## 🟢 Fase 6 — Lançamento Gradual (Estudantes Reais)
+Esta fase marca o início das atividades oficiais da Escola Digital para estudantes de verdade. O lançamento (roll-out) seguirá uma progressão estrita em Sprints para garantir a estabilidade da plataforma e da telemetria:
+
+### Sprint 14 — Roll-out Nível 1 (Mob.me Autônomo)
+> **Status:** ✅ Concluído. (Ingestão RAG massiva e 100% de sucesso no teste de carga com 100 usuários).
+> **Foco:** Ativação inicial do ecossistema focada apenas no chatbot/motor RAG com a base de Matemática, testando a carga sobre a API do LLM e a latência de respostas para alunos reais. (As demais disciplinas serão adicionadas gradativamente).
+
+### Sprint 15 — Roll-out Nível 2 (Integração Mob.me + Revisa)
+> **Foco:** Liberação do módulo de testes rápidos. Validação do consumo de exercícios curtos e diretos e sincronização primária de telemetria de notas no Supabase.
+
+### Sprint 16 — Roll-out Nível 3 (Carga Pesada com Biblioteca de SPAs)
+> **Foco:** Inserção da carga pesada. Integração dos aplicativos interativos longos (~100min) e verificação intensa de SLAs do banco de dados perante múltiplas requisições sequenciais.
+
+### Sprint 17 — Roll-out Nível 4 (Ecossistema Completo + Dashboard)
+> **Foco:** Liberação da última engrenagem. O painel "Meu Desempenho" entra no ar, validando a apresentação visual dos Analytics e fechando o ciclo pedagógico visível para o aluno.
+
 ---
 
-## 🟣 Fase 6 — Melhorias Contínuas (Backlog Futuro) [SEMPRE ÚLTIMA]
+## 🟣 Fase 7 — Melhorias Contínuas (Backlog Futuro) [SEMPRE ÚLTIMA]
 > Repositório de ideias tecnológicas e aprimoramentos arquitetônicos que foram pontuados ao longo do projeto, mas que não são bloqueantes para o MVP (Mínimo Produto Viável). Esta fase é permanentemente a última do plano e recebe novos itens conforme surgem.
 
 | Sprint | Módulo / Melhoria | Descrição Técnica |
 |--------|-------------------|-------------------|
-| **14** | Roteamento Multi-LLM | Implementar um fallback inteligente adicionando a OpenAI (GPT-4o / GPT-4o-mini) para trabalhar em redundância caso a API do Google Gemini sofra instabilidades. |
-| **15** | Automação Ativa (Push) de Relatórios | Criar um "Cron Job" no FastAPI que rode toda sexta-feira às 18h, gere relatórios semanais de alunos automaticamente e dispare proativamente no WhatsApp das famílias (Evolution API). |
-| **16** | Painel Administrativo de Prompts | Migrar os prompts base (o "Prompt Socrático" e o "Prompt de Relatórios") do código rígido (hardcoded) para uma tabela do Supabase, permitindo edição via interface web sem mexer no backend. |
-| **17** | E-mail Customizado Oficial (SMTP) | Configurar um provedor SMTP (como Resend ou SendGrid) no Supabase Auth (*Enable Custom SMTP*) para que os e-mails de recuperação de senha usem a marca e domínio oficial da escola. |
-| **18** | Hub de Lives | Retomar o Sprint 5 que foi paralisado. Construir a área de transmissões ao vivo dentro da plataforma principal para centralizar as aulas online. |
-| **19** | Painel Pedagógico Institucional (Escolas) | Sistema completo (com controle de acesso para Professores, Coordenadores e Diretores) permitindo prescrever estudos e metas de revisão com prazos estabelecidos (para alunos individuais ou turmas inteiras), além de acompanhar dashboards de resultados em tempo real. |
-| **20** | Painel Parental (Home Study) | Versão do painel dedicada aos pais/responsáveis. Permite designar tarefas e roteiros específicos de estudo para seus próprios filhos e visualizar gráficos claros dos resultados obtidos. |
-| **21** | Script de Validação de YAML | Criar script automatizado (Python/Node) que valide todos os campos obrigatórios do YAML frontmatter, verifique links internos entre arquivos, confira cobertura de habilidades BNCC por disciplina/série e garanta contagem mínima de atividades por arquivo. |
-| **22** | NPS do Aluno (Satisfação) | Implementar micro-survey (1 pergunta, escala 0-10) nos SPAs após conclusão de trilha. Resultado salvo em tabela `student_feedback` no Supabase (`user_id`, `score`, `touchpoint`, `comentario`, `timestamp`). Cálculo: `NPS = % Promotores (9-10) − % Detratores (0-6)`. Custo zero (popup CSS + INSERT no Supabase). |
-| **23** | Manutenção Contínua da Base Teórica | Cadência de revisão: semestral (atualidade de dados e referências), anual (incorporar novas questões ENEM/provas oficiais), sob demanda (corrigir erros reportados por alunos via Mob.me, adicionar tópicos solicitados com frequência). |
+| **18** | ✅ Roteamento Multi-LLM | Fallback inteligente nativo implementado. Utiliza DeepSeek-V4-Flash via DeepInfra como redundância primária rápida para a API do Google Gemini. O "Teste do Fim do Mundo" (1000 RAGs únicos simultâneos com 100% de Cache Miss) atestou 1000/1000 sucessos (0 falhas) com TTFB médio das piores 100 requisições em apenas 5.09s. |
+| **19** | Automação Ativa (Push) de Relatórios | Criar um "Cron Job" no FastAPI que rode toda sexta-feira às 18h, gere relatórios semanais de alunos automaticamente e dispare proativamente no WhatsApp das famílias (Evolution API). |
+| **20** | Painel Administrativo de Prompts | Migrar os prompts base (o "Prompt Socrático" e o "Prompt de Relatórios") do código rígido (hardcoded) para uma tabela do Supabase, permitindo edição via interface web sem mexer no backend. |
+| **21** | E-mail Customizado Oficial (SMTP) | Configurar um provedor SMTP (como Resend ou SendGrid) no Supabase Auth (*Enable Custom SMTP*) para que os e-mails de recuperação de senha usem a marca e domínio oficial da escola. |
+| **22** | Hub de Lives | Retomar o Sprint 5 que foi paralisado. Construir a área de transmissões ao vivo dentro da plataforma principal para centralizar as aulas online. |
+| **23** | Painel Pedagógico Institucional (Escolas) | Sistema completo (com controle de acesso para Professores, Coordenadores e Diretores) permitindo prescrever estudos e metas de revisão com prazos estabelecidos (para alunos individuais ou turmas inteiras), além de acompanhar dashboards de resultados em tempo real. |
+| **24** | Painel Parental (Home Study) | Versão do painel dedicada aos pais/responsáveis. Permite designar tarefas e roteiros específicos de estudo para seus próprios filhos e visualizar gráficos claros dos resultados obtidos. |
+| **25** | Script de Validação de YAML | Criar script automatizado (Python/Node) que valide todos os campos obrigatórios do YAML frontmatter, verifique links internos entre arquivos, confira cobertura de habilidades BNCC por disciplina/série e garanta contagem mínima de atividades por arquivo. |
+| **26** | NPS do Aluno (Satisfação) | Implementar micro-survey (1 pergunta, escala 0-10) nos SPAs após conclusão de trilha. Resultado salvo em tabela `student_feedback` no Supabase (`user_id`, `score`, `touchpoint`, `comentario`, `timestamp`). Cálculo: `NPS = % Promotores (9-10) − % Detratores (0-6)`. Custo zero (popup CSS + INSERT no Supabase). |
+| **27** | Manutenção Contínua da Base Teórica | Cadência de revisão: semestral (atualidade de dados e referências), anual (incorporar novas questões ENEM/provas oficiais), sob demanda (corrigir erros reportados por alunos via Mob.me, adicionar tópicos solicitados com frequência). |
+| **28** | Códigos de Desbloqueio (Vouchers/Turmas) | Injeção de contexto RAG via código no Mob.me. O aluno digita uma chave (ex: '#REC-MAT-01'), o FastAPI valida no Supabase e carrega e-books específicos, alterando o system prompt da IA. Atua como MVP tático para prescrição pedagógica. |
+| **29** | Refatoração Assíncrona e Connection Pooling | Converter todo o código do FastAPI (`main.py` e `memory.py`) para `async def / await`, implementando um cliente Supabase Assíncrono (`ClientAsync`) e Pool de Conexões para suportar milhões de acessos sem bloquear o Event Loop ou sobrecarregar a camada HTTP (Cloudflare). |
 
 ---
 

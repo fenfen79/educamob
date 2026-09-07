@@ -826,3 +826,11 @@ Com a validação do Capítulo 21 (O número Pi), atinge-se a conclusão total da **G
 - **Troubleshooting de Corrotinas (FastAPI + Supabase 2.5.1):** Ocorreram travamentos na API do Mob.me devido à incompatibilidade do wrapper @db_retry (da biblioteca 	enacity) com o novo cliente assíncrono do Supabase 2.5.1 (postgrest-py). Isso causava erros onde corrotinas não eram aguardadas (RuntimeWarning: coroutine never awaited) resultando em AttributeError: 'coroutine' object has no attribute 'data'. A remoção da decoração @db_retry nas chamadas nativas assíncronas do Supabase corrigiu a falha letal.
 - **Correção de Data URI Base64:** O google-generativeai==0.7.1 não aceita cadeias de base64 que começam com o prefixo do browser (data:image/png;base64,...). O código foi ajustado no main.py para realizar o *split* no caractere vírgula e enviar apenas a string limpa, resolvendo os Erros 500 do Gemini e o inascii.Error.
 - **Rigor Pedagógico Restaurado (Sprint 14):** Constatou-se que a IA estava ensinando conteúdos de Física fora do roteiro planejado (ausência de E-books de Física no RAG). Foi injetada a "Regra 4" diretamente no SYSTEM_PROMPT do servidor, blindando a Mob.me para recusar assuntos extracurriculares e forçar o foco puramente na Matemática, honrando as especificações do Sprint 14.
+
+
+## 07/09/2026 - ReconstruÃ§Ã£o do Frontend Mob.me
+- ReconstruÃ§Ã£o completa do SPA Mob.me em Next.js devido Ã  perda dos arquivos fontes originais.
+- O cÃ³digo fonte foi reescrito em TailwindCSS preservando 100% da estÃ©tica original (Dark/Light mode, cores institucionais).
+- Solucionado o bug na experiÃªncia mobile onde o teclado virtual engolia o evento de clique do botÃ£o de enviar (transformando a div de input num formulÃ¡rio 	ype=submit).
+- SubstituiÃ§Ã£o de crypto.randomUUID() por Date.now() para garantir compatibilidade com ambientes mobile sem HTTPS.
+- App gerado via Static Export e implantado com sucesso via GitHub Pages no repositÃ³rio da Educamob.
