@@ -54,7 +54,80 @@ export default function ChatApp() {
       setTheme("dark");
       document.documentElement.setAttribute("data-theme", "dark");
     }
+
+    // Load chat history
+    try {
+      const storedSessions = localStorage.getItem("mobme_sessions");
+      if (storedSessions) {
+        const parsed = JSON.parse(storedSessions);
+        setSessions(parsed);
+        if (parsed.length > 0) {
+          setCurrentSessionId(parsed[0].id);
+          setMessages(parsed[0].messages);
+        } else {
+          startNewSession();
+        }
+      } else {
+        startNewSession();
+      }
+    } catch (e) {
+      console.error("Erro ao carregar sessões", e);
+      startNewSession();
+    }
   }, []);
+
+  const startNewSession = () => {
+    const newId = "session-" + Date.now().toString();
+    setCurrentSessionId(newId);
+    setMessages([]);
+    setSessions(prev => [{ id: newId, title: "Nova Conversa", date: Date.now(), messages: [] }, ...prev]);
+  };
+
+  useEffect(() => {
+    if (!currentSessionId || messages.length === 0) return;
+    
+    setSessions(prev => {
+      const updated = prev.map(s => {
+        if (s.id === currentSessionId) {
+          // Auto-generate title from first message if it's "Nova Conversa"
+          let newTitle = s.title;
+          if (newTitle === "Nova Conversa" && messages[0]?.text) {
+            newTitle = messages[0].text.substring(0, 30) + "...";
+          }
+          return { ...s, title: newTitle, messages: messages };
+        }
+        return s;
+      });
+      localStorage.setItem("mobme_sessions", JSON.stringify(updated));
+      return updated;
+    });
+  }, [messages, currentSessionId]);
+
+  const loadSession = (id: string) => {
+    const session = sessions.find(s => s.id === id);
+    if (session) {
+      setCurrentSessionId(id);
+      setMessages(session.messages);
+      setIsSidebarOpen(false);
+    }
+  };
+
+  const deleteSession = (e: React.MouseEvent, id: string) => {
+    e.stopPropagation();
+    setSessions(prev => {
+      const updated = prev.filter(s => s.id !== id);
+      localStorage.setItem("mobme_sessions", JSON.stringify(updated));
+      if (currentSessionId === id) {
+        if (updated.length > 0) {
+          setCurrentSessionId(updated[0].id);
+          setMessages(updated[0].messages);
+        } else {
+          startNewSession();
+        }
+      }
+      return updated;
+    });
+  };
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
@@ -258,8 +331,7 @@ export default function ChatApp() {
 
         <button 
           onClick={() => {
-            setCurrentSessionId(null);
-            setMessages([]);
+            startNewSession();
             if (window.innerWidth < 768) setIsSidebarOpen(false);
           }}
           className="flex items-center justify-center gap-1.5 w-full py-2.5 mb-8 bg-transparent border border-[var(--border-medium)] rounded-full text-[var(--text-primary)] font-bold text-[15px] hover:bg-[var(--bg-hover)] transition-colors"
@@ -297,11 +369,7 @@ export default function ChatApp() {
                 <>
                   <div 
                     className="flex items-center gap-3 text-[var(--text-secondary)] flex-1 overflow-hidden"
-                    onClick={() => {
-                      setCurrentSessionId(session.id);
-                      // In a real app, you would fetch the history here
-                      if (window.innerWidth < 768) setIsSidebarOpen(false);
-                    }}
+                    onClick={() => loadSession(session.id)}
                   >
                     <MessageCircle size={16} className="shrink-0" />
                     <span className="truncate text-sm">{session.title}</span>
@@ -324,10 +392,10 @@ export default function ChatApp() {
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col h-full overflow-hidden relative min-w-0">
+      <div className="flex-1 flex flex-col h-[100dvh] overflow-hidden relative min-w-0">
         
         {/* Header */}
-        <header className="flex items-center justify-between px-4 py-3 shrink-0 absolute top-0 w-full z-10 bg-[var(--bg-primary)]/80 backdrop-blur-md md:bg-transparent md:backdrop-blur-none">
+        <header className="flex items-center justify-between px-4 py-3 shrink-0 z-10 bg-[var(--bg-primary)]/80 backdrop-blur-md">
           <div className="flex items-center gap-3">
             <button 
               className="md:hidden p-2 -ml-2 text-[var(--text-primary)] bg-[var(--bg-elevated)] border border-[var(--border-medium)] rounded-xl"
@@ -364,7 +432,7 @@ export default function ChatApp() {
         </header>
 
         {/* Chat Area */}
-        <main className="flex-1 overflow-y-auto p-4 pt-20 pb-32 flex flex-col items-center">
+        <main className="flex-1 overflow-y-auto p-4 flex flex-col items-center">
           <div className="w-full max-w-3xl flex flex-col">
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center flex-1 h-full min-h-[60vh]">
@@ -448,7 +516,7 @@ export default function ChatApp() {
         </main>
 
         {/* Input Area */}
-        <footer className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)] to-transparent pt-10 pb-6 px-4 flex flex-col items-center">
+        <footer className="shrink-0 w-full bg-[var(--bg-primary)] pt-4 pb-6 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-10 relative">
           <div className="w-full max-w-4xl flex flex-col relative">
             
             {imagePreview && (
