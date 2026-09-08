@@ -62,14 +62,7 @@ export default function ChatApp() {
     const fetchCloudSessions = async () => {
       try {
         const userId = await getUserId();
-        if (userId === "00000000-0000-0000-0000-000000000001") {
-          // Fallback para dev local
-          const newId = "session-" + Date.now().toString();
-          setCurrentSessionId(newId);
-          setSessions([{ id: newId, title: "Nova Conversa", date: Date.now(), messages: [] }]);
-          return;
-        }
-
+        
         const res = await fetch(`https://api.educamob.com.br/api/sessions/${userId}`);
         if (res.ok) {
           const data = await res.json();
@@ -88,6 +81,9 @@ export default function ChatApp() {
           } else {
             startNewSession();
           }
+        } else {
+          console.error("API retornou erro ao buscar sessões");
+          startNewSession();
         }
       } catch (e) {
         console.error("Erro ao buscar sessões na nuvem:", e);
@@ -99,10 +95,8 @@ export default function ChatApp() {
   }, []);
 
   const startNewSession = () => {
-    const newId = "session-" + Date.now().toString();
-    setCurrentSessionId(newId);
+    setCurrentSessionId(null);
     setMessages([]);
-    setSessions(prev => [{ id: newId, title: "Nova Conversa", date: Date.now(), messages: [] }, ...prev]);
   };
 
   const loadSession = async (id: string) => {
