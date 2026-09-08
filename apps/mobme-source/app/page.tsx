@@ -44,6 +44,8 @@ export default function ChatApp() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
+  const [isLoadingHistory, setIsLoadingHistory] = useState(false);
+
   useEffect(() => {
     // Initialize theme from localStorage or default to dark
     const stored = localStorage.getItem("educamob_theme") as "light" | "dark" | null;
@@ -54,26 +56,46 @@ export default function ChatApp() {
       setTheme("dark");
       document.documentElement.setAttribute("data-theme", "dark");
     }
+  }, []);
 
-    // Load chat history
-    try {
-      const storedSessions = localStorage.getItem("mobme_sessions");
-      if (storedSessions) {
-        const parsed = JSON.parse(storedSessions);
-        setSessions(parsed);
-        if (parsed.length > 0) {
-          setCurrentSessionId(parsed[0].id);
-          setMessages(parsed[0].messages);
-        } else {
-          startNewSession();
+  useEffect(() => {
+    const fetchCloudSessions = async () => {
+      try {
+        const userId = await getUserId();
+        if (userId === "00000000-0000-0000-0000-000000000001") {
+          // Fallback para dev local
+          const newId = "session-" + Date.now().toString();
+          setCurrentSessionId(newId);
+          setSessions([{ id: newId, title: "Nova Conversa", date: Date.now(), messages: [] }]);
+          return;
         }
-      } else {
+
+        const res = await fetch(`https://api.educamob.com.br/api/sessions/${userId}`);
+        if (res.ok) {
+          const data = await res.json();
+          // Transform backend format to frontend format
+          const formattedSessions: Session[] = data.sessions.map((s: any) => ({
+            id: s.id,
+            title: s.title || "Conversa",
+            date: new Date(s.created_at).getTime(),
+            messages: []
+          }));
+          
+          setSessions(formattedSessions);
+          
+          if (formattedSessions.length > 0) {
+            loadSession(formattedSessions[0].id);
+          } else {
+            startNewSession();
+          }
+        }
+      } catch (e) {
+        console.error("Erro ao buscar sessões na nuvem:", e);
         startNewSession();
       }
-    } catch (e) {
-      console.error("Erro ao carregar sessões", e);
-      startNewSession();
-    }
+    };
+    
+    fetchCloudSessions();
   }, []);
 
   const startNewSession = () => {
@@ -83,44 +105,37 @@ export default function ChatApp() {
     setSessions(prev => [{ id: newId, title: "Nova Conversa", date: Date.now(), messages: [] }, ...prev]);
   };
 
-  useEffect(() => {
-    if (!currentSessionId || messages.length === 0) return;
+  const loadSession = async (id: string) => {
+    setCurrentSessionId(id);
+    setIsSidebarOpen(false);
+    setIsLoadingHistory(true);
     
-    setSessions(prev => {
-      const updated = prev.map(s => {
-        if (s.id === currentSessionId) {
-          // Auto-generate title from first message if it's "Nova Conversa"
-          let newTitle = s.title;
-          if (newTitle === "Nova Conversa" && messages[0]?.text) {
-            newTitle = messages[0].text.substring(0, 30) + "...";
-          }
-          return { ...s, title: newTitle, messages: messages };
-        }
-        return s;
-      });
-      localStorage.setItem("mobme_sessions", JSON.stringify(updated));
-      return updated;
-    });
-  }, [messages, currentSessionId]);
-
-  const loadSession = (id: string) => {
-    const session = sessions.find(s => s.id === id);
-    if (session) {
-      setCurrentSessionId(id);
-      setMessages(session.messages);
-      setIsSidebarOpen(false);
+    try {
+      const res = await fetch(`https://api.educamob.com.br/api/chat/${id}`);
+      if (res.ok) {
+        const data = await res.json();
+        const formattedMessages: Message[] = data.history.map((msg: any) => ({
+          id: msg.id || Date.now().toString() + Math.random(),
+          role: msg.role,
+          text: msg.content
+        }));
+        setMessages(formattedMessages);
+      }
+    } catch (e) {
+      console.error("Erro ao buscar mensagens:", e);
+    } finally {
+      setIsLoadingHistory(false);
     }
   };
 
   const deleteSession = (e: React.MouseEvent, id: string) => {
     e.stopPropagation();
+    // Apenas oculta visualmente (Opcionalmente, implementar DELETE na API)
     setSessions(prev => {
       const updated = prev.filter(s => s.id !== id);
-      localStorage.setItem("mobme_sessions", JSON.stringify(updated));
       if (currentSessionId === id) {
         if (updated.length > 0) {
-          setCurrentSessionId(updated[0].id);
-          setMessages(updated[0].messages);
+          loadSession(updated[0].id);
         } else {
           startNewSession();
         }
@@ -355,11 +370,21 @@ export default function ChatApp() {
                   onBlur={() => {
                     setSessions(prev => prev.map(s => s.id === session.id ? { ...s, title: editTitle } : s));
                     setEditingSessionId(null);
+                    fetch(`https://api.educamob.com.br/api/sessions/${session.id}/title`, {
+                      method: 'PUT',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ title: editTitle })
+                    }).catch(console.error);
                   }}
                   onKeyDown={e => {
                     if (e.key === "Enter") {
                       setSessions(prev => prev.map(s => s.id === session.id ? { ...s, title: editTitle } : s));
                       setEditingSessionId(null);
+                      fetch(`https://api.educamob.com.br/api/sessions/${session.id}/title`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ title: editTitle })
+                      }).catch(console.error);
                     }
                   }}
                   autoFocus
