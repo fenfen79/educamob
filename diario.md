@@ -834,3 +834,9 @@ Com a valida��o do Cap�tulo 21 (O n�mero Pi), atinge-se a conclus�o total da **G
 - Solucionado o bug na experiência mobile onde o teclado virtual engolia o evento de clique do botão de enviar (transformando a div de input num formulário 	ype=submit).
 - Substituição de crypto.randomUUID() por Date.now() para garantir compatibilidade com ambientes mobile sem HTTPS.
 - App gerado via Static Export e implantado com sucesso via GitHub Pages no repositório da Educamob.
+
+
+## 08/09/2026 - Correção da Arquitetura de Histórico Mob.me
+- Após revisar o Plano Mestre e a estrutura da API (FastAPI), substituí a persistência local (localStorage) pela infraestrutura Cloud.
+- O Frontend Next.js agora busca e sincroniza ativamente as conversas com os endpoints /api/sessions/{user_id} e /api/chat/{session_id}.
+- Isso garante a visão unificada do histórico do aluno independentemente de qual dispositivo ele acesse o Mob.me.
