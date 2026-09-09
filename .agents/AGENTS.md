@@ -43,3 +43,8 @@ Este arquivo define as regras e diretrizes comportamentais globais para todos os
   3. O script lerá o seu rascunho, validará TODAS as regras (YAML, R$, número de exercícios, tags HTML, zero exercícios na teoria, etc).
   4. Se o script imprimir erro (e falhar), a gravação final não ocorre. Você DEVE ler o erro, editar o rascunho e rodar o script novamente até conseguir aprovação. Somente o script pode escrever no diretório final.
 
+## Infraestrutura e Hospedagem (Backend Mob.me)
+
+- **REGRA DE CONTEXTO:** Para fins de deploy, manutenção e arquitetura, o servidor backend real da Mob.me (`mobme-api`) e a integração do WhatsApp (`evolution-api`) **NÃO** são hospedados localmente.
+- O ambiente de produção está provisionado na **Oracle Cloud (arquitetura ARM64)**.
+- Ambos os serviços rodam conteinerizados via **Docker** e se comunicam internamente pela rede do Docker para recebimento de Webhooks.
