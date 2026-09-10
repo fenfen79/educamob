@@ -298,8 +298,8 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
             else:
                 t_rag_start = time.time()
                 search_query = request.message
-                if len(db_history) >= 2:
-                    last_ai_msg = db_history[-2]["content"]
+                if len(db_history) >= 1:
+                    last_ai_msg = db_history[-1]["content"]
                     search_query = f"{last_ai_msg}\nResposta do aluno: {request.message}"
 
                 cache_key = search_query.strip().lower()
