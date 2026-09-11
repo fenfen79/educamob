@@ -45,6 +45,25 @@ export default function ChatApp() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const [isLoadingHistory, setIsLoadingHistory] = useState(false);
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
+
+  useEffect(() => {
+    // Detect keyboard height using Visual Viewport API
+    const handleVisualViewportResize = () => {
+      if (window.visualViewport) {
+        const diff = window.innerHeight - window.visualViewport.height;
+        setKeyboardHeight(diff > 50 ? diff : 0);
+      }
+    };
+
+    window.visualViewport?.addEventListener('resize', handleVisualViewportResize);
+    window.visualViewport?.addEventListener('scroll', handleVisualViewportResize);
+    
+    return () => {
+      window.visualViewport?.removeEventListener('resize', handleVisualViewportResize);
+      window.visualViewport?.removeEventListener('scroll', handleVisualViewportResize);
+    };
+  }, []);
 
   useEffect(() => {
     // Initialize theme from localStorage or default to dark
@@ -451,7 +470,7 @@ export default function ChatApp() {
         </header>
 
         {/* Chat Area */}
-        <main className="flex-1 overflow-y-auto p-4 flex flex-col items-center">
+        <main className="flex-1 overflow-y-auto p-4 pb-32 flex flex-col items-center">
           <div className="w-full max-w-3xl flex flex-col">
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center flex-1 h-full min-h-[60vh]">
@@ -535,7 +554,10 @@ export default function ChatApp() {
         </main>
 
         {/* Input Area */}
-        <footer className="shrink-0 w-full bg-[var(--bg-primary)] pt-4 pb-6 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-10 relative">
+        <footer 
+          className="fixed bottom-0 w-full bg-[var(--bg-primary)] pt-3 pb-3 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-10 transition-transform duration-150 ease-out md:static md:transform-none"
+          style={{ transform: `translateY(-${keyboardHeight}px)` }}
+        >
           <div className="w-full max-w-4xl flex flex-col relative">
             
             {imagePreview && (
@@ -589,7 +611,7 @@ export default function ChatApp() {
               </button>
             </form>
             
-            <p className="text-center text-xs text-[var(--text-muted)] mt-4">
+            <p className="text-center text-xs text-[var(--text-muted)] mt-2">
               Eu sei muito e sigo estudando, mas não sou perfeita. Se você desconfiar da minha resposta, fale com seu professor(a) da Educamob.
             </p>
           </div>

@@ -1,8 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  interactiveWidget: "overlays-content"
+};
+
 export const metadata: Metadata = {
-  title: "Mob.me — Seu Tutor Inteligente",
+  title: "Mob.me - Seu Tutor Inteligente",
   description: "Tire suas dúvidas escolares com o Mob.me, seu tutor de aprendizagem com inteligência artificial.",
 };
 
