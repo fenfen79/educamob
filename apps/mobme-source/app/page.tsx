@@ -48,14 +48,26 @@ export default function ChatApp() {
   const [keyboardHeight, setKeyboardHeight] = useState(0);
 
   useEffect(() => {
+    // Check if device is iOS
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    
     const handleViewportChange = () => {
       if (window.visualViewport) {
-        const layoutH = window.innerHeight;
-        const visualH = window.visualViewport.height;
-        const diff = layoutH - visualH;
-        setKeyboardHeight(diff > 50 ? diff : 0);
-        if (window.scrollY > 0) {
-          window.scrollTo(0, 0);
+        if (isIOS) {
+          const layoutH = window.innerHeight;
+          const visualH = window.visualViewport.height;
+          const diff = layoutH - visualH;
+          setKeyboardHeight(diff > 50 ? diff : 0);
+          if (window.scrollY > 0) {
+            window.scrollTo(0, 0);
+          }
+        } else {
+          // On Android, layout viewport resizes natively, so we don't need translateY hacks.
+          // Just ensure scroll stays at 0.
+          setKeyboardHeight(0);
+          if (window.scrollY > 0) {
+            window.scrollTo(0, 0);
+          }
         }
       }
     };
