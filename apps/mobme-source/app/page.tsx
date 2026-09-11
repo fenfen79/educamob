@@ -332,7 +332,6 @@ export default function ChatApp() {
       setMessages(prev => [...prev, { id: Date.now().toString(), role: "ai", text: errorMsg }]);
     } finally {
       setIsTyping(false);
-      textareaRef.current?.focus();
     }
   };
 
@@ -570,7 +569,7 @@ export default function ChatApp() {
         </main>
 
         {/* Input Area */}
-        <footer className="fixed bottom-0 left-0 right-0 md:left-[280px] bg-[var(--bg-primary)] pt-3 pb-3 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-20 transition-transform duration-150 ease-out md:static md:transform-none" style={{ transform: `translateY(-${keyboardHeight}px)` }}>
+        <footer className="fixed bottom-0 left-0 right-0 md:left-[280px] bg-[var(--bg-primary)] pt-3 pb-3 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-20 transition-transform duration-150 ease-out " style={{ transform: `translateY(-${keyboardHeight}px)` }}>
           <div className="w-full max-w-4xl flex flex-col relative">
             
             {imagePreview && (
