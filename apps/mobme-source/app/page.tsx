@@ -446,7 +446,7 @@ export default function ChatApp() {
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 overflow-hidden relative min-w-0">
+      <div className="flex-1 relative min-w-0 w-full min-h-screen">
         
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 h-[68px] md:left-[280px] flex items-center justify-between px-4 py-3 z-30 bg-[var(--bg-primary)]/80 backdrop-blur-md">
@@ -486,7 +486,7 @@ export default function ChatApp() {
         </header>
 
         {/* Chat Area */}
-        <main className="fixed top-[68px] left-0 right-0 md:left-[280px] overflow-y-auto p-4 flex flex-col items-center z-10" style={{ height: 'calc(100vh - 68px)', paddingBottom: `${keyboardHeight + 120}px` }}>
+        <main className="fixed top-[68px] left-0 right-0 md:left-[280px] overflow-y-auto p-4 flex flex-col items-center z-10" style={{ height: 'calc(100vh - 68px)', paddingBottom: '50vh' }}>
           <div className="w-full max-w-3xl flex flex-col">
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center flex-1 h-full min-h-[60vh]">
