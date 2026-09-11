@@ -48,21 +48,45 @@ export default function ChatApp() {
   const [keyboardHeight, setKeyboardHeight] = useState(0);
 
   useEffect(() => {
-    // Detect keyboard height using Visual Viewport API
-    const handleVisualViewportResize = () => {
-      if (window.visualViewport) {
-        const diff = window.innerHeight - window.visualViewport.height;
-        setKeyboardHeight(diff > 50 ? diff : 0);
-      }
-    };
+    // Tenta usar a VirtualKeyboard API (Chrome 94+ no Android)
+    if ('virtualKeyboard' in navigator) {
+      // @ts-ignore
+      navigator.virtualKeyboard.overlaysContent = true;
+      
+      const handleVKChange = (e: any) => {
+        setKeyboardHeight(e.target.boundingRect.height);
+      };
+      
+      // @ts-ignore
+      navigator.virtualKeyboard.addEventListener('geometrychange', handleVKChange);
+      
+      return () => {
+        // @ts-ignore
+        navigator.virtualKeyboard.removeEventListener('geometrychange', handleVKChange);
+      };
+    } else {
+      // Fallback para iOS/Safari usando Visual Viewport API
+      const handleVisualViewportResize = () => {
+        if (window.visualViewport) {
+          const diff = window.innerHeight - window.visualViewport.height;
+          setKeyboardHeight(diff > 50 ? diff : 0);
+          
+          // No iOS, forçar o scroll para o topo para evitar que o header suma
+          if (diff > 50) {
+            window.scrollTo(0, 0);
+            document.body.scrollTop = 0;
+          }
+        }
+      };
 
-    window.visualViewport?.addEventListener('resize', handleVisualViewportResize);
-    window.visualViewport?.addEventListener('scroll', handleVisualViewportResize);
-    
-    return () => {
-      window.visualViewport?.removeEventListener('resize', handleVisualViewportResize);
-      window.visualViewport?.removeEventListener('scroll', handleVisualViewportResize);
-    };
+      window.visualViewport?.addEventListener('resize', handleVisualViewportResize);
+      window.visualViewport?.addEventListener('scroll', handleVisualViewportResize);
+      
+      return () => {
+        window.visualViewport?.removeEventListener('resize', handleVisualViewportResize);
+        window.visualViewport?.removeEventListener('scroll', handleVisualViewportResize);
+      };
+    }
   }, []);
 
   useEffect(() => {
