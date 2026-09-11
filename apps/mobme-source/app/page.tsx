@@ -48,45 +48,25 @@ export default function ChatApp() {
   const [keyboardHeight, setKeyboardHeight] = useState(0);
 
   useEffect(() => {
-    // Tenta usar a VirtualKeyboard API (Chrome 94+ no Android)
-    if ('virtualKeyboard' in navigator) {
-      // @ts-ignore
-      navigator.virtualKeyboard.overlaysContent = true;
-      
-      const handleVKChange = (e: any) => {
-        setKeyboardHeight(e.target.boundingRect.height);
-      };
-      
-      // @ts-ignore
-      navigator.virtualKeyboard.addEventListener('geometrychange', handleVKChange);
-      
-      return () => {
-        // @ts-ignore
-        navigator.virtualKeyboard.removeEventListener('geometrychange', handleVKChange);
-      };
-    } else {
-      // Fallback para iOS/Safari usando Visual Viewport API
-      const handleVisualViewportResize = () => {
-        if (window.visualViewport) {
-          const diff = window.innerHeight - window.visualViewport.height;
-          setKeyboardHeight(diff > 50 ? diff : 0);
-          
-          // No iOS, forçar o scroll para o topo para evitar que o header suma
-          if (diff > 50) {
-            window.scrollTo(0, 0);
-            document.body.scrollTop = 0;
-          }
+    const handleViewportChange = () => {
+      if (window.visualViewport) {
+        const layoutH = window.innerHeight;
+        const visualH = window.visualViewport.height;
+        const diff = layoutH - visualH;
+        setKeyboardHeight(diff > 50 ? diff : 0);
+        if (window.scrollY > 0) {
+          window.scrollTo(0, 0);
         }
-      };
-
-      window.visualViewport?.addEventListener('resize', handleVisualViewportResize);
-      window.visualViewport?.addEventListener('scroll', handleVisualViewportResize);
-      
-      return () => {
-        window.visualViewport?.removeEventListener('resize', handleVisualViewportResize);
-        window.visualViewport?.removeEventListener('scroll', handleVisualViewportResize);
-      };
-    }
+      }
+    };
+    window.visualViewport?.addEventListener('resize', handleViewportChange);
+    window.visualViewport?.addEventListener('scroll', handleViewportChange);
+    window.addEventListener('resize', handleViewportChange);
+    return () => {
+      window.visualViewport?.removeEventListener('resize', handleViewportChange);
+      window.visualViewport?.removeEventListener('scroll', handleViewportChange);
+      window.removeEventListener('resize', handleViewportChange);
+    };
   }, []);
 
   useEffect(() => {
@@ -454,10 +434,10 @@ export default function ChatApp() {
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col h-[100dvh] overflow-hidden relative min-w-0">
+      <div className="flex-1 overflow-hidden relative min-w-0">
         
         {/* Header */}
-        <header className="flex items-center justify-between px-4 py-3 shrink-0 z-10 bg-[var(--bg-primary)]/80 backdrop-blur-md">
+        <header className="fixed top-0 left-0 right-0 h-[68px] md:left-[280px] flex items-center justify-between px-4 py-3 z-30 bg-[var(--bg-primary)]/80 backdrop-blur-md">
           <div className="flex items-center gap-3">
             <button 
               className="md:hidden p-2 -ml-2 text-[var(--text-primary)] bg-[var(--bg-elevated)] border border-[var(--border-medium)] rounded-xl"
@@ -494,7 +474,7 @@ export default function ChatApp() {
         </header>
 
         {/* Chat Area */}
-        <main className="flex-1 overflow-y-auto p-4 pb-32 flex flex-col items-center">
+        <main className="fixed top-[68px] left-0 right-0 md:left-[280px] overflow-y-auto p-4 flex flex-col items-center z-10" style={{ height: 'calc(100vh - 68px)', paddingBottom: `${keyboardHeight + 120}px` }}>
           <div className="w-full max-w-3xl flex flex-col">
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center flex-1 h-full min-h-[60vh]">
@@ -578,10 +558,7 @@ export default function ChatApp() {
         </main>
 
         {/* Input Area */}
-        <footer 
-          className="fixed bottom-0 w-full bg-[var(--bg-primary)] pt-3 pb-3 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-10 transition-transform duration-150 ease-out md:static md:transform-none"
-          style={{ transform: `translateY(-${keyboardHeight}px)` }}
-        >
+        <footer className="fixed bottom-0 left-0 right-0 md:left-[280px] bg-[var(--bg-primary)] pt-3 pb-3 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-20 transition-transform duration-150 ease-out md:static md:transform-none" style={{ transform: `translateY(-${keyboardHeight}px)` }}>
           <div className="w-full max-w-4xl flex flex-col relative">
             
             {imagePreview && (
