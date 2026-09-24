@@ -874,3 +874,22 @@ Com a validação do Capítulo 21 (O número Pi), atinge-se a conclusão total d
 - **InstÃ¢ncia (EVOLUTION_INSTANCE_NAME):** Educamob
 - **Postgres User / Password:** postgres / postgres
 - **Postgres DB:** evolution
+
+## 09/09/2026 - Correção do Loop RAG e Reestruturação de Prompts (Mob.me Backend)
+- **Problema:** O contexto longo injetado pelo RAG (apostila) estava sendo concatenado no final da última mensagem do usuário. Quando o usuário respondia com mensagens curtas (ex: "2"), o volume de texto ofuscava a intenção, fazendo o modelo "esquecer" o fluxo socrático e entrar em um loop repetitivo de perguntas.
+- **Solução Arquitetural:** Refatoração do `main.py` (FastAPI) para extrair o material do RAG (`context_str`) da mensagem do usuário e injetá-lo dinamicamente apenas no *System Prompt* da requisição. Isso garante que a mensagem do aluno chegue "limpa", mantendo a fluidez socrática enquanto a IA consome o material como base de conhecimento invisível.
+
+## 10/09/2026 - Auditoria de Fluxo de Cadastro e Integração Webhook
+- **Documentação de Processo:** Revisitada a estratégia de cadastro de alunos na Mob.me e a integração via Webhooks.
+- **Bypass Inicial:** Ratificado o uso do script `import_beta_users.py` para cadastrar os beta-testers iniciais via CSV (usando a data de nascimento como senha fixa), ignorando e-mails automáticos de recuperação no estágio atual.
+- **Fluxo Oficial:** Consolidada a arquitetura onde a criação de novas contas e a gestão de acessos ocorrem via webhooks conectados aos gateways de pagamento (ex: WIX), gerenciando diretamente o Supabase Auth.
+
+## 14/09/2026 - Suporte a Colagem de Imagens (Ctrl+V) no Frontend Mob.me
+- **Implementação:** O frontend (Next.js) foi ajustado para suportar o envio rápido de imagens e capturas de tela colando direto na caixa de texto.
+- **Mecanismo:** Criação de um evento `onPaste` no `<textarea>` que intercepta os arquivos (`event.clipboardData.files`). Quando detecta uma imagem (Blob), o comportamento padrão do navegador é interrompido e a imagem é repassada para o mesmo handler de upload do botão de anexos já existente.
+- **Build Estático:** O aplicativo Mob.me frontend (`apps/mobme-source`) foi reconstruído e exportado de forma estática com o comando `npm run build`.
+
+## 18/09/2026 - Correção de Falsos Positivos do Gemini (Vision Frontline) e Shadowing de Escopo
+- **Problema de Segurança (Falso Positivo):** Estudantes não estavam recebendo resposta ao enviar imagens para a plataforma. A causa raiz era o filtro de segurança do Google Gemini (safety_ratings), que bloqueava imagens inofensivas e retornava uma resposta vazia, gerando uma exceção fatal (ValueError) no backend FastAPI que encerrava a conexão silenciosamente.
+- **Solução Graceful Fallback:** Foi implementado um bloco try/except na rota de leitura de imagem (main.py). Ao capturar a exceção de bloqueio, a API interrompe o processamento visual e devolve uma resposta (StreamingResponse artificial) de contingência, explicando o ocorrido de forma amigável ao aluno e persistindo essa ação no Supabase para manter o contexto.
+- **Bugfix Pós-Deploy (Scope Shadowing):** Durante o deploy, ocorreu um erro de Scope Shadowing. Importações redundantes realizadas dentro do bloco except sobrescreveram as importações globais no escopo local da função (FastAPI). Isso fez com que rotas de texto normal falhassem tentando acessar StreamingResponse antes da sua inicialização local. O problema foi sanado removendo as importações internas.
