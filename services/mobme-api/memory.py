@@ -68,26 +68,62 @@ async def get_or_create_session(supabase: AsyncClient, user_id: str, session_id:
     return new_session_id
 
 
-async def save_message(supabase: AsyncClient, session_id: str, role: str, content: str, image_base64: str | None = None):
+import collections
+
+# Cache em memória para evitar Race Condition entre leitura e escrita assíncrona
+TRANSIENT_SESSION_CACHE = collections.defaultdict(list)
+
+def add_to_transient_cache(session_id: str, role: str, content: str, image_base64: str | None = None):
+    raw_content = content
     if image_base64:
         content = f"<img_b64>{image_base64}</img_b64>{content}"
         
-    await supabase.table("messages").insert({
+    optimistic_msg = {
         "session_id": session_id,
         "role": role,
         "content": content
-    }).execute()
+    }
+    TRANSIENT_SESSION_CACHE[session_id].append(optimistic_msg)
+    return optimistic_msg
 
+async def save_message(supabase: AsyncClient, session_id: str, role: str, content: str, image_base64: str | None = None, optimistic_msg: dict = None):
+    if image_base64:
+        content = f"<img_b64>{image_base64}</img_b64>{content}"
+        
+    try:
+        await supabase.table("messages").insert({
+            "session_id": session_id,
+            "role": role,
+            "content": content
+        }).execute()
+    finally:
+        # Remove a mensagem específica do cache assim que persistir (ou falhar de vez)
+        if optimistic_msg and optimistic_msg in TRANSIENT_SESSION_CACHE[session_id]:
+            TRANSIENT_SESSION_CACHE[session_id].remove(optimistic_msg)
+        if not TRANSIENT_SESSION_CACHE[session_id]:
+            del TRANSIENT_SESSION_CACHE[session_id]
 
 async def get_session_history(supabase: AsyncClient, session_id: str):
     response = await supabase.table("messages").select("*").eq("session_id", session_id).order("created_at").execute()
-    for msg in response.data:
+    db_messages = response.data
+    
+    # Merge das mensagens do DB com o cache transiente (mensagens em voo)
+    in_flight_messages = TRANSIENT_SESSION_CACHE.get(session_id, [])
+    
+    # Evita duplicação caso a mensagem do DB e do cache cruzem
+    merged = list(db_messages)
+    db_contents = {m["content"] for m in db_messages}
+    for m in in_flight_messages:
+        if m["content"] not in db_contents:
+            merged.append(m)
+            
+    for msg in merged:
         if "<img_b64>" in msg["content"]:
             img_match = re.search(r"<img_b64>(.*?)</img_b64>", msg["content"])
             if img_match:
                 msg["image_base64"] = img_match.group(1)
                 msg["content"] = msg["content"].replace(img_match.group(0), "")
-    return response.data
+    return merged
 
 
 async def get_user_sessions(supabase: AsyncClient, user_id: str, limit: int = 20):

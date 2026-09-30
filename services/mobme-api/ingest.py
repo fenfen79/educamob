@@ -4,47 +4,81 @@ from dotenv import load_dotenv
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import MarkdownTextSplitter
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import SupabaseVectorStore
 from supabase.client import Client, create_client
 
-load_dotenv()
+if os.path.exists(".env.lab"):
+    load_dotenv(".env.lab", override=True)
+else:
+    load_dotenv()
 
 # Verificações de ambiente
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+DEEPINFRA_API_TOKEN = os.getenv("DEEPINFRA_API_TOKEN")
 
-if not all([GEMINI_API_KEY, SUPABASE_URL, SUPABASE_KEY]):
-    print("❌ ERRO: Faltam variáveis de ambiente no .env (GEMINI_API_KEY, SUPABASE_URL, SUPABASE_KEY).")
+if not all([GEMINI_API_KEY, SUPABASE_URL, SUPABASE_KEY, DEEPINFRA_API_TOKEN]):
+    print("❌ ERRO: Faltam variáveis de ambiente no .env (GEMINI_API_KEY, SUPABASE_URL, SUPABASE_KEY, DEEPINFRA_API_TOKEN).")
     exit(1)
 
 # 1. Carregar documentos Markdown
-print("Carregando arquivos Markdown...")
-loader = DirectoryLoader("data", glob="**/*.md", loader_cls=TextLoader, loader_kwargs={'encoding': 'utf-8'})
-docs = loader.load()
+from pathlib import Path
 
-if not docs:
-    print("ERRO: Nenhum arquivo Markdown encontrado na pasta 'data'.")
+print("Buscando arquivos Markdown de Matemática (Teoria)...")
+base_dir = Path("../../content")
+directories_to_scan = [
+    base_dir / "fundamental-2",
+    base_dir / "medio",
+    base_dir / "superior"
+]
+
+valid_files = []
+for directory in directories_to_scan:
+    if directory.exists():
+        for file_path in directory.rglob("*.md"):
+            # Apenas arquivos dentro da pasta 'ebooks', ignorando exercícios e infra
+            if "ebooks" in file_path.parts and not file_path.name.endswith("-exercicios.md") and not file_path.name.startswith("_"):
+                valid_files.append(file_path)
+
+if not valid_files:
+    print("ERRO: Nenhum e-book atômico encontrado em content/fundamental-2 ou content/medio.")
     exit(1)
 
-print(f"SUCESSO: {len(docs)} arquivos carregados.")
+print(f"Encontrados {len(valid_files)} e-books para ingestão.")
+
+docs = []
+for file_path in valid_files:
+    try:
+        loader = TextLoader(str(file_path), encoding='utf-8')
+        docs.extend(loader.load())
+    except Exception as e:
+        print(f"Erro ao carregar {file_path}: {e}")
+
+print(f"SUCESSO: {len(docs)} documentos carregados.")
 
 # 2. Fatiar (Split) os documentos usando MarkdownTextSplitter
 print("Fatiando documentos preservando a estrutura...")
 markdown_splitter = MarkdownTextSplitter(chunk_size=1000, chunk_overlap=100)
 splits = markdown_splitter.split_documents(docs)
+splits = [s for s in splits if s.page_content.strip()]
 print(f"Documentos divididos em {len(splits)} pedacos (chunks).")
 
-# 3. Gerar Embeddings via Google Gemini
-print("Inicializando Embeddings do Gemini...")
-embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-2")
+# 3. Gerar Embeddings via DeepInfra (BAAI/bge-m3)
+print("Inicializando Embeddings do DeepInfra...")
+embeddings = OpenAIEmbeddings(
+    model="BAAI/bge-m3",
+    openai_api_base="https://api.deepinfra.com/v1/openai",
+    openai_api_key=os.getenv("DEEPINFRA_API_TOKEN", ""),
+    check_embedding_ctx_length=False
+)
 
 # 4. Inserir no Supabase (pgvector) em Lotes (Batches) para evitar erro 429 do Gemini (Free Tier)
 print("Conectando ao Supabase e inserindo vetores (com pausas para a API Gratuita)...")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-batch_size = 5
+batch_size = 100
 for i in range(0, len(splits), batch_size):
     batch = splits[i:i + batch_size]
     print(f"Processando lote {i//batch_size + 1} de {(len(splits) + batch_size - 1)//batch_size}...")
@@ -68,7 +102,5 @@ for i in range(0, len(splits), batch_size):
                 retries -= 1
             else:
                 raise e # Outro erro qualquer
-
-    time.sleep(2) # Pausa amigável entre os lotes
 
 print("SUCESSO FINAL! Todos os documentos foram vetorizados e salvos no Supabase.")
