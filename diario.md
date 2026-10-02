@@ -899,3 +899,23 @@ Com a validação do Capítulo 21 (O número Pi), atinge-se a conclusão total d
 - **Mitigação de Race Condition:** Implementação do `TRANSIENT_SESSION_CACHE` no `memory.py` e chamadas assíncronas síncronas antes do `background_tasks` no `main.py` para injetar as mensagens instantaneamente na memória em voo, evitando o loop de amnésia do bot.
 - **Refatoração de Prompt e Guardrails:** Atualização do `SYSTEM_PROMPT` para remover a positividade tóxica, adoção da Diretriz de Flexibilidade (Bypass Socrático em caso de frustração explícita) e injeção do Guardrail Curricular (barrando conteúdos de anos superiores ao do aluno).
 - **Deploy em Produção:** Alterações aplicadas no branch `master` e deploy acionado via GitHub Webhooks para o servidor de Produção na Oracle Cloud.
+
+## Atualizações futuras aprovadas
+*(Testadas e validadas no ambiente de Laboratório em Outubro/2026)*
+
+1. **Transição de Paradigma Pedagógico (Freada Socrática e Menu de 4 Trilhas):**
+   - Abandono da imposição forçada do Diagnóstico Socrático no primeiro contato com novos assuntos.
+   - Implantação de um "Gatilho de Bloqueio" que paralisa a IA e exige a apresentação de um Menu de Escolha com 4 rotas de aprendizagem: (1) Resumo teórico, (2) Passo a passo, (3) Exercícios e (4) Flashcards, empoderando a decisão do aluno.
+
+2. **Avaliação Percentual e Feedback Estrito:**
+   - Substituição de feedbacks vagos e generalistas por planos de revisão impositivos focados cirurgicamente nos tópicos em que o estudante falhou.
+   - Nos Flashcards, implantação da validação binária imediata (Certo/Errado) obrigatoriamente acompanhada da resolução da questão.
+
+3. **Bypass de Formatação (React-Markdown vs Emojis):**
+   - Solução arquitetural para o problema de renderização do Next.js, que colapsava listas HTML (<ol>).
+   - O prompt passou a utilizar um Template rígido com *emojis enumerados* (1️⃣, 2️⃣) e quebra dupla de linha (Markdown) para forçar o frontend a renderizar a UI corretamente.
+
+4. **Proteção de Memória e Custos (Context Switching):**
+   - Criação da regra de "Organização de Estudos".
+   - Motivação: Evitar poluição na busca semântica (RAG), impedir amnésia do LLM e cortar custos exponenciais de Tokens na API em chats muito longos.
+   - Solução: Ao detectar mudança de assunto, a IA paralisa a interação sob a justificativa lúdica de "pegar um caderno novo", forçando o aluno a abrir uma "Nova Conversa".
