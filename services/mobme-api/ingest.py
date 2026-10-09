@@ -104,3 +104,34 @@ for i in range(0, len(splits), batch_size):
                 raise e # Outro erro qualquer
 
 print("SUCESSO FINAL! Todos os documentos foram vetorizados e salvos no Supabase.")
+
+# 5. Atualizar a tabela de matérias disponíveis e notificar a API
+print("\nAtualizando a lista de matérias dinâmicas no banco...")
+try:
+    KNOWN_SUBJECTS = {"matematica", "fisica", "quimica", "biologia", "historia", "geografia", "filosofia", "sociologia", "literatura", "ingles", "espanhol", "artes", "calculo-1"}
+    subjects_found = set()
+    for fp in valid_files:
+        for part in fp.parts:
+            if part.lower() in KNOWN_SUBJECTS:
+                subjects_found.add(part.lower())
+    
+    for subject in subjects_found:
+        supabase.table("available_subjects").upsert({"subject_name": subject}).execute()
+    
+    import requests
+    try:
+        # Notifica o backend em desenvolvimento (se estiver rodando)
+        requests.post("http://localhost:8000/api/admin/reload-subjects", timeout=2)
+    except Exception:
+        pass
+        
+    try:
+        # Notifica o backend em produção (substitua pela URL real se tiver domínio público direto)
+        requests.post("https://mobme.educamob.com.br/api/admin/reload-subjects", timeout=2)
+    except Exception:
+        pass
+        
+    print(f"Matérias ativas identificadas e injetadas no prompt: {', '.join([s.capitalize() for s in subjects_found])}")
+except Exception as e:
+    print(f"Aviso: Erro ao atualizar as matérias dinâmicas: {e}")
+
