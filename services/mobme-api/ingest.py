@@ -7,6 +7,8 @@ from langchain_text_splitters import MarkdownTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import SupabaseVectorStore
 from supabase.client import Client, create_client
+import hashlib
+import json
 
 if os.path.exists(".env.lab"):
     load_dotenv(".env.lab", override=True)
@@ -46,66 +48,114 @@ if not valid_files:
     print("ERRO: Nenhum e-book atômico encontrado em content/fundamental-2 ou content/medio.")
     exit(1)
 
-print(f"Encontrados {len(valid_files)} e-books para ingestão.")
+print(f"Total de {len(valid_files)} e-books identificados nas pastas.")
 
-docs = []
+# -------------------------------------------------------------
+# INGESTÃO INTELIGENTE (Idempotente)
+# -------------------------------------------------------------
+STATE_FILE = "ingest_state.json"
+try:
+    with open(STATE_FILE, "r") as f:
+        ingest_state = json.load(f)
+except Exception:
+    ingest_state = {}
+
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+docs_to_process = []
+new_state = {}
+files_to_ingest = []
+
 for file_path in valid_files:
     try:
-        loader = TextLoader(str(file_path), encoding='utf-8')
-        docs.extend(loader.load())
+        content_bytes = open(file_path, 'rb').read()
+        file_hash = hashlib.md5(content_bytes).hexdigest()
+        str_path = str(file_path).replace("\\", "/") # Normaliza barras para evitar bugs no windows/linux
+        
+        # Mantém no estado atualizado
+        new_state[str_path] = file_hash
+        
+        # Se a hash for igual, o arquivo não mudou. PULA.
+        if ingest_state.get(str_path) == file_hash:
+            continue
+            
+        # Adiciona na lista de arquivos que precisam ser vetorizados
+        files_to_ingest.append(str_path)
+        
     except Exception as e:
-        print(f"Erro ao carregar {file_path}: {e}")
+        print(f"Erro ao verificar {file_path}: {e}")
 
-print(f"SUCESSO: {len(docs)} documentos carregados.")
-
-# 2. Fatiar (Split) os documentos usando MarkdownTextSplitter
-print("Fatiando documentos preservando a estrutura...")
-markdown_splitter = MarkdownTextSplitter(chunk_size=1000, chunk_overlap=100)
-splits = markdown_splitter.split_documents(docs)
-splits = [s for s in splits if s.page_content.strip()]
-print(f"Documentos divididos em {len(splits)} pedacos (chunks).")
-
-# 3. Gerar Embeddings via DeepInfra (BAAI/bge-m3)
-print("Inicializando Embeddings do DeepInfra...")
-embeddings = OpenAIEmbeddings(
-    model="BAAI/bge-m3",
-    openai_api_base="https://api.deepinfra.com/v1/openai",
-    openai_api_key=os.getenv("DEEPINFRA_API_TOKEN", ""),
-    check_embedding_ctx_length=False
-)
-
-# 4. Inserir no Supabase (pgvector) em Lotes (Batches) para evitar erro 429 do Gemini (Free Tier)
-print("Conectando ao Supabase e inserindo vetores (com pausas para a API Gratuita)...")
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-batch_size = 100
-for i in range(0, len(splits), batch_size):
-    batch = splits[i:i + batch_size]
-    print(f"Processando lote {i//batch_size + 1} de {(len(splits) + batch_size - 1)//batch_size}...")
+if not files_to_ingest:
+    print("✅ Nenhum arquivo novo ou modificado. Ingestão pulada. Zero tokens gastos e nenhuma duplicata!")
+else:
+    print(f"🚀 {len(files_to_ingest)} arquivos novos ou modificados encontrados. Iniciando carregamento e vetorização...")
     
-    # Tenta inserir, se der erro de cota, espera e tenta de novo
-    retries = 3
-    while retries > 0:
+    # Exclui os antigos e carrega os novos
+    for str_path in files_to_ingest:
         try:
-            SupabaseVectorStore.from_documents(
-                batch,
-                embeddings,
-                client=supabase,
-                table_name="documents",
-                query_name="match_documents"
-            )
-            break # Sucesso, sai do loop de tentativas
+            # O loader TextLoader do Langchain usa o caminho passado na variável source
+            # Deletamos os chunks antigos com a source exata no Supabase antes de inserir os novos
+            supabase.table("documents").delete().eq("metadata->>source", str_path).execute()
+            # E por segurança, deletamos também a versão com barras antigas (Windows) se houver
+            supabase.table("documents").delete().eq("metadata->>source", str_path.replace("/", "\\")).execute()
         except Exception as e:
-            if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
-                print("Limite da API atingido. Aguardando 10 segundos...")
-                time.sleep(10)
-                retries -= 1
-            else:
-                raise e # Outro erro qualquer
+            pass # Pode dar erro se for um arquivo novo e não existir
+            
+        try:
+            loader = TextLoader(str_path, encoding='utf-8')
+            docs_to_process.extend(loader.load())
+        except Exception as e:
+            print(f"Erro ao carregar texto de {str_path}: {e}")
 
-print("SUCESSO FINAL! Todos os documentos foram vetorizados e salvos no Supabase.")
+    # Fatiar (Split) os documentos usando MarkdownTextSplitter
+    print("Fatiando documentos...")
+    markdown_splitter = MarkdownTextSplitter(chunk_size=1000, chunk_overlap=100)
+    splits = markdown_splitter.split_documents(docs_to_process)
+    splits = [s for s in splits if s.page_content.strip()]
+    print(f"Documentos divididos em {len(splits)} pedaços (chunks).")
 
+    # Gerar Embeddings via DeepInfra (BAAI/bge-m3)
+    print("Inicializando Embeddings do DeepInfra...")
+    embeddings = OpenAIEmbeddings(
+        model="BAAI/bge-m3",
+        openai_api_base="https://api.deepinfra.com/v1/openai",
+        openai_api_key=DEEPINFRA_API_TOKEN,
+        check_embedding_ctx_length=False
+    )
+
+    # Inserir no Supabase
+    batch_size = 100
+    for i in range(0, len(splits), batch_size):
+        batch = splits[i:i + batch_size]
+        print(f"Processando lote {i//batch_size + 1} de {(len(splits) + batch_size - 1)//batch_size}...")
+        retries = 3
+        while retries > 0:
+            try:
+                SupabaseVectorStore.from_documents(
+                    batch,
+                    embeddings,
+                    client=supabase,
+                    table_name="documents",
+                    query_name="match_documents"
+                )
+                break
+            except Exception as e:
+                if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                    print("Limite da API atingido. Aguardando 10 segundos...")
+                    time.sleep(10)
+                    retries -= 1
+                else:
+                    raise e
+                    
+    # Após sucesso, salva o novo estado
+    with open(STATE_FILE, "w") as f:
+        json.dump(new_state, f)
+        
+    print("SUCESSO FINAL! Documentos novos/atualizados foram vetorizados.")
+
+# -------------------------------------------------------------
 # 5. Atualizar a tabela de matérias disponíveis e notificar a API
+# (Isso ocorre sempre, pois uma pasta pode ter sido apagada ou adicionada)
+# -------------------------------------------------------------
 print("\nAtualizando a lista de matérias dinâmicas no banco...")
 try:
     KNOWN_SUBJECTS = {"matematica", "fisica", "quimica", "biologia", "historia", "geografia", "filosofia", "sociologia", "literatura", "ingles", "espanhol", "artes", "calculo-1"}
@@ -120,18 +170,15 @@ try:
     
     import requests
     try:
-        # Notifica o backend em desenvolvimento (se estiver rodando)
         requests.post("http://localhost:8000/api/admin/reload-subjects", timeout=2)
     except Exception:
         pass
         
     try:
-        # Notifica o backend em produção (substitua pela URL real se tiver domínio público direto)
         requests.post("https://mobme.educamob.com.br/api/admin/reload-subjects", timeout=2)
     except Exception:
         pass
         
-    print(f"Matérias ativas identificadas e injetadas no prompt: {', '.join([s.capitalize() for s in subjects_found])}")
+    print(f"Matérias ativas injetadas no prompt: {', '.join([s.capitalize() for s in subjects_found])}")
 except Exception as e:
     print(f"Aviso: Erro ao atualizar as matérias dinâmicas: {e}")
-
