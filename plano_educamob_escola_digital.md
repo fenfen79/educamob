@@ -71,6 +71,7 @@ Para que o seu sistema de vendas (seja WIX, Hotmart, Kiwify, Stripe ou Asaas) co
 > 3. **High Availability & Fallback:** Resiliência contra o erro 503 do Google implementando fallback nativo para `gemini-2.0-flash`. (Roteamento Multi-Provedor com OpenAI em backlog).
 > 4. **UX Responsivo (Frontend Next.js):** Reconstrução completa do frontend SPA Mob.me em **Next.js (TailwindCSS)** após perda do código original, restaurando 100% da estética original. Correção definitiva do bug no mobile onde o teclado virtual bloqueava o botão de envio (resolvido através da semântica nativa `<form type="submit">`), e substituição de `crypto.randomUUID()` por `Date.now()` para plena compatibilidade mobile fora do HTTPS.
 > 5. **Concorrência e RAG Assíncrono:** Substituição do `DeepInfraEmbeddings` bloqueante da biblioteca Langchain por chamadas nativamente assíncronas (`httpx`) conectando a interface `OpenAIEmbeddings` direto ao RPC do Supabase, derrubando a fila do Python e estabilizando a performance de RAG em cenários de stress intenso (50+ chamadas simultâneas). O gargalo final (13s) provou-se restrito unicamente à cota concorrente (rate-limit) da API Gemini.
+> 6. **Injeção Dinâmica de Matérias e Guardião RAG:** Implementada barreira sistêmica no `main.py` e nos prompts para bloquear alucinações sobre disciplinas inexistentes. O backend lê dinamicamente da tabela `available_subjects` e injeta a lista no prompt do sistema. O `ingest.py` foi refatorado para operar de forma inteligente (Idempotente) usando hash local, zerando tempo e custo na inserção de novos conteúdos e excluindo automaticamente duplicatas do banco vetorial.
 
 ---
 
@@ -310,6 +311,9 @@ Criação de uma skill especializada em **validação de conteúdos acadêmicos*
 **✅ Concluído: Matemática do Ensino Médio (Batch 6 - Capítulos 26 ao 30)**
 **✅ Concluído: Matemática do Ensino Médio (Batch 7 - Capítulos 31 ao 35)**
 **✅ Concluído: Matemática do Ensino Médio (Batch 8 - Capítulos 36 ao 38 - CONCLUSÃO FINAL)**
+**✅ Concluído: Física da 1ª Série (Física I - Mecânica e Fluidos - 21 Capítulos, 50 E-books 100% Homologados em Gemini Pro)**
+**✅ Concluído: Física da 2ª Série (Física II - Termologia, Óptica, MHS e Ondulatória - 19 Capítulos, 41 E-books 100% Homologados em Gemini Pro)**
+**✅ Concluído: Física da 3ª Série (Física III - Eletrostática, Eletrodinâmica, Eletromagnetismo, Física Moderna e Análise Dimensional - 21 Capítulos, 39 E-books 100% Homologados em Gemini Pro)**
 
 > **Complexidade:** 🔴 Alta — Sprint **cíclico e incremental** (múltiplas conversas — 1 conversa por Objeto de Conhecimento recomendado). Este sprint será executado repetidamente ao longo de meses.  
 > **Skill a acionar:** E-book Creator

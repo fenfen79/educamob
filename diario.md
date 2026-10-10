@@ -919,3 +919,82 @@ Com a validação do Capítulo 21 (O número Pi), atinge-se a conclusão total d
    - Criação da regra de "Organização de Estudos".
    - Motivação: Evitar poluição na busca semântica (RAG), impedir amnésia do LLM e cortar custos exponenciais de Tokens na API em chats muito longos.
    - Solução: Ao detectar mudança de assunto, a IA paralisa a interação sob a justificativa lúdica de "pegar um caderno novo", forçando o aluno a abrir uma "Nova Conversa".
+
+---
+
+## 📚 Fase 5 — Produção de Conteúdos Educacionais (Física - Ensino Médio)
+
+### Protocolo de Construção do Mapa Curricular de Física
+- **Granularidade Adotada:** A estrutura do projeto foi refinada para se espelhar fielmente nos Sumários da coleção de livros didáticos em PDF de referência, dividindo o conteúdo do Ensino Médio em dezenas de Capítulos curtos e atômicos, padronizando a mesma estrutura utilizada nos e-books de Matemática.
+- **Divisão Macro (Refatorada):** 
+  - **1ª Série (Física I):** Contempla toda a Mecânica Clássica (Cinemática Escalar e Vetorial, Dinâmica, Conservação, Gravitação) e inclui agora **Estática e Hidrostática/Hidrodinâmica**, que foram movidos estritamente para a 1ª série para fechar o ciclo de mecânica (corpos e fluidos).
+  - **2ª Série (Física II):** Focado puramente em Termologia, Óptica Geométrica, **Movimento Harmônico Simples (MHS)** isolado, Ondulatória e Acústica.
+  - **3ª Série (Física III):** Engloba Eletrostática, Eletrodinâmica (com a adoção de altíssima granularidade: há capítulos separados para Resistores, Geradores, Receptores, Leis de Kirchhoff e Capacitores), Eletromagnetismo, Física Moderna e encerra a jornada estudantil com **Análise Dimensional** no Capítulo 21.
+- **Regra de Ouro (Proteção de Escrita):** A produção deste novo lote de e-books e exercícios seguirá a restrição sistêmica onde IAs não podem salvar diretamente na pasta `content/`. Utilizar-se-á obrigatoriamente o arquivo `temp_draft.md`, que será processado, auditado e finalmente transferido para o seu subdiretório de destino definitivo pelo script `validador_educamob.py`.
+
+### Conclusão e Homologação da 2ª Série (Física II) — Outubro/2026
+- **Status:** ✅ 100% Concluído e Aprovado (19 Capítulos, 41 E-books Teóricos).
+- **Pipeline de Duplo Guardrail Aplicado:**
+  1. **Redação & Criação (Gemini Flash):** Cada e-book gerado respeitando densidade $\ge 2.000$ palavras, $\ge 5$ referências ABNT NBR 6023, citações no texto NBR 10520 com indicação explícita de páginas, zero exercícios e supressão estrita do símbolo monetário `R$`.
+  2. **Validador Sistêmico Python (`validador_educamob.py`):** Checagem automatizada de integridade estrutural, paridade de delimitadores MathJax/LaTeX, e gravação atômica segura no caminho final.
+  3. **Auditoria Acadêmica Rigorosa (Gemini Pro):** O Agente Validador Acadêmico auditou arquivo por arquivo contra os 5 Pilares Acadêmicos, eliminando qualquer resquício de cálculo universitário diferencial/integral e aprovando formalmente 100% dos materiais.
+- **Cobertura Curricular Concluída da 2ª Série:**
+  - *Termologia:* Cap. 01 ao Cap. 09 (Calorimetria, Dilatação, Termodinâmica e Entropia).
+  - *Óptica Geométrica:* Cap. 10 ao Cap. 15 (Princípios, Espelhos Planos, Espelhos Esféricos, Refração, Lentes Esféricas Delgadas e Instrumentos Ópticos / Óptica da Visão).
+  - *Ondulatória e Acústica:* Cap. 16 ao Cap. 19 (Cinemática e Dinâmica do MHS, Ondas e Fenômenos Ondulatórios, Interferência e Experiência de Young, Qualidades Fisiológicas do Som, Tubos Sonoros/Cordas e Efeito Doppler).
+
+### Conclusão e Homologação da 3ª Série (Física III) — Outubro/2026
+- **Status:** ✅ 100% Concluído e Aprovado (21 Capítulos, 39 E-books Teóricos).
+- **Pipeline de Duplo Guardrail Aplicado:**
+  1. **Redação & Criação (Gemini Flash):** Todos os 39 e-books gerados com densidade maciça (médias de 6.000 a 11.000 palavras por e-book), $\ge 5$ referências completas ABNT NBR 6023, citações no texto NBR 10520 com indicação pontual de páginas, zero exercícios, zero `R$` e matemática restrita estritamente à álgebra do Ensino Médio.
+  2. **Validador Sistêmico Python (`validador_educamob.py`):** 100% dos arquivos validados com código de saída 0 (aprovação estrutural, ausência de repetições aberrantes e paridade perfeita de KaTeX).
+  3. **Auditoria Acadêmica Rigorosa (Gemini Pro):** Cada um dos 39 e-books foi submetido à auditoria do Gemini Pro auditando os 5 Pilares Acadêmicos e recebendo o parecer explícito `[APROVADO]`.
+- **Cobertura Curricular Concluída da 3ª Série (21 Capítulos):**
+  - *Eletrostática:* Cap. 01 ao Cap. 04 (Eletrização, Campo Elétrico, Trabalho/Potencial Elétrico, Condutores em Equilíbrio e Blindagem).
+  - *Eletrodinâmica:* Cap. 05 ao Cap. 12 (Corrente Elétrica, Resistores e Leis de Ohm, Associação de Resistores e Fusíveis, Medidas Elétricas e Ponte de Wheatstone, Geradores Elétricos e Associação, Receptores Elétricos e Lei de Pouillet, Leis de Kirchhoff de Nós e Malhas, Capacitores e Dielétricos).
+  - *Eletromagnetismo:* Cap. 13 ao Cap. 16 (Ímãs e Magnetismo Terrestre, Campo Magnético de Correntes, Força Magnética de Lorentz e Trajetórias, Força de Laplace e Motores CC, Fluxo Magnético e Lei de Lenz, Lei de Faraday-Neumann e fem Induzida, Transformadores e Usinas de Energia Elétrica).
+  - *Física Moderna, Nuclear e Fechamento:* Cap. 17 ao Cap. 21 (Ondas Eletromagnéticas e Espectro, Postulados de Einstein e Dilatação Temporal, Momento e Energia Relativística, Efeito Fotoelétrico e Fótons, Dualidade Onda-Partícula e Bohr, As Quatro Forças Fundamentais e Modelo Padrão, Radioatividade/Fissão/Fusão, e Análise Dimensional / Equações Dimensionais).
+### Conclusão e Homologação da 1ª Série (Física I) — Outubro/2026
+- **Status:** ✅ 100% Concluído e Aprovado (21 Capítulos, 50 E-books Teóricos 100% Homologados em Gemini Pro).
+- **Pipeline de Duplo Guardrail Aplicado:**
+  1. **Redação & Criação (Gemini Flash):** Todos os 50 e-books gerados com densidade conceitual densa ($\ge 2.000$ palavras), $\ge 5$ referências completas ABNT NBR 6023, citações no texto NBR 10520 com indicação explícita de páginas `(Autor, Ano, p. XX)`, zero exercícios, zero `R$` e ausência total de cálculo diferencial/integral universitário.
+  2. **Validador Sistêmico Python (`validador_educamob.py`):** 100% dos arquivos aprovados com código de saída 0 antes da gravação no diretório final.
+  3. **Auditoria Acadêmica Rigorosa (Gemini Pro):** Cada um dos 50 e-books auditado individualmente contra os 5 Pilares Acadêmicos, recebendo o parecer formal explícito `[APROVADO]`.
+- **Cobertura Curricular Concluída da 1ª Série (21 Capítulos):**
+  - *Fundamentos e Introdução:* Cap. 01 ao Cap. 02 (O que é Física, Grandezas e SI, Algarismos Significativos, Posição e Referencial, Velocidade Escalar Média).
+  - *Cinemática Escalar:* Cap. 03 ao Cap. 06 (Movimento Uniforme, Função Horária do MU e Encontros, Aceleração Escalar, Funções Horárias do MUV, Equação de Torricelli, Queda Livre no Vácuo, Lançamento Vertical, Gráficos do MU e MUV).
+  - *Vetores e Cinemática Vetorial:* Cap. 07 ao Cap. 10 (Grandezas Vetoriais e Operações, Decomposição de Vetores, Velocidade Vetorial, Aceleração Vetorial Tangencial e Centrípeta, Lançamento Horizontal, Lançamento Oblíquo, Grandezas Angulares, MCU e MCUV).
+  - *Dinâmica Newtoniana:* Cap. 11 ao Cap. 13 (Primeira Lei/Inércia, Segunda Lei/Fundamental, Terceira Lei/Ação e Reação, Forças de Contato e Campo, Atrito Estático e Dinâmico, Resistência dos Fluidos, Dinâmica Curvilínea e Força Centrípeta).
+  - *Trabalho, Energia e Quantidade de Movimento:* Cap. 14 ao Cap. 16 (Trabalho de Força Constante e Variável, Potência e Rendimento, Energia Cinética, Energia Potencial Gravitacional e Elástica, Conservação da Energia Mecânica, Teorema do Impulso, Quantidade de Movimento e Choques Mecânicos).
+  - *Gravitação Universal:* Cap. 17 (Leis de Kepler, Lei da Gravitação Universal, Corpos em Órbita e Satélites).
+  - *Estática:* Cap. 18 ao Cap. 19 (Equilíbrio do Ponto Material, Momento de uma Força/Torque, Equilíbrio do Corpo Extenso).
+  - *Mecânica dos Fluidos:* Cap. 20 ao Cap. 21 (Pressão e Densidade, Teorema de Stevin, Princípio de Pascal, Empuxo e Princípio de Arquimedes, Vazão e Equação da Continuidade, Equação de Bernoulli e Aplicações).
+
+---
+
+## 🏆 MARCO HISTÓRICO: 100% DA FÍSICA DO ENSINO MÉDIO CONCLUÍDA E HOMOLOGADA
+- **Consolidação Definitiva:**
+  - **1ª Série (Física I):** 21 Capítulos | 50 E-books | 100% Aprovados com Parecer Formal Gemini Pro.
+  - **2ª Série (Física II):** 19 Capítulos | 41 E-books | 100% Aprovados com Parecer Formal Gemini Pro.
+  - **3ª Série (Física III):** 21 Capítulos | 39 E-books | 100% Aprovados com Parecer Formal Gemini Pro.
+  - **TOTAL GERAL:** **61 Capítulos | 130 E-books Teóricos Atômicos** com rigor absoluto, duplo guardrail, código 0 no validador sistêmico e homologação acadêmica irrestrita.
+
+### Padronização Arquitetural e Ingestão no Banco Mob.me (RAG / Supabase pgvector)
+- **Padronização de Diretórios:** Unificação de todo o Ensino Médio sob a rota padrão oficial `content/medio/` (`1-serie`, `2-serie`, `3-serie` e `volume-unico`).
+- **Ingestão Vetorial Concluída (`services/mobme-api/ingest_fisica.py`):**
+  - **E-books Processados:** 130 e-books de Física.
+  - **Fragmentação Semântica:** 9.218 chunks estruturados em Markdown via `MarkdownTextSplitter` (chunk_size=1000, overlap=100).
+  - **Embeddings de Alta Dimensão:** Vetorizados via DeepInfra com o modelo `BAAI/bge-m3` (dimensão 1024).
+  - **Persistência pgvector:** 185 lotes gravados com 100% de sucesso na tabela `documents` do Supabase.
+  - **Validação de Recuperação RAG:** Teste de similaridade semântica executado com sucesso retornando os trechos exatos dos e-books correspondentes com máxima relevância.
+
+## 09/10/2026 - Implementação de Guardrails Externos e Isolamento de Ambientes
+- **Separação Física de Prompts:** O bloco \SYSTEM_PROMPT\ foi removido do código-fonte (\main.py\). Os prompts foram migrados para arquivos Markdown independentes na pasta \services/mobme-api/prompts/\ (\prompt_prod.md\ para produção e \prompt_lab.md\ para testes).
+- **Roteamento de Guardrail (FastAPI):** Implementada lógica no backend que verifica a presença do arquivo \.env.lab\. Se detectado, o sistema carrega o prompt experimental; caso contrário, carrega o prompt restrito e seguro de produção. Essa trava impede que regras de bypass e testes cheguem aos alunos reais.
+- **Git Hook de Proteção (Pre-commit):** Criado um script \.git/hooks/pre-commit\ que atua como barreira final de segurança. Ele intercepta qualquer \git commit\ e bloqueia o salvamento caso termos do laboratório (ex: "Liberado no Lab", "Ambiente de testes") vazem acidentalmente para o \prompt_prod.md\.
+
+
+## 10/10/2026 - Injeção Dinâmica de Matérias e Guardião RAG
+- **Refatoração do Prompt (Mob.me):** O sistema agora conta com uma arquitetura de 'Matérias Dinâmicas'. A IA tem uma restrição explícita (`prompt_prod.md` e `prompt_lab.md`) para não ensinar assuntos que não estejam no banco de dados.
+- **Injeção de Contexto (FastAPI):** O `main.py` foi atualizado para carregar da tabela `available_subjects` as disciplinas ativas, injetando essa lista no `dynamic_system_prompt` da IA.
+- **Ingestor Inteligente (Idempotente):** O script `ingest.py` foi completamente refatorado para utilizar hashes locais (`ingest_state.json`), garantindo que apenas arquivos novos ou modificados sejam vetorizados, poupando tokens e tempo. Ele também realiza um `DELETE` cirúrgico no Supabase antes de inserir novos vetores, zerando as duplicatas de e-books na base.
