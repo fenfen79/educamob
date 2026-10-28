@@ -2995,3 +2995,23 @@ Com o término da Etapa 3, a base teórica completa de Química do Ensino Médio
   3. **Verificação de Compilação e Disponibilidade:**
      - Executado `npx tsc --noEmit` sem qualquer advertência ou erro de tipagem.
      - Servidor Next.js (porta 3000) e Cloudflare Tunnel testados e validados com resposta HTTP 200 OK.
+
+
+---
+
+### [28/10/2026 - Rodada 5] - Blindagem Crítica da Memória de Longo Prazo (Sigilo Interno e Supressão em Menus)
+
+- **Contexto e Causa Raiz:**
+  - Durante o teste da disciplina de Química (tema: "Funções Inorgânicas"), a Mob.me gerou um parágrafo bizarro antes do menu: *"Antes de começarmos, quero te dar um norte. Nas nossas conversas anteriores, percebi que você tem uma boa base em conceitos estruturais, mas que a gente precisa reforçar bem a ordenação da hierarquia ecológica... e organelas celulares (Ribossomo, Golgi, Retículo)..."*.
+  - **Causa Raiz Identificada:** O mecanismo de background `update_long_term_memory` do FastAPI analisa a cada 5 mensagens as interações do aluno e sintetiza um resumo pedagógico salvo na coluna `long_term_memory` da tabela `users` no Supabase. O usuário de teste (`00000000-0000-0000-0000-000000000001`) acumulou uma análise antiga sobre dificuldades em Biologia/Ciências. Na montagem do prompt dinâmico (`main.py`), essa string crua era injetada como `Memória sobre o aluno: ...` sem qualquer instrução de sigilo. Ao receber "funções inorgânicas", o LLM tentou ser "prestativo" e despejou as notas de Biologia no início da sessão de Química.
+
+- **Intervenções e Soluções Implementadas:**
+  1. **Higienização do Banco de Dados:** O campo `long_term_memory` do usuário de testes foi limpo no Supabase, retornando para `"Nenhuma preferência registrada ainda."`.
+  2. **Supressão Total da Memória em Telas de Navegação (`main.py`):**
+     - Em modos de transição (`modo_acolhida`, `modo_menu` e `modo_novo_assunto`), a memória de longo prazo NUNCA é injetada no system prompt. O modelo recebe apenas o tema atual e a estrutura canônica.
+  3. **Marcação Estrita de Contexto Silencioso (`main.py`):**
+     - Nos demais modos (diálogos e exercícios), a memória passa a ser rotulada como: `Observações Didáticas Internas (USO ESTRITAMENTE SILENCIOSO - NUNCA CITE, RECITE OU DESPEJE NO ALUNO)`.
+  4. **Regra de Ouro no Prompt Master (`base_persona.md`):**
+     - Criada a *Regra de Ouro da Memória do Aluno*: proibição expressa e absoluta de ler, recitar ou citar dificuldades anteriores, e proibição rigorosa de misturar disciplinas passadas com o conteúdo atual.
+  5. **Blindagem no Modo Menu (`modo_menu.md`):**
+     - Adicionada proibição terminante de intros longas, conselhos prévios, "dar um norte" ou citar matérias/erros antigos ao renderizar o menu de opções.
