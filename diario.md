@@ -3015,3 +3015,23 @@ Com o término da Etapa 3, a base teórica completa de Química do Ensino Médio
      - Criada a *Regra de Ouro da Memória do Aluno*: proibição expressa e absoluta de ler, recitar ou citar dificuldades anteriores, e proibição rigorosa de misturar disciplinas passadas com o conteúdo atual.
   5. **Blindagem no Modo Menu (`modo_menu.md`):**
      - Adicionada proibição terminante de intros longas, conselhos prévios, "dar um norte" ou citar matérias/erros antigos ao renderizar o menu de opções.
+
+
+---
+
+### [28/10/2026 - Rodada 6] - Destaque Centralizado para Fórmulas/Equações e Desacoplamento do Menu em Janela Independente
+
+- **Contexto e Causa Raiz:**
+  - O usuário identificou dois pontos de melhoria de UX pedagógica:
+    1. **Fórmulas e Equações Sem Destaque:** Equações químicas e matemáticas (reações de ionização, dissociação e neutralização) apareciam comprimidas no fluxo do texto ou coladas à esquerda sem respiro visual.
+    2. **Menu Anexado à Janela de Leitura:** Ao finalizar o e-book do "Bora Ler!", o Super Menu de 8 opções vinha colado no rodapé do mesmo balão widescreen da teoria, gerando poluição visual e impedindo a separação entre leitura e navegação.
+
+- **Intervenções e Soluções Implementadas:**
+  1. **Equações e Fórmulas Centralizadas com Destaque Máximo:**
+     - **Estilização KaTeX (`globals.css`):** Atualizada a classe `.katex-display` com `width: fit-content; margin: 1.5rem auto !important; text-align: center; font-size: 1.15rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); padding: 1rem 1.4rem;`. Fórmulas e equações agora aparecem destacadas em cards elegantes centralizados.
+     - **Auto-promoção no Frontend (`page.tsx`):** A função `sanitizeContent` detecta reações e equações com setas (`\to`, `\rightarrow`, `\xrightarrow`, `\rightleftharpoons`) e as promove automaticamente para blocos destacados `$$ ... $$` caso venham inline.
+     - **Diretriz Mandatória nos Prompts (`base_persona.md`, `modo_teoria.md`, `modo_memorex.md`):** Regra obrigatória exigindo que reações e fórmulas sejam isoladas em blocos `$$` em linhas exclusivas.
+  2. **Desacoplamento do Menu em Janela de Contexto Independente (`page.tsx`):**
+     - Criada a função `splitMessageMenu`, que divide respostas que contêm conteúdo substancial seguido do menu de encerramento em dois elementos visuais independentes:
+       - **Janela 1 (Conteúdo/Teoria):** Preserva a leitura profunda e as tabelas amplas em formato Widescreen (`max-w-5xl md:max-w-6xl`).
+       - **Janela 2 (Super Menu Independente):** Renderizada como um balão de mensagem separado, com avatar próprio da Mob.me, espaçamento limpo e contida estritamente na largura compacta padrão (`max-w-3xl`, bolhas a 75%/85%), desanexando totalmente o menu da teoria.

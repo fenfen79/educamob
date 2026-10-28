@@ -76,11 +76,76 @@ const getApiBaseUrl = () => {
 
 const sanitizeContent = (content: string) => {
   if (!content) return "";
-  // Auto-heal KaTeX double subscript error (ex: SO_4^{2-}_{(aq)})
-  return content.replace(
+  // 1. Auto-heal KaTeX double subscript error (ex: SO_4^{2-}_{(aq)})
+  let sanitized = content.replace(
     /([A-Za-z0-9]+_[0-9]+(?:\^\{?[^}]+\}?)?)_(\{?\([a-z0-9]+\)\}?)/g,
     (match, p1, p2) => "{" + p1 + "}_" + p2
   );
+
+  // 2. Auto-promover equações químicas ou matemáticas com setas/reações inline para blocos destacados com $$
+  sanitized = sanitized.replace(
+    new RegExp('(?<!\\$)\\$([^\\$\\r\\n]+?(?:\\\\to|\\\\rightarrow|\\\\xrightarrow|\\\\rightleftharpoons|\\\\leftrightarrow)[^\\$\\r\\n]*?)\\$(?!\\$)', 'g'),
+    "\n\n$$\n$1\n$$\n\n"
+  );
+
+  return sanitized;
+};
+
+const splitMessageMenu = (text: string): { content: string; menu: string | null } => {
+  if (!text) return { content: "", menu: null };
+
+  const hasMenu = text.includes("1️⃣") && (text.includes("8️⃣") || text.includes("Bora ler!"));
+  if (!hasMenu) {
+    return { content: text, menu: null };
+  }
+
+  const menuIndex1 = text.indexOf("1️⃣");
+  if (menuIndex1 <= 0 || menuIndex1 < 120) {
+    return { content: text, menu: null };
+  }
+
+  const textBefore = text.slice(0, menuIndex1);
+  let splitIndex = -1;
+
+  const hrIndex = textBefore.lastIndexOf("\n---\n");
+  if (hrIndex !== -1 && hrIndex > 100) {
+    splitIndex = hrIndex;
+  } else {
+    const introPhrases = [
+      "agora que você concluiu",
+      "agora que você finalizou",
+      "escolha o próximo passo",
+      "se quiser continuar",
+      "qual caminho você prefere",
+      "como você prefere começar"
+    ];
+    const lowerBefore = textBefore.toLowerCase();
+    for (const phrase of introPhrases) {
+      const idx = lowerBefore.lastIndexOf(phrase);
+      if (idx !== -1 && idx > 100) {
+        splitIndex = idx;
+        break;
+      }
+    }
+  }
+
+  if (splitIndex === -1) {
+    const doubleNewline = textBefore.lastIndexOf("\n\n");
+    if (doubleNewline !== -1 && doubleNewline > 100) {
+      splitIndex = doubleNewline;
+    } else {
+      splitIndex = menuIndex1;
+    }
+  }
+
+  const mainContent = text.slice(0, splitIndex).trim();
+  const rawMenu = text.slice(splitIndex).trim();
+  const lines = rawMenu.split("\n");
+  const cleanMenu = (lines[0] && lines[0].trim().replace(/-/g, "") === "")
+    ? lines.slice(1).join("\n").trim()
+    : rawMenu;
+
+  return { content: mainContent, menu: cleanMenu };
 };
 
 const isWidescreenContent = (text: string) => {
@@ -1222,60 +1287,101 @@ export default function ChatApp() {
             ) : (
               <div className="w-full flex flex-col items-center space-y-6">
                 {messages.map(msg => {
-                  const isWide = msg.role === "ai" && isWidescreenContent(msg.text);
+                  if (msg.role === "user") {
+                    return (
+                      <div 
+                        key={msg.id} 
+                        id={`msg-${msg.id}`} 
+                        className="w-full flex justify-end max-w-3xl"
+                      >
+                        <div className="flex gap-4 w-full flex-row-reverse">
+                          <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-[var(--accent-primary)]">
+                            <User size={20} className="text-white" />
+                          </div>
+                          <div className="flex flex-col max-w-[85%] md:max-w-[75%] items-end">
+                            <div className="px-5 py-4 rounded-2xl overflow-hidden bg-[var(--accent-primary)] text-black rounded-tr-sm">
+                              {msg.imageUrl && (
+                                <img src={msg.imageUrl} alt="Anexo" className="max-w-full rounded-xl mb-3 max-h-60 object-contain" />
+                              )}
+                              <div className="whitespace-pre-wrap font-medium">{msg.text}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  // msg.role === "ai"
+                  const { content: mainText, menu } = splitMessageMenu(msg.text);
+                  const isWide = isWidescreenContent(mainText);
+
                   return (
-                    <div 
-                      key={msg.id} 
-                      id={`msg-${msg.id}`} 
-                      className={`w-full flex ${
-                        msg.role === "user" 
-                          ? "justify-end max-w-3xl" 
-                          : isWide 
+                    <div key={msg.id} className="w-full flex flex-col items-center space-y-6">
+                      {/* 1. Janela de Leitura / Conteúdo Principal */}
+                      <div 
+                        id={`msg-${msg.id}`} 
+                        className={`w-full flex ${
+                          isWide 
                             ? "justify-start max-w-5xl md:max-w-6xl" 
                             : "justify-start max-w-3xl"
-                      }`}
-                    >
-                      <div className={`flex gap-4 w-full ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
-                        <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-[var(--accent-primary)]">
-                          {msg.role === "ai" ? (
+                        }`}
+                      >
+                        <div className="flex gap-4 w-full flex-row">
+                          <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-[var(--accent-primary)]">
                             <img src="./owl-white.png" alt="Mob.me" className="w-6 h-6 object-contain" />
-                          ) : (
-                            <User size={20} className="text-white" />
-                          )}
-                        </div>
-                        <div className={`flex flex-col ${
-                          msg.role === "user" 
-                            ? "max-w-[85%] md:max-w-[75%] items-end" 
-                            : isWide 
+                          </div>
+                          <div className={`flex flex-col ${
+                            isWide 
                               ? "flex-1 w-full max-w-full items-start min-w-0" 
                               : "max-w-[85%] md:max-w-[75%] items-start min-w-0"
-                        }`}>
-                          <div className={`
-                            px-5 py-4 rounded-2xl overflow-hidden
-                            ${msg.role === "user" 
-                              ? "bg-[var(--accent-primary)] text-black rounded-tr-sm" 
-                              : isWide
+                          }`}>
+                            <div className={`
+                              px-5 py-4 rounded-2xl overflow-hidden
+                              ${isWide
                                 ? "bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-tl-sm w-full"
                                 : "bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-tl-sm"}
-                          `}>
-                            {msg.imageUrl && (
-                              <img src={msg.imageUrl} alt="Anexo" className="max-w-full rounded-xl mb-3 max-h-60 object-contain" />
-                            )}
-                            {msg.role === "ai" ? (
+                            `}>
+                              {msg.imageUrl && (
+                                <img src={msg.imageUrl} alt="Anexo" className="max-w-full rounded-xl mb-3 max-h-60 object-contain" />
+                              )}
                               <div className="markdown-content prose max-w-none text-[var(--text-primary)]">
                                 <ReactMarkdown 
                                   remarkPlugins={[remarkGfm, remarkMath]} 
                                   rehypePlugins={[rehypeKatex]}
                                 >
-                                  {sanitizeContent(msg.text)}
+                                  {sanitizeContent(mainText)}
                                 </ReactMarkdown>
                               </div>
-                            ) : (
-                              <div className="whitespace-pre-wrap font-medium">{msg.text}</div>
-                            )}
+                            </div>
                           </div>
                         </div>
                       </div>
+
+                      {/* 2. Janela Independente para o Super Menu após Conclusão de Seção */}
+                      {menu && (
+                        <div 
+                          id={`msg-${msg.id}-menu`}
+                          className="w-full flex justify-start max-w-3xl animate-[fadeIn_0.3s_ease-in-out]"
+                        >
+                          <div className="flex gap-4 w-full flex-row">
+                            <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-[var(--accent-primary)]">
+                              <img src="./owl-white.png" alt="Mob.me" className="w-6 h-6 object-contain" />
+                            </div>
+                            <div className="flex flex-col max-w-[85%] md:max-w-[75%] items-start min-w-0">
+                              <div className="px-5 py-4 rounded-2xl overflow-hidden bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-tl-sm">
+                                <div className="markdown-content prose max-w-none text-[var(--text-primary)]">
+                                  <ReactMarkdown 
+                                    remarkPlugins={[remarkGfm, remarkMath]} 
+                                    rehypePlugins={[rehypeKatex]}
+                                  >
+                                    {sanitizeContent(menu)}
+                                  </ReactMarkdown>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
