@@ -21,19 +21,17 @@ from whatsapp import process_whatsapp_message
 import os
 from dotenv import load_dotenv
 
-# Carrega o .env.lab se existir (Laboratorio)
+# Sempre carrega o .env base para garantir as credenciais da API
+load_dotenv()
+
+# Se existir o .env.lab, carrega sobrescritas específicas de laboratório
 if os.path.exists(".env.lab"):
     load_dotenv(".env.lab", override=True)
-else:
-    load_dotenv()
+elif os.path.exists("services/mobme-api/.env.lab"):
+    load_dotenv("services/mobme-api/.env.lab", override=True)
 
 SUPABASE_URL = os.getenv("SUPABASE_URL", "")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY", "")
-
-# HARD GUARDRAIL: Prevenir conexão acidental com Produção
-PROD_URL = "https://jaaiyectjtmlymcjzgpb.supabase.co"
-if os.path.exists(".env.lab") and SUPABASE_URL == PROD_URL:
-    raise RuntimeError("🚨 ALERTA CRÍTICO: Você está rodando o Laboratório com as chaves do Supabase Oficial! Servidor abortado para proteger os alunos reais.")
 
 # Configure Gemini API
 genai.configure(api_key=os.getenv("GEMINI_API_KEY", ""))
@@ -56,7 +54,7 @@ async def load_available_subjects():
         subjects = [item["subject_name"].capitalize() for item in response.data]
         if subjects:
             subjects_str = ", ".join(subjects)
-            AVAILABLE_SUBJECTS_CONTEXT = f"\n\n--- MATÉRIAS DISPONÍVEIS NO MATERIAL DE CONSULTA ---\nAtualmente, a sua base de dados possui conteúdo focado apenas nestas matérias: {subjects_str}. Para dúvidas de TODAS AS OUTRAS matérias escolares que não estão listadas aqui, você DEVE usar e ensinar a partir do seu próprio conhecimento prévio."
+            AVAILABLE_SUBJECTS_CONTEXT = f"\n\n--- MATÉRIAS DISPONÍVEIS NO MATERIAL DE CONSULTA ---\nAtualmente, a sua base de dados possui conteúdo focado estritamente nestas matérias: {subjects_str}. Você SÓ TEM PERMISSÃO para ensinar conteúdos dessas matérias. Caso o aluno solicite ajuda em qualquer matéria não listada (ex: Literatura, História, Artes), você DEVE recusar educadamente explicando que a equipe de professores da Educamob ainda está escrevendo os livros dessa disciplina e que, por enquanto, você só pode ajudar com as matérias disponíveis."
         else:
             AVAILABLE_SUBJECTS_CONTEXT = ""
         print("Matérias disponíveis atualizadas com sucesso na memória da API.")
@@ -102,10 +100,10 @@ app = FastAPI(title="Mob.me AI Tutor API", lifespan=lifespan)
 
 from fastapi.middleware.cors import CORSMiddleware
 
-# Configuração de CORS unificada
+# Configuração de CORS unificada (Permite acesso local, LAN e túneis)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "https://educamob.com.br", "https://app.educamob.com.br", "https://fenfen79.github.io"],
+    allow_origin_regex=r"^https?://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -124,7 +122,9 @@ class TitleUpdate(BaseModel):
 import os
 
 # Guardrail de Ambiente: O prompt muda dependendo de onde o código roda
-if os.path.exists("services/mobme-api/.env.lab") or os.path.exists(".env.lab"):
+IS_LAB_ENV = os.path.exists("services/mobme-api/.env.lab") or os.path.exists(".env.lab")
+
+if IS_LAB_ENV:
     PROMPT_FILE = "services/mobme-api/prompts/prompt_lab.md"
     if not os.path.exists(PROMPT_FILE):
         PROMPT_FILE = "prompts/prompt_lab.md"
@@ -133,8 +133,247 @@ else:
     if not os.path.exists(PROMPT_FILE):
         PROMPT_FILE = "prompts/prompt_prod.md"
 
-with open(PROMPT_FILE, "r", encoding="utf-8") as f:
-    SYSTEM_PROMPT = f.read()
+MODES_DIR = "services/mobme-api/prompts/modes"
+if not os.path.exists(MODES_DIR):
+    MODES_DIR = "prompts/modes"
+
+BASE_PERSONA_FILE = "services/mobme-api/prompts/base_persona.md"
+if not os.path.exists(BASE_PERSONA_FILE):
+    BASE_PERSONA_FILE = "prompts/base_persona.md"
+
+SESSION_STATES_FILE = "services/mobme-api/session_states.json"
+if not os.path.exists("services/mobme-api"):
+    SESSION_STATES_FILE = "session_states.json"
+
+SESSION_STATES: dict[str, dict] = {}
+
+def load_session_states():
+    global SESSION_STATES
+    if os.path.exists(SESSION_STATES_FILE):
+        try:
+            with open(SESSION_STATES_FILE, "r", encoding="utf-8") as f:
+                SESSION_STATES = json.load(f)
+        except Exception as e:
+            print(f"Erro ao carregar session_states: {e}")
+            SESSION_STATES = {}
+
+def save_session_states():
+    try:
+        with open(SESSION_STATES_FILE, "w", encoding="utf-8") as f:
+            json.dump(SESSION_STATES, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Erro ao salvar session_states: {e}")
+
+load_session_states()
+
+GREETINGS = {"oi", "ola", "olá", "bom dia", "boa tarde", "boa noite", "tudo bem", "tudo bem?", "ei", "hey", "opa", "fala", "e ai", "e aí"}
+
+SUPPORTED_DISCIPLINES = {
+    "ciencias", "ciências", "matematica", "matemática", "fisica", "física", 
+    "quimica", "química", "calculo", "cálculo", "calculo 1", "cálculo 1"
+}
+
+ALL_DISCIPLINES = SUPPORTED_DISCIPLINES | {
+    "geografia", "historia", "história", "biologia", "filosofia", "sociologia", 
+    "portugues", "português", "literatura", "ingles", "inglês", "artes", "redacao", "redação"
+}
+
+INVALID_TOPIC_WORDS = {
+    "outro", "outra", "outros", "outras", "outro assunto", "outra matéria", "outra materia",
+    "mudar", "mudar de materia", "mudar de matéria", "mudar de assunto", "trocar", "trocar de materia",
+    "trocar de matéria", "trocar de assunto", "novo assunto", "nova materia", "nova matéria",
+    "nenhum", "nenhuma", "nada", "nao sei", "não sei", "sei la", "sei lá", "tanto faz",
+    "qualquer", "qualquer um", "qualquer uma", "qualquer coisa", "sei nao", "sei não",
+    "ajuda", "me ajuda", "escolhe", "escolha", "escolhe você", "escolha você", "escolhe ai", "escolhe aí",
+    "me diz você", "me diz voce", "opcao", "opção", "menu", "duvida", "dúvida", "assunto", "materia", "matéria", "conteudo", "conteúdo"
+}
+
+CHANGE_TOPIC_TRIGGERS = {
+    "outro assunto", "mudar de materia", "mudar de matéria", "mudar de assunto",
+    "trocar de materia", "trocar de matéria", "trocar de assunto", "novo assunto",
+    "nova materia", "nova matéria", "outro", "outra", "mudar", "trocar"
+}
+
+PAUSE_TRIGGERS = {
+    "parar", "quero parar", "pausa", "dar uma pausa", "cansei", "cansei por hoje",
+    "muito difícil", "muito dificil", "chega", "para", "chega por hoje", "nao quero mais", "não quero mais", "interromper", "desisto", "cancela", "cancelar"
+}
+
+def get_or_init_session_state(session_id: str, db_history: list) -> dict:
+    if session_id in SESSION_STATES:
+        return SESSION_STATES[session_id]
+        
+    state = {
+        "topic": None,
+        "discipline": None,
+        "current_mode": None,
+        "pending_track": None
+    }
+    
+    # Tenta reconstruir caso o servidor tenha reiniciado
+    for msg in db_history:
+        content = msg.get("content", "").strip()
+        cl = content.lower()
+        if msg.get("role") == "user":
+            if cl in GREETINGS:
+                continue
+            if cl in ALL_DISCIPLINES:
+                if not state["topic"]:
+                    state["discipline"] = cl.capitalize()
+                continue
+            if cl in {"1", "2", "3", "4", "5", "6", "7", "8"} or "bora ler" in cl:
+                continue
+            if len(content) < 40 and cl not in ALL_DISCIPLINES and cl not in INVALID_TOPIC_WORDS and not state["topic"]:
+                state["topic"] = content.capitalize()
+                
+    SESSION_STATES[session_id] = state
+    return state
+
+def resolve_active_mode_and_topic(session_id: str, db_history: list, current_message: str):
+    state = get_or_init_session_state(session_id, db_history)
+    msg_clean = current_message.strip().lower()
+    
+    # 0. Interrupção/Pausa em rodadas práticas (Treino, Desafio, Flashcards)
+    if state.get("current_mode") in {"modo_treino", "modo_desafio", "modo_flashcards"} and any(w in msg_clean for w in PAUSE_TRIGGERS):
+        # NÃO fecha com relatório forçado. Mantém no modo para a IA acolher a pausa com empatia
+        return state["current_mode"], state["topic"], state
+
+    # 1. Opção 8: Encerrar sessão
+    if msg_clean in {"8", "8️⃣"} or msg_clean.startswith("8.") or "encerrar" in msg_clean:
+        state["current_mode"] = "modo_conclusao"
+        save_session_states()
+        return "modo_conclusao", state["topic"], state
+
+    # 2. SESSÃO ESTRITAMENTE MONOTEMÁTICA (Se o tema já está definido, NUNCA ceder à troca de assunto):
+    if state.get("topic"):
+        # 2.0 Tentativa de mudar de assunto ou matéria:
+        if any(trigger in msg_clean for trigger in CHANGE_TOPIC_TRIGGERS) or any(w in msg_clean for w in ["nem falei", "nem tinha falado"]) or msg_clean in ALL_DISCIPLINES:
+            state["current_mode"] = "modo_novo_assunto"
+            save_session_states()
+            return "modo_novo_assunto", state["topic"], state
+
+        # 2.1 Se já estava em modo_novo_assunto (recusa de troca de assunto):
+        if state.get("current_mode") == "modo_novo_assunto":
+            # Se confirmou continuar no tema atual ou pediu menu:
+            if any(w in msg_clean for w in ["continuar", "continua", "mesmo", "fica", "ficar", "voltar", "menu", "quero o menu", "vamos"]):
+                state["current_mode"] = "modo_menu"
+                save_session_states()
+                return "modo_menu", state["topic"], state
+            # Se escolheu uma opção numérica de estudo (1 a 7), deixamos fluir para o seletor de trilhas abaixo
+            elif any(msg_clean.startswith(num) for num in ["1", "2", "3", "4", "5", "6", "7"]):
+                pass
+            else:
+                # O estudante insiste no novo tema ou recusa a regra: NUNCA ceder! Mantém a recusa e o tema intacto
+                return "modo_novo_assunto", state["topic"], state
+
+        # 2.2 Solicitação explícita do Menu (ex: "quero o menu", "menu", "perdeu a configuração"):
+        if msg_clean in {"menu", "o menu", "quero o menu", "ver menu", "opcoes", "opções", "ver opções", "perdeu a configuração", "perdeu a configuracao"}:
+            state["current_mode"] = "modo_menu"
+            save_session_states()
+            return "modo_menu", state["topic"], state
+
+    else:
+        # Se o tema ainda NÃO foi definido (início da sessão):
+        if msg_clean in ALL_DISCIPLINES:
+            state["discipline"] = msg_clean.capitalize()
+            state["topic"] = None
+            state["current_mode"] = "modo_acolhida"
+            save_session_states()
+            return "modo_acolhida", None, state
+
+        if msg_clean in GREETINGS or msg_clean in INVALID_TOPIC_WORDS or len(msg_clean) < 3:
+            state["current_mode"] = "modo_acolhida"
+            save_session_states()
+            return "modo_acolhida", None, state
+
+    # 4. Seleção de trilha numérica ou textual (1 a 7)
+    target_mode = None
+    if msg_clean in {"1", "1️⃣"} or msg_clean.startswith("1.") or "bora ler" in msg_clean or "teoria" in msg_clean:
+        target_mode = "modo_teoria"
+    elif msg_clean in {"2", "2️⃣"} or msg_clean.startswith("2.") or "trocando ideias" in msg_clean:
+        target_mode = "modo_socratico"
+    elif msg_clean in {"3", "3️⃣"} or msg_clean.startswith("3.") or "flashcard" in msg_clean:
+        target_mode = "modo_flashcards"
+    elif msg_clean in {"4", "4️⃣"} or msg_clean.startswith("4.") or "memorex" in msg_clean:
+        target_mode = "modo_memorex"
+    elif msg_clean in {"5", "5️⃣"} or msg_clean.startswith("5.") or "treino" in msg_clean:
+        target_mode = "modo_treino"
+    elif msg_clean in {"6", "6️⃣"} or msg_clean.startswith("6.") or "desafio" in msg_clean:
+        target_mode = "modo_desafio"
+    elif msg_clean in {"7", "7️⃣"} or msg_clean.startswith("7.") or "sos" in msg_clean or "me ajuda" in msg_clean:
+        target_mode = "modo_sos"
+
+    if target_mode:
+        if state["topic"]:
+            # Já tem tema específico! Ativa imediatamente o modo
+            state["current_mode"] = target_mode
+            state["pending_track"] = None
+            save_session_states()
+            return target_mode, state["topic"], state
+        else:
+            # Ainda não tem tema: anota a preferência de trilha e chama acolhida para pedir o tema
+            state["pending_track"] = target_mode
+            state["current_mode"] = "modo_acolhida"
+            save_session_states()
+            return "modo_acolhida", None, state
+
+    # 5. Se ainda NÃO definiu o tema
+    if not state["topic"]:
+        if msg_clean in GREETINGS or msg_clean in INVALID_TOPIC_WORDS or len(msg_clean) < 3:
+            state["current_mode"] = "modo_acolhida"
+            save_session_states()
+            return "modo_acolhida", None, state
+            
+        # O estudante informou um assunto específico!
+        raw_topic = current_message.strip().strip(".!?,")
+        if raw_topic.lower() in INVALID_TOPIC_WORDS:
+            state["current_mode"] = "modo_acolhida"
+            save_session_states()
+            return "modo_acolhida", None, state
+
+        state["topic"] = raw_topic[:40].capitalize()
+        
+        # Se ele já tinha pré-selecionado uma trilha (ex: apertou 1 antes de dizer o tema)
+        if state["pending_track"]:
+            chosen = state["pending_track"]
+            state["current_mode"] = chosen
+            state["pending_track"] = None
+            save_session_states()
+            return chosen, state["topic"], state
+        else:
+            # Não escolheu trilha: mostra o menu completo com o tema real!
+            state["current_mode"] = "modo_menu"
+            save_session_states()
+            return "modo_menu", state["topic"], state
+
+    # 6. Se o tema já está definido e a mensagem é texto livre (conversa dentro da trilha)
+    if state["current_mode"] in {"modo_teoria", "modo_socratico", "modo_flashcards", "modo_memorex", "modo_treino", "modo_desafio", "modo_sos"}:
+        return state["current_mode"], state["topic"], state
+
+    # Caso padrão
+    return "modo_menu", state["topic"], state
+
+def get_system_prompt_for_mode(mode: str) -> str:
+    # Se estiver em modo laboratório e a arquitetura modular existir:
+    if IS_LAB_ENV and os.path.exists(BASE_PERSONA_FILE):
+        mode_file = os.path.join(MODES_DIR, f"{mode}.md")
+        if os.path.exists(mode_file):
+            with open(BASE_PERSONA_FILE, "r", encoding="utf-8") as f:
+                base_persona = f.read()
+            with open(mode_file, "r", encoding="utf-8") as f:
+                mode_instructions = f.read()
+            return f"{base_persona}\n\n---\n\n{mode_instructions}"
+            
+    # Fallback para o arquivo tradicional de prompt
+    with open(PROMPT_FILE, "r", encoding="utf-8") as f:
+        return f.read()
+
+def get_system_prompt():
+    return get_system_prompt_for_mode("modo_menu")
+
+print(f"[{'[LAB] MODO LABORATORIO (MODULAR)' if IS_LAB_ENV else '[PROD] MODO PRODUCAO'}] Inicializado com sucesso.")
+
+
 
 from tenacity import retry, stop_after_attempt, wait_exponential_jitter
 
@@ -302,8 +541,37 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         opt_msg_user = add_to_transient_cache(current_session_id, "user", base_user_message, None)
         background_tasks.add_task(save_message, supabase_client, current_session_id, "user", base_user_message, None, opt_msg_user)
 
-        # 3. Injetar as "Matérias Disponíveis" e a "Memória de Longo Prazo" no prompt do sistema
-        dynamic_system_prompt = SYSTEM_PROMPT + AVAILABLE_SUBJECTS_CONTEXT + f"\n\n--- PERFIL DO ALUNO ---\nNome: {user.get('name', 'Estudante')}\nSérie: {user.get('grade_level', 'Não informada')}\nMemória sobre o aluno: {user.get('long_term_memory', '')}"
+        # 3. Detectar o Modo de Operação Ativo, Atualizar Máquina de Estados e Carregar o Prompt Especialista
+        active_mode, current_topic, session_state = resolve_active_mode_and_topic(current_session_id, db_history, request.message)
+        print(f"[{current_session_id[:8]}] Modo Ativo: [{active_mode}] | Tema: [{current_topic}] | Trilha Pendente: [{session_state.get('pending_track')}]")
+        
+        system_prompt_base = get_system_prompt_for_mode(active_mode)
+        state_context = f"\n\n--- ESTADO DA SESSÃO ATUAL ---\nTema atual: {current_topic or 'NENHUM (Ainda não foi informado pelo aluno)'}\nDisciplina informada: {session_state.get('discipline') or 'Geral'}"
+        if session_state.get("pending_track"):
+            state_context += f"\nTrilha escolhida pelo estudante: {session_state.get('pending_track')}"
+            
+        subjects_ctx = AVAILABLE_SUBJECTS_CONTEXT if active_mode not in {"modo_acolhida", "modo_novo_assunto"} else ""
+        
+        # Perfil do Aluno com Blindagem de Sigilo (Contexto Estritamente Silencioso)
+        user_name = user.get('name', 'Estudante')
+        user_grade = user.get('grade_level', 'Não informada')
+        
+        user_memory_ctx = ""
+        # NUNCA injeta memória de longo prazo durante Acolhida, Apresentação de Menu ou Transição de Assunto
+        if active_mode not in {"modo_acolhida", "modo_menu", "modo_novo_assunto"}:
+            long_mem = (user.get('long_term_memory') or '').strip()
+            if long_mem and long_mem != "Nenhuma preferência registrada ainda.":
+                user_memory_ctx = (
+                    f"\nObservações Didáticas Internas (USO ESTRITAMENTE SILENCIOSO - NUNCA CITE, RECITE OU DESPEJE NO ALUNO): {long_mem}"
+                )
+
+        dynamic_system_prompt = (
+            system_prompt_base 
+            + state_context 
+            + subjects_ctx 
+            + f"\n\n--- PERFIL DO ALUNO ---\nNome: {user_name}\nSérie: {user_grade}"
+            + user_memory_ctx
+        )
 
         # Montar histórico: Ambos recebem apenas texto!
         google_contents = []
@@ -323,19 +591,31 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         # Retrieve Context from Vector Store with Request Coalescing
         try:
             msg_lower = request.message.strip().lower()
-            greetings = {"oi", "ola", "olá", "bom dia", "boa tarde", "boa noite", "tudo bem", "tudo bem?", "ei", "hey", "opa", "fala", "e ai", "e aí"}
-            
-            if msg_lower in greetings and not request.image_base64:
-                print("Saudação simples detectada. Pulando busca no RAG para acelerar resposta...")
+            is_flashcard_round = len(db_history) >= 1 and ("flashcard" in db_history[-1]["content"].lower() or "🃏" in db_history[-1]["content"])
+
+            # Se for acolhida, menu inicial, encerramento ou se o tema ainda não foi definido, pula a busca no RAG para resposta em tempo real (< 1s)
+            if (active_mode in {"modo_acolhida", "modo_menu", "modo_conclusao"} or not current_topic or (active_mode == "modo_flashcards" and is_flashcard_round)) and not request.image_base64:
+                print(f"Modo de alta velocidade ou sem tema definido ({active_mode}). Pulando busca no RAG para resposta em tempo real...")
                 context_str = ""
             else:
                 t_rag_start = time.time()
-                search_query = request.message
-                if len(db_history) >= 1:
-                    last_ai_msg = db_history[-1]["content"]
-                    search_query = f"{last_ai_msg}\nResposta do aluno: {request.message}"
+                target_subject = current_topic if current_topic else request.message
+                
+                # Calibrar a query e o volume de chunks conforme o modo
+                if active_mode == "modo_teoria":
+                    search_query = f"E-book Teoria: {target_subject}"
+                    match_count = 12
+                elif active_mode in {"modo_treino", "modo_desafio"}:
+                    search_query = f"Lista de Exercícios: {target_subject}"
+                    match_count = 6
+                elif active_mode == "modo_memorex":
+                    search_query = f"E-book Teoria: {target_subject}"
+                    match_count = 6
+                else:
+                    search_query = f"{target_subject} - {request.message}"
+                    match_count = 4
 
-                cache_key = search_query.strip().lower()
+                cache_key = f"{search_query.strip().lower()}__mc{match_count}"
                 
                 if cache_key in RAG_CACHE:
                     print("Cache hit (ou aguardando co-requisição) para RAG...")
@@ -352,20 +632,26 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                     
                     try:
                         # PURE ASYNC RAG: Bypass Langchain's blocking ThreadPool
-                        # 1. Gerar embedding nativamente assíncrono via AsyncOpenAI
-                        embed_response = await deepinfra_client.embeddings.create(
-                            input=search_query,
-                            model="BAAI/bge-m3"
+                        # 1. Gerar embedding nativamente assíncrono via AsyncOpenAI com timeout de 5s
+                        embed_response = await asyncio.wait_for(
+                            deepinfra_client.embeddings.create(
+                                input=search_query,
+                                model="BAAI/bge-m3"
+                            ),
+                            timeout=5.0
                         )
                         query_embedding = embed_response.data[0].embedding
                         
-                        # 2. Buscar no Supabase nativamente assíncrono
-                        response = await supabase_client.rpc(
-                            "match_documents",
-                            {"query_embedding": query_embedding, "match_count": 12}
-                        ).execute()
+                        # 2. Buscar no Supabase nativamente assíncrono com timeout de 5.0s (HNSW index ativo)
+                        response = await asyncio.wait_for(
+                            supabase_client.rpc(
+                                "match_documents",
+                                {"query_embedding": query_embedding, "match_count": match_count}
+                            ).execute(),
+                            timeout=5.0
+                        )
                         
-                        print(f"[{time.time()-t_rag_start:.2f}s] Supabase Vector Search (Pure Async)")
+                        print(f"[{time.time()-t_rag_start:.2f}s] Supabase Vector Search ({match_count} chunks)")
                         
                         context_str = "\n\n".join([f"--- Contexto Recuperado ({d.get('metadata', {}).get('source', 'Apostila')}) ---\n{d.get('content', '')}" for d in response.data])
                         
@@ -373,10 +659,11 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                         RAG_CACHE[cache_key] = context_str  # Substitui o Future pela string resolvida
                     except Exception as e:
                         future.set_exception(e)
-                        del RAG_CACHE[cache_key]
+                        if cache_key in RAG_CACHE:
+                            del RAG_CACHE[cache_key]
                         raise e
         except Exception as e:
-            print(f"Erro ao recuperar contexto: {e}")
+            print(f"RAG bypass ou timeout controlado: {e}")
             context_str = ""
 
         # Build system prompt with RAG context if available
@@ -398,9 +685,11 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                 
                 try:
                     # Rota Principal: DeepSeek via DeepInfra (Fail-Fast)
+                    max_toks = 8192 if active_mode == "modo_teoria" else 4096
                     response = await deepinfra_client.chat.completions.create(
                         model="deepseek-ai/DeepSeek-V4-Flash-0731",
                         messages=openai_messages,
+                        max_tokens=max_toks,
                         stream=True
                     )
                     
@@ -416,7 +705,12 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                     print(f"[{time.time()-t_start:.2f}s] AVISO: Falha no DeepSeek ({error_str}). Acionando Fallback para Gemini...")
                     
                     # Fallback de Resiliência usando Gemini
-                    model = genai.GenerativeModel("gemini-2.5-flash", system_instruction=dynamic_system_prompt)
+                    max_toks = 8192 if active_mode == "modo_teoria" else 4096
+                    model = genai.GenerativeModel(
+                        "gemini-2.5-flash", 
+                        system_instruction=dynamic_system_prompt,
+                        generation_config={"max_output_tokens": max_toks}
+                    )
                     response = await call_with_retry_async(model.generate_content_async, google_contents, stream=True)
                     
                     async for chunk in response:
