@@ -1,6 +1,11 @@
 # 🚀 Plano de Execução Mestre — Educamob Escola Digital
 
-> **Planejador Estratégico** · Atualizado: 2026-07-08. Fase 5 em execução (Sprint produzindo 9º Ano). Banco de Fontes global com 25+ fontes.
+> **Planejador Estratégico** · Atualizado: 2026-10-21. **Muro de Contenção Geral Universal Homologado no `validador_educamob.py`**: Motor de Pareamento Teórico Universal (Princípio do Mundo Fechado / Closed-World Boundary com suporte a múltiplos e-books e tratamento de epônimos compostos), Trava Sistêmica de Balanceamento Obrigatório de Gabarito (~20% por letra de A a E, tolerância 8 a 16 e anti-repetição viciada), Trava Anti-Decoreba e Expansão da Blacklist de Jargões Universitários. **100% DAS 334 LISTAS DO REPOSITÓRIO AUDITADAS E HOMOLOGADAS COM EXIT CODE 0 (20.040 QUESTÕES)**:
+> - **Ciências (5º ao 9º Ano):** 72/72 listas homologadas ✅ (4.320 questões).
+> - **Química (Ensino Médio):** 53/53 listas homologadas ✅ (3.180 questões).
+> - **Física (Ensino Médio):** 61/61 listas homologadas ✅ (3.660 questões).
+> - **Matemática (Fundamental 1, Fundamental 2 e Médio):** 148/148 listas homologadas ✅ (8.880 questões).
+> **Fase 5: Recalibração Pedagógica Padrão-Ouro 100% CONCLUÍDA PARA TODAS AS DISCIPLINAS DO ECOSSISTEMA EDUCAMOB.** Fase 6 (Sprint 14) com Ingestão Massiva (39.280 chunks) e Índice HNSW ativo no pgvector/Supabase.
 
 ---
 
@@ -314,6 +319,11 @@ Criação de uma skill especializada em **validação de conteúdos acadêmicos*
 **✅ Concluído: Física da 1ª Série (Física I - Mecânica e Fluidos - 21 Capítulos, 50 E-books 100% Homologados em Gemini Pro)**
 **✅ Concluído: Física da 2ª Série (Física II - Termologia, Óptica, MHS e Ondulatória - 19 Capítulos, 41 E-books 100% Homologados em Gemini Pro)**
 **✅ Concluído: Física da 3ª Série (Física III - Eletrostática, Eletrodinâmica, Eletromagnetismo, Física Moderna e Análise Dimensional - 21 Capítulos, 39 E-books 100% Homologados em Gemini Pro)**
+**✅ Concluído: Química da 1ª Série (Química I - Química Geral - 18 Capítulos, 40 E-books Teóricos Atômicos 100% Homologados com Exit Code 0 no Validador Oficial)**
+**✅ Concluído: Química da 2ª Série (Química II - Físico-Química - 16 Capítulos, 34 E-books Teóricos Atômicos 100% Homologados com Exit Code 0 no Validador Oficial)**
+**✅ Concluído: Química da 3ª Série (Química III - Química Orgânica, Bioquímica e Polímeros - 19 Capítulos, 38 E-books Teóricos Atômicos 100% Homologados com Exit Code 0 no Validador Oficial)**
+**🏆 CONCLUSÃO TOTAL: Química do Ensino Médio 100% Concluída (53 Capítulos | 112 E-books Teóricos Atômicos 100% Homologados)**
+
 
 > **Complexidade:** 🔴 Alta — Sprint **cíclico e incremental** (múltiplas conversas — 1 conversa por Objeto de Conhecimento recomendado). Este sprint será executado repetidamente ao longo de meses.  
 > **Skill a acionar:** E-book Creator
@@ -358,7 +368,15 @@ Antes de escalar a produção, o usuário pode solicitar um **ciclo piloto** com
 
 **Ordem de Produção:**
 Não há priorização entre conteúdos de uma mesma disciplina. A produção obedecerá a demanda humana:
-1. **Matemática**: Todo o conteúdo do 5º ano do Ensino Fundamental até a 3ª série do Ensino Médio e ENEM. *(Avanço atual: Capítulos 05 a 07 e 19 a 21 do 7º Ano; todos os capítulos do 5º Ano; e **o 6º Ano está 100% finalizado** (teoria atômica densa e 60 exercícios por objeto, cobrindo do Cap. 01 ao 23)). **[Sprint 12 e 12.5 - 6º Ano 100% CONCLUÍDOS]***
+1. **Matemática**: Todo o conteúdo do 5º ano do Ensino Fundamental até a 3ª série do Ensino Médio e ENEM. *(Avanço atual: **5º Ano, 6º Ano, 7º Ano, 8º Ano, 9º Ano e Ensino Médio Volume Único estão 100% finalizados** com teoria atômica e todas as listas de 60 exercícios concluídas e validadas).* **[Educação Básica Completa em Matemática: 5º ao 9º EF + Volume Único EM 100% CONCLUÍDOS]**
+2. **Ciências (Ensino Fundamental)**:
+   - **5º Ano**: **11 de 11 e-books teóricos atômicos concluídos e homologados** (Capítulos 01 ao 11, cobrindo 100% das 13 habilidades BNCC: `EF05CI01` a `EF05CI13`), totalizando mais de 35.000 palavras de teoria pura, sem exercícios, com scaffolding cognitivo, tabelas de erros comuns e conformidade ABNT/BNCC via `validador_educamob.py`. **[5º Ano de Ciências 100% CONCLUÍDO]**
+   - **6º Ano**: **13 de 13 e-books teóricos atômicos concluídos e homologados** (Capítulos 01 ao 13, cobrindo 100% das 14 habilidades BNCC: `EF06CI01` a `EF06CI14`), totalizando 41.133 palavras de teoria pura, sem exercícios, com scaffolding cognitivo, tabelas de erros comuns e conformidade ABNT/BNCC via `validador_educamob.py`. **[6º Ano de Ciências 100% CONCLUÍDO]**
+   - **7º Ano**: **15 de 15 e-books teóricos atômicos concluídos e homologados** (Capítulos 01 ao 15, cobrindo 100% das 16 habilidades BNCC: `EF07CI01` a `EF07CI16`), totalizando 72.911 palavras de teoria pura, densidade média de 4.861 palavras por e-book, sem exercícios, com scaffolding cognitivo, tabelas de erros comuns e conformidade ABNT/BNCC via `validador_educamob.py`. **[7º Ano de Ciências 100% CONCLUÍDO]**
+   - **8º Ano**: **16 de 16 e-books teóricos atômicos concluídos e homologados** (Capítulos 01 ao 16, cobrindo 100% das 16 habilidades BNCC: `EF08CI01` a `EF08CI16`), totalizando 47.680 palavras de teoria pura, sem exercícios, com scaffolding cognitivo, tabelas de erros comuns e conformidade ABNT/BNCC via `validador_educamob.py`. **[8º Ano de Ciências 100% CONCLUÍDO]**
+   - **9º Ano**: **17 de 17 e-books teóricos atômicos concluídos e homologados** (Capítulos 01 ao 17, cobrindo 100% das 17 habilidades BNCC: `EF09CI01` a `EF09CI17`), totalizando 46.964 palavras de teoria pura, sem exercícios, com scaffolding cognitivo, tabelas de erros comuns e conformidade ABNT/BNCC via `validador_educamob.py`. **[9º Ano de Ciências 100% CONCLUÍDO]**
+   - **TOTAL GERAL DE CIÊNCIAS (Ensino Fundamental - 5º ao 9º Ano)**: **72 de 72 e-books teóricos atômicos concluídos e homologados**, totalizando **244.061 palavras** de conteúdo acadêmico denso, 100% alinhado à BNCC, sem nenhum exercício nas bases teóricas, supressão rigorosa de `R$` e conformidade absoluta com ABNT NBR 6023. **[Ciências do Ensino Fundamental 100% CONCLUÍDO]**
+
 
 **Checklist de Validação (por e-book atômico):**
 - [ ] Granularidade respeitada (1 e-book = 1 Objeto de Conhecimento)?
@@ -401,6 +419,36 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
 - [ ] As tags HTML `<!-- id: | tipo: | habilidade: | dificuldade: | objeto: -->` estão presentes e corretas antes de cada questão?
 - [ ] Os gabaritos apresentam resoluções lógicas passo a passo (especialmente nas difíceis)?
 - [ ] O Agente Validador de Exercícios emitiu parecer `aprovado` para cobertura temática, balanceamento e qualidade geral?
+
+**Status Consolidado de Produção e Homologação (Sprint 12.5):**
+| Segmento | Volume de Listas | Status |
+|---|---|---|
+| **Ensino Fundamental 1 (5º Ano)** | 19 listas (1.140 questões) | ✅ 100% Concluído |
+| **Ensino Fundamental 2 (6º Ano)** | 23 listas (1.380 questões) | ✅ 100% Concluído e Higienizado (Estrutura Canônica Cap 01 a 23) |
+| **Ensino Fundamental 2 (7º Ano)** | 25 listas (1.500 questões) | ✅ 100% Concluído (25 listas homologadas) |
+| **Ensino Fundamental 2 (8º Ano)** | 22 listas (1.320 questões) | ✅ 100% Concluído (22 listas homologadas) |
+| **Ensino Fundamental 2 (9º Ano)** | 21 listas (1.260 questões) | ✅ 100% Concluído (21 listas homologadas) |
+| **Ensino Médio (Volume Único)** | 38 listas (2.280 questões) | ✅ 100% Concluído (38 listas homologadas) |
+| **TOTAL GERAL DE MATEMÁTICA** | **148 listas (8.880 questões atômicas)** | 🏆 **Educação Básica 100% Concluída e Pareada** |
+| **Ingestão Supabase (Mob.me RAG - Matemática)** | **148 e-books teóricos (6.304 chunks) + 148 listas (9.551 chunks)** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (Fund 1 ao EM)** |
+| **Física - 1ª Série (Física I)** | **21 de 21 listas (1.260 questões homologadas)** | 🏆 **100% Concluído e Homologado (Cap 01 ao 21)** |
+| **Física - 2ª Série (Física II)** | **19 de 19 listas (1.140 questões homologadas)** | 🏆 **100% Concluído e Homologado (Cap 01 ao 19)** |
+| **Física - 3ª Série (Física III)** | **21 de 21 listas (1.260 questões homologadas)** | 🏆 **100% Concluído e Homologado (Cap 01 ao 21)** |
+| **TOTAL GERAL DE FÍSICA (Exercícios)** | **61 de 61 listas (3.660 questões homologadas)** | 🏆 **100% Homologado no Muro de Contenção (Exit Code 0, Gabarito 20% A-E, 0 Falhas)** |
+| **Ingestão Supabase (Mob.me RAG - Física)** | **130 e-books teóricos (9.270 chunks) + 61 listas de exercícios (3.775 chunks)** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (Teoria e Exercícios)** |
+| **Química - 1ª Série (Química I - Exercícios)** | **18 de 18 listas (1.080 questões homologadas)** | 🏆 **100% Concluído e Homologado (Cap 01 ao 18)** |
+| **Química - 2ª Série (Química II - Exercícios)** | **16 de 16 listas (960 questões homologadas)** | 🏆 **100% Concluído e Homologado (Cap 01 ao 16)** |
+| **Química - 3ª Série (Química III - Exercícios)** | **19 de 19 listas (1.140 questões homologadas)** | 🏆 **100% Concluído e Homologado (Cap 01 ao 19)** |
+| **TOTAL GERAL DE QUÍMICA (Exercícios)** | **53 de 53 listas (3.180 questões homologadas)** | 🏆 **100% Homologado no Muro de Contenção (Exit Code 0, Gabarito 20% A-E, 0 Falhas)** |
+| **Ingestão Supabase (Mob.me RAG - Química)** | **112 e-books teóricos (3.197 chunks) + 53 listas de exercícios (3.077 chunks) + `quimica` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (Teoria e Exercícios)** |
+| **Ciências - 5º Ano (Exercícios)** | **11 de 11 listas (660 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 10 anos)** |
+| **Ciências - 6º Ano (Exercícios)** | **13 de 13 listas (780 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 11 anos)** |
+| **Ciências - 7º Ano (Exercícios)** | **15 de 15 listas (900 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 12 anos)** |
+| **Ciências - 8º Ano (Exercícios)** | **16 de 16 listas (960 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 13 anos)** |
+| **Ciências - 9º Ano (Exercícios)** | **17 de 17 listas (1.020 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 14 anos)** |
+| **TOTAL GERAL DE CIÊNCIAS (Exercícios)** | **72 de 72 listas (4.320 questões)** | 🏆 **Ensino Fundamental 100% Homologado no Padrão-Ouro (Equilíbrio Matemático 20% A-E, 0 Falhas)** |
+| **Ingestão Supabase (Mob.me RAG - Ciências)** | **72 e-books teóricos (2.670 chunks) + `ciencias` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (5º ao 9º Ano)** |
+| **TOTAL GERAL NO SUPABASE (RAG)** | **483 e-books teóricos (22.877 chunks) + 290 listas (18.083 chunks)** | 🏆 **Acervo Ativo e em Expansão Contínua** |
 
 ---
 
@@ -455,8 +503,24 @@ content/[nivel]/[serie]/[disciplina]/[capitulo]/[objeto-de-conhecimento]/*.png
 Esta fase marca o início das atividades oficiais da Escola Digital para estudantes de verdade. O lançamento (roll-out) seguirá uma progressão estrita em Sprints para garantir a estabilidade da plataforma e da telemetria:
 
 ### Sprint 14 — Roll-out Nível 1 (Mob.me Autônomo)
-> **Status:** ✅ Concluído. (Ingestão RAG massiva e 100% de sucesso no teste de carga com 100 usuários).
-> **Foco:** Ativação inicial do ecossistema focada apenas no chatbot/motor RAG com a base de Matemática, testando a carga sobre a API do LLM e a latência de respostas para alunos reais. (As demais disciplinas serão adicionadas gradativamente).
+> **Status:** ✅ Concluído.  
+> **Foco e Entregas Técnicas Consolidadas:**
+> 1. **Ativação e Homologação do Índice HNSW no Supabase:** Criação do índice `documents_embedding_hnsw_idx` com pgvector (`m = 16, ef_construction = 32`) na tabela `documents`, eliminando sequential scans sobre 39.280 vetores de 1.024 dimensões e derrubando a latência da busca vetorial `match_documents` de 14,4s (com timeout 57014) para **2,2 segundos** estáveis.
+> 2. **Ingestão Vetorial Massiva de Ciências:** Conclusão e ingestão de 72 e-books atômicos de Ciências do Ensino Fundamental (5º ao 9º Ano), adicionando 2.670 novos chunks e elevando a base consolidada do RAG para **39.280 chunks ativos** (Ciências, Matemática, Física, Química e Cálculo 1).
+> 3. **Alinhamento Estrito do Ambiente de Testes ao RAG de Produção:**
+>    - Extinta qualquer divergência entre laboratório (`prompt_lab.md`) e produção (`prompt_prod.md`). Revogada a permissão de "Ensino Multidisciplinar Aberto"; a Mob.me atende estritamente as matérias homologadas.
+>    - Implementação do **Princípio do Mundo Fechado** (*Closed-World Assumption*): proibição absoluta de flashcards, questões ou desafios que cobrem fatos, fórmulas ou curiosidades externas que não constem na teoria apresentada ou no RAG da sessão.
+>    - Otimização semântica nas seleções de menu no backend (`main.py`): chamadas numéricas ("1", "5", "6") agora geram queries sintéticas focadas no tópico da sessão (`first_user_topic`), evitando embeddings inflados com texto de menu.
+> 4. **Padronização Universal de Menus e Opção 8 Mandatória:** Super Menu de 8 opções estruturado com isolamento vertical estrito (`\n\n`), proibição de opções em linha contínua e presença obrigatória da opção `8️⃣ **Encerrar a sessão de estudo** ⏸️` em 100% dos menus.
+> 5. **Otimização de UX no Frontend (`page.tsx`):** Remoção do atributo `disabled={isTyping}` na caixa de texto e injeção de auto-refocus contínuo via `useEffect`, garantindo que o cursor de digitação nunca se perca após o envio de mensagens (Enter).
+> 6. **Roteamento Dinâmico de Sub-Prompts por Modo e Padrão SPA na Teoria:** Desmembramento do prompt monolítico em 1 base compartilhada (`base_persona.md`) e 8 sub-prompts especialistas (`modes/`). A opção 1 ("Bora ler!") agora opera no padrão SPA (microaprendizagem, acessibilidade TDAH, blocos arejados e esqueleto pedagógico em 5 seções universais aplicáveis a Exatas, Humanidades e Linguagens). Ajustado o timeout do RAG para 5.0s com busca de 8 chunks densos para a teoria, elevando o output de 32 linhas para mais de 120 linhas aprofundadas com formatação LaTeX rigorosa e menu completo de escolha.
+> 7. **Refinamento Pedagógico e UX de Laboratório (27/10/2026):** Blindagem contra falsos tópicos (`INVALID_TOPIC_WORDS`), novo modo de transição para nova conversa (`modo_novo_assunto.md`), tolerância pedagógica a typos e sinônimos nos flashcards, proibição estrita de relatórios precipitados em interrupções precoces de questionários, tipografia Markdown completa no CSS e rolagem automática suave para o topo do e-book teórico no frontend.
+> 8. **Imutabilidade Canônica de Menus e Densidade de Leitura 10-15min (27/10/2026 - Rodada 2):** Fixação estrita do Super Menu de 8 opções (proibição de renumeração 1..7 ou omissão de opções), suporte a até 8192 tokens e 12 chunks no RAG para teorias de 10-15 minutos de leitura (~2.000 a 3.000 palavras) e supressão total de elogios artificiais em conclusões parciais.
+> 9. **Blindagem e Reversão Mandatória da Sessão Monotemática (28/10/2026):** Reversão imediata de qualquer permissão de troca de assunto na mesma sessão. Sessões no Mob.me são estritamente monotemáticas (	opic imutável após definido). Proibição drástica de ceder a insistências de troca de tema ou de alegar ausência de conteúdo na base; o estudante é firme e polidamente orientado a abrir **+ Nova Conversa** no menu lateral para estudar outro tema, preservando a higienização do histórico e as métricas diagnósticas do portal.
+> 10. **Aprimoramento de Formatação GFM e Flashcards Conceituais (28/10/2026 - Rodada 2):** Ativação de 
+emark-gfm no frontend Next.js para renderização de tabelas Markdown ricas e reestruturação dos flashcards para foco 100% conceitual voltado à retenção mental (proibição absoluta de múltipla escolha).
+> 11. **Teoria Expositiva Pura em 4 Seções e Layout Widescreen (28/10/2026 - Rodada 3):** Remoção da Seção 4 (Casos Práticos) do e-book teórico para preservar a teoria 100% expositiva e autossuficiente (exercícios concentrados nas opções 5 e 6), blindagem contra erros de duplo subscrito no KaTeX e expansão da janela de contexto para layout widescreen (max-w-6xl e IA em w-full), permitindo ampla respiração horizontal para tabelas e fórmulas.
+> 12. **Layout Widescreen Seletivo para Teoria e Memorex (28/10/2026 - Rodada 4):** Implementação de renderização condicional de largura no frontend (`page.tsx`) via `isWidescreenContent`. A ampliação horizontal (`max-w-5xl md:max-w-6xl` e bolha `w-full`) é aplicada estritamente aos blocos densos do "Bora Ler!" e "Memorex", garantindo legibilidade perfeita para tabelas ricas e equações KaTeX. Todos os demais modos (Acolhida, menus, Trocando Ideias, Flashcards, Treino Básico, Desafio e SOS) retornaram à largura compacta original (`max-w-3xl`, bolhas a 75%/85% e rodapé em `max-w-4xl`).
 
 ### Sprint 15 — Roll-out Nível 2 (Integração Mob.me + Revisa)
 > **Foco:** Liberação do módulo de testes rápidos. Validação do consumo de exercícios curtos e diretos e sincronização primária de telemetria de notas no Supabase.
