@@ -3035,3 +3035,26 @@ Com o término da Etapa 3, a base teórica completa de Química do Ensino Médio
      - Criada a função `splitMessageMenu`, que divide respostas que contêm conteúdo substancial seguido do menu de encerramento em dois elementos visuais independentes:
        - **Janela 1 (Conteúdo/Teoria):** Preserva a leitura profunda e as tabelas amplas em formato Widescreen (`max-w-5xl md:max-w-6xl`).
        - **Janela 2 (Super Menu Independente):** Renderizada como um balão de mensagem separado, com avatar próprio da Mob.me, espaçamento limpo e contida estritamente na largura compacta padrão (`max-w-3xl`, bolhas a 75%/85%), desanexando totalmente o menu da teoria.
+
+
+---
+
+### [28/10/2026 - Rodada 7] - Feedback de Carregamento Divertido e Progressivo por Trilha (Loading Experience)
+
+- **Contexto e Causa Raiz:**
+  - O processamento de conteúdos densos (como capítulos teóricos com 12 chunks RAG ou listas de exercícios) consome alguns segundos de TTFB antes da chegada do primeiro token de streaming. O indicador anterior (apenas três pontinhos estáticos) deixava o aluno sem feedback visual sobre o progresso da preparação do material.
+  - O usuário solicitou que a Mob.me informasse mensagens divertidas de loading acompanhando o progresso da criação da seção escolhida.
+
+- **Intervenções e Soluções Implementadas:**
+  1. **Matriz de Mensagens Temáticas por Trilha (`LOADING_MESSAGES` em `page.tsx`):**
+     - Criadas listas de frases dinâmicas para cada uma das modalidades de estudo:
+       - **Bora ler! (Teoria):** *Abrindo manuscritos da biblioteca... Garimpando exemplos reais no mundo prático... Desenhando tabelas comparativas sem decoreba... Mapeando pegadinhas...*
+       - **Flashcards:** *Embaralhando o baralho da memória ativa... Separando conceitos traiçoeiros... Aquecendo neurônios...*
+       - **Memorex:** *Passando o conteúdo no liquidificador sintético... Filtrando apenas o ouro puro... Montando folha de consulta rápida autorizada...*
+       - **Treino / Desafio:** *Garimpando melhores questões no banco... Calibrando régua de dificuldade sem pegadinhas injustas... Conferindo gabarito...*
+       - **SOS / Geral:** *Ativando radar de resgate pedagógico... Consultando acervo oficial Educamob...*
+  2. **Ciclo Dinâmico Suave e Detecção Automática (`page.tsx`):**
+     - Criado o helper `getTrackFromInput`, identificando instantaneamente a modalidade acionada pelo aluno.
+     - Um temporizador suave alterna as frases a cada 2,4 segundos com animação CSS `@keyframes fadeIn`.
+     - A coruja Mob.me pulsa suavemente e os três pontinhos pulam na cor oficial da marca (`--accent-primary`).
+     - Ao chegar o primeiro chunk do streaming (`isFirstChunk`), o loading é finalizado com zero latência perceptível.

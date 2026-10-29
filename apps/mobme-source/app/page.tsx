@@ -171,6 +171,85 @@ const isWidescreenContent = (text: string) => {
 };
 
 
+
+const LOADING_MESSAGES: Record<string, string[]> = {
+  teoria: [
+    "Abrindo os manuscritos da biblioteca da Educamob... 📚",
+    "Garimpando exemplos reais no mundo prático... 🌍",
+    "Desenhando tabelas comparativas sem decoreba... 🧠",
+    "Mapeando as pegadinhas clássicas de provas... ⚠️",
+    "Dando o polimento final... já vai começar! ✨"
+  ],
+  flashcards: [
+    "Embaralhando o baralho da memória ativa... 🃏",
+    "Separando os conceitos mais traiçoeiros do assunto... 🎯",
+    "Aquecendo seus neurônios para o teste rápido... 🧠⚡",
+    "Quase pronto para o desafio mental! 🚀"
+  ],
+  memorex: [
+    "Passando o conteúdo no liquidificador sintético... 🌪️",
+    "Filtrando apenas o ouro puro do assunto... 🍯",
+    "Montando sua folha de consulta rápida autorizada! 📋",
+    "Finalizando o panorama completo... ⚡"
+  ],
+  treino: [
+    "Garimpando as melhores questões no nosso banco... 📝",
+    "Calibrando a régua de dificuldade... sem pegadinhas! 🎯",
+    "Conferindo os passos e dicas pedagógicas... 💡",
+    "Exercícios prontos na bancada! 🧗"
+  ],
+  desafio: [
+    "Subindo o nível! Selecionando questões cascudas... 🧗‍♂️",
+    "Ajustando os desafios em duas etapas lógicas... ⚙️",
+    "Preparando a arena de raciocínio profundo... 🥊",
+    "O desafio já vai começar! Força mental! 🚀"
+  ],
+  conversa: [
+    "Organizando a roda de conversa socrática... 🗣️",
+    "Pensando na primeira pergunta instigante... 🤔",
+    "Afiando as ideias para trocarmos uma ideia boa... 💡"
+  ],
+  sos: [
+    "Ativando o radar de resgate pedagógico! 🆘",
+    "Localizando a rota mais simples para clarear sua dúvida... 🧭",
+    "Descomplicando os pontos obscuros... 💡"
+  ],
+  geral: [
+    "Consultando o acervo oficial da Educamob... 🦉",
+    "Aquecendo os neurônios e conectando ideias... 🧪",
+    "Estruturando a melhor explicação para você... 💡",
+    "Ajustando a rota pedagógica... quase pronto! 🚀"
+  ]
+};
+
+const getTrackFromInput = (input: string): string => {
+  if (!input) return "geral";
+  const text = input.trim().toLowerCase();
+  
+  if (text === "1" || text.includes("bora ler") || text.includes("teoria")) {
+    return "teoria";
+  }
+  if (text === "2" || text.includes("trocando ideias") || text.includes("conversar") || text.includes("conversando")) {
+    return "conversa";
+  }
+  if (text === "3" || text.includes("flashcard")) {
+    return "flashcards";
+  }
+  if (text === "4" || text.includes("memorex") || text.includes("resumo")) {
+    return "memorex";
+  }
+  if (text === "5" || text.includes("treino") || text.includes("fáceis") || text.includes("faceis") || text.includes("básico") || text.includes("basico")) {
+    return "treino";
+  }
+  if (text === "6" || text.includes("desafio") || text.includes("difíceis") || text.includes("dificeis")) {
+    return "desafio";
+  }
+  if (text === "7" || text.includes("sos") || text.includes("me ajuda") || text.includes("ajuda")) {
+    return "sos";
+  }
+  return "geral";
+};
+
 export default function ChatApp() {
 
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -182,6 +261,20 @@ export default function ChatApp() {
   const [input, setInput] = useState("");
 
   const [isTyping, setIsTyping] = useState(false);
+  const [loadingTrack, setLoadingTrack] = useState<string>("geral");
+  const [loadingMessageIndex, setLoadingMessageIndex] = useState<number>(0);
+
+  useEffect(() => {
+    if (!isTyping) {
+      setLoadingMessageIndex(0);
+      return;
+    }
+    const list = LOADING_MESSAGES[loadingTrack] || LOADING_MESSAGES.geral;
+    const interval = setInterval(() => {
+      setLoadingMessageIndex(prev => (prev + 1) % list.length);
+    }, 2400);
+    return () => clearInterval(interval);
+  }, [isTyping, loadingTrack]);
 
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
@@ -764,6 +857,8 @@ export default function ChatApp() {
     setImageBase64(null);
 
     setIsTyping(true);
+    setLoadingTrack(getTrackFromInput(textToSend));
+    setLoadingMessageIndex(0);
 
 
 
@@ -1387,17 +1482,23 @@ export default function ChatApp() {
                 })}
                 
                 {isTyping && (
-                  <div className="w-full max-w-3xl flex justify-start">
-                    <div className="flex gap-4 flex-row">
-                      <div className="w-10 h-10 rounded-xl shrink-0 bg-[var(--accent-primary)] flex items-center justify-center">
+                  <div className="w-full max-w-3xl flex justify-start animate-[fadeIn_0.3s_ease-in-out]">
+                    <div className="flex gap-4 flex-row items-center">
+                      <div className="w-10 h-10 rounded-xl shrink-0 bg-[var(--accent-primary)] flex items-center justify-center shadow-md animate-pulse">
                         <img src="./owl-white.png" alt="Mob.me" className="w-6 h-6 object-contain" />
                       </div>
-                      <div className="flex items-center px-4 bg-[var(--bg-elevated)] border border-[var(--border-subtle)] rounded-2xl rounded-tl-sm h-12">
-                        <div className="flex gap-1.5">
-                          <div className="w-2 h-2 rounded-full bg-[var(--text-muted)] animate-bounce" style={{ animationDelay: "0ms" }} />
-                          <div className="w-2 h-2 rounded-full bg-[var(--text-muted)] animate-bounce" style={{ animationDelay: "150ms" }} />
-                          <div className="w-2 h-2 rounded-full bg-[var(--text-muted)] animate-bounce" style={{ animationDelay: "300ms" }} />
+                      <div className="flex items-center gap-3.5 px-5 py-3.5 bg-[var(--bg-elevated)] border border-[var(--border-subtle)] rounded-2xl rounded-tl-sm shadow-sm max-w-[90%] md:max-w-[80%] min-h-[52px] transition-all duration-300">
+                        <div className="flex gap-1.5 shrink-0">
+                          <div className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-bounce" style={{ animationDelay: "0ms" }} />
+                          <div className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-bounce" style={{ animationDelay: "150ms" }} />
+                          <div className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-bounce" style={{ animationDelay: "300ms" }} />
                         </div>
+                        <span 
+                          key={loadingMessageIndex} 
+                          className="text-sm font-medium text-[var(--text-secondary)] animate-[fadeIn_0.3s_ease-in-out]"
+                        >
+                          {(LOADING_MESSAGES[loadingTrack] || LOADING_MESSAGES.geral)[loadingMessageIndex % (LOADING_MESSAGES[loadingTrack] || LOADING_MESSAGES.geral).length]}
+                        </span>
                       </div>
                     </div>
                   </div>
