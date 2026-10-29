@@ -29,14 +29,16 @@ Toda vez que qualquer menu de opções for exibido (no início, no meio ou ao fi
 1. **Estrutura Visual Arejada:** Utilize títulos (`###`), subtítulos, tabelas bem estruturadas, listas com marcadores (`-`) e espaçamentos limpos. Proibido despejar blocos densos ou maciços de texto sem quebras e hierarquia.
 2. **Ancoragem Visual:** Destaque em **negrito** os termos técnicos, definições e conceitos centrais para facilitar a leitura dinâmica e a retenção visual.
 3. **LaTeX, Fórmulas e Reações Químicas (Destaque Centralizado Obrigatório):**
-   - TODA equação, reação química (ionização, dissociação, neutralização), fórmula matemática ou física DEVE ser exibida isolada em sua própria linha como bloco destacado centralizado usando SEMPRE cifrão duplo `$$` e isolamento vertical duplo (`\n\n`):
+   - TODA equação, reação química (ionização, dissociação, neutralização), fórmula matemática ou física DEVE ser exibida isolada em sua própria linha como bloco destacado centralizado usando SEMPRE cifrão duplo `$$` multi-linha com linha em branco antes e depois:
      $$
      \text{HCl}_{(aq)} \rightarrow \text{H}^+_{(aq)} + \text{Cl}^-_{(aq)}
      $$
-   - PROIBIDO embutir reações químicas, setas (`\to`) ou equações no meio do parágrafo ou com cifrão simples `$`.
-   - Cifrão simples inline `$ ... $` é permitido APENAS para incógnitas ou grandezas pontuais no texto corrente (ex: `$x$`, `$y$`, `$pH$`, `$H^+$`).
+   - PROIBIDO escrever `$$` na mesma linha da equação (ex: `$$HCl \rightarrow ...$$`) e PROIBIDO embutir reações químicas, setas (`\to`) ou equações no meio do parágrafo ou com cifrão simples `$`.
+   - PROIBIDO usar caracteres Unicode como subscrito (ex: `HNO₃`, `H₂SO₄`, `H₃PO₄`, `Be(OH)₂`). Use SEMPRE sintaxe LaTeX: `$HNO_3$`, `$H_2SO_4$`, `$Be(OH)_2$`.
+   - Cifrão simples inline `$ ... $` é permitido APENAS para incógnitas ou grandezas pontuais no texto corrente (ex: `$x$`, `$y$`, `$pH$`, `$H^+$`, `$H_2O$`).
    - PROIBIDO usar `\(`, `\[` ou crases para fórmulas.
    - **Prevenção de Erros de Sintaxe KaTeX:** Proibido duplo subscrito no mesmo elemento (ex: erro `SO_4^{2-}_{(aq)}`). Agrupe sempre a espécie com chaves `{SO_4^{2-}}_{(aq)}` ou isole cargas com chaves: `$H^+$`, `$OH^-$`, `$SO_4^{2-}$`, `$Ca^{2+}$`.
+
 4. **Supressão Total do Cifrão Financeiro:** PROIBIDO usar o símbolo monetário `R$`. Valores monetários devem ser escritos por extenso: ex: `50,00 reais` ou `50 centavos`.
 5. **Tabelas Markdown Canônicas (Quebra de Linha Real Obrigatória):** Toda tabela DEVE conter quebra de linha real (`\n`) obrigatória entre cada linha física (`<tr>`). O cabeçalho, a linha delimitadora (`| :--- | :--- |`) e cada linha de dados DEVEM ocupar linhas físicas exclusivas. É terminantemente proibido colocar duas linhas na mesma linha horizontal ou usar barras duplas contínuas `| |`.
 

@@ -76,28 +76,84 @@ const getApiBaseUrl = () => {
 
 const sanitizeContent = (content: string) => {
   if (!content) return "";
-  // 1. Auto-heal KaTeX double subscript error (ex: SO_4^{2-}_{(aq)})
+
+  // 1. Auto-heal KaTeX double subscript error (ex: SO_4^{2-}_{(aq)} -> {SO_4^{2-}}_{(aq)})
   let sanitized = content.replace(
     /([A-Za-z0-9]+_[0-9]+(?:\^\{?[^}]+\}?)?)_(\{?\([a-z0-9]+\)\}?)/g,
     (match, p1, p2) => "{" + p1 + "}_" + p2
   );
 
-  // 2. Auto-promover equações com setas para $$ APENAS fora de linhas de tabela Markdown
-  const arrowRegex = new RegExp('(?<!\\$)\\$([^\\$\\r\\n]+?(?:\\\\to|\\\\rightarrow|\\\\xrightarrow|\\\\rightleftharpoons|\\\\leftrightarrow)[^\\$\\r\\n]*?)\\$(?!\\$)', 'g');
+  // 2. Normalizar subscritos Unicode em fórmulas químicas (ex: HNO₃ -> HNO_3, H₂SO₄ -> H_2SO_4)
+  const unicodeSubMap: Record<string, string> = {
+    '₀': '_0', '₁': '_1', '₂': '_2', '₃': '_3', '₄': '_4',
+    '₅': '_5', '₆': '_6', '₇': '_7', '₈': '_8', '₉': '_9'
+  };
+  sanitized = sanitized.replace(/([A-Z][a-z]?)([₀-₉]+)/g, (m, el, subs) => {
+    const converted = subs.split('').map((c: string) => unicodeSubMap[c] || c).join('').replace(/_/g, '');
+    return `${el}_${converted}`;
+  });
+
+  // 3. Processamento linha a linha para isolamento perfeito de blocos KaTeX Display
   const lines = sanitized.split("\n");
-  const processedLines = lines.map(line => {
+  const processedLines: string[] = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     const trimmed = line.trim();
-    // Se for linha de tabela Markdown (começa com | e tem | subsequente), preserva inline para não quebrar a tabela
+
+    // Se for linha de tabela Markdown (| ... |), preserva 100% intacta com equações inline
     if (trimmed.startsWith("|") && trimmed.includes("|", 1)) {
-      return line;
+      processedLines.push(line);
+      continue;
     }
-    // Fora de tabela, promove equações com setas para blocos destacados centralizados
+
+    // Caso 1: Linha que contém $$...$$ em linha única (ex: "  $$HA_{(aq)} \rightarrow H^+_{(aq)} + A^-_{(aq)}$$")
+    const singleLineBlockMath = /^(\s*)\$\$(.+?)\$\$(\s*)$/;
+    const matchBlock = line.match(singleLineBlockMath);
+    if (matchBlock) {
+      const indent = matchBlock[1] || "";
+      const mathContent = matchBlock[2].trim();
+      // Quebra em bloco multi-linha com linhas em branco para garantir renderização de katex-display
+      processedLines.push("");
+      processedLines.push(`${indent}$$\n${indent}${mathContent}\n${indent}$$`);
+      processedLines.push("");
+      continue;
+    }
+
+    // Caso 2: Linha de lista com marcador contendo equação de reação ($... \to ...$)
+    // ex: "- **Equação Geral:** $HA_{(aq)} \rightarrow H^+_{(aq)} + A^-_{(aq)}$"
+    const listWithFormula = /^(\s*(?:[-*+]|\d+\.)\s+)(.*?)(?<!\$)\$([^\$\r\n]+?(?:\\to|\\rightarrow|\\xrightarrow|\\rightleftharpoons|\\leftrightarrow)[^\$\r\n]*?)\$(?!\$)(.*)$/;
+    const matchListItem = line.match(listWithFormula);
+    if (matchListItem) {
+      const listMarker = matchListItem[1];
+      const textBefore = matchListItem[2].trim();
+      const formula = matchListItem[3].trim();
+      const textAfter = matchListItem[4].trim();
+
+      if (textBefore) {
+        processedLines.push(`${listMarker}${textBefore}`);
+      }
+      processedLines.push("");
+      processedLines.push(`  $$\n  ${formula}\n  $$`);
+      processedLines.push("");
+      if (textAfter) {
+        processedLines.push(`  ${textAfter}`);
+      }
+      continue;
+    }
+
+    // Caso 3: Fórmula com seta inline solta no meio de um parágrafo normal
+    const arrowRegex = /(?<!\$)\$([^\$\r\n]+?(?:\\to|\\rightarrow|\\xrightarrow|\\rightleftharpoons|\\leftrightarrow)[^\$\r\n]*?)\$(?!\$)/g;
     if (arrowRegex.test(line)) {
       arrowRegex.lastIndex = 0;
-      return line.replace(arrowRegex, "\n\n$$\n$1\n$$\n\n");
+      processedLines.push("");
+      processedLines.push(line.replace(arrowRegex, "\n\n$$\n$1\n$$\n\n"));
+      processedLines.push("");
+      continue;
     }
-    return line;
-  });
+
+    processedLines.push(line);
+  }
 
   return processedLines.join("\n");
 };

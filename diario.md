@@ -3118,3 +3118,30 @@ ull.
   3. **Renderização Condicional Limpa no JSX:**
      - Quando loadingTrack é nulo, exibe os 3 pontinhos neutros em container discreto.
      - Quando loadingTrack é ativo, renderiza o card temático com a coruja pulsante e as frases pedagógicas alternando a cada 3s com transição suave adeIn.
+
+
+---
+
+### [28/10/2026 - Rodada 11] - Correção Estrutural de Destaque KaTeX e Redesenho do Padrão-Ouro do Memorex
+
+- **Demandas e Problemas Relatados pelo Usuário:**
+  1. *Equações mantidas junto ao texto sem destaque:* No modo Teoria e listas, equações como $HA_{(aq)} \rightarrow H^+_{(aq)} + A^-_{(aq)}$ apareceram inline coladas no texto do marcador de lista, sem o card centralizado com fundo escurecido/borda/sombra.
+  2. *Qualidade deficiente da formatação do Memorex:* O resumo panorâmico (Memorex) gerou uma muralha contínua de texto na Seção 1, listas aninhadas poluídas com subscritos Unicode soltos (`HNO₃`, `H₂SO₄`), caracteres estranhos (`- + Hidrogênio`), ausência de quadro comparativo sintético e dicas desordenadas.
+
+- **Diagnóstico Técnico de Causa Raiz:**
+  1. **Parsing do CommonMark / Remark-Math:** Quando equações em bloco são escritas com `$$` na mesma linha (ex: `$$HA \rightarrow ...$$`) ou inseridas imediatamente dentro de um item de lista sem linhas em branco separadoras, o parser AST do `remark-math` as classifica como `inlineMath`. Consequentemente, o compilador HTML emite `<span class="katex">` em vez de `<span class="katex-display">`. Como o CSS customizado de destaque (card centralizado, padding, bordas arredondadas e sombras) era aplicado estritamente a `.katex-display`, as equações permaneciam como texto inline corrido.
+  2. **Defasagem no Prompt do Memorex:** O arquivo `modo_memorex.md` anterior solicitava "1 ou 2 parágrafos densos", o que induzia o LLM a criar uma muralha contínua de 12 linhas sem respiração visual, sem obrigar um quadro síntese comparativo nem proibir subscritos Unicode.
+
+- **Intervenções e Soluções Implementadas:**
+  1. **Sanitizador Inteligente Multi-Camadas (`apps/mobme-source/app/page.tsx`):**
+     - **Normalização de Subscritos Unicode:** Conversão automática de caracteres Unicode soltos (`₀` a `₉`) para sintaxe LaTeX limpa (`_0` a `_9`).
+     - **Expansão de Linha Única para Multi-Linha:** Qualquer ocorrência de `$$...$$` em linha única é automaticamente desmembrada em um bloco `$$\n...\n$$` cercado por quebras de linha (`\n\n`), forçando o `remark-math` a classificar o nó como `math` (flow/block) e renderizar `<span class="katex-display">`.
+     - **Desmembramento Harmônico de Listas:** Linhas de lista contendo fórmulas de reação (com `\to`, `\rightarrow`, etc.) têm a fórmula extraída para um bloco display centralizado identado logo abaixo do título do item.
+     - **Preservação Blindada de Tabelas:** Linhas de tabela Markdown (`| ... |`) são rigorosamente ignoradas pelo expansor, mantendo formulas curtas inline para jamais quebrar a renderização da tabela.
+  2. **Redesenho do Padrão-Ouro do Memorex (`modo_memorex.md`):**
+     - **Zero Muralhas de Texto:** Parágrafos breves (2 a 4 linhas) no Big Picture.
+     - **Quadro Síntese Panorâmico Obrigatório:** Inserção mandatória de uma Tabela Comparativa Markdown na Seção 2 confrontando todas as categorias/famílias do tema (Definição, Espécie Característica, Equação Modelo, Exemplo e Regra Prática).
+     - **LaTeX Rigoroso:** Proibição explícita de subscritos Unicode soltos.
+     - **Cards de Destaque Callout:** Dicas de Ouro e Pegadinhas Clássicas estruturadas com blockquotes estilizados (`> 💡 **Dica de Ouro:**`, `> ⚠️ **Pegadinha Clássica:**`).
+  3. **Blindagem Global dos Prompts (`modo_teoria.md` e `base_persona.md`):**
+     - Proibição absoluta de escrever `$$` na mesma linha da fórmula e exigência de blocos multi-linha isolados em todas as modalidades do ecossistema.
