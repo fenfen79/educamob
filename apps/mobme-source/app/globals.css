@@ -316,7 +316,8 @@ html, body {
 
 
 /* Badges Numéricos de Menu em Vidro Laranja Sofisticado (Orange Glassmorphism) */
-.orange-glass-badge {
+.orange-glass-badge,
+.orange-glass-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -335,7 +336,7 @@ html, body {
     inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.7),
     0 2px 8px rgba(255, 107, 0, 0.25),
     0 1px 2px rgba(0, 0, 0, 0.08);
-  color: #111111 !important; /* No modo claro, fonte preta destacada */
+  color: #000000 !important; /* No modo claro, fonte preta destacada */
   font-family: inherit;
   font-weight: 800;
   font-size: 0.9rem;
@@ -348,7 +349,8 @@ html, body {
   padding: 0;
 }
 
-[data-theme="dark"] .orange-glass-badge {
+[data-theme="dark"] .orange-glass-badge,
+.orange-glass-btn {
   color: #ffffff !important; /* No modo escuro, mantm fonte branca */
   border-color: rgba(255, 255, 255, 0.45);
   box-shadow: 

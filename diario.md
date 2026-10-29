@@ -3197,3 +3197,18 @@ ull.
   - Em `apps/mobme-source/app/globals.css`:
     - **Modo Claro (Padrão):** Configurada a cor da fonte para `#111111 !important` com leve reflexo inferior `text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35)` e borda nítida de vidro.
     - **Modo Escuro (`[data-theme="dark"]`):** Mantida rigorosamente a cor da fonte em branco puro (`#ffffff !important`) com sombra suave e glow âmbar característico.
+
+
+---
+
+### [29/10/2026 - Rodada 15] - Blindagem Definitiva de Cor dos Números (Preto no Claro / Branco no Escuro)
+
+- **Diagnóstico Técnico de Causa Raiz:**
+  - O navegador do usuário estava retendo em cache a folha de estilo anterior onde `.orange-glass-badge` possuía `color: #ffffff !important`. Como o seletor da classe continha a diretiva `!important` cacheada no cliente, regras CSS externas ou atualizações leves podiam ser ignoradas até um hard reload do navegador.
+- **Solução Definitiva e à Prova de Falhas:**
+  1. **Injeção de `<span>` com Inline Style Dinâmico em Tempo de Renderização (`page.tsx`):**
+     - O número agora é envelopado em um elemento filho independente:
+       `<span style={{ color: theme === "dark" ? "#ffffff" : "#000000", fontWeight: 800 }}>{num}</span>`.
+     - Como a cor está aplicada inline diretamente no nó de texto via estado do React (`theme`), ela se sobrepõe a qualquer herança ou cache de classe do botão pai e alterna instantaneamente ao clicar no botão de alternar tema.
+  2. **Quebra de Cache de Classes (`page.tsx` e `globals.css`):**
+     - Adicionada a classe secundária `.orange-glass-btn` junto a `.orange-glass-badge` para forçar os navegadores a processarem a nova folha de regras sem depender de expiração de cache.
