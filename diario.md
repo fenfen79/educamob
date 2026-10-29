@@ -3093,3 +3093,28 @@ Com o término da Etapa 3, a base teórica completa de Química do Ensino Médio
   2. **Buffer Assíncrono Transparente no Streaming (`page.tsx`):**
      - O stream HTTP continua sendo lido e acumulado normalmente em segundo plano no buffer `aiResponseText`.
      - Ao concluir o tempo mínimo de visualização do progresso, o estado `isTyping` desliga suavemente e a seção gerada surge instantaneamente, dando continuidade ao streaming em tempo real caso o texto ainda não tenha terminado.
+
+
+---
+
+### [28/10/2026 - Rodada 10] - Calibragem da Cadência de Loading (3 Segundos) e Restrição aos Modos Longos
+
+- **Demandas e Ajustes Solicitados:**
+  1. As mensagens de progresso estavam rotacionando rápido demais para a leitura do estudante; o intervalo ideal determinado foi de **3 em 3 segundos**.
+  2. Reforço de restrição funcional: as mensagens lúdicas e pedagógicas de progresso devem aparecer **exclusivamente** quando o aluno escolher:
+     - **Bora ler!** (Teoria)
+     - **Flashcards**
+     - **Memorex**
+  3. Para todas as outras interações (mensagens conversacionais, boas-vindas, menus, treino básico, desafio, SOS), a interface deve manter o indicador clássico e limpo de digitação (três pontinhos pulando sem balão de texto) com entrega imediata do streaming (minLoadingDuration = 0).
+
+- **Intervenções e Soluções Implementadas:**
+  1. **Filtro Estrito em getTrackFromInput (pps/mobme-source/app/page.tsx):**
+     - A função agora retorna estritamente 'teoria' | 'flashcards' | 'memorex' | null.
+     - Para qualquer outro comando, input ou clique, retorna 
+ull.
+  2. **Cadência de 3 Segundos no Temporizador (page.tsx):**
+     - O temporizador interno do useEffect foi calibrado para 3000ms, proporcionando tempo confortável e natural para absorção de cada frase.
+     - A janela mínima de visualização (minLoadingDuration) foi ajustada para 6000ms (exatamente 2 mensagens completas de 3s cada) exclusivamente quando 	rack é não-nulo, garantindo a visualização limpa antes da abertura do conteúdo longo, mesmo com o TTFB ultrarrápido do DeepSeek.
+  3. **Renderização Condicional Limpa no JSX:**
+     - Quando loadingTrack é nulo, exibe os 3 pontinhos neutros em container discreto.
+     - Quando loadingTrack é ativo, renderiza o card temático com a coruja pulsante e as frases pedagógicas alternando a cada 3s com transição suave adeIn.

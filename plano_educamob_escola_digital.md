@@ -555,6 +555,7 @@ emark-gfm no frontend Next.js para renderização de tabelas Markdown ricas e re
 | **27** | Manutenção Contínua da Base Teórica | Cadência de revisão: semestral (atualidade de dados e referências), anual (incorporar novas questões ENEM/provas oficiais), sob demanda (corrigir erros reportados por alunos via Mob.me, adicionar tópicos solicitados com frequência). |
 | **28** | Códigos de Desbloqueio (Vouchers/Turmas) | Injeção de contexto RAG via código no Mob.me. O aluno digita uma chave (ex: '#REC-MAT-01'), o FastAPI valida no Supabase e carrega e-books específicos, alterando o system prompt da IA. Atua como MVP tático para prescrição pedagógica. |
 | **29** | Refatoração Assíncrona e Connection Pooling | Converter todo o código do FastAPI (`main.py` e `memory.py`) para `async def / await`, implementando um cliente Supabase Assíncrono (`ClientAsync`) e Pool de Conexões para suportar milhões de acessos sem bloquear o Event Loop ou sobrecarregar a camada HTTP (Cloudflare). |
+| **30** | Micro-UX Lúdica de Carregamento | Ciclo de feedback de progresso pedagógico com rotação a cada 3s exclusivo para trilhas densas (Bora ler, Flashcards e Memorex), amortecendo o tempo de geração com transparência sem atrasar interações curtas.
 
 ---
 
