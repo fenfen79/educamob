@@ -3145,3 +3145,19 @@ ull.
      - **Cards de Destaque Callout:** Dicas de Ouro e Pegadinhas Clássicas estruturadas com blockquotes estilizados (`> 💡 **Dica de Ouro:**`, `> ⚠️ **Pegadinha Clássica:**`).
   3. **Blindagem Global dos Prompts (`modo_teoria.md` e `base_persona.md`):**
      - Proibição absoluta de escrever `$$` na mesma linha da fórmula e exigência de blocos multi-linha isolados em todas as modalidades do ecossistema.
+
+
+---
+
+### [29/10/2026 - Rodada 12] - Customização das Mensagens de Espera do Memorex
+
+- **Demandas e Ajustes Solicitados:**
+  - Substituição exclusiva das frases lúdicas e pedagógicas do ciclo de carregamento da modalidade **Memorex** pela seleção escolhida pelo usuário:
+    1. *"Condensando horas de aula em segundos de leitura pura... ☕"*
+    2. *"Tirando um raio-X panorâmico de todo o assunto... 🔍"*
+    3. *"Compactando as fórmulas e conceitos na velocidade da luz... ⚡"*
+    4. *"Preparando seu mapa mental de bolso para nunca mais dar branco... 🧠"*
+
+- **Intervenções e Soluções Implementadas:**
+  - Atualização do dicionário `LOADING_MESSAGES.memorex` em `apps/mobme-source/app/page.tsx` com a nova sequência de 4 frases.
+  - Mantida a cadência rigorosa de 3 segundos por frase e a restrição de exibição exclusiva para Bora Ler, Flashcards e Memorex.

@@ -254,10 +254,10 @@ const LOADING_MESSAGES: Record<string, string[]> = {
     "Quase pronto para o desafio mental! 🔥"
   ],
   memorex: [
-    "Passando o conteúdo no liquidificador sintético... 🥤",
-    "Filtrando apenas o ouro puro do assunto... ✨",
-    "Montando sua folha de consulta rápida autorizada! 📝",
-    "Finalizando o panorama completo... 🚀"
+    "Condensando horas de aula em segundos de leitura pura... ☕",
+    "Tirando um raio-X panorâmico de todo o assunto... 🔍",
+    "Compactando as fórmulas e conceitos na velocidade da luz... ⚡",
+    "Preparando seu mapa mental de bolso para nunca mais dar branco... 🧠"
   ]
 };
 
