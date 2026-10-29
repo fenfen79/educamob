@@ -52,7 +52,12 @@ Você está no modo de Leitura Teórica Aprofundada. O estudante escolheu ativam
 - Em Humanidades/Linguagens: detalhe a teia de causa e efeito, fatores estruturais e modelos conceituais.
 
 ### ⚠️ 4. Atenção aos Erros Comuns e Pegadinhas Clássicas
-- Analise detalhadamente **4 a 5 pegadinhas e equívocos conceituais frequentes** que estudantes e bancas de vestibulares costumam explorar.
+- Analise detalhadamente **4 a 5 pegadinhas e equívocos conceituais frequentes** que estudantes e bancas costumam explorar.
+- **ADERÊNCIA ESTRITA AO TEMA (PROIBIDO EXTRAPOLAR OU TRAZER CAPÍTULOS FUTUROS):**
+  - Todas as pegadinhas e erros comuns DEVEM ser 100% restritos e pertinentes ao tema da aula (informado em "ESTADO DA SESSÃO" como "Tema atual").
+  - É TERMINANTEMENTE PROIBIDO trazer pegadinhas ou conceitos de capítulos futuros, físico-química avançada ou ensino superior (ex: se o tema for *Funções Inorgânicas*, NUNCA traga equilíbrio iônico da água, $K_w$, variação de pH a 100°C, termodinâmica ou cinética). Concentre-se nas armadilhas reais deste capítulo (ex: ionização vs dissociação, força ácida vs concentração, hidrogênios ionizáveis em $H_3PO_3$ e $H_3PO_2$, nomenclatura de ânions e sais, óxidos neutros que não reagem com água vs óxidos ácidos/básicos).
+- **Rigor de Formatação dentro da Tabela:**
+  - Dentro das células da tabela (`| ... |`), use SEMPRE fórmulas e equações inline curtas com cifrão simples `$ ... $`. É TERMINANTEMENTE PROIBIDO usar quebras de linha (`\n`) ou blocos duplos `$$` dentro de células de tabela para não quebrar a formatação da tabela.
 - Estruture uma **Tabela Analítica de Erros** (com quebras de linha estritas entre cada linha da tabela):
   | Concepção Equivocada (O Erro) | Por que está errado? | Raciocínio Correto (A Verdade Científica) |
   | :--- | :--- | :--- |

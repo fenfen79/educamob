@@ -82,13 +82,24 @@ const sanitizeContent = (content: string) => {
     (match, p1, p2) => "{" + p1 + "}_" + p2
   );
 
-  // 2. Auto-promover equações químicas ou matemáticas com setas/reações inline para blocos destacados com $$
-  sanitized = sanitized.replace(
-    new RegExp('(?<!\\$)\\$([^\\$\\r\\n]+?(?:\\\\to|\\\\rightarrow|\\\\xrightarrow|\\\\rightleftharpoons|\\\\leftrightarrow)[^\\$\\r\\n]*?)\\$(?!\\$)', 'g'),
-    "\n\n$$\n$1\n$$\n\n"
-  );
+  // 2. Auto-promover equações com setas para $$ APENAS fora de linhas de tabela Markdown
+  const arrowRegex = new RegExp('(?<!\\$)\\$([^\\$\\r\\n]+?(?:\\\\to|\\\\rightarrow|\\\\xrightarrow|\\\\rightleftharpoons|\\\\leftrightarrow)[^\\$\\r\\n]*?)\\$(?!\\$)', 'g');
+  const lines = sanitized.split("\n");
+  const processedLines = lines.map(line => {
+    const trimmed = line.trim();
+    // Se for linha de tabela Markdown (começa com | e tem | subsequente), preserva inline para não quebrar a tabela
+    if (trimmed.startsWith("|") && trimmed.includes("|", 1)) {
+      return line;
+    }
+    // Fora de tabela, promove equações com setas para blocos destacados centralizados
+    if (arrowRegex.test(line)) {
+      arrowRegex.lastIndex = 0;
+      return line.replace(arrowRegex, "\n\n$$\n$1\n$$\n\n");
+    }
+    return line;
+  });
 
-  return sanitized;
+  return processedLines.join("\n");
 };
 
 const splitMessageMenu = (text: string): { content: string; menu: string | null } => {

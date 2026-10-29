@@ -3058,3 +3058,21 @@ Com o término da Etapa 3, a base teórica completa de Química do Ensino Médio
      - Um temporizador suave alterna as frases a cada 2,4 segundos com animação CSS `@keyframes fadeIn`.
      - A coruja Mob.me pulsa suavemente e os três pontinhos pulam na cor oficial da marca (`--accent-primary`).
      - Ao chegar o primeiro chunk do streaming (`isFirstChunk`), o loading é finalizado com zero latência perceptível.
+
+
+---
+
+### [28/10/2026 - Rodada 8] - Blindagem contra Extrapolação de Pegadinhas e Isolamento de Tabelas Markdown
+
+- **Contexto e Causa Raiz:**
+  - Na Seção 4 ("Atenção aos Erros Comuns e Pegadinhas Clássicas"), o LLM extrapolou o escopo de *Funções Inorgânicas*, trazendo armadilhas de Físico-Química e Equilíbrio Iônico da Água ($K_w = 10^{-14}$, neutralidade de pH a 100°C), que fogem completamente do objeto de conhecimento do capítulo.
+  - Além disso, a tabela analítica quebrou visualmente na 4ª linha porque a reação de hidróxido de amônio ($NH_3 + H_2O ightleftharpoons NH_4^+ + OH^-$) continha uma seta química inline e recebeu quebras de linha `\n\n` pelo sanitizador dentro da célula, rompendo a sintaxe Markdown.
+
+- **Intervenções e Soluções Implementadas:**
+  1. **Blindagem contra Extrapolação Curricular (`modo_teoria.md` e `base_persona.md`):**
+     - Adicionada regra mandatória de *Aderência Estrita ao Objeto de Conhecimento*: proibição total de trazer pegadinhas ou conceitos de capítulos futuros, físico-química avançada ou ensino superior.
+     - As pegadinhas de *Funções Inorgânicas* ficam estritamente ancoradas nas confusões reais do próprio capítulo (ionização vs dissociação, força vs concentração, hidrogênios ionizáveis em $H_3PO_3$/$H_3PO_2$, nomenclatura de sais e óxidos neutros).
+  2. **Proteção Estrutural de Tabelas Markdown (`page.tsx`):**
+     - O sanitizador de KaTeX agora processa o texto linha a linha.
+     - Linhas de tabela Markdown (`| ... |`) são preservadas estritamente com fórmulas inline (`$ ... $`), impedindo quebras de linha dentro das células.
+     - Equações em parágrafos normais continuam sendo elevadas para blocos destacados `$$ ... $$` centralizados.
