@@ -2,7 +2,7 @@
 
 
 
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import ReactMarkdown from "react-markdown";
 
@@ -1127,6 +1127,71 @@ export default function ChatApp() {
 
 
 
+  // Transforma emojis de nmeros em quadradinhos laranjas com glassmorphism sofisticado
+  const renderWithBadges = (text: string) => {
+    if (typeof text !== "string") return text;
+    const regex = /([0-9]|10)\uFE0F?\u20E3/g;
+    const parts = text.split(regex);
+    if (parts.length === 1) return text;
+
+    const result: (string | React.ReactNode)[] = [];
+    for (let i = 0; i < parts.length; i++) {
+      let part = parts[i];
+      if (i % 2 === 1) {
+        const num = part;
+        result.push(
+          <button
+            key={i}
+            type="button"
+            className="orange-glass-badge"
+            title={`Selecionar opo ${num}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (!isTyping) {
+                handleSend(num);
+              }
+            }}
+          >
+            {num}
+          </button>
+        );
+      } else {
+        if (i > 0 && part.startsWith(" ")) {
+          part = part.slice(1);
+        }
+        if (part) {
+          result.push(part);
+        }
+      }
+    }
+    return result;
+  };
+
+  const processChildren = (children: any): any => {
+    return React.Children.map(children, (child) => {
+      if (typeof child === "string") {
+        return renderWithBadges(child);
+      }
+      if (React.isValidElement(child) && (child.props as any)?.children) {
+        return React.cloneElement(child, {
+          ...(child.props as any),
+          children: processChildren((child.props as any).children),
+        });
+      }
+      return child;
+    });
+  };
+
+  const markdownComponents = {
+    p: ({ node, children, ...props }: any) => <p {...props}>{processChildren(children)}</p>,
+    li: ({ node, children, ...props }: any) => <li {...props}>{processChildren(children)}</li>,
+    strong: ({ node, children, ...props }: any) => <strong {...props}>{processChildren(children)}</strong>,
+    h1: ({ node, children, ...props }: any) => <h1 {...props}>{processChildren(children)}</h1>,
+    h2: ({ node, children, ...props }: any) => <h2 {...props}>{processChildren(children)}</h2>,
+    h3: ({ node, children, ...props }: any) => <h3 {...props}>{processChildren(children)}</h3>,
+    h4: ({ node, children, ...props }: any) => <h4 {...props}>{processChildren(children)}</h4>,
+  };
+
   return (
 
     <div className="flex h-screen w-full bg-[var(--bg-primary)] overflow-hidden font-sans">
@@ -1510,6 +1575,7 @@ export default function ChatApp() {
                                 <ReactMarkdown 
                                   remarkPlugins={[remarkGfm, remarkMath]} 
                                   rehypePlugins={[rehypeKatex]}
+                                  components={markdownComponents}
                                 >
                                   {sanitizeContent(mainText)}
                                 </ReactMarkdown>
@@ -1535,6 +1601,7 @@ export default function ChatApp() {
                                   <ReactMarkdown 
                                     remarkPlugins={[remarkGfm, remarkMath]} 
                                     rehypePlugins={[rehypeKatex]}
+                                    components={markdownComponents}
                                   >
                                     {sanitizeContent(menu)}
                                   </ReactMarkdown>

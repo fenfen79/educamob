@@ -557,6 +557,7 @@ emark-gfm no frontend Next.js para renderização de tabelas Markdown ricas e re
 | **29** | Refatoração Assíncrona e Connection Pooling | Converter todo o código do FastAPI (`main.py` e `memory.py`) para `async def / await`, implementando um cliente Supabase Assíncrono (`ClientAsync`) e Pool de Conexões para suportar milhões de acessos sem bloquear o Event Loop ou sobrecarregar a camada HTTP (Cloudflare). |
 | **30** | Micro-UX Lúdica de Carregamento | Ciclo de feedback de progresso pedagógico com rotação a cada 3s exclusivo para trilhas densas (Bora ler, Flashcards e Memorex), amortecendo o tempo de geração com transparência sem atrasar interações curtas.
 | **31** | Padrão-Ouro KaTeX e Memorex | Pipeline robusto de parser multi-camada para blocos display KaTeX (isolamento de reações em listas e parágrafos sem quebrar tabelas) e novo template arquitetural de alto padrão para o Memorex com Quadro Síntese Panorâmico obrigatório e Callouts de Dicas de Ouro.
+| **32** | Badges Glassmorphism para Menus | Substituição dos emojis nativos azuis por botões numéricos com efeito glass sofisticado em laranja Educamob (#ff6b00), dotados de reflexo interno, blur translúcido e gatilho interativo ao clique direto.
 
 ---
 

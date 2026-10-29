@@ -3161,3 +3161,25 @@ ull.
 - **Intervenções e Soluções Implementadas:**
   - Atualização do dicionário `LOADING_MESSAGES.memorex` em `apps/mobme-source/app/page.tsx` com a nova sequência de 4 frases.
   - Mantida a cadência rigorosa de 3 segundos por frase e a restrição de exibição exclusiva para Bora Ler, Flashcards e Memorex.
+
+
+---
+
+### [29/10/2026 - Rodada 13] - Badges Numéricos em Vidro Laranja Sofisticado (Orange Glassmorphism)
+
+- **Demandas e Ajustes Solicitados:**
+  - Substituição visual dos "quadradinhos azuis" (emojis de teclado numérico nativos do sistema operacional `1️⃣`..`8️⃣`) por botões/quadradinhos laranjas personalizados no padrão oficial Educamob (`#ff6b00`), com efeito *glass* sofisticado (vidro fosco, borda translúcida, reflexo interno e sombra suave).
+
+- **Intervenções e Soluções Implementadas:**
+  1. **Estilização de Vidro Laranja Sofisticado (`globals.css`):**
+     - Criada a classe `.orange-glass-badge` com:
+       - Gradiente translúcido: `linear-gradient(135deg, rgba(255, 107, 0, 0.92) 0%, rgba(255, 140, 0, 0.75) 100%)`.
+       - Desfoque de fundo (*backdrop blur*): `backdrop-filter: blur(10px)`.
+       - Borda e reflexo de vidro: `border: 1px solid rgba(255, 255, 255, 0.45)` e `inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.6)`.
+       - Tipografia limpa e nítida: Branco puro (`#ffffff`), negrito com leve sombra `text-shadow`.
+       - Microinterações táteis: Animação suave ao passar o mouse (`hover`) com elevação, brilho aumentado e feedback ao clique (`active`).
+     - Efeito *hover* sutil nas linhas do menu (`.markdown-content p:has(.orange-glass-badge)`).
+  2. **Interceptação e Renderização Dinâmica no ReactMarkdown (`page.tsx`):**
+     - Criada a função `renderWithBadges` e o processador recursivo `processChildren` em `components={markdownComponents}` do `ReactMarkdown`.
+     - Todos os marcadores Unicode `1️⃣` a `10️⃣` no chat principal e na janela de Super Menu independente são automaticamente convertidos em botões interativos `<button className="orange-glass-badge">`.
+     - O estudante agora pode tanto digitar o número quanto **clicar diretamente no quadradinho laranja** para disparar a opção desejada.
