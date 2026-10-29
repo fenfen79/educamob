@@ -3212,3 +3212,24 @@ ull.
      - Como a cor está aplicada inline diretamente no nó de texto via estado do React (`theme`), ela se sobrepõe a qualquer herança ou cache de classe do botão pai e alterna instantaneamente ao clicar no botão de alternar tema.
   2. **Quebra de Cache de Classes (`page.tsx` e `globals.css`):**
      - Adicionada a classe secundária `.orange-glass-btn` junto a `.orange-glass-badge` para forçar os navegadores a processarem a nova folha de regras sem depender de expiração de cache.
+
+
+---
+
+### [29/10/2026 - Rodada 16] - Remoção do Efeito Glass e Adoção de Quadradinhos Laranjas Sólidos
+
+- **Demandas e Ajustes Solicitados:**
+  - Remoção total do efeito *glass* (desfoque translúcido, reflexos internos de vidro e bordas esbranquiçadas) dos botões numéricos de menu.
+  - Adoção de quadradinhos laranjas sólidos, limpos e modernos no padrão oficial Educamob (`#ff6b00`).
+  - Manutenção da regra de contraste: números em preto no modo claro e em branco no modo escuro.
+
+- **Intervenções e Soluções Implementadas:**
+  - Em `apps/mobme-source/app/globals.css`:
+    - Removidas todas as propriedades de vidro (`backdrop-filter`, `border`, `inset box-shadow` e gradiente translúcido).
+    - Definido fundo sólido oficial: `background-color: #ff6b00 !important`.
+    - Geometria limpa e elegante (`border-radius: 7px;`, `width: 1.65rem;`, `height: 1.65rem;`).
+    - Sombra projetada sutil e elegante: `box-shadow: 0 2px 6px rgba(255, 107, 0, 0.35)`.
+    - Tipografia: `#000000 !important` no modo claro e `#ffffff !important` no modo escuro (`[data-theme="dark"]`).
+  - Em `apps/mobme-source/app/page.tsx`:
+    - O botão foi atualizado para a classe `.orange-badge` com estilo inline `backgroundColor: "#ff6b00"`, garantindo renderização sólida instantânea.
+    - O elemento interno `<span>` aplica `color: theme === "dark" ? "#ffffff" : "#000000"`, assegurando alternância imediata entre temas.

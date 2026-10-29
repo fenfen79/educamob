@@ -1143,9 +1143,10 @@ export default function ChatApp() {
           <button
             key={i}
             type="button"
-            className="orange-glass-badge orange-glass-btn"
+            className="orange-badge"
             title={`Selecionar opção ${num}`}
             style={{
+              backgroundColor: "#ff6b00",
               color: theme === "dark" ? "#ffffff" : "#000000"
             }}
             onClick={(e) => {
@@ -1160,7 +1161,7 @@ export default function ChatApp() {
                 color: theme === "dark" ? "#ffffff" : "#000000",
                 fontWeight: 800,
                 lineHeight: 1,
-                textShadow: theme === "dark" ? "0 1px 2px rgba(0,0,0,0.35)" : "0 1px 0 rgba(255,255,255,0.4)"
+                fontSize: "0.9rem"
               }}
             >
               {num}
@@ -1179,7 +1180,7 @@ export default function ChatApp() {
     return result;
   };
 
-    const processChildren = (children: any): any => {
+  const processChildren = (children: any): any => {
     return React.Children.map(children, (child) => {
       if (typeof child === "string") {
         return renderWithBadges(child);
