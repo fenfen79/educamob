@@ -3233,3 +3233,21 @@ ull.
   - Em `apps/mobme-source/app/page.tsx`:
     - O botão foi atualizado para a classe `.orange-badge` com estilo inline `backgroundColor: "#ff6b00"`, garantindo renderização sólida instantânea.
     - O elemento interno `<span>` aplica `color: theme === "dark" ? "#ffffff" : "#000000"`, assegurando alternância imediata entre temas.
+
+
+---
+
+### [29/10/2026 - Rodada 17] - Correção Estrutural de Quebra de Linha das Opções de Menu
+
+- **Diagnóstico Técnico de Causa Raiz:**
+  - Na tela de desambiguação/acolhida, quando o modelo emitia opções numeradas (1️⃣, 2️⃣, 3️⃣) separadas apenas por quebra de linha simples (`\n`), o Markdown agrupava todas dentro de uma única tag `<p>`.
+  - Como a regra CSS anterior definia `.markdown-content p:has(.orange-badge) { display: flex; align-items: center; }`, o parágrafo se transformava em um flex container horizontal.
+  - Consequentemente, as 3 opções eram enfileiradas horizontalmente lado a lado e espremidas na largura do balão de chat, quebrando o texto em colunas verticais estreitas de poucas letras (efeito cascata ilegível).
+
+- **Intervenções e Soluções Implementadas:**
+  1. **Remoção de `display: flex` em Parágrafos (`globals.css`):**
+     - Eliminada a propriedade flexbox da tag `<p>`. O parágrafo voltou ao seu fluxo natural de bloco.
+     - Como o `.orange-badge` utiliza `display: inline-flex; vertical-align: middle;`, ele se posiciona harmonicamente no início do texto sem interferir na largura nem quebrar o fluxo das frases.
+  2. **Garantia de Empilhamento Vertical em `sanitizeContent` (`page.tsx`):**
+     - Implementado pré-processador que detecta qualquer ocorrência de opções numeradas (`1️⃣`, `2️⃣`, ..., `10️⃣`) e assegura que cada uma seja precedida por quebra de linha dupla (`\n\n`).
+     - Garante que cada opção ocupe seu próprio parágrafo vertical dedicado, empilhada de forma organizada e espaçada.

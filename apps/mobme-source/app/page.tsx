@@ -93,6 +93,10 @@ const sanitizeContent = (content: string) => {
     return `${el}_${converted}`;
   });
 
+  // 2.1. Garante que opções numeradas (1️⃣, 2️⃣, ...) sempre fiquem em parágrafos separados (\n\n)
+  sanitized = sanitized.replace(/([^\n])\n?(([0-9]|10)\uFE0F?\u20E3)/g, "$1\n\n$2");
+  sanitized = sanitized.replace(/(([0-9]|10)\uFE0F?\u20E3[^\n]+)\n([^\n0-9])/g, "$1\n\n$3");
+
   // 3. Processamento linha a linha para isolamento perfeito de blocos KaTeX Display
   const lines = sanitized.split("\n");
   const processedLines: string[] = [];

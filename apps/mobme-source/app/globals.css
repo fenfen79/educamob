@@ -375,11 +375,10 @@ html, body {
 .markdown-content p:has(.orange-glass-badge),
 .prose p:has(.orange-badge),
 .prose p:has(.orange-glass-badge) {
-  display: flex;
-  align-items: center;
   padding: 0.35rem 0.5rem;
-  margin: 0.25rem 0;
-  border-radius: 10px;
+  margin: 0.35rem 0;
+  border-radius: 8px;
+  line-height: 1.6;
   transition: background-color 0.15s ease;
 }
 
