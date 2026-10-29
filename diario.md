@@ -3183,3 +3183,17 @@ ull.
      - Criada a função `renderWithBadges` e o processador recursivo `processChildren` em `components={markdownComponents}` do `ReactMarkdown`.
      - Todos os marcadores Unicode `1️⃣` a `10️⃣` no chat principal e na janela de Super Menu independente são automaticamente convertidos em botões interativos `<button className="orange-glass-badge">`.
      - O estudante agora pode tanto digitar o número quanto **clicar diretamente no quadradinho laranja** para disparar a opção desejada.
+
+
+---
+
+### [29/10/2026 - Rodada 14] - Calibragem Cromática dos Badges Numéricos por Tema (Claro / Escuro)
+
+- **Demandas e Ajustes Solicitados:**
+  - O visual do badge laranja em modo escuro foi plenamente aprovado com a fonte branca.
+  - Para o modo claro, solicitou-se a alteração da fonte dos números de branco para **preto**, garantindo alto contraste e legibilidade cristalina sobre o fundo claro da interface.
+
+- **Intervenções e Soluções Implementadas:**
+  - Em `apps/mobme-source/app/globals.css`:
+    - **Modo Claro (Padrão):** Configurada a cor da fonte para `#111111 !important` com leve reflexo inferior `text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35)` e borda nítida de vidro.
+    - **Modo Escuro (`[data-theme="dark"]`):** Mantida rigorosamente a cor da fonte em branco puro (`#ffffff !important`) com sombra suave e glow âmbar característico.
