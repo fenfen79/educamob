@@ -283,7 +283,7 @@ export default function ChatApp() {
     const list = LOADING_MESSAGES[loadingTrack] || LOADING_MESSAGES.geral;
     const interval = setInterval(() => {
       setLoadingMessageIndex(prev => (prev + 1) % list.length);
-    }, 2400);
+    }, 1300);
     return () => clearInterval(interval);
   }, [isTyping, loadingTrack]);
 
@@ -867,9 +867,14 @@ export default function ChatApp() {
 
     setImageBase64(null);
 
-    setIsTyping(true);
-    setLoadingTrack(getTrackFromInput(textToSend));
+    const sendTimestamp = Date.now();
+    const track = getTrackFromInput(textToSend);
+    setLoadingTrack(track);
     setLoadingMessageIndex(0);
+    setIsTyping(true);
+
+    const isSectionChoice = ["teoria", "flashcards", "memorex", "treino", "desafio", "conversa", "sos"].includes(track) || textToSend.trim().length <= 2;
+    const minLoadingDuration = isSectionChoice ? 3900 : 1600;
 
 
 
@@ -989,19 +994,23 @@ export default function ChatApp() {
 
               if (data.chunk) {
 
+                aiResponseText += data.chunk;
+
                 if (isFirstChunk) {
 
                   isFirstChunk = false;
 
-                  setIsTyping(false); // Esconde a coruja com "..."
+                  const elapsed = Date.now() - sendTimestamp;
+                  const waitTime = Math.max(0, minLoadingDuration - elapsed);
+                  if (waitTime > 0) {
+                    await new Promise(resolve => setTimeout(resolve, waitTime));
+                  }
 
-                  aiResponseText += data.chunk;
+                  setIsTyping(false);
 
                   setMessages(prev => [...prev, { id: aiMsgId, role: "ai", text: aiResponseText }]);
 
                 } else {
-
-                  aiResponseText += data.chunk;
 
                   setMessages(prev => 
 

@@ -3076,3 +3076,20 @@ Com o término da Etapa 3, a base teórica completa de Química do Ensino Médio
      - O sanitizador de KaTeX agora processa o texto linha a linha.
      - Linhas de tabela Markdown (`| ... |`) são preservadas estritamente com fórmulas inline (`$ ... $`), impedindo quebras de linha dentro das células.
      - Equações em parágrafos normais continuam sendo elevadas para blocos destacados `$$ ... $$` centralizados.
+
+
+---
+
+### [28/10/2026 - Rodada 9] - Calibragem do Ciclo de Loading (Garantia de Janela Mínima de Exibição)
+
+- **Contexto e Causa Raiz:**
+  - O ciclo de mensagens divertidas de progresso não estava visível para o usuário durante os testes.
+  - **Causa Raiz Identificada:** O modelo principal (DeepSeek-V4-Flash) possui latência inicial (TTFB) extremamente baixa (~270ms a 450ms). Assim que o primeiro chunk de tokens chegava do servidor em 0,27 segundos, o frontend executava `setIsTyping(false)` imediatamente, cancelando o temporizador do loading antes mesmo de o primeiro ciclo (de 2,4s) conseguir disparar. Para os olhos do usuário, o loading durava apenas uma fração de segundo e desaparecia.
+
+- **Intervenções e Soluções Implementadas:**
+  1. **Janela Mínima de Apresentação de Progresso (`page.tsx`):**
+     - Estabelecida uma janela mínima de carregamento lúdico (`minLoadingDuration = 3900ms` para escolha de trilhas e 1600ms para mensagens rápidas).
+     - O intervalo entre mensagens foi ajustado para **1,3 segundos** (`1300ms`), garantindo a rotação fluida e perfeitamente legível de 3 frases temáticas consecutivas.
+  2. **Buffer Assíncrono Transparente no Streaming (`page.tsx`):**
+     - O stream HTTP continua sendo lido e acumulado normalmente em segundo plano no buffer `aiResponseText`.
+     - Ao concluir o tempo mínimo de visualização do progresso, o estado `isTyping` desliga suavemente e a seção gerada surge instantaneamente, dando continuidade ao streaming em tempo real caso o texto ainda não tenha terminado.
