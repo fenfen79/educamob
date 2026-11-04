@@ -1,0 +1,372 @@
+[
+  {
+    "id": "S01_MAT_APRENDER_COLISAO_NUMERICA",
+    "discipline": "Matemática",
+    "title": "Função Afim — Microciclo + Resposta Numérica '5' (Teste de Não-Colisão com Menu)",
+    "track": "modo_aprender",
+    "turns": [
+      {
+        "user": "Função Afim",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "1",
+        "expected_mode": "modo_aprender",
+        "expect_menu": false,
+        "required_substrings": ["Microciclo 1", "Objetivo", "Checagem"],
+        "eval_llm": true,
+        "turn_goal": "Apresentar o Microciclo 1 de Função Afim com Objetivo curto, trecho explicativo didático com lógica antes da fórmula e Checagem ao final."
+      },
+      {
+        "user": "5",
+        "expected_mode": "modo_aprender",
+        "expect_menu": false,
+        "forbidden_substrings": ["escolheu a trilha Resolve questão", "enviar o enunciado"],
+        "eval_llm": true,
+        "turn_goal": "Avaliar a resposta '5' do estudante à checagem do Microciclo 1 (sem confundir com a opção 5 do menu), mantendo tom acolhedor e natural sem bajulação exagerada."
+      }
+    ]
+  },
+  {
+    "id": "S02_MAT_PRATICAR_ALTERNATIVAS_E_BANCO",
+    "discipline": "Matemática",
+    "title": "Função Afim — Praticar Questão 1 e 2 (Uma Alternativa por Linha + Fidelidade ao Banco + Pausa)",
+    "track": "modo_praticar",
+    "turns": [
+      {
+        "user": "Função Afim",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "2",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 1/15"],
+        "require_alternatives": true,
+        "eval_llm": true,
+        "turn_goal": "Apresentar imediatamente a Questão 1/15 — Fácil extraída da lista oficial de exercícios de Função Afim, com cada alternativa (a, b, c, d, e) isolada em sua própria linha."
+      },
+      {
+        "user": "b",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 2/15"],
+        "require_alternatives": true,
+        "eval_llm": true,
+        "turn_goal": "Corrigir a resposta 'b' da Questão 1 com sobriedade empática e apresentar imediatamente a Questão 2/15 — Fácil com alternativas uma por linha."
+      },
+      {
+        "user": "quero parar por aqui",
+        "expected_mode": "modo_praticar",
+        "allow_optional_menu": true,
+        "forbidden_substrings": ["/15 (", "aproveitamento:", "nota final"],
+        "eval_llm": true,
+        "turn_goal": "Acolher o pedido de pausa antes da 15ª questão sem gerar nota ou porcentagem parcial de aproveitamento."
+      }
+    ]
+  },
+  {
+    "id": "S03_FIS_APRENDER_MRU_KATEX_S0",
+    "discipline": "Física",
+    "title": "MRU — Fórmulas com Subscrito Zero (S_0, t_0) e Tratamento de Erro Conceitual",
+    "track": "modo_aprender",
+    "turns": [
+      {
+        "user": "Movimento Retilíneo Uniforme",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "1️⃣ Aprender",
+        "expected_mode": "modo_aprender",
+        "expect_menu": false,
+        "required_substrings": ["Microciclo 1", "Objetivo", "Checagem"],
+        "eval_llm": true,
+        "turn_goal": "Iniciar Microciclo 1 sobre Movimento Retilíneo Uniforme com fórmulas em LaTeX válido (como S_0, v, t) e checagem final."
+      },
+      {
+        "user": "acho que a velocidade fica mudando toda hora no MRU",
+        "expected_mode": "modo_aprender",
+        "expect_menu": false,
+        "eval_llm": true,
+        "turn_goal": "Tratar o erro conceitual do aluno com clareza construtiva ('Quase lá / repare neste ponto'), explicando que no MRU a velocidade é constante, sem usar elogios artificiais."
+      }
+    ]
+  },
+  {
+    "id": "S04_QUI_APRENDER_ACIDOS_FORMULAS",
+    "discipline": "Química",
+    "title": "Ácidos de Arrhenius — Desambiguação + Formatação LaTeX de Fórmulas Químicas ($HCl$, $H_2SO_4$)",
+    "track": "modo_aprender",
+    "turns": [
+      {
+        "user": "Funções Inorgânicas",
+        "expected_mode": "modo_acolhida",
+        "expect_menu": false,
+        "required_substrings": ["Ácidos de Arrhenius", "Bases de Arrhenius"],
+        "eval_llm": false
+      },
+      {
+        "user": "1",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "1",
+        "expected_mode": "modo_aprender",
+        "expect_menu": false,
+        "required_substrings": ["Microciclo 1", "Objetivo", "Checagem"],
+        "eval_llm": true,
+        "turn_goal": "Apresentar Microciclo 1 de Ácidos de Arrhenius usando cifrão simples para fórmulas químicas ($HCl$, $H_2SO_4$, $H^+$) e blocos $$ para equações de reação."
+      }
+    ]
+  },
+  {
+    "id": "S05_QUI_PRATICAR_COLISAO_DIGITO_2",
+    "discipline": "Química",
+    "title": "Bases de Arrhenius — Praticar + Resposta '2' sem Reiniciar Trilha",
+    "track": "modo_praticar",
+    "turns": [
+      {
+        "user": "Bases de Arrhenius",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "2",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 1/15"],
+        "require_alternatives": true,
+        "eval_llm": true,
+        "turn_goal": "Exibir a Questão 1/15 — Fácil de Bases de Arrhenius com alternativas separadas uma por linha."
+      },
+      {
+        "user": "2",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 2/15"],
+        "require_alternatives": true,
+        "eval_llm": true,
+        "turn_goal": "Interpretar '2' como resposta do estudante à Questão 1 (alternativa b) sem reiniciar na Questão 1/15, corrigir e avançar para a Questão 2/15."
+      }
+    ]
+  },
+  {
+    "id": "S06_CIE_REVISAR_FLASHCARDS_ABERTOS",
+    "discipline": "Ciências",
+    "title": "Citologia / Célula — Flashcards Conceituais Abertos (Zero Múltipla Escolha)",
+    "track": "modo_revisar",
+    "turns": [
+      {
+        "user": "Célula e Organelas Celulares",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "3",
+        "expected_mode": "modo_revisar",
+        "expect_menu": false,
+        "required_substrings": ["Flashcard 1/"],
+        "forbidden_substrings": ["a)", "b)", "c)", "d)"],
+        "eval_llm": true,
+        "turn_goal": "Apresentar o Flashcard 1 com pergunta aberta conceitual sobre célula/organelas (proibido múltipla escolha) e aguardar resposta."
+      },
+      {
+        "user": "A membrana plasmática controla o que entra e sai da célula, e o núcleo guarda o DNA",
+        "expected_mode": "modo_revisar",
+        "expect_menu": false,
+        "required_substrings": ["Flashcard 2/"],
+        "eval_llm": true,
+        "turn_goal": "Validar a resposta do aluno com naturalidade (sem positividade tóxica), complementar se necessário com base no RAG e avançar para o Flashcard 2."
+      }
+    ]
+  },
+  {
+    "id": "S07_MAT_RESUMIR_MEMOREX_4_SECOES",
+    "discipline": "Matemática",
+    "title": "Função Afim — Resumir (Memorex) com 4 Seções, Tabela e Menu Canônico Final",
+    "track": "modo_resumir",
+    "turns": [
+      {
+        "user": "Função Afim",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "4",
+        "expected_mode": "modo_resumir",
+        "expect_menu": true,
+        "required_substrings": ["Visão Panorâmica", "Quadro Síntese", "Conceitos Fundamentais", "Pontos de Atenção"],
+        "eval_llm": true,
+        "turn_goal": "Gerar síntese estruturada (Memorex) contendo as 4 seções obrigatórias, tabela Markdown válida sem $$ interno, fórmulas em bloco fora da tabela e Menu Canônico de 6 Trilhas ao final."
+      }
+    ]
+  },
+  {
+    "id": "S08_FIS_RESUMIR_LEIS_NEWTON",
+    "discipline": "Física",
+    "title": "Leis de Newton — Escolha Antecipada de Trilha ('4️⃣ Resumir') durante Desambiguação + Execução do Memorex",
+    "track": "modo_resumir",
+    "turns": [
+      {
+        "user": "Leis de Newton",
+        "expected_mode": "modo_acolhida",
+        "expect_menu": false,
+        "required_substrings": ["Primeira Lei de Newton", "Segunda Lei de Newton"],
+        "eval_llm": false
+      },
+      {
+        "user": "4️⃣ Resumir",
+        "expected_mode": "modo_acolhida",
+        "expect_menu": false,
+        "forbidden_substrings": ["Não identificada"],
+        "eval_llm": false
+      },
+      {
+        "user": "2",
+        "expected_mode": "modo_resumir",
+        "expect_menu": true,
+        "required_substrings": ["Visão Panorâmica", "Quadro Síntese", "Conceitos Fundamentais", "Pontos de Atenção"],
+        "eval_llm": true,
+        "turn_goal": "Entregar imediatamente o resumo estruturado (Memorex) sobre a Segunda Lei de Newton (pois a trilha 4 foi pré-selecionada), com 4 seções, fórmulas KaTeX válidas e Menu Canônico de 6 Trilhas ao final."
+      }
+    ]
+  },
+  {
+    "id": "S09_MAT_RESOLVE_QUESTAO_SEM_CIFRAO_RS",
+    "discipline": "Matemática",
+    "title": "Função Afim — Resolve Questão com Valores Monetários (Supressão de R$) e Violação Monotemática",
+    "track": "modo_resolve_questao",
+    "turns": [
+      {
+        "user": "Função Afim",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "5",
+        "expected_mode": "modo_resolve_questao",
+        "expect_menu": false,
+        "eval_llm": true,
+        "turn_goal": "Confirmar escolha da Trilha 5 (Resolve questão) e pedir de forma curta e direta que o estudante envie o enunciado por texto ou imagem."
+      },
+      {
+        "user": "Um táxi cobra uma bandeirada fixa de 15 reais mais 4 reais por quilômetro rodado. Qual a função do custo C(x) para x km e quanto custa uma viagem de 10 km? a) 40 reais b) 45 reais c) 55 reais d) 60 reais",
+        "expected_mode": "modo_resolve_questao",
+        "expect_menu": true,
+        "forbidden_substrings": ["R$"],
+        "eval_llm": true,
+        "turn_goal": "Resolver a questão passo a passo usando Função Afim (C(x) = 4x + 15, C(10) = 55 reais), escrever valores monetários por extenso ('reais', proibido 'R$'), formatar cada alternativa em sua própria linha, indicar alternativa c e exibir o Menu de Trilhas ao final."
+      },
+      {
+        "user": "Agora resolva esta questão de Biologia: Qual a função dos ribossomos na síntese proteica?",
+        "expected_mode": "modo_resolve_questao",
+        "allow_optional_menu": true,
+        "eval_llm": true,
+        "turn_goal": "Recusar a resolução de questão de outra disciplina/assunto na mesma sessão (regra da sessão monotemática) e orientar o estudante a abrir uma Nova Conversa."
+      }
+    ]
+  },
+  {
+    "id": "S10_CALC_APRENDER_LIMITES",
+    "discipline": "Cálculo 1",
+    "title": "Limites — Microciclo de Cálculo 1 com Notação LaTeX de Limite",
+    "track": "modo_aprender",
+    "turns": [
+      {
+        "user": "Noção Intuitiva de Limites",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "1",
+        "expected_mode": "modo_aprender",
+        "expect_menu": false,
+        "required_substrings": ["Microciclo 1", "Objetivo", "Checagem"],
+        "eval_llm": true,
+        "turn_goal": "Apresentar Microciclo 1 sobre Limites com intuição didática antes do formalismo, blocos LaTeX válidos (\\lim) e checagem final."
+      }
+    ]
+  },
+  {
+    "id": "S11_DESAMBIGUACAO_CASCATA_E_FORA_ESCOPO",
+    "discipline": "Geral",
+    "title": "Guardrail Fora de Escopo (História) + Desambiguação em Cascata ('Funções' -> 'matemaica' -> 'Afim')",
+    "track": "modo_acolhida",
+    "turns": [
+      {
+        "user": "História",
+        "expected_mode": "modo_acolhida",
+        "expect_menu": false,
+        "required_substrings": ["Ciências", "Matemática", "Física", "Química"],
+        "eval_llm": false
+      },
+      {
+        "user": "Funções",
+        "expected_mode": "modo_acolhida",
+        "expect_menu": false,
+        "eval_llm": true,
+        "turn_goal": "Apresentar Menu de Desambiguação (2 a 4 opções numeradas) para o termo amplo 'Funções', sem exibir o Menu de 6 Trilhas."
+      },
+      {
+        "user": "matemaica",
+        "expected_mode": "modo_acolhida",
+        "expect_menu": false,
+        "eval_llm": true,
+        "turn_goal": "Reconhecer o typo 'matemaica' como Funções Matemáticas e apresentar a desambiguação de Nível 2 (Função Afim, Quadrática, etc.) sem abrir o Menu de 6 Trilhas ainda."
+      },
+      {
+        "user": "1",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      }
+    ]
+  },
+  {
+    "id": "S12_CONCLUSAO_SOBRIA_E_RETORNO_MENU",
+    "discipline": "Matemática",
+    "title": "Retorno explícito ao Menu ('menu') e Encerramento Sóbrio (Trilha 6 - Finalizar)",
+    "track": "modo_conclusao",
+    "turns": [
+      {
+        "user": "Frações e Operações com Frações",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "1",
+        "expected_mode": "modo_aprender",
+        "expect_menu": false,
+        "required_substrings": ["Microciclo 1"],
+        "eval_llm": false
+      },
+      {
+        "user": "menu",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "6",
+        "expected_mode": "modo_conclusao",
+        "expect_menu": false,
+        "eval_llm": true,
+        "turn_goal": "Encerrar a sessão em 1 ou 2 linhas factuais registrando apenas o que ocorreu na sessão, sem elogios exagerados, sem novas perguntas e sem exibir o menu."
+      }
+    ]
+  }
+]

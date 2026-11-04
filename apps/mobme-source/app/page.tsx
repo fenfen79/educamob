@@ -77,27 +77,95 @@ const getApiBaseUrl = () => {
 const sanitizeContent = (content: string) => {
   if (!content) return "";
 
-  // 1. Auto-heal KaTeX double subscript error (ex: SO_4^{2-}_{(aq)} -> {SO_4^{2-}}_{(aq)})
+  // 1. Auto-heal KaTeX double subscript error
+  // Caso A: Carga elétrica com sobrescrito seguida de subscrito de estado (ex: \text{HSO}_4^-_{(aq)} -> \text{HSO}_4^-{}_{(aq)})
   let sanitized = content.replace(
-    /([A-Za-z0-9]+_[0-9]+(?:\^\{?[^}]+\}?)?)_(\{?\([a-z0-9]+\)\}?)/g,
-    (match, p1, p2) => "{" + p1 + "}_" + p2
+    /(\^\{?[^\s_}]+\}?|\^[a-zA-Z0-9+-])_(\{?\([a-zA-Z0-9]+\)\}?|\{?[a-zA-Z0-9]+\}?)/g,
+    (m, p1, p2) => p1 + "{}_" + p2
   );
 
-  // 2. Normalizar subscritos Unicode em fórmulas químicas (ex: HNO₃ -> HNO_3, H₂SO₄ -> H_2SO_4)
+  // Caso B: Subscrito duplo direto (ex: SO_4_{(aq)} -> SO_4{}_{(aq)} ou \text{SO}_4_{(aq)} -> \text{SO}_4{}_{(aq)})
+  sanitized = sanitized.replace(
+    /(_\{?[0-9a-zA-Z]+\}?)_(\{?\([a-zA-Z0-9]+\)\}?)/g,
+    (m, p1, p2) => p1 + "{}_" + p2
+  );
+
+  // 2. Normalizar subscritos Unicode em fórmulas químicas (ex: HNO₃ -> HNO_3, H₂SO₄ -> H_2SO_4, Ca(OH)₂ -> Ca(OH)_2)
   const unicodeSubMap: Record<string, string> = {
     '₀': '_0', '₁': '_1', '₂': '_2', '₃': '_3', '₄': '_4',
     '₅': '_5', '₆': '_6', '₇': '_7', '₈': '_8', '₉': '_9'
   };
-  sanitized = sanitized.replace(/([A-Z][a-z]?)([₀-₉]+)/g, (m, el, subs) => {
+  sanitized = sanitized.replace(/([A-Z][a-z]?|\))([₀-₉]+)/g, (m, el, subs) => {
     const converted = subs.split('').map((c: string) => unicodeSubMap[c] || c).join('').replace(/_/g, '');
     return `${el}_${converted}`;
   });
 
-  // 2.1. Garante que opções numeradas (1️⃣, 2️⃣, ...) sempre fiquem em parágrafos separados (\n\n)
-  sanitized = sanitized.replace(/([^\n])\n?(([0-9]|10)\uFE0F?\u20E3)/g, "$1\n\n$2");
-  sanitized = sanitized.replace(/(([0-9]|10)\uFE0F?\u20E3[^\n]+)\n([^\n0-9])/g, "$1\n\n$3");
+  // 2.1. SEGMENTAÇÃO: Separar blocos matemáticos ($$...$$ e $...$) e código para que o auto-heal de texto
+  // JAMAIS corrompa fórmulas LaTeX existentes (ex: S_0, t_0, frações e variáveis dentro de $$...$$)
+  const tokenRegex = /(```[\s\S]*?```|\$\$[\s\S]*?\$\$|\$(?:\\.|[^\$\n])+\$)/g;
+  const parts = sanitized.split(tokenRegex);
 
-  // 3. Processamento linha a linha para isolamento perfeito de blocos KaTeX Display
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i];
+    // Se o fragmento for código ou bloco de matemática ($$...$$ ou $...$), PRESERVA 100% INTACTO (com auto-heal de chaves desbalanceadas em macros como \text{ mm$)
+    if (
+      part.startsWith("```") ||
+      part.startsWith("$$") ||
+      (part.startsWith("$") && part.endsWith("$") && part.length >= 2)
+    ) {
+      if (!part.startsWith("```")) {
+        const isDisp = part.startsWith("$$") && part.endsWith("$$");
+        const delim = isDisp ? "$$" : "$";
+        let innerMath = isDisp ? part.slice(2, -2) : part.slice(1, -1);
+        const openCount = (innerMath.match(/(?<!\\)\{/g) || []).length;
+        const closeCount = (innerMath.match(/(?<!\\)\}/g) || []).length;
+        if (openCount > closeCount) {
+          innerMath = innerMath + "}".repeat(openCount - closeCount);
+        }
+        parts[i] = delim + innerMath + delim;
+      }
+      continue;
+    }
+
+    // AQUI ESTAMOS EM TEXTO PLANO FORA DE MATH:
+    let textPart = part;
+
+    // A) Fórmulas em negrito contendo subscrito com underscore: **H_2S** -> $H_2S$, **H_2SO_4** -> $H_2SO_4$
+    textPart = textPart.replace(/\*\*(?:\\\$)?([A-Z][a-zA-Z0-9_()+-]*_[1-9][0-9a-zA-Z]*[a-zA-Z0-9_()+-]*)(?:\\\$)?\*\*/g, (m, f) => `$${f}$`);
+
+    // B) Fórmulas químicas em negrito com números diretos: **H2SO4** -> $H_2SO_4$, **H3PO4** -> $H_3PO_4$, **Ca(OH)2** -> $Ca(OH)_2$
+    textPart = textPart.replace(/\*\*([A-Z][a-z]?(?:\([A-Za-z]+\))?\d+(?:[A-Z][a-z]?\d*|\([A-Za-z]+\)\d*)*)\*\*/g, (m, f) => {
+      if (/^\d+[ºª]/.test(f)) return m;
+      const latexForm = f.replace(/([A-Z][a-z]?|\))(\d+)/g, '$1_$2');
+      return `$${latexForm}$`;
+    });
+
+    // C) Fórmulas químicas comuns conhecidas em negrito: **HI**, **HF**, **HCl**, **HBr**, **NaCl**, etc. -> $HI$, $HF$, etc.
+    textPart = textPart.replace(/\*\*(H[IF]|HCl|HBr|HCN|NaCl|NaOH|KOH|KCl|CO_2|H_2O|NH_3|CH_4)\*\*/g, (m, f) => `$${f}$`);
+
+    // D) Fórmulas químicas soltas com subscrito com underscore fora de math (índices >= 1, nunca _0 que são variáveis de física/matemática como S_0, t_0)
+    // Ex: H_2S, H_2SO_4, Ca(OH)_2, Fe_2O_3 -> $H_2S$, $H_2SO_4$
+    textPart = textPart.replace(/(?<!\$|\w)([A-Z][a-z]?(?:\([A-Za-z]+\))?_[1-9]\d*(?:[A-Z][a-z]?(?:_[1-9]\d*)?|\([A-Za-z]+\)(?:_[1-9]\d*)?)*)(?!\$|\w)/g, (m, f) => `$${f}$`);
+
+    // E) Quebra de alternativas de múltipla escolha para ficarem uma por linha
+    // Caso 1: quebra antes de 'a)' ou 'A)' se estiver grudado em texto introdutório
+    textPart = textPart.replace(/([:?.\$!])[ \t]*([aA]\))(?=[ \t]+\S)/g, '$1\n\n$2');
+    textPart = textPart.replace(/(respectivamente|abaixo|seguir)[ \t]*:?[ \t]*([aA]\))(?=[ \t]+\S)/gi, '$1:\n\n$2');
+
+    // Caso 2: quebra antes de b), c), d), e) (ou maiúsculas) se estiverem inline na mesma linha
+    textPart = textPart.replace(/([^\n])[ \t]+([b-eB-E]\))(?=[ \t]+\S)/g, '$1\n\n$2');
+
+    // Garante que opções numeradas do menu (1. Aprender, 2. Praticar...) ou keycaps (1️⃣, 2️⃣...) sempre fiquem com badge e parágrafos separados (\n\n)
+    textPart = textPart.replace(/(?:^|\n)([1-6])\.\s*(?=(?:Aprender|Praticar|Flashcards|Resumo|Enviar quest|Finalizar))/gi, (match, num) => `\n\n${num}\uFE0F\u20E3 `);
+    textPart = textPart.replace(/([^\n])\n?(([0-9]|10)\uFE0F?\u20E3)/g, "$1\n\n$2");
+    textPart = textPart.replace(/(([0-9]|10)\uFE0F?\u20E3[^\n]+)\n([^\n0-9])/g, "$1\n\n$3");
+
+    parts[i] = textPart;
+  }
+
+  sanitized = parts.join("");
+
+  // 3. Processamento linha a linha para isolamento perfeito de blocos KaTeX Display e alternativas
   const lines = sanitized.split("\n");
   const processedLines: string[] = [];
 
@@ -106,7 +174,29 @@ const sanitizeContent = (content: string) => {
     const trimmed = line.trim();
 
     // Se for linha de tabela Markdown (| ... |), preserva 100% intacta com equações inline
+    // Higieniza barras invertidas soltas usadas como separador de títulos (ex: "| Evento A \ B |" -> "| Evento A / B |")
     if (trimmed.startsWith("|") && trimmed.includes("|", 1)) {
+      const safeTableLine = line.replace(/\s+\\\s+/g, " / ");
+      processedLines.push(safeTableLine);
+      continue;
+    }
+
+    // Se a linha for uma alternativa de múltipla escolha (ex: "a) 18 e 4,5." ou "b) 4,5 e 18.")
+    const altRegex = /^[ \t]*[a-eA-E][\)\.]/;
+    const promptRegex = /^(?:Qual [eé]|Aguardo|Envie|Digite|Responda)/i;
+
+    if (altRegex.test(trimmed)) {
+      if (processedLines.length > 0 && processedLines[processedLines.length - 1].trim() !== "") {
+        processedLines.push("");
+      }
+      processedLines.push(line);
+      continue;
+    }
+
+    if (promptRegex.test(trimmed)) {
+      if (processedLines.length > 0 && processedLines[processedLines.length - 1].trim() !== "") {
+        processedLines.push("");
+      }
       processedLines.push(line);
       continue;
     }
@@ -165,12 +255,22 @@ const sanitizeContent = (content: string) => {
 const splitMessageMenu = (text: string): { content: string; menu: string | null } => {
   if (!text) return { content: "", menu: null };
 
-  const hasMenu = text.includes("1️⃣") && (text.includes("8️⃣") || text.includes("Bora ler!"));
+  const hasMenu = (text.includes("1️⃣") || text.includes("1. Aprender")) && (
+    text.includes("6️⃣") ||
+    text.includes("6. Finalizar") ||
+    text.includes("Finalizar ⏸️") ||
+    text.includes("Aprender") ||
+    text.includes("8️⃣") ||
+    text.includes("Bora ler!")
+  );
   if (!hasMenu) {
     return { content: text, menu: null };
   }
 
-  const menuIndex1 = text.indexOf("1️⃣");
+  let menuIndex1 = text.indexOf("1️⃣");
+  if (menuIndex1 === -1) {
+    menuIndex1 = text.indexOf("1. Aprender");
+  }
   if (menuIndex1 <= 0 || menuIndex1 < 120) {
     return { content: text, menu: null };
   }
@@ -188,7 +288,8 @@ const splitMessageMenu = (text: string): { content: string; menu: string | null 
       "escolha o próximo passo",
       "se quiser continuar",
       "qual caminho você prefere",
-      "como você prefere começar"
+      "como você prefere começar",
+      "tema definido:"
     ];
     const lowerBefore = textBefore.toLowerCase();
     for (const phrase of introPhrases) {
@@ -223,18 +324,22 @@ const isWidescreenContent = (text: string) => {
   if (!text) return false;
   const lower = text.toLowerCase();
   
-  // Detecção de Bora ler! (Teoria densa)
+  // Detecção de Microciclos com tabela ou Teoria densa legada
   const isTeoria = 
+    (lower.includes("### microciclo") && text.includes("|")) ||
     lower.includes("conexão com o mundo real") ||
     lower.includes("conexao com o mundo real") ||
     lower.includes("conceito central e fundamentos") ||
     lower.includes("atenção aos erros comuns") ||
     lower.includes("atencao aos erros comuns");
     
-  // Detecção de Memorex (Resumo panorâmico)
+  // Detecção de Resumir (Memorex)
   const isMemorex =
     lower.includes("visão panorâmica") ||
     lower.includes("visao panoramica") ||
+    lower.includes("quadro síntese") ||
+    lower.includes("quadro sintese") ||
+    lower.includes("conceitos fundamentais") ||
     lower.includes("mapa conceitual completo") ||
     lower.includes("dicas de ouro");
     
@@ -245,65 +350,64 @@ const isWidescreenContent = (text: string) => {
 
 const LOADING_MESSAGES: Record<string, string[]> = {
   teoria: [
-    "Abrindo os manuscritos da biblioteca da Educamob... 📚",
-    "Garimpando exemplos reais no mundo prático... 🔍",
-    "Desenhando tabelas comparativas sem decoreba... ⚖️",
-    "Mapeando as pegadinhas clássicas de provas... 🧠",
-    "Dando o polimento final... já vai começar! ✨"
+    "Consultando o acervo homologado da Educamob... 📚",
+    "Preparando o próximo microciclo e checagem... 🎯"
   ],
   flashcards: [
-    "Embaralhando o baralho da memória ativa... 🃏",
-    "Separando os conceitos mais traiçoeiros do assunto... 🎯",
-    "Aquecendo seus neurônios para o teste rápido... ⚡",
-    "Quase pronto para o desafio mental! 🔥"
+    "Preparando os cartões de recuperação ativa... 🃏",
+    "Selecionando os conceitos essenciais do material... 🎯"
   ],
   memorex: [
-    "Condensando horas de aula em segundos de leitura pura... ☕",
-    "Tirando um raio-X panorâmico de todo o assunto... 🔍",
-    "Compactando as fórmulas e conceitos na velocidade da luz... ⚡",
-    "Preparando seu mapa mental de bolso para nunca mais dar branco... 🧠"
+    "Estruturando a visão panorâmica e o quadro síntese... 🧠",
+    "Organizando os conceitos fundamentais do acervo... 📋",
+    "Finalizando o resumo para revisão... ⚡"
   ]
 };
 
-const getTrackFromInput = (input: string): "teoria" | "flashcards" | "memorex" | null => {
+const getTrackFromInput = (input: string, lastAiText: string = ""): "teoria" | "flashcards" | "memorex" | null => {
   if (!input) return null;
   const text = input.trim().toLowerCase();
+  const isTrackMenuOnScreen = (lastAiText.includes("1️⃣") || lastAiText.includes("1. Aprender")) && 
+                              (lastAiText.includes("6️⃣") || lastAiText.includes("6. Finalizar") || lastAiText.includes("Finalizar"));
+  if (!isTrackMenuOnScreen && ["1", "2", "3", "4", "5", "6"].includes(text)) {
+    return null;
+  }
   
-  // 1. Bora ler! (Teoria)
+  // 1. Aprender
   if (
     text === "1" || 
     text.startsWith("1 ") || 
     text.startsWith("1.") || 
-    text.startsWith("1-") || 
     text.includes("1️⃣") || 
-    text.includes("bora ler") || 
-    (text.includes("teoria") && !text.includes("teoria da relatividade"))
+    text.includes("aprender") || 
+    text.includes("microciclo")
   ) {
     return "teoria";
   }
-  
-  // 2. Flashcards
+
+  // 3. Flashcards
   if (
     text === "3" || 
     text.startsWith("3 ") || 
     text.startsWith("3.") || 
-    text.startsWith("3-") || 
     text.includes("3️⃣") || 
-    text.includes("flashcard")
+    text.includes("flashcard") || 
+    text.includes("flashcards") || 
+    text.includes("revisar")
   ) {
     return "flashcards";
   }
-  
-  // 3. Memorex
+
+  // 4. Resumo
   if (
     text === "4" || 
     text.startsWith("4 ") || 
     text.startsWith("4.") || 
     text.startsWith("4-") || 
     text.includes("4️⃣") || 
-    text.includes("memorex") || 
-    text.includes("resumo do assunto") || 
-    text === "resumo"
+    text.includes("resumo") || 
+    text.includes("resumir") || 
+    text.includes("memorex")
   ) {
     return "memorex";
   }
@@ -356,7 +460,7 @@ export default function ChatApp() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const skipBottomScrollRef = useRef<string | null>(null);
+  const isStreamingRef = useRef<boolean>(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -585,7 +689,9 @@ export default function ChatApp() {
         }));
 
         setMessages(formattedMessages);
-
+        setTimeout(() => {
+          messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
+        }, 100);
       }
 
     } catch (e) {
@@ -657,31 +763,9 @@ export default function ChatApp() {
 
 
   useEffect(() => {
-
-    if (skipBottomScrollRef.current) {
-
-      const targetId = skipBottomScrollRef.current;
-
-      skipBottomScrollRef.current = null;
-
-      setTimeout(() => {
-
-        const el = document.getElementById(`msg-${targetId}`);
-
-        if (el) {
-
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-
-        }
-
-      }, 120);
-
-      return;
-
+    if (isStreamingRef.current) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-
   }, [messages, isTyping]);
 
 
@@ -919,10 +1003,15 @@ export default function ChatApp() {
     setImageBase64(null);
 
     const sendTimestamp = Date.now();
-    const track = getTrackFromInput(textToSend);
+    const lastAiMsg = [...messages].reverse().find(m => m.role === "ai")?.text || "";
+    const track = getTrackFromInput(textToSend, lastAiMsg);
     setLoadingTrack(track);
     setLoadingMessageIndex(0);
     setIsTyping(true);
+    isStreamingRef.current = true;
+    setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
 
     // Janela mínima de 6s (2 mensagens completas de 3s cada) APENAS para Bora Ler, Flashcards e Memorex
     const minLoadingDuration = track ? 6000 : 0;
@@ -988,107 +1077,84 @@ export default function ChatApp() {
       
 
       let buffer = "";
-
       let isFirstChunk = true;
-
-
+      let lastRenderTime = 0;
 
       while (reader) {
-
         const { done, value } = await reader.read();
-
         if (done) break;
 
-        
-
         buffer += decoder.decode(value, { stream: true });
-
         const lines = buffer.split("\n\n");
-
         buffer = lines.pop() || "";
 
-        
+        let hasNewChunkInBatch = false;
 
         for (const line of lines) {
-
           if (line.startsWith("data: ")) {
-
             const dataStr = line.slice(6);
-
             if (dataStr === "[DONE]") continue;
 
-            
-
             try {
-
               const data = JSON.parse(dataStr);
-
               if (data.session_id && !currentSessionId) {
-
                 setCurrentSessionId(data.session_id);
-
                 setSessions(prev => {
-
                   if (!prev.find(s => s.id === data.session_id)) {
-
                     return [{ id: data.session_id, title: textToSend.substring(0, 30) + "..." }, ...prev];
-
                   }
-
                   return prev;
-
                 });
-
               }
-
               if (data.error) throw new Error(data.error);
-
               if (data.chunk) {
-
                 aiResponseText += data.chunk;
-
-                if (isFirstChunk) {
-
-                  isFirstChunk = false;
-
-                  const elapsed = Date.now() - sendTimestamp;
-                  const waitTime = Math.max(0, minLoadingDuration - elapsed);
-                  if (waitTime > 0) {
-                    await new Promise(resolve => setTimeout(resolve, waitTime));
-                  }
-
-                  setIsTyping(false);
-
-                  setMessages(prev => [...prev, { id: aiMsgId, role: "ai", text: aiResponseText }]);
-
-                } else {
-
-                  setMessages(prev => 
-
-                    prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
-
-                  );
-
-                }
-
+                hasNewChunkInBatch = true;
               }
-
             } catch (e) {
-
               console.error("Parse SSE error", e);
-
             }
-
           }
-
         }
 
+        if (hasNewChunkInBatch) {
+          if (isFirstChunk) {
+            isFirstChunk = false;
+            const elapsed = Date.now() - sendTimestamp;
+            const waitTime = Math.max(0, minLoadingDuration - elapsed);
+            if (waitTime > 0) {
+              await new Promise(resolve => setTimeout(resolve, waitTime));
+            }
+            // Desativa o scroll para o fundo ANTES de montar a resposta da IA:
+            // ancora a tela imediatamente no TOPO da resposta (Seção 1) para leitura imediata aos ~6s!
+            isStreamingRef.current = false;
+            setIsTyping(false);
+            setMessages(prev => [...prev, { id: aiMsgId, role: "ai", text: aiResponseText }]);
+            lastRenderTime = Date.now();
+            setTimeout(() => {
+              const el = document.getElementById(`msg-${aiMsgId}`);
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }, 80);
+          } else {
+            const now = Date.now();
+            if (now - lastRenderTime >= 80) {
+              lastRenderTime = now;
+              setMessages(prev =>
+                prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
+              );
+            }
+          }
+        }
       }
 
-    if (aiResponseText.length > 350 && (aiResponseText.includes("###") || aiResponseText.includes("Bora ler") || aiResponseText.includes("Teoria"))) {
-
-        skipBottomScrollRef.current = aiMsgId;
-
+      // Flush final garantido ao término do stream (sem puxar o scroll caso o aluno já esteja lendo)
+      isStreamingRef.current = false;
+      if (!isFirstChunk) {
+        setMessages(prev =>
+          prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
+        );
       }
 
     } catch (e: any) {
@@ -1098,7 +1164,7 @@ export default function ChatApp() {
       setMessages(prev => [...prev, { id: Date.now().toString(), role: "ai", text: errorMsg }]);
 
     } finally {
-
+      isStreamingRef.current = false;
       setIsTyping(false);
 
       if (typeof window !== "undefined" && window.innerWidth >= 768) {
@@ -1156,7 +1222,16 @@ export default function ChatApp() {
             onClick={(e) => {
               e.stopPropagation();
               if (!isTyping) {
-                handleSend(num);
+                const trackLabels: Record<string, string> = {
+                  "1": "1. Aprender📚",
+                  "2": "2. Praticar📝",
+                  "3": "3. Flashcards 🃏",
+                  "4": "4. Resumo 🧠",
+                  "5": "5. Enviar questão 🖼️",
+                  "6": "6. Finalizar ⏸️",
+                  "8": "6. Finalizar ⏸️"
+                };
+                handleSend(trackLabels[num] || num);
               }
             }}
           >

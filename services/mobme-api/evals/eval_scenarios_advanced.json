@@ -1,0 +1,312 @@
+[
+  {
+    "id": "S13_RAG_BOUNDARIES_COBERTO_VS_LACUNA",
+    "discipline": "Matemática",
+    "title": "Função Afim — Contrato RAG: Consulta Coberta vs. Consulta com Lacuna de Material",
+    "track": "modo_aprender",
+    "turns": [
+      {
+        "user": "Função Afim",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "1",
+        "expected_mode": "modo_aprender",
+        "expect_menu": false,
+        "required_substrings": ["Microciclo 1", "Objetivo", "Checagem"],
+        "eval_llm": true,
+        "turn_goal": "Iniciar o Microciclo 1 de Função Afim com base exclusiva no e-book do acervo."
+      },
+      {
+        "user": "Qual é o significado geométrico do coeficiente linear b e como ele se diferencia da raiz da função?",
+        "expected_mode": "modo_aprender",
+        "expect_menu": false,
+        "required_substrings": ["eixo", "raiz"],
+        "forbidden_substrings": ["não está disponível nesta trilha", "não temos essa informação"],
+        "eval_llm": true,
+        "turn_goal": "Responder fundamentada com exatidão no RAG, explicando que b é o ponto de interseção no eixo y (0, b) e -b/a é a raiz no eixo x, sem emitir recusa indevida."
+      },
+      {
+        "user": "Poderia me explicar detalhadamente como calcular a Transformada de Laplace de uma função afim e aplicar o Teorema de Plancherel nesta aula?",
+        "expected_mode": "modo_aprender",
+        "allow_optional_menu": true,
+        "forbidden_substrings": ["a transformada de laplace é dada pela integral", "integral de zero a infinito"],
+        "eval_llm": true,
+        "turn_goal": "Aplicar a regra de Lacuna de Material / Escopo da Sessão: informar de forma simples e acolhedora que esse conteúdo avançado não está disponível ou não faz parte do conteúdo desta aula, sugerir opções de estudo do tema atual e NÃO inventar/dissertar sobre a Transformada de Laplace."
+      }
+    ]
+  },
+  {
+    "id": "S14_ENDURANCE_PRATICAR_15_QUESTOES",
+    "discipline": "Matemática",
+    "title": "Função Afim — Teste de Endurance e Não-Fadiga: Rodada Completa de 15 Questões (5+5+5) até o Encerramento Oficial",
+    "track": "modo_praticar",
+    "turns": [
+      {
+        "user": "Função Afim",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "2",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 1/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "a",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 2/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "b",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 3/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "c",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 4/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "d",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 5/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "1",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 6/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "2",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 7/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "3",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 8/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "b",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 9/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "a",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 10/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "c",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 11/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "d",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 12/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "e",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 13/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "a",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 14/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "b",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 15/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "c",
+        "expected_mode": "modo_praticar",
+        "expect_menu": true,
+        "required_substrings": ["aproveitamento:", "15"],
+        "eval_llm": true,
+        "turn_goal": "Concluir a 15ª questão, apresentar o aproveitamento consolidado 'Seu aproveitamento: X/15 (Z%)', análise concisa e o Menu Canônico de 6 Trilhas, sem erros de contagem."
+      }
+    ]
+  },
+  {
+    "id": "S15_MULTIMODAL_RESOLVE_QUESTAO_NITIDA",
+    "discipline": "Física",
+    "title": "Cinemática — Multimodal: Envio de Foto Nítida com Equação de Movimento",
+    "track": "modo_resolve_questao",
+    "turns": [
+      {
+        "user": "Movimento Uniforme",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "5",
+        "expected_mode": "modo_resolve_questao",
+        "expect_menu": false,
+        "required_substrings": ["questão"],
+        "eval_llm": false
+      },
+      {
+        "user": "Aqui está a foto da questão que não consegui resolver.",
+        "image_file": "img_01_sharp_math.png",
+        "expected_mode": "modo_resolve_questao",
+        "allow_optional_menu": true,
+        "required_substrings": ["30", "15"],
+        "eval_llm": true,
+        "turn_goal": "Transcrever a questão da imagem comparando a função horária S(t) = 30 + 15t com S0 + vt, identificar S0 = 30 m e v = 15 m/s, indicar a alternativa correta b) e exibir o Menu de Trilhas ao final conforme a regra de encerramento do Modo 5."
+      }
+    ]
+  },
+  {
+    "id": "S16_MULTIMODAL_RESOLVE_QUESTAO_GRAFICO",
+    "discipline": "Física",
+    "title": "MUV — Multimodal: Questão com Gráfico Cartesiano Velocidade x Tempo",
+    "track": "modo_resolve_questao",
+    "turns": [
+      {
+        "user": "Movimento Uniformemente Variado",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "5",
+        "expected_mode": "modo_resolve_questao",
+        "expect_menu": false,
+        "eval_llm": false
+      },
+      {
+        "user": "Dá uma olhada nessa questão com gráfico, por favor.",
+        "image_file": "img_02_graph.png",
+        "expected_mode": "modo_resolve_questao",
+        "allow_optional_menu": true,
+        "required_substrings": ["gráfico", "20", "4"],
+        "eval_llm": true,
+        "turn_goal": "Interpretar o gráfico cartesiano da imagem (velocidade variando de 0 a 20 m/s em 4 s), resolver passo a passo calculando a aceleração (a = Delta v / Delta t = 20 / 4 = 5 m/s²), indicar a alternativa correta c) e reexibir o Menu Canônico de 6 Trilhas ao final conforme o encerramento do Modo 5."
+      }
+    ]
+  },
+  {
+    "id": "S17_MULTIMODAL_RESOLVE_QUESTAO_CORTADA_AMBIGUA",
+    "discipline": "Física",
+    "title": "Dinâmica — Multimodal: Imagem Cortada/Incompleta (Detecção de Ambiguidade e Não-Alucinação)",
+    "track": "modo_resolve_questao",
+    "turns": [
+      {
+        "user": "Segunda Lei de Newton",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "5",
+        "expected_mode": "modo_resolve_questao",
+        "expect_menu": false,
+        "eval_llm": false
+      },
+      {
+        "user": "Não entendi essa questão, me ajuda a achar a resposta?",
+        "image_file": "img_03_cropped.png",
+        "expected_mode": "modo_resolve_questao",
+        "allow_optional_menu": true,
+        "required_substrings": ["cortada"],
+        "forbidden_substrings": ["a alternativa correta é a", "resposta final é 24 n"],
+        "eval_llm": true,
+        "turn_goal": "Detectar que a imagem está cortada no final do enunciado, acolher o estudante, apontar a ausência do coeficiente de atrito ou pergunta final, e solicitar nova foto ou envio do restante SEM alucinar os dados cortados."
+      }
+    ]
+  },
+  {
+    "id": "S18_SOLUCAO_HIBRIDA_IMAGEM_E_RETOMADA",
+    "discipline": "Física",
+    "title": "Cinemática — Solução Híbrida Inteligente: Envio de Imagem Durante Treino Ativo e Retomada de Progresso",
+    "track": "modo_praticar",
+    "turns": [
+      {
+        "user": "Movimento Uniforme",
+        "expected_mode": "modo_menu",
+        "expect_menu": true,
+        "eval_llm": false
+      },
+      {
+        "user": "2",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 1/15"],
+        "require_alternatives": true,
+        "eval_llm": false
+      },
+      {
+        "user": "Antes de responder, me ajuda com essa questão da foto que caiu na minha tarefa?",
+        "image_file": "img_01_sharp_math.png",
+        "expected_mode": "modo_resolve_questao",
+        "allow_optional_menu": true,
+        "required_substrings": ["30", "15"],
+        "eval_llm": true,
+        "turn_goal": "Resolver a questão externa enviada por imagem durante o treino ativo (S(t) = 30 + 15t, identificando S0 = 30 m e v = 15 m/s) e, ao final, perguntar gentilmente se o estudante quer voltar para onde estava no treino de exercícios ou ver o menu."
+      },
+      {
+        "user": "quero voltar pro treino",
+        "expected_mode": "modo_praticar",
+        "expect_menu": false,
+        "required_substrings": ["Questão 1/15"],
+        "require_alternatives": true,
+        "eval_llm": true,
+        "turn_goal": "Retomar o treino de exercícios exatamente na Questão 1/15 que estava em aberto antes da pausa, reapresentando a questão com as 5 alternativas uma por linha."
+      }
+    ]
+  }
+]
