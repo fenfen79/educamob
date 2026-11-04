@@ -4285,3 +4285,43 @@ esolve_active_mode_and_topic).
      - Adicionado o **Padrão Editorial do Trecho Teórico (Livro-Texto / E-book)** à Trilha 1, exigindo tabelas Markdown em classificações/regras, equações em blocos `$$` KaTeX destacados e ancoragem visual em negrito.
   4. **Compilação e Deploy Estático:**
      - `next build` executado com código 0 e exportado para `apps/mobme/`.
+
+
+### [Rodada 49] - Cards Interativos de Alternativas (A-E), Banners de Microciclo e Callouts Pedagógicos
+- **Data:** 04 de Novembro de 2026
+- **Status:** 🏆 100% Implementado, Recompilado e Sincronizado
+- **Diagnóstico e Resolução Técnica:**
+  1. **Diagnóstico da Formatação das Alternativas de Múltipla Escolha:**
+     - O usuário enviou print com foco na parte inferior da checagem: a pergunta estava em um card com borda laranja fechada no topo, e as alternativas `a)`, `b)`, `c)`, `d)` apareciam abaixo como linhas soltas de texto simples, com uma frase de apoio desalinhada no rodapé.
+     - Como cada alternativa é um parágrafo separado no Markdown, elas não eram capturadas pela estilização da pergunta e ficavam desprovidas de qualquer tratamento visual ou interatividade.
+  2. **Intervenções e Capricho Visual no Frontend (`apps/mobme-source/app/page.tsx`):**
+     - **Cards Interativos de Alternativas (`a)` a `e)`):** Toda alternativa de múltipla escolha agora é automaticamente transformada em um **Card Interativo de Opção**, com fundo de card, borda sutil, hover com destaque laranja, clique ativo com escala suave e um **badge elegante de letra (`[ A ]`, `[ B ]`, etc.)**. O clique direto no card envia a resposta imediatamente para o chat, proporcionando UX nativa de quiz moderno (padrão Duolingo / Khan Academy).
+     - **Card de Pergunta de Checagem Reformulado:** A pergunta da checagem agora é um bloco de comando destacado (`✍️ CHECAGEM DE COMPREENSÃO`) em tipografia proeminente, sobrepondo-se perfeitamente aos cards de opções logo abaixo.
+     - **Banner Gradiente de Microciclo:** `h3` com identificação de microciclo recebe um banner completo com gradiente suave da cor de acento, indicador animado pulsante (`● Microciclo Formativo`) e tipografia de título editorial.
+     - **Callouts para Insights Pedagógicos:** Parágrafos iniciando com `"Pense assim:"`, `"Em outras palavras:"`, `"Importante:"`, `"Atenção:"` ou `"Dica:"` são envolvidos em caixas com borda lateral de destaque e fundo suave.
+     - **Nota de Rodapé Formatada (`💡`):** Frases finais de acolhimento e orientação (ex: *"Fica tranquilo para responder..."*) são convertidas em dicas discretas e elegantes em itálico.
+  3. **Compilação e Deploy Estático:**
+     - `next build` executado com código 0 e exportado para `apps/mobme/`.
+
+
+### [Rodada 50] - Suíte de Formatação Premium e Interatividade Total (6 Trilhas, Microciclos e Alternativas)
+- **Data:** 04 de Novembro de 2026
+- **Status:** 🏆 100% Implementado, Recompilado, Sincronizado e Deploy em Produção (VPS + GitHub Pages)
+- **Diagnóstico e Resolução Técnica:**
+  1. **Diagnóstico dos Problemas Visuais nos Prints do Usuário:**
+     - **Problema 1 (Microciclo sem Header e Objetivo Fundido):** Em temas como Capacitores, o LLM emitiu o título sem '###' e colado diretamente no 'Objetivo:'. Sem quebras de linha duplas, o Markdown fundiu o cabeçalho e o objetivo em um único parágrafo de texto corrido.
+     - **Problema 2 (Menu de 6 Trilhas Amassado e Estático):** A lista de opções (Aprender📚, Praticar📝...) veio sem numeração explícita e em quebras simples, transformando o menu em um bloco de texto compacto e não interativo, forçando o estudante a digitar o número '1' manualmente.
+     - **Problema 3 (Checagem Dissertativa sem Múltipla Escolha):** A instrução em 'modo_aprender.md' continha a cláusula condicional 'Se apresentar alternativas', permitindo ao modelo fazer perguntas abertas sem alternativas clicáveis.
+     - **Problema 4 (Descompasso de Deploy):** As modificações da Rodada 49 ainda não haviam sido sincronizadas via Git Push no repositório de produção do GitHub Pages.
+  2. **Intervenções no Frontend Next.js (pps/mobme-source/app/page.tsx):**
+     - **Cards Interativos para as 6 Trilhas de Aprendizagem:** Cada uma das 6 opções do menu (1. Aprender a 6. Finalizar) agora é automaticamente renderizada como um Card Interativo de Ação com badge numérico, emoji, título destacado, subtítulo explicativo e indicador de ação ('Começar ➔'). O clique direto envia o comando correspondente sem exigir digitação.
+     - **Auto-Heal e Isolamento de Títulos de Microciclos:** Sanitização regex que identifica 'Microciclo N' mesmo sem '###' e garante quebras de linha duplas antes e depois, acionando o banner editorial com indicador pulsante ('● Microciclo Formativo').
+     - **Isolamento Estrito de Objetivo e Checagem:** Garantia de parágrafos próprios para 'Objetivo:' e 'Checagem:', renderizando-os nos cards correspondentes ('🎯 Objetivo de Aprendizagem' e '✍️ Checagem de Compreensão').
+     - **Cards Interativos de Alternativas (A a E):** Cada alternativa 'a)' a 'e)' é isolada em seu próprio parágrafo com badge de letra em relevo e envio de resposta com um único toque.
+     - **Callouts Conceituais e Dicas de Rodapé:** Estilização visual para 'Pense assim:', 'Importante:', 'Atenção:', 'Dica:' e dicas de rodapé com lâmpada ('💡').
+  3. **Atualizações de Prompts no Backend e Oracle Cloud VPS:**
+     - Em 'modo_aprender.md', a checagem em 4 alternativas de múltipla escolha (a, b, c, d) tornou-se estritamente mandatória, eliminando perguntas abertas nos microciclos.
+     - Em 'modo_menu.md', o template mandatório foi padronizado com keycaps numéricos (1️⃣ a 6️⃣).
+     - Deploy realizado via SCP e Docker no container 'mobme-api' na Oracle Cloud VPS ('137.131.163.113').
+  4. **Compilação e Exportação Estática:**
+     - 'next build' executado com código 0 e exportado para 'apps/mobme/'.

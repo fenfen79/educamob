@@ -158,10 +158,33 @@ const sanitizeContent = (content: string) => {
     // Normaliza opções de menu em negrito: 1. **Aprender📚** -> 1. Aprender📚
     textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*\*\*([^\*\n]+)\*\*/gi, (m, n, rest) => `\n\n${n}. ${rest}`);
 
+    // Normaliza opções das 6 Trilhas mesmo que venham SEM numeração ou com emojis colados (ex: "Aprender📚", "Praticar📝")
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:1[\.\)\-]?\s*|1\uFE0F?\u20E3\s*)?(?:Aprender)\s*📚?/gi, "\n\n1\uFE0F\u20E3 Aprender 📚");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:2[\.\)\-]?\s*|2\uFE0F?\u20E3\s*)?(?:Praticar)\s*📝?/gi, "\n\n2\uFE0F\u20E3 Praticar 📝");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:3[\.\)\-]?\s*|3\uFE0F?\u20E3\s*)?(?:Flashcards)\s*🃏?/gi, "\n\n3\uFE0F\u20E3 Flashcards 🃏");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:4[\.\)\-]?\s*|4\uFE0F?\u20E3\s*)?(?:Resumo)\s*🧠?/gi, "\n\n4\uFE0F\u20E3 Resumo 🧠");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:5[\.\)\-]?\s*|5\uFE0F?\u20E3\s*)?(?:Enviar\s+quest[ãa]o)\s*🖼️?/gi, "\n\n5\uFE0F\u20E3 Enviar questão 🖼️");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:6[\.\)\-]?\s*|6\uFE0F?\u20E3\s*)?(?:Finalizar)\s*⏸️?/gi, "\n\n6\uFE0F\u20E3 Finalizar ⏸️");
+
     // Garante que opções numeradas do menu (1. Aprender, 2. Praticar...) ou keycaps (1️⃣, 2️⃣...) sempre fiquem com badge e parágrafos separados (\n\n)
     textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*(?=(?:Aprender|Praticar|Flashcards|Resumo|Enviar quest|Finalizar))/gi, (match, num) => `\n\n${num}\uFE0F\u20E3 `);
     textPart = textPart.replace(/([^\n])\n?(([0-9]|10)\uFE0F?\u20E3)/g, "$1\n\n$2");
     textPart = textPart.replace(/(([0-9]|10)\uFE0F?\u20E3[^\n]+)\n([^\n0-9])/g, "$1\n\n$3");
+
+    // Normaliza títulos de Microciclos mesmo se vierem sem ### ou colados no texto
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:###\s*)?(Microciclo\s+\d+[^:\n]*)(?:\n|$)/gi, "\n\n### $1\n\n");
+
+    // Normaliza Objetivo de Aprendizagem isolando em parágrafo próprio
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\*\*)?Objetivo:(?:\*\*)?\s*([^\n]+)/gi, "\n\n**Objetivo:** $1\n\n");
+
+    // Normaliza Checagem de Compreensão isolando em parágrafo próprio
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\*\*)?Checagem:(?:\*\*)?\s*([^\n]+)/gi, "\n\n**Checagem:** $1\n\n");
+
+    // Normaliza Destaques Conceituais pedagógicos isolando em parágrafos próprios
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\*\*)?(Pense assim:|Em outras palavras:|Importante:|Atenção:|Dica:)(?:\*\*)?\s*([^\n]+)/gi, "\n\n$1 $2\n\n");
+
+    // Normaliza frases de fechamento/prompt do tutor
+    textPart = textPart.replace(/([^\n])\n(Qual caminho você prefere|Qual opção você prefere|Fica tranquilo|Aguardo sua resposta|Qual alternativa você acha)/gi, "$1\n\n$2");
 
     // Isolamento defensivo de títulos Markdown (#, ##, ###, ####) com linhas em branco
     textPart = textPart.replace(/([^\n])\n(#{1,4}\s+[^\n]+)/g, "$1\n\n$2");
@@ -188,15 +211,27 @@ const sanitizeContent = (content: string) => {
       continue;
     }
 
+    // Se a linha for uma das opções do Menu de Trilhas (1️⃣ Aprender... 6️⃣ Finalizar)
+    const trilhaRegex = /^[ \t]*[1-6]\uFE0F?\u20E3/;
+    if (trilhaRegex.test(trimmed)) {
+      if (processedLines.length > 0 && processedLines[processedLines.length - 1].trim() !== "") {
+        processedLines.push("");
+      }
+      processedLines.push(line);
+      processedLines.push("");
+      continue;
+    }
+
     // Se a linha for uma alternativa de múltipla escolha (ex: "a) 18 e 4,5." ou "b) 4,5 e 18.")
     const altRegex = /^[ \t]*[a-eA-E][\)\.]/;
-    const promptRegex = /^(?:Qual [eé]|Aguardo|Envie|Digite|Responda)/i;
+    const promptRegex = /^(?:Qual [eé]|Aguardo|Envie|Digite|Responda|Fica tranquilo)/i;
 
     if (altRegex.test(trimmed)) {
       if (processedLines.length > 0 && processedLines[processedLines.length - 1].trim() !== "") {
         processedLines.push("");
       }
       processedLines.push(line);
+      processedLines.push("");
       continue;
     }
 
@@ -1295,34 +1330,224 @@ export default function ChatApp() {
     return "";
   };
 
+  const stripReactPrefix = (children: any, prefix: string): any => {
+    const childArray = Array.isArray(children) ? [...children] : [children];
+    if (childArray.length === 0) return children;
+
+    const first = childArray[0];
+    if (typeof first === "string") {
+      const escaped = prefix.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
+      const stripped = first.replace(new RegExp("^\\s*" + escaped + "\\s*", "i"), "");
+      return [stripped, ...childArray.slice(1)];
+    }
+
+    const firstText = (first && first.props && first.props.children ? getNodeText(first.props.children) : "");
+    const cleanPrefix = prefix.replace(/:$/, "").trim().toLowerCase();
+    if (firstText.trim().toLowerCase().startsWith(cleanPrefix)) {
+      const remaining = childArray.slice(1);
+      if (remaining.length > 0 && typeof remaining[0] === "string") {
+        remaining[0] = remaining[0].replace(/^\s*[:\-–—]?\s*/, "");
+      }
+      return remaining;
+    }
+    return children;
+  };
+
+  const stripAltPrefix = (children: any): any => {
+    const childArray = Array.isArray(children) ? [...children] : [children];
+    if (childArray.length === 0) return children;
+
+    const first = childArray[0];
+    if (typeof first === "string") {
+      const stripped = first.replace(/^[a-eA-E][\)\.][ \t]*/, "");
+      return [stripped, ...childArray.slice(1)];
+    }
+    return children;
+  };
+
   const markdownComponents = {
     p: ({ node, children, ...props }: any) => {
       const textStr = getNodeText(children).trim();
 
-      // Card destacado para Objetivo de Aprendizagem
-      if (textStr.startsWith("Objetivo:")) {
+      // 0. Trilhas de Aprendizagem Interativas (Menu de 6 Opções)
+      const trilhaMatch = textStr.match(/^([1-6])(?:\uFE0F?\u20E3|[\.\)\-]?\s*)(Aprender|Praticar|Flashcards|Resumo|Enviar\s+quest[ãa]o|Finalizar)/i);
+      if (trilhaMatch) {
+        const num = trilhaMatch[1];
+        const trilhaInfoMap: Record<string, { title: string; emoji: string; desc: string; cmd: string }> = {
+          "1": { title: "Aprender", emoji: "📚", desc: "Teoria guiada em microciclos passo a passo", cmd: "1" },
+          "2": { title: "Praticar", emoji: "📝", desc: "Lista de exercícios graduados com gabarito oficial", cmd: "2" },
+          "3": { title: "Flashcards", emoji: "🃏", desc: "Fixação ativa e repetição espaçada", cmd: "3" },
+          "4": { title: "Resumo", emoji: "🧠", desc: "Síntese dos conceitos-chave e mapa mental", cmd: "4" },
+          "5": { title: "Enviar questão", emoji: "🖼️", desc: "Tire dúvidas enviando texto ou foto", cmd: "5" },
+          "6": { title: "Finalizar", emoji: "⏸️", desc: "Pausar e salvar o progresso da sessão", cmd: "6" },
+        };
+        const info = trilhaInfoMap[num] || { title: trilhaMatch[2], emoji: "🚀", desc: "Avançar na trilha", cmd: num };
+
         return (
-          <div className="my-4 p-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-subtle)] border-l-4 border-l-[var(--accent-primary)] shadow-sm">
-            <div className="flex items-start gap-3">
-              <span className="text-xl select-none shrink-0 mt-0.5">🎯</span>
-              <div className="text-[var(--text-primary)] leading-relaxed text-[0.97rem] w-full">
-                {processChildren(children)}
+          <button
+            type="button"
+            disabled={isTyping}
+            onClick={() => {
+              if (!isTyping) {
+                handleSend(info.cmd);
+              }
+            }}
+            className="w-full text-left my-2 p-3.5 md:p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] hover:bg-[var(--bg-hover)] active:scale-[0.99] transition-all duration-150 shadow-sm flex items-center justify-between group cursor-pointer"
+            title={`Iniciar trilha: ${info.title}`}
+          >
+            <div className="flex items-center gap-3.5">
+              <span className="w-8 h-8 rounded-lg bg-[var(--accent-primary-light)] text-[var(--accent-primary)] font-extrabold flex items-center justify-center shrink-0 text-sm group-hover:bg-[var(--accent-primary)] group-hover:text-black transition-colors shadow-xs">
+                {num}
+              </span>
+              <div>
+                <div className="font-bold text-[var(--text-primary)] text-[0.98rem] flex items-center gap-2">
+                  <span>{info.title}</span>
+                  <span className="text-base select-none">{info.emoji}</span>
+                </div>
+                <div className="text-xs text-[var(--text-muted)] font-normal mt-0.5">
+                  {info.desc}
+                </div>
               </div>
+            </div>
+            <span className="text-[var(--accent-primary)] text-sm font-semibold opacity-75 group-hover:opacity-100 group-hover:translate-x-1 transition-all flex items-center gap-1 select-none pr-1">
+              Começar <span className="text-base">➔</span>
+            </span>
+          </button>
+        );
+      }
+
+      // 0.1 Fallback para Título de Microciclo se vier encapsulado em parágrafo <p>
+      const microMatch = textStr.match(/^(?:###\s*)?Microciclo\s+(\d+)[\s:—–-]+(.*)/i);
+      if (microMatch) {
+        return (
+          <div className="mt-8 mb-6 p-4 md:p-5 rounded-2xl bg-gradient-to-r from-[var(--accent-primary-light)] via-[var(--bg-elevated)] to-transparent border border-[var(--accent-primary)]/25 border-l-4 border-l-[var(--accent-primary)] shadow-sm w-full">
+            <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[var(--accent-primary)] mb-1.5">
+              <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-pulse inline-block" />
+              <span>Microciclo Formativo {microMatch[1]}</span>
+            </div>
+            <h3 className="text-xl md:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-snug m-0 p-0 border-0 bg-transparent">
+              {microMatch[2] || processChildren(children)}
+            </h3>
+          </div>
+        );
+      }
+
+      // 1. Alternativas de Múltipla Escolha: a), b), c), d), e)
+      const altMatch = textStr.match(/^([a-eA-E])[\)\.][ \t]+/);
+      if (altMatch) {
+        const letter = altMatch[1].toUpperCase();
+        const contentChildren = stripAltPrefix(children);
+
+        return (
+          <button
+            type="button"
+            disabled={isTyping}
+            onClick={() => {
+              if (!isTyping) {
+                handleSend(letter.toLowerCase());
+              }
+            }}
+            className="w-full text-left my-2 p-3.5 md:p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] hover:bg-[var(--bg-hover)] active:scale-[0.99] transition-all duration-150 shadow-sm flex items-start gap-3.5 group cursor-pointer"
+            title={`Escolher alternativa ${letter}`}
+          >
+            <span className="w-7 h-7 rounded-lg bg-[var(--accent-primary-light)] text-[var(--accent-primary)] font-extrabold flex items-center justify-center shrink-0 text-sm group-hover:bg-[var(--accent-primary)] group-hover:text-black transition-colors shadow-xs">
+              {letter}
+            </span>
+            <span className="flex-1 text-[var(--text-primary)] text-[0.96rem] leading-relaxed pt-0.5 font-normal">
+              {processChildren(contentChildren)}
+            </span>
+          </button>
+        );
+      }
+
+      // 2. Card Destacado para Objetivo de Aprendizagem
+      if (textStr.startsWith("Objetivo:")) {
+        const contentChildren = stripReactPrefix(children, "Objetivo:");
+        return (
+          <div className="my-5 p-4 md:p-4.5 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-subtle)] border-l-4 border-l-[var(--accent-primary)] shadow-sm">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] mb-1.5">
+              <span className="text-sm select-none">🎯</span>
+              <span>Objetivo de Aprendizagem</span>
+            </div>
+            <div className="text-[var(--text-primary)] leading-relaxed text-[0.97rem]">
+              {processChildren(contentChildren)}
             </div>
           </div>
         );
       }
 
-      // Card destacado para Checagem de Compreensão
+      // 3. Card Destacado para Checagem de Compreensão
       if (textStr.startsWith("Checagem:")) {
+        const contentChildren = stripReactPrefix(children, "Checagem:");
         return (
-          <div className="my-5 p-5 rounded-2xl bg-[var(--bg-card)] border-2 border-[var(--accent-primary)]/50 shadow-md">
-            <div className="flex items-start gap-3">
-              <span className="text-xl select-none shrink-0 mt-0.5">✍️</span>
-              <div className="text-[var(--text-primary)] leading-relaxed text-[0.98rem] w-full">
-                {processChildren(children)}
-              </div>
+          <div className="mt-7 mb-4 p-4.5 md:p-5 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border-subtle)] border-l-4 border-l-[var(--accent-primary)] shadow-sm">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] mb-2">
+              <span className="text-base select-none">✍️</span>
+              <span>Checagem de Compreensão</span>
             </div>
+            <div className="text-[var(--text-primary)] font-medium leading-relaxed text-[1rem]">
+              {processChildren(contentChildren)}
+            </div>
+          </div>
+        );
+      }
+
+      // 4. Callout Pedagógico para Destaques Conceituais
+      if (
+        textStr.startsWith("Pense assim:") ||
+        textStr.startsWith("Em outras palavras:") ||
+        textStr.startsWith("Importante:") ||
+        textStr.startsWith("Atenção:") ||
+        textStr.startsWith("Dica:")
+      ) {
+        let icon = "💡";
+        let label = "Destaque Conceitual";
+        if (textStr.startsWith("Pense assim:")) {
+          icon = "💡";
+          label = "Pense assim";
+        } else if (textStr.startsWith("Em outras palavras:")) {
+          icon = "💡";
+          label = "Em outras palavras";
+        } else if (textStr.startsWith("Atenção:")) {
+          icon = "⚠️";
+          label = "Atenção aos Detalhes";
+        } else if (textStr.startsWith("Importante:")) {
+          icon = "📌";
+          label = "Conceito Fundamental";
+        } else if (textStr.startsWith("Dica:")) {
+          icon = "✨";
+          label = "Dica Prática";
+        }
+
+        const prefix = textStr.split(":")[0] + ":";
+        const contentChildren = stripReactPrefix(children, prefix);
+
+        return (
+          <div className="my-4.5 p-4 rounded-xl bg-[var(--bg-secondary)]/90 border border-[var(--border-subtle)] border-l-4 border-l-[var(--accent-primary)] text-[var(--text-secondary)] leading-relaxed text-[0.96rem] shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] mb-1.5">
+              <span className="text-sm select-none">{icon}</span>
+              <span>{label}</span>
+            </div>
+            <div>
+              {processChildren(contentChildren)}
+            </div>
+          </div>
+        );
+      }
+
+      // 5. Nota de Rodapé / Mensagem de Encorajamento
+      const lower = textStr.toLowerCase();
+      if (
+        lower.startsWith("fica tranquilo") ||
+        lower.startsWith("qual alternativa") ||
+        lower.startsWith("aguardo sua resposta") ||
+        lower.startsWith("qual opção") ||
+        lower.startsWith("envie sua resposta")
+      ) {
+        return (
+          <div className="mt-4 mb-2 p-3 rounded-xl bg-[var(--bg-card)]/60 border border-[var(--border-subtle)]/70 text-xs md:text-sm text-[var(--text-muted)] italic flex items-center gap-2.5">
+            <span className="text-base select-none">💡</span>
+            <span className="flex-1">{processChildren(children)}</span>
           </div>
         );
       }
@@ -1385,11 +1610,30 @@ export default function ChatApp() {
         {processChildren(children)}
       </h2>
     ),
-    h3: ({ node, children, ...props }: any) => (
-      <h3 className="text-lg md:text-xl font-bold mt-6 mb-3.5 text-[var(--accent-primary)] flex items-center gap-2.5 bg-[var(--accent-primary-light)] px-4 py-2.5 rounded-xl border-l-4 border-[var(--accent-primary)] w-full shadow-sm leading-snug tracking-tight" {...props}>
-        {processChildren(children)}
-      </h3>
-    ),
+    h3: ({ node, children, ...props }: any) => {
+      const headingText = getNodeText(children).trim();
+      const isMicrociclo = headingText.toLowerCase().includes("microciclo");
+
+      if (isMicrociclo) {
+        return (
+          <div className="mt-8 mb-6 p-4 md:p-5 rounded-2xl bg-gradient-to-r from-[var(--accent-primary-light)] via-[var(--bg-elevated)] to-transparent border border-[var(--accent-primary)]/25 border-l-4 border-l-[var(--accent-primary)] shadow-sm w-full">
+            <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[var(--accent-primary)] mb-1.5">
+              <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-pulse inline-block" />
+              <span>Microciclo Formativo</span>
+            </div>
+            <h3 className="text-xl md:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-snug m-0 p-0 border-0 bg-transparent" {...props}>
+              {processChildren(children)}
+            </h3>
+          </div>
+        );
+      }
+
+      return (
+        <h3 className="text-lg md:text-xl font-bold mt-7 mb-3.5 text-[var(--accent-primary)] flex items-center gap-2.5 bg-[var(--accent-primary-light)] px-4 py-2.5 rounded-xl border-l-4 border-[var(--accent-primary)] w-full shadow-sm leading-snug" {...props}>
+          {processChildren(children)}
+        </h3>
+      );
+    },
     h4: ({ node, children, ...props }: any) => (
       <h4 className="text-base font-semibold mt-4 mb-2 text-[var(--text-primary)]" {...props}>
         {processChildren(children)}
