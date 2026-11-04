@@ -4263,3 +4263,25 @@ esolve_active_mode_and_topic).
   3. **Compilação Estática e Deploy Sincronizado em `apps/mobme/`:**
      - Execução bem-sucedida de `npm run build` no `apps/mobme-source/` gerando o bundle otimizado com `basePath: "/apps/mobme"`.
      - Sincronização e substituição atômica de todos os artefatos estáticos (`apps/mobme-source/out/` -> `apps/mobme/`), incluindo chunks JavaScript e folhas de estilo CSS atualizadas.
+
+
+### [Rodada 48] - Padrão Editorial E-book para Microciclos, Cards de Objetivo/Checagem e Layout Widescreen Universal
+- **Data:** 04 de Novembro de 2026
+- **Status:** 🏆 100% Implementado, Recompilado e Sincronizado
+- **Diagnóstico e Resolução Técnica:**
+  1. **Diagnóstico da Perda da Formatação Estilo E-book:**
+     - O usuário observou que, embora a formatação básica tivesse retornado, a experiência visual ainda não refletia o padrão caprichado desenvolvido anteriormente no ambiente de testes (onde a teoria se assemelhava a um e-book completo).
+     - O layout widescreen dinâmico (`isWidescreenContent`) exigia uma tabela Markdown (`text.includes("|")`) para liberar a tela inteira em microciclos. Sem tabelas, o microciclo ficava preso em um balão estreito de 75% da tela.
+     - O cabeçalho `### Microciclo` usava `w-fit`, comportando-se como uma etiqueta curta em vez de um banner imponente de capítulo de livro.
+     - As seções `**Objetivo:**` e `**Checagem:**` eram renderizadas como parágrafos comuns de texto puro, sem os cards pedagógicos correspondentes.
+     - No backend, a diretriz da Trilha 1 em `prompt_prod.md` estava sucinta demais, levando o LLM a emitir apenas 2 parágrafos breves conversacionais sem a densidade de tabelas e fórmulas do livro-texto Educamob.
+  2. **Intervenções no Frontend (`apps/mobme-source/app/page.tsx`):**
+     - **Widescreen Universal para a Trilha Aprender:** `isWidescreenContent` agora reconhece automaticamente termos como `microciclo`, `objetivo:`, `checagem:` e qualquer tabela Markdown, ativando imediatamente a largura expandida (`max-w-5xl md:max-w-6xl w-full`).
+     - **Banner de Título de Capítulo:** `h3` agora é renderizado em largura total (`w-full`), com fundo sutil `var(--accent-primary-light)`, borda esquerda de 4px laranja e cantos arredondados (`rounded-xl`), conferindo estética editorial autêntica.
+     - **Card Pedagógico de Objetivo (`🎯`):** Parágrafos iniciando com `Objetivo:` são convertidos em cards elegantes com ícone de alvo, borda lateral e destaque visual.
+     - **Card de Pergunta de Checagem (`✍️`):** Parágrafos iniciando com `Checagem:` são convertidos em cards de destaque com borda realçada de 2px e sombra (`shadow-md`).
+     - **Suporte Rico a Tabelas e Blockquotes:** Componentes dedicados para `table`, `th`, `td` e `blockquote`.
+  3. **Enriquecimento Pedagógico no Prompt (`prompt_prod.md` e `modo_aprender.md`):**
+     - Adicionado o **Padrão Editorial do Trecho Teórico (Livro-Texto / E-book)** à Trilha 1, exigindo tabelas Markdown em classificações/regras, equações em blocos `$$` KaTeX destacados e ancoragem visual em negrito.
+  4. **Compilação e Deploy Estático:**
+     - `next build` executado com código 0 e exportado para `apps/mobme/`.

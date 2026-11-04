@@ -331,14 +331,17 @@ const isWidescreenContent = (text: string) => {
   if (!text) return false;
   const lower = text.toLowerCase();
   
-  // Detecção de Microciclos com tabela ou Teoria densa legada
+  // Detecção de Teoria, Microciclos e E-books (sempre em tela ampla widescreen para leitura confortável)
   const isTeoria = 
-    (lower.includes("### microciclo") && text.includes("|")) ||
+    lower.includes("microciclo") ||
+    lower.includes("objetivo:") ||
+    lower.includes("checagem:") ||
     lower.includes("conexão com o mundo real") ||
     lower.includes("conexao com o mundo real") ||
     lower.includes("conceito central e fundamentos") ||
     lower.includes("atenção aos erros comuns") ||
-    lower.includes("atencao aos erros comuns");
+    lower.includes("atencao aos erros comuns") ||
+    text.includes("|");
     
   // Detecção de Resumir (Memorex)
   const isMemorex =
@@ -1281,24 +1284,67 @@ export default function ChatApp() {
     });
   };
 
+  const getNodeText = (node: any): string => {
+    if (!node) return "";
+    if (typeof node === "string") return node;
+    if (typeof node === "number") return String(node);
+    if (Array.isArray(node)) return node.map(getNodeText).join("");
+    if (React.isValidElement(node) && (node.props as any)?.children) {
+      return getNodeText((node.props as any).children);
+    }
+    return "";
+  };
+
   const markdownComponents = {
-    p: ({ node, children, ...props }: any) => (
-      <p className="my-2 leading-relaxed text-[var(--text-primary)]" {...props}>
-        {processChildren(children)}
-      </p>
-    ),
+    p: ({ node, children, ...props }: any) => {
+      const textStr = getNodeText(children).trim();
+
+      // Card destacado para Objetivo de Aprendizagem
+      if (textStr.startsWith("Objetivo:")) {
+        return (
+          <div className="my-4 p-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-subtle)] border-l-4 border-l-[var(--accent-primary)] shadow-sm">
+            <div className="flex items-start gap-3">
+              <span className="text-xl select-none shrink-0 mt-0.5">🎯</span>
+              <div className="text-[var(--text-primary)] leading-relaxed text-[0.97rem] w-full">
+                {processChildren(children)}
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      // Card destacado para Checagem de Compreensão
+      if (textStr.startsWith("Checagem:")) {
+        return (
+          <div className="my-5 p-5 rounded-2xl bg-[var(--bg-card)] border-2 border-[var(--accent-primary)]/50 shadow-md">
+            <div className="flex items-start gap-3">
+              <span className="text-xl select-none shrink-0 mt-0.5">✍️</span>
+              <div className="text-[var(--text-primary)] leading-relaxed text-[0.98rem] w-full">
+                {processChildren(children)}
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <p className="my-3 leading-relaxed text-[var(--text-primary)] text-[0.98rem]" {...props}>
+          {processChildren(children)}
+        </p>
+      );
+    },
     ol: ({ node, children, ...props }: any) => (
-      <ol className="list-decimal pl-6 my-2.5 space-y-1.5 marker:text-[var(--accent-primary)] marker:font-bold" {...props}>
+      <ol className="list-decimal pl-6 my-3 space-y-2 marker:text-[var(--accent-primary)] marker:font-bold" {...props}>
         {processChildren(children)}
       </ol>
     ),
     ul: ({ node, children, ...props }: any) => (
-      <ul className="list-disc pl-6 my-2.5 space-y-1.5 marker:text-[var(--accent-primary)]" {...props}>
+      <ul className="list-disc pl-6 my-3 space-y-2 marker:text-[var(--accent-primary)]" {...props}>
         {processChildren(children)}
       </ul>
     ),
     li: ({ node, children, ...props }: any) => (
-      <li className="my-1 leading-relaxed" {...props}>
+      <li className="my-1.5 leading-relaxed" {...props}>
         {processChildren(children)}
       </li>
     ),
@@ -1307,18 +1353,40 @@ export default function ChatApp() {
         {processChildren(children)}
       </strong>
     ),
+    blockquote: ({ node, children, ...props }: any) => (
+      <blockquote className="my-4 p-4 border-l-4 border-[var(--accent-primary)] bg-[var(--bg-secondary)] rounded-r-xl italic text-[var(--text-secondary)] shadow-sm" {...props}>
+        {processChildren(children)}
+      </blockquote>
+    ),
+    table: ({ node, children, ...props }: any) => (
+      <div className="w-full my-5 overflow-x-auto rounded-xl border border-[var(--border-medium)] shadow-sm">
+        <table className="w-full border-collapse text-left text-sm md:text-base" {...props}>
+          {processChildren(children)}
+        </table>
+      </div>
+    ),
+    th: ({ node, children, ...props }: any) => (
+      <th className="bg-[var(--bg-secondary)] text-[var(--accent-primary)] font-bold px-4 py-3 border-b-2 border-[var(--border-medium)]" {...props}>
+        {processChildren(children)}
+      </th>
+    ),
+    td: ({ node, children, ...props }: any) => (
+      <td className="px-4 py-2.5 border-b border-[var(--border-subtle)] bg-[var(--bg-card)]" {...props}>
+        {processChildren(children)}
+      </td>
+    ),
     h1: ({ node, children, ...props }: any) => (
-      <h1 className="text-2xl font-extrabold mt-6 mb-3 text-[var(--text-primary)] leading-tight" {...props}>
+      <h1 className="text-2xl md:text-3xl font-extrabold mt-8 mb-4 text-[var(--text-primary)] leading-tight border-b-2 border-[var(--border-medium)] pb-2" {...props}>
         {processChildren(children)}
       </h1>
     ),
     h2: ({ node, children, ...props }: any) => (
-      <h2 className="text-xl font-bold mt-5 mb-2.5 pb-1.5 border-b border-[var(--border-medium)] text-[var(--text-primary)] leading-snug" {...props}>
+      <h2 className="text-xl md:text-2xl font-bold mt-7 mb-3.5 pb-2 border-b border-[var(--border-medium)] text-[var(--text-primary)] leading-snug flex items-center gap-2" {...props}>
         {processChildren(children)}
       </h2>
     ),
     h3: ({ node, children, ...props }: any) => (
-      <h3 className="text-lg font-bold mt-5 mb-2.5 text-[var(--accent-primary)] flex items-center gap-2 bg-[var(--accent-primary-light)] px-3.5 py-1.5 rounded-lg border-l-4 border-[var(--accent-primary)] w-fit leading-snug" {...props}>
+      <h3 className="text-lg md:text-xl font-bold mt-6 mb-3.5 text-[var(--accent-primary)] flex items-center gap-2.5 bg-[var(--accent-primary-light)] px-4 py-2.5 rounded-xl border-l-4 border-[var(--accent-primary)] w-full shadow-sm leading-snug tracking-tight" {...props}>
         {processChildren(children)}
       </h3>
     ),
