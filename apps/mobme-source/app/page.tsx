@@ -155,10 +155,17 @@ const sanitizeContent = (content: string) => {
     // Caso 2: quebra antes de b), c), d), e) (ou maiúsculas) se estiverem inline na mesma linha
     textPart = textPart.replace(/([^\n])[ \t]+([b-eB-E]\))(?=[ \t]+\S)/g, '$1\n\n$2');
 
+    // Normaliza opções de menu em negrito: 1. **Aprender📚** -> 1. Aprender📚
+    textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*\*\*([^\*\n]+)\*\*/gi, (m, n, rest) => `\n\n${n}. ${rest}`);
+
     // Garante que opções numeradas do menu (1. Aprender, 2. Praticar...) ou keycaps (1️⃣, 2️⃣...) sempre fiquem com badge e parágrafos separados (\n\n)
-    textPart = textPart.replace(/(?:^|\n)([1-6])\.\s*(?=(?:Aprender|Praticar|Flashcards|Resumo|Enviar quest|Finalizar))/gi, (match, num) => `\n\n${num}\uFE0F\u20E3 `);
+    textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*(?=(?:Aprender|Praticar|Flashcards|Resumo|Enviar quest|Finalizar))/gi, (match, num) => `\n\n${num}\uFE0F\u20E3 `);
     textPart = textPart.replace(/([^\n])\n?(([0-9]|10)\uFE0F?\u20E3)/g, "$1\n\n$2");
     textPart = textPart.replace(/(([0-9]|10)\uFE0F?\u20E3[^\n]+)\n([^\n0-9])/g, "$1\n\n$3");
+
+    // Isolamento defensivo de títulos Markdown (#, ##, ###, ####) com linhas em branco
+    textPart = textPart.replace(/([^\n])\n(#{1,4}\s+[^\n]+)/g, "$1\n\n$2");
+    textPart = textPart.replace(/(#{1,4}\s+[^\n]+)\n([^\n#])/g, "$1\n\n$2");
 
     parts[i] = textPart;
   }
@@ -1275,13 +1282,51 @@ export default function ChatApp() {
   };
 
   const markdownComponents = {
-    p: ({ node, children, ...props }: any) => <p {...props}>{processChildren(children)}</p>,
-    li: ({ node, children, ...props }: any) => <li {...props}>{processChildren(children)}</li>,
-    strong: ({ node, children, ...props }: any) => <strong {...props}>{processChildren(children)}</strong>,
-    h1: ({ node, children, ...props }: any) => <h1 {...props}>{processChildren(children)}</h1>,
-    h2: ({ node, children, ...props }: any) => <h2 {...props}>{processChildren(children)}</h2>,
-    h3: ({ node, children, ...props }: any) => <h3 {...props}>{processChildren(children)}</h3>,
-    h4: ({ node, children, ...props }: any) => <h4 {...props}>{processChildren(children)}</h4>,
+    p: ({ node, children, ...props }: any) => (
+      <p className="my-2 leading-relaxed text-[var(--text-primary)]" {...props}>
+        {processChildren(children)}
+      </p>
+    ),
+    ol: ({ node, children, ...props }: any) => (
+      <ol className="list-decimal pl-6 my-2.5 space-y-1.5 marker:text-[var(--accent-primary)] marker:font-bold" {...props}>
+        {processChildren(children)}
+      </ol>
+    ),
+    ul: ({ node, children, ...props }: any) => (
+      <ul className="list-disc pl-6 my-2.5 space-y-1.5 marker:text-[var(--accent-primary)]" {...props}>
+        {processChildren(children)}
+      </ul>
+    ),
+    li: ({ node, children, ...props }: any) => (
+      <li className="my-1 leading-relaxed" {...props}>
+        {processChildren(children)}
+      </li>
+    ),
+    strong: ({ node, children, ...props }: any) => (
+      <strong className="font-bold text-[var(--text-primary)]" {...props}>
+        {processChildren(children)}
+      </strong>
+    ),
+    h1: ({ node, children, ...props }: any) => (
+      <h1 className="text-2xl font-extrabold mt-6 mb-3 text-[var(--text-primary)] leading-tight" {...props}>
+        {processChildren(children)}
+      </h1>
+    ),
+    h2: ({ node, children, ...props }: any) => (
+      <h2 className="text-xl font-bold mt-5 mb-2.5 pb-1.5 border-b border-[var(--border-medium)] text-[var(--text-primary)] leading-snug" {...props}>
+        {processChildren(children)}
+      </h2>
+    ),
+    h3: ({ node, children, ...props }: any) => (
+      <h3 className="text-lg font-bold mt-5 mb-2.5 text-[var(--accent-primary)] flex items-center gap-2 bg-[var(--accent-primary-light)] px-3.5 py-1.5 rounded-lg border-l-4 border-[var(--accent-primary)] w-fit leading-snug" {...props}>
+        {processChildren(children)}
+      </h3>
+    ),
+    h4: ({ node, children, ...props }: any) => (
+      <h4 className="text-base font-semibold mt-4 mb-2 text-[var(--text-primary)]" {...props}>
+        {processChildren(children)}
+      </h4>
+    ),
   };
 
   return (

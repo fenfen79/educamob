@@ -4243,3 +4243,23 @@ esolve_active_mode_and_topic).
      - Remoção de condicionais legadas de ambiente (`IS_LAB_ENV` chaveando para `prompt_lab.md`).
      - Definição de `PROMPT_FILE = "services/mobme-api/prompts/prompt_prod.md"` como única fonte da verdade e fallback oficial.
      - Registro de inicialização padronizado: `[PROD] Mob.me AI Tutor v2.0.0 (Codinome: 'Mob.me 6 Trilhas') inicializada com sucesso.`
+
+
+### [Rodada 47] - Sincronização do Frontend de Produção (GitHub Pages), Badges de Menu e Hierarquia Visual de Textos
+- **Data:** 04 de Novembro de 2026
+- **Status:** 🏆 100% Diagnosticado, Corrigido, Recompilado e Sincronizado
+- **Diagnóstico e Resolução Técnica:**
+  1. **Diagnóstico da Formatação Inadequada no Navegador:**
+     - Embora o backend FastAPI (`mobme-api`) já estivesse gerando perfeitamente a v2.0.0 com quebras de linha duplas, `### Microciclo 1` e numeração `1. Aprender📚`, o navegador do usuário acessando `http://app.educamob.com.br/apps/mobme/` estava executando um build estático antigo de **11 de Setembro de 2026** (`commit eed4d36`).
+     - Todo o desenvolvimento das últimas semanas (badges laranjas sólidos, renderizadores de Markdown, sanitizador KaTeX, badges interativos) foi feito no diretório de código-fonte `apps/mobme-source/`, mas nunca havia sido exportado via `npm run build` para a pasta raiz `apps/mobme/` servida pelo GitHub Pages.
+     - Além disso, o Tailwind CSS Preflight do build legado resetava tags `<ol>` para `list-style: none`, o que fazia com que listas numéricas do Markdown fossem renderizadas pelo navegador sem os números (`1. `, `2. ` etc. sumiam por completo), e tags `<h3>` não possuíam estilização ou preenchimento visual.
+  2. **Blindagem e Aprimoramento no Frontend (`apps/mobme-source/app/page.tsx`):**
+     - **Normalização de Opções com Negrito:** Adicionado sanitizador prévio que normaliza variações com negrito inseridas pela IA (ex: `1. **Aprender📚**` -> `1. Aprender📚`) antes da conversão para keycap/badge.
+     - **Suporte Amplo de Delimitadores:** Regex de menu aprimorada para capturar `1.`, `1)`, `1 -` com lookahead abrangente de todas as 6 opções canônicas.
+     - **Isolamento Mandatório de Cabeçalhos:** Inserção defensiva de quebras de linha duplas (`
+
+`) antes e depois de marcadores de títulos Markdown (`#`, `##`, `###`, `####`), garantindo que o parser CommonMark nunca os confunda com texto corrido.
+     - **Componentes Customizados em `markdownComponents`:** Estilização explícita com classes utilitárias do Tailwind para `p` (margens verticais `my-2`), `ol` (`list-decimal pl-6 my-2.5 marker:text-[var(--accent-primary)] marker:font-bold`), `ul`, `li` e `h3` (caixa destacada com borda esquerda laranja de 4px, fundo suave `var(--accent-primary-light)` e cantos arredondados).
+  3. **Compilação Estática e Deploy Sincronizado em `apps/mobme/`:**
+     - Execução bem-sucedida de `npm run build` no `apps/mobme-source/` gerando o bundle otimizado com `basePath: "/apps/mobme"`.
+     - Sincronização e substituição atômica de todos os artefatos estáticos (`apps/mobme-source/out/` -> `apps/mobme/`), incluindo chunks JavaScript e folhas de estilo CSS atualizadas.
