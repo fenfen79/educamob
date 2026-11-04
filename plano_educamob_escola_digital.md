@@ -464,13 +464,21 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
 | **Ciências - 9º Ano (Exercícios)** | **17 de 17 listas (1.020 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 14 anos)** |
 | **TOTAL GERAL DE CIÊNCIAS (Exercícios)** | **72 de 72 listas (4.320 questões)** | 🏆 **Ensino Fundamental 100% Homologado no Padrão-Ouro (Equilíbrio Matemático 20% A-E, 0 Falhas)** |
 | **Ingestão Supabase (Mob.me RAG - Ciências)** | **72 e-books teóricos (2.670 chunks) + `ciencias` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (5º ao 9º Ano)** |
+| **Geografia - 5º Ano (Exercícios)** | **9 de 9 listas (540 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 10 anos)** |
+| **Geografia - 6º Ano (Exercícios)** | **6 de 6 listas (360 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 11 anos)** |
+| **Geografia - 7º Ano (Exercícios)** | **7 de 7 listas (420 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 12 anos)** |
+| **Geografia - 8º Ano (Exercícios)** | **8 de 8 listas (480 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 13 anos)** |
+| **Geografia - 9º Ano (Exercícios)** | **10 de 10 listas (600 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 14 anos)** |
+| **TOTAL GERAL DE GEOGRAFIA (Exercícios)** | **40 de 40 listas (2.400 questões)** | 🏆 **Ensino Fundamental 100% Homologado no Padrão-Ouro (Equilíbrio Matemático 20% A-E, 0 Falhas)** |
+| **Ingestão Supabase (Mob.me RAG - Geografia)** | **40 e-books teóricos (1.430 chunks) + `geografia` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (5º ao 9º Ano)** |
 | **História - 5º Ano (Exercícios)** | **6 de 6 listas (360 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 10 anos)** |
 | **História - 6º Ano (Exercícios)** | **11 de 11 listas (660 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 11 anos)** |
 | **História - 7º Ano (Exercícios)** | **11 de 11 listas (660 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 12 anos)** |
 | **História - 8º Ano (Exercícios)** | **16 de 16 listas (960 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 13 anos)** |
-| **História - 9º Ano (Exercícios)** | **0 de 18 listas (Pendente)** | ⏳ Aguardando Execução |
-| **TOTAL PARCIAL DE HISTÓRIA (Exercícios)** | **28 de 62 listas (1.680 questões homologadas)** | 🔄 **5º, 6º e 7º Anos 100% Concluídos; 8º e 9º Anos em Esteira** |
-| **TOTAL GERAL NO SUPABASE (RAG)** | **483 e-books teóricos (22.877 chunks) + 296 listas (18.443 chunks)** | 🏆 **Acervo Ativo e em Expansão Contínua** |
+| **História - 9º Ano (Exercícios)** | **5 de 18 listas (300 questões)** | 🔄 **Em Produção / Esteira Ativa (Cap 01 ao 05)** |
+| **TOTAL PARCIAL DE HISTÓRIA (Exercícios)** | **49 de 62 listas (2.940 questões homologadas)** | 🔄 **5º, 6º, 7º e 8º Anos 100% Concluídos; 9º Ano em Esteira** |
+| **Ingestão Supabase (Mob.me RAG - História)** | **62 e-books teóricos (2.356 chunks) + `historia` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (5º ao 9º Ano)** |
+| **TOTAL GERAL NO SUPABASE (RAG)** | **585 e-books teóricos (26.704 chunks) + 436 listas (20.843+ chunks)** | 🏆 **7 Disciplinas Ativas: Matemática, Física, Química, Ciências, História, Geografia e Cálculo 1** |
 
 ---
 
@@ -599,6 +607,8 @@ emark-gfm no frontend Next.js para renderização de tabelas Markdown ricas e re
 | **49** | ✅ Homologação do Lote 3 de Exercícios de História (7º Ano) | Produção e validação sistemática de 11 listas atômicas (660 questões no Padrão-Ouro: 20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2, gabaritos matematicamente equilibrados em 20% A-E e zero decoreba). |
 | **50** | ✅ Solução Híbrida Inteligente de Envio Multimodal e Retomada de Trilha | Roteamento automático de imagens enviadas fora da opção 5 do menu: detecção contextual de rascunhos de cálculo vs. novas dúvidas, preservação do estado de estudo ativo em `paused_track`, desvio transparente de fluxo sem reexibir menus redundantes (zero fricção) e retomada automática do progresso prévio ("voltar/continuar"). |
 | **51** | ✅ Promoção Oficial do System Prompt v2.0.0 — Codinome: "Mob.me 6 Trilhas" | Promoção formal do novo system prompt e motor modular para o ambiente de produção após homologação de 100% (34/34 turnos) na Suíte Estatística Avançada. Compilação consolidada de `prompt_prod.md`, ativação de arquitetura modular para produção no FastAPI (`main.py`) e auditoria limpa contra o guardrail de pre-commit. |
+| **52** | ✅ Ingestão Vetorial e Liberação de Geografia e História na Mob.me | Vetorização de 102 novos e-books teóricos (40 de Geografia [1.430 chunks] e 62 de História [2.356 chunks]), registro de `geografia` e `historia` em `available_subjects` no Supabase, sincronização da máquina de estados e do Árbitro Curricular no FastAPI (`main.py`) e reload em tempo real nos ambientes local e de produção (Oracle Cloud). |
+| **53** | ✅ Aposentadoria Definitiva do Prompt Legado e Homologação do System Prompt Oficial v2.0.0 | Arquivamento formal do prompt monolítico legado (`prompt_lab.md`) e dos 7 modos v1 em `prompts/archive_v1/`, redação master coesa e unificada de `prompt_prod.md` (v2.0.0 — 'Mob.me 6 Trilhas'), unificação do motor de prompts no FastAPI (`main.py`) sem desvios legados e sincronização integral em produção (Oracle Cloud). |
 
 ---
 

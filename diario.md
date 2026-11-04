@@ -4137,3 +4137,109 @@ esolve_active_mode_and_topic).
      - A função `get_system_prompt_for_mode` foi desacoplada da trava estrita `IS_LAB_ENV`, permitindo que os nós de produção na nuvem utilizem a arquitetura modular otimizada de sub-prompts com fallback determinístico para `prompt_prod.md`.
   4. **Solução Híbrida Multimodal Integrada:**
      - Recepção e resolução de imagens fora do menu e durante sessões ativas com congelamento/retomada de estado (`paused_track`), sem fricção e com zero desvio curricular.
+
+
+### [Rodada 44] - Conclusão Integral do Banco de Exercícios de Geografia (5º ao 9º Ano) e Auditoria de E-books (Sprint 12.5)
+- **Data:** 04 de Novembro de 2026
+- **Status:** 🏆 100% Homologado no Padrão-Ouro e Validado via alidador_educamob.py (Exit Code 0)
+- **Escopo Concluído:**
+  1. **Auditoria de Integridade Estrutural de 102 E-books Teóricos (Geografia e História):**
+     - Verificação completa e automatizada de todos os 40 e-books teóricos de Geografia (5º ao 9º Ano) e 62 e-books teóricos de História (5º ao 9º Ano).
+     - 100% dos 102 e-books teóricos apresentaram conformidade estrita com o validador canônico (alidador_educamob.py), com Exit Code 0, validando: frontmatter YAML canônico, ausência de exercícios na teoria, supressão total do cifrão R$ e aderência às normas ABNT NBR 6023.
+  2. **Geração e Homologação de 40 de 40 Listas de Exercícios de Geografia (2.400 Questões Autorais):**
+     - **5º Ano (9 Capítulos | 540 Questões):**
+       - cap-01-dinamica-populacional: ef05ge01-exercicios.md (Habilidade EF05GE01) — 60 questões.
+       - cap-02-diferencas-etnico-raciais-desigualdades: ef05ge02-exercicios.md (Habilidade EF05GE02) — 60 questões.
+       - cap-03-territorio-redes-urbanizacao: ef05ge03-ef05ge04-exercicios.md (Habilidades EF05GE03, EF05GE04) — 60 questões.
+       - cap-04-trabalho-inovacao-tecnologica: ef05ge05-ef05ge07-exercicios.md (Habilidades EF05GE05, EF05GE06, EF05GE07) — 60 questões.
+       - cap-05-mapas-imagens-satelite: ef05ge08-exercicios.md (Habilidade EF05GE08) — 60 questões.
+       - cap-06-representacao-cidades-espaco-urbano: ef05ge09-exercicios.md (Habilidade EF05GE09) — 60 questões.
+       - cap-07-qualidade-ambiental: ef05ge10-exercicios.md (Habilidade EF05GE10) — 60 questões.
+       - cap-08-diferentes-tipos-poluicao: ef05ge11-exercicios.md (Habilidade EF05GE11) — 60 questões.
+       - cap-09-gestao-publica-qualidade-vida: ef05ge12-exercicios.md (Habilidade EF05GE12) — 60 questões.
+     - **6º Ano (6 Capítulos | 360 Questões):**
+       - cap-01-identidade-sociocultural: ef06ge01-ef06ge02-exercicios.md (Habilidades EF06GE01, EF06GE02) — 60 questões.
+       - cap-02-relacoes-componentes-fisico-naturais: ef06ge03-ef06ge05-exercicios.md (Habilidades EF06GE03, EF06GE04, EF06GE05) — 60 questões.
+       - cap-03-transformacao-paisagens-naturais-antropicas: ef06ge06-ef06ge07-exercicios.md (Habilidades EF06GE06, EF06GE07) — 60 questões.
+       - cap-04-fenomenos-representados-diferentes-maneiras: ef06ge08-ef06ge09-exercicios.md (Habilidades EF06GE08, EF06GE09) — 60 questões.
+       - cap-05-biodiversidade-ciclo-hidrologico: ef06ge10-ef06ge12-exercicios.md (Habilidades EF06GE10, EF06GE11, EF06GE12) — 60 questões.
+       - cap-06-atividades-humanas-dinamica-climatica: ef06ge13-exercicios.md (Habilidade EF06GE13) — 60 questões.
+     - **7º Ano (7 Capítulos | 420 Questões):**
+       - cap-01-ideias-concepcoes-formacao-territorial-brasil: ef07ge01-exercicios.md (Habilidade EF07GE01) — 60 questões.
+       - cap-02-formacao-territorial-brasil: ef07ge02-ef07ge03-exercicios.md (Habilidades EF07GE02, EF07GE03) — 60 questões.
+       - cap-03-caracteristicas-populacao-brasileira: ef07ge04-exercicios.md (Habilidade EF07GE04) — 60 questões.
+       - cap-04-producao-circulacao-consumo-mercadorias: ef07ge05-ef07ge06-exercicios.md (Habilidades EF07GE05, EF07GE06) — 60 questões.
+       - cap-05-desigualdade-social-trabalho: ef07ge07-ef07ge08-exercicios.md (Habilidades EF07GE07, EF07GE08) — 60 questões.
+       - cap-06-mapas-tematicos-brasil: ef07ge09-ef07ge10-exercicios.md (Habilidades EF07GE09, EF07GE10) — 60 questões.
+       - cap-07-biodiversidade-brasileira: ef07ge11-ef07ge12-exercicios.md (Habilidades EF07GE11, EF07GE12) — 60 questões.
+     - **8º Ano (8 Capítulos | 480 Questões):**
+       - cap-01-distribuicao-populacao-mundial-deslocamentos: ef08ge01-exercicios.md (Habilidade EF08GE01) — 60 questões.
+       - cap-02-diversidade-dinamica-populacao-mundial-local: ef08ge02-ef08ge04-exercicios.md (Habilidades EF08GE02, EF08GE03, EF08GE04) — 60 questões.
+       - cap-03-corporacoes-organismos-internacionais-ordem-economica: ef08ge05-ef08ge12-exercicios.md (Habilidades EF08GE05 a EF08GE12) — 60 questões.
+       - cap-04-contextos-meios-tecnico-tecnologico-producao: ef08ge13-ef08ge14-exercicios.md (Habilidades EF08GE13, EF08GE14) — 60 questões.
+       - cap-05-transformacoes-espaco-urbano-industrial-america-latina: ef08ge15-ef08ge17-exercicios.md (Habilidades EF08GE15, EF08GE16, EF08GE17) — 60 questões.
+       - cap-06-cartografia-anamorfose-croquis-mapas-tematicos: ef08ge18-ef08ge19-exercicios.md (Habilidades EF08GE18, EF08GE19) — 60 questões.
+       - cap-07-identidades-interculturalidades-regionais: ef08ge20-ef08ge21-exercicios.md (Habilidades EF08GE20, EF08GE21) — 60 questões.
+       - cap-08-diversidade-ambiental-transformacoes-paisagens-america-latina: ef08ge22-ef08ge24-exercicios.md (Habilidades EF08GE22, EF08GE23, EF08GE24) — 60 questões.
+     - **9º Ano (10 Capítulos | 600 Questões):**
+       - cap-01-hegemonia-europeia-economia-politica-cultura: ef09ge01-exercicios.md (Habilidade EF09GE01) — 60 questões.
+       - cap-02-corporacoes-organismos-internacionais: ef09ge02-exercicios.md (Habilidade EF09GE02) — 60 questões.
+       - cap-03-manifestacoes-culturais-formacao-populacional: ef09ge03-ef09ge04-exercicios.md (Habilidades EF09GE03, EF09GE04) — 60 questões.
+       - cap-04-integracao-mundial-globalizacao-mundializacao: ef09ge05-exercicios.md (Habilidade EF09GE05) — 60 questões.
+       - cap-05-divisao-mundo-ocidente-oriente: ef09ge06-exercicios.md (Habilidade EF09GE06) — 60 questões.
+       - cap-06-intercambios-historicos-culturais-europa-asia-oceania: ef09ge07-ef09ge09-exercicios.md (Habilidades EF09GE07, EF09GE08, EF09GE09) — 60 questões.
+       - cap-07-transformacoes-espaco-sociedade-urbano-industrial: ef09ge10-ef09ge11-exercicios.md (Habilidades EF09GE10, EF09GE11) — 60 questões.
+       - cap-08-cadeias-industriais-inovacao-recursos-naturais: ef09ge12-ef09ge13-exercicios.md (Habilidades EF09GE12, EF09GE13) — 60 questões.
+       - cap-09-leitura-elaboracao-mapas-tematicos-croquis: ef09ge14-ef09ge15-exercicios.md (Habilidades EF09GE14, EF09GE15) — 60 questões.
+       - cap-10-dominios-morfoclimaticos-cadeias-industriais-energia: ef09ge16-ef09ge18-exercicios.md (Habilidades EF09GE16, EF09GE17, EF09GE18) — 60 questões.
+- **Métricas Globais de Geografia (Sprint 12.5):**
+  - **Total de Listas:** 40 de 40 listas (100% de cobertura do Ensino Fundamental)
+  - **Total de Questões:** 2.400 questões atômicas no Padrão-Ouro (800 básicas, 800 intermediárias, 800 difíceis com Etapas 1 e 2)
+  - **Habilidades BNCC Cobertas:** 79 de 79 habilidades de Geografia (EF05GE01 a EF09GE18)
+  - **Balanceamento de Gabaritos:** ~12 A, ~12 B, ~12 C, ~12 D e ~12 E em cada lista (streak máximo $\le 3$)
+  - **Validação Automatizada de Lote:** 100% aprovado com Exit Code 0 no script oficial alidador_educamob.py.
+
+
+### [Rodada 45] - Ingestão Vetorial Massiva e Liberação Oficial de Geografia e História na Mob.me (Supabase RAG & `available_subjects`)
+- **Data:** 04 de Novembro de 2026
+- **Status:** 🏆 100% Ingerido, Vetorizado e Ativo em Produção e Laboratório
+- **Escopo Concluído:**
+  1. **Ingestão Vetorial no PostgreSQL / pgvector (`services/mobme-api/ingest.py`):**
+     - Vetorização incremental de **103 e-books teóricos** (40 de Geografia [1.430 chunks], 62 de História [2.356 chunks] e 1 atualização de Ciências [41 chunks]), totalizando **3.827 novos fragmentos/chunks** processados via `BAAI/bge-m3` (DeepInfra) e indexados na tabela `documents` com suporte ao índice HNSW (`batch_size = 20` com fallback automático anti-timeout `57014`).
+     - Novo total consolidado de e-books teóricos no `ingest_state.json`: **585 e-books teóricos ativos (26.704 chunks teóricos)**.
+  2. **Atualização da Tabela `available_subjects` (Supabase) e Reload em Tempo Real:**
+     - Inclusão oficial de `geografia` e `historia` na tabela `available_subjects` do Supabase.
+     - Disparo e confirmação (HTTP 200) do endpoint `/api/admin/reload-subjects` tanto no servidor local (`localhost:8000`) quanto no servidor de produção na Oracle Cloud (`https://api.educamob.com.br/api/admin/reload-subjects`).
+     - Lista oficial de disciplinas homologadas na Mob.me expandida para **7 matérias ativas**: **Cálculo 1, Ciências, Física, Geografia, História, Matemática e Química**.
+  3. **Sincronia da Máquina de Estados e do Árbitro Curricular (`services/mobme-api/main.py`):**
+     - Transferência de `"historia"`, `"história"` e `"geografia"` de `NON_SUPPORTED_DISCIPLINES` para `SUPPORTED_DISCIPLINES`, além de higienização dinâmica (`NON_SUPPORTED_DISCIPLINES.difference_update(SUPPORTED_DISCIPLINES)`) no `load_available_subjects()`.
+     - Atualização das diretrizes do Árbitro Curricular Semântico (`analyze_topic_curricular_rules`) e do `AVAILABLE_SUBJECTS_CONTEXT` removendo História e Geografia dos exemplos de disciplinas fora do escopo e instruindo explicitamente o enquadramento de todos os temas históricos e geográficos da BNCC no escopo ativo.
+     - Atualização do cenário `S11_DESAMBIGUACAO_CASCATA_E_FORA_ESCOPO` na suíte de avaliação (`eval_scenarios.json`) para testar o guardrail fora do escopo com `"Filosofia"`.
+  4. **Validação em Tempo Real (`POST /api/chat`):**
+     - Teste de acolhida com `"Geografia"` e `"História"` retornando confirmação imediata de disciplina suportada, e teste com `"Filosofia"` exibindo a lista atualizada das 7 disciplinas ativas.
+
+
+### [Rodada 46] - Aposentadoria Definitiva do System Prompt Legado e Homologação do System Prompt Oficial v2.0.0 (Codinome: "Mob.me 6 Trilhas")
+- **Data:** 04 de Novembro de 2026
+- **Status:** 🏆 100% Homologado e Sincronizado em Produção e Laboratório
+- **Diagnóstico e Resolução do Débito Arquitetural:**
+  1. **Diagnóstico da Formatação Inadequada na Promoção Anterior:**
+     - Na esteira de promoção anterior para a v2.0.0, a compilação de `prompt_prod.md` foi executada por meio de uma concatenação ingênua dos 9 arquivos modulares da pasta `modes/`, separados apenas por `---`.
+     - Isso gerou uma colagem contraditória ("Frankenstein") contendo 9 seções de "Sua única missão neste turno é...", 6 seções de `# ENCERRAMENTO` conflitantes e cabeçalhos duplicados, desfigurando a hierarquia do documento.
+     - Paralelamente, os arquivos legados da v1 (`prompt_lab.md` com 8 opções antigas e 7 modos obsoletos: `modo_socratico.md`, `modo_teoria.md`, `modo_treino.md`, `modo_desafio.md`, `modo_memorex.md`, `modo_flashcards.md`, `modo_sos.md`) continuavam residentes no repositório, e `main.py` ainda mantinha condicionais legadas chaveando para `prompt_lab.md`.
+  2. **Aposentadoria Formal do Legado (v1):**
+     - Criação da pasta oficial de arquivo histórico `services/mobme-api/prompts/archive_v1/` e `archive_v1/modes/`.
+     - Movimentação definitiva de `prompt_lab.md` e dos 7 modos v1 para o arquivo histórico via `git mv`.
+     - Manutenção exclusiva na pasta ativa `services/mobme-api/prompts/modes/` dos 9 modos canônicos e homologados da v2.0.0 (`modo_acolhida.md`, `modo_menu.md`, `modo_novo_assunto.md`, `modo_aprender.md`, `modo_praticar.md`, `modo_revisar.md`, `modo_resumir.md`, `modo_resolve_questao.md`, `modo_conclusao.md`).
+  3. **Redação Master e Unificada do `prompt_prod.md` v2.0.0:**
+     - Redação integral e limpa de `prompt_prod.md` como uma peça-prima coesa e elegante de prompt engineering, sem contradições, estruturada em:
+       - Identidade e Tom de Voz da Mob.me (sobriedade empática, didática ativa);
+       - Menu Canônico de 6 Trilhas (template rígido com quebras duplas de linha e distinção em relação ao Menu de Desambiguação);
+       - Formatação Visual, Hierarquia e Matemática (KaTeX multi-linha fora de tabelas `$$`, cifrão inline `$`, fórmulas químicas `$HCl$`, supressão total do cifrão monetário substituído por "reais" e padrão obrigatório de alternativas isoladas `\n\n`);
+       - Contrato de Conteúdo e RAG como Fonte Única (Mundo Fechado, proibição de alucinações, exercícios estritamente de `-exercicios.md`);
+       - Guardrails Gerais e Sessão Estritamente Monotemática (recusa inflexível de troca de tema ou matéria na mesma sessão, com orientação para o botão "+ Nova Conversa");
+       - Orquestração Comportamental das Fases e Trilhas (Acolhida, Menu, Aprender com Microciclos, Praticar 5+5+5 com aproveitamento X/15, Flashcards abertos X/Y, Resumo estruturado de 600-1000 palavras, Enviar Questão multimodal híbrido com retorno à trilha pausada e Finalizar factual em 1-2 linhas).
+  4. **Unificação do Motor de Prompts no FastAPI (`services/mobme-api/main.py`):**
+     - Remoção de condicionais legadas de ambiente (`IS_LAB_ENV` chaveando para `prompt_lab.md`).
+     - Definição de `PROMPT_FILE = "services/mobme-api/prompts/prompt_prod.md"` como única fonte da verdade e fallback oficial.
+     - Registro de inicialização padronizado: `[PROD] Mob.me AI Tutor v2.0.0 (Codinome: 'Mob.me 6 Trilhas') inicializada com sucesso.`

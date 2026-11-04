@@ -47,7 +47,7 @@ from supabase.client import Client, create_client
 supabase_sync_client: Client = None
 
 AVAILABLE_SUBJECTS_CONTEXT = ""
-AVAILABLE_SUBJECTS_LIST = ["Ciências", "Matemática", "Física", "Química", "Cálculo 1"]
+AVAILABLE_SUBJECTS_LIST = ["Ciências", "Matemática", "Física", "Química", "História", "Geografia", "Cálculo 1"]
 
 SUBJECT_DISPLAY_MAP = {
     "ciencias": "Ciências",
@@ -90,9 +90,10 @@ async def load_available_subjects():
                     dynamic_supported.update({"calculo", "cálculo", "calculo 1", "cálculo 1"})
             AVAILABLE_SUBJECTS_LIST = display_subjects
             SUPPORTED_DISCIPLINES = dynamic_supported
+            NON_SUPPORTED_DISCIPLINES.difference_update(SUPPORTED_DISCIPLINES)
             ALL_DISCIPLINES = SUPPORTED_DISCIPLINES | NON_SUPPORTED_DISCIPLINES
             subjects_str = ", ".join(AVAILABLE_SUBJECTS_LIST)
-            AVAILABLE_SUBJECTS_CONTEXT = f"\n\n--- MATÉRIAS DISPONÍVEIS NO MATERIAL DE CONSULTA ---\nAtualmente, a sua base de dados possui conteúdo focado estritamente nestas matérias: {subjects_str}. Você SÓ TEM PERMISSÃO para ensinar conteúdos dessas matérias. Caso o aluno solicite ajuda em qualquer matéria não listada (ex: Biologia, Literatura, História, Português, Artes), você DEVE recusar educadamente explicando que a equipe de professores da Educamob ainda está preparando os materiais dessa disciplina e que, por enquanto, você só pode ajudar com as matérias disponíveis ({subjects_str})."
+            AVAILABLE_SUBJECTS_CONTEXT = f"\n\n--- MATÉRIAS DISPONÍVEIS NO MATERIAL DE CONSULTA ---\nAtualmente, a sua base de dados possui conteúdo focado estritamente nestas matérias: {subjects_str}. Você SÓ TEM PERMISSÃO para ensinar conteúdos dessas matérias. Caso o aluno solicite ajuda em qualquer matéria não listada (ex: Biologia, Literatura, Língua Portuguesa, Filosofia, Sociologia, Inglês, Artes), você DEVE recusar educadamente explicando que a equipe de professores da Educamob ainda está preparando os materiais dessa disciplina e que, por enquanto, você só pode ajudar com as matérias disponíveis ({subjects_str})."
         else:
             AVAILABLE_SUBJECTS_CONTEXT = ""
         print(f"Matérias disponíveis atualizadas dinamicamente na memória da API: {AVAILABLE_SUBJECTS_LIST}")
@@ -159,17 +160,10 @@ class TitleUpdate(BaseModel):
 
 import os
 
-# Guardrail de Ambiente: O prompt muda dependendo de onde o código roda
-IS_LAB_ENV = os.path.exists("services/mobme-api/.env.lab") or os.path.exists(".env.lab")
-
-if IS_LAB_ENV:
-    PROMPT_FILE = "services/mobme-api/prompts/prompt_lab.md"
-    if not os.path.exists(PROMPT_FILE):
-        PROMPT_FILE = "prompts/prompt_lab.md"
-else:
-    PROMPT_FILE = "services/mobme-api/prompts/prompt_prod.md"
-    if not os.path.exists(PROMPT_FILE):
-        PROMPT_FILE = "prompts/prompt_prod.md"
+# System Prompt Oficial de Produção: v2.0.0 (Codinome: "Mob.me 6 Trilhas")
+PROMPT_FILE = "services/mobme-api/prompts/prompt_prod.md"
+if not os.path.exists(PROMPT_FILE):
+    PROMPT_FILE = "prompts/prompt_prod.md"
 
 MODES_DIR = "services/mobme-api/prompts/modes"
 if not os.path.exists(MODES_DIR):
@@ -208,12 +202,13 @@ GREETINGS = {"oi", "ola", "olá", "bom dia", "boa tarde", "boa noite", "tudo bem
 
 SUPPORTED_DISCIPLINES = {
     "ciencias", "ciências", "matematica", "matemática", "fisica", "física", 
-    "quimica", "química", "calculo", "cálculo", "calculo 1", "cálculo 1", "calculo-1"
+    "quimica", "química", "historia", "história", "geografia",
+    "calculo", "cálculo", "calculo 1", "cálculo 1", "calculo-1"
 }
 
 NON_SUPPORTED_DISCIPLINES = {
-    "biologia", "geografia", "historia", "história", "filosofia", "sociologia", 
-    "portugues", "português", "literatura", "ingles", "inglês", "artes", "redacao", "redação", "gramatica", "gramática"
+    "biologia", "filosofia", "sociologia", 
+    "portugues", "português", "literatura", "ingles", "inglês", "espanhol", "artes", "redacao", "redação", "gramatica", "gramática"
 }
 
 ALL_DISCIPLINES = SUPPORTED_DISCIPLINES | NON_SUPPORTED_DISCIPLINES
@@ -1073,13 +1068,14 @@ async def analyze_topic_curricular_rules(term: str, current_discipline: str = No
 Sua missão é inspecionar o assunto de estudo solicitado pelo estudante e verificar o enquadramento curricular:
 
 1. FORA DO ESCOPO (Disciplinas ainda não presentes na lista [{active_subjects_str}]):
-Se o estudante pedir uma disciplina ou tema que NÃO pertença a [{active_subjects_str}] (ex: Língua Portuguesa, Gramática, Literatura, Redação, História, Geografia, Filosofia, Sociologia, Inglês, Artes, ou Biologia de Ensino Médio caso "Biologia" não esteja listada acima):
-- Nota importante: Tópicos de Ciências do Ensino Fundamental (como células, seres vivos, corpo humano, ecologia básica, astronomia e matéria/energia do 5º ao 9º ano) pertencem à disciplina "Ciências" (dentro do escopo). Porém, se o estudante pedir explicitamente a matéria "Biologia" ou um tema exclusivo de Biologia avançada não coberto em Ciências (e "Biologia" não estiver na lista ativa), classifique como fora do escopo!
+Se o estudante pedir uma disciplina ou tema que NÃO pertença a [{active_subjects_str}] (ex: Língua Portuguesa, Gramática, Literatura, Redação, Filosofia, Sociologia, Inglês, Espanhol, Artes, ou Biologia de Ensino Médio caso "Biologia" não esteja listada acima):
+- Nota importante 1: Tópicos de Ciências do Ensino Fundamental (como células, seres vivos, corpo humano, ecologia básica, astronomia e matéria/energia do 5º ao 9º ano) pertencem à disciplina "Ciências" (dentro do escopo). Porém, se o estudante pedir explicitamente a matéria "Biologia" ou um tema exclusivo de Biologia avançada não coberto em Ciências (e "Biologia" não estiver na lista ativa), classifique como fora do escopo!
+- Nota importante 2: As disciplinas "História" e "Geografia" FAZEM PARTE do acervo ativo da Educamob (dentro do escopo)! Todo tema de História (Antiguidade, Idade Média, Brasil Colonial, Império, República, Revoluções, Guerras Mundiais, Guerra Fria, etc.) pertence a "História" e todo tema de Geografia (Cartografia, Clima, Relevo, Urbanização, População, Geopolítica, Globalização, etc.) pertence a "Geografia".
 Retorne ESTRITAMENTE em formato JSON:
 {{
   "desambiguar": false,
   "fora_do_escopo": true,
-  "disciplina_identificada": "Nome real da disciplina fora do escopo (ex: Língua Portuguesa, História, Biologia, etc.)",
+  "disciplina_identificada": "Nome real da disciplina fora do escopo (ex: Língua Portuguesa, Filosofia, Biologia, etc.)",
   "tema_formatado": "Nome do assunto"
 }}
 
@@ -1530,14 +1526,14 @@ async def resolve_active_mode_and_topic(
         norm_disc = strip_accents(disc_id) if disc_id else None
         norm_supported = {strip_accents(d) for d in SUPPORTED_DISCIPLINES}
 
-        # GUARDRAIL SISTÊMICO: Disciplina fora do acervo oficial (ex: Português, Gramática, Literatura, História)
+        # GUARDRAIL SISTÊMICO: Disciplina fora do acervo oficial (ex: Português, Gramática, Literatura, Filosofia)
         if analysis.get("fora_do_escopo") or (norm_disc and norm_disc not in norm_supported and norm_disc != "interdisciplinar"):
             state["topic"] = None
             state["pending_disambiguation"] = None
             state["disambiguation_options"] = None
             state["clean_names"] = None
             state["discipline"] = None
-            state["out_of_scope_discipline"] = disc_id or "Língua Portuguesa e Humanas"
+            state["out_of_scope_discipline"] = disc_id or "Língua Portuguesa e Filosofia"
             state["current_mode"] = "modo_acolhida"
             save_session_states()
             return "modo_acolhida", None, state
@@ -1609,14 +1605,14 @@ def get_system_prompt_for_mode(mode: str) -> str:
                 mode_instructions = f.read()
             return f"{base_persona}\n\n---\n\n{mode_instructions}"
             
-    # Fallback para o arquivo tradicional consolidado de prompt (prompt_prod.md ou prompt_lab.md)
+    # Fallback para o System Prompt Oficial Consolidado v2.0.0 (prompt_prod.md)
     with open(PROMPT_FILE, "r", encoding="utf-8") as f:
         return f.read()
 
 def get_system_prompt():
     return get_system_prompt_for_mode("modo_menu")
 
-print(f"[{'[LAB] MODO LABORATORIO (MODULAR)' if IS_LAB_ENV else '[PROD] MODO PRODUCAO'}] Inicializado com sucesso.")
+print("[PROD] Mob.me AI Tutor v2.0.0 (Codinome: 'Mob.me 6 Trilhas') inicializada com sucesso.")
 
 
 
@@ -2124,7 +2120,15 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                                 ex_src = top_src if top_src.endswith("-exercicios.md") else (top_src[:-3] + "-exercicios.md" if top_src.endswith(".md") else "")
                                 clean_rel = ex_src.replace("../../", "")
                                 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-                                for candidate in [os.path.join(project_root, clean_rel), ex_src, clean_rel, os.path.join("..", "..", clean_rel)]:
+                                candidate_paths = [os.path.join(project_root, clean_rel), ex_src, clean_rel, os.path.join("..", "..", clean_rel)]
+                                # Fallback: para capítulos do EM onde a lista de exercícios no mesmo diretório 'ebooks/' tem o slug do capítulo
+                                top_dir_rel = os.path.dirname(top_src.replace("../../", ""))
+                                abs_top_dir = os.path.join(project_root, top_dir_rel)
+                                if os.path.isdir(abs_top_dir):
+                                    for fname in os.listdir(abs_top_dir):
+                                        if fname.endswith("-exercicios.md"):
+                                            candidate_paths.append(os.path.join(abs_top_dir, fname))
+                                for candidate in candidate_paths:
                                     if candidate and os.path.exists(candidate):
                                         try:
                                             with open(candidate, "r", encoding="utf-8") as ef:
