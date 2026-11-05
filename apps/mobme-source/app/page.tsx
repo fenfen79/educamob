@@ -100,14 +100,38 @@ const sanitizeContent = (content: string) => {
     return `${el}_${converted}`;
   });
 
-  // 2.1. SEGMENTAÇÃO: Separar blocos matemáticos ($$...$$ e $...$) e código para que o auto-heal de texto
+  // 2.1. NORMALIZAÇÕES DE BLOCOS E PARÁGRAFOS NO TEXTO GLOBAL (ANTES DA SEGMENTAÇÃO MATH)
+  // Isso impede categoricamente que blocos como Objetivo, Checagem, Importante ou Pense assim sejam picotados no primeiro '$'
+
+  // A) Remove o jargão 'Microciclo' ou 'Miniciclo', promovendo o título limpo para ### [Título]
+  sanitized = sanitized.replace(/(?:^|\n)[ \t]*(?:###\s*)?(?:Microciclo|Miniciclo)\s*(?:\d+)?[\s:—–-]*([^\n]+)(?:\n|$)/gi, "\n\n### $1\n\n");
+
+  // B) Normaliza Objetivo de Aprendizagem isolando em parágrafo próprio
+  sanitized = sanitized.replace(/(?:^|\n)[ \t]*(?:\*\*)?Objetivo:(?:\*\*)?\s*([^\n]+)/gi, "\n\n**Objetivo:** $1\n\n");
+
+  // C) Normaliza Checagem de Compreensão isolando em parágrafo próprio
+  sanitized = sanitized.replace(/(?:^|\n)[ \t]*(?:\*\*)?Checagem:(?:\*\*)?\s*([^\n]+)/gi, "\n\n**Checagem:** $1\n\n");
+
+  // D) Normaliza Destaques Conceituais pedagógicos isolando em parágrafos próprios
+  sanitized = sanitized.replace(/(?:^|\n)[ \t]*(?:\*\*)?(Pense assim:|Em outras palavras:|Importante:|Atenção:|Dica:)(?:\*\*)?\s*([^\n]+)/gi, "\n\n$1 $2\n\n");
+
+  // E) Converte gabarito/resposta destacada em negrito no feedback para badge de confirmação (evita virar botão falso de quiz)
+  sanitized = sanitized.replace(/(?:^|\n)[ \t]*\*\*([a-eA-E][\)\.][^\n*]+)\*\*(?=\n|$)/g, "\n\n✅ **Gabarito:** $1\n\n");
+
+  // F) Remove divisórias '---' redundantes coladas antes de títulos ou checagens
+  sanitized = sanitized.replace(/\n\s*---\s*\n\s*(###|\*\*Checagem:|\*\*Objetivo:)/gi, "\n\n$1");
+
+  // G) Normaliza frases de fechamento/prompt do tutor
+  sanitized = sanitized.replace(/([^\n])\n(Qual caminho você prefere|Qual opção você prefere|Fica tranquilo|Aguardo sua resposta|Qual alternativa você acha)/gi, "$1\n\n$2");
+
+  // 2.2. SEGMENTAÇÃO: Separar blocos matemáticos ($$...$$ e $...$) e código para que o auto-heal químico
   // JAMAIS corrompa fórmulas LaTeX existentes (ex: S_0, t_0, frações e variáveis dentro de $$...$$)
   const tokenRegex = /(```[\s\S]*?```|\$\$[\s\S]*?\$\$|\$(?:\\.|[^\$\n])+\$)/g;
   const parts = sanitized.split(tokenRegex);
 
   for (let i = 0; i < parts.length; i++) {
     const part = parts[i];
-    // Se o fragmento for código ou bloco de matemática ($$...$$ ou $...$), PRESERVA 100% INTACTO (com auto-heal de chaves desbalanceadas em macros como \text{ mm$)
+    // Se o fragmento for código ou bloco de matemática ($$...$$ ou $...$), PRESERVA 100% INTACTO
     if (
       part.startsWith("```") ||
       part.startsWith("$$") ||
@@ -143,16 +167,12 @@ const sanitizeContent = (content: string) => {
     // C) Fórmulas químicas comuns conhecidas em negrito: **HI**, **HF**, **HCl**, **HBr**, **NaCl**, etc. -> $HI$, $HF$, etc.
     textPart = textPart.replace(/\*\*(H[IF]|HCl|HBr|HCN|NaCl|NaOH|KOH|KCl|CO_2|H_2O|NH_3|CH_4)\*\*/g, (m, f) => `$${f}$`);
 
-    // D) Fórmulas químicas soltas com subscrito com underscore fora de math (índices >= 1, nunca _0 que são variáveis de física/matemática como S_0, t_0)
-    // Ex: H_2S, H_2SO_4, Ca(OH)_2, Fe_2O_3 -> $H_2S$, $H_2SO_4$
+    // D) Fórmulas químicas soltas com subscrito com underscore fora de math
     textPart = textPart.replace(/(?<!\$|\w)([A-Z][a-z]?(?:\([A-Za-z]+\))?_[1-9]\d*(?:[A-Z][a-z]?(?:_[1-9]\d*)?|\([A-Za-z]+\)(?:_[1-9]\d*)?)*)(?!\$|\w)/g, (m, f) => `$${f}$`);
 
     // E) Quebra de alternativas de múltipla escolha para ficarem uma por linha
-    // Caso 1: quebra antes de 'a)' ou 'A)' se estiver grudado em texto introdutório
     textPart = textPart.replace(/([:?.\$!])[ \t]*([aA]\))(?=[ \t]+\S)/g, '$1\n\n$2');
     textPart = textPart.replace(/(respectivamente|abaixo|seguir)[ \t]*:?[ \t]*([aA]\))(?=[ \t]+\S)/gi, '$1:\n\n$2');
-
-    // Caso 2: quebra antes de b), c), d), e) (ou maiúsculas) se estiverem inline na mesma linha
     textPart = textPart.replace(/([^\n])[ \t]+([b-eB-E]\))(?=[ \t]+\S)/g, '$1\n\n$2');
 
     // Normaliza opções de menu em negrito: 1. **Aprender📚** -> 1. Aprender📚
@@ -170,22 +190,6 @@ const sanitizeContent = (content: string) => {
     textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*(?=(?:Aprender|Praticar|Flashcards|Resumo|Enviar quest|Finalizar))/gi, (match, num) => `\n\n${num}\uFE0F\u20E3 `);
     textPart = textPart.replace(/([^\n])\n?(([0-9]|10)\uFE0F?\u20E3)/g, "$1\n\n$2");
     textPart = textPart.replace(/(([0-9]|10)\uFE0F?\u20E3[^\n]+)\n([^\n0-9])/g, "$1\n\n$3");
-
-    // Normaliza títulos de Microciclos mesmo se vierem sem ### ou colados no texto
-    // Remove o jargão "Microciclo" ou "Miniciclo", promovendo o título limpo para ### [Título]
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:###\s*)?(?:Microciclo|Miniciclo)\s*(?:\d+)?[\s:—–-]*([^\n]+)(?:\n|$)/gi, "\n\n### $1\n\n");
-
-    // Normaliza Objetivo de Aprendizagem isolando em parágrafo próprio
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\*\*)?Objetivo:(?:\*\*)?\s*([^\n]+)/gi, "\n\n**Objetivo:** $1\n\n");
-
-    // Normaliza Checagem de Compreensão isolando em parágrafo próprio
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\*\*)?Checagem:(?:\*\*)?\s*([^\n]+)/gi, "\n\n**Checagem:** $1\n\n");
-
-    // Normaliza Destaques Conceituais pedagógicos isolando em parágrafos próprios
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\*\*)?(Pense assim:|Em outras palavras:|Importante:|Atenção:|Dica:)(?:\*\*)?\s*([^\n]+)/gi, "\n\n$1 $2\n\n");
-
-    // Normaliza frases de fechamento/prompt do tutor
-    textPart = textPart.replace(/([^\n])\n(Qual caminho você prefere|Qual opção você prefere|Fica tranquilo|Aguardo sua resposta|Qual alternativa você acha)/gi, "$1\n\n$2");
 
     // Isolamento defensivo de títulos Markdown (#, ##, ###, ####) com linhas em branco
     textPart = textPart.replace(/([^\n])\n(#{1,4}\s+[^\n]+)/g, "$1\n\n$2");
@@ -1437,6 +1441,23 @@ export default function ChatApp() {
         );
       }
 
+      // 0.2 Confirmação de Gabarito em Feedback (evita virar botão falso de quiz)
+      const isGabarito =
+        textStr.startsWith("✅") ||
+        textStr.toLowerCase().startsWith("gabarito:") ||
+        (Array.isArray(children) && children.length === 1 && React.isValidElement(children[0]) && (children[0] as any).type === "strong" && /^([a-eA-E])[\)\.]/.test(textStr));
+
+      if (isGabarito) {
+        return (
+          <div className="my-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-[var(--text-primary)] shadow-xs flex items-start gap-3">
+            <span className="text-xl select-none text-emerald-400">✅</span>
+            <div className="flex-1 font-medium text-[0.98rem] leading-relaxed">
+              {processChildren(children)}
+            </div>
+          </div>
+        );
+      }
+
       // 1. Alternativas de Múltipla Escolha: a), b), c), d), e)
       const altMatch = textStr.match(/^([a-eA-E])[\)\.][ \t]+/);
       if (altMatch) {
@@ -1635,6 +1656,9 @@ export default function ChatApp() {
       <h4 className="text-base font-semibold mt-4 mb-2 text-[var(--text-primary)]" {...props}>
         {processChildren(children)}
       </h4>
+    ),
+    hr: () => (
+      <hr className="my-7 border-0 h-px bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent" />
     ),
   };
 

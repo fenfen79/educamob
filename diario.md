@@ -4419,3 +4419,30 @@ esolve_active_mode_and_topic).
   4. **Deploy e Homologação:**
      - Recompilação Next.js (`npm run build`) com código 0 e exportação sincronizada para `apps/mobme/`.
      - Deploy realizado via SCP e Docker no container `mobme-api` na Oracle Cloud VPS (`137.131.163.113`).
+
+
+### [Rodada 52] - Correção Crítica de Formatação de LaTeX, Imunização contra Picotamento de Sentenças e Distinção de Gabarito em Feedbacks
+- **Data:** 05 de Novembro de 2026
+- **Status:** 🏆 100% Implementado, Recompilado, Sincronizado e Deploy em Produção (VPS + GitHub Pages)
+- **Diagnóstico e Resolução Técnica:**
+  1. **Rastreamento de Falhas na Conversa do Usuário (`nepovski@gmail.com` - Tabela Periódica):**
+     - Uma inspeção nos dados brutos das mensagens da sessão (`e7fc8d3a-90f7-4f83-b4e5-9fc7bd3d45ee`) identificou dois graves defeitos de renderização visual:
+       - **Picotamento de Frases em Fórmulas Matemáticas/Químicas ($Z$):** O sanitizador de Markdown executava substituições de bloco (`Objetivo:`, `Checagem:`, `Importante:`, `Pense assim:`) dentro do loop de fragmentos de texto gerado pelo `tokenRegex` de delimitadores matemáticos (`$...$`, `$$...$$`). Como o fragmento que antecedia `$Z$` terminava no início da fórmula, o regex casava `([^
+]+)` até o final do fragmento e injetava `
+
+` prematuramente, cortando orações ao meio, desbalanceando tags de negrito (`**`) e deixando parênteses pendentes.
+       - **Alternativa Explicativa Transformada em Botão Falso de Quiz:** Na Mensagem 6, a explicação do tutor continha `**c) A ordem crescente de número atômico ($Z$).**`. A função `getNodeText` removia a tag `**`, acionando o seletor `altMatch` e transformando a explicação em um botão clicável `[ C ]`, duplicando os botões na tela e confundindo o estudante.
+       - **Premissa Isolada Fora do Card de Checagem:** Perguntas de consolidação pós-erro vinham precedidas por frases de contexto soltas antes do marcador `**Checagem:**`.
+       - **Divisórias Redundantes:** Presença de réguas `---` imediatamente antes de cards de cabeçalho (`###`) ou checagem.
+  2. **Intervenções Estruturais no Frontend Next.js (`apps/mobme-source/app/page.tsx`):**
+     - **Normalização Global Antes da Tokenização Math:** As substituições de bloco (`Objetivo:`, `Checagem:`, `Pense assim:`, `Importante:`, etc.) foram movidas para a etapa global do texto, operando sobre o Markdown integral antes da divisão por delimitadores matemáticos. Fórmulas LaTeX inline e display mantêm-se 100% íntegras sem quebras espúrias.
+     - **Componente de Gabarito em Feedback (`isGabarito`):** Adicionada validação no componente `p` para identificar linhas destacadas em negrito com formato de alternativa (`<strong>c) ...</strong>`), prefixadas com `✅` ou `Gabarito:`. Em vez de botão de quiz, são renderizadas como cards visuais de confirmação com fundo verde esmeralda translúcido (`bg-emerald-500/10`) e ícone `✅`.
+     - **Supressão de Divisórias Conflitantes:** Regex remove `---` adjacentes a títulos e checagens, integrando um componente customizado `hr` com gradiente sutil.
+  3. **Intervenções no Backend e Prompts (`modo_aprender.md`, `prompt_prod.md`, `base_persona.md`):**
+     - Adicionada diretriz mandatória de feedback: ao explicar a resposta correta de uma checagem anterior, o modelo deve usar o formato explícito `**Gabarito: letra X (descrição curta da resposta)**`, evitando letras isoladas soltas.
+     - Mandato de premissa completa dentro do bloco `**Checagem:** [contexto + pergunta]` em qualquer nova verificação após erro.
+     - Expurgamento total do termo 'microciclo' em todos os arquivos de prompt (`base_persona.md`, `prompt_prod.md` e `modo_aprender.md`).
+  4. **Deploy e Homologação:**
+     - Build de produção Next.js executado com sucesso em Turbopack e sincronizado para `apps/mobme/`.
+     - Prompts atualizados e container `mobme-api` reiniciado no VPS da Oracle Cloud (`137.131.163.113`).
+     - Commit e push realizados para o branch `master`.
