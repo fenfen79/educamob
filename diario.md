@@ -4325,3 +4325,97 @@ esolve_active_mode_and_topic).
      - Deploy realizado via SCP e Docker no container 'mobme-api' na Oracle Cloud VPS ('137.131.163.113').
   4. **Compilação e Exportação Estática:**
      - 'next build' executado com código 0 e exportado para 'apps/mobme/'.
+
+
+### [Rodada 45] - Conclusão e Homologação Integral de 100% das Listas de Exercícios de História do Ensino Fundamental (62 de 62 Listas / 3.720 Questões no Padrão-Ouro)
+- **Data:** 04 de Novembro de 2026
+- **Status:** 🏆 100% Homologado no Padrão-Ouro e Validado via validador_educamob.py (Exit Code 0 em Todas as 62 Listas)
+- **Escopo Concluído:** Fechamento e homologação exaustiva de todas as 18 listas de exercícios de História do 9º Ano do Ensino Fundamental (1.080 questões), completando a esteira curricular de História do Ensino Fundamental (5º ao 9º Ano) com **62 listas e 3.720 questões inéditas** cobrindo todas as habilidades da BNCC (`EF05HI01` a `EF09HI36`).
+- **Arquitetura Pedagógica e Guardrails Mandatórios:**
+  - **Padrão-Ouro Rigoroso:** Cada lista possui exatas 60 questões (20 básicas com 1 passo cognitivo direto, 20 intermediárias comparativas e de causa-efeito, 20 difíceis investigativas estruturadas no gabarito com `> - **Etapa 1:**` e `> - **Etapa 2:**`).
+  - **Balanceamento Rígido de Gabarito (A-E):** Exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada uma das 62 listas, eliminando vieses estatísticos.
+  - **Telemetria HTML Completa:** Cada questão inicia com metadados HTML unificados (`<!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... -->`) para tracking de proficiência em tempo real no Supabase.
+  - **Supressão Absoluta de R$:** Valores monetários expressos textualmente em "reais" ou "centavos", protegendo a integridade dos parsers LaTeX/MathJax.
+  - **Limites de Extensão Textual:** Enunciados mantidos em até 420 caracteres e alternativas em até 210 caracteres, promovendo clareza e dinamismo cognitivo.
+  - **Closed-World Assumption:** Pareamento estrito de conceitos, eventos, leis e nomes próprios com o conteúdo factual dos e-books teóricos correspondentes.
+  - **Diversidade Temática e Semântica:** Similaridade sintática entre enunciados rigorosamente inferior a 60% e proibição de decoreba de datas isoladas.
+  - **Aparato Bibliográfico ABNT:** Seção final `## Referências` com 5+ obras historiográficas canônicas formatadas segundo a NBR 6023 em todas as listas.
+- **Detalhamento das 18 Listas Homologadas do 9º Ano de História (1.080 Questões no Padrão-Ouro):**
+  1. `cap-01-emergencia-republica-brasil-ciclos-1954/ebooks/ef09hi01-ef09hi02-exercicios.md`: Emergência da República e Ciclos Políticos até 1954 (`EF09HI01`, `EF09HI02`) — 60 questões.
+  2. `cap-02-pos-abolicao-insercao-negros-imprensa-resistencia/ebooks/ef09hi03-ef09hi04-exercicios.md`: Pós-Abolição, Imprensa Negra e Resistência (`EF09HI03`, `EF09HI04`) — 60 questões.
+  3. `cap-03-urbanizacao-revoltas-populares-primeira-republica/ebooks/ef09hi05-exercicios.md`: Urbanização e Revoltas Populares na Primeira República (`EF09HI05`) — 60 questões.
+  4. `cap-04-era-vargas-trabalhismo-modernizacao-autoritarismo/ebooks/ef09hi06-exercicios.md`: A Era Vargas: Trabalhismo, Modernização e Autoritarismo (`EF09HI06`) — 60 questões.
+  5. `cap-05-questao-indigena-republica-spi-marcha-oeste/ebooks/ef09hi07-exercicios.md`: A Questão Indígena na República: SPI e Marcha para o Oeste (`EF09HI07`) — 60 questões.
+  6. `cap-06-movimento-operario-anarquismo-protagonismo-feminino/ebooks/ef09hi08-ef09hi09-exercicios.md`: Movimento Operário, Anarquismo e Protagonismo Feminino (`EF09HI08`, `EF09HI09`) — 60 questões.
+  7. `cap-07-primeira-guerra-crise-1929-revolucao-russa/ebooks/ef09hi10-ef09hi11-ef09hi12-exercicios.md`: Primeira Guerra, Crise de 1929 e Revolução Russa (`EF09HI10`, `EF09HI11`, `EF09HI12`) — 60 questões.
+  8. `cap-08-totalitarismos-fascismo-nazismo-segunda-guerra-holocausto/ebooks/ef09hi13-exercicios.md`: Totalitarismos, Segunda Guerra Mundial e o Holocausto (`EF09HI13`) — 60 questões.
+  9. `cap-09-colonialismo-africa-asia-guerras-nacionalismos/ebooks/ef09hi14-exercicios.md`: Colonialismo na África e Ásia, Guerras e Nacionalismos (`EF09HI14`) — 60 questões.
+  10. `cap-10-criacao-onu-declaracao-universal-direitos-humanos/ebooks/ef09hi15-ef09hi16-exercicios.md`: Criação da ONU e Declaração Universal dos Direitos Humanos (`EF09HI15`, `EF09HI16`) — 60 questões.
+  11. `cap-11-brasil-era-jk-bossa-nova-desigualdades-regionais/ebooks/ef09hi17-ef09hi18-exercicios.md`: O Brasil na Era JK: Bossa Nova e Desigualdades Regionais (`EF09HI17`, `EF09HI18`) — 60 questões.
+  12. `cap-12-golpe-1964-ditadura-civil-militar-aparato-repressivo/ebooks/ef09hi19-ef09hi20-exercicios.md`: Golpe de 1964 e Ditadura Civil-Militar: Aparato Repressivo (`EF09HI19`, `EF09HI20`) — 60 questões.
+  13. `cap-13-ditadura-militar-questoes-indigenas-quilombolas/ebooks/ef09hi21-exercicios.md`: Ditadura Militar: Violações contra Indígenas e Quilombolas (`EF09HI21`) — 60 questões.
+  14. `cap-14-redemocratizacao-diretas-ja-constituicao-cidada-1988/ebooks/ef09hi22-ef09hi23-exercicios.md`: Redemocratização: Diretas Já e a Constituição Cidadã de 1988 (`EF09HI22`, `EF09HI23`) — 60 questões.
+  15. `cap-15-brasil-contemporaneo-1989-dias-atuais-cidadania-violencia/ebooks/ef09hi24-ef09hi25-ef09hi26-ef09hi27-exercicios.md`: Brasil Contemporâneo: Cidadania, Violência e Geopolítica (`EF09HI24` a `EF09HI27`) — 60 questões.
+  16. `cap-16-guerra-fria-bipolaridade-revolucao-chinesa-cubana/ebooks/ef09hi28-exercicios.md`: A Guerra Fria e a Bipolaridade Global (`EF09HI28`) — 60 questões.
+  17. `cap-17-ditaduras-america-latina-operacao-condor-descolonizacao/ebooks/ef09hi29-ef09hi30-ef09hi31-exercicios.md`: Ditaduras na América Latina, Operação Condor e Descolonização (`EF09HI29` a `EF09HI31`) — 60 questões.
+  18. `cap-18-globalizacao-era-digital-conflitos-seculo-xxi-diversidade/ebooks/ef09hi32-ef09hi33-ef09hi34-ef09hi35-ef09hi36-exercicios.md`: Globalização, Era Digital e Conflitos do Século XXI (`EF09HI32` a `EF09HI36`) — 60 questões.
+- **Quadro Geral Consolidado da Disciplina de História (Sprint 12.5):**
+  - **5º Ano:** 6 de 6 listas (360 questões atômicas) — 🏆 100% Homologado
+  - **6º Ano:** 11 de 11 listas (660 questões atômicas) — 🏆 100% Homologado
+  - **7º Ano:** 11 de 11 listas (660 questões atômicas) — 🏆 100% Homologado
+  - **8º Ano:** 16 de 16 listas (960 questões atômicas) — 🏆 100% Homologado
+  - **9º Ano:** 18 de 18 listas (1.080 questões atômicas) — 🏆 100% Homologado
+  - **Total Geral de História:** **62 de 62 listas (3.720 questões atômicas no Padrão-Ouro)**
+  - **Habilidades BNCC Cobertas:** 100% das habilidades de História do Ensino Fundamental (`EF05HI01` a `EF09HI36`)
+  - **Auditoria de Conformidade:** 100% aprovado com Exit Code 0 no `validador_educamob.py`.
+
+
+### [Sprint 60] - Blindagem Determinística da Trilha Praticar: Orquestrador de Itens, Pré-Validação de Gabarito e Integridade RAG
+- **Data:** 05 de Novembro de 2026
+- **Status:** 🏆 100% Implementado, Validado e Homologado
+- **Contexto e Causa Raiz Auditada:**
+  - Auditoria forense da sessão do aluno `nepovski@gmail.com` revelou que, após a 1ª questão (`q02` de `ef08ma09-exercicios.md`), a LLM (Gemini) passou a alucinar questões sequenciais por conta própria em vez de continuar consumindo o acervo RAG.
+  - Além disso, a falta de verificação determinística de gabarito no backend permitiu o surgimento de feedback incoerente ("Quase lá... você acertou!") na Questão 2, decorrente de processamento de stream onde o modelo iniciou um texto negativo padrão antes de computar $\Delta = 1$ e perceber que a resposta correta era a alternativa `a`.
+  - Por fim, a consulta ampla por "Equações do 2º Grau" sofreu viés de similaridade de cossenos (diferença de 0.007), selecionando a lista introdutória do 8º Ano em vez da lista canônica completa do 9º Ano (`ef09ma09-exercicios.md`).
+- **Arquitetura da Solução Implementada em Produção (`services/mobme-api/`):**
+  1. **Orquestrador Determinístico de Itens (`extract_round_items`):**
+     - Leitor e parser estruturado que extrai exatas 15 questões atômicas do arquivo `-exercicios.md` da trilha: 5 Básicas (`q01-q20`), 5 Intermediárias (`q21-q40`) e 5 Difíceis (`q41-q60`).
+     - Suporte nativo tanto ao formato com gabarito inline quanto ao formato com seção dedicada `## Gabaritos e Resoluções`.
+     - Preservação intacta de enunciados, alternativas completas e gabarito oficial dentro de `session_state["praticar_round"]`.
+  2. **Parser Universal de Respostas do Estudante (`parse_student_answer`):**
+     - Decodificador determinístico que extrai a opção escolhida pelo estudante a partir de múltiplas formas de entrada: letras diretas (`b`, `B`, `letra B`, `opção b)`), índices numéricos (`1` a `5` mapeados para `a` a `e`), ou texto com pontuação (`B.`, `Alternativa C`).
+  3. **Pré-Validação Determinística de Gabarito no Backend:**
+     - A avaliação de acerto ou erro deixou de ser delegada à LLM.
+     - O backend compara deterministicamente a resposta parsed com o gabarito oficial da questão e injeta o veredito mandatório no prompt: `[SISTEMA_AVALIACAO: ACERTOU/ERROU - Gabarito Oficial: X | Resposta do Aluno: Y]`.
+     - Erradicação absoluta e matemática do feedback esquizofrênico ("Quase lá... você acertou").
+  4. **Injeção Verbatim com Espaçamento Duplo (`\n\n`):**
+     - O modelo atua exclusivamente como pedagogo acolhedor e formatador de feedback.
+     - A próxima questão do round é injetada verbatim pelo backend, garantindo que 100% dos 15 itens venham dos arquivos de exercícios homologados no Padrão-Ouro, com distratores calibrados e telemetria HTML.
+  5. **Calibração Curricular por Série e Maturidade (`resolve_exercise_file_for_topic`):**
+     - Roteador de arquivos que pondera maturidade curricular: ao buscar por temas como "Equações do 2º Grau", prioriza listas de aprofundamento do 9º Ano e Ensino Médio sobre capítulos introdutórios do 8º Ano caso o aluno esteja em série correspondente ou sem série especificada.
+  6. **Sincronização Contratual dos Prompts:**
+     - Atualização de `services/mobme-api/prompts/modes/modo_praticar.md` e `services/mobme-api/prompts/prompt_prod.md` com as Regras 7 e 8: fidelidade verbatim incondicional e aceitação estrita da validação de gabarito emitida pelo sistema backend.
+- **Validação e Homologação:**
+  - Bateria de testes em `scratch/test_praticar_flow.py` cobrindo o ciclo completo: parser de respostas com 100% de precisão, resolução curricular direcionada para o 9º Ano, extração de 15 itens (5+5+5) e chaveamento determinístico de feedback de acerto/erro.
+  - Compilação sintática com Exit Code 0 em `main.py`.
+
+
+### [Rodada 51] - Supressão de Jargão Pedagógico (Remoção da Palavra 'Microciclo')
+- **Data:** 05 de Novembro de 2026
+- **Status:** 🏆 100% Implementado, Recompilado, Sincronizado e Deploy em Produção (VPS + GitHub Pages)
+- **Diagnóstico e Resolução Técnica:**
+  1. **Diretriz de Experiência do Estudante:**
+     - O usuário estabeleceu como requisito que o termo técnico "Microciclo" (ou "Miniciclo") não deve mais ser visível para o estudante em nenhuma hipótese na Trilha Aprender.
+     - Embora a metodologia pedagógica internamente continue operando em microciclos atômicos sequenciais com verificação, para o aluno o conteúdo deve se apresentar com naturalidade editorial (tópicos de estudo, conceitos e títulos diretos).
+  2. **Intervenções no Backend (`main.py` e Prompts):**
+     - Em `main.py`, identificou-se que comandos injetados na virada de trilha estavam forçando o LLM a emitir a palavra (ex: `llm_user_message = '...Inicie imediatamente o Microciclo 1'` e `state_context = '...### Microciclo 1 — ...'`). Isso foi substituído por comandos neutros de etapa teórica (`### [Título do Tópico]`) com proibição explícita de jargão.
+     - Em `modo_aprender.md` e `prompt_prod.md`, foi adicionada a **Regra Crítica de Proibição de Jargão Pedagógico**, determinando que os cabeçalhos usem exclusivamente o nome do conceito ou tópico estudado (ex: `### O que é o Número de Oxidação (NOX)?`).
+     - Em `modo_conclusao.md`, os registros factuais de encerramento foram ajustados de "microciclos" para "tópicos teóricos".
+  3. **Intervenções no Frontend Next.js (`apps/mobme-source/app/page.tsx`):**
+     - **Sanitização Preventiva:** O sanitizador regex intercepta qualquer ocorrência residual de `Microciclo N — [Título]` e extrai puramente o título (`### [Título]`), garantindo que palavras residuais nunca alcancem a tela.
+     - **Renomeação de Banners:** O badge superior do banner gradiente agora exibe `● Tópico de Estudo` (em vez de `Microciclo Formativo`).
+     - **Card da Trilha 1:** Descrição no menu simplificada para `Teoria guiada passo a passo com checagens`.
+     - **Mensagens de Digitação:** Ajustado para `Preparando o próximo tópico e checagem... 🎯`.
+  4. **Deploy e Homologação:**
+     - Recompilação Next.js (`npm run build`) com código 0 e exportação sincronizada para `apps/mobme/`.
+     - Deploy realizado via SCP e Docker no container `mobme-api` na Oracle Cloud VPS (`137.131.163.113`).

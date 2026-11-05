@@ -172,7 +172,8 @@ const sanitizeContent = (content: string) => {
     textPart = textPart.replace(/(([0-9]|10)\uFE0F?\u20E3[^\n]+)\n([^\n0-9])/g, "$1\n\n$3");
 
     // Normaliza títulos de Microciclos mesmo se vierem sem ### ou colados no texto
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:###\s*)?(Microciclo\s+\d+[^:\n]*)(?:\n|$)/gi, "\n\n### $1\n\n");
+    // Remove o jargão "Microciclo" ou "Miniciclo", promovendo o título limpo para ### [Título]
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:###\s*)?(?:Microciclo|Miniciclo)\s*(?:\d+)?[\s:—–-]*([^\n]+)(?:\n|$)/gi, "\n\n### $1\n\n");
 
     // Normaliza Objetivo de Aprendizagem isolando em parágrafo próprio
     textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\*\*)?Objetivo:(?:\*\*)?\s*([^\n]+)/gi, "\n\n**Objetivo:** $1\n\n");
@@ -369,6 +370,9 @@ const isWidescreenContent = (text: string) => {
   // Detecção de Teoria, Microciclos e E-books (sempre em tela ampla widescreen para leitura confortável)
   const isTeoria = 
     lower.includes("microciclo") ||
+    lower.includes("miniciclo") ||
+    lower.includes("tópico") ||
+    lower.includes("topico") ||
     lower.includes("objetivo:") ||
     lower.includes("checagem:") ||
     lower.includes("conexão com o mundo real") ||
@@ -396,7 +400,7 @@ const isWidescreenContent = (text: string) => {
 const LOADING_MESSAGES: Record<string, string[]> = {
   teoria: [
     "Consultando o acervo homologado da Educamob... 📚",
-    "Preparando o próximo microciclo e checagem... 🎯"
+    "Preparando o próximo tópico e checagem... 🎯"
   ],
   flashcards: [
     "Preparando os cartões de recuperação ativa... 🃏",
@@ -1374,7 +1378,7 @@ export default function ChatApp() {
       if (trilhaMatch) {
         const num = trilhaMatch[1];
         const trilhaInfoMap: Record<string, { title: string; emoji: string; desc: string; cmd: string }> = {
-          "1": { title: "Aprender", emoji: "📚", desc: "Teoria guiada em microciclos passo a passo", cmd: "1" },
+          "1": { title: "Aprender", emoji: "📚", desc: "Teoria guiada passo a passo com checagens", cmd: "1" },
           "2": { title: "Praticar", emoji: "📝", desc: "Lista de exercícios graduados com gabarito oficial", cmd: "2" },
           "3": { title: "Flashcards", emoji: "🃏", desc: "Fixação ativa e repetição espaçada", cmd: "3" },
           "4": { title: "Resumo", emoji: "🧠", desc: "Síntese dos conceitos-chave e mapa mental", cmd: "4" },
@@ -1416,17 +1420,18 @@ export default function ChatApp() {
         );
       }
 
-      // 0.1 Fallback para Título de Microciclo se vier encapsulado em parágrafo <p>
-      const microMatch = textStr.match(/^(?:###\s*)?Microciclo\s+(\d+)[\s:—–-]+(.*)/i);
-      if (microMatch) {
+      // 0.1 Fallback para Título de Tópico se vier encapsulado em parágrafo <p>
+      const topicMatch = textStr.match(/^(?:###\s*)?(?:Microciclo|Miniciclo)\s*(?:\d+)?[\s:—–-]+(.*)/i);
+      if (topicMatch) {
+        const cleanTitle = topicMatch[1].trim();
         return (
           <div className="mt-8 mb-6 p-4 md:p-5 rounded-2xl bg-gradient-to-r from-[var(--accent-primary-light)] via-[var(--bg-elevated)] to-transparent border border-[var(--accent-primary)]/25 border-l-4 border-l-[var(--accent-primary)] shadow-sm w-full">
             <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[var(--accent-primary)] mb-1.5">
               <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-pulse inline-block" />
-              <span>Microciclo Formativo {microMatch[1]}</span>
+              <span>Tópico de Estudo</span>
             </div>
             <h3 className="text-xl md:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-snug m-0 p-0 border-0 bg-transparent">
-              {microMatch[2] || processChildren(children)}
+              {cleanTitle}
             </h3>
           </div>
         );
@@ -1612,26 +1617,18 @@ export default function ChatApp() {
     ),
     h3: ({ node, children, ...props }: any) => {
       const headingText = getNodeText(children).trim();
-      const isMicrociclo = headingText.toLowerCase().includes("microciclo");
-
-      if (isMicrociclo) {
-        return (
-          <div className="mt-8 mb-6 p-4 md:p-5 rounded-2xl bg-gradient-to-r from-[var(--accent-primary-light)] via-[var(--bg-elevated)] to-transparent border border-[var(--accent-primary)]/25 border-l-4 border-l-[var(--accent-primary)] shadow-sm w-full">
-            <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[var(--accent-primary)] mb-1.5">
-              <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-pulse inline-block" />
-              <span>Microciclo Formativo</span>
-            </div>
-            <h3 className="text-xl md:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-snug m-0 p-0 border-0 bg-transparent" {...props}>
-              {processChildren(children)}
-            </h3>
-          </div>
-        );
-      }
+      const cleanTitle = headingText.replace(/^(?:microciclo|miniciclo)\s*(?:\d+)?[\s:—–-]+/i, "");
 
       return (
-        <h3 className="text-lg md:text-xl font-bold mt-7 mb-3.5 text-[var(--accent-primary)] flex items-center gap-2.5 bg-[var(--accent-primary-light)] px-4 py-2.5 rounded-xl border-l-4 border-[var(--accent-primary)] w-full shadow-sm leading-snug" {...props}>
-          {processChildren(children)}
-        </h3>
+        <div className="mt-8 mb-6 p-4 md:p-5 rounded-2xl bg-gradient-to-r from-[var(--accent-primary-light)] via-[var(--bg-elevated)] to-transparent border border-[var(--accent-primary)]/25 border-l-4 border-l-[var(--accent-primary)] shadow-sm w-full">
+          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[var(--accent-primary)] mb-1.5">
+            <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-pulse inline-block" />
+            <span>Tópico de Estudo</span>
+          </div>
+          <h3 className="text-xl md:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-snug m-0 p-0 border-0 bg-transparent" {...props}>
+            {cleanTitle || processChildren(children)}
+          </h3>
+        </div>
       );
     },
     h4: ({ node, children, ...props }: any) => (

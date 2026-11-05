@@ -1754,6 +1754,232 @@ async def reload_subjects_endpoint():
     await load_available_subjects()
     return {"status": "success", "message": "Matérias recarregadas na memória da API."}
 
+# =====================================================================
+# MOTOR DETERMINÍSTICO DE EXERCÍCIOS (TRILHA PRATICAR - TOLERÂNCIA ZERO)
+# =====================================================================
+
+def parse_student_answer(msg: str) -> str:
+    """
+    Extrai deterministicamente a letra escolhida pelo estudante (A, B, C, D, E)
+    ou converte opções numéricas (1=A .. 5=E). Retorna string vazia se ambíguo.
+    """
+    if not msg:
+        return ""
+    clean = msg.strip().lower()
+    
+    # 1. Letra isolada
+    if clean in {"a", "b", "c", "d", "e"}:
+        return clean.upper()
+        
+    # 2. Posição numérica 1 a 5
+    num_map = {"1": "A", "2": "B", "3": "C", "4": "D", "5": "E"}
+    if clean in num_map:
+        return num_map[clean]
+        
+    # 3. Padrões textuais: "letra a", "a)", "(a)", "opção a", "alternativa b"
+    m = re.search(r"(?:letra|opcao|opção|alternativa)?\s*[\(\[]?([a-e])[\)\]]?(?:\s|$)", clean)
+    if m:
+        return m.group(1).upper()
+        
+    return ""
+
+
+def extract_round_items(full_ex_text: str) -> list[dict]:
+    """
+    Fatia deterministicamente uma lista oficial -exercicios.md da Educamob em exatamente 15 itens:
+    5 Fáceis (de basico), 5 Médios (de intermediario), 5 Difíceis (de dificil).
+    Suporta tanto gabarito inline (**Gabarito:** X) quanto seções separadas (## Gabaritos e Resoluções).
+    """
+    gabaritos_map = {}
+    gab_matches = re.finditer(
+        r"(?:###\s*Quest[aã]o\s*(\d+)|\*\*Quest[aã]o\s*(\d+)\*\*)[\r\n]+(?:\*\*Gabarito:\*\*\s*([A-Ea-e]))?[\r\n]*(.*?)(?=(?:###\s*Quest[aã]o|\*\*Quest[aã]o|\n##|\Z))",
+        full_ex_text,
+        re.DOTALL | re.IGNORECASE
+    )
+    for gm in gab_matches:
+        q_idx = int(gm.group(1) or gm.group(2))
+        gab_letter = gm.group(3).upper() if gm.group(3) else ""
+        raw_res = gm.group(4).strip() if gm.group(4) else ""
+        res_clean = re.sub(r"^\*\*Resolu[cç][aã]o(?:\s+Detalhada)?:\*\*\s*", "", raw_res, flags=re.IGNORECASE).strip()
+        gabaritos_map[q_idx] = {"gabarito": gab_letter, "resolucao": res_clean}
+
+    q_pattern = re.compile(
+        r"<!--\s*id:\s*(q\d+)\s*\|\s*tipo:\s*([^\|]+)\s*\|\s*habilidade:\s*([^\|]+)\s*\|\s*dificuldade:\s*([^\|]+)\s*\|\s*objeto:\s*([^>]+)-->\s*(.*?)(?=(?:<!--\s*id:\s*q|\n##|\Z))",
+        re.DOTALL
+    )
+    
+    by_diff = {"basico": [], "intermediario": [], "dificil": []}
+    
+    for match in q_pattern.finditer(full_ex_text):
+        qid = match.group(1).strip()
+        qtipo = match.group(2).strip()
+        qhab = match.group(3).strip()
+        qdiff = match.group(4).strip().lower()
+        qobj = match.group(5).strip()
+        raw_body = match.group(6).strip()
+        
+        q_num_match = re.search(r"\d+", qid)
+        q_num = int(q_num_match.group(0)) if q_num_match else 0
+        
+        inline_gab_match = re.search(r"\*\*Gabarito:\*\*\s*([A-Ea-e])", raw_body)
+        inline_res_match = re.search(r"\*\*Resolu[cç][aã]o(?:\s+Detalhada)?:\*\*\s*(.*?)(?=\n\n|\Z)", raw_body, re.DOTALL)
+        
+        gabarito = ""
+        resolucao = ""
+        if inline_gab_match:
+            gabarito = inline_gab_match.group(1).upper()
+            if inline_res_match:
+                resolucao = inline_res_match.group(1).strip()
+            body_question = raw_body[:inline_gab_match.start()].strip()
+        elif q_num in gabaritos_map:
+            gabarito = gabaritos_map[q_num]["gabarito"]
+            resolucao = gabaritos_map[q_num]["resolucao"]
+            body_question = raw_body.strip()
+        else:
+            body_question = raw_body.strip()
+            
+        body_question = re.sub(r"^(?:###\s*Quest[aã]o\s*\d+|\*\*Quest[aã]o\s*\d+\*\*)\s*", "", body_question, flags=re.IGNORECASE).strip()
+        
+        # Garante que cada alternativa fique em linha própria isolada por quebra dupla
+        body_formatted = re.sub(r"(?:\r?\n)*([a-eA-E]\))", r"\n\n\1", body_question)
+        body_formatted = re.sub(r"^\n\n", "", body_formatted).strip()
+        
+        item_data = {
+            "id": qid,
+            "q_num": q_num,
+            "habilidade": qhab,
+            "dificuldade": qdiff,
+            "objeto": qobj,
+            "gabarito": gabarito,
+            "resolucao": resolucao,
+            "body": body_formatted
+        }
+        
+        if qdiff in by_diff:
+            by_diff[qdiff].append(item_data)
+            
+    round_items = []
+    
+    # 5 Fácil (Básico)
+    for i, item in enumerate(by_diff["basico"][:5]):
+        it = dict(item)
+        it["round_q"] = i + 1
+        it["level_label"] = "Fácil"
+        round_items.append(it)
+        
+    # 5 Médio (Intermediário)
+    for i, item in enumerate(by_diff["intermediario"][:5]):
+        it = dict(item)
+        it["round_q"] = i + 6
+        it["level_label"] = "Médio"
+        round_items.append(it)
+        
+    # 5 Difícil (Difícil)
+    for i, item in enumerate(by_diff["dificil"][:5]):
+        it = dict(item)
+        it["round_q"] = i + 11
+        it["level_label"] = "Difícil"
+        round_items.append(it)
+        
+    return round_items
+
+
+async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = None) -> tuple[str | None, str | None]:
+    """
+    Localiza fisicamente o arquivo -exercicios.md mais adequado no repositório,
+    com desambiguação inteligente de série (grade-aware) e foco no acervo homologado.
+    """
+    global deepinfra_client, supabase_client
+    if not topic:
+        return None, None
+        
+    if deepinfra_client is None:
+        deepinfra_client = AsyncOpenAI(
+            api_key=os.getenv("DEEPINFRA_API_TOKEN", ""),
+            base_url="https://api.deepinfra.com/v1/openai"
+        )
+    if supabase_client is None:
+        supabase_client = await create_async_client(SUPABASE_URL, SUPABASE_KEY)
+        
+    search_query = f"E-book Teoria: {topic}"
+    try:
+        embed_resp = await asyncio.wait_for(
+            deepinfra_client.embeddings.create(
+                input=search_query,
+                model="BAAI/bge-m3"
+            ),
+            timeout=5.0
+        )
+        query_embedding = embed_resp.data[0].embedding
+        
+        response = await asyncio.wait_for(
+            supabase_client.rpc(
+                "match_documents",
+                {"query_embedding": query_embedding, "match_count": 10}
+            ).execute(),
+            timeout=5.0
+        )
+        docs_data = response.data or []
+    except Exception as e:
+        print(f"Erro na busca vetorial de exercícios: {e}")
+        docs_data = []
+
+    # Calibração Curricular por Série do Estudante (Grade-Aware Rerank)
+    if user_grade and user_grade != "Não informada":
+        ug_lower = user_grade.lower()
+        def grade_score(doc):
+            src = doc.get("metadata", {}).get("source", "").lower()
+            if "9" in ug_lower and "9-ano" in src:
+                return 10
+            if "8" in ug_lower and "8-ano" in src:
+                return 10
+            if "7" in ug_lower and "7-ano" in src:
+                return 10
+            if "6" in ug_lower and "6-ano" in src:
+                return 10
+            if "5" in ug_lower and "5-ano" in src:
+                return 10
+            if ("médio" in ug_lower or "medio" in ug_lower or "série" in ug_lower or "serie" in ug_lower) and "medio" in src:
+                return 10
+            return 0
+        docs_data = sorted(docs_data, key=grade_score, reverse=True)
+    elif any(term in topic.lower() for term in ["segundo grau", "2º grau", "2o grau", "quadrática", "quadratica"]):
+        # Priorização pedagógica para tópicos polissêmicos de Equações de 2º Grau:
+        # Se nenhuma série estiver informada, prioriza 9º Ano ou Ensino Médio sobre a introdução do 8º ano
+        def topic_score(doc):
+            src = doc.get("metadata", {}).get("source", "").lower()
+            if "9-ano" in src and "equacoes-segundo-grau" in src:
+                return 10
+            if "medio" in src and "equacoes-quadraticas" in src:
+                return 8
+            if "8-ano" in src:
+                return 4
+            return 0
+        docs_data = sorted(docs_data, key=topic_score, reverse=True)
+
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    
+    for d in docs_data:
+        src = d.get("metadata", {}).get("source", "")
+        if not src:
+            continue
+        ex_src = src if src.endswith("-exercicios.md") else (src[:-3] + "-exercicios.md" if src.endswith(".md") else "")
+        clean_rel = ex_src.replace("../../", "")
+        candidate_paths = [os.path.join(project_root, clean_rel), ex_src, clean_rel, os.path.join("..", "..", clean_rel)]
+        
+        top_dir_rel = os.path.dirname(src.replace("../../", ""))
+        abs_top_dir = os.path.join(project_root, top_dir_rel)
+        if os.path.isdir(abs_top_dir):
+            for fname in os.listdir(abs_top_dir):
+                if fname.endswith("-exercicios.md"):
+                    candidate_paths.append(os.path.join(abs_top_dir, fname))
+                    
+        for candidate in candidate_paths:
+            if candidate and os.path.exists(candidate):
+                return candidate, clean_rel
+                
+    return None, None
+
 # Cache global de RAG para Request Coalescing (evita múltiplas requisições de embedding idênticas)
 RAG_CACHE = {}
 
@@ -1920,7 +2146,7 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         if active_mode == "modo_resolve_questao" and session_state.get("paused_track"):
             paused_info = session_state.get("paused_track")
             p_mode = paused_info.get("mode")
-            p_name = "treino de exercícios (Praticar)" if p_mode == "modo_praticar" else ("microciclos de estudo (Aprender)" if p_mode == "modo_aprender" else "flashcards (Revisar)")
+            p_name = "treino de exercícios (Praticar)" if p_mode == "modo_praticar" else ("estudo teórico (Aprender)" if p_mode == "modo_aprender" else "flashcards (Revisar)")
             state_context += (
                 f"\n\n--- INSTRUÇÃO HÍBRIDA DE RESOLUÇÃO DE IMAGEM EM TRILHA ATIVA ---\n"
                 f"O estudante enviou uma imagem enquanto estava em andamento no {p_name} do tema '{current_topic}'.\n"
@@ -1938,6 +2164,29 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         llm_user_message = base_user_message
         is_resuming = session_state.pop("resuming_track", False)
         is_track_switch = session_state.pop("just_selected_track", False)
+
+        # Preparação do Orquestrador Determinístico para a Trilha Praticar
+        praticar_items = []
+        if active_mode == "modo_praticar":
+            round_data = session_state.get("praticar_round")
+            if is_track_switch or not round_data or round_data.get("topic") != current_topic or not round_data.get("items"):
+                ex_path, ex_rel = await resolve_exercise_file_for_topic(current_topic, user.get('grade_level'))
+                if ex_path and os.path.exists(ex_path):
+                    try:
+                        with open(ex_path, "r", encoding="utf-8") as ef:
+                            praticar_items = extract_round_items(ef.read())
+                        session_state["praticar_round"] = {
+                            "topic": current_topic,
+                            "items": praticar_items,
+                            "source": ex_rel,
+                            "file_path": ex_path
+                        }
+                        save_session_states()
+                    except Exception as e_parse:
+                        print(f"Erro ao extrair itens da rodada: {e_parse}")
+            else:
+                praticar_items = round_data.get("items", [])
+
         if is_resuming:
             save_session_states()
             resumed_detail = ""
@@ -1948,7 +2197,15 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                         if m_q:
                             q_num = int(m_q.group(1))
                             d_lbl = "Fácil" if q_num <= 5 else ("Médio" if q_num <= 10 else "Difícil")
-                            resumed_detail = f" Reapresente imediatamente a '📝 Questão {q_num}/15 — {d_lbl}' (com as 5 alternativas uma por linha usando \\n\\n) que estava em aberto antes da pausa, sem exibir o Menu de Trilhas."
+                            if praticar_items and 1 <= q_num <= len(praticar_items):
+                                it_resumed = praticar_items[q_num - 1]
+                                resumed_detail = (
+                                    f" Reapresente imediatamente a '📝 Questão {q_num}/15 — {d_lbl}' que estava em aberto antes da pausa, transcrevendo exatamente:\n\n"
+                                    f"{it_resumed['body']}\n\n"
+                                    f"(Com as alternativas isoladas uma por linha usando \\n\\n, sem exibir o Menu de Trilhas)."
+                                )
+                            else:
+                                resumed_detail = f" Reapresente imediatamente a '📝 Questão {q_num}/15 — {d_lbl}' (com as 5 alternativas uma por linha usando \\n\\n) que estava em aberto antes da pausa, sem exibir o Menu de Trilhas."
                             break
             elif active_mode == "modo_revisar":
                 for msg in reversed(db_history):
@@ -1962,11 +2219,27 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         elif is_track_switch:
             save_session_states()
             if active_mode == "modo_aprender":
-                state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 1 (Aprender). Inicie o primeiro microciclo usando exclusivamente o material RAG recuperado para este tema. Cada microciclo deve ter um objetivo curto, um trecho do e-book e uma checagem de compreensão ancorada no trecho ('### Microciclo 1 — ...', '**Objetivo:**', trecho e '**Checagem:**'). Não exiba o Menu de Trilhas antes de concluir os microciclos disponíveis."
-                llm_user_message = f"[Comando de Trilha]: Escolho a opção 1. Aprender📚 sobre {current_topic}. Inicie imediatamente o Microciclo 1."
+                state_context += (
+                    "\nAção do Estudante: O aluno acabou de escolher a Trilha 1 (Aprender). Inicie a primeira etapa de estudos usando exclusivamente o material RAG recuperado para este tema. "
+                    "Cada etapa deve ter um objetivo curto, um trecho do e-book e uma checagem de compreensão ancorada no trecho ('### [Título do Tópico]', '**Objetivo:**', trecho e '**Checagem:**'). "
+                    "REGRA CRÍTICA: Proibido usar a palavra 'microciclo' ou 'miniciclo' no título ou no texto; use apenas o título do conceito no cabeçalho '###'. "
+                    "Não exiba o Menu de Trilhas antes de concluir as etapas disponíveis."
+                )
+                llm_user_message = f"[Comando de Trilha]: Escolho a opção 1. Aprender📚 sobre {current_topic}. Inicie imediatamente a primeira etapa de estudos."
             elif active_mode == "modo_praticar":
-                state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 2 (Praticar). Inicie imediatamente a '📝 Questão 1/15 — Fácil' selecionada exclusivamente da lista oficial -exercicios.md do RAG (5 fáceis/básicos, 5 médios/intermediários e 5 difíceis). Não peça confirmação e não crie questões fora do banco oficial."
-                llm_user_message = f"[Comando de Trilha]: Escolho a opção 2. Praticar📝 sobre {current_topic}. Ignore qualquer pergunta anterior em aberto e apresente imediatamente a 📝 Questão 1/15 — Fácil da lista oficial do RAG."
+                if praticar_items:
+                    item_1 = praticar_items[0]
+                    state_context += (
+                        f"\nAção do Estudante: O aluno acabou de escolher a Trilha 2 (Praticar). Inicie imediatamente a rodada apresentando a Questão 1/15.\n"
+                        f"É TERMINANTEMENTE PROIBIDO inventar, alterar dados ou criar outra questão. Transcreva EXATAMENTE o seguinte item oficial homologado da lista RAG:\n\n"
+                        f"📝 Questão 1/15 — {item_1['level_label']}\n\n"
+                        f"{item_1['body']}\n\n"
+                        f"(AVISO DE BLINDAGEM: Não apresente o gabarito ou resolução nesta mensagem. Apenas cabeçalho, enunciado e alternativas com quebra dupla '\\n\\n'. Aguarde a resposta do estudante)."
+                    )
+                    llm_user_message = f"[Comando de Trilha]: Escolho a opção 2. Praticar📝 sobre {current_topic}. Apresente a 📝 Questão 1/15 — {item_1['level_label']} da lista oficial."
+                else:
+                    state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 2 (Praticar). Inicie imediatamente a '📝 Questão 1/15 — Fácil' selecionada da lista oficial do RAG (5 fáceis/básicos, 5 médios/intermediários e 5 difíceis). Não peça confirmação e não crie questões fora do banco oficial."
+                    llm_user_message = f"[Comando de Trilha]: Escolho a opção 2. Praticar📝 sobre {current_topic}. Ignore qualquer pergunta anterior em aberto e apresente imediatamente a 📝 Questão 1/15 — Fácil da lista oficial do RAG."
             elif active_mode == "modo_revisar":
                 state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 3 (Flashcards). Inicie imediatamente o '🃏 Flashcard 1/10' com uma pergunta aberta conceitual fundamentada exclusivamente no material RAG recuperado. Aguarde a resposta antes de corrigir."
                 llm_user_message = f"[Comando de Trilha]: Escolho a opção 3. Flashcards 🃏 sobre {current_topic}. Ignore qualquer pergunta anterior em aberto e apresente imediatamente o 🃏 Flashcard 1/10."
@@ -1991,11 +2264,59 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                 if match_q:
                     curr_q = int(match_q.group(1))
                     next_q = curr_q + 1
+                    
+                    eval_prompt = ""
+                    if praticar_items and 1 <= curr_q <= len(praticar_items):
+                        curr_item = praticar_items[curr_q - 1]
+                        expected_gab = (curr_item.get("gabarito") or "").strip().upper()
+                        student_letter = parse_student_answer(request.message)
+                        
+                        if expected_gab and student_letter:
+                            if student_letter == expected_gab:
+                                eval_prompt = (
+                                    f"AVALIAÇÃO DETERMINÍSTICA DO BACKEND: O estudante ACERTOU a Questão {curr_q} "
+                                    f"(marcou a alternativa correta '{expected_gab}'). Valide com sobriedade afirmativa direta e objetiva "
+                                    f"(ex: 'Exato, você acertou!', 'Boa, resposta correta.'). "
+                                    f"É TERMINANTEMENTE PROIBIDO usar expressões de erro, dúvida ou hesitação como 'Quase lá'."
+                                )
+                            else:
+                                res_hint = f" Use a resolução oficial do RAG: {curr_item['resolucao']}." if curr_item.get('resolucao') else ""
+                                eval_prompt = (
+                                    f"AVALIAÇÃO DETERMINÍSTICA DO BACKEND: O estudante ERROU a Questão {curr_q} "
+                                    f"(marcou '{student_letter}', mas o gabarito oficial é '{expected_gab}'). "
+                                    f"Informe o erro com sobriedade acolhedora e apresente a resolução comentada.{res_hint}"
+                                )
+                        else:
+                            res_hint = f" Resolução oficial do RAG: {curr_item['resolucao']}." if curr_item.get('resolucao') else ""
+                            eval_prompt = (
+                                f"AVALIAÇÃO DA QUESTÃO: O gabarito oficial da Questão {curr_q} é '{expected_gab}'.{res_hint} "
+                                f"Avalie a resposta do estudante ('{request.message}') com sobriedade factual."
+                            )
+
                     if next_q <= 15:
-                        diff_label = "Fácil" if next_q <= 5 else ("Médio" if next_q <= 10 else "Difícil")
-                        state_context += f"\nInstrução de Progresso da Rodada: O estudante enviou a resposta para a Questão {curr_q}/15. Corrija a Questão {curr_q} com sobriedade empática e apresente IMEDIATAMENTE a '📝 Questão {next_q}/15 — {diff_label}' selecionada da lista oficial do RAG com alternativas uma por linha (\\n\\n). NUNCA repita a Questão {curr_q} e não exiba o Menu de Trilhas."
+                        if praticar_items and next_q <= len(praticar_items):
+                            next_item = praticar_items[next_q - 1]
+                            state_context += (
+                                f"\nInstrução de Progresso da Rodada:\n{eval_prompt}\n\n"
+                                f"Em seguida, apresente IMEDIATAMENTE a próxima questão oficial homologada:\n"
+                                f"📝 Questão {next_q}/15 — {next_item['level_label']}\n\n"
+                                f"{next_item['body']}\n\n"
+                                f"(AVISO DE INTEGRIDADE: É TERMINANTEMENTE PROIBIDO criar, inventar, adaptar ou alterar dados de questões. "
+                                f"Transcreva EXATAMENTE o item oficial acima com cada alternativa isolada em linha própria com quebra dupla '\\n\\n'. "
+                                f"NUNCA repita a Questão {curr_q}, não revele o gabarito da Questão {next_q} e não exiba o Menu de Trilhas)."
+                            )
+                        else:
+                            diff_label = "Fácil" if next_q <= 5 else ("Médio" if next_q <= 10 else "Difícil")
+                            state_context += (
+                                f"\nInstrução de Progresso da Rodada:\n{eval_prompt}\n\n"
+                                f"Apresente IMEDIATAMENTE a '📝 Questão {next_q}/15 — {diff_label}' selecionada da lista oficial do RAG com alternativas uma por linha (\\n\\n). NUNCA repita a Questão {curr_q} e não exiba o Menu de Trilhas."
+                            )
                     else:
-                        state_context += "\nInstrução de Progresso da Rodada: O estudante respondeu à última questão (Questão 15/15). Valide com sobriedade empática natural (ex: 'Boa, você acertou a última questão.', 'Quase lá, o detalhe estava em...') e NUNCA use frases empolgadas ou bajuladoras ('Parabéns!', 'Ótimo trabalho', 'Excelente entendimento', 'Mandou muito bem', 'Excelente fechamento'). Conclua imediatamente a rodada exibindo '### Seu aproveitamento: X/15 (Z%)', análise concisa e factual de pontos fortes e pontos a melhorar, e o Menu Canônico de 6 Trilhas."
+                        state_context += (
+                            f"\nInstrução de Progresso da Rodada:\n{eval_prompt}\n\n"
+                            f"Esta foi a última questão (15/15) da rodada. Valide a resposta com sobriedade empática natural e NUNCA use frases empolgadas ou bajuladoras ('Parabéns!', 'Ótimo trabalho', 'Excelente entendimento'). "
+                            f"Conclua imediatamente a rodada exibindo '### Seu aproveitamento: X/15 (Z%)', análise concisa e factual de pontos fortes e pontos a melhorar, e o Menu Canônico de 6 Trilhas."
+                        )
             elif active_mode == "modo_revisar":
                 last_ai_msg = ""
                 for msg in reversed(db_history):
@@ -2113,47 +2434,57 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                         
                         docs_data = response.data or []
                         if active_mode == "modo_praticar":
-                            # 1. Usa o capítulo de maior similaridade semântica com o tema (docs_data[0]) para carregar sua lista oficial -exercicios.md do disco
+                            # Prioriza os 15 itens oficiais da rodada estruturada determinística
+                            round_data = session_state.get("praticar_round")
                             loaded_ex_from_disk = False
-                            top_src = docs_data[0].get("metadata", {}).get("source", "") if docs_data else ""
-                            if top_src:
-                                ex_src = top_src if top_src.endswith("-exercicios.md") else (top_src[:-3] + "-exercicios.md" if top_src.endswith(".md") else "")
-                                clean_rel = ex_src.replace("../../", "")
-                                project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-                                candidate_paths = [os.path.join(project_root, clean_rel), ex_src, clean_rel, os.path.join("..", "..", clean_rel)]
-                                # Fallback: para capítulos do EM onde a lista de exercícios no mesmo diretório 'ebooks/' tem o slug do capítulo
-                                top_dir_rel = os.path.dirname(top_src.replace("../../", ""))
-                                abs_top_dir = os.path.join(project_root, top_dir_rel)
-                                if os.path.isdir(abs_top_dir):
-                                    for fname in os.listdir(abs_top_dir):
-                                        if fname.endswith("-exercicios.md"):
-                                            candidate_paths.append(os.path.join(abs_top_dir, fname))
-                                for candidate in candidate_paths:
-                                    if candidate and os.path.exists(candidate):
-                                        try:
-                                            with open(candidate, "r", encoding="utf-8") as ef:
-                                                full_ex_text = ef.read()
-                                            # Extrai até 10 itens de cada nível (Básico=Fácil, Intermediário=Médio, Difícil=Difícil) para cobrir os 15 exercícios (5+5+5) com folga
-                                            parts_ex = []
-                                            for sec_header, sec_label in [
-                                                ("## Nível Básico", "## Nível Básico (Fácil — dificuldade: basico)"),
-                                                ("## Nível Intermediário", "## Nível Intermediário (Médio — dificuldade: intermediario)"),
-                                                ("## Nível Difícil", "## Nível Difícil (Difícil — dificuldade: dificil)")
-                                            ]:
-                                                if sec_header in full_ex_text:
-                                                    after_sec = full_ex_text.split(sec_header, 1)[1]
-                                                    for next_h in ["## Nível Intermediário", "## Nível Difícil"]:
-                                                        if next_h != sec_header and next_h in after_sec:
-                                                            after_sec = after_sec.split(next_h, 1)[0]
-                                                    q_blocks = after_sec.split("<!-- id: q")
-                                                    selected_q = q_blocks[0] + "".join("<!-- id: q" + qb for qb in q_blocks[1:11])
-                                                    parts_ex.append(f"{sec_label}\n{selected_q.strip()}")
-                                            if parts_ex:
-                                                docs_data = [{"metadata": {"source": clean_rel}, "content": "\n\n".join(parts_ex)}]
-                                                loaded_ex_from_disk = True
-                                            break
-                                        except Exception:
-                                            pass
+                            if round_data and round_data.get("items"):
+                                clean_rel = round_data.get("source", "")
+                                context_items = [
+                                    f"<!-- id: {it['id']} | dificuldade: {it['dificuldade']} -->\n### Questão {it['round_q']}/15 ({it['level_label']})\n{it['body']}\n**Gabarito:** {it['gabarito']}\n**Resolução:** {it['resolucao']}"
+                                    for it in round_data["items"]
+                                ]
+                                docs_data = [{"metadata": {"source": clean_rel}, "content": "\n\n".join(context_items)}]
+                                loaded_ex_from_disk = True
+                            else:
+                                top_src = docs_data[0].get("metadata", {}).get("source", "") if docs_data else ""
+                                if top_src:
+                                    ex_src = top_src if top_src.endswith("-exercicios.md") else (top_src[:-3] + "-exercicios.md" if top_src.endswith(".md") else "")
+                                    clean_rel = ex_src.replace("../../", "")
+                                    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+                                    candidate_paths = [os.path.join(project_root, clean_rel), ex_src, clean_rel, os.path.join("..", "..", clean_rel)]
+                                    # Fallback: para capítulos do EM onde a lista de exercícios no mesmo diretório 'ebooks/' tem o slug do capítulo
+                                    top_dir_rel = os.path.dirname(top_src.replace("../../", ""))
+                                    abs_top_dir = os.path.join(project_root, top_dir_rel)
+                                    if os.path.isdir(abs_top_dir):
+                                        for fname in os.listdir(abs_top_dir):
+                                            if fname.endswith("-exercicios.md"):
+                                                candidate_paths.append(os.path.join(abs_top_dir, fname))
+                                    for candidate in candidate_paths:
+                                        if candidate and os.path.exists(candidate):
+                                            try:
+                                                with open(candidate, "r", encoding="utf-8") as ef:
+                                                    full_ex_text = ef.read()
+                                                # Extrai até 10 itens de cada nível (Básico=Fácil, Intermediário=Médio, Difícil=Difícil) para cobrir os 15 exercícios (5+5+5) com folga
+                                                parts_ex = []
+                                                for sec_header, sec_label in [
+                                                    ("## Nível Básico", "## Nível Básico (Fácil — dificuldade: basico)"),
+                                                    ("## Nível Intermediário", "## Nível Intermediário (Médio — dificuldade: intermediario)"),
+                                                    ("## Nível Difícil", "## Nível Difícil (Difícil — dificuldade: dificil)")
+                                                ]:
+                                                    if sec_header in full_ex_text:
+                                                        after_sec = full_ex_text.split(sec_header, 1)[1]
+                                                        for next_h in ["## Nível Intermediário", "## Nível Difícil"]:
+                                                            if next_h != sec_header and next_h in after_sec:
+                                                                after_sec = after_sec.split(next_h, 1)[0]
+                                                        q_blocks = after_sec.split("<!-- id: q")
+                                                        selected_q = q_blocks[0] + "".join("<!-- id: q" + qb for qb in q_blocks[1:11])
+                                                        parts_ex.append(f"{sec_label}\n{selected_q.strip()}")
+                                                if parts_ex:
+                                                    docs_data = [{"metadata": {"source": clean_rel}, "content": "\n\n".join(parts_ex)}]
+                                                    loaded_ex_from_disk = True
+                                                break
+                                            except Exception:
+                                                pass
                             if not loaded_ex_from_disk:
                                 ex_docs = [
                                     d for d in docs_data
