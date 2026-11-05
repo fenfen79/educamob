@@ -1784,6 +1784,32 @@ async def generate_title_bg(session_id: str, first_message: str):
 async def read_root():
     return {"status": "Mob.me Backend is running (Pure Async)!"}
 
+@app.get("/api/audits/latest")
+async def get_latest_audit():
+    audit_dirs = ["/app/auditorias", "scratch/auditorias"]
+    for d in audit_dirs:
+        latest_file = os.path.join(d, "latest.json")
+        if os.path.exists(latest_file):
+            try:
+                with open(latest_file, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=str(e))
+    return {"status": "no_audits_found", "message": "Nenhum dossiê de auditoria gerado ainda."}
+
+@app.get("/api/audits/summary")
+async def get_audit_summary():
+    audit_dirs = ["/app/auditorias", "scratch/auditorias"]
+    for d in audit_dirs:
+        latest_md = os.path.join(d, "latest.md")
+        if os.path.exists(latest_md):
+            try:
+                with open(latest_md, "r", encoding="utf-8") as f:
+                    return Response(content=f.read(), media_type="text/markdown")
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=str(e))
+    return Response(content="# Nenhum dossiê disponível ainda", media_type="text/markdown")
+
 @app.get("/api/sessions/{user_id}")
 async def get_sessions(user_id: str):
     sessions = await get_user_sessions(supabase_client, user_id)

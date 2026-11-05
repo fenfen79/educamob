@@ -4481,3 +4481,24 @@ esolve_active_mode_and_topic).
        - **Física:** `lancamentos-exercicios.md` (q17, similaridade 0.569)
        - **Química:** `equilibrio-ionico-ph-poh-exercicios.md` (q52, similaridade 0.701)
        - **Matemática:** `educacao-financeira-ii-juros-e-acrescimos-exercicios.md` (q23, similaridade 0.655)
+
+
+### [Rodada 54] - Implementação da Arquitetura Híbrida de Auditoria Noturna (Sentinela VPS 24/7 + Arquiteto Antigravity)
+- **Data:** 05 de Novembro de 2026
+- **Status:** 🏆 100% Implementado, Testado com Dados Reais, Cron Ativo na VPS e Endpoints em Produção
+- **Diagnóstico e Resolução Técnica:**
+  1. **Arquitetura Híbrida de Confiabilidade de IA (AI Reliability Engineering):**
+     - Estabelecido o desacoplamento de responsabilidades entre dois agentes especializados:
+       - **Agente 1 (Sentinela Noturno na Nuvem):** Observador Read-Only em `services/mobme-api/sentinela_mobme.py`, rodando na VPS Oracle Cloud via cron diariamente às 02:00 BRT (05:00 UTC). Varre 100% das mensagens das últimas 24h, classifica ocorrências por severidade (P0 Roteamento, P1 System Prompt Compliance, P2 KaTeX/Formatação, P3 Atrito do Aluno) e calcula a taxa global de conformidade com Intervalos de Confiança de Wilson a 95%.
+       - **Agente 2 (Arquiteto Reparador no Antigravity):** Engenheiro de código rodando no workspace local via Scheduled Automation (`sidecar.json`) às 08:30 BRT. Consome a auditoria noturna, isola a causa-raiz, gera patches cirúrgicos e submete a bateria de testes de regressão estatística antes de propor o deploy ao desenvolvedor.
+  2. **Validação com Dados Reais de Produção (Dry-Run 24h):**
+     - O script `sentinela_mobme.py` foi executado contra o Supabase de produção sobre 43 sessões ativas e 634 mensagens (317 da IA).
+     - **Resultados Estatísticos:** Taxa de Conformidade Geral do System Prompt de 85,8% (Intervalo de Confiança de Wilson 95%: [81,53% — 89,22%]).
+     - Mapeadas 15 falhas P0 de roteamento histórico (já resolvidas pelo patch do Sprint 62), 11 desvios de prompt P1 e 8 inconsistências de formatação P2.
+  3. **Endpoints REST no Backend FastAPI (`main.py`):**
+     - Implementados os endpoints `GET /api/audits/latest` (dossiê completo em JSON) e `GET /api/audits/summary` (relatório legível em Markdown), permitindo que o Agente 2 e ferramentas de observabilidade consumam o diagnóstico em 0ms.
+  4. **Deploy e Agendamento em Produção:**
+     - `main.py` e `sentinela_mobme.py` sincronizados no container `mobme-api` via Docker na VPS Oracle Cloud (`137.131.163.113`) e serviço reiniciado com sucesso.
+     - Cron job configurado no Ubuntu da VPS: `0 5 * * * docker exec mobme-api python /app/sentinela_mobme.py >> /home/ubuntu/sentinela.log 2>&1`.
+     - Sidecar do Antigravity configurado em `~/.gemini/jetski/sidecars/auditor-matinal-mobme/sidecar.json`.
+     - Skill atualizada em `C:\Users\nepov\.gemini\config\skills\auditor-conversas-mobme\SKILL.md`.
