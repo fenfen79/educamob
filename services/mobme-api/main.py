@@ -1131,6 +1131,33 @@ SE FOR TÓPICO ATÔMICO E ESPECÍFICO DE 1 ÚNICO CAPÍTULO:
         print(f"Aviso no Analista Curricular (fallback seguro): {e}")
         return {"desambiguar": False, "motivo": "FALLBACK", "tema_formatado": term.capitalize()}
 
+def is_holistic_selection(text: str) -> bool:
+    """Detecta se o aluno respondeu querendo ver 'todos', 'tudo', 'ambos' ou pedindo para comecar do inicio na desambiguacao."""
+    t = text.strip().lower()
+    t_clean = re.sub(r'[^\w\s]', '', t)
+    holistic_patterns = [
+        r'^\s*(?:todos?|todas?|tudo|ambos|ambas|qualquer|completo|geral)\s*$',
+        r'\b(?:quero|gostaria\s+de|prefiro|vamos|ver|estudar|focar|aprofundar|aprender|saber|passar\s+por)\s+(?:em\s+|de\s+)?(?:todos?|todas?|tudo|ambos|cada\s+um)\b',
+        r'\b(?:todos\s+os\s+temas|todos\s+os\s+focos|todas\s+as\s+opcoes|todas\s+as\s+opções|tudo\s+junto|todos\s+eles)\b',
+        r'\b(?:tanto\s+faz|voce\s+decide|qual\s+voce\s+recomenda|pode\s+ser\s+qualquer|o\s+que\s+achar\s+melhor)\b'
+    ]
+    return any(re.search(p, t_clean) for p in holistic_patterns)
+
+def is_question_submission(text: str) -> bool:
+    """Detecta se o aluno enviou uma questao completa (com alternativas ou dados de exercicio) para ser resolvida."""
+    t = text.strip()
+    has_alternatives = bool(re.search(r'[a-eA-E][\)\.][\s\S]+?[b-eB-E][\)\.]', t))
+    has_question_cues = bool(re.search(
+        r'\b(enem|fuvest|unicamp|vunesp|fgv|ita|ime|uerj|puc|ufmg|ufrj|mackenzie|cefet|ifsp|ifba|unb)\b|'
+        r'\b(calcule|determine|assinale|encontre|resolva|obtenha|julgue|qual\s+e\s+o\s+valor|qual\s+a\s+velocidade|qual\s+a\s+fração)\b',
+        t, re.IGNORECASE
+    ))
+    if has_alternatives:
+        return True
+    if has_question_cues and re.search(r'\d+\s*(?:m|cm|mm|kg|g|s|h|m/s|km/h|N|J|W|cal|Pa|V|A|\$|%|°C|mol)', t):
+        return True
+    return False
+
 async def resolve_active_mode_and_topic(
     session_id: str, 
     db_history: list, 
@@ -1149,6 +1176,26 @@ async def resolve_active_mode_and_topic(
             state["resuming_track"] = True
             save_session_states()
             return paused["mode"], state.get("topic"), state
+
+    # 0.05 Tratamento Inteligente para envio direto de QUESTÃO EM TEXTO (vestibular, concurso ou tarefa escolar)
+    if not has_image and is_question_submission(current_message):
+        current_active = state.get("current_mode", "modo_acolhida")
+        # Se o aluno colou uma questão com alternativas fora de um modo ativo de questão:
+        if current_active in {"modo_acolhida", "modo_menu", "modo_novo_assunto"}:
+            if not state.get("topic"):
+                first_line = current_message.split("\n")[0][:80].strip()
+                try:
+                    analysis = await analyze_topic_curricular_rules(first_line, current_discipline=state.get("discipline"))
+                    disc_id = analysis.get("disciplina_identificada")
+                    if disc_id and not state.get("discipline"):
+                        state["discipline"] = disc_id
+                    state["topic"] = analysis.get("tema_formatado") or first_line or "Questão Enviada"
+                except Exception:
+                    state["topic"] = "Questão Enviada"
+            state["current_mode"] = "modo_resolve_questao"
+            state["pending_track"] = None
+            save_session_states()
+            return "modo_resolve_questao", state.get("topic"), state
 
     # 0.1 Tratamento Híbrido Inteligente para envio de imagem em qualquer momento
     if has_image:
@@ -1215,6 +1262,11 @@ async def resolve_active_mode_and_topic(
             save_session_states()
             return "modo_acolhida", None, state
             
+        # 1.5.0b Resposta Holística / Cobrir todos os temas (ex: "todos", "todas", "tudo", "gostaria de me aprofundar em todos", "tanto faz")
+        if is_holistic_selection(msg_clean):
+            # O aluno deseja estudar o tema como um todo. Seleciona a opção 1 (a fundação/base do assunto) ou o tema principal
+            selected_topic = clean_names[0] if clean_names else state.get("pending_disambiguation")
+
         # 1.5.1 Escolha numérica direta (1 a 5)
         for idx in range(min(5, len(clean_names))):
             num_str = str(idx + 1)
@@ -2061,11 +2113,17 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
             disc_name = session_state.pop("out_of_scope_discipline")
             save_session_states()
             active_list_str = ", ".join(AVAILABLE_SUBJECTS_LIST)
-            out_of_scope_msg = (
-                f"No momento, o acervo da Educamob no Mob.me possui materiais homologados estritamente para as disciplinas: **{active_list_str}**. "
-                f"Por isso, ainda não atendo conteúdos de **{disc_name}**.\n\n"
-                f"Qual assunto de **{active_list_str}** você gostaria de estudar hoje?"
-            )
+            if not disc_name or disc_name.strip().lower() in {"indefinida", "desconhecida", "outro", "outra", "none", ""}:
+                out_of_scope_msg = (
+                    f"No momento, o acervo da Educamob no Mob.me possui materiais homologados estritamente para as disciplinas: **{active_list_str}**.\n\n"
+                    f"Qual assunto de **{active_list_str}** você gostaria de estudar hoje?"
+                )
+            else:
+                out_of_scope_msg = (
+                    f"No momento, o acervo da Educamob no Mob.me possui materiais homologados estritamente para as disciplinas: **{active_list_str}**. "
+                    f"Por isso, ainda não atendo conteúdos de **{disc_name}**.\n\n"
+                    f"Qual assunto de **{active_list_str}** você gostaria de estudar hoje?"
+                )
             async def direct_out_of_scope_stream():
                 yield f"data: {json.dumps({'session_id': current_session_id})}\n\n"
                 yield f"data: {json.dumps({'chunk': out_of_scope_msg})}\n\n"

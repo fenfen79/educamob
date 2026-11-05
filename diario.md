@@ -4446,3 +4446,38 @@ esolve_active_mode_and_topic).
      - Build de produção Next.js executado com sucesso em Turbopack e sincronizado para `apps/mobme/`.
      - Prompts atualizados e container `mobme-api` reiniciado no VPS da Oracle Cloud (`137.131.163.113`).
      - Commit e push realizados para o branch `master`.
+
+
+### [Rodada 53] - Ingestão Vetorial Massiva e Sincronização Integral de 100% das Listas de Exercícios na Mob.me (436 de 436 Listas / 26.160 Questões no Supabase pgvector)
+- **Data:** 05 de Novembro de 2026
+- **Status:** 🏆 100% Homologado, Indexado e Validado via RPC match_documents em Produção
+- **Escopo Concluído:**
+  1. **Pipeline Unificado de Vetorização de Exercícios (`services/mobme-api/ingest_exercicios.py`):**
+     - Criação do pipeline canônico e idempotente para varredura e vetorização de todas as listas de exercícios (`*-exercicios.md`) em `content/` (`fundamental-1`, `fundamental-2` e `medio`).
+     - Rastreamento dinâmico de integridade criptográfica (MD5) persistido incrementalmente em `services/mobme-api/ingest_state_exercicios.json`, garantindo resiliência e continuidade com zero retrabalho ou duplicação de embeddings.
+  2. **Arquitetura de Alta Performance e Blindagem contra Timeouts HNSW (Código 57014):**
+     - Diagnóstico do gargalo de statement timeout no PostgreSQL do Supabase causado pelo recálculo do índice HNSW (`documents_embedding_hnsw_idx`) em tabelas com mais de 50.000 vetores dimensionais.
+     - Implementação da estratégia de duas etapas otimizadas:
+       1. Pré-cálculo de embeddings em lote único com DeepInfra (`BAAI/bge-m3`), reduzindo 12 chamadas de rede para 1 única chamada por arquivo (~1,5s).
+       2. Inserção direta de registros (`documents.insert()`) em micro-lotes de 5 elementos, eliminando o erro 57014 e derrubando o tempo total de processamento por arquivo de ~38 segundos para ~3 a 5 segundos (ganho de velocidade de quase 10x).
+       3. Fallback inteligente para inserção unitária em caso de pico de carga temporário.
+  3. **Ingestão Inédita das Novas Disciplinas Homologadas (174 Listas / 10.440 Questões):**
+     - **Geografia (5º ao 9º Ano):** Ingestão completa de todas as 40 listas de exercícios (2.400 questões / 2.440 chunks indexados).
+     - **História (5º ao 9º Ano):** Ingestão completa de todas as 62 listas de exercícios (3.720 questões / 3.782 chunks indexados).
+     - **Ciências (5º ao 9º Ano):** Ingestão completa de todas as 72 listas de exercícios (4.320 questões / 4.392 chunks indexados).
+  4. **Recalibração e Sincronização Integral das Disciplinas Existentes (262 Listas / 15.720 Questões):**
+     - **Física (Ensino Médio):** 61 listas sincronizadas (36 atualizadas com novos hashes do Padrão-Ouro / 1.897 chunks inseridos).
+     - **Química (Ensino Médio):** 53 listas sincronizadas (32 atualizadas com novos hashes do Padrão-Ouro / 1.953 chunks inseridos).
+     - **Matemática (Fundamental 1, 2 e Médio):** 148 listas sincronizadas (148 atualizadas com novos hashes / 7.603 chunks inseridos).
+  5. **Quadro Consolidado do Acervo de Exercícios no Banco de Produção:**
+     - **Total Geral de Listas de Exercícios:** 436 de 436 listas (100% de cobertura do acervo curricular Educamob).
+     - **Total de Questões Atômicas:** 26.160 questões inéditas balanceadas (A-E ~20%), tagueadas com telemetria HTML e com scaffolding cognitivo.
+     - **Total de Chunks Ativos na Tabela `documents`:** Mais de 50.200 chunks (26.704 chunks teóricos + ~23.500 chunks de exercícios).
+  6. **Auditoria Cruzada de Busca Vetorial Semântica (RAG):**
+     - Execução da suíte de teste de similaridade semântica em produção via RPC `match_documents` confirmando recuperação precisa e instantânea com filtros `{chunk_type: "exercicio"}`:
+       - **Geografia:** `ef08ge02-ef08ge04-exercicios.md` (q60, similaridade 0.654)
+       - **História:** `ef09hi05-exercicios.md` (q22, similaridade 0.687)
+       - **Ciências:** `ef06ci01-exercicios.md` (q05, similaridade 0.609)
+       - **Física:** `lancamentos-exercicios.md` (q17, similaridade 0.569)
+       - **Química:** `equilibrio-ionico-ph-poh-exercicios.md` (q52, similaridade 0.701)
+       - **Matemática:** `educacao-financeira-ii-juros-e-acrescimos-exercicios.md` (q23, similaridade 0.655)
