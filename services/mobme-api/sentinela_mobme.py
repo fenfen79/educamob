@@ -3,10 +3,10 @@
 sentinela_mobme.py - Sentinela Noturno de Telemetria e Auditoria de Conversas
 Executado diariamente na VPS Oracle Cloud via cron para auditar 100% das mensagens das últimas 24h.
 Avalia:
-- P0: Falhas de Roteamento e Bloqueio de Fluxo
-- P1: Falhas de System Prompt e Desvios Pedagógicos
-- P2: Falhas de Formatação e Renderização KaTeX
-- P3: Sinais de Atrito e Frustração do Estudante
+- P0: Falhas Críticas de Roteamento, Bloqueio de Fluxo, Desambiguação e RAG Cruzado
+- P1: Falhas Altas de System Prompt, Gaslighting Pedagógico, Amnésia de Tema e Postura
+- P2: Falhas Médias de Formatação KaTeX, Excesso de Alternativas e Botões Falsos
+- P3: Mineração de Frustração, Atrito e Sinais Diretos do Estudante
 Calcula Intervalos de Confiança de Wilson a 95% para conformidade estatística.
 """
 
@@ -85,6 +85,18 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                 pass
             break
 
+    # Tenta carregar também via auth admin se tiver privilégio
+    try:
+        auth_users = await supabase.auth.admin.list_users()
+        for u in auth_users:
+            uid = getattr(u, 'id', None) or (u.get('id') if isinstance(u, dict) else '')
+            meta = getattr(u, 'user_metadata', {}) or (u.get('user_metadata', {}) if isinstance(u, dict) else {})
+            name = meta.get('full_name') or meta.get('name') or getattr(u, 'email', '')
+            if uid and name:
+                user_map[uid] = name
+    except Exception:
+        pass
+
     # 2. Coletar Sessões e Mensagens
     sessions_resp = await supabase.table('chat_sessions').select('*').gte('created_at', cutoff_time).order('created_at', desc=False).execute()
     sessions = sessions_resp.data or []
@@ -132,8 +144,11 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
             "issues": []
         }
 
-        # Estado da conversa para detectar loops
+        # Estado da conversa para rastrear fluxo inter-turnos
         last_ai_menu = False
+        last_ai_disambiguation = False
+        last_user_content = ""
+        session_topic = None
 
         for idx, m in enumerate(s_msgs):
             role = m.get('role')
@@ -143,24 +158,97 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
 
             if role == 'ai':
                 is_menu = "Como você prefere começar?" in content or "1. Aprender📚" in content
+                is_disambig = (
+                    ("qual desses caminhos é o seu foco" in content.lower() or 
+                     "em qual foco você quer se aprofundar" in content.lower() or
+                     ("1️⃣" in content and "2️⃣" in content and any(w in content.lower() for w in ["foco", "amplo", "caminhos", "ramificações"])))
+                    and not is_menu
+                )
+
+                # Rastrear se a IA definiu tema formalmente
+                m_top = re.search(r"Tema definido:\s*\*\*([^\*]+)\*\*", content)
+                if m_top:
+                    session_topic = m_top.group(1).strip()
+                elif title and title not in {"Saudação inicial", "Saudação informal", "Sem título", "None"}:
+                    if not session_topic:
+                        session_topic = title
+
+                # ==============================================================
+                # --- P0: FALHAS CRÍTICAS DE ROTEAMENTO, BLOQUEIO E RAG CRUZADO ---
+                # ==============================================================
                 
-                # --- P0: FALHAS DE ROTEAMENTO E BLOQUEIO DE FLUXO ---
-                # P0.1 Queda em disciplina "Indefinida"
-                if "conteúdos de **indefinida**" in content.lower() or "disciplinas: ****" in content:
+                # P0.1 Colisão de Menu em Desambiguação de Assuntos (A falha prioritária apontada pelo usuário)
+                if last_ai_disambiguation and last_user_content:
+                    user_chose_number = re.match(r"^([1-5]|1️⃣|2️⃣|3️⃣|4️⃣|5️⃣|\bopção\s+[1-5]\b|\b[1-5]\.|\b[1-5]\))", last_user_content, re.IGNORECASE)
+                    if user_chose_number:
+                        # Se a IA respondeu ativando uma trilha do menu principal sem confirmar o tema, ou caiu em questão/flashcard direto:
+                        if ("Você escolheu a trilha de" in content or 
+                            "📝 Questão 1/15" in content or 
+                            "🃏 Flashcard" in content or 
+                            ("Como você prefere começar?" in content and not m_top) or
+                            ("Para montar os exercícios certinhos, me diga" in content and not m_top)):
+                            issue = {
+                                "priority": "P0",
+                                "type": "DESAMBIGUACAO_COLISAO_MENU",
+                                "session_id": sid,
+                                "msg_id": mid,
+                                "turn": idx + 1,
+                                "desc": f"Aluno escolheu a opção '{last_user_content}' na desambiguação de temas, mas o sistema colidiu o número com as opções do menu principal.",
+                                "snippet": f"Input do Aluno: '{last_user_content}' -> Resposta da IA: '{content[:180].replace(chr(10), ' ')}'"
+                            }
+                            s_audit["issues"].append(issue)
+                            issues_by_priority["P0"].append(issue)
+                            msg_has_issue = True
+
+                # P0.2 Falso Bloqueio de Disciplina Homologada ("ainda não atendo conteúdos de Física")
+                m_falso = re.search(r"ainda não atendo conteúdos de \*\*(Física|Matemática|Química|Ciências|História|Geografia|Cálculo 1)\*\*", content, re.IGNORECASE)
+                if m_falso:
                     issue = {
                         "priority": "P0",
-                        "type": "ROTEAMENTO_DISCIPLINA_INDEFINIDA",
+                        "type": "FALSO_BLOQUEIO_DISCIPLINA",
                         "session_id": sid,
                         "msg_id": mid,
                         "turn": idx + 1,
-                        "desc": "O sistema respondeu com disciplina 'Indefinida' ao estudante.",
+                        "desc": f"O sistema disparou bloqueio indevido afirmando não atender a disciplina homologada: '{m_falso.group(1)}'.",
                         "snippet": content[:200]
                     }
                     s_audit["issues"].append(issue)
                     issues_by_priority["P0"].append(issue)
                     msg_has_issue = True
 
-                # P0.2 Loop de Menu (Menu repetido em turnos consecutivos após input do aluno)
+                # P0.3 RAG com Injeção de Disciplina Cruzada / Alucinação de Acervo
+                # (Ex: aluno em Física/Pascal recebendo exercícios de Porcentagem/Frações do EF05MA)
+                if session_topic and any(term in session_topic.lower() for term in ["pascal", "hidrostática", "hidrostatica", "física", "fisica", "newton", "energia", "química", "quimica"]):
+                    if ("📝 Questão" in content or "**Checagem:**" in content) and any(bad in content.lower() for bad in ["porcentagem de 100%", "razão centesimal", "grade de 100 quadradinhos", "ef05ma", "taxa percentual", "quadrante"]):
+                        issue = {
+                            "priority": "P0",
+                            "type": "RAG_DISCIPLINA_CRUZADA",
+                            "session_id": sid,
+                            "msg_id": mid,
+                            "turn": idx + 1,
+                            "desc": f"Sessão sobre '{session_topic}' recebeu questão de frações/porcentagens de Matemática Fundamental (EF05MA).",
+                            "snippet": content[:220]
+                        }
+                        s_audit["issues"].append(issue)
+                        issues_by_priority["P0"].append(issue)
+                        msg_has_issue = True
+
+                # P0.4 Queda em disciplina "Indefinida" ou "Não identificada"
+                if "conteúdos de **indefinida**" in content.lower() or "conteúdos de **não identificada**" in content.lower() or "disciplinas: ****" in content:
+                    issue = {
+                        "priority": "P0",
+                        "type": "ROTEAMENTO_DISCIPLINA_INDEFINIDA",
+                        "session_id": sid,
+                        "msg_id": mid,
+                        "turn": idx + 1,
+                        "desc": "O sistema respondeu com disciplina 'Indefinida' ou 'Não identificada' ao estudante.",
+                        "snippet": content[:200]
+                    }
+                    s_audit["issues"].append(issue)
+                    issues_by_priority["P0"].append(issue)
+                    msg_has_issue = True
+
+                # P0.5 Loop de Menu (Menu repetido em turnos consecutivos após input do aluno)
                 if is_menu and last_ai_menu:
                     issue = {
                         "priority": "P0",
@@ -176,9 +264,49 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     msg_has_issue = True
 
                 last_ai_menu = is_menu
+                last_ai_disambiguation = is_disambig
 
-                # --- P1: FALHAS DE SYSTEM PROMPT E DESVIOS PEDAGÓGICOS ---
-                # P1.1 Vazamento de Jargão Proibido ("microciclo" ou "miniciclo")
+                # ==============================================================
+                # --- P1: FALHAS ALTAS DE SYSTEM PROMPT E CONDUTA PEDAGÓGICA ---
+                # ==============================================================
+
+                # P1.1 Gaslighting Pedagógico (IA justificando entrega errada como se a sessão fosse de outra matéria)
+                if (("esta é uma sessão de prática de" in content.lower() and "e não sobre" in content.lower()) or 
+                    ("as questões que apresentei são de" in content.lower() and "não fazem parte do material" in content.lower())):
+                    issue = {
+                        "priority": "P1",
+                        "type": "GASLIGHTING_PEDAGOGICO",
+                        "session_id": sid,
+                        "msg_id": mid,
+                        "turn": idx + 1,
+                        "desc": "A IA tentou justificar a entrega de questão errada afirmando que a sessão era de outra matéria ou culpando o acervo.",
+                        "snippet": content[:220]
+                    }
+                    s_audit["issues"].append(issue)
+                    issues_by_priority["P1"].append(issue)
+                    msg_has_issue = True
+
+                # P1.2 Amnésia de Tema na Mesma Sessão
+                if session_topic and any(phrase in content.lower() for phrase in [
+                    "qual é o assunto específico que você quer praticar hoje?",
+                    "qual é o assunto específico que você quer revisar hoje?",
+                    "qual conteúdo você quer aprender?",
+                    "qual é o assunto específico que você quer"
+                ]):
+                    issue = {
+                        "priority": "P1",
+                        "type": "AMNESIA_TEMA_SESSAO",
+                        "session_id": sid,
+                        "msg_id": mid,
+                        "turn": idx + 1,
+                        "desc": f"A IA perdeu a memória do tema ativo '{session_topic}' e voltou a perguntar o assunto ao aluno.",
+                        "snippet": content[:200]
+                    }
+                    s_audit["issues"].append(issue)
+                    issues_by_priority["P1"].append(issue)
+                    msg_has_issue = True
+
+                # P1.3 Vazamento de Jargão Proibido ("microciclo" ou "miniciclo")
                 if re.search(r'\b(microciclo|miniciclo)s?\b', content, re.IGNORECASE):
                     issue = {
                         "priority": "P1",
@@ -193,7 +321,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     issues_by_priority["P1"].append(issue)
                     msg_has_issue = True
 
-                # P1.2 Modo Aprender sem alternativas A-D (checagem aberta proibida)
+                # P1.4 Modo Aprender sem alternativas A-D (checagem aberta proibida)
                 if "**Checagem:**" in content and not re.search(r'[a-dA-D]\)[ \t]+\S', content):
                     issue = {
                         "priority": "P1",
@@ -208,7 +336,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     issues_by_priority["P1"].append(issue)
                     msg_has_issue = True
 
-                # P1.3 Postura: Bajulação tóxica proibida
+                # P1.5 Postura: Bajulação tóxica proibida
                 if any(tp in content.lower() for tp in TOXIC_PRAISE):
                     issue = {
                         "priority": "P1",
@@ -223,9 +351,29 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     issues_by_priority["P1"].append(issue)
                     msg_has_issue = True
 
-                # --- P2: FALHAS DE FORMATAÇÃO E RENDERIZAÇÃO KATEX ---
-                # P2.1 Alternativas agrupadas na mesma linha
-                if re.search(r'[a-dA-D]\)[^\n]+[b-eB-E]\)', content):
+                # ==============================================================
+                # --- P2: FALHAS MÉDIAS DE FORMATAÇÃO E TELEMETRIA DO QUIZ ---
+                # ==============================================================
+
+                # P2.1 Excesso de Alternativas (5 opções A-E violando padrão de 4)
+                if ("📝 Questão" in content or "**Checagem:**" in content) and re.search(r'(?:^|\n)\s*[eE]\)', content):
+                    issue = {
+                        "priority": "P2",
+                        "type": "EXCESSO_ALTERNATIVAS_QUIZ",
+                        "session_id": sid,
+                        "msg_id": mid,
+                        "turn": idx + 1,
+                        "desc": "A questão foi entregue com 5 alternativas (a, b, c, d, e) violando o padrão oficial de 4 (a-d).",
+                        "snippet": [l.strip() for l in content.split('\n') if re.search(r'^\s*[a-eA-E]\)', l.strip())][:5]
+                    }
+                    s_audit["issues"].append(issue)
+                    issues_by_priority["P2"].append(issue)
+                    msg_has_issue = True
+
+                # P2.2 Alternativas agrupadas na mesma linha (Limpando KaTeX para evitar falsos positivos com frações contendo b)
+                clean_no_katex = re.sub(r'\$\$.*?\$\$', '', content, flags=re.DOTALL)
+                clean_no_katex = re.sub(r'\$.*?\$', '', clean_no_katex)
+                if re.search(r'[a-dA-D]\)[^\n]+[b-eB-E]\)', clean_no_katex):
                     issue = {
                         "priority": "P2",
                         "type": "ALTERNATIVAS_AGRUPADAS",
@@ -233,13 +381,13 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                         "msg_id": mid,
                         "turn": idx + 1,
                         "desc": "Alternativas de múltipla escolha coladas na mesma linha sem quebra dupla (\n\n).",
-                        "snippet": [l for l in content.split('\n') if re.search(r'[a-dA-D]\)[^\n]+[b-eB-E]\)', l)][:2]
+                        "snippet": [l for l in clean_no_katex.split('\n') if re.search(r'[a-dA-D]\)[^\n]+[b-eB-E]\)', l)][:2]
                     }
                     s_audit["issues"].append(issue)
                     issues_by_priority["P2"].append(issue)
                     msg_has_issue = True
 
-                # P2.2 Subscrito duplo KaTeX sem chaves
+                # P2.3 Subscrito duplo KaTeX sem chaves
                 if re.search(r'_[a-zA-Z0-9]+_[a-zA-Z0-9]+', content):
                     issue = {
                         "priority": "P2",
@@ -254,7 +402,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     issues_by_priority["P2"].append(issue)
                     msg_has_issue = True
 
-                # P2.3 Gabarito em negrito no feedback formatado como **c) ...** sem 'Gabarito:'
+                # P2.4 Gabarito em negrito no feedback formatado como **c) ...** sem 'Gabarito:'
                 if re.search(r'(?:^|\n)\s*\*\*([a-eA-E]\)[^\n]+)\*\*', content) and "Gabarito:" not in content and "✅" not in content:
                     issue = {
                         "priority": "P2",
@@ -273,11 +421,13 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     clean_ai_msgs_count += 1
 
             elif role == 'user':
+                last_user_content = content.strip()
                 # --- P3: MINERAÇÃO DE ATRITO E SENTIMENTO DO ESTUDANTE ---
                 low_c = content.lower()
                 friction_cues = [
                     "não entendi", "muito avançado", "muito difícil", "você errou", 
-                    "não é isso", "pulou", "não pedi isso", "travou", "bug", "tá errado"
+                    "não é isso", "pulou", "não pedi isso", "travou", "bug", "tá errado",
+                    "o que isso tem a ver", "o que isso tem haver", "essas questoes nao sao"
                 ]
                 for cue in friction_cues:
                     if cue in low_c:
@@ -295,6 +445,43 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                         break
 
         session_audits.append(s_audit)
+
+    # ==============================================================
+    # --- AUDITORIA DE USUÁRIO: SESSÕES ABORTADAS EM CASCATA ---
+    # ==============================================================
+    user_sessions = {}
+    for s in sessions:
+        uid = s.get('user_id')
+        if uid:
+            user_sessions.setdefault(uid, []).append(s)
+
+    for uid, u_sess in user_sessions.items():
+        if len(u_sess) >= 3:
+            sorted_s = sorted(u_sess, key=lambda x: x.get('created_at', ''))
+            for i in range(len(sorted_s) - 2):
+                s1, s2, s3 = sorted_s[i], sorted_s[i+1], sorted_s[i+2]
+                m_count1 = len(msgs_by_session.get(s1['id'], []))
+                m_count2 = len(msgs_by_session.get(s2['id'], []))
+                m_count3 = len(msgs_by_session.get(s3['id'], []))
+                if m_count1 <= 10 and m_count2 <= 10 and m_count3 <= 10:
+                    try:
+                        t1 = datetime.fromisoformat(s1['created_at'].replace('Z', '+00:00'))
+                        t3 = datetime.fromisoformat(s3['created_at'].replace('Z', '+00:00'))
+                        diff_mins = (t3 - t1).total_seconds() / 60
+                        if diff_mins <= 45:
+                            u_name = user_map.get(uid, uid[:8])
+                            issue = {
+                                "priority": "P0",
+                                "type": "SESSAO_ABORTADA_CASCATA",
+                                "session_id": s3['id'],
+                                "turn": 1,
+                                "desc": f"Estudante '{u_name}' abandonou e recriou 3 sessões consecutivas em {int(diff_mins)} minutos (Sessões `{s1['id'][:8]}`, `{s2['id'][:8]}`, `{s3['id'][:8]}`), evidenciando travamento ou frustração severa.",
+                                "snippet": f"Títulos das sessões abandonadas: '{s1.get('title')}', '{s2.get('title')}', '{s3.get('title')}'"
+                            }
+                            issues_by_priority["P0"].append(issue)
+                            break
+                    except Exception:
+                        pass
 
     # 4. Cálculo Estatístico com Intervalo de Confiança de Wilson 95%
     p_global, ci_low, ci_high = wilson_ci_95(clean_ai_msgs_count, total_ai_msgs)
@@ -340,9 +527,9 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
     md_lines.append(f"- **Taxa de Conformidade Geral do System Prompt:** **{p_global}%**")
     md_lines.append(f"- **Intervalo de Confiança de Wilson (95%):** `[{ci_low}% — {ci_high}%]`")
     md_lines.append(f"- **Total de Falhas Detectadas:** {total_issues}")
-    md_lines.append(f"  - 🚨 **P0 (Crítica / Roteamento):** {p0_count}")
-    md_lines.append(f"  - 🔥 **P1 (Alta / System Prompt):** {p1_count}")
-    md_lines.append(f"  - ⚠️ **P2 (Média / Formatação KaTeX):** {p2_count}")
+    md_lines.append(f"  - 🚨 **P0 (Crítica / Roteamento & RAG):** {p0_count}")
+    md_lines.append(f"  - 🔥 **P1 (Alta / System Prompt & Conduta):** {p1_count}")
+    md_lines.append(f"  - ⚠️ **P2 (Média / Formatação & Quiz):** {p2_count}")
     md_lines.append(f"  - 💬 **P3 (Sinais de Atrito Aluno):** {p3_count}\n")
 
     md_lines.append("## 2. Sumário das Falhas por Ordem de Prioridade\n")
@@ -366,8 +553,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
 
     # 6. Salvar em Disco
     if not output_dir:
-        # Tenta /app/auditorias (no container) ou scratch/auditorias (local)
-        output_dir = "/app/auditorias" if os.path.exists("/app") else "scratch/auditorias"
+        output_dir = "/app/auditorias" if os.path.exists("/app/auditorias") else "scratch/auditorias"
     os.makedirs(output_dir, exist_ok=True)
 
     json_path = os.path.join(output_dir, f"auditoria_{audit_date_str}.json")
