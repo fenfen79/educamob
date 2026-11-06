@@ -10,7 +10,7 @@ import os
 import time
 import asyncio
 import json
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, Response
 from openai import AsyncOpenAI
 
 from supabase.client import AsyncClient, create_async_client
@@ -1267,11 +1267,11 @@ async def resolve_active_mode_and_topic(
             # O aluno deseja estudar o tema como um todo. Seleciona a opção 1 (a fundação/base do assunto) ou o tema principal
             selected_topic = clean_names[0] if clean_names else state.get("pending_disambiguation")
 
-        # 1.5.1 Escolha numérica direta (1 a 5)
+        # 1.5.1 Escolha numérica direta (1 a 5) com blindagem contra colisão de trilhas
         for idx in range(min(5, len(clean_names))):
             num_str = str(idx + 1)
             emoji_str = f"{idx + 1}\ufe0f\u20e3"
-            if msg_clean in {num_str, emoji_str} or msg_clean.startswith(f"{num_str}."):
+            if msg_clean in {num_str, emoji_str} or msg_clean == f"{num_str}." or (msg_clean.startswith(f"{num_str}.") and not any(w in msg_clean for w in ["aprender", "praticar", "flashcards", "resumo", "finalizar"])):
                 selected_topic = clean_names[idx]
                 break
         
@@ -1338,7 +1338,8 @@ async def resolve_active_mode_and_topic(
                 state["discipline"] = disc_id
 
             # Guardrail contra temas fora do escopo selecionados
-            if analysis.get("fora_do_escopo") or (norm_disc and norm_disc not in norm_supported and norm_disc != "interdisciplinar"):
+            norm_non_supported = {strip_accents(d) for d in NON_SUPPORTED_DISCIPLINES}
+            if norm_disc and norm_disc in norm_non_supported:
                 state["topic"] = None
                 state["pending_disambiguation"] = None
                 state["disambiguation_options"] = None
@@ -1346,7 +1347,7 @@ async def resolve_active_mode_and_topic(
                 state["disambiguation_depth"] = 0
                 state["disambiguation_reason"] = None
                 state["discipline"] = None
-                state["out_of_scope_discipline"] = disc_id or selected_topic
+                state["out_of_scope_discipline"] = SUBJECT_DISPLAY_MAP.get(norm_disc, disc_id)
                 state["current_mode"] = "modo_acolhida"
                 save_session_states()
                 return "modo_acolhida", None, state
@@ -1491,7 +1492,14 @@ async def resolve_active_mode_and_topic(
             # Dígitos numéricos isolados (1, 2, 3, 4, 5, 6), letras (a, b, c, d, e) e valores de cálculo
             # são SEMPRE respostas do estudante às perguntas e NÃO escolhas de menu.
             # Apenas comandos ou nomes explícitos de trilha trocam de modo.
-            if msg_clean in {"1️⃣", "1️⃣ aprender", "1. aprender", "aprender", "aprender microciclos", "modo aprender", "bora ler"} or msg_clean.startswith("1. aprender") or msg_clean.startswith("1️⃣ aprender"):
+            if (
+                msg_clean in {"1️⃣", "1️⃣ aprender", "1. aprender", "aprender", "aprender microciclos", "modo aprender", "bora ler", "teoria", "quero teoria", "ir para teoria", "ir pra teoria", "sem flashcards, teoria", "sem flash cards, teoria", "sem flashcards", "sem flash cards"}
+                or msg_clean.startswith("1. aprender")
+                or msg_clean.startswith("1️⃣ aprender")
+                or "quero aprender" in msg_clean
+                or ("teoria" in msg_clean and not any(w in msg_clean for w in ["questao", "questão", "exercicio", "exercício"]))
+                or ("explicacao" in msg_clean or "explicação" in msg_clean)
+            ):
                 target_mode = "modo_aprender"
             elif msg_clean in {"2️⃣", "2️⃣ praticar", "2. praticar", "praticar"} or "quero praticar" in msg_clean or "modo praticar" in msg_clean or "fazer exercicios" in msg_clean or "fazer exercícios" in msg_clean or "lista de exercicios" in msg_clean or "lista de exercícios" in msg_clean:
                 target_mode = "modo_praticar"
@@ -1579,13 +1587,20 @@ async def resolve_active_mode_and_topic(
         norm_supported = {strip_accents(d) for d in SUPPORTED_DISCIPLINES}
 
         # GUARDRAIL SISTÊMICO: Disciplina fora do acervo oficial (ex: Português, Gramática, Literatura, Filosofia)
-        if analysis.get("fora_do_escopo") or (norm_disc and norm_disc not in norm_supported and norm_disc != "interdisciplinar"):
+        norm_non_supported = {strip_accents(d) for d in NON_SUPPORTED_DISCIPLINES}
+        if norm_disc and norm_disc in norm_non_supported:
             state["topic"] = None
             state["pending_disambiguation"] = None
             state["disambiguation_options"] = None
             state["clean_names"] = None
             state["discipline"] = None
-            state["out_of_scope_discipline"] = disc_id or "Língua Portuguesa e Filosofia"
+            state["out_of_scope_discipline"] = SUBJECT_DISPLAY_MAP.get(norm_disc, disc_id)
+            state["current_mode"] = "modo_acolhida"
+            save_session_states()
+            return "modo_acolhida", None, state
+        elif analysis.get("fora_do_escopo"):
+            # Conversa informal, saudação ou texto sem tema curricular (ex: "e ai plito")
+            state["topic"] = None
             state["current_mode"] = "modo_acolhida"
             save_session_states()
             return "modo_acolhida", None, state
@@ -1962,7 +1977,7 @@ def extract_round_items(full_ex_text: str) -> list[dict]:
     return round_items
 
 
-async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = None) -> tuple[str | None, str | None]:
+async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = None, session_discipline: str | None = None) -> tuple[str | None, str | None]:
     """
     Localiza fisicamente o arquivo -exercicios.md mais adequado no repositório,
     com desambiguação inteligente de série (grade-aware) e foco no acervo homologado.
@@ -2036,24 +2051,54 @@ async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = N
         docs_data = sorted(docs_data, key=topic_score, reverse=True)
 
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-    
+    if os.path.isdir("/app/content"):
+        project_root = "/app"
+    elif os.path.isdir("/content"):
+        project_root = "/"
+
+    def extract_doc_discipline(path_str: str) -> str | None:
+        p = strip_accents(path_str.lower())
+        for d in ["fisica", "quimica", "matematica", "ciencias", "historia", "geografia", "calculo"]:
+            if f"/{d}/" in p or f"\\{d}\\" in p or f"-{d}-" in p or p.startswith(f"{d}/") or f"_{d}_" in p:
+                return d
+        return None
+
+    norm_target_disc = strip_accents(session_discipline.lower()) if session_discipline else None
+
     for d in docs_data:
         src = d.get("metadata", {}).get("source", "")
         if not src:
             continue
+
+        doc_disc = extract_doc_discipline(src)
+        # RAG_DISCIPLINA_CRUZADA GUARD: Nunca aceita documento de disciplina diferente da sessão
+        if norm_target_disc and doc_disc and doc_disc != norm_target_disc:
+            continue
+
+        # GRADE LEVEL GUARD: Nunca aceita Fundamental 1 para estudantes do Ensino Médio
+        if user_grade:
+            ug_low = user_grade.lower()
+            if ("médio" in ug_low or "medio" in ug_low or "série" in ug_low or "serie" in ug_low) and "fundamental-1" in src.lower():
+                continue
+
         ex_src = src if src.endswith("-exercicios.md") else (src[:-3] + "-exercicios.md" if src.endswith(".md") else "")
         clean_rel = ex_src.replace("../../", "")
         candidate_paths = [os.path.join(project_root, clean_rel), ex_src, clean_rel, os.path.join("..", "..", clean_rel)]
         
         top_dir_rel = os.path.dirname(src.replace("../../", ""))
         abs_top_dir = os.path.join(project_root, top_dir_rel)
-        if os.path.isdir(abs_top_dir):
-            for fname in os.listdir(abs_top_dir):
-                if fname.endswith("-exercicios.md"):
-                    candidate_paths.append(os.path.join(abs_top_dir, fname))
+        dirs_to_check = [abs_top_dir, os.path.dirname(abs_top_dir)]
+        for pdir in dirs_to_check:
+            if os.path.isdir(pdir):
+                for fname in os.listdir(pdir):
+                    if fname.endswith("-exercicios.md"):
+                        candidate_paths.append(os.path.join(pdir, fname))
                     
         for candidate in candidate_paths:
             if candidate and os.path.exists(candidate):
+                cand_disc = extract_doc_discipline(candidate)
+                if norm_target_disc and cand_disc and cand_disc != norm_target_disc:
+                    continue
                 return candidate, clean_rel
                 
     return None, None
@@ -2137,9 +2182,26 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         # RESPOSTA INSTANTÂNEA PARA TEMAS FORA DO ESCOPO DA EDUCAMOB (Zero alucinação, sincronizada com available_subjects)
         if active_mode == "modo_acolhida" and session_state.get("out_of_scope_discipline"):
             disc_name = session_state.pop("out_of_scope_discipline")
+            norm_disc_check = strip_accents(disc_name.lower()) if disc_name else ""
+            norm_supp = {strip_accents(d.lower()) for d in SUPPORTED_DISCIPLINES}
+            
+            # Se a disciplina identificada for SUPORTADA, recupera graciosamente e não dá erro de fora do escopo!
+            if norm_disc_check in norm_supp:
+                session_state["discipline"] = SUBJECT_DISPLAY_MAP.get(norm_disc_check, disc_name)
+                save_session_states()
+                disc_disp = session_state["discipline"]
+                disc_msg = f"Ótimo! Vamos focar em **{disc_disp}**! Qual conteúdo ou assunto específico você quer estudar hoje?"
+                async def direct_disc_recovered_stream():
+                    yield f"data: {json.dumps({'session_id': current_session_id})}\n\n"
+                    yield f"data: {json.dumps({'chunk': disc_msg})}\n\n"
+                    opt_ai = add_to_transient_cache(current_session_id, "ai", disc_msg, None)
+                    background_tasks.add_task(save_message, supabase_client, current_session_id, "ai", disc_msg, None, opt_ai)
+                    yield "data: [DONE]\n\n"
+                return StreamingResponse(direct_disc_recovered_stream(), media_type="text/event-stream", headers={"Cache-Control": "no-cache, no-transform", "Connection": "keep-alive", "X-Accel-Buffering": "no"})
+
             save_session_states()
             active_list_str = ", ".join(AVAILABLE_SUBJECTS_LIST)
-            if not disc_name or disc_name.strip().lower() in {"indefinida", "desconhecida", "outro", "outra", "none", ""}:
+            if not disc_name or disc_name.strip().lower() in {"indefinida", "desconhecida", "outro", "outra", "none", "", "nao identificada", "não identificada"}:
                 out_of_scope_msg = (
                     f"No momento, o acervo da Educamob no Mob.me possui materiais homologados estritamente para as disciplinas: **{active_list_str}**.\n\n"
                     f"Qual assunto de **{active_list_str}** você gostaria de estudar hoje?"
@@ -2254,7 +2316,7 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         if active_mode == "modo_praticar":
             round_data = session_state.get("praticar_round")
             if is_track_switch or not round_data or round_data.get("topic") != current_topic or not round_data.get("items"):
-                ex_path, ex_rel = await resolve_exercise_file_for_topic(current_topic, user.get('grade_level'))
+                ex_path, ex_rel = await resolve_exercise_file_for_topic(current_topic, user.get('grade_level'), session_state.get('discipline'))
                 if ex_path and os.path.exists(ex_path):
                     try:
                         with open(ex_path, "r", encoding="utf-8") as ef:

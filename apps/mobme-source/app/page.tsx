@@ -1275,16 +1275,24 @@ export default function ChatApp() {
             onClick={(e) => {
               e.stopPropagation();
               if (!isTyping) {
-                const trackLabels: Record<string, string> = {
-                  "1": "1. Aprender📚",
-                  "2": "2. Praticar📝",
-                  "3": "3. Flashcards 🃏",
-                  "4": "4. Resumo 🧠",
-                  "5": "5. Enviar questão 🖼️",
-                  "6": "6. Finalizar ⏸️",
-                  "8": "6. Finalizar ⏸️"
-                };
-                handleSend(trackLabels[num] || num);
+                // Se o texto circundante for explicitamente uma trilha do menu principal, envia o comando com rótulo
+                const isTrackMenu = /Aprender|Praticar|Flashcards|Resumo|Enviar\s+quest|Finalizar/i.test(text);
+                if (isTrackMenu) {
+                  const trackLabels: Record<string, string> = {
+                    "1": "1. Aprender📚",
+                    "2": "2. Praticar📝",
+                    "3": "3. Flashcards 🃏",
+                    "4": "4. Resumo 🧠",
+                    "5": "5. Enviar questão 🖼️",
+                    "6": "6. Finalizar ⏸️",
+                    "8": "6. Finalizar ⏸️"
+                  };
+                  handleSend(trackLabels[num] || num);
+                } else {
+                  // Em listas de desambiguação de temas (ex: 1️⃣ Princípio de Pascal, 2️⃣ Triângulo de Pascal),
+                  // envia estritamente o número da opção para evitar colisão com o menu de trilhas!
+                  handleSend(num);
+                }
               }
             }}
           >

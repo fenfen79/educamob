@@ -4531,3 +4531,28 @@ esolve_active_mode_and_topic).
      - `sentinela_mobme.py` atualizado e testado localmente.
      - Arquivo copiado para a Oracle Cloud VPS e injetado no container Docker `mobme-api:/app/sentinela_mobme.py`.
      - Execução e verificação do endpoint `GET http://137.131.163.113:8000/api/audits/latest` servindo o novo diagnóstico com 100% de precisão.
+
+
+### [Rodada 56] - Resolução Sistêmica de Colisão de Menus, Blindagem Anti-Vazamento RAG Cruzado e Anti-Gaslighting (Agente 2)
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 100% Homologado em Produção na Oracle Cloud VPS e Frontend Compilado
+- **Diagnóstico e Resolução Técnica (Agente 2 — Arquiteto Reparador):**
+  1. **Eliminação da Colisão Numérica em Desambiguações de Temas (`DESAMBIGUACAO_COLISAO_MENU`):**
+     - **Causa Raiz Identificada:** Em `apps/mobme-source/app/page.tsx`, o manipulador de clique dos badges numéricos (`renderWithBadges`) injetava indiscriminadamente rótulos do menu principal (`trackLabels[num] || num`), enviando `"2. Praticar📝"` quando o aluno clicava na opção 2 de um submenu didático (ex: `2️⃣ Vasos Comunicantes`). No backend (`main.py`), a expressão `msg_clean.startswith("2.")` interceptava o comando como Trilha Praticar.
+     - **Correção no Frontend (`page.tsx`):** Inspeciona o texto circundante. Se o texto for de trilhas, preserva `trackLabels`; se for uma listagem de desambiguação, envia estritamente o número da opção (`handleSend(num)`).
+     - **Correção no Backend (`main.py`):** Casamento numérico estrito na desambiguação (`msg_clean == f"{num_str}."` ou número puro), bloqueando a queda indevida em `pre_track`.
+  2. **Blindagem contra Vazamento de Disciplina Cruzada e Série (`RAG_DISCIPLINA_CRUZADA`):**
+     - **Causa Raiz Identificada:** A busca de exercícios (`resolve_exercise_file_for_topic`) não validava a disciplina nem a série dos documentos retornados pelo pgvector. No container da VPS (`/app`), `project_root` resolvia para `/`, falhando ao localizar `hidrostatica-exercicios.md`. O algoritmo iterava até o documento 10 (`ef05ma06.md` - frações do 5º ano), entregando questões de porcentagem em sessões de Física de Ensino Médio sobre Princípio de Pascal.
+     - **Correção no Backend (`main.py`):** Injeção mandatória de `session_discipline` na busca; extração da disciplina do documento (`extract_doc_discipline`) com descarte imediato caso difira da disciplina da sessão; blindagem de série (rejeição de Fundamental 1 para Ensino Médio); e resolução inteligente de `project_root` para containers (`/app/content`).
+     - **Sincronização de Acervo na VPS:** Upload do pacote compactado de Ensino Médio (`content/medio` com 433 arquivos) para o host da VPS e sincronização no container Docker `mobme-api`. O arquivo `hidrostatica-exercicios.md` foi validado fisicamente em `/app/content/medio/1-serie/fisica/cap-20-hidrostatica/ebooks/`.
+  3. **Erradicação do Falso Bloqueio de Disciplinas Homologadas (`FALSO_BLOQUEIO_DISCIPLINA`):**
+     - **Causa Raiz Identificada:** Nas saudações informais (ex: "e ai plito") e falas conversacionais ("Pode fazer 3 questões de Leis de Newton?"), o classificador DeepSeek retornava `fora_do_escopo: true` por não encontrar um capítulo formal da BNCC. O backend definia `out_of_scope_discipline = disc_id or "Língua Portuguesa e Filosofia"`, disparando a mensagem punitiva de recusa.
+     - **Correção no Backend (`main.py`):** Guardrail duplo. Se a disciplina estiver em `SUPPORTED_DISCIPLINES`, `is_out` é forçado a `False`. Na camada de resposta imediata, se `disc_name` for homologada, a IA recupera o fluxo graciosamente e acolhe o aluno. Mensagens sem disciplina identificada são mantidas em `modo_acolhida` para interação humana natural.
+  4. **Transição Fluida para a Teoria sem Loops Burocráticos:**
+     - Inclusão dos comandos `"teoria"`, `"sem flashcards, teoria"`, `"quero teoria"`, `"explicação"`, `"aula"` diretamente no roteador de comandos em `in_active_study`, ativando imediatamente `modo_aprender` sobre o tema já contratado sem reexibir menus redundantes.
+  5. **Mandato Anti-Gaslighting e Imutabilidade do Tema Ativo:**
+     - Adicionada regra mandatória em `prompts/prompt_prod.md`, `prompts/base_persona.md` e `prompts/modes/modo_praticar.md` proibindo terminantemente a IA de negar o tema contratado da sessão ou alegar falsamente que a conversa "é de outra matéria" perante questionamentos do aluno.
+  6. **Homologação e Deploy:**
+     - Compilação do backend `main.py` com `py_compile` (Exit Code 0).
+     - Testes automatizados na API de produção da Oracle Cloud VPS atestando 4/4 aprovações (100% de sucesso).
+     - Recompilação do frontend Next.js com Turbopack (Exit Code 0) e sincronização do pacote estático em `apps/mobme/`.
