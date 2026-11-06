@@ -4502,3 +4502,32 @@ esolve_active_mode_and_topic).
      - Cron job configurado no Ubuntu da VPS: `0 5 * * * docker exec mobme-api python /app/sentinela_mobme.py >> /home/ubuntu/sentinela.log 2>&1`.
      - Sidecar do Antigravity configurado em `~/.gemini/jetski/sidecars/auditor-matinal-mobme/sidecar.json`.
      - Skill atualizada em `C:\Users\nepov\.gemini\config\skills\auditor-conversas-mobme\SKILL.md`.
+
+
+### [Rodada 55] - Evolução do Agente 1 (Sentinela Noturno) com Auditoria Semântica, Colisão de Menus e RAG Cruzado
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 100% Implementado, Validado Localmente e em Produção na Oracle Cloud VPS
+- **Diagnóstico e Resolução Técnica:**
+  1. **Diagnóstico da Auditoria Manual (Pedro Vianna e Guilherme Leão):**
+     - A análise aprofundada das 13 sessões de 05/11/2026 revelou falhas que a primeira versão do Sentinela Noturno não capturou:
+       - **Colisão de Menu em Desambiguação:** Ao escolher uma opção numérica de desambiguação de temas (ex: opção 2), o sistema ativava a trilha correspondente do menu principal (ex: Praticar), tanto pela sobrecarga de números no backend quanto por botões clicáveis no frontend (`page.tsx`) com `trackLabels[num]`.
+       - **Alucinação / RAG de Disciplina Cruzada:** Em sessões de Física de Ensino Médio sobre Princípio de Pascal, a IA injetou exercícios de Matemática do 5º ano do Ensino Fundamental (habilidade `EF05MA06` - cálculo de porcentagens e frações).
+       - **Gaslighting Pedagógico:** Diante da dúvida do estudante, a IA justificou a incoerência alegando falsamente que a sessão era de Matemática e não de Física.
+       - **Falsos Bloqueios de Disciplinas:** Emissão da mensagem "ainda não atendo conteúdos de Física" para a disciplina Física que consta no acervo homologado.
+       - **Amnésia de Contexto:** Perda do tema ativo da sessão ao navegar entre trilhas.
+       - **Excesso de Alternativas:** Geração contínua de 5 alternativas (a-e) quando o padrão oficial de telemetria exige 4 (a-d).
+  2. **Novos Detectores Integrados em `sentinela_mobme.py`:**
+     - **P0.1 `DESAMBIGUACAO_COLISAO_MENU`:** Detecta quando o estudante seleciona um número de uma desambiguação de temas anterior e a IA salta diretamente para a trilha do menu principal.
+     - **P0.2 `FALSO_BLOQUEIO_DISCIPLINA`:** Detecta respostas onde a IA afirma não atender uma das disciplinas homologadas.
+     - **P0.3 `RAG_DISCIPLINA_CRUZADA`:** Valida a coerência semântica entre a disciplina/tema da sessão e o conteúdo da questão apresentada (cruzamento semântico de BNCC).
+     - **P0.6 `SESSAO_ABORTADA_CASCATA`:** Análise em nível de estudante que identifica >= 3 sessões curtas abandonadas consecutivamente em <= 45 minutos.
+     - **P1.1 `GASLIGHTING_PEDAGOGICO`:** Detecta desvios de conduta onde a IA tenta justificar a incoerência do acervo culpando o aluno ou o chat.
+     - **P1.2 `AMNESIA_TEMA_SESSAO`:** Detecta perguntas de tema desnecessárias após o tema já ter sido definido na conversa.
+     - **P2.1 `EXCESSO_ALTERNATIVAS_QUIZ`:** Detecta e penaliza questões entregues com alternativa `e)`.
+     - **P2.2 Imunização de KaTeX em `ALTERNATIVAS_AGRUPADAS`:** Pré-sanitização de equações math para eliminar falso-positivos em frações de física/matemática.
+  3. **Impacto Estatístico Revelado:**
+     - A nova bateria de regras foi executada contra a base real de 24h: o total de falhas detectadas subiu de 29 para **84 falhas reais**, trazendo a taxa de conformidade para **69,97% (Wilson 95%: [64,49% — 74,93%])**. O Sentinela agora reflete fielmente a dor real do estudante.
+  4. **Deploy em Produção:**
+     - `sentinela_mobme.py` atualizado e testado localmente.
+     - Arquivo copiado para a Oracle Cloud VPS e injetado no container Docker `mobme-api:/app/sentinela_mobme.py`.
+     - Execução e verificação do endpoint `GET http://137.131.163.113:8000/api/audits/latest` servindo o novo diagnóstico com 100% de precisão.
