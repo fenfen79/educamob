@@ -47,6 +47,129 @@ def wilson_ci_95(successes: int, total: int):
     high = min(1.0, center + half_width)
     return (round(phat * 100, 2), round(low * 100, 2), round(high * 100, 2))
 
+# ==============================================================================
+# DICIONÁRIOS CURRICULARES E DETECTOR SEMÂNTICO DE ALINHAMENTO DE HABILIDADES
+# ==============================================================================
+DOMAIN_KEYWORDS = {
+    "Física": [
+        "força", "newton", "pressão", "fluido", "empuxo", "pascal", "stevin", "arquimedes",
+        "velocidade", "aceleração", "cinética", "potencial", "gravidade", "massa", "dinâmica",
+        "atrito", "energia mecânica", "hidrostática", "densidade", "trabalho", "calor", "óptica"
+    ],
+    "Química": [
+        "átomo", "elétron", "próton", "tabela periódica", "oxidação", "redução", "nox",
+        "ligação", "ácido", "base", "sal", "óxido", "estequiometria", "reação", "solução",
+        "massa molar", "eletronegatividade", "raio atômico", "energia de ionização", "afinidade"
+    ],
+    "Matemática": [
+        "equação", "função", "triângulo", "seno", "cosseno", "tangente", "geometria",
+        "porcentagem", "fração", "razão", "proporção", "juros", "desconto", "quadrante",
+        "matriz", "probabilidade", "estatística", "logaritmo", "polinômio", "progressão"
+    ],
+    "História": [
+        "guerra", "revolução", "império", "século", "república", "monarquia", "feudalismo",
+        "escravidão", "colonial", "tratado", "presidente", "ditadura", "constituição", "nazismo"
+    ],
+    "Geografia": [
+        "relevo", "clima", "vegetação", "bioma", "hidrografia", "cartografia", "urbanização",
+        "migração", "placas tectônicas", "globalização", "demografia", "geopolítica", "solo"
+    ],
+    "Ciências": [
+        "célula", "fotossíntese", "ecossistema", "espécie", "evolução", "genética", "tecido",
+        "vírus", "bactéria", "reprodução", "cadeia alimentar", "seres vivos", "organismo"
+    ]
+}
+
+DISCIPLINE_BNCC_PREFIXES = {
+    "Matemática": ["MA", "MAT"],
+    "Física": ["CNT", "FIS"],
+    "Química": ["CNT", "QUI"],
+    "Ciências": ["CI", "CNT"],
+    "História": ["HI", "CHS"],
+    "Geografia": ["GE", "CHS"]
+}
+
+def infer_topic_discipline(topic: str) -> str:
+    if not topic:
+        return None
+    top_low = topic.lower()
+    for disc, keywords in DOMAIN_KEYWORDS.items():
+        if any(kw in top_low for kw in keywords):
+            return disc
+    return None
+
+def check_skill_alignment(session_topic: str, session_disc: str, content: str, round_item: dict = None, round_source: str = None) -> tuple[bool, str]:
+    """
+    Valida rigorosamente o alinhamento curricular entre a questão entregue e o tema/disciplina da sessão.
+    Retorna (True, motivo) se for detectada incompatibilidade de habilidade ou disciplina cruzada.
+    """
+    disc = session_disc or infer_topic_discipline(session_topic)
+    if not disc and not session_topic:
+        return False, ""
+
+    # 1. Checagem por metadados de arquivo de origem (source path em session_states.json)
+    if round_source and disc:
+        m_src = re.search(r'content/[^/]+/[^/]+/([^/]+)/', round_source.replace('\\', '/').lower())
+        if m_src:
+            src_disc_slug = m_src.group(1)
+            disc_slug_map = {
+                "fisica": "Física", "quimica": "Química", "matematica": "Matemática",
+                "historia": "História", "geografia": "Geografia", "ciencias": "Ciências"
+            }
+            mapped_src_disc = disc_slug_map.get(src_disc_slug)
+            if mapped_src_disc and mapped_src_disc != disc:
+                return True, f"Questão originada do acervo de '{mapped_src_disc}' ({round_source}) entregue em sessão de '{disc}' ('{session_topic}')."
+
+    # 2. Checagem por metadados do item (habilidade BNCC oficial e objeto)
+    if round_item:
+        hab = round_item.get("habilidade", "").upper()
+        obj = round_item.get("objeto", "")
+        m_bncc = re.search(r'EF\d{2}([A-Z]{2})|EM13([A-Z]{3})', hab)
+        if m_bncc and disc:
+            code_disc = m_bncc.group(1) or m_bncc.group(2)
+            allowed_prefixes = DISCIPLINE_BNCC_PREFIXES.get(disc, [])
+            if code_disc and allowed_prefixes and code_disc not in allowed_prefixes:
+                return True, f"Questão com habilidade oficial '{hab}' ({code_disc}) não pertence à disciplina '{disc}' da sessão ('{session_topic}'). Objeto: '{obj}'."
+        
+        # Mismatch de série curricular (ex: Fundamental 1 em Ensino Médio)
+        if any(hab.startswith(f"EF0{i}") for i in range(1, 6)):
+            if disc in ["Física", "Química"] or any(t in (session_topic or "").lower() for t in ["médio", "medio", "pascal", "stevin", "termodinâmica", "funções orgânicas", "1ª série", "1-serie"]):
+                return True, f"Questão de habilidade do Fundamental 1 ('{hab}' - '{obj}') entregue em sessão de nível médio incompatível ('{session_topic}')."
+
+    # 3. Checagem por menção direta de código BNCC no texto
+    m_text_bncc = re.search(r'\b(EF\d{2}[A-Z]{2}\d{2}|EM13[A-Z]{3}\d{3})\b', content)
+    if m_text_bncc:
+        code_str = m_text_bncc.group(1).upper()
+        m_code = re.search(r'EF\d{2}([A-Z]{2})|EM13([A-Z]{3})', code_str)
+        if m_code and disc:
+            code_disc = m_code.group(1) or m_code.group(2)
+            allowed_prefixes = DISCIPLINE_BNCC_PREFIXES.get(disc, [])
+            if code_disc and allowed_prefixes and code_disc not in allowed_prefixes:
+                return True, f"Código de habilidade BNCC '{code_str}' no texto não pertence à disciplina '{disc}' do tema '{session_topic}'."
+
+    # 4. Checagem Semântica de Conteúdo da Questão vs Disciplina/Tema
+    if disc:
+        low_content = content.lower()
+        if disc in ["Física", "Química"]:
+            math_elem = ["porcentagem de 100%", "razão centesimal", "grade de 100 quadradinhos", "taxa percentual", "desconto de 20%", "quadrante da grade", "ef05ma", "ef06ma"]
+            if any(term in low_content for term in math_elem):
+                return True, f"Questão de habilidade elementar de Matemática/Porcentagem entregue em sessão de {disc} ('{session_topic}')."
+            hist_elem = ["segunda guerra mundial", "trincheiras da guerra", "atentado de sarajevo", "revolução francesa", "era vargas"]
+            if any(term in low_content for term in hist_elem):
+                return True, f"Questão de habilidade de História entregue em sessão de {disc} ('{session_topic}')."
+
+        elif disc == "História":
+            phys_elem = ["calcule a velocidade", "aceleração média", "força resultante em newtons", "empuxo hidrostático"]
+            if any(term in low_content for term in phys_elem):
+                return True, f"Questão de habilidade de Física entregue em sessão de História ('{session_topic}')."
+
+        elif disc == "Matemática":
+            bio_elem = ["mitocôndria", "fotossíntese celular", "ribossomos", "cadeia alimentar ecológica"]
+            if any(term in low_content for term in bio_elem):
+                return True, f"Questão de habilidade de Ciências/Biologia entregue em sessão de Matemática ('{session_topic}')."
+
+    return False, ""
+
 async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
     url = os.getenv('SUPABASE_URL')
     key = os.getenv('SUPABASE_KEY')
@@ -121,6 +244,22 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
     issues_by_priority = {"P0": [], "P1": [], "P2": [], "P3": []}
     clean_ai_msgs_count = 0
 
+    # Carregar cache de estados de sessão (session_states.json) para conferência de habilidades e acervo
+    session_states_cache = {}
+    for ssp in [
+        '/app/session_states.json',
+        'services/mobme-api/session_states.json',
+        '🚀 Educamob - DevOps e Infra/services/mobme-api/session_states.json',
+        'session_states.json'
+    ]:
+        if os.path.exists(ssp):
+            try:
+                with open(ssp, 'r', encoding='utf-8') as sf:
+                    session_states_cache = json.load(sf)
+                break
+            except Exception:
+                pass
+
     TOXIC_PRAISE = [
         "parabéns, você é genial", "espetacular!", "maravilhoso!", "sensacional!",
         "você é incrível", "perfeito, você é brilhante"
@@ -134,6 +273,11 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
         s_msgs = msgs_by_session.get(sid, [])
         if not s_msgs:
             continue
+
+        st_info = session_states_cache.get(sid, {})
+        pr_round = st_info.get("praticar_round", {})
+        round_items = pr_round.get("items", [])
+        round_source = pr_round.get("source", "")
 
         s_audit = {
             "session_id": sid,
@@ -216,17 +360,24 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     issues_by_priority["P0"].append(issue)
                     msg_has_issue = True
 
-                # P0.3 RAG com Injeção de Disciplina Cruzada / Alucinação de Acervo
-                # (Ex: aluno em Física/Pascal recebendo exercícios de Porcentagem/Frações do EF05MA)
-                if session_topic and any(term in session_topic.lower() for term in ["pascal", "hidrostática", "hidrostatica", "física", "fisica", "newton", "energia", "química", "quimica"]):
-                    if ("📝 Questão" in content or "**Checagem:**" in content) and any(bad in content.lower() for bad in ["porcentagem de 100%", "razão centesimal", "grade de 100 quadradinhos", "ef05ma", "taxa percentual", "quadrante"]):
+                # P0.3 RAG com Injeção de Disciplina Cruzada / Habilidade Incompatível com o Tema
+                if "📝 Questão" in content or "**Checagem:**" in content:
+                    item_obj = None
+                    m_q = re.search(r"Quest[aã]o\s+(\d+)/15", content, re.IGNORECASE)
+                    if m_q and round_items:
+                        q_idx = int(m_q.group(1)) - 1
+                        if 0 <= q_idx < len(round_items):
+                            item_obj = round_items[q_idx]
+
+                    is_mismatch, reason = check_skill_alignment(session_topic, s.get('discipline'), content, item_obj, round_source)
+                    if is_mismatch:
                         issue = {
                             "priority": "P0",
                             "type": "RAG_DISCIPLINA_CRUZADA",
                             "session_id": sid,
                             "msg_id": mid,
                             "turn": idx + 1,
-                            "desc": f"Sessão sobre '{session_topic}' recebeu questão de frações/porcentagens de Matemática Fundamental (EF05MA).",
+                            "desc": reason,
                             "snippet": content[:220]
                         }
                         s_audit["issues"].append(issue)
