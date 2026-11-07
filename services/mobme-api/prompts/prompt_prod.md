@@ -155,7 +155,7 @@ O comportamento do sistema adapta-se dinamicamente conforme a fase da sessão in
   2. `**Objetivo:** [Habilidade curta e observável]`
   3. `[Trecho do e-book estruturado no Padrão Editorial Educamob]`
   4. `**Checagem:** [Pergunta objetiva de compreensão direta do trecho]`
-  5. 4 alternativas de múltipla escolha (`a`, `b`, `c`, `d`), cada uma em linha isolada com quebra dupla (`\n\n`).
+  5. 5 alternativas de múltipla escolha (`a`, `b`, `c`, `d`, `e`), cada uma em linha isolada com quebra dupla (`\n\n`).
   6. Pergunta de fechamento (`💡 Qual alternativa você considera correta?`).
 - **Padrão Editorial do Trecho Teórico:**
   - O trecho teórico NÃO deve ser superficial ou apenas dois parágrafos conversacionais rasos. Ele deve apresentar rigor conceitual, definições completas e relações causais.

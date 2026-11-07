@@ -4556,3 +4556,346 @@ esolve_active_mode_and_topic).
      - Compilação do backend `main.py` com `py_compile` (Exit Code 0).
      - Testes automatizados na API de produção da Oracle Cloud VPS atestando 4/4 aprovações (100% de sucesso).
      - Recompilação do frontend Next.js com Turbopack (Exit Code 0) e sincronização do pacote estático em `apps/mobme/`.
+
+
+### [06/11/2026 - Rodada 57] - Início da Esteira e Homologação do Lote 1 de Língua Portuguesa: 5º Ano do Ensino Fundamental (Capítulos 01 ao 04)
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 Lote 1 Homologado com Sucesso (4 de 20 Capítulos do 5º Ano / 13.563 Palavras Limpas)
+- **Escopo e Início de Sprint:**
+  - Início oficial da esteira de **Língua Portuguesa para o Ensino Fundamental (5º ao 9º Ano)**, conforme diretrizes da skill E-book Creator e aprovação do usuário na Fase 3.
+  - Mapeamento curricular interno realizado a partir de content/referencias-bncc/bncc_fund_json.txt e content/mapa_curricular_lingua_portuguesa_fundamental.md, cobrindo 78 habilidades da BNCC para o 5º ano organizadas em 20 Capítulos Canônicos.
+- **Entregas Técnicas Realizadas (Lote 1 — Capítulos 01 ao 04):**
+  1. **Capítulo 01:** content/fundamental-1/5-ano/lingua-portuguesa/cap-01-sistema-escrita-ortografia/ebooks/ef05lp01-ortografia.md
+     - Objeto: Sistema de Escrita Alfabética, Regularidades Fonema-Grafema e Ortografia (EF35LP12, EF35LP13, EF05LP01).
+     - Volume: 3.493 palavras limpas.
+  2. **Capítulo 02:** content/fundamental-1/5-ano/lingua-portuguesa/cap-02-acentuacao-grafica-prosodia/ebooks/ef05lp03-acentuacao.md
+     - Objeto: Acentuação Gráfica de Oxítonas, Paroxítonas e Proparoxítonas (EF05LP03).
+     - Volume: 3.314 palavras limpas.
+  3. **Capítulo 03:** content/fundamental-1/5-ano/lingua-portuguesa/cap-03-morfologia-substantivos-adjetivos/ebooks/ef05lp05-substantivos-adjetivos.md
+     - Objeto: Morfologia I: Substantivos, Adjetivos e Relações de Concordância (EF35LP14, EF05LP05).
+     - Volume: 3.253 palavras limpas.
+  4. **Capítulo 04:** content/fundamental-1/5-ano/lingua-portuguesa/cap-04-morfologia-verbos-flexoes/ebooks/ef05lp06-verbos-tempos-modos.md
+     - Objeto: Morfologia II: Verbos (Tempos, Modos e Concordância Verbal Básica) (EF05LP05, EF05LP06).
+     - Volume: 3.503 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (alidador_educamob.py):**
+  - 100% dos arquivos produzidos inicialmente em 	emp_draft.md e validados via script antes da gravação final.
+  - Zero exercícios ou quizzes nas bases teóricas.
+  - Supressão absoluta do símbolo R$.
+  - Mínimo de 5 fontes bibliográficas ABNT NBR 6023 por e-book com citação mandatória da BNCC.
+  - Scaffolding cognitivo completo (Conceitos, Exemplos na Prática, Tabela de Erros Comuns, Conexões Interdisciplinares e Resumo para Revisão).
+  - Total de palavras limpas no Lote 1: **13.563 palavras** (média de 3.390 palavras por e-book).
+
+
+### [06/11/2026 - Rodada 58] - Conclusão e Homologação do Lote 2 de Língua Portuguesa: 5º Ano do Ensino Fundamental (Capítulos 05 ao 08 — Eixo I 100% Finalizado)
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 Lote 2 Homologado com Sucesso (4 Novos Capítulos / 12.321 Palavras Limpas | Total Consolidado: 8 de 20 Capítulos e 25.884 Palavras)
+- **Fechamento do Eixo I (Análise Linguística / Semiótica):**
+  - Conclusão integral dos 8 capítulos que estruturam a base gramatical, ortográfica, morfossintática e semântica do 5º ano do Ensino Fundamental.
+- **Entregas Técnicas Realizadas (Lote 2 — Capítulos 05 ao 08):**
+  1. **Capítulo 05:** content/fundamental-1/5-ano/lingua-portuguesa/cap-05-pronomes-adverbios-interjeicoes/ebooks/ef05lp07-ef05lp08-pronomes-adverbios.md
+     - Objeto: Morfologia III: Pronomes Pessoais (Retos e Oblíquos, Alomorfia -lo/-la/-no/-na), Possessivos, Demonstrativos (Espaço, Tempo e Texto/Anáfora/Catáfora) e Advérbios (EF05LP07, EF05LP08, EF35LP14).
+     - Volume: 3.365 palavras limpas.
+  2. **Capítulo 06:** content/fundamental-1/5-ano/lingua-portuguesa/cap-06-pontuacao-sintaxe-frase/ebooks/ef05lp04-pontuacao-sintaxe.md
+     - Objeto: Pontuação Expressiva, Sintaxe de Frase (Frase, Oração, Período), Delimitação de Parágrafos, Regra de Ouro da Vírgula (Proibição Sujeito-Verbo e Verbo-Objeto), Vocativo, Aposto e Diálogos com Travessão (EF35LP09, EF05LP04, EF05LP26).
+     - Volume: 3.170 palavras limpas.
+  3. **Capítulo 07:** content/fundamental-1/5-ano/lingua-portuguesa/cap-07-coesao-articuladores-anaforicos/ebooks/ef05lp27-coesao-articuladores.md
+     - Objeto: Coesão Textual: Relações Anafóricas e Catanfóricas, Substituições Lexicais, Hiperonímia/Hiponímia, Elipse/Anáfora Zero, Nominalização e Articuladores de Relações de Sentido (Tempo, Causa, Oposição, Conclusão, Comparação e Adição) (EF35LP08, EF05LP27).
+     - Volume: 2.608 palavras limpas.
+  4. **Capítulo 08:** content/fundamental-1/5-ano/lingua-portuguesa/cap-08-semantica-polissemia-dicionario/ebooks/ef05lp02-semantica-polissemia.md
+     - Objeto: Semântica: Polissemia (o Contexto como Árbitro do Sentido), Confronto entre Linguagem Científica e Linguagem Cotidiana (Trabalho, Força, Massa, Célula, Raiz, Vírus), Sinonímia, Antonímia, Homonímia, Paronímia e Anatomia do Verbete de Dicionário (EF05LP02).
+     - Volume: 3.178 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (alidador_educamob.py):**
+  - 100% dos arquivos gerados em 	emp_draft.md e validados via script oficial antes da gravação final (Exit Code 0).
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$.
+  - Mínimo de 5 fontes bibliográficas ABNT NBR 6023 por e-book, com a citação expressa da BNCC.
+  - Scaffolding cognitivo completo em todas as unidades.
+  - Volume total do Lote 2: **12.321 palavras limpas** (média de 3.080 palavras por e-book).
+  - Volume consolidado do 5º Ano até o momento: **25.884 palavras limpas** em 8 e-books teóricos atômicos.
+
+
+### [06/11/2026 - Rodada 59] - Homologação do Capítulo 11 de Língua Portuguesa: 5º Ano do Ensino Fundamental (Campo Jornalístico, Mídias Digitais e Fake News)
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 Capítulo 11 Homologado com Sucesso (4.040 Palavras Limpas | Total Consolidado: 9 de 20 Capítulos e 29.924 Palavras)
+- **Avanço no Eixo II (Leitura e Compreensão Textual nos Campos de Atuação):**
+  - Homologação do capítulo de maior extensão e densidade até agora, focado na literacia midiática crítica e nos gêneros da imprensa.
+- **Entrega Técnica Realizada:**
+  1. **Capítulo 11:** content/fundamental-1/5-ano/lingua-portuguesa/cap-11-textos-jornalisticos-midiaticos/ebooks/ef05lp09-ef05lp10-generos-jornalisticos.md
+     - Objeto: Campo Jornalístico: Notícia, Reportagem, Entrevista e Mídias Digitais (EF15LP08, EF05LP09, EF05LP10, EF05LP15).
+     - Volume: 4.040 palavras limpas.
+     - Destaques Pedagógicos: Pirâmide Invertida e as 6 perguntas do Lead; Quadro analítico Notícia vs. Reportagem; Recursos multissemióticos (infográficos, fotos, legendas, hiperlinks); Anatomia da entrevista e tratamento ético da oralidade; Anatomia de Fake News, Clickbait e os 4 passos do método de checagem (fact-checking); Fronteira jurídica e moral entre Liberdade de Expressão (CF/88 Art. 5º) e Discurso de Ódio (Crime); Critérios periciais de distinção entre Fato e Opinião.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - Conteúdo submetido via temp_draft.md e promovido com retorno Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$.
+  - 6 referências bibliográficas no padrão ABNT NBR 6023 (Juarez Bahia, BNCC/MEC, Pollyana Ferrari, Luiz Gonzaga Motta, Ricardo Noblat, Manual Estadão).
+  - Scaffolding cognitivo completo com 3 casos práticos e tabela de 8 erros comuns diagnosticados.
+  - Total consolidado no 5º Ano: **29.924 palavras limpas** em 9 capítulos homologados.
+
+
+### [06/11/2026 - Rodada 60] - Conclusão Integral e Homologação de 100% da Grade de Língua Portuguesa do 5º Ano do Ensino Fundamental (20 de 20 Capítulos Homologados — 60.960 Palavras Limpas)
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 Marco Histórico: Grade Curricular de Língua Portuguesa do 5º Ano 100% Concluída e Homologada
+- **Consolidação Estatística:**
+  - Total de Capítulos e E-books Teóricos Atômicos: **20 de 20 (100% da Grade Curricular)**.
+  - Volume Total de Palavras Limpas: **60.960 palavras** (excluindo frontmatter YAML).
+  - Densidade Média por E-book: **3.048 palavras** (todas as unidades com densidade superior à meta de 2.000 palavras).
+  - Habilidades BNCC Cobertas: 100% das habilidades curriculares dos Anos Iniciais / 5º Ano em Língua Portuguesa.
+- **Entregas Técnicas Finais por Eixo Curricular:**
+  - **Eixo I: Análise Linguística / Semiótica (Capítulos 01 ao 08 — 25.884 Palavras Limpas)**:
+    1. Cap. 01: Sistema de Escrita e Ortografia (ef05lp01-ortografia.md - 3.493 palavras) ✅
+    2. Cap. 02: Acentuação Gráfica e Prosódia (ef05lp03-acentuacao.md - 3.314 palavras) ✅
+    3. Cap. 03: Morfologia I: Substantivos e Adjetivos (ef05lp05-substantivos-adjetivos.md - 3.253 palavras) ✅
+    4. Cap. 04: Morfologia II: Verbos e Flexões (ef05lp06-verbos-tempos-modos.md - 3.503 palavras) ✅
+    5. Cap. 05: Morfologia III: Pronomes e Advérbios (ef05lp07-ef05lp08-pronomes-adverbios.md - 3.365 palavras) ✅
+    6. Cap. 06: Pontuação Expressiva e Sintaxe de Frase (ef05lp04-pontuacao-sintaxe.md - 3.170 palavras) ✅
+    7. Cap. 07: Coesão Textual e Articuladores Anafóricos (ef05lp27-coesao-articuladores.md - 2.608 palavras) ✅
+    8. Cap. 08: Semântica: Polissemia e Dicionário (ef05lp02-semantica-polissemia.md - 3.178 palavras) ✅
+  - **Eixo II: Leitura e Compreensão Textual nos Campos de Atuação (Capítulos 09 ao 13 — 16.194 Palavras Limpas)**:
+    9. Cap. 09: Estratégias Cognitivas de Leitura e Inferência (ef15lp01-ef15lp04-estrategias-leitura.md - 3.455 palavras) ✅
+    10. Cap. 10: Fluência Leitora, Prosódia e Fato vs. Opinião (ef35lp05-fato-opiniao-apreciacao.md - 2.859 palavras) ✅
+    11. Cap. 11: Campo Jornalístico: Notícia, Reportagem e Fake News (ef05lp09-ef05lp10-generos-jornalisticos.md - 4.040 palavras) ✅
+    12. Cap. 12: Práticas de Estudo: Divulgação Científica e Infográficos (ef05lp22-ef05lp23-divulgacao-cientifica.md - 2.762 palavras) ✅
+    13. Cap. 13: Campo da Vida Pública: Textos Reivindicatórios e ECA (ef05lp16-textos-reivindicatorios.md - 3.078 palavras) ✅
+  - **Eixo III: Campo Artístico-Literário (Capítulos 14 ao 17 — 10.941 Palavras Limpas)**:
+    14. Cap. 14: Narrativas Ficcionais, Crônica, Conto e Enredo (ef35lp21-ef35lp22-narrativas-ficcionais.md - 2.907 palavras) ✅
+    15. Cap. 15: Vozes da Narrativa: Discurso Direto e Indireto (ef35lp22-discurso-direto-indireto.md - 2.877 palavras) ✅
+    16. Cap. 16: O Texto Poético: Verso, Estrofe, Rima e Poesia Visual (ef35lp23-ef35lp27-poesia-versos.md - 2.542 palavras) ✅
+    17. Cap. 17: O Gênero Dramático / Teatral: Diálogos e Rubricas (ef05lp24-texto-dramatico-teatral.md - 2.615 palavras) ✅
+  - **Eixo IV: Produção de Texto, Oralidade e Variação Linguística (Capítulos 18 ao 20 — 7.941 Palavras Limpas)**:
+    18. Cap. 18: Processos de Produção Textual: Planejamento à Reescrita (ef15lp05-ef15lp06-producao-texto.md - 2.572 palavras) ✅
+    19. Cap. 19: Oralidade Pública: Seminários e Debate Regrado (ef15lp09-ef15lp13-oralidade-exposicao.md - 2.555 palavras) ✅
+    20. Cap. 20: Variação Linguística e Combate ao Preconceito Linguístico (ef35lp11-variacao-linguistica.md - 2.814 palavras) ✅
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 20 capítulos submetidos via temp_draft.md e promovidos após aprovação com Exit Code 0.
+  - Zero exercícios, quizzes ou gabaritos dentro das bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno (Conceitos, Exemplos na Prática, Tabela de Erros Comuns, Conexões Interdisciplinares e Resumo para Revisão) em 100% dos e-books.
+
+
+### [06/11/2026 - Rodada 61] - Abertura e Homologação do Lote 1 de Língua Portuguesa: 6º Ano do Ensino Fundamental (Capítulos 01 ao 04 — 11.254 Palavras Limpas)
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 Lote 1 Homologado com Sucesso (4 Novos Capítulos / 11.254 Palavras Limpas | Início Oficial dos Anos Finais em Língua Portuguesa)
+- **Transição para o Ensino Fundamental Anos Finais:**
+  - Inauguração da grade curricular de Língua Portuguesa do 6º Ano com foco no aprofundamento analítico da linguagem, teoria do signo, fonologia, morfologia lexical e a classe soberana dos substantivos.
+- **Entregas Técnicas Realizadas (Lote 1 — Capítulos 01 ao 04):**
+  1. **Capítulo 01:** content/fundamental-2/6-ano/lingua-portuguesa/cap-01-linguagem-signo-funcoes-comunicacao/ebooks/ef69lp55-ef69lp56-signo-linguistico.md
+     - Objeto: Linguagem Verbal, Não Verbal e Mista, Língua vs. Fala, Teoria do Signo Linguístico de Ferdinand de Saussure (Significante e Significado, Arbitrariedade e Linearidade) e o Circuito da Comunicação com as Seis Funções da Linguagem de Roman Jakobson (Referencial, Emotiva, Conativa, Fática, Metalinguística e Poética) (EF69LP55, EF69LP56).
+     - Volume: 3.025 palavras limpas.
+  2. **Capítulo 02:** content/fundamental-2/6-ano/lingua-portuguesa/cap-02-fonetica-fonologia-encontros-acentuacao/ebooks/ef06lp11-fonetica-acentuacao.md
+     - Objeto: Fonética e Fonologia: Fonemas e Letras, Dígrafos Consonantais e Vocálicos/Nasais, Encontros Vocálicos (Ditongos Crescentes/Decrescentes, Tritongos e Hiatos), Divisão Silábica, Tonicidade (Oxítonas, Paroxítonas e Proparoxítonas) e Regras Oficiais de Acentuação Gráfica do Acordo Ortográfico (EF06LP11).
+     - Volume: 2.968 palavras limpas.
+  3. **Capítulo 03:** content/fundamental-2/6-ano/lingua-portuguesa/cap-03-estrutura-formacao-palavras/ebooks/ef06lp03-formacao-palavras.md
+     - Objeto: Morfologia Lexical: Morfemas (Radical, Afixos Prefixais e Sufixais, Vogal Temática, Tema e Desinências), Famílias de Palavras Cognatas, Processos de Derivação (Prefixal, Sufixal, Prefixal/Sufixal, Parassintética, Regressiva e Imprópria), Composição (Justaposição vs. Aglutinação), Hibridismo e Neologismos (EF06LP03).
+     - Volume: 2.572 palavras limpas.
+  4. **Capítulo 04:** content/fundamental-2/6-ano/lingua-portuguesa/cap-04-morfologia-substantivos-flexoes/ebooks/ef06lp04-substantivos-flexoes.md
+     - Objeto: Morfologia I: A Classe Soberana dos Substantivos, Classificações Semânticas Cruzadas (Próprio/Comum, Concreto/Abstrato, Primitivo/Derivado, Simples/Composto e Coletivo), Flexões de Gênero (Biformes e Uniformes: Epicenos, Sobrecomuns e Comuns de Dois), Plural dos Substantivos Simples e Compostos e Efeitos Discursivos de Afeto e Deboche nos Graus (EF06LP04).
+     - Volume: 2.689 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 4 capítulos submetidos via temp_draft.md e promovidos após aprovação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação expressa da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 1 do 6º Ano: **11.254 palavras limpas** (média de 2.813 palavras por e-book).
+
+
+### [06/11/2026 - Rodada 62] - Conclusão e Homologação do Lote 2 de Língua Portuguesa: 6º Ano do Ensino Fundamental (Capítulos 05 ao 08 — Eixo I 100% Finalizado — 22.132 Palavras Limpas)
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 Lote 2 Homologado com Sucesso (4 Novos Capítulos / 10.878 Palavras Limpas | Total Consolidado: 8 de 20 Capítulos e 22.132 Palavras)
+- **Fechamento do Eixo I (Análise Linguística, Morfossintaxe e Léxico do 6º Ano):**
+  - Conclusão integral dos 8 capítulos que estruturam os pilares da linguagem, teoria do signo, fonética, morfologia lexical e as classes morfológicas fundamentais do sintagma nominal e verbal (substantivo, adjetivo, artigo, numeral, verbo e pronome).
+- **Entregas Técnicas Realizadas (Lote 2 — Capítulos 05 ao 08):**
+  1. **Capítulo 05:** content/fundamental-2/6-ano/lingua-portuguesa/cap-05-morfologia-adjetivos-locucoes-graus/ebooks/ef06lp04-adjetivos-graus.md
+     - Objeto: Morfologia II: O Adjetivo como Caracterizador Discursivo, Equivalência com Locuções Adjetivas, Adjetivos Pátrios (Gentílicos Estaduais e Municipais), Plural dos Adjetivos Compostos (Regra Geral vs. Cores com Substantivo Invariável), Graus Comparativo e Superlativo (Absoluto Sintético e Relativo) e Efeitos Semânticos da Posição do Adjetivo (EF06LP04).
+     - Volume: 2.789 palavras limpas.
+  2. **Capítulo 06:** content/fundamental-2/6-ano/lingua-portuguesa/cap-06-morfologia-artigos-numerais/ebooks/ef06lp04-artigos-numerais.md
+     - Objeto: Morfologia III: Artigos Definidos e Indefinidos (Especificação vs. Generalização), O Poder Mórmico da Substantivação (Derivação Imprópria), Combinações e Contrações com Preposições, Numerais (Cardinais, Ordinais, Multiplicativos, Fracionários e Coletivos), Regra Oficial de Leitura de Algarismos Romanos (Séculos, Papas e Reis: Ordinal até X e Cardinal de XI em diante; Legislação: Ordinal até 9º e Cardinal de 10 em diante) e Distinção Pericial entre Artigo "Um" e Numeral "Um" (EF06LP04).
+     - Volume: 2.866 palavras limpas.
+  3. **Capítulo 07:** content/fundamental-2/6-ano/lingua-portuguesa/cap-07-morfologia-verbos-tempos-modos/ebooks/ef06lp05-verbos-tempos-modos.md
+     - Objeto: Morfologia IV: O Verbo como Motor Temporal, Estrutura Mórmica Completa (Radical, Vogal Temática, Tema, DMT e DNP), As Três Conjugações (com enquadramento histórico do verbo *pôr* na 2ª conjugação), Atitudes dos Três Modos (Indicativo/Certeza, Subjuntivo/Hipótese e Imperativo/Apelo), Formas Nominais (Infinitivo, Gerúndio e Particípio) e a Batalha dos Pretéritos na Narrativa (Perfeito pontual de primeiro plano vs. Imperfeito durativo de ambientação cênica) (EF06LP05).
+     - Volume: 2.488 palavras limpas.
+  4. **Capítulo 08:** content/fundamental-2/6-ano/lingua-portuguesa/cap-08-morfologia-pronomes-coesao/ebooks/ef06lp12-pronomes-coesao.md
+     - Objeto: Morfologia V: Pronomes Substantivos vs. Adjetivos, Pronomes Pessoais Retos (Sujeito) e Oblíquos (Objeto), Alomorfia Fonética Pronominal (-lo/-la após -R, -S, -Z; -no/-na após sons nasais), Pronomes de Tratamento e Concordância na 3ª Pessoa, As Três Dimensões dos Demonstrativos (Espaço Físico, Tempo Cronológico e Dêixis Textual: Anáfora de Retomada vs. Catáfora de Anúncio) e Pronomes Possessivos e Indefinidos na Coesão Referencial (EF06LP12).
+     - Volume: 2.735 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 4 capítulos gerados via temp_draft.md e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 2 do 6º Ano: **10.878 palavras limpas** (média de 2.719 palavras por e-book).
+  - Volume consolidado do 6º Ano (Lotes 1 e 2): **22.132 palavras limpas** em 8 capítulos (média geral de 2.766 palavras por e-book).
+
+
+### [06/11/2026 - Rodada 63] - Conclusão e Homologação do Lote 3 de Língua Portuguesa: 6º Ano do Ensino Fundamental (Capítulos 09 ao 12 — Eixo II 100% Finalizado — 16.207 Palavras no Lote | 38.339 Palavras Consolidado)
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 Lote 3 Homologado com Sucesso (4 Novos Capítulos / 16.207 Palavras Limpas | Total Consolidado: 12 de 20 Capítulos e 38.339 Palavras)
+- **Fechamento do Eixo II (Sintaxe da Oração, Pontuação Sintática e Semântica do 6º Ano):**
+  - Conclusão integral dos 4 capítulos que estruturam a análise oracional sintática, a distinção entre frase, oração e período, o desmonte dos sintagmas nominal e verbal, a tipologia dos termos essenciais (sujeito e predicado), as leis de concordância verbal, a gramática dos sinais de pontuação (vírgula, dois-pontos e ponto e vírgula) e as relações semântico-discursivas (sinonímia, antonímia, homonímia, paronímia, polissemia, ambiguidade e coesão sequencial).
+- **Entregas Técnicas Realizadas (Lote 3 — Capítulos 09 ao 12):**
+  1. **Capítulo 09:** content/fundamental-2/6-ano/lingua-portuguesa/cap-09-sintaxe-frase-oracao-periodo/ebooks/ef06lp07-ef06lp08-periodo-simples-composto.md
+     - Objeto: Sintaxe I: Frase, Oração e Período (Período Simples vs. Composto) e Introdução aos Sintagmas Nominal e Verbal (EF06LP07, EF06LP08, EF06LP09, EF06LP10).
+     - Volume: 4.465 palavras limpas.
+  2. **Capítulo 10:** content/fundamental-2/6-ano/lingua-portuguesa/cap-10-sintaxe-sujeito-predicado/ebooks/ef06lp06-ef06lp11-sujeito-predicado.md
+     - Objeto: Sintaxe II: Termos Essenciais da Oração — Tipologia do Sujeito (Simples, Composto, Oculto/Desinencial, Indeterminado e Inexistente/Oração sem Sujeito), Introdução ao Predicado (Verbal, Nominal e Verbo-Nominal) e Princípios Fundamentais de Concordância Verbal (EF06LP06, EF06LP11).
+     - Volume: 4.137 palavras limpas.
+  3. **Capítulo 11:** content/fundamental-2/6-ano/lingua-portuguesa/cap-11-pontuacao-sintatica-expressiva/ebooks/ef06lp07-ef06lp11-pontuacao-expressiva.md
+     - Objeto: Pontuação Sintática e Expressiva: O Emprego da Vírgula nos Termos da Oração (Isolamento de Vocativo, Aposto e Adjunto Adverbial Deslocado; Proibição de Separar Sujeito e Predicado), Dois-Pontos e Ponto e Vírgula (EF06LP07, EF06LP11).
+     - Volume: 3.679 palavras limpas.
+  4. **Capítulo 12:** content/fundamental-2/6-ano/lingua-portuguesa/cap-12-semantica-sinonimia-polissemia-ambiguidade/ebooks/ef06lp03-ef06lp12-semantica-ambiguidade.md
+     - Objeto: Semântica e Coesão: Sinonímia, Antonímia, Homonímia, Paronímia, Polissemia, Ambiguidade e Coesão Sequencial (EF06LP03, EF06LP12).
+     - Volume: 3.926 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 4 capítulos gerados via temp_draft.md e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 3 do 6º Ano: **16.207 palavras limpas** (média de 4.051 palavras por e-book).
+  - Volume consolidado do 6º Ano (Lotes 1, 2 e 3): **38.339 palavras limpas** em 12 capítulos (média geral de 3.195 palavras por e-book).
+
+
+### [06/11/2026 - Rodada 64] - Conclusão e Homologação do Lote 4 de Língua Portuguesa: 6º Ano do Ensino Fundamental (Capítulos 13 ao 16 — Eixo III 100% Finalizado — 15.061 Palavras no Lote | 53.400 Palavras Consolidado)
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 Lote 4 Homologado com Sucesso (4 Novos Capítulos / 15.061 Palavras Limpas | Total Consolidado: 16 de 20 Capítulos e 53.400 Palavras)
+- **Fechamento do Eixo III (Campo Jornalístico-Midiático e Cultura Digital do 6º Ano):**
+  - Conclusão integral dos 4 capítulos que estruturam a atuação cidadã na esfera pública midiática: a centralidade da notícia e a técnica da pirâmide invertida com o lide, o filtro pericial entre fato e opinião, a arquitetura do hipertexto e dos multiletramentos na cibercultura, a prática da curadoria crítica de fontes digitais, a voz do leitor da carta tradicional aos comentários em redes sociais, a argumentação lógica sem ataques pessoais (*ad hominem*), a moderação ética contra o discurso de ódio e a gramática semiótica da publicidade e da propaganda com foco no consumo consciente.
+- **Entregas Técnicas Realizadas (Lote 4 — Capítulos 13 ao 16):**
+  1. **Capítulo 13:** content/fundamental-2/6-ano/lingua-portuguesa/cap-13-campo-jornalistico-centralidade-noticia/ebooks/ef06lp01-ef06lp02-centralidade-noticia.md
+     - Objeto: O Campo Jornalístico-Midiático I: A Centralidade da Notícia — Fato vs. Opinião, Lide, Pirâmide Invertida e Confiabilidade da Informação (EF06LP01, EF06LP02, EF67LP09, EF67LP10).
+     - Volume: 3.958 palavras limpas.
+  2. **Capítulo 14:** content/fundamental-2/6-ano/lingua-portuguesa/cap-14-hipertexto-hiperlinks-curadoria-digital/ebooks/ef67lp01-ef67lp03-hipertexto-curadoria.md
+     - Objeto: Cultura Digital e Hipertexto: A Navegação Não Linear por Hiperlinks, Multimodalidade e Curadoria Crítica de Fontes na Web (EF67LP01, EF67LP03, EF67LP08).
+     - Volume: 3.874 palavras limpas.
+  3. **Capítulo 15:** content/fundamental-2/6-ano/lingua-portuguesa/cap-15-opiniao-leitor-comentarios-redes-sociais/ebooks/ef67lp02-ef67lp05-carta-leitor-comentarios.md
+     - Objeto: A Voz do Leitor na Esfera Pública: Carta do Leitor, Comentários em Redes Sociais, Fóruns Digitais e Moderação Ética (EF67LP02, EF67LP05, EF67LP07).
+     - Volume: 3.649 palavras limpas.
+  4. **Capítulo 16:** content/fundamental-2/6-ano/lingua-portuguesa/cap-16-textos-publicitarios-propaganda-persuasao/ebooks/ef67lp08-ef67lp13-publicidade-propaganda.md
+     - Objeto: Discurso Publicitário e Propaganda: Recursos Semióticos, Estratégias de Persuasão, Relação Texto-Imagem e Consumo Consciente (EF67LP08, EF67LP13).
+     - Volume: 3.580 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 4 capítulos gerados via temp_draft.md e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 4 do 6º Ano: **15.061 palavras limpas** (média de 3.765 palavras por e-book).
+  - Volume consolidado do 6º Ano (Lotes 1, 2, 3 e 4): **53.400 palavras limpas** em 16 capítulos (média geral de 3.337 palavras por e-book).
+
+
+### [06/11/2026 - Rodada 65] - Conclusão Integral e Homologação de 100% de Língua Portuguesa do 6º Ano do Ensino Fundamental (Lote 5 Finalizado: Capítulos 17 ao 20 — 20 de 20 Capítulos Concluídos — 67.664 Palavras Limpas)
+- **Data:** 06 de Novembro de 2026
+- **Status:** 🏆 100% DE LÍNGUA PORTUGUESA DO 6º ANO HOMOLOGADA COM SUCESSO (20 Capítulos | 20 E-books Teóricos Atômicos Homologados com Exit Code 0 | 67.664 Palavras Limpas)
+- **Fechamento do Eixo IV (Campo de Estudo e Pesquisa, Vida Pública e Arte Literária do 6º Ano):**
+  - Conclusão integral dos 4 capítulos finais: divulgação científica e transposição didática, técnica do resumo acadêmico com as macrorregras de Kintsch e van Dijk (apagamento, generalização e construção), decodificação analítica de infográficos multimodais, atuação na vida pública por meio de textos reivindicatórios (abaixo-assinado, petição online e carta de reclamação), interpretação de textos normativos e de lei (ECA, CDC e regimento escolar), teoria literária das narrativas de tradição oral (mitos, lendas e monomito de aventura com os elementos PENTE) e estética poética (formas fixas do soneto e do haicai, versos livres, escansão com elisão, métrica e figuras de linguagem).
+- **Entregas Técnicas Realizadas (Lote 5 — Capítulos 17 ao 20):**
+  1. **Capítulo 17:** content/fundamental-2/6-ano/lingua-portuguesa/cap-17-estudo-pesquisa-resumo-infografico/ebooks/ef67lp20-ef67lp21-divulgacao-cientifica-infografico.md
+     - Objeto: Campo de Estudo e Pesquisa: Textos de Divulgação Científica, a Técnica do Resumo Acadêmico e Leitura de Infográficos (EF67LP20, EF67LP21, EF69LP32-35).
+     - Volume: 3.324 palavras limpas.
+  2. **Capítulo 18:** content/fundamental-2/6-ano/lingua-portuguesa/cap-18-campo-vida-publica-textos-reivindicatorios-normativos/ebooks/ef67lp15-ef67lp17-textos-reivindicatorios.md
+     - Objeto: Vida Pública e Cidadania: Textos Reivindicatórios (Abaixo-Assinado, Petição Online) e Textos Normativos e Regulamentares (ECA, CDC, Regimentos) (EF67LP15-19).
+     - Volume: 3.427 palavras limpas.
+  3. **Capítulo 19:** content/fundamental-2/6-ano/lingua-portuguesa/cap-19-campo-literario-mitos-lendas-narrativas-aventura/ebooks/ef67lp27-ef67lp28-mitos-lendas-narrativas.md
+     - Objeto: Campo Artístico-Literário I: Mitos, Lendas e Narrativas de Aventura — Elementos da Narrativa (PENTE) e Tradição Oral (EF67LP27-28, EF69LP44-47).
+     - Volume: 3.556 palavras limpas.
+  4. **Capítulo 20:** content/fundamental-2/6-ano/lingua-portuguesa/cap-20-poesia-formas-fixas-versos-livres-figuras/ebooks/ef67lp32-ef69lp48-poesia-figuras-linguagem.md
+     - Objeto: Poesia e Recursos Estéticos: Formas Fixas (Soneto e Haicai), Versos Livres, Ritmo, Métrica, Escansão e Figuras de Linguagem (EF67LP32, EF69LP48-54).
+     - Volume: 3.957 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 20 capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 5 do 6º Ano: **14.264 palavras limpas** (média de 3.566 palavras por e-book).
+  - **TOTAL CONSOLIDADO DO 6º ANO DE LÍNGUA PORTUGUESA (100% CONCLUÍDO):** **67.664 palavras limpas** em 20 capítulos (média geral de 3.383 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º E 6º ANOS):** 40 Capítulos | 40 E-books Teóricos Atômicos Homologados | **128.624 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 66] - Início da Produção de Língua Portuguesa do 7º Ano do Ensino Fundamental (Lote 1 Homologado com Sucesso: Capítulos 01 ao 04 — 12.127 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🚀 Eixo I (Parte 1: Sintaxe da Oração e Morfossintaxe do 7º Ano) Homologado com Sucesso (4 Capítulos | 4 E-books Teóricos Atômicos Homologados com Exit Code 0 | 12.127 Palavras Limpas)
+- **Avanço Curricular BNCC do 7º Ano (Eixo I - Parte 1):**
+  - Produção estruturada e densa dos quatro primeiros blocos sintáticos do 7º Ano:
+    1. Predicação verbal completa e distinção contextual entre verbos transitivos (VTD, VTI, VTDI), intransitivos (VI) e verbos de ligação (VL) com predicativo do sujeito (EF07LP04, EF07LP05).
+    2. Termos integrantes: objeto direto e objeto indireto, emprego de pronomes oblíquos átonos como complementos verbais, objetos preposicionados e pleonásticos (EF07LP07).
+    3. Termos acessórios do sintagma nominal: adjunto adnominal, distinção rigorosa frente a complemento nominal e predicativo (critérios de agente vs. paciente, sentido ativo vs. passivo, substantivo concreto vs. abstrato) (EF07LP08).
+    4. Termos acessórios circunstanciais: adjunto adverbial, matriz semântica de circunstâncias (tempo, modo, lugar, causa, finalidade, instrumento, companhia, dúvida, intensidade, concessão), locuções adverbiais e regras de pontuação com deslocamentos (EF07LP09).
+- **Entregas Técnicas Realizadas (Lote 1 — Capítulos 01 ao 04):**
+  1. **Capítulo 01:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-01-predicacao-transitividade-verbal/ebooks/ef07lp04-ef07lp05-transitividade-verbal.md`
+     - Objeto: Predicação Verbal: Verbos Intransitivos, Transitivos (Direto, Indireto, Direto e Indireto) e Verbos de Ligação (EF07LP04, EF07LP05).
+     - Volume: 3.263 palavras limpas.
+  2. **Capítulo 02:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-02-termos-integrantes-objeto-direto-indireto/ebooks/ef07lp07-objetos-direto-indireto.md`
+     - Objeto: Termos Integrantes da Oração: Objeto Direto e Objeto Indireto, Preposições Regentes e Pronomes Oblíquos (EF07LP07).
+     - Volume: 3.126 palavras limpas.
+  3. **Capítulo 03:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-03-termos-acessorios-adjunto-adnominal/ebooks/ef07lp08-adjunto-adnominal.md`
+     - Objeto: Termos Acessórios da Oração: O Adjunto Adnominal e a Qualificação do Núcleo Substantivo (EF07LP08).
+     - Volume: 2.832 palavras limpas.
+  4. **Capítulo 04:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-04-termos-acessorios-adjunto-adverbial/ebooks/ef07lp09-adjunto-adverbial.md`
+     - Objeto: O Adjunto Adverbial e as Circunstâncias Modificadoras: Valores Semânticos e Pontuação nos Deslocamentos (EF07LP09).
+     - Volume: 2.906 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 4 capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 1 do 7º Ano: **12.127 palavras limpas** (média de 3.032 palavras por e-book).
+
+
+### [07/11/2026 - Rodada 67] - Conclusão e Homologação Integral do Eixo I de Língua Portuguesa do 7º Ano do Ensino Fundamental (Lote 2 Finalizado: Capítulos 05 ao 08 — 8 de 20 Capítulos Concluídos — 26.841 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🏆 Eixo I (Sintaxe da Oração, Morfossintaxe e Coesão do 7º Ano) 100% Homologado com Sucesso (8 Capítulos | 8 E-books Teóricos Atômicos Homologados com Exit Code 0 | 26.841 Palavras Limpas)
+- **Fechamento do Eixo I (Morfossintaxe Avançada e Coesão Textual do 7º Ano):**
+  - Conclusão integral dos quatro blocos sintático-semânticos complementares do 7º Ano:
+    1. Vozes verbais completas: distinção estrutural entre voz ativa, passiva analítica (com locução verbal e particípio concordante), passiva sintética (com partícula apassivadora *se* e concordância obrigatória), reflexiva e recíproca; agente da passiva e algoritmo de transposição sintática e restrições de passivação com VTI e VI (EF07LP05, EF07LP06, EF07LP10).
+    2. Concordância nominal no Sintagma Nominal: regra geral de harmonia entre núcleo substantivo e satélites (adjetivo, artigo, pronome adjetivo, numeral); adjetivo qualificando múltiplos substantivos (anteposto e posposto); catálogo exaustivo dos casos especiais (*anexo, incluso, mesmo, próprio, obrigado, bastante, meio, menos, alerta, é proibido / é necessário / é bom*) (EF07LP06, EF07LP10).
+    3. Concordância verbal avançada: flexão em expressões partitivas (*a maioria de, grande parte de* com dupla concordância legítima), porcentagens com e sem especificador, frações ordinárias, regência com pronomes relativos *que* (concordância com antecedente) e *quem* (dupla opção), verbos impessoais complexos (*haver* e *fazer*) e o contágio sintático em locuções verbais, além da hierarquia de pessoas gramaticais heterogêneas (EF07LP06, EF07LP10).
+    4. Semântica e coesão referencial: relações hierárquicas de hiperonímia, hiponímia e co-hiponímia com a lei de inclusão unidirecional; distinção entre campo semântico e campo lexical; arquitetura de cadeias coesivas com substituição anafórica, catafórica, elipse (anáfora zero) e nominalização (EF07LP11, EF07LP12, EF07LP13).
+- **Entregas Técnicas Realizadas (Lote 2 — Capítulos 05 ao 08):**
+  1. **Capítulo 05:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-05-vozes-verbais-ativa-passiva-reflexiva/ebooks/ef07lp05-ef07lp06-vozes-verbais.md`
+     - Objeto: Vozes Verbais: Voz Ativa, Voz Passiva (Analítica e Sintética), Voz Reflexiva e Recíproca, Agente da Passiva e Mecanismos de Transposição Sintática (EF07LP05, EF07LP06, EF07LP10).
+     - Volume: 4.271 palavras limpas.
+  2. **Capítulo 06:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-06-concordancia-nominal-casos-especiais/ebooks/ef07lp06-ef07lp10-concordancia-nominal.md`
+     - Objeto: Concordância Nominal: O Princípio Harmônico do Sintagma Nominal, Regra Geral e Casos Especiais (anexo, incluso, mesmo, próprio, obrigado, bastante, meio, menos, é proibido/necessário) (EF07LP06, EF07LP10).
+     - Volume: 3.482 palavras limpas.
+  3. **Capítulo 07:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-07-concordancia-verbal-casos-particulares/ebooks/ef07lp06-ef07lp10-concordancia-verbal.md`
+     - Objeto: Concordância Verbal Avançada: Expressões Partitivas, Porcentagens, Pronomes Relativos (Que/Quem), Verbos Impessoais Complexos e Pessoas Gramaticais Heterogêneas (EF07LP06, EF07LP10).
+     - Volume: 3.573 palavras limpas.
+  4. **Capítulo 08:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-08-semantica-hiperonimia-coesao-referencial/ebooks/ef07lp11-ef07lp13-hiperonimia-coesao.md`
+     - Objeto: Semântica e Coesão Referencial: Hiperonímia, Hiponímia, Campo Semântico, Cadeias Coesivas e Mecanismos de Substituição Anafórica e Catafórica (EF07LP11, EF07LP12, EF07LP13).
+     - Volume: 3.388 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 8 capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 2 do 7º Ano: **14.714 palavras limpas** (média de 3.678 palavras por e-book).
+  - **TOTAL CONSOLIDADO DO EIXO I DO 7º ANO (CAPÍTULOS 01 AO 08 — 100% CONCLUÍDO):** **26.841 palavras limpas** em 8 capítulos (média geral de 3.355 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º E 7º ANOS):** 48 Capítulos | 48 E-books Teóricos Atômicos Homologados | **155.465 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 68] - Banimento da Regra de 4 Alternativas e Padronização Mandatória de 5 Alternativas (A-E) em Todo o Ecossistema da Mob.me (Agente 1 e Agente 2)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🏆 100% Homologado e em Produção na Oracle Cloud VPS (Container `mobme-api`)
+- **Diretriz Estrutural e Arquitetural:**
+  - Determinado formalmente pelo usuário que a antiga regra de 4 alternativas (`a-d`) está **terminantemente banida** de todo o ecossistema Educamob.
+  - Como todas as listas oficiais de exercícios (`-exercicios.md`) da plataforma são construídas e calibradas com **5 alternativas (A-E)** com distribuição equilibrada de gabarito (~12 por letra), o padrão unificado de **5 alternativas (a, b, c, d, e)** passa a ser obrigatório em qualquer exercício ou checagem de compreensão de múltipla escolha apresentada pela IA.
+- **Entregas Técnicas Realizadas:**
+  1. **Atualização de Prompts Sistêmicos (`services/mobme-api/prompts/`):**
+     - Em `modes/modo_aprender.md`: Banida a menção a 4 alternativas; padronizadas 5 alternativas (`a, b, c, d, e`) no objetivo, regras de elaboração, template de etapa teórica e na regra crítica de interatividade.
+     - Em `prompt_prod.md`: Atualizada a linha 158 da estrutura da etapa teórica para exigir 5 alternativas de múltipla escolha (`a`, `b`, `c`, `d`, `e`) em linha isolada com quebra dupla (`\n\n`).
+  2. **Evolução do Agente 1 (Sentinela Noturno - `sentinela_mobme.py`):**
+     - Banido o antigo detector de "excesso" por presença de alternativa `e)`.
+     - Atualizada a regra `CHECAGEM_SEM_MULTIPLA_ESCOLHA` (P1.4) para exigir a presença das 5 alternativas obrigatórias (`a, b, c, d, e`).
+     - Criado o detector `DEFICIT_ALTERNATIVAS_PADRAO_5` (P2.1) autuando qualquer questão ou checagem entregue com menos de 5 alternativas, violando o novo padrão oficial unificado da plataforma.
+     - O detector `EXCESSO_ALTERNATIVAS_QUIZ` passa a agir exclusivamente contra alternativas além de E (`f-z`).
+  3. **Atualização da Skill Oficial (`C:\Users\nepov\.gemini\config\skills\auditor-conversas-mobme\SKILL.md`):**
+     - Atualizada a tabela de prioridades da skill do Agente 2 para registrar o novo padrão P1 (Checagem sem 5 alternativas) e P2 (Déficit do padrão de 5 alternativas).
+  4. **Deploy Homologado em Produção (Oracle Cloud VPS `137.131.163.113`):**
+     - Arquivos `sentinela_mobme.py`, `modo_aprender.md` e `prompt_prod.md` sincronizados via SCP na VPS e injetados via `docker cp` no container `mobme-api`.
+     - Container `mobme-api` reiniciado com sucesso.
+     - Auditoria do Sentinela Noturno executada em produção atestando **100.0% de conformidade do System Prompt** (IC Wilson 95%: `[67.56% — 100.0%]`) com 0 falhas P1, 0 falhas P2 e 0 falhas P3.

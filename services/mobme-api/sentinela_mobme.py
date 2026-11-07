@@ -472,15 +472,15 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     issues_by_priority["P1"].append(issue)
                     msg_has_issue = True
 
-                # P1.4 Modo Aprender sem alternativas A-D (checagem aberta proibida)
-                if "**Checagem:**" in content and not re.search(r'[a-dA-D]\)[ \t]+\S', content):
+                # P1.4 Modo Aprender sem alternativas A-E (checagem aberta proibida)
+                if "**Checagem:**" in content and not re.search(r'[a-eA-E]\)[ \t]+\S', content):
                     issue = {
                         "priority": "P1",
                         "type": "CHECAGEM_SEM_MULTIPLA_ESCOLHA",
                         "session_id": sid,
                         "msg_id": mid,
                         "turn": idx + 1,
-                        "desc": "A checagem de compreensão foi apresentada sem as 4 alternativas obrigatórias (a, b, c, d).",
+                        "desc": "A checagem de compreensão foi apresentada sem as 5 alternativas obrigatórias (a, b, c, d, e).",
                         "snippet": content[content.find("**Checagem:**"):content.find("**Checagem:**")+250]
                     }
                     s_audit["issues"].append(issue)
@@ -506,20 +506,39 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                 # --- P2: FALHAS MÉDIAS DE FORMATAÇÃO E TELEMETRIA DO QUIZ ---
                 # ==============================================================
 
-                # P2.1 Excesso de Alternativas (5 opções A-E violando padrão de 4)
-                if ("📝 Questão" in content or "**Checagem:**" in content) and re.search(r'(?:^|\n)\s*[eE]\)', content):
-                    issue = {
-                        "priority": "P2",
-                        "type": "EXCESSO_ALTERNATIVAS_QUIZ",
-                        "session_id": sid,
-                        "msg_id": mid,
-                        "turn": idx + 1,
-                        "desc": "A questão foi entregue com 5 alternativas (a, b, c, d, e) violando o padrão oficial de 4 (a-d).",
-                        "snippet": [l.strip() for l in content.split('\n') if re.search(r'^\s*[a-eA-E]\)', l.strip())][:5]
-                    }
-                    s_audit["issues"].append(issue)
-                    issues_by_priority["P2"].append(issue)
-                    msg_has_issue = True
+                # P2.1 Padrão Oficial Unificado de 5 Alternativas (A-E Obrigatório)
+                # Toda questão oficial ("📝 Questão") e checagem teórica ("**Checagem:**") DEVE ter exatamente 5 alternativas (a, b, c, d, e).
+                if ("📝 Questão" in content or "**Checagem:**" in content):
+                    has_options = bool(re.search(r'(?:^|\n)\s*[a-dA-D]\)', content))
+                    has_opt_e = bool(re.search(r'(?:^|\n)\s*[eE]\)', content))
+                    has_opt_f = bool(re.search(r'(?:^|\n)\s*[f-zF-Z]\)', content))
+
+                    if has_options and not has_opt_e:
+                        issue = {
+                            "priority": "P2",
+                            "type": "DEFICIT_ALTERNATIVAS_PADRAO_5",
+                            "session_id": sid,
+                            "msg_id": mid,
+                            "turn": idx + 1,
+                            "desc": "A questão/checagem foi entregue com menos de 5 alternativas, violando o padrão oficial unificado da plataforma (a-e).",
+                            "snippet": [l.strip() for l in content.split('\n') if re.search(r'^\s*[a-eA-E]\)', l.strip())][:5]
+                        }
+                        s_audit["issues"].append(issue)
+                        issues_by_priority["P2"].append(issue)
+                        msg_has_issue = True
+                    elif has_opt_f:
+                        issue = {
+                            "priority": "P2",
+                            "type": "EXCESSO_ALTERNATIVAS_QUIZ",
+                            "session_id": sid,
+                            "msg_id": mid,
+                            "turn": idx + 1,
+                            "desc": "A questão/checagem foi entregue com mais de 5 alternativas (ultrapassando o padrão oficial A-E).",
+                            "snippet": [l.strip() for l in content.split('\n') if re.search(r'^\s*[a-zA-Z]\)', l.strip())][:7]
+                        }
+                        s_audit["issues"].append(issue)
+                        issues_by_priority["P2"].append(issue)
+                        msg_has_issue = True
 
                 # P2.2 Alternativas agrupadas na mesma linha (Limpando KaTeX para evitar falsos positivos com frações contendo b)
                 clean_no_katex = re.sub(r'\$\$.*?\$\$', '', content, flags=re.DOTALL)

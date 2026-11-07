@@ -326,6 +326,9 @@ Criação de uma skill especializada em **validação de conteúdos acadêmicos*
 **✅ Concluído: Química da 3ª Série (Química III - Química Orgânica, Bioquímica e Polímeros - 19 Capítulos, 38 E-books Teóricos Atômicos 100% Homologados com Exit Code 0 no Validador Oficial)**
 **🏆 CONCLUSÃO TOTAL: Química do Ensino Médio 100% Concluída (53 Capítulos | 112 E-books Teóricos Atômicos 100% Homologados)**
 **🏆 CONCLUSÃO TOTAL: Geografia do Ensino Fundamental 100% Concluída (40 Capítulos | 40 E-books Teóricos Atômicos 100% Homologados - 126.021 Palavras)**
+**🏆 CONCLUSÃO TOTAL: Língua Portuguesa do 5º Ano 100% Concluída (20 Capítulos | 20 E-books Teóricos Atômicos 100% Homologados - 60.960 Palavras)**
+**🏆 CONCLUSÃO TOTAL: Língua Portuguesa do 6º Ano 100% Concluída (20 Capítulos | 20 E-books Teóricos Atômicos 100% Homologados - 67.664 Palavras)**
+**🚀 EM ANDAMENTO: Língua Portuguesa do 7º Ano (Lotes 1 e 2: Capítulos 01 ao 08 Homologados com Exit Code 0 - 26.841 Palavras — Eixo I 100% Concluído)**
 
 
 > **Complexidade:** 🔴 Alta — Sprint **cíclico e incremental** (múltiplas conversas — 1 conversa por Objeto de Conhecimento recomendado). Este sprint será executado repetidamente ao longo de meses.  
@@ -393,7 +396,69 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
    - **8º Ano**: **8 de 8 e-books teóricos atômicos concluídos e homologados** (Capítulos 01 ao 08, cobrindo 100% das 24 habilidades BNCC: `EF08GE01` a `EF08GE24`), totalizando 26.545 palavras de teoria pura, densidade média de 3.318 palavras por e-book, sem exercícios, com scaffolding cognitivo, tabelas de erros comuns e conformidade ABNT/BNCC via `validador_educamob.py`. **[8º Ano de Geografia 100% CONCLUÍDO]**
    - **9º Ano**: **10 de 10 e-books teóricos atômicos concluídos e homologados** (Capítulos 01 ao 10, cobrindo 100% das 18 habilidades BNCC: `EF09GE01` a `EF09GE18`), totalizando 31.382 palavras de teoria pura, densidade média de 3.138 palavras por e-book, sem exercícios, com scaffolding cognitivo, tabelas de erros comuns e conformidade ABNT/BNCC via `validador_educamob.py`. **[9º Ano de Geografia 100% CONCLUÍDO]**
    - **TOTAL GERAL DE GEOGRAFIA**: **40 de 40 Capítulos Atômicos CONCLUÍDOS E HOMOLOGADOS (100%)** cobrindo 100% das **79 Habilidades BNCC** do 5º ao 9º Ano do Ensino Fundamental, totalizando **126.021 palavras** de teoria pura, densidade média de 3.150 palavras por e-book, sem exercícios nas bases teóricas, supressão rigorosa de `R$` e conformidade absoluta com ABNT NBR 6023. **[Geografia do Ensino Fundamental 100% CONCLUÍDA]**
-
+5. **Língua Portuguesa (Ensino Fundamental - 5º ao 9º Ano)**:
+   - **5º Ano: 20 de 20 e-books teóricos atômicos concluídos e homologados (100% CONCLUÍDO)** cobrindo a totalidade das habilidades BNCC dos Anos Iniciais/5º Ano, totalizando **60.960 palavras** de teoria pura, densidade média de 3.048 palavras por e-book, zero exercícios, zero 'R$', rigor ABNT NBR 6023 e aprovação unânime no validador_educamob.py. **[5º Ano de Língua Portuguesa 100% CONCLUÍDO]**
+     - **Eixo I: Análise Linguística / Semiótica (Gramática, Morfossintaxe, Ortografia e Semântica - 100% Concluído)**:
+       - **Capítulo 01:** cap-01-sistema-escrita-ortografia (ef05lp01-ortografia.md - 3.493 palavras) ✅
+       - **Capítulo 02:** cap-02-acentuacao-grafica-prosodia (ef05lp03-acentuacao.md - 3.314 palavras) ✅
+       - **Capítulo 03:** cap-03-morfologia-substantivos-adjetivos (ef05lp05-substantivos-adjetivos.md - 3.253 palavras) ✅
+       - **Capítulo 04:** cap-04-morfologia-verbos-flexoes (ef05lp06-verbos-tempos-modos.md - 3.503 palavras) ✅
+       - **Capítulo 05:** cap-05-pronomes-adverbios-interjeicoes (ef05lp07-ef05lp08-pronomes-adverbios.md - 3.365 palavras) ✅
+       - **Capítulo 06:** cap-06-pontuacao-sintaxe-frase (ef05lp04-pontuacao-sintaxe.md - 3.170 palavras) ✅
+       - **Capítulo 07:** cap-07-coesao-articuladores-anaforicos (ef05lp27-coesao-articuladores.md - 2.608 palavras) ✅
+       - **Capítulo 08:** cap-08-semantica-polissemia-dicionario (ef05lp02-semantica-polissemia.md - 3.178 palavras) ✅
+     - **Eixo II: Leitura e Compreensão Textual nos Campos de Atuação (100% Concluído)**:
+       - **Capítulo 09:** cap-09-estrategias-leitura-inferencia (ef15lp01-ef15lp04-estrategias-leitura.md - 3.455 palavras) ✅
+       - **Capítulo 10:** cap-10-fluencia-fato-vs-opiniao (ef35lp05-fato-opiniao-apreciacao.md - 2.859 palavras) ✅
+       - **Capítulo 11:** cap-11-textos-jornalisticos-midiaticos (ef05lp09-ef05lp10-generos-jornalisticos.md - 4.040 palavras) ✅
+       - **Capítulo 12:** cap-12-textos-divulgacao-cientifica-graficos (ef05lp22-ef05lp23-divulgacao-cientifica.md - 2.762 palavras) ✅
+       - **Capítulo 13:** cap-13-textos-reivindicatorios-vida-publica (ef05lp16-textos-reivindicatorios.md - 3.078 palavras) ✅
+     - **Eixo III: Campo Artístico-Literário (100% Concluído)**:
+       - **Capítulo 14:** cap-14-narrativas-ficcionais-cronica-conto (ef35lp21-ef35lp22-narrativas-ficcionais.md - 2.907 palavras) ✅
+       - **Capítulo 15:** cap-15-discurso-direto-indireto-narrador (ef35lp22-discurso-direto-indireto.md - 2.877 palavras) ✅
+       - **Capítulo 16:** cap-16-poesia-formas-estroficas-recursos-sonoros (ef35lp23-ef35lp27-poesia-versos.md - 2.542 palavras) ✅
+       - **Capítulo 17:** cap-17-texto-dramatico-teatral-rubricas (ef05lp24-texto-dramatico-teatral.md - 2.615 palavras) ✅
+     - **Eixo IV: Produção de Texto, Oralidade e Variação Linguística (100% Concluído)**:
+       - **Capítulo 18:** cap-18-producao-texto-planejamento-revisao (ef15lp05-ef15lp06-producao-texto.md - 2.572 palavras) ✅
+       - **Capítulo 19:** cap-19-oralidade-exposicao-argumentacao (ef15lp09-ef15lp13-oralidade-exposicao.md - 2.555 palavras) ✅
+       - **Capítulo 20:** cap-20-variacao-linguistica-preconceito-linguistico (ef35lp11-variacao-linguistica.md - 2.814 palavras) ✅
+   - **6º Ano: 20 de 20 e-books teóricos atômicos concluídos e homologados (100% CONCLUÍDO)** cobrindo a totalidade das habilidades BNCC dos Anos Finais / 6º Ano (EF06LP01 a EF06LP12, EF67LP e EF69LP), totalizando **67.664 palavras** de teoria pura, densidade média de 3.383 palavras por e-book, zero exercícios, zero 'R$', rigor ABNT NBR 6023 e aprovação unânime no validador_educamob.py. **[6º Ano de Língua Portuguesa 100% CONCLUÍDO]**
+     - **Eixo I: Análise Linguística / Semiótica e Morfossintaxe (100% Concluído)**:
+       - **Capítulo 01:** cap-01-linguagem-signo-funcoes-comunicacao (ef69lp55-ef69lp56-signo-linguistico.md - 3.025 palavras) ✅
+       - **Capítulo 02:** cap-02-fonetica-fonologia-encontros-acentuacao (ef06lp11-fonetica-acentuacao.md - 2.968 palavras) ✅
+       - **Capítulo 03:** cap-03-estrutura-formacao-palavras (ef06lp03-formacao-palavras.md - 2.572 palavras) ✅
+       - **Capítulo 04:** cap-04-morfologia-substantivos-flexoes (ef06lp04-substantivos-flexoes.md - 2.689 palavras) ✅
+       - **Capítulo 05:** cap-05-morfologia-adjetivos-locucoes-graus (ef06lp04-adjetivos-graus.md - 2.789 palavras) ✅
+       - **Capítulo 06:** cap-06-morfologia-artigos-numerais (ef06lp04-artigos-numerais.md - 2.866 palavras) ✅
+       - **Capítulo 07:** cap-07-morfologia-verbos-tempos-modos (ef06lp05-verbos-tempos-modos.md - 2.488 palavras) ✅
+       - **Capítulo 08:** cap-08-morfologia-pronomes-coesao (ef06lp12-pronomes-coesao.md - 2.735 palavras) ✅
+     - **Eixo II: Sintaxe da Oração, Pontuação e Semântica (100% Concluído)**:
+       - **Capítulo 09:** cap-09-sintaxe-frase-oracao-periodo (ef06lp07-ef06lp08-periodo-simples-composto.md - 4.465 palavras) ✅
+       - **Capítulo 10:** cap-10-sintaxe-sujeito-predicado (ef06lp06-ef06lp11-sujeito-predicado.md - 4.137 palavras) ✅
+       - **Capítulo 11:** cap-11-pontuacao-sintatica-expressiva (ef06lp07-ef06lp11-pontuacao-expressiva.md - 3.679 palavras) ✅
+       - **Capítulo 12:** cap-12-semantica-sinonimia-polissemia-ambiguidade (ef06lp03-ef06lp12-semantica-ambiguidade.md - 3.926 palavras) ✅
+     - **Eixo III: Campo Jornalístico-Midiático e Cultura Digital (100% Concluído)**:
+       - **Capítulo 13:** cap-13-campo-jornalistico-centralidade-noticia (ef06lp01-ef06lp02-centralidade-noticia.md - 3.958 palavras) ✅
+       - **Capítulo 14:** cap-14-hipertexto-hiperlinks-curadoria-digital (ef67lp01-ef67lp03-hipertexto-curadoria.md - 3.874 palavras) ✅
+       - **Capítulo 15:** cap-15-opiniao-leitor-comentarios-redes-sociais (ef67lp02-ef67lp05-carta-leitor-comentarios.md - 3.649 palavras) ✅
+       - **Capítulo 16:** cap-16-textos-publicitarios-propaganda-persuasao (ef67lp08-ef67lp13-publicidade-propaganda.md - 3.580 palavras) ✅
+     - **Eixo IV: Campo de Estudo e Pesquisa, Vida Pública e Arte Literária (100% Concluído)**:
+       - **Capítulo 17:** cap-17-estudo-pesquisa-resumo-infografico (ef67lp20-ef67lp21-divulgacao-cientifica-infografico.md - 3.324 palavras) ✅
+       - **Capítulo 18:** cap-18-campo-vida-publica-textos-reivindicatorios-normativos (ef67lp15-ef67lp17-textos-reivindicatorios.md - 3.427 palavras) ✅
+       - **Capítulo 19:** cap-19-campo-literario-mitos-lendas-narrativas-aventura (ef67lp27-ef67lp28-mitos-lendas-narrativas.md - 3.556 palavras) ✅
+       - **Capítulo 20:** cap-20-poesia-formas-fixas-versos-livres-figuras (ef67lp32-ef69lp48-poesia-figuras-linguagem.md - 3.957 palavras) ✅
+     - **Total Geral Homologado no 6º Ano (20 Capítulos):** **67.664 palavras** de teoria pura, densidade média de 3.383 palavras por e-book, zero exercícios, zero 'R$', rigor ABNT NBR 6023 e aprovação unânime no validador_educamob.py.
+   - **7º Ano (Em Andamento — 8 de 20 Capítulos Homologados — 26.841 Palavras Limpas — Eixo I 100% Concluído)**:
+     - **Eixo I: Sintaxe da Oração, Morfossintaxe e Coesão (Capítulos 01 ao 08 — 100% Concluído)**:
+       - **Capítulo 01:** cap-01-predicacao-transitividade-verbal (ef07lp04-ef07lp05-transitividade-verbal.md - 3.263 palavras) ✅
+       - **Capítulo 02:** cap-02-termos-integrantes-objeto-direto-indireto (ef07lp07-objetos-direto-indireto.md - 3.126 palavras) ✅
+       - **Capítulo 03:** cap-03-termos-acessorios-adjunto-adnominal (ef07lp08-adjunto-adnominal.md - 2.832 palavras) ✅
+       - **Capítulo 04:** cap-04-termos-acessorios-adjunto-adverbial (ef07lp09-adjunto-adverbial.md - 2.906 palavras) ✅
+       - **Capítulo 05:** cap-05-vozes-verbais-ativa-passiva-reflexiva (ef07lp05-ef07lp06-vozes-verbais.md - 4.271 palavras) ✅
+       - **Capítulo 06:** cap-06-concordancia-nominal-casos-especiais (ef07lp06-ef07lp10-concordancia-nominal.md - 3.482 palavras) ✅
+       - **Capítulo 07:** cap-07-concordancia-verbal-casos-particulares (ef07lp06-ef07lp10-concordancia-verbal.md - 3.573 palavras) ✅
+       - **Capítulo 08:** cap-08-semantica-hiperonimia-coesao-referencial (ef07lp11-ef07lp13-hiperonimia-coesao.md - 3.388 palavras) ✅
+     - **Total Homologado no Eixo I do 7º Ano (8 Capítulos):** **26.841 palavras** de teoria pura, densidade média de 3.355 palavras por e-book, zero exercícios, zero 'R$', rigor ABNT NBR 6023 e aprovação unânime no validador_educamob.py.
 
 
 **Checklist de Validação (por e-book atômico):**
@@ -625,6 +690,7 @@ emark-gfm no frontend Next.js para renderização de tabelas Markdown ricas e re
 | **64** | ✅ Evolução do Agente 1 (Sentinela Noturno) — Auditoria Semântica, Detecção de Colisão em Desambiguações, RAG Cruzado e Integridade de Habilidades | Upgrade estrutural do Sentinela Noturno (`sentinela_mobme.py`): adição de detectores de prioridade P0 para colisão de menus em desambiguação de temas (`DESAMBIGUACAO_COLISAO_MENU`), falsos bloqueios de disciplinas homologadas (`FALSO_BLOQUEIO_DISCIPLINA`), injeção cruzada de acervo e habilidades incompatíveis com o tema (`RAG_DISCIPLINA_CRUZADA` - alertando quando questões de habilidades BNCC, prefixos curriculares ou acervo diferem da disciplina/tema da sessão) e abandono de sessões em cascata (`SESSAO_ABORTADA_CASCATA`); detectores P1 para "gaslighting" pedagógico (`GASLIGHTING_PEDAGOGICO`) e amnésia de temas ativos (`AMNESIA_TEMA_SESSAO`); e detector P2 para excesso de alternativas (`EXCESSO_ALTERNATIVAS_QUIZ` com 5 opções em vez de 4). Imunização de falsos positivos KaTeX em fórmulas de física/matemática e deploy em produção na Oracle Cloud VPS com 87 falhas mapeadas em tempo real. |
 | **62** | ✅ Ingestão Vetorial Massiva e Sincronização Integral de 100% das Listas de Exercícios na Mob.me (436 de 436 Listas / 26.160 Questões no Supabase pgvector) | Desenvolvimento do pipeline unificado de ingestão de exercícios (`ingest_exercicios.py`), geração de embeddings em lote único via DeepInfra (`BAAI/bge-m3`) e inserção direta em micro-lotes com auto-retry contra timeouts de HNSW (código 57014). Ingestão completa de 174 novas listas de Ciências (72), Geografia (40) e História (62) somadas à atualização e sincronização das 262 listas recalibradas de Matemática (148), Física (61) e Química (53). 100% das 436 listas e 26.160 questões atômicas agora indexadas e ativas para recuperação semântica RAG em produção. |
 | **65** | ✅ Resolução Sistêmica de Colisão de Menus, Blindagem Anti-Vazamento RAG Cruzado e Anti-Gaslighting (Agente 2) | Implementação cirúrgica de reparos pelo Agente 2 (Arquiteto Reparador): (1) Correção da colisão de números em badges no frontend (`page.tsx`) e backend (`main.py`), enviando estritamente o número da opção em desambiguações de temas sem sobrecarregar com rótulos de trilha; (2) Blindagem de disciplina e série em `resolve_exercise_file_for_topic`, impedindo categoricamente vazamento cruzado de acervo (ex: exercícios de Matemática do 5º ano em sessões de Física do Ensino Médio); (3) Sincronização e upload do acervo de Ensino Médio (`content/medio` com 433 arquivos) no disco da Oracle Cloud VPS; (4) Eliminação definitiva do falso bloqueio de disciplinas homologadas (Física, Matemática, etc.) em saudações informais e falas conversacionais; (5) Transição fluida e direta para a Teoria ("teoria", "sem flashcards, teoria") sem loops no menu; (6) Mandato estrito anti-gaslighting e de imutabilidade do tema ativo nos prompts (`prompt_prod.md`, `base_persona.md`, `modo_praticar.md`); (7) Recompilação do frontend Next.js com Turbopack (Exit Code 0), sincronização com `apps/mobme` e homologação em produção na Oracle VPS. |
+| **66** | ✅ Banimento da Regra de 4 Alternativas e Padronização Mandatória de 5 Alternativas (A-E) em Todo o Ecossistema da Mob.me | Banimento definitivo da antiga regra de 4 alternativas (`a-d`) e estabelecimento do padrão único de 5 alternativas (`a, b, c, d, e`) para toda e qualquer questão ou checagem de múltipla escolha da plataforma: (1) Atualização dos prompts de sistema (`modo_aprender.md` e `prompt_prod.md`) para exigir 5 alternativas (A-E); (2) Evolução do Agente 1 (`sentinela_mobme.py`) com nova regra `DEFICIT_ALTERNATIVAS_PADRAO_5` autuando questões com menos de 5 alternativas e expurgando falso-positivos em exercícios homologados; (3) Atualização da skill oficial `auditor-conversas-mobme`; (4) Deploy sincronizado via SCP e Docker no container `mobme-api` na Oracle Cloud VPS (`137.131.163.113`) com 100.0% de conformidade estatística. |
 
 ---
 
