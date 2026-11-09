@@ -1515,17 +1515,48 @@ async def resolve_active_mode_and_topic(
             # Fora de estudo ativo (ex: em modo_menu ou modo_acolhida):
             # Dígitos numéricos 1..6 e ordinais selecionam a respectiva trilha canônica
             if state.get("topic"):
-                if msg_clean in {"1", "1️⃣"} or msg_clean.startswith("1.") or "aprender" in msg_clean or "microciclo" in msg_clean or "bora ler" in msg_clean:
+                if (
+                    msg_clean in {"1", "1️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?1(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("1️⃣")
+                    or any(w in msg_clean for w in ["aprender", "microciclo", "bora ler", "teoria", "explicar", "explicacao", "explicação", "explicando", "me explica"])
+                ):
                     target_mode = "modo_aprender"
-                elif msg_clean in {"2", "2️⃣"} or msg_clean.startswith("2.") or "praticar" in msg_clean or "exercicio" in msg_clean or "exercício" in msg_clean or "treino" in msg_clean or "desafio" in msg_clean:
+                elif (
+                    msg_clean in {"2", "2️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?2(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("2️⃣")
+                    or any(w in msg_clean for w in ["praticar", "exercicio", "exercício", "treino", "desafio", "questoes", "questões"])
+                ):
                     target_mode = "modo_praticar"
-                elif msg_clean in {"3", "3️⃣"} or msg_clean.startswith("3.") or "flashcard" in msg_clean or "flashcards" in msg_clean or "revisar" in msg_clean:
+                elif (
+                    msg_clean in {"3", "3️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?3(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("3️⃣")
+                    or any(w in msg_clean for w in ["flashcard", "flashcards", "revisar", "revisao", "revisão"])
+                ):
                     target_mode = "modo_revisar"
-                elif msg_clean in {"4", "4️⃣"} or msg_clean.startswith("4.") or "resumo" in msg_clean or "resumir" in msg_clean or "memorex" in msg_clean:
+                elif (
+                    msg_clean in {"4", "4️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?4(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("4️⃣")
+                    or any(w in msg_clean for w in ["resumo", "resumir", "memorex"])
+                ):
                     target_mode = "modo_resumir"
-                elif msg_clean in {"5", "5️⃣"} or msg_clean.startswith("5.") or "enviar questao" in msg_clean or "enviar questão" in msg_clean or "resolve questao" in msg_clean or "resolve questão" in msg_clean or "resolver questao" in msg_clean or "resolver questão" in msg_clean:
+                elif (
+                    msg_clean in {"5", "5️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?5(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("5️⃣")
+                    or any(w in msg_clean for w in ["enviar questao", "enviar questão", "resolve questao", "resolve questão", "resolver questao", "resolver questão", "tirar duvida", "tirar dúvida"])
+                ):
                     target_mode = "modo_resolve_questao"
-                elif msg_clean in {"6", "6️⃣", "8", "8️⃣"} or msg_clean.startswith("6.") or "finalizar" in msg_clean or "encerrar" in msg_clean:
+                elif (
+                    msg_clean in {"6", "6️⃣", "8", "8️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?[68](?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("6️⃣")
+                    or msg_clean.startswith("8️⃣")
+                    or any(w in msg_clean for w in ["finalizar", "encerrar", "sair", "tchau", "concluir"])
+                ):
                     target_mode = "modo_conclusao"
             else:
                 # Sem tema prévio
@@ -2649,6 +2680,31 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                             ]
                             if theo_docs:
                                 docs_data = theo_docs
+
+                            # Calibração Curricular por Série do Estudante (Grade-Aware Rerank)
+                            user_grade = user.get('grade_level') if isinstance(user, dict) else None
+                            if user_grade and user_grade != "Não informada" and docs_data:
+                                ug_lower = user_grade.lower()
+                                def grade_score_theo(doc):
+                                    meta = doc.get("metadata", {})
+                                    src = str(meta.get("source", "")).lower()
+                                    score = 0
+                                    if "5" in ug_lower:
+                                        if "5-ano" in src or "fundamental-1" in src:
+                                            score += 10
+                                        elif "fundamental-2" in src or "medio" in src:
+                                            score -= 5
+                                    elif any(x in ug_lower for x in ["6", "7", "8", "9"]):
+                                        if "fundamental-2" in src:
+                                            score += 10
+                                        elif "medio" in src:
+                                            score -= 5
+                                    elif "médio" in ug_lower or "medio" in ug_lower or "série" in ug_lower or "serie" in ug_lower:
+                                        if "medio" in src:
+                                            score += 10
+                                    return score
+                                docs_data.sort(key=grade_score_theo, reverse=True)
+
                             # Se o arquivo físico do e-book teórico existir em disco, carrega o e-book completo para garantir sequência integral dos microciclos
                             top_src = docs_data[0].get("metadata", {}).get("source", "") if docs_data else ""
                             if top_src:

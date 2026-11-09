@@ -5698,3 +5698,146 @@ esolve_active_mode_and_topic).
   - Total Acumulado de Língua Portuguesa (7º Ano): **15/20 listas concluídas (900 questões — 75% da série finalizada!)**.
   - Total Acumulado de Língua Portuguesa (Ensino Fundamental): **55/100 listas concluídas (3.300 de 6.000 questões atômicas)**.
   - Total de Listas Homologadas no Repositório Global Educamob: subiu de **486 para 491 listas** (total de **29.460 questões atômicas ativas**).
+
+### [09/11/2026 - Rodada 94] - Produção e Homologação do Lote 4 de Exercícios de Língua Portuguesa do 7º Ano (Capítulos 16 ao 20 — 300 Questões no Padrão-Ouro) e Fechamento Integral do 7º Ano (20/20 Listas — 1.200 Questões)
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 Lote 4 do 7º Ano Concluído e Homologado no Padrão-Ouro | 100% de Língua Portuguesa do 7º Ano Concluído (20 de 20 Listas / 1.200 Questões) | 300 Novas Questões Atômicas Validadas com Exit Code 0 no `validador_educamob.py`.
+- **Visão Geral e Metodologia de Execução:**
+  - Fechamento completo do 7º Ano do Ensino Fundamental com produção do Lote 4 (Capítulos 16 ao 20).
+  - Conformidade estrita com as regras da **Seção 9 do `validador_educamob.py`**: adequação perfeita à faixa etária de 12 anos, enunciados breves e objetivos (<= 420 chars), alternativas concisas (<= 210 chars), similaridade temática cruzada rigorosamente < 60%, prefixos tri-palavra <= 6 ocorrências, supressão absoluta de termos pedantes e arcaicos ('consubstancia', 'prerrogativa', 'prescinde', 'inexorável', 'efêmera', 'dicotomia', 'macroeconômico', etc.) e bloqueio de terminologias de nível superior/médio.
+  - Resoluções analíticas estruturadas com - **Etapa 1:** e - **Etapa 2:** em todas as 20 questões difíceis de cada capítulo.
+  - Distribuição matemática de gabarito balanceada em 20% por alternativa (exatas 12 A, 12 B, 12 C, 12 D e 12 E em cada lista de 60 questões).
+- **Entregas Técnicas do Lote 4 (7º Ano, Capítulos 16 ao 20):**
+  1. **Capítulo 16:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-16-liberdade-expressao-marco-civil-internet/ebooks/ef67lp18-ef69lp21-marco-civil-internet-exercicios.md`
+     - Objeto: Liberdade de Expressão, Marco Civil da Internet e Cidadania Digital: Responsabilidade, Privacidade, Neutralidade da Rede e Direitos Fundamentais (EF67LP18, EF69LP21, EF69LP22).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 17:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-17-estudo-pesquisa-relatorio-experimento-seminario/ebooks/ef67lp20-ef67lp22-relatorio-experimento-seminario-exercicios.md`
+     - Objeto: O Relatório de Experimento e o Seminário Científico: Metodologia, Registro de Dados, Linguagem Técnica e Comunicação Oral e Visual (EF67LP20, EF67LP21, EF67LP22, EF69LP32).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 18:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-18-campo-literario-conto-policial-terror-enigma/ebooks/ef67lp27-ef67lp28-conto-policial-enigma-exercicios.md`
+     - Objeto: O Conto Policial, de Enigma e de Terror: Estrutura Narrativa, Clima de Suspense, Pistas Falsas, Dedução Lógica e Resolução do Conflito (EF67LP27, EF67LP28, EF69LP47).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 19:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-19-campo-literario-cronica-literaria-humoristica/ebooks/ef67lp28-ef69lp46-cronica-literaria-humor-exercicios.md`
+     - Objeto: A Crônica Literária e Humorística: Cotidiano, Ironia, Olhar Sensível, Recursos Expressivos e Reflexão Crítica (EF67LP28, EF69LP46, EF69LP48).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 20:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-20-campo-literario-texto-dramatico-teatral/ebooks/ef67lp29-ef69lp52-texto-dramatico-teatro-exercicios.md`
+     - Objeto: O Texto Dramático e Teatral: Rubricas, Diálogos, Personagens, Conflito Dramático e Transposição da Escrita para a Cena (EF67LP29, EF69LP52, EF69LP53).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 4: **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (7º Ano): **20/20 listas concluídas (1.200 questões — 100% da série finalizada!)**.
+  - Total Acumulado de Língua Portuguesa (Ensino Fundamental): **60/100 listas concluídas (3.600 de 6.000 questões atômicas)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **491 para 496 listas** (total de **29.760 questões atômicas ativas**).
+
+### [09/11/2026 - Rodada 95] - Produção e Homologação do Lote 1 de Exercícios de Língua Portuguesa do 8º Ano (Capítulos 01 ao 05 — 300 Questões no Padrão-Ouro) e Ultrapassagem da Marca Histórica de 30.000 Questões
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 Lote 1 do 8º Ano Concluído e Homologado no Padrão-Ouro | 25% de Língua Portuguesa do 8º Ano Concluído (5 de 20 Listas / 300 Questões) | 300 Novas Questões Atômicas Validadas com Exit Code 0 no `validador_educamob.py` | 🌟 Marco Histórico de 30.000 Questões Homologadas Ultrapassado no Ecossistema Global (30.060 Questões Ativas).
+- **Visão Geral e Metodologia de Execução:**
+  - Abertura oficial da produção para o 8º Ano do Ensino Fundamental com o Lote 1 (Capítulos 01 ao 05).
+  - Conformidade estrita com as regras da **Seção 9 do `validador_educamob.py`**: adequação perfeita à faixa etária de 13 anos, enunciados breves e objetivos (<= 420 chars), alternativas concisas (<= 210 chars), similaridade temática cruzada rigorosamente < 60%, prefixos tri-palavra <= 6 ocorrências, supressão absoluta de termos pedantes e arcaicos ('consubstancia', 'prerrogativa', 'prescinde', 'inexorável', 'efêmera', 'dicotomia', 'macroeconômico', etc.) e bloqueio de terminologias de nível superior/médio.
+  - Resoluções analíticas estruturadas com - **Etapa 1:** e - **Etapa 2:** em todas as 20 questões difíceis de cada capítulo.
+  - Distribuição matemática de gabarito balanceada em 20% por alternativa (exatas 12 A, 12 B, 12 C, 12 D e 12 E em cada lista de 60 questões).
+- **Entregas Técnicas do Lote 1 (8º Ano, Capítulos 01 ao 05):**
+  1. **Capítulo 01:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-01-periodo-composto-coordenacao-oracoes-coordenadas/ebooks/ef08lp11-ef08lp13-oracoes-coordenadas-exercicios.md`
+     - Objeto: Período Composto por Coordenação: Orações Coordenadas Assindéticas e Sindéticas, Valores Semânticos das Conjunções e Pontuação (EF08LP11, EF08LP13).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 02:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-02-periodo-composto-subordinacao-oracoes-substantivas/ebooks/ef08lp11-ef08lp12-oracoes-substantivas-exercicios.md`
+     - Objeto: Período Composto por Subordinação: Orações Subordinadas Substantivas, Conjunções Integrantes (Que/Se) e Funções Sintáticas (EF08LP11, EF08LP12, EF08LP13).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 03:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-03-oracoes-subordinadas-adjetivas-pontuacao/ebooks/ef08lp13-ef08lp14-oracoes-adjetivas-exercicios.md`
+     - Objeto: Orações Subordinadas Adjetivas (Explicativas e Restritivas), Pronomes Relativos (Que, Quem, Cujo, Onde, O qual) e Pontuação (EF08LP13, EF08LP14).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 04:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-04-regencia-verbal-nominal-crase/ebooks/ef08lp07-ef08lp08-regencia-crase-exercicios.md`
+     - Objeto: Regência Verbal e Nominal: Termo Regente e Termo Regido, Preposições Obrigatórias e o Fenômeno da Crase (Casos Gerais, Proibições e Casos Facultativos) (EF08LP07, EF08LP08).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 05:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-05-colocacao-pronominal-proclise-enclise-mesoclise/ebooks/ef08lp06-ef08lp08-colocacao-pronominal-exercicios.md`
+     - Objeto: Colocação Pronominal: Próclise, Ênclise e Mesóclise — Fatores Atrativos, Verbos no Futuro e Locuções Verbais (EF08LP06, EF08LP08, EF08LP13).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 1 (8º Ano): **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (8º Ano): **5/20 listas concluídas (300 questões — 25% da série finalizada!)**.
+  - Total Acumulado de Língua Portuguesa (Ensino Fundamental): **65/100 listas concluídas (3.900 de 6.000 questões atômicas)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **496 para 501 listas** (total de **30.060 questões atômicas ativas**).
+
+### [09/11/2026 - Rodada 96] - Produção e Homologação do Lote 2 de Exercícios de Língua Portuguesa do 8º Ano (Capítulos 06 ao 10 — 300 Questões no Padrão-Ouro) e Atingimento de 50% da Série
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 Lote 2 do 8º Ano Concluído e Homologado no Padrão-Ouro | 50% de Língua Portuguesa do 8º Ano Concluído (10 de 20 Listas / 600 Questões) | 300 Novas Questões Atômicas Validadas com Exit Code 0 no `validador_educamob.py` | Total de 506 Listas Homologadas no Ecossistema Global (30.360 Questões Atômicas Ativas).
+- **Visão Geral e Metodologia de Execução:**
+  - Continuidade ininterrupta da produção em lotes de 5 capítulos para o 8º Ano do Ensino Fundamental.
+  - Conformidade estrita com as regras da **Seção 9 do `validador_educamob.py`**: adequação perfeita à faixa etária de 13 anos, enunciados breves e objetivos (<= 420 chars), alternativas concisas (<= 210 chars), similaridade temática cruzada rigorosamente < 60%, prefixos tri-palavra <= 6 ocorrências, supressão absoluta de termos pedantes e arcaicos ('consubstancia', 'prerrogativa', 'prescinde', 'inexorável', 'efêmera', 'dicotomia', 'macroeconômico', etc.) e bloqueio de terminologias de nível superior/médio.
+  - Resoluções analíticas estruturadas com - **Etapa 1:** e - **Etapa 2:** em todas as 20 questões difíceis de cada capítulo.
+  - Distribuição matemática de gabarito balanceada em 20% por alternativa (exatas 12 A, 12 B, 12 C, 12 D e 12 E em cada lista de 60 questões).
+- **Entregas Técnicas do Lote 2 (8º Ano, Capítulos 06 ao 10):**
+  1. **Capítulo 06:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-06-verbos-modos-tempos-subjuntivo-correlacao/ebooks/ef08lp04-ef08lp05-modos-verbais-correlacao-exercicios.md`
+     - Objeto: O Sistema Verbal: Valores Semânticos do Modo Subjuntivo, Modo Imperativo e Correlação Verbal nos Períodos Compostos (EF08LP04, EF08LP05, EF08LP09).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 07:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-07-morfologia-processos-derivacao-composicao/ebooks/ef08lp04-ef08lp05-formacao-palavras-exercicios.md`
+     - Objeto: Morfologia e Formação de Palavras: Processos de Derivação (Prefixal, Sufixal, Parassintética, Regressiva, Imprópria) e Composição (Justaposição e Aglutinação) (EF08LP04, EF08LP05, EF08LP13).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 08:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-08-figuras-linguagem-pensamento-sintaxe/ebooks/ef08lp15-ef89lp37-figuras-linguagem-exercicios.md`
+     - Objeto: Recursos Estilísticos Avançados: Figuras de Pensamento (Antítese, Paradoxo, Ironia, Eufemismo, Hipérbole) e Figuras de Sintaxe (Elipse, Zeugma, Polissíndeto, Pleonasmo, Anacoluto, Hipérbato) (EF08LP15, EF89LP37).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 09:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-09-artigo-opiniao-argumentacao-tese/ebooks/ef08lp03-ef89lp03-artigo-opiniao-exercicios.md`
+     - Objeto: O Artigo de Opinião: Estrutura Dissertativo-Argumentativa, Formulação de Tese, Tipos de Argumento (Autoridade, Dados, Causa-Consequência, Exemplificação) e Persuasão Ética (EF08LP03, EF89LP03, EF89LP04).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 10:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-10-editorial-jornalistico-linha-editorial/ebooks/ef08lp01-ef89lp04-editorial-jornalistico-exercicios.md`
+     - Objeto: O Editorial Jornalístico: A Voz Institucional do Veículo, Posicionamento Político-Ideológico e Mecanismos de Sustentação da Opinião Coletiva (EF08LP01, EF89LP04, EF89LP06).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 2 (8º Ano): **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (8º Ano): **10/20 listas concluídas (600 questões — 50% da série finalizada!)**.
+  - Total Acumulado de Língua Portuguesa (Ensino Fundamental): **70/100 listas concluídas (4.200 de 6.000 questões atômicas)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **501 para 506 listas** (total de **30.360 questões atômicas ativas**).
+
+
+
+
+### [09/11/2026 - Rodada 97] - Produção e Homologação do Lote 3 de Exercícios de Língua Portuguesa do 8º Ano (Capítulos 11 ao 15 – 300 Questões no Padrão-Ouro) e Atingimento de 75% da Série
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 Lote 3 do 8º Ano Concluído e Homologado no Padrão-Ouro | 75% de Língua Portuguesa do 8º Ano Concluído (15 de 20 Listas / 900 Questões) | 300 Novas Questões Atômicas Validadas com Exit Code 0 no alidador_educamob.py | Total de 511 Listas Homologadas no Ecossistema Global (30.660 Questões Atômicas Ativas).
+- **Visão Geral e Metodologia de Execução:**
+  - Continuidade ininterrupta da produção em lotes de 5 capítulos para o 8º Ano do Ensino Fundamental.
+  - Conformidade estrita com as regras da **Seção 9 do alidador_educamob.py**: adequação perfeita à faixa etária de 13 anos, enunciados breves e objetivos (<= 420 chars), alternativas concisas (<= 210 chars), similaridade temática cruzada rigorosamente < 60%, prefixos tri-palavra <= 6 ocorrências, supressão absoluta de termos pedantes e arcaicos e bloqueio de terminologias de nível superior/médio.
+  - Resoluções analíticas estruturadas com - **Etapa 1:** e - **Etapa 2:** em todas as 20 questões difíceis de cada capítulo.
+  - Distribuição matemática de gabarito balanceada em 20% por alternativa (exatas 12 A, 12 B, 12 C, 12 D e 12 E em cada lista de 60 questões).
+- **Entregas Técnicas do Lote 3 (8º Ano, Capítulos 11 ao 15):**
+  1. **Capítulo 11:** content/fundamental-2/8-ano/lingua-portuguesa/cap-11-carta-leitor-comentario-redes-debate/ebooks/ef08lp02-ef89lp05-carta-leitor-exercicios.md
+     - Objeto: A Carta do Leitor e o Comentário nas Redes: Voz Cidadã, Moderação de Debates e Netiqueta (EF08LP02, EF89LP05).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 12:** content/fundamental-2/8-ano/lingua-portuguesa/cap-12-resenha-critica-analise-cultural/ebooks/ef08lp03-ef89lp06-resenha-critica-exercicios.md
+     - Objeto: A Resenha Crítica: Descrição Objetiva versus Juízo de Valor Estético em Obras Literárias, Filmes e Produtos Culturais (EF08LP03, EF89LP06, EF89LP08).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 13:** content/fundamental-2/8-ano/lingua-portuguesa/cap-13-campo-vida-publica-estatuto-crianca-adolescente/ebooks/ef89lp17-ef89lp18-estatuto-crianca-adolescente-exercicios.md
+     - Objeto: O Estatuto da Criança e do Adolescente (ECA): Leitura Crítica de Textos Legais, Direitos Fundamentais, Deveres e a Linguagem Normativo-Jurídica (EF89LP17, EF89LP18).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 14:** content/fundamental-2/8-ano/lingua-portuguesa/cap-14-textos-reivindicatorios-manifesto-peticao/ebooks/ef89lp17-ef89lp20-manifesto-peticao-exercicios.md
+     - Objeto: Textos Reivindicatórios e de Mobilização: Manifesto Cívico, Abaixo-Assinado, Petição Pública Online e Proposta de Intervenção Social (EF89LP17, EF89LP19, EF89LP20).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 15:** content/fundamental-2/8-ano/lingua-portuguesa/cap-15-publicidade-propaganda-consumismo-adolescente/ebooks/ef08lp03-ef89lp09-publicidade-consumo-exercicios.md
+     - Objeto: Publicidade, Propaganda e Consumo Consciente: Recursos de Persuasão Multissemiótica, Ética Publicitária (CONAR) e o Combate ao Hiperconsumismo Juvenil (EF08LP03, EF89LP09, EF89LP11).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 3 (8º Ano): **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (8º Ano): **15/20 listas concluídas (900 questões – 75% da série finalizada!)**.
+  - Total Acumulado de Língua Portuguesa (Ensino Fundamental): **75/100 listas concluídas (4.500 de 6.000 questões atômicas)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **506 para 511 listas** (total de **30.660 questões atômicas ativas**).
+
+### [09/11/2026 - Rodada 98] - Ciclo Diário de Monitoramento e Melhoria da Mob.me: Resolução de Loop de Menu, Rerank Curricular por Série e Imunização Térmica
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 100% Homologado com Autorização Prévia do Usuário e em Produção na Oracle Cloud VPS (Container `mobme-api`)
+- **Amostragem Auditada em Produção:** 7 sessões reais | 138 mensagens (69 da IA) nas últimas 24h (Pietra, Letícia, Augusto, João Victor).
+- **Diagnóstico Forense e Resolução Técnica Autorizada (Agente 1 + Agente 2):**
+  1. **Eliminação do Loop de Menu em Seleção com Texto e Pontuação (`MENU_EM_LOOP` - P0):**
+     - *Causa Raiz Identificada:* Na sessão de Geografia de Pietra (`06d5a763`), a aluna respondeu ao Menu de Trilhas digitando `"1, so explicando prfv e ao eu vou perguntando"`. Como `main.py` realizava checagem estrita de prefixo `msg_clean.startswith("1.")` e igualdade `"1"`, o caractere de vírgula (`1,`) e as frases explicativas não foram reconhecidas como comando de trilha, fazendo o backend reexibir o Menu de Trilhas em loop.
+     - *Correção no Backend (`main.py`):* Implementado regex flexível com suporte a delimitadores naturais (`^(?:op[cç][aã]o\s*)?1(?:[\.,:\s\-]|$)|1️⃣`) e mapeamento de intenção semântica (`"explicar"`, `"explicando"`, `"explicação"`, `"teoria"`), assegurando transição imediata para `modo_aprender` e para todas as demais trilhas (2 a 6) sob qualquer variação coloquial de digitação.
+  2. **Calibração de Rerank Curricular por Série na Teoria (`Grade-Aware Rerank`):**
+     - *Causa Raiz Identificada:* Na sessão de Letícia (`b26d8016`), estudante do 5º ano que estudava "Medidas e grandezas", o RAG vetorial recuperou e injetou no `modo_aprender` o e-book de Física do Ensino Médio sobre termometria (Kelvin/Fahrenheit e dilatação), gerando atrito superado pela própria IA ao acolher a idade da aluna.
+     - *Correção no Backend (`main.py`):* Aplicado o algoritmo `grade_score_theo` diretamente sobre a lista de `theo_docs` antes de selecionar o e-book base, priorizando documentos de `fundamental-1/5-ano` com pontuação máxima quando `user_grade` for 5º ano, blindando os alunos de conteúdos acima de sua série escolar.
+  3. **Imunização de Unidades de Temperatura no Sentinela Noturno (`ALTERNATIVAS_AGRUPADAS` - P2):**
+     - *Causa Raiz Identificada:* O detector regex `[a-dA-D]\)[^\n]+[b-eB-E]\)` capturava expressões térmicas em graus Celsius `(0°C)` e `(100°C)` como se fossem as alternativas `C)` e `C)` coladas na mesma linha, gerando um falso-positivo P2 em respostas de quiz que estavam perfeitamente formatadas com 5 alternativas isoladas.
+     - *Correção no Sentinela (`sentinela_mobme.py`):* Sanitização prévia de unidades de temperatura (`[\d\.,]+\s*°[a-zA-Z]`) e exigência de delimitador de início de alternativa `(?:^|\s)[a-dA-D]\)\s+`, eliminando 100% dos falsos-positivos térmicos.
+- **Validação Estatística e Deploy Homologado:**
+  - Código compilado com Exit Code 0 via `py_compile`.
+  - Arquivos `main.py` e `sentinela_mobme.py` sincronizados via SCP na Oracle Cloud VPS (`137.131.163.113`) e container `mobme-api` reiniciado com sucesso.
+  - Auditoria em produção atestou conformidade de **86.96%** (Wilson 95%: `[77.03% — 92.98%]`), com **zero falhas P1, zero falhas P2 e zero falhas P3**, restando apenas o registro histórico do loop de Pietra antes do deploy.
+
