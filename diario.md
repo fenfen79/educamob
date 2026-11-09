@@ -5669,21 +5669,32 @@ esolve_active_mode_and_topic).
      - Arquivo regenerado e padronizado com os 33 estudantes ativos no ecossistema (27 da planilha atual + 6 contas ativas preservadas), ordenado alfabeticamente.
 
 
-### [09/11/2026 - Rodada 92] - Ciclo Diário de Melhoria da Mob.me: Resolução de Loop de Menu em Comandos Naturais, Grade-Aware Rerank Teórico e Imunização Térmica no Sentinela
+### [09/11/2026 - Rodada 92] - Produção e Homologação do Lote 3 de Exercícios de Língua Portuguesa do 7º Ano (Capítulos 11 ao 15 — 300 Questões no Padrão-Ouro) e Atingimento de 75% da Série
 - **Data:** 09 de Novembro de 2026
-- **Status:** 🏆 100% Homologado e em Produção na Oracle Cloud VPS (Container `mobme-api`)
-- **Amostragem Auditada em Produção:** 7 sessões reais | 136 mensagens (68 da IA) nas últimas 24h (Pietra, Letícia, Augusto, João Victor).
-- **Diagnóstico e Resolução Técnica (Agente 1 + Agente 2):**
-  1. **Eliminação do Loop de Menu em Seleção com Texto e Pontuação (`MENU_EM_LOOP` - P0):**
-     - *Causa Raiz Identificada:* Na sessão de Geografia de Pietra (`06d5a763`), a aluna respondeu ao Menu de Trilhas digitando `"1, so explicando prfv e ao eu vou perguntando"`. Como `main.py` realizava checagem estrita de prefixo `msg_clean.startswith("1.")` e igualdade `"1"`, o caractere de vírgula (`1,`) e as frases explicativas não foram reconhecidas como comando de trilha, fazendo o backend reexibir o Menu de Trilhas em loop.
-     - *Correção no Backend (`main.py`):* Implementado regex flexível com suporte a delimitadores naturais (`^(?:op[cç][aã]o\s*)?1(?:[\.,:\s\-]|$)|1️⃣`) e mapeamento de intenção semântica (`"explicar"`, `"explicando"`, `"explicação"`, `"teoria"`), assegurando transição imediata para `modo_aprender` e para todas as demais trilhas (2 a 6) sob qualquer variação coloquial de digitação.
-  2. **Calibração de Rerank Curricular por Série na Teoria (`Grade-Aware Rerank`):**
-     - *Causa Raiz Identificada:* Na sessão de Letícia (`b26d8016`), estudante do 5º ano que estudava "Medidas e grandezas", o RAG vetorial recuperou e injetou no `modo_aprender` o e-book de Física do Ensino Médio sobre termometria (Kelvin/Fahrenheit e dilatação), gerando atrito superado pela própria IA ao acolher a idade da aluna.
-     - *Correção no Backend (`main.py`):* Aplicado o algoritmo `grade_score_theo` diretamente sobre a lista de `theo_docs` antes de selecionar o e-book base, priorizando documentos de `fundamental-1/5-ano` com pontuação máxima quando `user_grade` for 5º ano, blindando os alunos de conteúdos acima de sua série escolar.
-  3. **Imunização de Unidades de Temperatura no Sentinela Noturno (`ALTERNATIVAS_AGRUPADAS` - P2):**
-     - *Causa Raiz Identificada:* O detector regex `[a-dA-D]\)[^\n]+[b-eB-E]\)` capturava expressões térmicas em graus Celsius `(0°C)` e `(100°C)` como se fossem as alternativas `C)` e `C)` coladas na mesma linha, gerando um falso-positivo P2 em respostas de quiz que estavam perfeitamente formatadas com 5 alternativas isoladas.
-     - *Correção no Sentinela (`sentinela_mobme.py`):* Sanitização prévia de unidades de temperatura (`[\d\.,]+\s*°[a-zA-Z]`) e exigência de delimitador de início de alternativa `(?:^|\s)[a-dA-D]\)\s+`, eliminando 100% dos falsos-positivos térmicos.
-- **Validação Estatística e Deploy Homologado:**
-  - Código compilado com Exit Code 0 via `py_compile`.
-  - Arquivos `main.py` e `sentinela_mobme.py` sincronizados via SCP na Oracle Cloud VPS (`137.131.163.113`) e container `mobme-api` reiniciado com sucesso.
-  - Auditoria em produção atestou conformidade de **86.76%** (Wilson 95%: `[76.72% — 92.88%]`), com **zero falhas P1, zero falhas P2 e zero falhas P3**, restando apenas o registro histórico do loop de Pietra antes do deploy.
+- **Status:** 🏆 Lote 3 do 7º Ano Concluído e Homologado no Padrão-Ouro | 75% de Língua Portuguesa do 7º Ano Concluído (15 de 20 Listas / 900 Questões) | 300 Novas Questões Atômicas Validadas com Exit Code 0 no `validador_educamob.py`.
+- **Visão Geral e Metodologia de Execução:**
+  - Continuidade rigorosa da produção em lotes de 5 capítulos para o 7º Ano do Ensino Fundamental.
+  - Conformidade estrita com as regras da **Seção 9 do `validador_educamob.py`**: adequação perfeita à faixa etária de 12 anos, enunciados breves e objetivos (<= 420 chars), alternativas concisas (<= 210 chars), similaridade temática cruzada rigorosamente < 60%, prefixos tri-palavra <= 6 ocorrências, supressão absoluta de termos pedantes e arcaicos ('consubstancia', 'prerrogativa', 'prescinde', 'inexorável', 'efêmera', 'dicotomia', 'macroeconômico', etc.) e bloqueio de terminologias de nível superior/médio.
+  - Resoluções analíticas estruturadas com - **Etapa 1:** e - **Etapa 2:** em todas as 20 questões difíceis de cada capítulo.
+  - Distribuição matemática de gabarito balanceada em 20% por alternativa (exatas 12 A, 12 B, 12 C, 12 D e 12 E em cada lista de 60 questões).
+- **Entregas Técnicas do Lote 3 (7º Ano, Capítulos 11 ao 15):**
+  1. **Capítulo 11:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-11-genero-entrevista-jornalistica/ebooks/ef67lp14-ef67lp15-entrevista-jornalistica-exercicios.md`
+     - Objeto: O Gênero Entrevista Jornalística: Planejamento, Pauta, Roteiro, Oralidade, Transcrição, Edição e Marcas de Conversação (EF67LP14, EF67LP15, EF69LP10, EF69LP15).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 12:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-12-etica-editorial-analise-midia/ebooks/ef67lp01-ef67lp03-etica-editorial-fake-news-exercicios.md`
+     - Objeto: Ética Editorial, Fake News e Análise Crítica da Mídia: Desinformação, Sensacionalismo, Algoritmos, Bolhas Sociais e Curadoria Crítica (EF67LP01, EF67LP02, EF67LP03, EF69LP04).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 13:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-13-campo-vida-publica-carta-reclamacao-ouvidoria/ebooks/ef67lp16-ef67lp17-carta-reclamacao-exercicios.md`
+     - Objeto: A Carta de Reclamação e os Canais de Ouvidoria Cidadã: Reivindicação, Polidez, Fundamentação Fática e Exercício da Cidadania (EF67LP16, EF67LP17, EF69LP20).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 14:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-14-debate-regrado-argumentacao-mesa-redonda/ebooks/ef67lp14-ef69lp13-debate-regrado-exercicios.md`
+     - Objeto: O Debate Regrado e a Mesa-Redonda: Moderação, Argumentação Lógica, Tipos de Argumento e Desconstrução de Falácias (EF67LP14, EF69LP13, EF69LP15).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 15:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-15-textos-legais-estatuto-igualdade-racial/ebooks/ef67lp17-ef67lp19-igualdade-racial-leis-exercicios.md`
+     - Objeto: Textos Reivindicatórios e Normativos: O Estatuto da Igualdade Racial, Legislação Antidiscriminatória e a Estrutura Linguística dos Textos de Lei (EF67LP17, EF67LP18, EF67LP19, EF69LP22).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 3: **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (7º Ano): **15/20 listas concluídas (900 questões — 75% da série finalizada!)**.
+  - Total Acumulado de Língua Portuguesa (Ensino Fundamental): **55/100 listas concluídas (3.300 de 6.000 questões atômicas)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **486 para 491 listas** (total de **29.460 questões atômicas ativas**).

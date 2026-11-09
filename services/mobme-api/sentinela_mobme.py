@@ -540,12 +540,10 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                         issues_by_priority["P2"].append(issue)
                         msg_has_issue = True
 
-                # P2.2 Alternativas agrupadas na mesma linha (Limpando KaTeX e temperaturas para evitar falsos positivos como (0°C))
+                # P2.2 Alternativas agrupadas na mesma linha (Limpando KaTeX para evitar falsos positivos com frações contendo b)
                 clean_no_katex = re.sub(r'\$\$.*?\$\$', '', content, flags=re.DOTALL)
                 clean_no_katex = re.sub(r'\$.*?\$', '', clean_no_katex)
-                clean_no_katex = re.sub(r'\(?\s*[\d\.,]+\s*°\s*[a-zA-Z]\s*\)?', '', clean_no_katex)
-                clean_no_katex = re.sub(r'\(?\s*°\s*[a-zA-Z]\s*\)?', '', clean_no_katex)
-                if re.search(r'(?:^|\s)[a-dA-D]\)\s+[^\n]+?(?<=\s)[b-eB-E]\)\s+', clean_no_katex):
+                if re.search(r'[a-dA-D]\)[^\n]+[b-eB-E]\)', clean_no_katex):
                     issue = {
                         "priority": "P2",
                         "type": "ALTERNATIVAS_AGRUPADAS",
