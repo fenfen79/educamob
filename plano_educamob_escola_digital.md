@@ -4,6 +4,7 @@
 > - **Ciências (5º ao 9º Ano):** 72/72 listas homologadas e indexadas ✅ (4.320 questões).
 > - **Geografia (5º ao 9º Ano):** 40/40 listas homologadas e indexadas ✅ (2.400 questões).
 > - **História (5º ao 9º Ano):** 62/62 listas homologadas e indexadas ✅ (3.720 questões).
+> - **Língua Portuguesa (5º ao 9º Ano):** 50/100 listas homologadas (3.000 questões no Padrão-Ouro e Linguagem Adequada — 5º e 6º Anos 100% Concluídos, 7º Ano com 50% Concluído — Lotes 1 e 2) ⏳.
 > - **Matemática (Fundamental 1, Fundamental 2 e Médio):** 148/148 listas homologadas e indexadas ✅ (8.880 questões).
 > - **Física (Ensino Médio):** 61/61 listas homologadas e indexadas ✅ (3.660 questões).
 > - **Química (Ensino Médio):** 53/53 listas homologadas e indexadas ✅ (3.180 questões).
@@ -328,7 +329,10 @@ Criação de uma skill especializada em **validação de conteúdos acadêmicos*
 **🏆 CONCLUSÃO TOTAL: Geografia do Ensino Fundamental 100% Concluída (40 Capítulos | 40 E-books Teóricos Atômicos 100% Homologados - 126.021 Palavras)**
 **🏆 CONCLUSÃO TOTAL: Língua Portuguesa do 5º Ano 100% Concluída (20 Capítulos | 20 E-books Teóricos Atômicos 100% Homologados - 60.960 Palavras)**
 **🏆 CONCLUSÃO TOTAL: Língua Portuguesa do 6º Ano 100% Concluída (20 Capítulos | 20 E-books Teóricos Atômicos 100% Homologados - 67.664 Palavras)**
-**🚀 EM ANDAMENTO: Língua Portuguesa do 7º Ano (Lotes 1 e 2: Capítulos 01 ao 08 Homologados com Exit Code 0 - 26.841 Palavras — Eixo I 100% Concluído)**
+**🏆 CONCLUSÃO TOTAL: Língua Portuguesa do 7º Ano 100% Concluída (20 Capítulos | 20 E-books Teóricos Atômicos 100% Homologados - 57.190 Palavras)**
+**🏆 CONCLUSÃO TOTAL: Língua Portuguesa do 8º Ano 100% Concluída (20 Capítulos | 20 E-books Teóricos Atômicos 100% Homologados - 52.228 Palavras)**
+**🏆 CONCLUSÃO TOTAL: Língua Portuguesa do 9º Ano 100% Concluída (20 Capítulos | 20 E-books Teóricos Atômicos 100% Homologados - 50.522 Palavras)**
+**🏆 MARCO HISTÓRICO: 100% DO ENSINO FUNDAMENTAL DE LÍNGUA PORTUGUESA CONCLUÍDO (5º AO 9º ANO — 100 CAPÍTULOS | 100 E-BOOKS HOMOLOGADOS | 288.564 PALAVRAS LIMPAS)**
 
 
 > **Complexidade:** 🔴 Alta — Sprint **cíclico e incremental** (múltiplas conversas — 1 conversa por Objeto de Conhecimento recomendado). Este sprint será executado repetidamente ao longo de meses.  
@@ -448,7 +452,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
        - **Capítulo 19:** cap-19-campo-literario-mitos-lendas-narrativas-aventura (ef67lp27-ef67lp28-mitos-lendas-narrativas.md - 3.556 palavras) ✅
        - **Capítulo 20:** cap-20-poesia-formas-fixas-versos-livres-figuras (ef67lp32-ef69lp48-poesia-figuras-linguagem.md - 3.957 palavras) ✅
      - **Total Geral Homologado no 6º Ano (20 Capítulos):** **67.664 palavras** de teoria pura, densidade média de 3.383 palavras por e-book, zero exercícios, zero 'R$', rigor ABNT NBR 6023 e aprovação unânime no validador_educamob.py.
-   - **7º Ano (Em Andamento — 8 de 20 Capítulos Homologados — 26.841 Palavras Limpas — Eixo I 100% Concluído)**:
+   - **7º Ano (🏆 100% Concluído — 20 de 20 Capítulos Homologados — 57.190 Palavras Limpas)**:
      - **Eixo I: Sintaxe da Oração, Morfossintaxe e Coesão (Capítulos 01 ao 08 — 100% Concluído)**:
        - **Capítulo 01:** cap-01-predicacao-transitividade-verbal (ef07lp04-ef07lp05-transitividade-verbal.md - 3.263 palavras) ✅
        - **Capítulo 02:** cap-02-termos-integrantes-objeto-direto-indireto (ef07lp07-objetos-direto-indireto.md - 3.126 palavras) ✅
@@ -458,7 +462,75 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
        - **Capítulo 06:** cap-06-concordancia-nominal-casos-especiais (ef07lp06-ef07lp10-concordancia-nominal.md - 3.482 palavras) ✅
        - **Capítulo 07:** cap-07-concordancia-verbal-casos-particulares (ef07lp06-ef07lp10-concordancia-verbal.md - 3.573 palavras) ✅
        - **Capítulo 08:** cap-08-semantica-hiperonimia-coesao-referencial (ef07lp11-ef07lp13-hiperonimia-coesao.md - 3.388 palavras) ✅
-     - **Total Homologado no Eixo I do 7º Ano (8 Capítulos):** **26.841 palavras** de teoria pura, densidade média de 3.355 palavras por e-book, zero exercícios, zero 'R$', rigor ABNT NBR 6023 e aprovação unânime no validador_educamob.py.
+     - **Eixo II: Campo Jornalístico-Midiático e Humor Gráfico (Capítulos 09 ao 12 — 100% Concluído)**:
+       - **Capítulo 09:** cap-09-campo-jornalistico-grande-reportagem (ef67lp08-ef07lp01-grande-reportagem.md - 2.877 palavras) ✅
+       - **Capítulo 10:** cap-10-humor-grafico-charge-cartum (ef67lp08-ef69lp05-humor-grafico.md - 2.914 palavras) ✅
+       - **Capítulo 11:** cap-11-genero-entrevista-jornalistica (ef67lp14-ef67lp15-entrevista-jornalistica.md - 2.589 palavras) ✅
+       - **Capítulo 12:** cap-12-etica-editorial-analise-midia (ef67lp01-ef67lp03-etica-editorial-fake-news.md - 2.906 palavras) ✅
+     - **Eixo III: Campo de Atuação na Vida Pública e Argumentação (Capítulos 13 ao 16 — 100% Concluído)**:
+       - **Capítulo 13:** cap-13-campo-vida-publica-carta-reclamacao-ouvidoria (ef67lp16-ef67lp17-carta-reclamacao.md - 2.397 palavras) ✅
+       - **Capítulo 14:** cap-14-debate-regrado-argumentacao-mesa-redonda (ef67lp14-ef69lp13-debate-regrado.md - 2.371 palavras) ✅
+       - **Capítulo 15:** cap-15-textos-legais-estatuto-igualdade-racial (ef67lp17-ef67lp19-igualdade-racial-leis.md - 2.636 palavras) ✅
+       - **Capítulo 16:** cap-16-liberdade-expressao-marco-civil-internet (ef67lp18-ef69lp21-marco-civil-internet.md - 2.654 palavras) ✅
+     - **Eixo IV: Campo de Estudo e Pesquisa & Campo Artístico-Literário (Capítulos 17 ao 20 — 100% Concluído)**:
+       - **Capítulo 17:** cap-17-estudo-pesquisa-relatorio-experimento-seminario (ef67lp20-ef67lp22-relatorio-experimento-seminario.md - 2.143 palavras) ✅
+       - **Capítulo 18:** cap-18-campo-literario-conto-policial-terror-enigma (ef67lp27-ef67lp28-conto-policial-enigma.md - 2.203 palavras) ✅
+       - **Capítulo 19:** cap-19-campo-literario-cronica-literaria-humoristica (ef67lp28-ef69lp46-cronica-literaria-humor.md - 2.137 palavras) ✅
+       - **Capítulo 20:** cap-20-campo-literario-texto-dramatico-teatral (ef67lp29-ef69lp52-texto-dramatico-teatro.md - 2.522 palavras) ✅
+     - **Total Geral Homologado no 7º Ano (20 Capítulos — 100% Concluído):** **57.190 palavras** de teoria pura, densidade média de 2.859 palavras por e-book, zero exercícios, zero 'R$', rigor ABNT NBR 6023 e aprovação unânime no validador_educamob.py.
+   - **8º Ano (🏆 100% Concluído — 20 de 20 Capítulos Homologados — 52.228 Palavras Limpas)**:
+     - **Eixo I: Sintaxe do Período Composto, Morfossintaxe e Estilística (Capítulos 01 ao 08 — 100% Concluído)**:
+       - **Capítulo 01:** cap-01-periodo-composto-coordenacao-oracoes-coordenadas (ef08lp11-ef08lp13-oracoes-coordenadas.md - 2.374 palavras) ✅
+       - **Capítulo 02:** cap-02-periodo-composto-subordinacao-oracoes-substantivas (ef08lp11-ef08lp12-oracoes-substantivas.md - 2.350 palavras) ✅
+       - **Capítulo 03:** cap-03-oracoes-subordinadas-adjetivas-pontuacao (ef08lp13-ef08lp14-oracoes-adjetivas.md - 2.519 palavras) ✅
+       - **Capítulo 04:** cap-04-regencia-verbal-nominal-crase (ef08lp07-ef08lp08-regencia-crase.md - 2.519 palavras) ✅
+       - **Capítulo 05:** cap-05-colocacao-pronominal-proclise-enclise-mesoclise (ef08lp06-ef08lp08-colocacao-pronominal.md - 3.490 palavras) ✅
+       - **Capítulo 06:** cap-06-verbos-modos-tempos-subjuntivo-correlacao (ef08lp04-ef08lp05-modos-verbais-correlacao.md - 3.508 palavras) ✅
+       - **Capítulo 07:** cap-07-morfologia-processos-derivacao-composicao (ef08lp04-ef08lp05-formacao-palavras.md - 3.122 palavras) ✅
+       - **Capítulo 08:** cap-08-figuras-linguagem-pensamento-sintaxe (ef08lp15-ef89lp37-figuras-linguagem.md - 3.084 palavras) ✅
+     - **Eixo II: Campo Jornalístico-Midiático e Opinião (Capítulos 09 ao 12 — 100% Concluído)**:
+       - **Capítulo 09:** cap-09-artigo-opiniao-argumentacao-tese (ef08lp03-ef89lp03-artigo-opiniao.md - 2.517 palavras) ✅
+       - **Capítulo 10:** cap-10-editorial-jornalistico-linha-editorial (ef08lp01-ef89lp04-editorial-jornalistico.md - 2.281 palavras) ✅
+       - **Capítulo 11:** cap-11-carta-leitor-comentario-redes-debate (ef08lp02-ef89lp05-carta-leitor.md - 2.511 palavras) ✅
+       - **Capítulo 12:** cap-12-resenha-critica-analise-cultural (ef08lp03-ef89lp06-resenha-critica.md - 2.466 palavras) ✅
+     - **Eixo III: Campo de Atuação na Vida Pública (Capítulos 13 ao 16 — 100% Concluído)**:
+       - **Capítulo 13:** cap-13-campo-vida-publica-estatuto-crianca-adolescente (ef89lp17-ef89lp18-estatuto-crianca-adolescente.md - 2.660 palavras) ✅
+       - **Capítulo 14:** cap-14-textos-reivindicatorios-manifesto-peticao (ef89lp17-ef89lp20-manifesto-peticao.md - 2.272 palavras) ✅
+       - **Capítulo 15:** cap-15-publicidade-propaganda-consumismo-adolescente (ef08lp03-ef89lp09-publicidade-consumo.md - 2.422 palavras) ✅
+       - **Capítulo 16:** cap-16-direitos-humanos-liberdade-expressao-democracia (ef89lp17-ef89lp22-direitos-humanos-democracia.md - 2.363 palavras) ✅
+     - **Eixo IV: Campo de Estudo e Pesquisa & Campo Artístico-Literário (Capítulos 17 ao 20 — 100% Concluído)**:
+       - **Capítulo 17:** cap-17-estudo-pesquisa-artigo-divulgacao-cientifica (ef89lp24-ef89lp26-divulgacao-cientifica.md - 2.626 palavras) ✅
+       - **Capítulo 18:** cap-18-campo-literario-conto-ficcao-cientifica-distopia (ef89lp32-ef89lp33-ficcao-cientifica-distopia.md - 2.414 palavras) ✅
+       - **Capítulo 19:** cap-19-campo-literario-poesia-visual-concreta-slam (ef89lp33-ef89lp35-poesia-visual-slam.md - 2.262 palavras) ✅
+       - **Capítulo 20:** cap-20-campo-literario-conto-psicologico-fluxo-consciencia (ef89lp32-ef89lp36-conto-psicologico.md - 2.468 palavras) ✅
+     - **Total Geral Homologado no 8º Ano (20 Capítulos — 100% Concluído):** **52.228 palavras** de teoria pura, densidade média de 2.611 palavras por e-book, zero exercícios, zero 'R$', rigor ABNT NBR 6023 e aprovação unânime no validador_educamob.py.
+   - **9º Ano (🏆 100% Concluído — 20 de 20 Capítulos Homologados — 50.522 Palavras Limpas)**:
+     - **Eixo I: Sintaxe Avançada, Coesão e Estilística (Capítulos 01 ao 08 — 100% Concluído)**:
+       - **Capítulo 01:** cap-01-oracoes-subordinadas-adverbiais-circunstancias (ef09lp08-ef09lp11-oracoes-adverbiais.md - 2.585 palavras) ✅
+       - **Capítulo 02:** cap-02-oracoes-reduzidas-infinitivo-gerundio-participio (ef09lp08-ef09lp11-oracoes-reduzidas.md - 2.350 palavras) ✅
+       - **Capítulo 03:** cap-03-sintaxe-concordancia-verbal-casos-complexos (ef09lp04-ef09lp06-concordancia-verbal-avancada.md - 2.797 palavras) ✅
+       - **Capítulo 04:** cap-04-pontuacao-sintatica-periodo-composto (ef09lp05-ef09lp07-pontuacao-periodo-composto.md - 2.797 palavras) ✅
+       - **Capítulo 05:** cap-05-coesao-referencial-sequencial-operadores-argumentativos (ef09lp10-ef09lp11-coesao-operadores.md - 3.084 palavras) ✅
+       - **Capítulo 06:** cap-06-semantica-polissemia-modalizacao-epistemica (ef09lp09-ef89lp37-semantica-modalizacao.md - 2.486 palavras) ✅
+       - **Capítulo 07:** cap-07-variacao-linguistica-preconceito-norma-culta (ef09lp01-ef69lp56-variacao-linguistica.md - 2.591 palavras) ✅
+       - **Capítulo 08:** cap-08-intertextualidade-parodia-parafrase-pastiche (ef09lp02-ef89lp33-intertextualidade.md - 2.560 palavras) ✅
+     - **Eixo II: Campo Jornalístico-Midiático e Opinião (Capítulos 09 ao 12 — 100% Concluído)**:
+       - **Capítulo 09:** cap-09-debate-regrado-mesa-redonda-retorica-persuasao (ef89lp12-ef89lp14-debate-regrado.md - 2.460 palavras) ✅
+       - **Capítulo 10:** cap-10-reportagem-investigativa-cruzamento-fontes-fact-checking (ef09lp01-ef89lp02-reportagem-investigativa.md - 2.355 palavras) ✅
+       - **Capítulo 11:** cap-11-artigo-divulgacao-midiatico-podcast-videocast (ef89lp08-ef89lp15-podcast-videocast.md - 2.382 palavras) ✅
+       - **Capítulo 12:** cap-12-analise-discurso-midia-enquadramento-ideologia (ef89lp04-ef89lp07-analise-discurso-midia.md - 2.404 palavras) ✅
+     - **Eixo III: Campo de Atuação na Vida Pública (Capítulos 13 ao 16 — 100% Concluído)**:
+       - **Capítulo 13:** cap-13-textos-normativos-constituicao-leis-inclusao (ef89lp17-ef89lp18-legislacao-inclusao.md - 2.443 palavras) ✅
+       - **Capítulo 14:** cap-14-projeto-intervencao-social-acao-comunitaria (ef89lp19-ef89lp20-projeto-intervencao-social.md - 2.166 palavras) ✅
+       - **Capítulo 15:** cap-15-audiencia-publica-orcamento-participativo-ouvidoria (ef89lp17-ef89lp23-audiencia-publica-ouvidoria.md - 2.588 palavras) ✅
+       - **Capítulo 16:** cap-16-cultura-paz-direitos-humanos-justica-restaurativa (ef89lp17-ef89lp22-cultura-paz-mediacao.md - 2.559 palavras) ✅
+     - **Eixo IV: Campo de Estudo, Pesquisa e Arte Literária (Capítulos 17 ao 20 — 100% Concluído)**:
+       - **Capítulo 17:** cap-17-estudo-pesquisa-artigo-academico-normas-abnt (ef89lp24-ef89lp29-artigo-academico-abnt.md - 2.496 palavras) ✅
+       - **Capítulo 18:** cap-18-campo-literario-cronica-ensaio-metaficcao (ef89lp32-ef89lp36-cronica-ensaio-metaficcao.md - 2.484 palavras) ✅
+       - **Capítulo 19:** cap-19-campo-literario-romance-moderno-vozes-sociais (ef89lp32-ef89lp37-romance-moderno-vozes.md - 2.443 palavras) ✅
+       - **Capítulo 20:** cap-20-campo-literario-poesia-contemporanea-lirismo-engajamento (ef89lp33-ef89lp35-poesia-contemporanea.md - 2.492 palavras) ✅
+     - **Total Geral Homologado no 9º Ano (20 Capítulos — 100% Concluído):** **50.522 palavras** de teoria pura, densidade média de 2.526 palavras por e-book, zero exercícios, zero 'R$', rigor ABNT NBR 6023 e aprovação unânime no validador_educamob.py.
+     - **🏆 TOTAL GERAL CONSOLIDADO DO ENSINO FUNDAMENTAL DE LÍNGUA PORTUGUESA (5º AO 9º ANO — 100% CONCLUÍDO):** **100 Capítulos | 100 E-books Teóricos Atômicos Homologados | 288.564 palavras limpas** de teoria pura de excelência acadêmica, densidade média de 2.885 palavras por e-book, zero exercícios, zero 'R$', rigor ABNT e 100% de aprovação no validador_educamob.py.
 
 
 **Checklist de Validação (por e-book atômico):**
@@ -545,6 +617,12 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
 | **História - 9º Ano (Exercícios)** | **18 de 18 listas (1.080 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 14 anos)** |
 | **TOTAL GERAL DE HISTÓRIA (Exercícios)** | **62 de 62 listas (3.720 questões)** | 🏆 **Ensino Fundamental 100% Homologado no Padrão-Ouro (Equilíbrio Matemático 20% A-E, 0 Falhas)** |
 | **Ingestão Supabase (Mob.me RAG - História)** | **62 e-books teóricos (2.356 chunks) + `historia` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (5º ao 9º Ano)** |
+| **Língua Portuguesa - 5º Ano (Exercícios)** | **20 de 20 listas (1.200 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, linguagem adequada aos 10 anos)** |
+| **Língua Portuguesa - 6º Ano (Exercícios)** | **20 de 20 listas (1.200 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Exit Code 0, 20% A-E, sem decoreba, linguagem para 11 anos)** |
+| **Língua Portuguesa - 7º Ano (Exercícios)** | **10 de 20 listas (600 questões homologadas - Lotes 1 e 2 Concluídos)** | ⏳ **50% Homologado no Padrão-Ouro (Cap 01 ao 10 com Exit Code 0, 12 anos)** |
+| **Língua Portuguesa - 8º Ano (Exercícios)** | **0 de 20 listas (Aguardando Lotes)** | ⏳ **Pendente** |
+| **Língua Portuguesa - 9º Ano (Exercícios)** | **0 de 20 listas (Aguardando Lotes)** | ⏳ **Pendente** |
+| **TOTAL GERAL DE LÍNGUA PORTUGUESA (Exercícios)** | **40 de 100 listas (2.400 de 6.000 questões)** | ⏳ **5º e 6º Anos 100% Concluídos e Homologados (Exit Code 0)** |
 | **TOTAL GERAL NO SUPABASE (RAG)** | **585 e-books teóricos (26.704 chunks) + 436 listas (20.843+ chunks)** | 🏆 **7 Disciplinas Ativas: Matemática, Física, Química, Ciências, História, Geografia e Cálculo 1** |
 
 ---
@@ -691,6 +769,17 @@ emark-gfm no frontend Next.js para renderização de tabelas Markdown ricas e re
 | **62** | ✅ Ingestão Vetorial Massiva e Sincronização Integral de 100% das Listas de Exercícios na Mob.me (436 de 436 Listas / 26.160 Questões no Supabase pgvector) | Desenvolvimento do pipeline unificado de ingestão de exercícios (`ingest_exercicios.py`), geração de embeddings em lote único via DeepInfra (`BAAI/bge-m3`) e inserção direta em micro-lotes com auto-retry contra timeouts de HNSW (código 57014). Ingestão completa de 174 novas listas de Ciências (72), Geografia (40) e História (62) somadas à atualização e sincronização das 262 listas recalibradas de Matemática (148), Física (61) e Química (53). 100% das 436 listas e 26.160 questões atômicas agora indexadas e ativas para recuperação semântica RAG em produção. |
 | **65** | ✅ Resolução Sistêmica de Colisão de Menus, Blindagem Anti-Vazamento RAG Cruzado e Anti-Gaslighting (Agente 2) | Implementação cirúrgica de reparos pelo Agente 2 (Arquiteto Reparador): (1) Correção da colisão de números em badges no frontend (`page.tsx`) e backend (`main.py`), enviando estritamente o número da opção em desambiguações de temas sem sobrecarregar com rótulos de trilha; (2) Blindagem de disciplina e série em `resolve_exercise_file_for_topic`, impedindo categoricamente vazamento cruzado de acervo (ex: exercícios de Matemática do 5º ano em sessões de Física do Ensino Médio); (3) Sincronização e upload do acervo de Ensino Médio (`content/medio` com 433 arquivos) no disco da Oracle Cloud VPS; (4) Eliminação definitiva do falso bloqueio de disciplinas homologadas (Física, Matemática, etc.) em saudações informais e falas conversacionais; (5) Transição fluida e direta para a Teoria ("teoria", "sem flashcards, teoria") sem loops no menu; (6) Mandato estrito anti-gaslighting e de imutabilidade do tema ativo nos prompts (`prompt_prod.md`, `base_persona.md`, `modo_praticar.md`); (7) Recompilação do frontend Next.js com Turbopack (Exit Code 0), sincronização com `apps/mobme` e homologação em produção na Oracle VPS. |
 | **66** | ✅ Banimento da Regra de 4 Alternativas e Padronização Mandatória de 5 Alternativas (A-E) em Todo o Ecossistema da Mob.me | Banimento definitivo da antiga regra de 4 alternativas (`a-d`) e estabelecimento do padrão único de 5 alternativas (`a, b, c, d, e`) para toda e qualquer questão ou checagem de múltipla escolha da plataforma: (1) Atualização dos prompts de sistema (`modo_aprender.md` e `prompt_prod.md`) para exigir 5 alternativas (A-E); (2) Evolução do Agente 1 (`sentinela_mobme.py`) com nova regra `DEFICIT_ALTERNATIVAS_PADRAO_5` autuando questões com menos de 5 alternativas e expurgando falso-positivos em exercícios homologados; (3) Atualização da skill oficial `auditor-conversas-mobme`; (4) Deploy sincronizado via SCP e Docker no container `mobme-api` na Oracle Cloud VPS (`137.131.163.113`) com 100.0% de conformidade estatística. |
+| **67** | ✅ Diretriz Universal de Linguagem Simples, Direta e Adequada à Idade (5º Ano ao Ensino Médio) | Implementação das 3 Ações Estruturais para separação de papéis entre os e-books (fonte densa e acadêmica do RAG) e a camada do estudante (Mob.me + Exercícios): (1) Reforma dos System Prompts da Mob.me (`base_persona.md`, `prompt_prod.md`, `modo_aprender.md`, `modo_resumir.md`) com Regra de Tradução Pedagógica Obrigatória e injeção dinâmica de calibragem linguística por série no `main.py`; (2) Atualização das skills (`exercise-creator`, `agente-validador-exercicios`) e implantação das Travas 9.1, 9.2 e 9.3 no `validador_educamob.py` (bloqueando "concursês"/pedantismo do 5º Ano ao Ensino Médio e extrapolação etária por série no Fundamental e Médio); (3) Higienização global e homologação (Exit Code 0) de todas as 441 listas de exercícios do acervo + recalibragem integral das 5 listas do Lote 1 de Língua Portuguesa do 5º Ano para a faixa etária de 10 anos. |
+| **68** | ✅ Homologação do Lote 2 de Exercícios de Língua Portuguesa (5º Ano — Capítulos 06 ao 10) | Produção e validação sistemática de 5 listas atômicas (300 questões no Padrão-Ouro: 20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2, gabaritos matematicamente equilibrados em 20% A-E, zero decoreba e linguagem 100% adequada aos 10 anos de idade, fechando 50% do 5º Ano). |
+| **69** | ✅ Homologação dos Lotes 3 e 4 de Exercícios de Língua Portuguesa (5º Ano — Capítulos 11 ao 20) e Fechamento Integral do 5º Ano (20 de 20 Listas / 1.200 Questões) | Produção e validação sistemática das 10 listas finais do 5º Ano (600 questões nos Lotes 3 e 4, totalizando 20 listas e 1.200 questões atômicas no 5º Ano), 100% aprovadas com Exit Code 0 no `validador_educamob.py` e linguagem calibrada para 10 anos de idade. |
+| **70** | ✅ Homologação do Lote 1 de Exercícios de Língua Portuguesa (6º Ano — Capítulos 01 ao 05) | Produção e validação sistemática de 5 listas atômicas (300 questões no Padrão-Ouro: 20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2, gabaritos matematicamente equilibrados em 20% A-E, zero decoreba e linguagem 100% adequada aos 11 anos de idade, cobrindo Fonética, Morfologia, Estrutura de Palavras, Substantivos e Adjetivos). |
+| **71** | ✅ Homologação do Lote 2 de Exercícios de Língua Portuguesa (6º Ano — Capítulos 06 ao 10) | Produção e validação sistemática de 5 listas atômicas (300 questões no Padrão-Ouro: 20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2, gabaritos matematicamente equilibrados em 20% A-E, zero decoreba e linguagem 100% adequada aos 11 anos de idade, cobrindo Artigos/Numerais, Verbos [Tempos/Modos], Pronomes/Coesão, Sintaxe I [Frase/Oração/Período] e Sintaxe II [Sujeito/Predicado/Concordância]). |
+| **72** | ✅ Homologação do Lote 3 de Exercícios de Língua Portuguesa (6º Ano — Capítulos 11 ao 15) | Produção e validação sistemática de 5 listas atômicas (300 questões no Padrão-Ouro: 20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2, gabaritos matematicamente equilibrados em 20% A-E, zero decoreba e linguagem 100% adequada aos 11 anos de idade, cobrindo Pontuação Sintática/Expressiva, Semântica [Sinonímia/Homonímia/Paronímia/Ambiguidade], Campo Jornalístico [Notícia/Lide/Pirâmide Invertida/Fato vs Opinião], Cultura Digital [Hipertexto/Multimodalidade/Curadoria] e Opinião do Leitor [Carta do Leitor/Comentários/Netiqueta/Moderação Ética]). |
+| **73** | ✅ Homologação do Lote 4 de Exercícios de Língua Portuguesa (6º Ano — Capítulos 16 ao 20) e Fechamento Integral do 6º Ano (20 de 20 Listas / 1.200 Questões) | Produção e validação sistemática das 5 listas finais do 6º Ano (300 questões no Lote 4, totalizando 20 listas e 1.200 questões atômicas no 6º Ano), 100% aprovadas com Exit Code 0 no `validador_educamob.py`, linguagem calibrada para 11 anos de idade, cobrindo Textos Publicitários/Propaganda, Estudo e Pesquisa [Resumo/Infografia], Vida Pública [Reivindicatórios/Normativos], Narrativas Literárias [Mitos/Lendas/Aventura] e Poesia [Formas Fixas/Versos Livres/Figuras de Linguagem]. |
+| **74** | ✅ Homologação do Lote 1 de Exercícios de Língua Portuguesa (7º Ano — Capítulos 01 ao 05) | Produção e validação sistemática de 5 listas atômicas (300 questões no Padrão-Ouro: 20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2, gabaritos matematicamente equilibrados em 20% A-E, zero decoreba e linguagem 100% adequada aos 12 anos de idade, cobrindo Predicação/Transitividade Verbal, Termos Integrantes [Objeto Direto e Indireto], Termos Acessórios I [Adjunto Adnominal], Termos Acessórios II [Adjunto Adverbial] e Vozes Verbais [Ativa, Passiva e Reflexiva]). |
+| **75** | ✅ Homologação do Lote 2 de Exercícios de Língua Portuguesa (7º Ano — Capítulos 06 ao 10) | Produção e validação sistemática de 5 listas atômicas (300 questões no Padrão-Ouro: 20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2, gabaritos matematicamente equilibrados em 20% A-E, zero decoreba e linguagem 100% adequada aos 12 anos de idade, cobrindo Concordância Nominal [Casos Especiais], Concordância Verbal [Casos Particulares e Impessoais], Semântica [Hiperonímia, Hiponímia e Coesão Referencial], Grande Reportagem [Jornalismo Investigativo, Polifonia e Infografia] e Humor Gráfico [Charge, Cartum, Caricatura e Crítica Social]). |
+| **76** | ✅ Atualização Cadastral dos Estudantes no Mob.me, Sincronização Curricular em `public.users` e Auto-Heal em `memory.py` | Importação e deduplicação da planilha de estudantes; cadastramento dos novos alunos no Supabase Auth com senhas padrão DDMMAAAA; enriquecimento de metadados; sincronização inédita do campo `grade_level` na tabela `public.users` para 100% dos alunos, habilitando a calibração curricular e reranking de RAG; atualização do `memory.py` com rotina resiliente de preenchimento automático de série; consolidação do `beta_testers.csv` com 33 alunos auditados e validados. |
+| **77** | ✅ Ciclo Diário de Melhoria da Mob.me: Resolução de Loop de Menu em Comandos Naturais, Grade-Aware Rerank Teórico e Imunização Térmica | Resolução de falhas reais capturadas na auditoria de 09/11/2026: (1) Regex flexível e mapeamento semântico de intenção no roteador de menu de main.py, eliminando loops quando o aluno digita números com vírgula ou observações; (2) Algoritmo grade_score_theo no RAG teórico de main.py, blindando alunos do Ensino Fundamental contra invasão de e-books do Ensino Médio; (3) Sanitização de unidades de temperatura no sentinela_mobme.py, eliminando falsos-positivos em (0°C); (4) Deploy homologado na Oracle Cloud VPS com 86.76% de conformidade geral e zero falhas ativas. |
 
 ---
 

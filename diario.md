@@ -4899,3 +4899,791 @@ esolve_active_mode_and_topic).
      - Arquivos `sentinela_mobme.py`, `modo_aprender.md` e `prompt_prod.md` sincronizados via SCP na VPS e injetados via `docker cp` no container `mobme-api`.
      - Container `mobme-api` reiniciado com sucesso.
      - Auditoria do Sentinela Noturno executada em produção atestando **100.0% de conformidade do System Prompt** (IC Wilson 95%: `[67.56% — 100.0%]`) com 0 falhas P1, 0 falhas P2 e 0 falhas P3.
+
+
+### [07/11/2026 - Rodada 68] - Conclusão e Homologação Integral do Eixo II de Língua Portuguesa do 7º Ano do Ensino Fundamental (Lote 3 Finalizado: Capítulos 09 ao 12 — 12 de 20 Capítulos Concluídos — 38.127 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🏆 Eixo II (Campo Jornalístico-Midiático e Humor Gráfico do 7º Ano) 100% Homologado com Sucesso (12 Capítulos | 12 E-books Teóricos Atômicos Homologados com Exit Code 0 | 38.127 Palavras Limpas)
+- **Fechamento do Eixo II (Comunicação Midiática, Análise Crítica e Semiótica do 7º Ano):**
+  - Conclusão integral dos quatro blocos do campo jornalístico-midiático e semiótico do 7º Ano:
+    1. A grande reportagem investigativa: superação da notícia factual efêmera por meio do aprofundamento histórico, apuração de causas e desdobramentos; enquadramento noticioso (*framing*); polifonia com orquestração de vozes (discurso direto com aspas e indireto analítico); lide narrativo de apelo humanizado; e letramento multissemiótico em infografia analítica (EF67LP08, EF07LP01, EF69LP06, EF69LP07).
+    2. Humor gráfico e crítica social: delimitação conceitual precisa entre charge (circunscrita a notícias e figuras datadas) e cartum (crítica universal e atemporal de costumes); arte da caricatura e a narrativa sequencial da tira cômica; recursos retóricos de ironia, metáfora visual e quebra de expectativa (*punchline*); e intertextualidade paródica com obras artísticas e históricas consagradas (EF67LP08, EF69LP05, EF69LP14).
+    3. Gênero entrevista jornalística: pesquisa pré-textual, pauta e roteiro investigativo com perguntas abertas; técnica da escuta ativa; contrastes estruturais entre língua falada espontânea e língua escrita; processo ético de degravação e retextualização (edição e limpeza de ruídos sem alteração de ideias); e arquitetura tipográfica em formato pingue-pongue com rubricas cênicas (EF67LP14, EF67LP15, EF69LP10).
+    4. Ética editorial, liberdade de imprensa e cidadania digital: garantias constitucionais dos artigos 5º e 220 da CF/1988 (vedação da censura, proibição do anonimato e direito de resposta); distinção entre linha editorial legítima e falsificação factual; categorização científica da desordem informacional (*disinformation, misinformation e malinformation*); dinâmica algorítmica da economia da atenção, bolhas de filtro (*filter bubbles*) e viés de confirmação; e metodologia de leitura lateral para checagem profissional de fatos (*fact-checking*) (EF67LP01, EF67LP02, EF67LP03, EF69LP01).
+- **Entregas Técnicas Realizadas (Lote 3 — Capítulos 09 ao 12):**
+  1. **Capítulo 09:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-09-campo-jornalistico-grande-reportagem/ebooks/ef67lp08-ef07lp01-grande-reportagem.md`
+     - Objeto: A Grande Reportagem: Enquadramento Investigativo, Polifonia, Recursos Multissemióticos e Análise de Infográficos Digitais (EF67LP08, EF07LP01, EF69LP06, EF69LP07).
+     - Volume: 2.877 palavras limpas.
+  2. **Capítulo 10:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-10-humor-grafico-charge-cartum/ebooks/ef67lp08-ef69lp05-humor-grafico.md`
+     - Objeto: Humor Gráfico e Crítica Social: Charge, Cartum, Caricatura, Tira Cômica, Ironia, Metáfora Visual e Intertextualidade (EF67LP08, EF69LP05, EF69LP14).
+     - Volume: 2.914 palavras limpas.
+  3. **Capítulo 11:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-11-genero-entrevista-jornalistica/ebooks/ef67lp14-ef67lp15-entrevista-jornalistica.md`
+     - Objeto: O Gênero Entrevista Jornalística: Pauta, Roteiro Investigativo, Registro da Oralidade, Marcas de Fala e Transposição para a Escrita (EF67LP14, EF67LP15, EF69LP10).
+     - Volume: 2.589 palavras limpas.
+  4. **Capítulo 12:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-12-etica-editorial-analise-midia/ebooks/ef67lp01-ef67lp03-etica-editorial-fake-news.md`
+     - Objeto: Ética Editorial, Liberdade de Imprensa, Desinformação e Fake News: Algoritmos, Bolhas Sociais e Curadoria Crítica da Informação (EF67LP01, EF67LP02, EF67LP03, EF69LP01).
+     - Volume: 2.906 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 12 capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 3 do 7º Ano: **11.286 palavras limpas** (média de 2.821 palavras por e-book).
+  - **TOTAL CONSOLIDADO DOS EIXOS I E II DO 7º ANO (CAPÍTULOS 01 AO 12 — 60% DO CURRÍCULO HOMOLOGADO):** **38.127 palavras limpas** em 12 capítulos (média geral de 3.177 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º E 7º ANOS):** 52 Capítulos | 52 E-books Teóricos Atômicos Homologados | **166.751 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 69] - Conclusão e Homologação Integral do Eixo III de Língua Portuguesa do 7º Ano do Ensino Fundamental (Lote 4 Finalizado: Capítulos 13 ao 16 — 16 de 20 Capítulos Concluídos — 48.185 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🏆 Eixo III (Campo de Atuação na Vida Pública e Argumentação do 7º Ano) 100% Homologado com Sucesso (16 Capítulos | 16 E-books Teóricos Atômicos Homologados com Exit Code 0 | 48.185 Palavras Limpas)
+- **Fechamento do Eixo III (Cidadania, Direitos Sociais, Legislação e Retórica Democrática do 7º Ano):**
+  - Conclusão integral dos quatro blocos temáticos de cidadania e vida pública:
+    1. A carta de reclamação formal: reivindicação civil contra vícios de produtos e serviços; arquitetura epistolar oficial (local/data, destinatário, qualificação, exposição fática, fundamentação no CDC e pedido expresso); princípio discursivo da urbanidade firme e canais de ouvidoria cidadã (EF67LP16, EF67LP17, EF69LP20).
+    2. O debate regrado e a mesa-redonda: procedimentos cronometrados de mediação; tipologia de argumentos legítimos (autoridade científica, evidência documental, causalidade lógica, analogia e exemplificação humana); desmascaramento de falácias retóricas (*ad hominem, espantalho, falso dilema, apelo à tradição*); e ética da escuta democrática (EF67LP14, EF69LP13, EF69LP15).
+    3. Textos normativos e o Estatuto da Igualdade Racial: técnica legislativa segundo a LC 95/1998 (ementa, artigos com leitura ordinal/cardinal, parágrafos, incisos e alíneas); marco histórico da Lei nº 12.288/2010 superando o mito da democracia racial; definição jurídica de discriminação, desigualdade, ações afirmativas e povos quilombolas; e instrumentalização de abaixo-assinados (EF67LP17, EF67LP18, EF67LP19, EF69LP22).
+    4. Cidadania digital e o Marco Civil da Internet: desconstrução do mito da terra sem lei; os três pilares da Lei nº 12.965/2014 (neutralidade da rede, privacidade/LGPD e responsabilidade das plataformas com remoção judicial); fronteira inegociável entre liberdade de expressão e discurso de ódio (*hate speech*); vedação constitucional ao anonimato e rastreabilidade por IP; e combate ao cyberbullying com protocolo forense de prova (EF67LP18, EF69LP21, EF69LP23).
+- **Entregas Técnicas Realizadas (Lote 4 — Capítulos 13 ao 16):**
+  1. **Capítulo 13:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-13-campo-vida-publica-carta-reclamacao-ouvidoria/ebooks/ef67lp16-ef67lp17-carta-reclamacao.md`
+     - Objeto: A Carta de Reclamação, a Defesa do Consumidor e os Canais de Ouvidoria Cidadã: Reivindicação, Estrutura Epistolar Formal e Fundamentação Jurídica (EF67LP16, EF67LP17, EF69LP20).
+     - Volume: 2.397 palavras limpas.
+  2. **Capítulo 14:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-14-debate-regrado-argumentacao-mesa-redonda/ebooks/ef67lp14-ef69lp13-debate-regrado.md`
+     - Objeto: O Debate Regrado e a Mesa-Redonda: Moderação, Argumentação Lógica, Tipos de Argumento e Desconstrução de Falácias (EF67LP14, EF69LP13, EF69LP15).
+     - Volume: 2.371 palavras limpas.
+  3. **Capítulo 15:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-15-textos-legais-estatuto-igualdade-racial/ebooks/ef67lp17-ef67lp19-igualdade-racial-leis.md`
+     - Objeto: Textos Reivindicatórios e Normativos: O Estatuto da Igualdade Racial, Legislação Antidiscriminatória e a Estrutura Linguística dos Textos de Lei (EF67LP17, EF67LP18, EF67LP19, EF69LP22).
+     - Volume: 2.636 palavras limpas.
+  4. **Capítulo 16:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-16-liberdade-expressao-marco-civil-internet/ebooks/ef67lp18-ef69lp21-marco-civil-internet.md`
+     - Objeto: Liberdade de Expressão, Cidadania Digital e o Marco Civil da Internet: Privacidade, Neutralidade da Rede e Responsabilidade nas Redes Sociais (EF67LP18, EF69LP21, EF69LP23).
+     - Volume: 2.654 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 16 capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 4 do 7º Ano: **10.058 palavras limpas** (média de 2.514 palavras por e-book).
+  - **TOTAL CONSOLIDADO DOS EIXOS I, II E III DO 7º ANO (CAPÍTULOS 01 AO 16 — 80% DO CURRÍCULO HOMOLOGADO):** **48.185 palavras limpas** em 16 capítulos (média geral de 3.011 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º E 7º ANOS):** 56 Capítulos | 56 E-books Teóricos Atômicos Homologados | **176.809 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 70] - Conclusão Integral e Homologação de 100% de Língua Portuguesa do 7º Ano do Ensino Fundamental (Lote 5 Finalizado: Capítulos 17 ao 20 — 20 de 20 Capítulos Concluídos — 57.190 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🏆 100% DE LÍNGUA PORTUGUESA DO 7º ANO HOMOLOGADA COM SUCESSO (20 Capítulos | 20 E-books Teóricos Atômicos Homologados com Exit Code 0 | 57.190 Palavras Limpas)
+- **Fechamento do Eixo IV (Campo de Estudo e Pesquisa & Campo Artístico-Literário do 7º Ano):**
+  - Conclusão integral dos quatro blocos temáticos finais do currículo do 7º Ano:
+    1. O relatório de experimento científico e o seminário acadêmico: rigor epistemológico e princípio da reprodutibilidade; estrutura canônica (materiais e métodos, dados e discussão); impessoalidade com voz passiva; design de slides orais (regra 6x6 e oratória de olho no olho); normas de citação acadêmica da ABNT NBR 10520 (direta curta e longa); e técnica da paráfrase ética para erradicação do plágio (EF67LP20, EF67LP21, EF67LP22, EF69LP30).
+    2. A narrativa de enigma, contos policiais e de terror/mistério: genealogia clássica de Edgar Allan Poe e Conan Doyle; detetive intelectual dedutivo vs companheiro narrador testemunha; mecânica do suspense com manipulação de pistas verdadeiras e pistas falsas (*red herrings*); construção da atmosfera psicológica gótica e exploração sensorial do medo; e curva dramática do clímax sem trapaças narrativas (EF67LP27, EF67LP28, EF69LP44, EF69LP47).
+    3. A crônica literária, humorística e lírica: a poesia do cotidiano banal ("a vida ao rés-do-chão" segundo Antonio Candido); natureza híbrida entre efemeridade jornalística e transcendência literária; tipologia quádrupla (narrativa, lírica, humorística e dissertativa); pacto de cumplicidade confidencial com o leitor em 1ª pessoa; e o apogeu estético brasileiro com Rubem Braga, Fernando Sabino, Machado de Assis e Luis Fernando Verissimo (EF67LP28, EF69LP46, EF69LP49).
+    4. O texto dramático e teatral: ontologia da ação no presente sem narrador intermediário; arquitetura formal do roteiro cênico (dramatis personae, atos e cenas); texto principal das falas em caixa alta versus texto secundário das didascálias/rubricas cênicas (ambientação, gestos e psicologia); modalidades de fala (diálogo, monólogo, solilóquio e aparte); o teatro popular brasileiro com o *Auto da Compadecida* de Ariano Suassuna; e a corporificação multissemiótica do palco (cenografia, figurino, iluminação e sonoplastia) (EF67LP29, EF67LP30, EF69LP52, EF69LP53).
+- **Entregas Técnicas Realizadas (Lote 5 — Capítulos 17 ao 20):**
+  1. **Capítulo 17:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-17-estudo-pesquisa-relatorio-experimento-seminario/ebooks/ef67lp20-ef67lp22-relatorio-experimento-seminario.md`
+     - Objeto: O Relatório de Experimento Científico, o Seminário Oral, as Normas de Citação Acadêmica (ABNT) e a Paráfrase Ética (EF67LP20, EF67LP21, EF67LP22, EF69LP30).
+     - Volume: 2.143 palavras limpas.
+  2. **Capítulo 18:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-18-campo-literario-conto-policial-terror-enigma/ebooks/ef67lp27-ef67lp28-conto-policial-enigma.md`
+     - Objeto: A Narrativa de Enigma, Contos Policiais e de Terror/Mistério: Estrutura da Trama, Pistas Verdadeiras e Falsas, Clímax e Atmosfera (EF67LP27, EF67LP28, EF69LP44, EF69LP47).
+     - Volume: 2.203 palavras limpas.
+  3. **Capítulo 19:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-19-campo-literario-cronica-literaria-humoristica/ebooks/ef67lp28-ef69lp46-cronica-literaria-humor.md`
+     - Objeto: A Crônica Literária, Humorística e Lírica: O Olhar sobre o Cotidiano, a Hibridez Jornalístico-Literária e a Ironia Afetuosa (EF67LP28, EF69LP46, EF69LP49).
+     - Volume: 2.137 palavras limpas.
+  4. **Capítulo 20:** `content/fundamental-2/7-ano/lingua-portuguesa/cap-20-campo-literario-texto-dramatico-teatral/ebooks/ef67lp29-ef69lp52-texto-dramatico-teatro.md`
+     - Objeto: O Texto Teatral e Dramático: Estrutura do Roteiro Cênico, Diálogos, Monólogos, Apartes, Rubricas (Didascálias) e Performance (EF67LP29, EF67LP30, EF69LP52, EF69LP53).
+     - Volume: 2.522 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 20 capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por "reais" ou "centavos").
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 5 do 7º Ano: **9.005 palavras limpas** (média de 2.251 palavras por e-book).
+  - **TOTAL CONSOLIDADO DO 7º ANO DE LÍNGUA PORTUGUESA (100% CONCLUÍDO):** **57.190 palavras limpas** em 20 capítulos (média geral de 2.859 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º E 7º ANOS):** **60 Capítulos | 60 E-books Teóricos Atômicos Homologados | 185.814 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 71] - Homologação do Lote 1 do 8º Ano de Língua Portuguesa (Capítulos 01 ao 04: Coordenação, Subordinação Substantiva, Orações Adjetivas e Regência/Crase — 9.762 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** ✅ Lote 1 do 8º Ano Homologado com Sucesso (4 Capítulos | 4 E-books Teóricos Atômicos Homologados com Exit Code 0 | 9.762 Palavras Limpas)
+- **Avanço no Eixo I (Sintaxe do Período Composto, Morfossintaxe e Regência do 8º Ano):**
+  - Conclusão integral dos quatro primeiros blocos do Período Composto e da Regência:
+    1. O Período Composto por Coordenação e as Orações Coordenadas: coordenação assindética vs sindética; tipologia quádrupla das conjunções coordenativas (aditivas, adversativas, alternativas, conclusivas, explicativas); efeitos expressivos na coesão argumentativa; pontuação canônica da vírgula antes de conjunções (EF08LP11, EF08LP13).
+    2. O Período Composto por Subordinação e as Orações Subordinadas Substantivas: hierarquia sintática oracional; papéis desempenhados (subjetiva, predicativa, objetiva direta, objetiva indireta, completiva nominal, apositiva); conjunções integrantes ('que' e 'se'); orações desenvolvidas vs reduzidas (infinitivo); pontuação rigorosa (vedação de vírgula entre oração subordinada subjetiva/objetiva e a principal) (EF08LP11, EF08LP12).
+    3. As Orações Subordinadas Adjetivas e a Pontuação Expressiva: papel modificador do substantivo; pronomes relativos canônicos ('que', 'quem', 'cujo/cuja', 'onde'); orações adjetivas explicativas (entre vírgulas, termo generalizante) versus restritivas (sem vírgulas, termo restritivo especificador); impacto semântico decisivo na ambiguidade e interpretação textual (EF08LP13, EF08LP14).
+    4. A Regência Verbal, Regência Nominal e o Fenômeno da Crase: termo regente vs termo regido; preposições obrigatórias exigidas por nomes e verbos; verbos com alternância de sentido segundo a regência (assistir, aspirar, visar, agradar, obedecer); fusão da preposição 'a' com o artigo feminino 'a' (crase); casos proibitivos, obrigatórios e facultativos de crase (EF08LP07, EF08LP08).
+- **Entregas Técnicas Realizadas (Lote 1 — Capítulos 01 ao 04 do 8º Ano):**
+  1. **Capítulo 01:** content/fundamental-2/8-ano/lingua-portuguesa/cap-01-periodo-composto-coordenacao-oracoes-coordenadas/ebooks/ef08lp11-ef08lp13-oracoes-coordenadas.md
+     - Objeto: O Período Composto por Coordenação e as Orações Coordenadas: Assindéticas, Sindéticas e Efeitos de Sentido (EF08LP11, EF08LP13).
+     - Volume: 2.374 palavras limpas.
+  2. **Capítulo 02:** content/fundamental-2/8-ano/lingua-portuguesa/cap-02-periodo-composto-subordinacao-oracoes-substantivas/ebooks/ef08lp11-ef08lp12-oracoes-substantivas.md
+     - Objeto: O Período Composto por Subordinação e as Orações Subordinadas Substantivas: Funções Sintáticas e Pontuação (EF08LP11, EF08LP12).
+     - Volume: 2.350 palavras limpas.
+  3. **Capítulo 03:** content/fundamental-2/8-ano/lingua-portuguesa/cap-03-oracoes-subordinadas-adjetivas-pontuacao/ebooks/ef08lp13-ef08lp14-oracoes-adjetivas.md
+     - Objeto: As Orações Subordinadas Adjetivas (Explicativas e Restritivas), Pronomes Relativos e Efeitos de Sentido da Pontuação (EF08LP13, EF08LP14).
+     - Volume: 2.519 palavras limpas.
+  4. **Capítulo 04:** content/fundamental-2/8-ano/lingua-portuguesa/cap-04-regencia-verbal-nominal-crase/ebooks/ef08lp07-ef08lp08-regencia-crase.md
+     - Objeto: A Regência Verbal, Regência Nominal e o Mecanismo da Crase: Regras Gerais, Casos Especiais e Efeitos de Sentido (EF08LP07, EF08LP08).
+     - Volume: 2.519 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 4 capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por 'reais' ou 'centavos').
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 1 do 8º Ano: **9.762 palavras limpas** (média de 2.440 palavras por e-book).
+  - **TOTAL CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º, 7º ANOS + LOTE 1 DO 8º ANO):** **64 Capítulos | 64 E-books Teóricos Atômicos Homologados | 195.576 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 72] - Homologação do Lote 2 e Conclusão Integral do Eixo I do 8º Ano de Língua Portuguesa (Capítulos 05 ao 08: Colocação Pronominal, Modos Verbais/Correlação, Formação de Palavras e Figuras de Pensamento/Sintaxe — 13.204 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🏆 Eixo I de Língua Portuguesa do 8º Ano 100% Concluído (Capítulos 01 ao 08 Homologados | 8 E-books Teóricos Atômicos Homologados com Exit Code 0 | 22.966 Palavras Limpas)
+- **Fechamento do Eixo I (Sintaxe do Período Composto, Morfossintaxe e Estilística do 8º Ano):**
+  - Conclusão integral dos quatro blocos gramaticais e estilísticos fundamentais do 8º Ano:
+    1. A Colocação Pronominal no Português Padrão: natureza fonético-sintática dos clíticos átonos; próclise obrigatória induzida por palavras negativas, conjunções subordinativas, pronomes relativos, indefinidos e advérbios; ênclise como posição clássica e vedação de início de período; mesóclise privativa dos tempos futuros do indicativo; colocação em locuções verbais (com infinitivo, gerúndio e a proibição absoluta de ênclise ao particípio); variações fonéticas (-lo/-la após R, S, Z e -no/-na após sons nasais); e o panorama sociolinguístico do português brasileiro (EF08LP06, EF08LP08, EF08LP13).
+    2. O Sistema Verbal, Modo Subjuntivo, Modo Imperativo e Correlação Verbal: oposição semântica entre certeza factual (indicativo), incerteza/hipótese/volição (subjuntivo) e comando/exortação (imperativo); tempos simples e compostos do subjuntivo; morfologia híbrida do imperativo afirmativo versus derivação unificada do imperativo negativo; regra áurea da uniformidade de tratamento (tu vs você); e os paradigmas canônicos da correlação verbal (consecutio temporum) nos períodos compostos (EF08LP04, EF08LP05, EF08LP09).
+    3. Morfologia e Formação de Palavras: dinâmica de expansão do léxico; identificação dos elementos mórficos (radical, vogal temática, tema, afixos, desinências, elementos eufônicos); processos de derivação (prefixal, sufixal, prefixal e sufixal vs parassintética, regressiva deverbal, e imprópria por conversão funcional); processos de composição (justaposição vs aglutinação); e mecanismos contemporâneos de neologia, hibridismo, abreviação e onomatopeias (EF08LP04, EF08LP05, EF08LP13).
+    4. Recursos Estilísticos Avançados: a potência expressiva da linguagem além da literalidade; figuras de pensamento (antítese, paradoxo/oxímoro, ironia, eufemismo, hipérbole, prosopopeia e gradação); figuras de sintaxe (elipse, zeugma, polissíndeto vs assíndeto, pleonasmo literário vs vicioso, anacoluto e hipérbato); e conexões com a retórica política, a filosofia e as artes visuais (EF08LP15, EF89LP37).
+- **Entregas Técnicas Realizadas (Lote 2 — Capítulos 05 ao 08 do 8º Ano):**
+  1. **Capítulo 05:** content/fundamental-2/8-ano/lingua-portuguesa/cap-05-colocacao-pronominal-proclise-enclise-mesoclise/ebooks/ef08lp06-ef08lp08-colocacao-pronominal.md
+     - Objeto: Colocação Pronominal: Próclise, Ênclise e Mesóclise — Fatores Atrativos, Verbos no Futuro e Locuções Verbais (EF08LP06, EF08LP08, EF08LP13).
+     - Volume: 3.490 palavras limpas.
+  2. **Capítulo 06:** content/fundamental-2/8-ano/lingua-portuguesa/cap-06-verbos-modos-tempos-subjuntivo-correlacao/ebooks/ef08lp04-ef08lp05-modos-verbais-correlacao.md
+     - Objeto: O Sistema Verbal: Valores Semânticos do Modo Subjuntivo, Modo Imperativo e Correlação Verbal nos Períodos Compostos (EF08LP04, EF08LP05, EF08LP09).
+     - Volume: 3.508 palavras limpas.
+  3. **Capítulo 07:** content/fundamental-2/8-ano/lingua-portuguesa/cap-07-morfologia-processos-derivacao-composicao/ebooks/ef08lp04-ef08lp05-formacao-palavras.md
+     - Objeto: Morfologia e Formação de Palavras: Processos de Derivação (Prefixal, Sufixal, Parassintética, Regressiva, Imprópria) e Composição (Justaposição e Aglutinação) (EF08LP04, EF08LP05, EF08LP13).
+     - Volume: 3.122 palavras limpas.
+  4. **Capítulo 08:** content/fundamental-2/8-ano/lingua-portuguesa/cap-08-figuras-linguagem-pensamento-sintaxe/ebooks/ef08lp15-ef89lp37-figuras-linguagem.md
+     - Objeto: Recursos Estilísticos Avançados: Figuras de Pensamento (Antítese, Paradoxo, Ironia, Eufemismo, Hipérbole) e Figuras de Sintaxe (Elipse, Zeugma, Polissíndeto, Pleonasmo, Anacoluto, Hipérbato) (EF08LP15, EF89LP37).
+     - Volume: 3.084 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por 'reais' ou 'centavos').
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 2 do 8º Ano: **13.204 palavras limpas** (média de 3.301 palavras por e-book).
+  - **TOTAL CONSOLIDADO DO EIXO I DO 8º ANO (CAPÍTULOS 01 AO 08 — 100% CONCLUÍDO):** **22.966 palavras limpas** em 8 capítulos (média de 2.870 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º, 7º ANOS + EIXO I DO 8º ANO):** **68 Capítulos | 68 E-books Teóricos Atômicos Homologados | 208.780 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 73] - Homologação do Lote 3 e Conclusão Integral do Eixo II do 8º Ano de Língua Portuguesa (Capítulos 09 ao 12: Artigo de Opinião, Editorial Jornalístico, Carta do Leitor/Comentários Digitais e Resenha Crítica — 9.775 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🏆 Eixo II de Língua Portuguesa do 8º Ano 100% Concluído (Capítulos 09 ao 12 Homologados | 4 E-books Teóricos Atômicos Homologados com Exit Code 0 | 9.775 Palavras Limpas)
+- **Fechamento do Eixo II (Campo Jornalístico-Midiático do 8º Ano):**
+  - Conclusão integral dos quatro gêneros opinativos e analíticos da esfera pública contemporânea:
+    1. O Artigo de Opinião e a Argumentação Cidadã: função social na esfera democrática; macroestrutura dissertativo-argumentativa (título persuasivo, introdução com tese, desenvolvimento articulado e conclusão com intervenção social); tipologia quádrupla de argumentos (autoridade, comprovação empírica por dados, causalidade lógica e comparação/analogia); mecânica da contra-argumentação dialética (concessão e refutação); e combate às falácias lógicas (ad hominem, espantalho, falsa generalização) (EF08LP03, EF89LP03, EF89LP04).
+    2. O Editorial Jornalístico e a Linha Editorial: a imprensa como Quarto Poder; distinção ontológica entre editorial e artigo assinado (voz corporativa institucional versus autoria individual); a linha editorial como projeto político-ideológico e seus reflexos no enquadramento de pautas (*framing* e *agenda-setting*); recursos estilísticos da voz institucional (predomínio da 3ª pessoa, plural majestático, modalizadores deônticos e tom solene); e a ética editorial na preservação da verdade factual (EF08LP01, EF89LP04, EF89LP06).
+    3. A Carta do Leitor Crítica e o Comentário em Redes Sociais: fluxo bidirecional e interatividade na mídia; anatomia epistolar clássica da carta do leitor (vocativo, referência explícita à matéria comentada, crítica fundamentada e credenciais civis); o comentário digital hipertextual (brevidade, multimodalidade, threads em cascata); pragmática da polidez linguística e preservação da face (Brown & Levinson); netiqueta e combate a patologias virtuais (discurso de ódio, cancelamento, flaming); e desconstrução de falácias no ciberespaço (falso dilema, falsa causa e apelo emocional) (EF08LP02, EF89LP05, EF89LP07).
+    4. A Resenha Crítica e a Mediação Cultural: o papel do crítico na sociedade de consumo cultural; distinção ontológica entre resumo puramente descritivo e resenha valorativa híbrida; macroestrutura canônica (cabeçalho/ficha técnica, introdução contextualizadora, sinopse crítica com vedação absoluta a *spoilers*, corpo analítico de avaliação estética e recomendação qualificada); critérios de validação técnica do juízo estético (coerência interna/verossimilhança, densidade de personagens, originalidade e relevância sociocultural); e recursos linguísticos apreciativos e depreciativos (EF08LP03, EF89LP06, EF89LP08).
+- **Entregas Técnicas Realizadas (Lote 3 — Capítulos 09 ao 12 do 8º Ano):**
+  1. **Capítulo 09:** content/fundamental-2/8-ano/lingua-portuguesa/cap-09-artigo-opiniao-argumentacao-tese/ebooks/ef08lp03-ef89lp03-artigo-opiniao.md
+     - Objeto: O Artigo de Opinião: Estrutura Dissertativo-Argumentativa, Defesa de Tese, Tipologia de Argumentos e Recursos Persuasivos (EF08LP03, EF89LP03, EF89LP04).
+     - Volume: 2.517 palavras limpas.
+  2. **Capítulo 10:** content/fundamental-2/8-ano/lingua-portuguesa/cap-10-editorial-jornalistico-linha-editorial/ebooks/ef08lp01-ef89lp04-editorial-jornalistico.md
+     - Objeto: O Editorial Jornalístico: A Voz Institucional do Veículo, Posicionamento Político-Ideológico e Mecanismos de Sustentação da Opinião Coletiva (EF08LP01, EF89LP04, EF89LP06).
+     - Volume: 2.281 palavras limpas.
+  3. **Capítulo 11:** content/fundamental-2/8-ano/lingua-portuguesa/cap-11-carta-leitor-comentario-redes-debate/ebooks/ef08lp02-ef89lp05-carta-leitor.md
+     - Objeto: A Carta do Leitor Crítica e o Comentário em Redes Sociais: Argumentação na Esfera Pública Digital, Polidez e Desconstrução de Falácias (EF08LP02, EF89LP05, EF89LP07).
+     - Volume: 2.511 palavras limpas.
+  4. **Capítulo 12:** content/fundamental-2/8-ano/lingua-portuguesa/cap-12-resenha-critica-analise-cultural/ebooks/ef08lp03-ef89lp06-resenha-critica.md
+     - Objeto: A Resenha Crítica: Descrição Objetiva versus Juízo de Valor Estético em Obras Literárias, Filmes e Produtos Culturais (EF08LP03, EF89LP06, EF89LP08).
+     - Volume: 2.466 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por 'reais' ou 'centavos').
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 3 do 8º Ano: **9.775 palavras limpas** (média de 2.443 palavras por e-book).
+  - **TOTAL CONSOLIDADO DOS EIXOS I E II DO 8º ANO (CAPÍTULOS 01 AO 12 — 60% DO CURRÍCULO CONCLUÍDO):** **32.741 palavras limpas** em 12 capítulos (média de 2.728 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º, 7º ANOS + 8º ANO PARCIAL):** **72 Capítulos | 72 E-books Teóricos Atômicos Homologados | 218.555 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 74] - Homologação do Lote 4 e Conclusão Integral do Eixo III do 8º Ano de Língua Portuguesa (Capítulos 13 ao 16: ECA, Textos Reivindicatórios, Publicidade/Consumo Consciente e Direitos Humanos/LAI — 9.717 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🏆 Eixo III de Língua Portuguesa do 8º Ano 100% Concluído (Capítulos 13 ao 16 Homologados | 4 E-books Teóricos Atômicos Homologados com Exit Code 0 | 9.717 Palavras Limpas)
+- **Fechamento do Eixo III (Campo de Atuação na Vida Pública do 8º Ano):**
+  - Conclusão integral dos quatro blocos temáticos cívicos, normativos e éticos da cidadania:
+    1. O Estatuto da Criança e do Adolescente (ECA - Lei Federal nº 8.069/1990): arquitetura dos textos legislativos (epígrafe, ementa, preâmbulo, artigos, parágrafos, incisos e alíneas); a Doutrina da Proteção Integral e o princípio da prioridade absoluta (Art. 227 da CF/88 e Art. 4º do ECA); direitos fundamentais (vida, saúde, liberdade, respeito, convivência familiar, educação e vedação ao trabalho antes dos 14 anos, ressalvado o aprendiz); distinção entre medidas de proteção (para crianças e adolescentes) e medidas socioeducativas (exclusivas para adolescentes em ato infracional); e a atuação autônoma do Conselho Tutelar (EF89LP17, EF89LP18).
+    2. Textos Reivindicatórios e de Mobilização Coletiva: o direito constitucional de petição (Art. 5º, XXXIV da CF/88); o abaixo-assinado administrativo (vocativo formal, exposição fática, fundamentação legal, formulação do pedido e quadro de assinaturas idôneas com RG/CPF); o manifesto cívico como conclamação pública solene e convocatória dirigida a toda a sociedade civil; a petição pública online e os desafios do ciberativismo (*slacktivism* vs conquistas reais); e a metodologia dos cinco elementos da proposta de intervenção social completa (agente, ação, modo/meio, efeito e detalhamento) (EF89LP17, EF89LP19, EF89LP20).
+    3. Publicidade, Propaganda e Consumo Consciente: distinção ontológica entre publicidade comercial lucrativa e propaganda ideológica/institucional; a linguagem multissemiótica da persuasão (título, imagem apelativa, slogan, tipografia e chamadas para ação); gatilhos psicológicos de consumo (pertencimento social, urgência/escassez, obsolescência percebida e transferência de prestígio por influenciadores); o marco legal protetivo do Código de Defesa do Consumidor (vedação expressa à publicidade enganosa e abusiva); o papel fiscalizador do CONAR; a proibição de publicidade comercial dirigida a crianças (Resolução 163 do CONANDA); e a transição do hiperconsumismo predatório para o consumo consciente (EF08LP03, EF89LP09, EF89LP11).
+    4. Direitos Humanos, Liberdade de Expressão e Cidadania Digital: genealogia da Declaração Universal dos Direitos Humanos (DUDH/ONU de 1948) no pós-Segunda Guerra; axiomas de universalidade, indivisibilidade e inalienabilidade; a dignidade da pessoa humana como vértice constitucional (Art. 1º, III da CF/88); liberdade de expressão e a vedação ao anonimato; limites intransponíveis da manifestação: repúdio absoluto ao discurso de ódio (*hate speech*), racismo e crimes contra a honra; o princípio da transparência pública pela Lei de Acesso à Informação (LAI - Lei nº 12.527/2011) e o e-SIC; e a literacia midiática no enfrentamento à desinformação organizada (*fake news*) e bolhas algorítmicas (EF89LP17, EF89LP21, EF89LP22).
+- **Entregas Técnicas Realizadas (Lote 4 — Capítulos 13 ao 16 do 8º Ano):**
+  1. **Capítulo 13:** content/fundamental-2/8-ano/lingua-portuguesa/cap-13-campo-vida-publica-estatuto-crianca-adolescente/ebooks/ef89lp17-ef89lp18-estatuto-crianca-adolescente.md
+     - Objeto: O Estatuto da Criança e do Adolescente (ECA): Leitura Crítica de Textos Legais, Direitos Fundamentais, Deveres e a Linguagem Normativo-Jurídica (EF89LP17, EF89LP18).
+     - Volume: 2.660 palavras limpas.
+  2. **Capítulo 14:** content/fundamental-2/8-ano/lingua-portuguesa/cap-14-textos-reivindicatorios-manifesto-peticao/ebooks/ef89lp17-ef89lp20-manifesto-peticao.md
+     - Objeto: Textos Reivindicatórios e de Mobilização: Manifesto Cívico, Abaixo-Assinado, Petição Pública Online e Proposta de Intervenção Social (EF89LP17, EF89LP19, EF89LP20).
+     - Volume: 2.272 palavras limpas.
+  3. **Capítulo 15:** content/fundamental-2/8-ano/lingua-portuguesa/cap-15-publicidade-propaganda-consumismo-adolescente/ebooks/ef08lp03-ef89lp09-publicidade-consumo.md
+     - Objeto: Publicidade, Propaganda e Consumo Consciente: Recursos de Persuasão Multissemiótica, Ética Publicitária (CONAR) e o Combate ao Hiperconsumismo Juvenil (EF08LP03, EF89LP09, EF89LP11).
+     - Volume: 2.422 palavras limpas.
+  4. **Capítulo 16:** content/fundamental-2/8-ano/lingua-portuguesa/cap-16-direitos-humanos-liberdade-expressao-democracia/ebooks/ef89lp17-ef89lp22-direitos-humanos-democracia.md
+     - Objeto: Direitos Humanos, Liberdade de Expressão e Cidadania Digital: Declaração Universal dos Direitos Humanos, Lei de Acesso à Informação e Democracia Participativa (EF89LP17, EF89LP21, EF89LP22).
+     - Volume: 2.363 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por 'reais' ou 'centavos').
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 4 do 8º Ano: **9.717 palavras limpas** (média de 2.429 palavras por e-book).
+  - **TOTAL CONSOLIDADO DOS EIXOS I, II E III DO 8º ANO (CAPÍTULOS 01 AO 16 — 80% DO CURRÍCULO CONCLUÍDO):** **42.458 palavras limpas** em 16 capítulos (média geral de 2.653 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º, 7º ANOS + 8º ANO PARCIAL):** **76 Capítulos | 76 E-books Teóricos Atômicos Homologados | 228.272 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 75] - Conclusão Integral e Homologação de 100% de Língua Portuguesa do 8º Ano do Ensino Fundamental (Lote 5 Finalizado: Capítulos 17 ao 20 — 20 de 20 Capítulos Concluídos — 52.228 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🏆 100% DE LÍNGUA PORTUGUESA DO 8º ANO HOMOLOGADA COM SUCESSO (20 Capítulos | 20 E-books Teóricos Atômicos Homologados com Exit Code 0 | 52.228 Palavras Limpas)
+- **Fechamento do Eixo IV (Campo de Estudo e Pesquisa & Campo Artístico-Literário do 8º Ano):**
+  - Conclusão integral dos quatro blocos temáticos finais do currículo do 8º Ano:
+    1. O Artigo de Divulgação Científica e o Texto Didático-Científico: função social da ciência na democracia; transposição didática qualificada do "saber sábio" para o "saber divulgado" (Chevallard); estratégias de reformulação discursiva (definição operacional, analogia funcional, metáfora didática e paráfrase explicativa com operadores de equivalência); macroestrutura canônica (título instigante, linha-fina, gancho epistêmico, exposição do método experimental, polifonia das vozes da ciência e perspectivas futuras); precisão terminológica versus eliminação do jargão hermético; e multimodalidade infográfica essencial (EF89LP24, EF89LP25, EF89LP26).
+    2. A Narrativa de Ficção Científica e a Distopia: genealogia do gênero de Mary Shelley (*Frankenstein*) a Júlio Verne e H. G. Wells; a especulação científica e o princípio do *Novum* (Darko Suvin); distinção entre ficção científica e fantasia pura; oposição conceitual entre Utopia (More) e Distopia (*1984*, *Admirável Mundo Novo*, *Fahrenheit 451*); temas contemporâneos (inteligência artificial autoconsciente e as Três Leis da Robótica de Asimov, bioética e edição genética, distopias climáticas e vigilância panóptica digital); e a engenharia da verossimilhança interna (*worldbuilding*) (EF89LP32, EF89LP33, EF89LP34).
+    3. A Poesia Visual, Concreta e o Slam Contemporâneo: superação do verso linear tradicional pela exploração da materialidade da palavra; o Concretismo brasileiro de 1956 (Augusto e Haroldo de Campos, Décio Pignatari) e o plano-piloto; a tríade do signo verbi-voco-visual (semântica, acústica e espacialização tipográfica com valor ativo do espaço em branco); os caligramas miméticos; o Poetry Slam e a batalha de poesia falada (*spoken word*) de Chicago a São Paulo (Roberta Estrela D'Alva); as quatro regras canônicas inegociáveis (autoral, até 3 minutos, sem instrumentos musicais, sem figurinos); o júri popular com cinco notas e descarte dos extremos; e a potência de voz e resistência das juventudes periféricas (EF89LP33, EF89LP34, EF89LP35).
+    4. O Conto Psicológico e o Fluxo de Consciência: a virada subjetiva da literatura da ação externa para a paisagem mental interior; a oposição entre tempo cronológico (físico, mecânico) e tempo psicológico (a duração interior elástica de Bergson); técnicas de introspecção: monólogo interior versus fluxo de consciência caótico (*stream of consciousness*); o discurso indireto livre (DIL) como fusão elegante da voz do narrador com os pensamentos mais íntimos do personagem sem verbos declarativos; a epifania literária clariceana como revelação existencial deslumbrante e desestabilizadora a partir de um fato banal do cotidiano; e a tradição brasileira com Machado de Assis, Clarice Lispector e Lygia Fagundes Telles (EF89LP32, EF89LP33, EF89LP36).
+- **Entregas Técnicas Realizadas (Lote 5 — Capítulos 17 ao 20 do 8º Ano):**
+  1. **Capítulo 17:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-17-estudo-pesquisa-artigo-divulgacao-cientifica/ebooks/ef89lp24-ef89lp26-divulgacao-cientifica.md`
+     - Objeto: O Artigo de Divulgação Científica e o Texto Didático-Científico: Transposição Didática, Precisão Terminológica e Recursos Infográficos (EF89LP24, EF89LP25, EF89LP26).
+     - Volume: 2.626 palavras limpas.
+  2. **Capítulo 18:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-18-campo-literario-conto-ficcao-cientifica-distopia/ebooks/ef89lp32-ef89lp33-ficcao-cientifica-distopia.md`
+     - Objeto: A Narrativa de Ficção Científica e a Distopia: Especulação Científica, Sociedades Futuristas, Dilemas Éticos e Construção da Verossimilhança Fantástica (EF89LP32, EF89LP33, EF89LP34).
+     - Volume: 2.414 palavras limpas.
+  3. **Capítulo 19:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-19-campo-literario-poesia-visual-concreta-slam/ebooks/ef89lp33-ef89lp35-poesia-visual-slam.md`
+     - Objeto: A Poesia Visual, Concreta e o Slam Contemporâneo: A Espacialização do Texto, Rupturas Sintáticas, Ritmo Oral e a Batalha de Poesia Falada (EF89LP33, EF89LP34, EF89LP35).
+     - Volume: 2.262 palavras limpas.
+  4. **Capítulo 20:** `content/fundamental-2/8-ano/lingua-portuguesa/cap-20-campo-literario-conto-psicologico-fluxo-consciencia/ebooks/ef89lp32-ef89lp36-conto-psicologico.md`
+     - Objeto: O Conto Psicológico e o Fluxo de Consciência: O Monólogo Interior, a Sondagem da Subjetividade, o Tempo Psicológico e a Tridimensionalidade Humana (EF89LP32, EF89LP33, EF89LP36).
+     - Volume: 2.468 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 20 capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por 'reais' ou 'centavos').
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 5 do 8º Ano: **9.770 palavras limpas** (média de 2.442 palavras por e-book).
+  - **TOTAL CONSOLIDADO DO 8º ANO DE LÍNGUA PORTUGUESA (100% CONCLUÍDO):** **52.228 palavras limpas** em 20 capítulos (média geral de 2.611 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º, 7º E 8º ANOS):** **80 Capítulos | 80 E-books Teóricos Atômicos Homologados | 238.042 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 76] - Homologação do Lote 1 de Língua Portuguesa do 9º Ano do Ensino Fundamental (Capítulos 01 ao 04 — 10.529 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** ✅ Lote 1 do 9º Ano Concluído e Homologado (4 Capítulos | 4 E-books Teóricos Atômicos Homologados com Exit Code 0 | 10.529 Palavras Limpas)
+- **Abertura do 9º Ano (Eixo I: Sintaxe Avançada, Coesão e Estilística):**
+  - Implementação dos quatro primeiros blocos estruturantes da sintaxe do período composto e gramática avançada do 9º Ano:
+    1. Orações Subordinadas Adverbiais e Relações Circunstanciais: a hierarquia sintática da subordinação; distinção semântica e funcional das 9 circunstâncias adverbiais canônicas (causais, comparativas, consecutivas, concessivas, condicionais, conformativas, constitutivas de tempo, proporcionais e finais); conectivos e locuções conjuntivas correlatas; o valor argumentativo do conector de concessão ('embora', 'conquanto', 'ainda que') na refutação elegante; e a mobilidade sintática da oração adverbial no período (EF09LP08, EF09LP11).
+    2. Orações Reduzidas de Infinitivo, Gerúndio e Particípio: estrutura e economia sintática sem conectivo explícito; desdobramento sistemático em orações desenvolvidas correspondentes; identificação do valor semântico contextual (temporal, causal, concessivo, condicional ou final); orações reduzidas substantivas, adjetivas e adverbiais; e a prevenção de ambiguidades sintáticas causadas pelo posicionamento frouxo do gerúndio ou particípio (EF09LP08, EF09LP11).
+    3. Sintaxe de Concordância Verbal em Casos Complexos: regras gerais versus casos especiais desafiadores; sujeito composto posposto ao verbo; núcleos sinônimos ou em gradação; sujeito composto ligado por 'ou', 'nem' ou 'com'; expressões partitivas ('a maioria de', 'grande parte de') e percentuais; concordância com pronomes relativos 'que' e 'quem'; voz passiva sintética com pronome apassivador 'se' versus indeterminação do sujeito com índice 'se'; e a invariabilidade dos verbos impessoais 'haver' (sentido de existir) e 'fazer' (tempo decorrido) (EF09LP04, EF09LP06).
+    4. Pontuação Sintática no Período Composto: função semântico-estrutural da vírgula, ponto e vírgula, dois-pontos e travessão; proibição absoluta da vírgula entre termos imediatos (sujeito e predicado, verbo e complemento); vírgula na antecipação e intercalação de orações adverbiais; vírgula na distinção entre orações adjetivas explicativas e restritivas; emprego do ponto e vírgula na coordenação assindética e em períodos extensos com orações já pontuadas por vírgulas; e o uso enfático dos travessões em apostos e orações interferentes (EF09LP05, EF09LP07).
+- **Entregas Técnicas Realizadas (Lote 1 — Capítulos 01 ao 04 do 9º Ano):**
+  1. **Capítulo 01:** content/fundamental-2/9-ano/lingua-portuguesa/cap-01-oracoes-subordinadas-adverbiais-circunstancias/ebooks/ef09lp08-ef09lp11-oracoes-adverbiais.md
+     - Objeto: Orações Subordinadas Adverbiais: Valores Circunstanciais, Conjunções Subordinativas e Papel Argumentativo na Progressão Textual (EF09LP08, EF09LP11).
+     - Volume: 2.585 palavras limpas.
+  2. **Capítulo 02:** content/fundamental-2/9-ano/lingua-portuguesa/cap-02-oracoes-reduzidas-infinitivo-gerundio-participio/ebooks/ef09lp08-ef09lp11-oracoes-reduzidas.md
+     - Objeto: Orações Reduzidas de Infinitivo, Gerúndio e Particípio: Estrutura, Desdobramento Sintático e Ambiguidade Contextual (EF09LP08, EF09LP11).
+     - Volume: 2.350 palavras limpas.
+  3. **Capítulo 03:** content/fundamental-2/9-ano/lingua-portuguesa/cap-03-sintaxe-concordancia-verbal-casos-complexos/ebooks/ef09lp04-ef09lp06-concordancia-verbal-avancada.md
+     - Objeto: Concordância Verbal Avançada: Casos Especiais, Expressões Partitivas, Pronomes Relativos, Funções da Partícula 'Se' e Verbos Impessoais (EF09LP04, EF09LP06).
+     - Volume: 2.797 palavras limpas.
+  4. **Capítulo 04:** content/fundamental-2/9-ano/lingua-portuguesa/cap-04-pontuacao-sintatica-periodo-composto/ebooks/ef09lp05-ef09lp07-pontuacao-periodo-composto.md
+     - Objeto: Pontuação Sintática no Período Composto: Oração Adverbial Deslocada, Orações Adjetivas, Ponto e Vírgula e Expressividade Retórica (EF09LP05, EF09LP07).
+     - Volume: 2.797 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 4 capítulos gerados no rascunho temporário e promovidos após validação com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por 'reais' ou 'centavos').
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Scaffolding cognitivo pleno em todas as unidades.
+  - Volume total do Lote 1 do 9º Ano: **10.529 palavras limpas** (média de 2.632 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º, 7º, 8º ANOS + 9º ANO PARCIAL):** **84 Capítulos | 84 E-books Teóricos Atômicos Homologados | 248.571 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 77] - Conclusão do Lote 2 e Fechamento Integral do Eixo I de Língua Portuguesa do 9º Ano (Capítulos 05 ao 08 — 10.721 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** ✅ Lote 2 Concluído e Homologado | 🏆 Eixo I de Língua Portuguesa do 9º Ano 100% Finalizado (8 de 8 Capítulos Homologados com Exit Code 0 | 21.250 Palavras Limpas)
+- **Fechamento do Eixo I (Análise Linguística / Semiótica e Estilística do 9º Ano):**
+  - Conclusão integral dos quatro blocos temáticos de alta complexidade:
+    1. Coesão Referencial e Coesão Sequencial: a tessitura textual como malha orgânica (*textum*); distinção entre coesão e coerência; remissão exofórica (dêixis) versus endofórica (anáfora e catáfora); elipse, zeugma e advérbios pronominais; recategorização lexical do referente (sinonímia contextual, hiperonímia, hiponímia e nominalização encapsuladora); operadores argumentativos (Ducrot e Koch) de oposição, concessão, causa, conclusão, adição, escala argumentativa e alinhamento epistêmico (EF09LP10, EF09LP11).
+    2. Semântica, Polissemia e Modalização Discursiva: a maleabilidade semântica dos signos; distinção rigorosa entre polissemia e homonímia (homófonas, homógrafas e perfeitas); ambiguidade lexical versus sintática (adjuntos mal posicionados, orações adjetivas frouxas e pronomes possessivos de 3ª pessoa); modalização epistêmica (escala entre asserção categórica, probabilidade, possibilidade/hipótese no futuro do pretérito e dúvida metódica); modalização deôntica (obrigações, proibições e permissões legais/normativas); e modalização apreciativa (EF09LP09, EF89LP37).
+    3. Variação Linguística, Sociolinguística e Cidadania: os postulados de William Labov sobre a heterogeneidade sistemática das línguas humanas; os quatro eixos variacionais: diatópico (geográfico/sotaque e léxico regional), diastrático (social, faixa etária, escolaridade e jargões profissionais), diafásico (estilístico/situação formal monitorada versus informal) e diacrônico (histórico/transformações no tempo); a desconstrução científica do preconceito linguístico (Marcos Bagno e Bourdieu); o princípio da adequação contextual em substituição ao falso binômio certo/errado; e a norma-padrão como patrimônio público unificador e direito inegociável de cidadania e emancipação (EF09LP01, EF69LP55, EF69LP56).
+    4. Intertextualidade, Dialogismo e Polifonia: a teoria dialógica de Mikhail Bakhtin e a polifonia dos discursos sociais; intertextualidade explícita (fontes declaradas, normas ABNT e aspas jornalísticas) versus implícita (alusão sutil, dependência do repertório do leitor); a tríade essencial: paráfrase (adesão, reformulação e fidelidade temática), paródia (subversão crítica, ironia e desconstrução ideológica, como em Oswald e Drummond versus Gonçalves Dias) e pastiche (imitação reverente de estilos consagrados); alusão e epígrafe como faróis conceituais; e a intertextualidade intersemiótica digital (memes, samples musicais e remix cultural) (EF09LP02, EF89LP33).
+- **Entregas Técnicas Realizadas (Lote 2 — Capítulos 05 ao 08 do 9º Ano):**
+  1. **Capítulo 05:** content/fundamental-2/9-ano/lingua-portuguesa/cap-05-coesao-referencial-sequencial-operadores-argumentativos/ebooks/ef09lp10-ef09lp11-coesao-operadores.md
+     - Objeto: Coesão Referencial e Sequencial: Recursos Anafóricos, Catafóricos, Elipse, Cadeias Lexicais e Operadores Argumentativos na Progressão Textual (EF09LP10, EF09LP11).
+     - Volume: 3.084 palavras limpas.
+  2. **Capítulo 06:** content/fundamental-2/9-ano/lingua-portuguesa/cap-06-semantica-polissemia-modalizacao-epistemica/ebooks/ef09lp09-ef89lp37-semantica-modalizacao.md
+     - Objeto: Semântica, Polissemia, Ambiguidade e Modalização Discursiva: Recursos Epistêmicos e Deônticos na Construção da Intencionalidade e do Efeito de Sentido (EF09LP09, EF89LP37).
+     - Volume: 2.486 palavras limpas.
+  3. **Capítulo 07:** content/fundamental-2/9-ano/lingua-portuguesa/cap-07-variacao-linguistica-preconceito-norma-culta/ebooks/ef09lp01-ef69lp56-variacao-linguistica.md
+     - Objeto: Variação Linguística, Sociolinguística e Preconceito Linguístico: Variedades Diatópicas, Diastráticas, Diafásicas e Diacrônicas e a Norma-Padrão como Vetor de Cidadania (EF09LP01, EF69LP55, EF69LP56).
+     - Volume: 2.591 palavras limpas.
+  4. **Capítulo 08:** content/fundamental-2/9-ano/lingua-portuguesa/cap-08-intertextualidade-parodia-parafrase-pastiche/ebooks/ef09lp02-ef89lp33-intertextualidade.md
+     - Objeto: Intertextualidade, Dialogismo e Polifonia: Paráfrase, Paródia, Pastiche, Alusão, Epígrafe e Citação na Produção e Recepção Textual Crítica (EF09LP02, EF89LP33).
+     - Volume: 2.560 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 8 capítulos do 9º Ano validados no rascunho temporário e promovidos com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por 'reais' ou 'centavos').
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Volume total do Lote 2 do 9º Ano: **10.721 palavras limpas** (média de 2.680 palavras por e-book).
+  - **TOTAL CONSOLIDADO DO EIXO I DO 9º ANO (CAPÍTULOS 01 AO 08 — 40% DO CURRÍCULO):** **21.250 palavras limpas** em 8 capítulos (média geral de 2.656 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º, 7º, 8º ANOS + 9º ANO PARCIAL):** **88 Capítulos | 88 E-books Teóricos Atômicos Homologados | 259.292 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 78] - Conclusão do Lote 3 e Fechamento Integral do Eixo II de Língua Portuguesa do 9º Ano (Capítulos 09 ao 12 — 9.601 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** ✅ Lote 3 Concluído e Homologado | 🏆 Eixo II (Campo Jornalístico-Midiático) do 9º Ano 100% Finalizado (12 de 20 Capítulos Homologados com Exit Code 0 | 30.851 Palavras Limpas)
+- **Fechamento do Eixo II (Campo Jornalístico-Midiático do 9º Ano):**
+  - Conclusão integral dos quatro blocos temáticos de alta relevância cidadã e midiática:
+    1. O Debate Regrado e a Mesa-Redonda: a oralidade argumentativa como pilar da democracia; distinção funcional entre debate polarizado e mesa-redonda cooperativa; a mediação imparcial do moderador e o cumprimento de turnos cronometrados; a tríade retórica aristotélica (*Ethos*, *Logos*, *Pathos*); tipologia dos argumentos legítimos (autoridade pericial, evidências estatísticas, exemplificação e princípios éticos universais); e a identificação/desmascaramento das falácias lógicas mais comuns (*ad hominem*, espantalho, falsa causa, falso dilema e rampa escorregadia) (EF89LP12, EF89LP14).
+    2. A Reportagem Investigativa e o Fact-Checking: a diferença entre a notícia factual imediata e a reportagem investigativa de longo fôlego; a metodologia científica da triangulação de fontes (fontes oficiais/documentais, fontes especializadas/acadêmicas e fontes testemunhais diretas); o princípio deontológico inegociável do contraditório; a auditoria de bancos de dados públicos via Lei de Acesso à Informação (LAI - Lei nº 12.527/2011); e o protocolo profissional das agências de fact-checking com selos de confiabilidade (*Verdadeiro*, *Falso*, *Fora de Contexto*, *Exagerado*) no combate à desinformação e ao viés de confirmação (EF09LP01, EF89LP02).
+    3. O Podcast e o Videocast Informativo e Opinativo: a reinvenção do áudio e vídeo sob demanda (*streaming*); a gramática semiótica da linguagem sonora e audiovisual; a arquitetura do roteiro técnico multimodal em colunas paralelas (tempo, falas, sonoplastia, câmeras); a paisagem sonora (*soundscape* de R. Murray Schafer); vocabulário da mesa de mixagem (BG, Fade In/Out/Under, SFX, Sobe Som); prosódia vocal, dicção nítida e pausas retóricas; e a engenharia acústica de estúdio (prevenção de eco, decibéis equilibrados e filtro anti-pop) (EF89LP08, EF89LP15).
+    4. Análise Crítica do Discurso Midiático: a inexistência de neutralidade discursiva absoluta; a Teoria do Enquadramento (*Framing* de Goffman e Entman) e suas quatro funções (definir o problema, diagnosticar causas, emitir julgamento moral e apontar soluções); mecanismos linguísticos e morfossintáticos de ocultamento ideológico (apagamento do agente pela voz passiva, nominalização de violências e contrastes eufemísticos/disfemísticos); a Economia da Atenção e a caça a cliques pelo *clickbait* sensacionalista; e a formação de bolhas algorítmicas (*filter bubbles*) e câmaras de eco que ameaçam a pluralidade democrática (EF89LP04, EF89LP07).
+- **Entregas Técnicas Realizadas (Lote 3 — Capítulos 09 ao 12 do 9º Ano):**
+  1. **Capítulo 09:** content/fundamental-2/9-ano/lingua-portuguesa/cap-09-debate-regrado-mesa-redonda-retorica-persuasao/ebooks/ef89lp12-ef89lp14-debate-regrado.md
+     - Objeto: O Debate Regrado e a Mesa-Redonda: Retórica da Persuasão, Tipologia de Argumentos, Papel da Moderação, Normas de Polidez e Identificação de Falácias Lógicas (EF89LP12, EF89LP14).
+     - Volume: 2.460 palavras limpas.
+  2. **Capítulo 10:** content/fundamental-2/9-ano/lingua-portuguesa/cap-10-reportagem-investigativa-cruzamento-fontes-fact-checking/ebooks/ef09lp01-ef89lp02-reportagem-investigativa.md
+     - Objeto: A Reportagem Investigativa e a Prática do Fact-Checking: Cruzamento Sistemático de Fontes, Triangulação de Dados Públicos (LAI), Distinção entre Fato e Opinião e Combate à Desinformação (EF09LP01, EF89LP02).
+     - Volume: 2.355 palavras limpas.
+  3. **Capítulo 11:** content/fundamental-2/9-ano/lingua-portuguesa/cap-11-artigo-divulgacao-midiatico-podcast-videocast/ebooks/ef89lp08-ef89lp15-podcast-videocast.md
+     - Objeto: O Podcast e o Videocast Informativo e Opinativo: Roteirização Multimodal, Sonoplastia, Entonação Vocal, Enquadramento e Edição de Mídias Digitais na Comunicação Pública (EF89LP08, EF89LP15).
+     - Volume: 2.382 palavras limpas.
+  4. **Capítulo 12:** content/fundamental-2/9-ano/lingua-portuguesa/cap-12-analise-discurso-midia-enquadramento-ideologia/ebooks/ef89lp04-ef89lp07-analise-discurso-midia.md
+     - Objeto: Análise Crítica do Discurso Midiático: Teoria do Enquadramento (Framing), Recursos Morfossintáticos de Ocultamento, Titulagem Sensacionalista (Clickbait) e Efeitos da Bolha Algorítmica (EF89LP04, EF89LP07).
+     - Volume: 2.404 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 12 capítulos do 9º Ano validados no rascunho temporário e promovidos com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por 'reais' ou 'centavos').
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Volume total do Lote 3 do 9º Ano: **9.601 palavras limpas** (média de 2.400 palavras por e-book).
+  - **TOTAL CONSOLIDADO DOS EIXOS I E II DO 9º ANO (CAPÍTULOS 01 AO 12 — 60% DO CURRÍCULO):** **30.851 palavras limpas** em 12 capítulos (média geral de 2.570 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º, 7º, 8º ANOS + 9º ANO PARCIAL):** **92 Capítulos | 92 E-books Teóricos Atômicos Homologados | 268.893 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 79] - Conclusão do Lote 4 e Fechamento Integral do Eixo III de Língua Portuguesa do 9º Ano (Capítulos 13 ao 16 — 9.756 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** ✅ Lote 4 Concluído e Homologado | 🏆 Eixo III (Campo de Atuação na Vida Pública) do 9º Ano 100% Finalizado (16 de 20 Capítulos Homologados com Exit Code 0 | 40.607 Palavras Limpas)
+- **Fechamento do Eixo III (Campo de Atuação na Vida Pública do 9º Ano):**
+  - Conclusão integral dos quatro blocos temáticos de cidadania, direito e justiça social:
+    1. Textos Normativos e Legislação Inclusiva: a base contratual da cidadania republicana; a hierarquia das normas jurídicas pela Pirâmide de Hans Kelsen encimada pela Constituição Cidadã de 1988; o controle de constitucionalidade pelo STF; anatomia da legística formal (epígrafe, ementa, artigo/caput, parágrafo único ou símbolo duplo §, incisos em algarismos romanos, alíneas e itens); a Lei Brasileira de Inclusão da Pessoa com Deficiência (LBI - Lei nº 13.146/2015) e a revolução paradigmática do Modelo Social da Deficiência contra o modelo médico-biomédico ultrapassado; princípios da acessibilidade universal, desenho universal e tecnologia assistiva (EF89LP17, EF89LP18).
+    2. O Projeto de Intervenção Social e a Ação Comunitária: a passagem da crítica passiva para o protagonismo propositivo cidadão; requisitos de factibilidade real, direitos humanos e escuta comunitária participativa; diagnóstico causal pela metodologia da Árvore de Problemas (raízes como causas estruturais, tronco como problema central e copa como efeitos danosos); formulação de objetivos pelo protocolo internacional SMART (Específica, Mensurável, Atingível, Relevante e com Prazo Temporal); o plano de ação operacional via Matriz 5W2H (What, Why, Where, When, Who, How e How much); e a avaliação científica de impacto por indicadores mensuráveis auditáveis (EF89LP19, EF89LP20).
+    3. Canais Institucionais de Participação Democrática: a complementariedade entre democracia representativa e democracia participativa/deliberativa; o controle social das finanças governamentais; a Audiência Pública como espaço dialógico com editais de convocação, mesas plurais, turnos de fala cronometrados de 3 a 5 minutos e transcrição obrigatória em ata oficial pública; o Orçamento Participativo (OP) municipal criado pioneiramente em Porto Alegre e modelo de gestão da ONU; e a Ouvidoria Pública e plataforma Fala.BR (Lei nº 13.460/2017) com as cinco espécies formais de manifestação (Denúncia com indícios de prova, Reclamação, Solicitação de Providência, Sugestão e Elogio) (EF89LP17, EF89LP23).
+    4. Cultura de Paz, Direitos Humanos e Justiça Restaurativa: os princípios da Resolução 53/243 da ONU de 1999; a distinção entre Paz Negativa (mera ausência de agressão visível) e Paz Positiva (justiça social, cooperação e dignidade universal de Johan Galtung); a Comunicação Não-Violenta (CNV de Marshall Rosenberg) articulada nos quatro passos essenciais (Observação pura sem julgamento, Sentimento vulnerável genuíno, Necessidade humana universal atendida e Pedido concreto positivo); superação do paradigma da Justiça Retributiva (foco no castigo e vingança passiva) pelo modelo da Justiça Restaurativa (Howard Zehr: foco na vítima, na responsabilização ativa do ofensor e na cura dos laços sociais comunitários); e a dinâmica dos Círculos de Construção de Paz com objeto da palavra e homologação de Acordo Restaurativo consensual (EF89LP17, EF89LP22).
+- **Entregas Técnicas Realizadas (Lote 4 — Capítulos 13 ao 16 do 9º Ano):**
+  1. **Capítulo 13:** content/fundamental-2/9-ano/lingua-portuguesa/cap-13-textos-normativos-constituicao-leis-inclusao/ebooks/ef89lp17-ef89lp18-legislacao-inclusao.md
+     - Objeto: Textos Normativos e Legislação Inclusiva: A Constituição Federal de 1988, a Lei Brasileira de Inclusão (LBI), a Hierarquia das Normas e a Estrutura Canônica das Leis (EF89LP17, EF89LP18).
+     - Volume: 2.443 palavras limpas.
+  2. **Capítulo 14:** content/fundamental-2/9-ano/lingua-portuguesa/cap-14-projeto-intervencao-social-acao-comunitaria/ebooks/ef89lp19-ef89lp20-projeto-intervencao-social.md
+     - Objeto: O Projeto de Intervenção Social e a Ação Comunitária: Diagnóstico Participativo, Árvore de Problemas, Metodologia de Metas SMART, Matriz 5W2H e Avaliação de Impacto Cidadão (EF89LP19, EF89LP20).
+     - Volume: 2.166 palavras limpas.
+  3. **Capítulo 15:** content/fundamental-2/9-ano/lingua-portuguesa/cap-15-audiencia-publica-orcamento-participativo-ouvidoria/ebooks/ef89lp17-ef89lp23-audiencia-publica-ouvidoria.md
+     - Objeto: Canais Institucionais de Participação Democrática: Audiência Pública, Orçamento Participativo, Manifestação em Ouvidorias Públicas e Mecanismos de Controle Social (EF89LP17, EF89LP23).
+     - Volume: 2.588 palavras limpas.
+  4. **Capítulo 16:** content/fundamental-2/9-ano/lingua-portuguesa/cap-16-cultura-paz-direitos-humanos-justica-restaurativa/ebooks/ef89lp17-ef89lp22-cultura-paz-mediacao.md
+     - Objeto: Cultura de Paz, Direitos Humanos e Justiça Restaurativa: Mediação de Conflitos, Princípios da Comunicação Não-Violenta (CNV), Escuta Empática e Práticas Circulares (EF89LP17, EF89LP22).
+     - Volume: 2.559 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 16 capítulos do 9º Ano validados no rascunho temporário e promovidos com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por 'reais' ou 'centavos').
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Volume total do Lote 4 do 9º Ano: **9.756 palavras limpas** (média de 2.439 palavras por e-book).
+  - **TOTAL CONSOLIDADO DOS EIXOS I, II E III DO 9º ANO (CAPÍTULOS 01 AO 16 — 80% DO CURRÍCULO):** **40.607 palavras limpas** em 16 capítulos (média geral de 2.537 palavras por e-book).
+  - **ACERVO CONSOLIDADO DE LÍNGUA PORTUGUESA (5º, 6º, 7º, 8º ANOS + 9º ANO PARCIAL):** **96 Capítulos | 96 E-books Teóricos Atômicos Homologados | 278.649 palavras limpas**.
+
+
+### [07/11/2026 - Rodada 80] - Conclusão Integral e Homologação de 100% de Língua Portuguesa do 9º Ano e Finalização Histórica de Todo o Ensino Fundamental (Lote 5 Finalizado: Capítulos 17 ao 20 — 100 Capítulos de 5º ao 9º Ano Concluídos — 288.564 Palavras Limpas)
+- **Data:** 07 de Novembro de 2026
+- **Status:** 🏆 100% DE LÍNGUA PORTUGUESA DO 9º ANO HOMOLOGADA COM SUCESSO (20 Capítulos | 20 E-books Teóricos Atômicos Homologados com Exit Code 0 | 50.522 Palavras Limpas)
+- **MARCO HISTÓRICO:** 🏆 CONCLUSÃO INTEGRAL DE 100% DO ENSINO FUNDAMENTAL DE LÍNGUA PORTUGUESA (5º, 6º, 7º, 8º E 9º ANOS CONCLUÍDOS — 100 CAPÍTULOS | 100 E-BOOKS TEÓRICOS HOMOLOGADOS | 288.564 PALAVRAS LIMPAS DE TEORIA PURA)
+- **Fechamento do Eixo IV (Campo das Práticas de Estudo e Pesquisa & Campo Artístico-Literário do 9º Ano):**
+  - Conclusão integral dos quatro blocos temáticos finais do currículo do 9º Ano:
+    1. O Artigo Científico e a Iniciação Científica Escolar: o conhecimento científico como patrimônio coletivo público e replicável; a macroestrutura internacional canônica IMRDC (Introdução, Metodologia, Resultados, Discussão e Conclusão); elementos pré-textuais (resumo, abstract e palavras-chave) e pós-textuais (referências e apêndices); o sistema de citações conforme a ABNT NBR 10520 (citação indireta/paráfrase, citação direta curta até 3 linhas com aspas e citação direta longa destacada em bloco com recuo de 4 cm à esquerda, fonte menor e sem aspas); regras da ABNT NBR 6023 para elaboração de referências bibliográficas alinhadas à esquerda e ordenadas alfabeticamente; e o código de integridade ética com tolerância zero ao plágio acadêmico (EF89LP24, EF89LP29).
+    2. A Crônica-Ensaio e a Metaficção Literária: o hibridismo entre a narrativa do cotidiano e a reflexão filosófica profunda; a herança ensaística humanista de Michel de Montaigne; o olhar do cronista-filósofo sobre os fragmentos efêmeros da cidade; a metaficção como literatura autoconsciente que desvenda sua própria carpintaria verbal (Linda Hutcheon e Patricia Waugh); recursos de metalinguagem narrativa, narrador póstumo e desconfiável (Machado de Assis em *Memórias Póstumas de Brás Cubas*); a quebra da quarta parede e a provocação direta ao leitor; e a desmistificação do autor (EF89LP32, EF89LP36).
+    3. O Romance Moderno e as Vozes Sociais: a trajetória do romance brasileiro da idealização ufanista romântica (Alencar) à conquista do realismo crítico machadiano e naturalista; a revolução do romance regionalista de 1930 (Graciliano Ramos, Jorge Amado e Rachel de Queiroz) retratando a tragédia sociopolítica da seca e a tirania do latifúndio; a teoria da polifonia de Mikhail Bakhtin (o coro de vozes sociais equipotentes em atrito); a emergência das vozes subalternas que assumem o protagonismo da autoria: Carolina Maria de Jesus (*Quarto de Despejo*, 1960) e a denúncia da fome e do racismo na favela; e o conceito teórico de *Escrevivência* de Conceição Evaristo como literatura de testemunho, memória ancestral e resistência (EF89LP32, EF89LP37).
+    4. A Poesia Lírica Contemporânea e a Voz Engajada: a superação das formas fixas parnasianas pela conquista radical do verso livre (sem escansão métrica rígida) e do verso branco (sem rima final); o cavalgamento sintático (*enjambement*); deslocamentos semânticos, sinestesias surpreendentes e metáforas inusitadas (Manoel de Barros); a poesia engajada de combate e testemunho da época (Carlos Drummond de Andrade em *A Rosa do Povo*); a explosão do Poetry Slam e dos saraus periféricos urbanos (as 4 regras canônicas: autoral, 3 minutos, sem figurino/instrumentos e júri popular); a corporeidade da *spoken word*; e o postulado de Antonio Candido sobre a literatura e a poesia como direitos humanos inalienáveis e incompressíveis (EF89LP33, EF89LP35).
+- **Entregas Técnicas Realizadas (Lote 5 — Capítulos 17 ao 20 do 9º Ano):**
+  1. **Capítulo 17:** content/fundamental-2/9-ano/lingua-portuguesa/cap-17-estudo-pesquisa-artigo-academico-normas-abnt/ebooks/ef89lp24-ef89lp29-artigo-academico-abnt.md
+     - Objeto: O Artigo Científico e a Iniciação Científica Escolar: Macroestrutura IMRDC, Citações Diretas e Indiretas (ABNT NBR 10520) e Elaboração de Referências (ABNT NBR 6023) (EF89LP24, EF89LP29).
+     - Volume: 2.496 palavras limpas.
+  2. **Capítulo 18:** content/fundamental-2/9-ano/lingua-portuguesa/cap-18-campo-literario-cronica-ensaio-metaficcao/ebooks/ef89lp32-ef89lp36-cronica-ensaio-metaficcao.md
+     - Objeto: A Crônica-Ensaio e a Metaficção: O Hibridismo entre Narrativa e Filosofia do Cotidiano, a Voz do Cronista-Pensador, a Quebra da Quarta Parede e a Metalinguagem Literária (EF89LP32, EF89LP36).
+     - Volume: 2.484 palavras limpas.
+  3. **Capítulo 19:** content/fundamental-2/9-ano/lingua-portuguesa/cap-19-campo-literario-romance-moderno-vozes-sociais/ebooks/ef89lp32-ef89lp37-romance-moderno-vozes.md
+     - Objeto: O Romance Moderno e Contemporâneo: Polifonia, Representatividade, Vozes Marginalizadas, Realismo Crítico e a Construção da Identidade Nacional Brasileira (EF89LP32, EF89LP37).
+     - Volume: 2.443 palavras limpas.
+  4. **Capítulo 20:** content/fundamental-2/9-ano/lingua-portuguesa/cap-20-campo-literario-poesia-contemporanea-lirismo-engajamento/ebooks/ef89lp33-ef89lp35-poesia-contemporanea.md
+     - Objeto: A Poesia Lírica Contemporânea e a Poesia Engajada: Versolibrismo, Deslocamentos Semânticos, Poesia Marginal, Saraus, Poetry Slam e a Palavra Poética como Resistência e Humanização (EF89LP33, EF89LP35).
+     - Volume: 2.492 palavras limpas.
+- **Rigor Técnico e Conformidade com o Muro de Contenção (validador_educamob.py):**
+  - 100% dos 20 capítulos do 9º Ano validados no rascunho temporário e promovidos com Exit Code 0.
+  - Zero exercícios ou perguntas nas bases teóricas.
+  - Supressão absoluta do símbolo R$ (substituído por 'reais' ou 'centavos').
+  - Mínimo de 5 fontes bibliográficas por capítulo com citação mandatória da BNCC e rigor ABNT NBR 6023.
+  - Volume total do Lote 5 do 9º Ano: **9.915 palavras limpas** (média de 2.479 palavras por e-book).
+  - **TOTAL CONSOLIDADO DO 9º ANO DE LÍNGUA PORTUGUESA (100% CONCLUÍDO):** **50.522 palavras limpas** em 20 capítulos (média geral de 2.526 palavras por e-book).
+  - **TOTAL CONSOLIDADO DE TODO O ENSINO FUNDAMENTAL DE LÍNGUA PORTUGUESA (5º AO 9º ANO — 100% CONCLUÍDO):** **100 Capítulos | 100 E-books Teóricos Atômicos Homologados | 288.564 palavras limpas** de teoria pura, densidade média geral de 2.885 palavras por e-book, blindagem absoluta contra colisões MathJax/LaTeX e aprovação total no sistema Educamob.
+
+
+### [08/11/2026 - Rodada 81] - Início da Produção de Exercícios de Língua Portuguesa: Conclusão Integral e Homologação do Lote 1 (5º Ano, Capítulos 01 ao 05 — 300 Questões no Padrão-Ouro)
+- **Data:** 08 de Novembro de 2026
+- **Status:** ✅ Lote 1 Concluído e Homologado no Padrão-Ouro | 300 Questões Atômicas Validadas com Exit Code 0 no `validador_educamob.py`.
+- **Visão Geral e Metodologia de Execução:**
+  - Atendimento à diretriz explícita de produção em **lotes sequenciais de 5 listas por vez** para o currículo integral de Língua Portuguesa do Ensino Fundamental (5º ao 9º Ano, 100 capítulos no total).
+  - Cada lista conta com rigorosamente 60 exercícios atômicos de múltipla escolha (20 Básicos, 20 Intermediários e 20 Difíceis), 5 alternativas (A-E), equilíbrio exato de gabarito (12 A, 12 B, 12 C, 12 D, 12 E, com tolerância 8 a 16 e máximo de 3 repetições consecutivas).
+  - Todas as 20 questões difíceis de cada lista estruturadas obrigatoriamente com resolução analítica em duas etapas (`- **Etapa 1:**` e `- **Etapa 2:**`).
+  - Tags de telemetria HTML universais antes de cada questão (`<!-- id: qXX | tipo: multipla-escolha | habilidade: [COD] | dificuldade: [nivel] | objeto: [slug] -->`).
+  - Respeito estrito aos limites cognitivos e de caracteres do 5º Ano: enunciados com até 340 caracteres e alternativas com até 150 caracteres.
+  - Blindagem contra vícios de repetição: diversidade de prefixos de enunciados (máximo de 6 repetições das 3 palavras iniciais) e similaridade entre pares de enunciados estritamente abaixo de 60% (`SequenceMatcher`).
+  - Princípio do Mundo Fechado (*Closed-World Assumption*): pareamento estrito com os e-books teóricos correspondentes, zero decoreba e supressão total do símbolo R$ (substituído por "reais" ou "centavos").
+- **Entregas Técnicas do Lote 1 (5º Ano, Capítulos 01 ao 05):**
+  1. **Capítulo 01:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-01-sistema-escrita-ortografia/ebooks/ef05lp01-ortografia-exercicios.md`
+     - Objeto: Sistema de Escrita e Ortografia: Correspondências Fonema-Grafema Regulares e Irregulares (EF05LP01).
+     - Volume: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2).
+     - Homologação: Validado com Exit Code 0.
+  2. **Capítulo 02:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-02-acentuacao-grafica-prosodia/ebooks/ef05lp03-acentuacao-exercicios.md`
+     - Objeto: Acentuação Gráfica e Prosódia: Tonicidade, Oxítonas, Paroxítonas, Proparoxítonas e Hiatos (EF05LP03).
+     - Volume: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2).
+     - Homologação: Validado com Exit Code 0.
+  3. **Capítulo 03:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-03-morfologia-substantivos-adjetivos/ebooks/ef05lp05-substantivos-adjetivos-exercicios.md`
+     - Objeto: Morfologia I: Classes Gramaticais Básicas — Substantivos e Adjetivos (EF05LP05).
+     - Volume: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2).
+     - Homologação: Validado com Exit Code 0.
+  4. **Capítulo 04:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-04-morfologia-verbos-flexoes/ebooks/ef05lp06-verbos-tempos-modos-exercicios.md`
+     - Objeto: Morfologia II: Verbos (Tempos, Modos e Concordância Verbal Básica) (EF05LP06).
+     - Volume: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2).
+     - Homologação: Validado com Exit Code 0.
+  5. **Capítulo 05:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-05-pronomes-adverbios-interjeicoes/ebooks/ef05lp07-ef05lp08-pronomes-adverbios-exercicios.md`
+     - Objeto: Morfologia III: Pronomes Pessoais, Possessivos, Demonstrativos e Advérbios (EF05LP07, EF05LP08, EF35LP14).
+     - Volume: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2).
+     - Homologação: Validado com Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 1: **300 questões atômicas no Padrão-Ouro**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **436 para 441 listas** (total de **26.460 questões atômicas ativas**).
+
+
+### [08/11/2026 - Rodada 82] - Diretriz Universal de Linguagem Simples, Direta e Adequada à Idade (5º Ano ao Ensino Médio): Reforma de System Prompts da Mob.me, Guardrail no Validador Oficial, Higienização Global de 441 Listas e Recalibragem do Lote 1 de Português (5º Ano)
+- **Data:** 08 de Novembro de 2026
+- **Status:** 🏆 100% Concluído e Homologado | 3 Ações Estruturais Implantadas | 441 Listas de Exercícios (26.460 Questões) Auditadas e 100% Limpas com Exit Code 0.
+- **Diretriz Arquitetural Definida:**
+  - **Separação Estrita de Papéis:** Os **e-books teóricos** permanecem densos, rigorosos e exaustivos (atuando como a fonte científica primária do RAG), enquanto a **IA (Mob.me)** e as **listas de exercícios (`-exercicios.md`)** assumem a obrigação inegociável de traduzir esse conhecimento denso para uma linguagem **sempre simples, direta, clara e perfeitamente calibrada à idade do estudante em todos os segmentos (do 5º Ano do Ensino Fundamental até a 3ª Série do Ensino Médio)**.
+- **Ação 1 — Reforma dos System Prompts da Mob.me e Calibragem Dinâmica por Série no Backend (100% Concluída):**
+  - Atualização de `services/mobme-api/prompts/base_persona.md`, `services/mobme-api/prompts/prompt_prod.md`, `services/mobme-api/prompts/modes/modo_aprender.md` e `services/mobme-api/prompts/modes/modo_resumir.md`:
+    - Inclusão da seção **ADEQUAÇÃO LINGUÍSTICA À FAIXA ETÁRIA E TRADUÇÃO PEDAGÓGICA DO RAG (5º ANO AO ENSINO MÉDIO)**.
+    - Proibição explícita de copiar/despejar o jargão acadêmico pesado do e-book sem traduzi-lo em voz alta com exemplos da rotina do aluno.
+    - Régua de Calibragem Etária para 5º Ano (~10 anos), 6º e 7º Anos (~11-12 anos), 8º e 9º Anos (~13-14 anos) e Ensino Médio (~15-17 anos).
+  - Atualização de `services/mobme-api/main.py`:
+    - Injeção automática da diretriz `[CALIBRAGEM LINGUÍSTICA OBRIGATÓRIA — ...]` no System Prompt de cada requisição, inferindo a série/segmento a partir do perfil do estudante ou do caminho do documento recuperado no RAG (`fundamental-1/5-ano`, `fundamental-2/6-ano`, ..., `medio/`).
+- **Ação 2 — Atualização das Skills e Guardrail no `validador_educamob.py` (100% Concluída):**
+  - Atualização das skills globais `C:\Users\nepov\.gemini\config\skills\exercise-creator\SKILL.md` e `C:\Users\nepov\.gemini\config\skills\agente-validador-exercicios\SKILL.md`.
+  - Implantação da **Seção 9** no `validador_educamob.py` (Muro de Contenção Oficial):
+    - **9.1 — Bloqueio Universal de Linguagem Rebuscada / "Concursês" (5º Ano ao Ensino Médio):** Bloqueio automático de termos burocráticos, arcaicos ou pedantes em qualquer série (*supracitado, outrossim, destarte, precípuo/precípua, consubstancia, depreende-se, assertiva, mormente, no tocante a, atinente, concernente, dirimir, ensejar, auferir, prescindir, imprescindível, inexorável, idiossincrasia, anátema, prerrogativa, corroborar, intrínseco, extrínseco, dicotomia, subjacente, efêmero, mitigar, fomentar, hegemônico, epistemológico, ontológico, axiológico, teleológico, hermenêutica, propedêutico, vernáculo, qui-la, fi-lo, fizerdes, aqueloutro*).
+    - **9.2 — Bloqueio de Extrapolação de Ensino Superior no Ensino Médio (`eh_medio`):** Bloqueio de cálculo diferencial/integral universitário e física/química de graduação (*operador nabla, divergente, rotacional, laplaciano, equação de Schrödinger, hamiltoniano, tensor de energia-momento, métrica de Schwarzschild, transformada de Fourier/Laplace, integral de linha/superfície*).
+    - **9.3 — Bloqueio de Extrapolação Etária por Série no Ensino Fundamental (5º ao 9º Ano):** Bloqueio de jargões de pós-graduação em Ciências Humanas (*Braudel, Koselleck, Spivak, Bertin, Bauman, Gramsci, subalternidade, semiótica gráfica, longa duração braudeliana*) e bloqueio estrito de metalinguagem gramatical avançada no 5º, 6º e 7º anos (*desinência, vogal temática, alomorfia, enclítico, anáfora, catáfora, objeto direto/indireto, sujeito desinencial, adjunto adnominal, oração subordinada/coordenada/reduzida, forma defectiva, eufonia*).
+- **Ação 3 — Higienização Global das 436 Listas Existentes + Recalibragem das 5 Listas do Lote 1 de Língua Portuguesa do 5º Ano (100% Concluída):**
+  - Varredura integral de todas as listas do repositório via `diagnostico_linguagem_global.py`.
+  - Higienização sistemática de 167 arquivos em Matemática, Ciências, História, Geografia, Física e Química (do 5º Ano ao Ensino Médio), substituindo vocabulário rebuscado por linguagem direta e acessível, rebalanceando gabaritos legados (12 A, 12 B, 12 C, 12 D, 12 E) e revalidando 100% dos arquivos via `validador_educamob.py` com **Exit Code 0**.
+  - Recalibragem integral das 5 listas do Lote 1 de Língua Portuguesa do 5º Ano (`ef05lp01-ortografia-exercicios.md` a `ef05lp07-ef05lp08-pronomes-adverbios-exercicios.md` via `recalibrar_lote1_lp5.py`), adequando enunciados, alternativas e resoluções ao universo infantil de 10 anos e aprovando os 5 capítulos com **Exit Code 0**.
+  - **Auditoria Final (Prova Real):** Zero (0) ocorrências de termos rebuscados/"concursês" e Zero (0) ocorrências de extrapolação etária em todas as **441 listas de exercícios (26.460 questões)** do repositório.
+
+
+### [09/11/2026 - Rodada 83] - Conclusão Integral e Homologação do Lote 2 de Exercícios de Língua Portuguesa do 5º Ano (Capítulos 06 ao 10 — 300 Questões no Padrão-Ouro e Linguagem Calibrada para 10 Anos)
+- **Data:** 09 de Novembro de 2026
+- **Status:** ✅ Lote 2 Concluído e Homologado no Padrão-Ouro | 300 Novas Questões Atômicas Validadas com Exit Code 0 no `validador_educamob.py` | 50% do 5º Ano Finalizado (10/20 Capítulos = 600 Questões).
+- **Visão Geral e Metodologia de Execução:**
+  - Produção do segundo lote de 5 listas de exercícios de Língua Portuguesa do 5º Ano (Capítulos 06 ao 10), já nascendo 100% sob a égide da **Seção 9 do `validador_educamob.py` (Diretriz Universal de Linguagem Simples, Direta e Adequada à Idade)**.
+  - Cada lista conta com 60 questões de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis com resolução em `- **Etapa 1:**` e `- **Etapa 2:**`), 5 alternativas (A-E) e equilíbrio matemático exato de gabarito (12 A, 12 B, 12 C, 12 D, 12 E, máximo de 3 repetições consecutivas).
+  - Respeito estrito aos limites do 5º Ano: enunciados $\le 340$ caracteres, alternativas $\le 150$ caracteres, similaridade entre enunciados $< 60\%$ e máximo de 6 repetições do mesmo prefixo de 3 palavras.
+  - Tradução pedagógica de termos densos dos e-books (como *coesão referencial anafórica/catafórica*, *hiperonímia/hiponímia*, *pressupostos/subentendidos* e *modalizadores discursivos*) para explicações concretas e exemplos vivos do universo infantil de 10 anos.
+- **Entregas Técnicas do Lote 2 (5º Ano, Capítulos 06 ao 10):**
+  1. **Capítulo 06:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-06-pontuacao-sintaxe-frase/ebooks/ef05lp04-pontuacao-sintaxe-exercicios.md`
+     - Objeto: Pontuação e Efeitos de Sentido: Ponto-Final, Interrogação, Exclamação, Vírgula, Dois-Pontos, Travessão, Aspas e Reticências (EF05LP04).
+     - Volume: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2).
+     - Homologação: Validado com Exit Code 0.
+  2. **Capítulo 07:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-07-coesao-articuladores-anaforicos/ebooks/ef05lp27-coesao-articuladores-exercicios.md`
+     - Objeto: Coesão Textual: Substituições e Articuladores de Sentido (Pronomes, Sinônimos e Conectivos de Tempo, Causa, Oposição, Finalidade e Conclusão) (EF05LP27, EF35LP08).
+     - Volume: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2).
+     - Homologação: Validado com Exit Code 0.
+  3. **Capítulo 08:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-08-semantica-polissemia-dicionario/ebooks/ef05lp02-semantica-polissemia-exercicios.md`
+     - Objeto: Semântica Lexical: Polissemia, Sinonímia, Antonímia, Sentido Próprio e Figurado e Uso do Dicionário (EF05LP02).
+     - Volume: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2).
+     - Homologação: Validado com Exit Code 0.
+  4. **Capítulo 09:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-09-estrategias-leitura-inferencia/ebooks/ef15lp01-ef15lp04-estrategias-leitura-exercicios.md`
+     - Objeto: Estratégias de Leitura: Localização de Informações Explícitas, Inferência do Implícito e Antecipação de Sentidos (EF15LP02, EF15LP03, EF35LP03, EF35LP04).
+     - Volume: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2).
+     - Homologação: Validado com Exit Code 0.
+  5. **Capítulo 10:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-10-fluencia-fato-vs-opiniao/ebooks/ef35lp05-fato-opiniao-apreciacao-exercicios.md`
+     - Objeto: Fluência Leitora e Leitura Crítica: Prosódia, Distinção entre Fato e Opinião e Apreciação Ética e Estética (EF35LP01, EF35LP05, EF15LP17).
+     - Volume: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2).
+     - Homologação: Validado com Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 2: **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (5º Ano): **10/20 listas concluídas (600 questões — Eixos I e II 100% finalizados)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **441 para 446 listas** (total de **26.760 questões atômicas ativas**).
+
+### [09/11/2026 - Rodada 84] - Conclusão Integral e Homologação dos Lotes 3 e 4 de Exercícios de Língua Portuguesa do 5º Ano (Capítulos 11 ao 20 — 600 Questões) e Fechamento de 100% do 5º Ano (20 Capítulos / 1.200 Questões no Padrão-Ouro)
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 5º Ano de Língua Portuguesa 100% Concluído e Homologado no Padrão-Ouro | 600 Novas Questões nos Lotes 3 e 4 (1.200 Questões Totais no 5º Ano) Validadas com Exit Code 0 no `validador_educamob.py`.
+- **Visão Geral e Metodologia de Execução:**
+  - Produção e homologação das 10 listas finais de exercícios de Língua Portuguesa do 5º Ano — **Lote 3 (Capítulos 11 ao 15, Eixo III: Gêneros Textuais e Campos de Atuação)** e **Lote 4 (Capítulos 16 ao 20, Eixo III e Eixo IV: Literatura, Produção Textual, Oralidade e Variação Linguística)**.
+  - Cada uma das 10 listas conta com 60 questões inéditas e atômicas (20 Básicas, 20 Intermediárias e 20 Difíceis com resolução explícita em `- **Etapa 1:**` e `- **Etapa 2:**`), 5 alternativas (A-E) e equilíbrio matemático de gabarito (12 A, 12 B, 12 C, 12 D, 12 E, máximo de 3 repetições consecutivas).
+  - Conformidade 100% com a **Seção 9 do `validador_educamob.py` (Diretriz Universal de Linguagem Simples, Direta e Adequada à Idade)**: enunciados $\le 340$ caracteres, alternativas $\le 150$ caracteres, similaridade entre enunciados $< 60\%$, zero "concursês" e tradução pedagógica de termos densos dos e-books para exemplos concretos do universo de estudantes de 10 anos.
+- **Entregas Técnicas do Lote 3 (5º Ano, Capítulos 11 ao 15):**
+  1. **Capítulo 11:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-11-textos-jornalisticos-midiaticos/ebooks/ef05lp09-ef05lp10-generos-jornalisticos-exercicios.md`
+     - Objeto: Gêneros Jornalísticos e Midiáticos: Notícia, Reportagem, Manchete, Lide, Entrevista e Cartum/Charge (EF05LP09, EF05LP10, EF05LP11, EF05LP15).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 12:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-12-textos-divulgacao-cientifica-graficos/ebooks/ef05lp22-ef05lp23-divulgacao-cientifica-exercicios.md`
+     - Objeto: Textos de Divulgação Científica, Verbetes de Enciclopédia, Infográficos, Tabelas e Gráficos de Colunas/Barras (EF05LP22, EF05LP23, EF05LP24).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 13:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-13-textos-reivindicatorios-vida-publica/ebooks/ef05lp16-textos-reivindicatorios-exercicios.md`
+     - Objeto: Textos da Vida Pública e Cidadania: Carta de Reclamação, Petição/Abaixo-Assinado, Regras de Convivência e Estatutos (EF05LP16, EF05LP19, EF35LP15).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 14:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-14-narrativas-ficcionais-cronica-conto/ebooks/ef35lp21-ef35lp22-narrativas-ficcionais-exercicios.md`
+     - Objeto: Narrativas Ficcionais: Conto Popular, Crônica, Fábula, Lenda e Elementos da Narrativa (Enredo, Personagens, Tempo, Espaço e Conflito) (EF35LP21, EF35LP26, EF35LP29).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 15:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-15-discurso-direto-indireto-narrador/ebooks/ef35lp22-discurso-direto-indireto-exercicios.md`
+     - Objeto: Foco Narrativo e Vozes do Texto: Narrador-Personagem, Narrador-Observador, Discurso Direto, Discurso Indireto e Verbos de Dizer (EF35LP22, EF35LP30).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Entregas Técnicas do Lote 4 (5º Ano, Capítulos 16 ao 20):**
+  6. **Capítulo 16:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-16-poesia-formas-estroficas-recursos-sonoros/ebooks/ef35lp23-ef35lp27-poesia-versos-exercicios.md`
+     - Objeto: Poesia e Textos Versificados: Verso, Estrofe, Rima, Ritmo, Aliteração, Assonância, Sentido Figurado e Poemas Visuais/Ciberpoemas (EF35LP23, EF35LP27, EF35LP31).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  7. **Capítulo 17:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-17-texto-dramatico-teatral-rubricas/ebooks/ef05lp24-texto-dramatico-teatral-exercicios.md`
+     - Objeto: Texto Dramático (Teatral): Personagens, Falas (Diálogos e Monólogos), Rubricas Cênicas e Emocionais, Cenário e Divisão em Atos e Cenas (EF35LP24).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  8. **Capítulo 18:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-18-producao-texto-planejamento-revisao/ebooks/ef15lp05-ef15lp06-producao-texto-exercicios.md`
+     - Objeto: Produção de Textos Escritos: Planejamento, Paragrafação, Progressão Temática, Revisão e Reescrita (EF15LP05, EF15LP06, EF15LP07, EF35LP07, EF35LP09).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  9. **Capítulo 19:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-19-oralidade-exposicao-argumentacao/ebooks/ef15lp09-ef15lp13-oralidade-exposicao-exercicios.md`
+     - Objeto: Oralidade e Comunicação Pública: Exposição Oral, Debate Regrado, Escuta Ativa, Tom de Voz, Recursos Expressivos Não Verbais e Roteiro de Apresentação (EF15LP09, EF15LP10, EF15LP11, EF15LP12, EF15LP13, EF35LP18, EF35LP19, EF35LP20).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  10. **Capítulo 20:** `content/fundamental-1/5-ano/lingua-portuguesa/cap-20-variacao-linguistica-preconceito-linguistico/ebooks/ef35lp11-variacao-linguistica-exercicios.md`
+      - Objeto: Variação Linguística e Respeito às Falas: Variação Regional (Geográfica), Histórica, Social/Etária, Adequação de Registro (Formal e Informal) e Combate ao Preconceito Linguístico (EF35LP11).
+      - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas nos Lotes 3 e 4: **600 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (5º Ano): **20/20 listas concluídas (1.200 questões — 100% da série homologada!)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **446 para 456 listas** (total de **27.360 questões atômicas ativas**).
+
+### [09/11/2026 - Rodada 85] - Produção e Homologação do Lote 1 de Exercícios de Língua Portuguesa do 6º Ano (Capítulos 01 ao 05 — 300 Questões no Padrão-Ouro e Linguagem Calibrada para 11 Anos)
+- **Data:** 09 de Novembro de 2026
+- **Status:** ✅ Lote 1 do 6º Ano Concluído e Homologado no Padrão-Ouro | 300 Novas Questões Atômicas Validadas com Exit Code 0 no `validador_educamob.py`.
+- **Visão Geral e Metodologia de Execução:**
+  - Início da produção de exercícios para o Ensino Fundamental 2 (6º ao 9º Ano), com abertura de Língua Portuguesa do 6º Ano em lotes de 5 capítulos.
+  - Conformidade plena com a **Seção 9 do `validador_educamob.py`**: adequação à faixa etária de 11 anos, limites de caracteres (enunciados $\le 420$ caracteres, alternativas $\le 210$ caracteres), similaridade $< 60\%$ e prefixos $\le 6$ ocorrências.
+  - Estrutura clássica de 60 questões atômicas por lista (20 Básicas, 20 Intermediárias e 20 Difíceis com resolução em `- **Etapa 1:**` e `- **Etapa 2:**`), gabaritos perfeitamente balanceados em 20% A-E (12 de cada alternativa por lista) e zero decoreba isolada.
+- **Entregas Técnicas do Lote 1 (6º Ano, Capítulos 01 ao 05):**
+  1. **Capítulo 01:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-01-linguagem-signo-funcoes-comunicacao/ebooks/ef69lp55-ef69lp56-signo-linguistico-exercicios.md`
+     - Objeto: Linguagem Verbal e Não Verbal, Língua, Fala, Signo Linguístico (Significante e Significado) e Funções da Linguagem na Comunicação Social (EF69LP55, EF69LP56).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 02:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-02-fonetica-fonologia-encontros-acentuacao/ebooks/ef06lp11-fonetica-acentuacao-exercicios.md`
+     - Objeto: Fonética e Fonologia: Fonemas e Letras, Dígrafos, Encontros Vocálicos (Ditongo, Tritongo, Hiato), Divisão Silábica e Regras Gerais de Acentuação Gráfica (EF06LP11).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 03:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-03-estrutura-formacao-palavras/ebooks/ef06lp03-formacao-palavras-exercicios.md`
+     - Objeto: Estrutura e Formação de Palavras: Radicais, Afixos (Prefixos e Sufixos), Famílias de Palavras, Derivação (Prefixal, Sufixal, Parassintética, Regressiva, Imprópria) e Composição (Justaposição e Aglutinação) (EF06LP03).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 04:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-04-morfologia-substantivos-flexoes/ebooks/ef06lp04-substantivos-flexoes-exercicios.md`
+     - Objeto: Morfologia I: O Substantivo e suas Classificações Semânticas, Flexões de Gênero (Biformes e Uniformes), Número (Regras do Plural) e Grau, e o Papel Discursivo do Substantivo no Texto (EF06LP04).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 05:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-05-morfologia-adjetivos-locucoes-graus/ebooks/ef06lp04-adjetivos-graus-exercicios.md`
+     - Objeto: Morfologia II: O Adjetivo, Locuções Adjetivas, Adjetivos Pátrios/Gentílicos, Flexões de Gênero, Número e Grau (Comparativo e Superlativo Absoluto/Relativo) e Efeitos de Sentido da Adjetivação (EF06LP04).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 1: **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (6º Ano): **5/20 listas concluídas (300 questões — 25% da série finalizada)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **456 para 461 listas** (total de **27.660 questões atômicas ativas**).
+
+
+### [09/11/2026 - Rodada 86] - Produção e Homologação do Lote 2 de Exercícios de Língua Portuguesa do 6º Ano (Capítulos 06 ao 10 — 300 Questões no Padrão-Ouro e Linguagem Calibrada para 11 Anos)
+- **Data:** 09 de Novembro de 2026
+- **Status:** ✅ Lote 2 do 6º Ano Concluído e Homologado no Padrão-Ouro | 300 Novas Questões Atômicas Validadas com Exit Code 0 no `validador_educamob.py`.
+- **Visão Geral e Metodologia de Execução:**
+  - Avanço contínuo da produção em lotes de 5 capítulos para o 6º Ano do Ensino Fundamental.
+  - Conformidade estrita com a **Seção 9 do `validador_educamob.py`**: adequação à idade de 11 anos, teto de 420 caracteres em enunciados, teto de 210 caracteres em alternativas, diversidade temática com similaridade máxima < 60%, prefixos tri-palavra <= 6 ocorrências, supressão de termos pedantes e concursos arcaicos, e balanceamento matemático perfeito de gabarito (exatas 12 A, 12 B, 12 C, 12 D e 12 E por lista).
+  - Resoluções lógicas em duas etapas analíticas explícitas (`- **Etapa 1:**` e `- **Etapa 2:**`) em todas as 20 questões difíceis de cada capítulo.
+- **Entregas Técnicas do Lote 2 (6º Ano, Capítulos 06 ao 10):**
+  1. **Capítulo 06:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-06-morfologia-artigos-numerais/ebooks/ef06lp04-artigos-numerais-exercicios.md`
+     - Objeto: Morfologia III: Artigos (Definidos e Indefinidos), Substantivação, Numerais (Cardinais, Ordinais, Multiplicativos, Fracionários e Coletivos) e seus Efeitos de Sentido e Precisão Informacional (EF06LP04).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 07:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-07-morfologia-verbos-tempos-modos/ebooks/ef06lp05-verbos-tempos-modos-exercicios.md`
+     - Objeto: Morfologia IV: O Verbo, Estrutura (Radical, Vogal Temática, Tema, Desinências), Conjugações, Modos Verbais (Indicativo, Subjuntivo, Imperativo), Tempos Simples e Compostos, e Formas Nominais (Infinitivo, Gerúndio, Particípio) (EF06LP05).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 08:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-08-morfologia-pronomes-coesao/ebooks/ef06lp12-pronomes-coesao-exercicios.md`
+     - Objeto: Morfologia V: Pronomes (Pessoais do Caso Reto e Oblíquo, Tratamento, Possessivos, Demonstrativos, Indefinidos, Interrogativos e Relativos) e a Coesão Referencial Anafórica e Catafórica (EF06LP12).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 09:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-09-sintaxe-frase-oracao-periodo/ebooks/ef06lp07-ef06lp08-periodo-simples-composto-exercicios.md`
+     - Objeto: Sintaxe I: Frase, Oração e Período (Simples e Composto) e Introdução aos Sintagmas (EF06LP07, EF06LP08).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 10:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-10-sintaxe-sujeito-predicado/ebooks/ef06lp06-ef06lp11-sujeito-predicado-exercicios.md`
+     - Objeto: Sintaxe II: Termos Essenciais da Oração — Tipologia do Sujeito, Introdução ao Predicado e Concordância Verbal (EF06LP06, EF06LP11).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 2: **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (6º Ano): **10/20 listas concluídas (600 questões — 50% da série finalizada)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **461 para 466 listas** (total de **27.960 questões atômicas ativas**).
+
+
+### [09/11/2026 - Rodada 87] - Produção e Homologação do Lote 3 de Exercícios de Língua Portuguesa do 6º Ano (Capítulos 11 ao 15 — 300 Questões no Padrão-Ouro e Linguagem Calibrada para 11 Anos)
+- **Data:** 09 de Novembro de 2026
+- **Status:** ✅ Lote 3 do 6º Ano Concluído e Homologado no Padrão-Ouro | 300 Novas Questões Atômicas Validadas com Exit Code 0 no `validador_educamob.py`.
+- **Visão Geral e Metodologia de Execução:**
+  - Avanço contínuo da produção sequencial por lotes de 5 listas no 6º Ano do Ensino Fundamental.
+  - Conformidade plena com a **Seção 9 do `validador_educamob.py`**: adequação à faixa etária de 11 anos, teto estrito de 420 caracteres em enunciados, teto estrito de 210 caracteres em alternativas, diversidade temática com similaridade máxima < 60%, prefixos tri-palavra <= 6 ocorrências, supressão rigorosa de termos pedantes e concursês arcaicos, e balanceamento matemático perfeito de gabarito (exatas 12 A, 12 B, 12 C, 12 D e 12 E por lista).
+  - Resoluções lógicas em duas etapas analíticas explícitas (`- **Etapa 1:**` e `- **Etapa 2:**`) em todas as 20 questões difíceis de cada capítulo.
+- **Entregas Técnicas do Lote 3 (6º Ano, Capítulos 11 ao 15):**
+  1. **Capítulo 11:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-11-pontuacao-sintatica-expressiva/ebooks/ef06lp07-ef06lp11-pontuacao-expressiva-exercicios.md`
+     - Objeto: Pontuação Sintática e Expressiva: O Emprego da Vírgula nos Termos da Oração, Dois-Pontos e Ponto e Vírgula (EF06LP07, EF06LP11).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 12:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-12-semantica-sinonimia-polissemia-ambiguidade/ebooks/ef06lp03-ef06lp12-semantica-ambiguidade-exercicios.md`
+     - Objeto: Semântica e Coesão: Sinonímia, Antonímia, Homonímia, Paronímia, Polissemia, Ambiguidade e Coesão Sequencial (EF06LP03, EF06LP12).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 13:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-13-campo-jornalistico-centralidade-noticia/ebooks/ef06lp01-ef06lp02-centralidade-noticia-exercicios.md`
+     - Objeto: O Campo Jornalístico-Midiático I: A Centralidade da Notícia — Fato vs. Opinião, Lide, Pirâmide Invertida e Confiabilidade da Informação (EF06LP01, EF06LP02).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 14:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-14-hipertexto-hiperlinks-curadoria-digital/ebooks/ef67lp01-ef67lp03-hipertexto-curadoria-exercicios.md`
+     - Objeto: Cultura Digital e Hipertexto: A Navegação Não Linear por Hiperlinks, Multimodalidade e Curadoria Crítica de Fontes na Web (EF67LP01, EF67LP03, EF67LP08).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 15:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-15-opiniao-leitor-comentarios-redes-sociais/ebooks/ef67lp02-ef67lp05-carta-leitor-comentarios-exercicios.md`
+     - Objeto: A Voz do Leitor na Esfera Pública: Carta do Leitor, Comentários em Redes Sociais, Fóruns Digitais e Moderação Ética (EF67LP02, EF67LP05, EF67LP07).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 3: **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (6º Ano): **15/20 listas concluídas (900 questões — 75% da série finalizada!)**.
+  - Total Acumulado de Língua Portuguesa (Ensino Fundamental): **35/100 listas concluídas (2.100 de 6.000 questões atômicas)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **466 para 471 listas** (total de **28.260 questões atômicas ativas**).
+
+### [09/11/2026 - Rodada 88] - Produção e Homologação do Lote 4 de Exercícios de Língua Portuguesa do 6º Ano (Capítulos 16 ao 20 — 300 Questões) e Conclusão de 100% do 6º Ano (20 Capítulos / 1.200 Questões no Padrão-Ouro)
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 Lote 4 do 6º Ano Concluído e Homologado no Padrão-Ouro | Fechamento Integral de 100% de Língua Portuguesa do 6º Ano (20 de 20 Listas / 1.200 Questões) | 300 Novas Questões Atômicas Validadas com Exit Code 0 no `validador_educamob.py`.
+- **Visão Geral e Metodologia de Execução:**
+  - Encerramento bem-sucedido da produção e homologação de Língua Portuguesa do 6º Ano do Ensino Fundamental.
+  - Conformidade plena com a **Seção 9 do `validador_educamob.py`**: adequação à faixa etária de 11 anos, teto de 420 caracteres em enunciados, teto de 210 caracteres em alternativas, diversidade temática com similaridade máxima < 60%, prefixos tri-palavra <= 6 ocorrências, supressão rigorosa de termos pedantes e concursês arcaicos, e balanceamento matemático perfeito de gabarito (exatas 12 A, 12 B, 12 C, 12 D e 12 E por lista).
+  - Resoluções lógicas em duas etapas analíticas explícitas (`- **Etapa 1:**` e `- **Etapa 2:**`) em todas as 20 questões difíceis de cada capítulo.
+- **Entregas Técnicas do Lote 4 (6º Ano, Capítulos 16 ao 20):**
+  1. **Capítulo 16:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-16-textos-publicitarios-propaganda-persuasao/ebooks/ef67lp08-ef67lp13-publicidade-propaganda-exercicios.md`
+     - Objeto: Publicidade e Propaganda: Linguagem Persuasiva, Recursos Multimodais, Slogans, Imagens e Consumo Consciente (EF67LP08, EF67LP13).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 17:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-17-estudo-pesquisa-resumo-infografico/ebooks/ef67lp20-ef67lp21-divulgacao-cientifica-infografico-exercicios.md`
+     - Objeto: Campo de Estudo e Pesquisa: Textos de Divulgação Científica, a Técnica do Resumo Acadêmico e Leitura de Infográficos (EF67LP20, EF67LP21, EF69LP32).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 18:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-18-campo-vida-publica-textos-reivindicatorios-normativos/ebooks/ef67lp15-ef67lp17-textos-reivindicatorios-exercicios.md`
+     - Objeto: Vida Pública e Cidadania: Textos Reivindicatórios (Abaixo-Assinado, Petição Online) e Textos Normativos e Regulamentares (EF67LP15, EF67LP16, EF67LP17, EF67LP18, EF67LP19).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 19:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-19-campo-literario-mitos-lendas-narrativas-aventura/ebooks/ef67lp27-ef67lp28-mitos-lendas-narrativas-exercicios.md`
+     - Objeto: Campo Artístico-Literário I: Mitos, Lendas e Narrativas de Aventura — Elementos da Narrativa e Tradição Oral (EF67LP27, EF67LP28, EF69LP44, EF69LP47).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 20:** `content/fundamental-2/6-ano/lingua-portuguesa/cap-20-poesia-formas-fixas-versos-livres-figuras/ebooks/ef67lp32-ef69lp48-poesia-figuras-linguagem-exercicios.md`
+     - Objeto: Poesia e Recursos Estéticos: Formas Fixas (Soneto e Haicai), Versos Livres, Ritmo, Métrica e Figuras de Linguagem (EF67LP32, EF69LP48, EF69LP50, EF69LP54).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 4: **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (6º Ano): **20/20 listas concluídas (1.200 questões — 100% da série finalizada!)**.
+  - Total Acumulado de Língua Portuguesa (Ensino Fundamental): **40/100 listas concluídas (2.400 de 6.000 questões atômicas)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **471 para 476 listas** (total de **28.560 questões atômicas ativas**).
+
+
+
+### [09/11/2026 - Rodada 89] - Produção e Homologação do Lote 1 de Exercícios de Língua Portuguesa do 7º Ano (Capítulos 01 ao 05 — 300 Questões no Padrão-Ouro)
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 Lote 1 do 7º Ano Concluído e Homologado no Padrão-Ouro | 300 Novas Questões Atômicas Validadas com Exit Code 0 no alidador_educamob.py.
+- **Visão Geral e Metodologia de Execução:**
+  - Início da esteira industrial de produção de exercícios de Língua Portuguesa do 7º Ano do Ensino Fundamental.
+  - Conformidade estrita com as travas pedagógicas da **Seção 9 do alidador_educamob.py**: adequação à faixa etária de 12 anos, limites de tamanho (enunciados <= 420 chars, alternativas <= 210 chars), similaridade temática cruzada < 60%, prefixos de 3 palavras <= 6 ocorrências, supressão de termos pedantes e arcaicos e bloqueio de conceitos de nível superior/ensino médio (ex: 'oração reduzida', 'mesóclise', etc.).
+  - Resoluções analíticas estruturadas com - **Etapa 1:** e - **Etapa 2:** em todas as 20 questões difíceis de cada capítulo.
+  - Distribuição matemática de gabarito estritamente balanceada em 20% por alternativa (exatas 12 A, 12 B, 12 C, 12 D e 12 E em cada lista de 60 questões).
+- **Entregas Técnicas do Lote 1 (7º Ano, Capítulos 01 ao 05):**
+  1. **Capítulo 01:** content/fundamental-2/7-ano/lingua-portuguesa/cap-01-predicacao-transitividade-verbal/ebooks/ef07lp04-ef07lp05-transitividade-verbal-exercicios.md
+     - Objeto: Predicação e Transitividade Verbal: Verbos Intransitivos, Transitivos Diretos, Indiretos, Diretos e Indiretos e Verbos de Ligação (EF07LP04, EF07LP05).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 02:** content/fundamental-2/7-ano/lingua-portuguesa/cap-02-termos-integrantes-objeto-direto-indireto/ebooks/ef07lp07-objetos-direto-indireto-exercicios.md
+     - Objeto: Termos Integrantes da Oração I: Objeto Direto e Objeto Indireto — Transitividade, Regência e Pronomes Oblíquos (EF07LP07).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 03:** content/fundamental-2/7-ano/lingua-portuguesa/cap-03-termos-acessorios-adjunto-adnominal/ebooks/ef07lp08-adjunto-adnominal-exercicios.md
+     - Objeto: Termos Acessórios da Oração I: Adjunto Adnominal — Identificação, Funções e Diferenciação do Predicativo (EF07LP08).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 04:** content/fundamental-2/7-ano/lingua-portuguesa/cap-04-termos-acessorios-adjunto-adverbial/ebooks/ef07lp09-adjunto-adverbial-exercicios.md
+     - Objeto: Termos Acessórios da Oração II: O Adjunto Adverbial — Circunstâncias, Deslocamentos e Pontuação Sintática (EF07LP09).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 05:** content/fundamental-2/7-ano/lingua-portuguesa/cap-05-vozes-verbais-ativa-passiva-reflexiva/ebooks/ef07lp05-ef07lp06-vozes-verbais-exercicios.md
+     - Objeto: Vozes Verbais: Voz Ativa, Voz Passiva (Analítica e Sintética), Voz Reflexiva e Recíproca, Agente da Passiva e Mecanismos de Transposição Sintática (EF07LP05, EF07LP06).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 1: **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (7º Ano): **5/20 listas concluídas (300 questões — 25% da série finalizada!)**.
+  - Total Acumulado de Língua Portuguesa (Ensino Fundamental): **45/100 listas concluídas (2.700 de 6.000 questões atômicas)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **476 para 481 listas** (total de **28.860 questões atômicas ativas**).
+
+
+### [09/11/2026 - Rodada 90] - Produção e Homologação do Lote 2 de Exercícios de Língua Portuguesa do 7º Ano (Capítulos 06 ao 10 — 300 Questões no Padrão-Ouro) e Atingimento de 50% da Série
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 Lote 2 do 7º Ano Concluído e Homologado no Padrão-Ouro | 50% de Língua Portuguesa do 7º Ano Concluído (10 de 20 Listas / 600 Questões) | 300 Novas Questões Atômicas Validadas com Exit Code 0 no alidador_educamob.py.
+- **Visão Geral e Metodologia de Execução:**
+  - Continuidade ininterrupta da produção em lotes de 5 capítulos para o 7º Ano do Ensino Fundamental.
+  - Conformidade estrita com as regras da **Seção 9 do alidador_educamob.py**: adequação perfeita à faixa etária de 12 anos, enunciados breves e diretos (<= 420 chars), alternativas concisas (<= 210 chars), similaridade temática cruzada rigorosamente < 60%, prefixos tri-palavra <= 6 ocorrências, supressão absoluta de termos pedantes e arcaicos ('consubstancia', 'prerrogativa', 'prescinde', 'inexorável', 'efêmera', etc.) e bloqueio sistemático de terminologias de nível superior/médio ('oração reduzida', 'mesóclise', etc.).
+  - Resoluções analíticas estruturadas com - **Etapa 1:** e - **Etapa 2:** em todas as 20 questões difíceis de cada capítulo.
+  - Distribuição matemática de gabarito balanceada em 20% por alternativa (exatas 12 A, 12 B, 12 C, 12 D e 12 E em cada lista de 60 questões).
+- **Entregas Técnicas do Lote 2 (7º Ano, Capítulos 06 ao 10):**
+  1. **Capítulo 06:** content/fundamental-2/7-ano/lingua-portuguesa/cap-06-concordancia-nominal-casos-especiais/ebooks/ef07lp06-ef07lp10-concordancia-nominal-exercicios.md
+     - Objeto: Concordância Nominal: O Princípio Harmônico do Sintagma Nominal, Regra Geral e Casos Especiais (anexo, incluso, mesmo, próprio, obrigado, bastante, meio, menos, é proibido/necessário) (EF07LP06, EF07LP10).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  2. **Capítulo 07:** content/fundamental-2/7-ano/lingua-portuguesa/cap-07-concordancia-verbal-casos-particulares/ebooks/ef07lp06-ef07lp10-concordancia-verbal-exercicios.md
+     - Objeto: Concordância Verbal Avançada: Expressões Partitivas, Porcentagens, Pronomes Relativos (Que/Quem), Verbos Impessoais Complexos e Pessoas Gramaticais Heterogêneas (EF07LP06, EF07LP10).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  3. **Capítulo 08:** content/fundamental-2/7-ano/lingua-portuguesa/cap-08-semantica-hiperonimia-coesao-referencial/ebooks/ef07lp11-ef07lp13-hiperonimia-coesao-exercicios.md
+     - Objeto: Semântica e Coesão Referencial: Hiperonímia, Hiponímia, Campo Semântico, Cadeias Coesivas e Mecanismos de Substituição Anafórica e Catafórica (EF07LP11, EF07LP12, EF07LP13).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  4. **Capítulo 09:** content/fundamental-2/7-ano/lingua-portuguesa/cap-09-campo-jornalistico-grande-reportagem/ebooks/ef67lp08-ef07lp01-grande-reportagem-exercicios.md
+     - Objeto: A Grande Reportagem: Enquadramento Investigativo, Polifonia, Recursos Multissemióticos e Análise de Infográficos Digitais (EF67LP08, EF07LP01, EF69LP06, EF69LP07).
+     - Volume: 60 questões atômicas (Exit Code 0).
+  5. **Capítulo 10:** content/fundamental-2/7-ano/lingua-portuguesa/cap-10-humor-grafico-charge-cartum/ebooks/ef67lp08-ef69lp05-humor-grafico-exercicios.md
+     - Objeto: Humor Gráfico e Crítica Social: Charge, Cartum, Caricatura, Tira Cômica, Ironia, Metáfora Visual e Intertextualidade (EF67LP08, EF69LP05, EF69LP14).
+     - Volume: 60 questões atômicas (Exit Code 0).
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas e Homologadas no Lote 2: **300 questões atômicas no Padrão-Ouro**.
+  - Total Acumulado de Língua Portuguesa (7º Ano): **10/20 listas concluídas (600 questões — 50% da série finalizada!)**.
+  - Total Acumulado de Língua Portuguesa (Ensino Fundamental): **50/100 listas concluídas (3.000 de 6.000 questões atômicas)**.
+  - Total de Listas Homologadas no Repositório Global Educamob: subiu de **481 para 486 listas** (total de **29.160 questões atômicas ativas**).
+
+
+### [09/11/2026 - Rodada 91] - Atualização Cadastral dos Estudantes no Mob.me, Sincronização Curricular na Tabela public.users e Blindagem de Série no memory.py
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 Base de Estudantes Atualizada no Supabase Auth e public.users | Novos Alunos Criados e Validados | Sincronização do Campo grade_level em 100% dos Alunos Ativos | Auto-Heal no memory.py Implantado | beta_testers.csv Consolidado com 33 Usuários.
+- **Visão Geral e Contexto:**
+  - Processamento e higienização da nova planilha cadastral de estudantes enviada para a Mob.me, tratando duplicidades de cadastro, inconsistências de colunas deslocadas (onde a coluna Série estava intercalada após a data) e padronização das datas de nascimento em formato canônico DD/MM/AAAA.
+  - Análise comparativa entre o banco de dados em produção no Supabase (Auth + PostgREST) e a planilha.
+- **Ações Técnicas Realizadas:**
+  1. **Criação de Novos Estudantes no Supabase Auth:**
+     - `augustolelissouza@gmail.com` (Augusto): 1ª série - Ensino Médio, senha inicial via data de nascimento (`27092010`).
+     - `mamahvianna@gmail.com` (Marina): 5º ano - Ensino Fundamental, senha inicial via data de nascimento (`19032026`).
+     - Testes de login autenticados com sucesso imediato via `sign_in_with_password`.
+  2. **Enriquecimento e Padronização de Metadados (`auth.users.user_metadata`):**
+     - Atualização dos nomes completos dos estudantes existentes (ex: `João Victor Parente Soares Silva`, `José Felipe dosSantos Martins`, `Lincom Scheneider Miranda Figueiredo`, `Maria Luiza Albergaria de Macedo da Graça`).
+     - Padronização em Title Case para todas as saudações do Mob.me ficarem humanizadas e profissionais (`Daniel Vieira`, `Marina`, `Luiza Petracioli`, `Malu Campos`).
+     - Confirmação da série de Pietra para `1ª série - Ensino Médio`.
+  3. **Diagnóstico e Correção Arquitetural Crítica em `public.users` (`grade_level`):**
+     - Identificado que a tabela `public.users` continha a coluna `grade_level` nula para os usuários, o que fazia com que o `main.py` (linha 2486) recebesse `user_grade = "Não informada"`, desabilitando o reranker por série do RAG vetorial (`Grade-Aware Rerank`).
+     - Sincronização em massa de 100% dos alunos da Mob.me na tabela `public.users`, vinculando seus nomes completos e séries curriculares exatas (`5º ano`, `8º ano`, `9º ano`, `1ª série`, `2ª série`, `3ª série`, `Nível Superior`).
+  4. **Auto-Heal e Resiliência no `services/mobme-api/memory.py`:**
+     - Refatoração da função `get_or_create_user`: agora, caso o estudante já possua registro mas esteja com `grade_level` nulo ou caso um novo registro seja criado, a função extrai retroativamente `serie` do `auth.users.user_metadata` e atualiza a tabela `public.users` automaticamente em tempo de execução com latência insignificante.
+  5. **Consolidação do `services/mobme-api/beta_testers.csv`:**
+     - Arquivo regenerado e padronizado com os 33 estudantes ativos no ecossistema (27 da planilha atual + 6 contas ativas preservadas), ordenado alfabeticamente.
+
+
+### [09/11/2026 - Rodada 92] - Ciclo Diário de Melhoria da Mob.me: Resolução de Loop de Menu em Comandos Naturais, Grade-Aware Rerank Teórico e Imunização Térmica no Sentinela
+- **Data:** 09 de Novembro de 2026
+- **Status:** 🏆 100% Homologado e em Produção na Oracle Cloud VPS (Container `mobme-api`)
+- **Amostragem Auditada em Produção:** 7 sessões reais | 136 mensagens (68 da IA) nas últimas 24h (Pietra, Letícia, Augusto, João Victor).
+- **Diagnóstico e Resolução Técnica (Agente 1 + Agente 2):**
+  1. **Eliminação do Loop de Menu em Seleção com Texto e Pontuação (`MENU_EM_LOOP` - P0):**
+     - *Causa Raiz Identificada:* Na sessão de Geografia de Pietra (`06d5a763`), a aluna respondeu ao Menu de Trilhas digitando `"1, so explicando prfv e ao eu vou perguntando"`. Como `main.py` realizava checagem estrita de prefixo `msg_clean.startswith("1.")` e igualdade `"1"`, o caractere de vírgula (`1,`) e as frases explicativas não foram reconhecidas como comando de trilha, fazendo o backend reexibir o Menu de Trilhas em loop.
+     - *Correção no Backend (`main.py`):* Implementado regex flexível com suporte a delimitadores naturais (`^(?:op[cç][aã]o\s*)?1(?:[\.,:\s\-]|$)|1️⃣`) e mapeamento de intenção semântica (`"explicar"`, `"explicando"`, `"explicação"`, `"teoria"`), assegurando transição imediata para `modo_aprender` e para todas as demais trilhas (2 a 6) sob qualquer variação coloquial de digitação.
+  2. **Calibração de Rerank Curricular por Série na Teoria (`Grade-Aware Rerank`):**
+     - *Causa Raiz Identificada:* Na sessão de Letícia (`b26d8016`), estudante do 5º ano que estudava "Medidas e grandezas", o RAG vetorial recuperou e injetou no `modo_aprender` o e-book de Física do Ensino Médio sobre termometria (Kelvin/Fahrenheit e dilatação), gerando atrito superado pela própria IA ao acolher a idade da aluna.
+     - *Correção no Backend (`main.py`):* Aplicado o algoritmo `grade_score_theo` diretamente sobre a lista de `theo_docs` antes de selecionar o e-book base, priorizando documentos de `fundamental-1/5-ano` com pontuação máxima quando `user_grade` for 5º ano, blindando os alunos de conteúdos acima de sua série escolar.
+  3. **Imunização de Unidades de Temperatura no Sentinela Noturno (`ALTERNATIVAS_AGRUPADAS` - P2):**
+     - *Causa Raiz Identificada:* O detector regex `[a-dA-D]\)[^\n]+[b-eB-E]\)` capturava expressões térmicas em graus Celsius `(0°C)` e `(100°C)` como se fossem as alternativas `C)` e `C)` coladas na mesma linha, gerando um falso-positivo P2 em respostas de quiz que estavam perfeitamente formatadas com 5 alternativas isoladas.
+     - *Correção no Sentinela (`sentinela_mobme.py`):* Sanitização prévia de unidades de temperatura (`[\d\.,]+\s*°[a-zA-Z]`) e exigência de delimitador de início de alternativa `(?:^|\s)[a-dA-D]\)\s+`, eliminando 100% dos falsos-positivos térmicos.
+- **Validação Estatística e Deploy Homologado:**
+  - Código compilado com Exit Code 0 via `py_compile`.
+  - Arquivos `main.py` e `sentinela_mobme.py` sincronizados via SCP na Oracle Cloud VPS (`137.131.163.113`) e container `mobme-api` reiniciado com sucesso.
+  - Auditoria em produção atestou conformidade de **86.76%** (Wilson 95%: `[76.72% — 92.88%]`), com **zero falhas P1, zero falhas P2 e zero falhas P3**, restando apenas o registro histórico do loop de Pietra antes do deploy.

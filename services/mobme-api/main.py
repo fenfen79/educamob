@@ -1515,17 +1515,48 @@ async def resolve_active_mode_and_topic(
             # Fora de estudo ativo (ex: em modo_menu ou modo_acolhida):
             # Dígitos numéricos 1..6 e ordinais selecionam a respectiva trilha canônica
             if state.get("topic"):
-                if msg_clean in {"1", "1️⃣"} or msg_clean.startswith("1.") or "aprender" in msg_clean or "microciclo" in msg_clean or "bora ler" in msg_clean:
+                if (
+                    msg_clean in {"1", "1️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?1(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("1️⃣")
+                    or any(w in msg_clean for w in ["aprender", "microciclo", "bora ler", "teoria", "explicar", "explicacao", "explicação", "explicando", "me explica"])
+                ):
                     target_mode = "modo_aprender"
-                elif msg_clean in {"2", "2️⃣"} or msg_clean.startswith("2.") or "praticar" in msg_clean or "exercicio" in msg_clean or "exercício" in msg_clean or "treino" in msg_clean or "desafio" in msg_clean:
+                elif (
+                    msg_clean in {"2", "2️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?2(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("2️⃣")
+                    or any(w in msg_clean for w in ["praticar", "exercicio", "exercício", "treino", "desafio", "questoes", "questões"])
+                ):
                     target_mode = "modo_praticar"
-                elif msg_clean in {"3", "3️⃣"} or msg_clean.startswith("3.") or "flashcard" in msg_clean or "flashcards" in msg_clean or "revisar" in msg_clean:
+                elif (
+                    msg_clean in {"3", "3️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?3(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("3️⃣")
+                    or any(w in msg_clean for w in ["flashcard", "flashcards", "revisar", "revisao", "revisão"])
+                ):
                     target_mode = "modo_revisar"
-                elif msg_clean in {"4", "4️⃣"} or msg_clean.startswith("4.") or "resumo" in msg_clean or "resumir" in msg_clean or "memorex" in msg_clean:
+                elif (
+                    msg_clean in {"4", "4️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?4(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("4️⃣")
+                    or any(w in msg_clean for w in ["resumo", "resumir", "memorex"])
+                ):
                     target_mode = "modo_resumir"
-                elif msg_clean in {"5", "5️⃣"} or msg_clean.startswith("5.") or "enviar questao" in msg_clean or "enviar questão" in msg_clean or "resolve questao" in msg_clean or "resolve questão" in msg_clean or "resolver questao" in msg_clean or "resolver questão" in msg_clean:
+                elif (
+                    msg_clean in {"5", "5️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?5(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("5️⃣")
+                    or any(w in msg_clean for w in ["enviar questao", "enviar questão", "resolve questao", "resolve questão", "resolver questao", "resolver questão", "tirar duvida", "tirar dúvida"])
+                ):
                     target_mode = "modo_resolve_questao"
-                elif msg_clean in {"6", "6️⃣", "8", "8️⃣"} or msg_clean.startswith("6.") or "finalizar" in msg_clean or "encerrar" in msg_clean:
+                elif (
+                    msg_clean in {"6", "6️⃣", "8", "8️⃣"}
+                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?[68](?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("6️⃣")
+                    or msg_clean.startswith("8️⃣")
+                    or any(w in msg_clean for w in ["finalizar", "encerrar", "sair", "tchau", "concluir"])
+                ):
                     target_mode = "modo_conclusao"
             else:
                 # Sem tema prévio
@@ -2649,6 +2680,27 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                             ]
                             if theo_docs:
                                 docs_data = theo_docs
+
+                            # Calibração Curricular por Série do Estudante (Grade-Aware Rerank)
+                            user_grade = user.get('grade_level') if isinstance(user, dict) else None
+                            if user_grade and user_grade != "Não informada" and docs_data:
+                                ug_lower = user_grade.lower()
+                                def grade_score_theo(doc):
+                                    src = doc.get("metadata", {}).get("source", "").lower()
+                                    if "9" in ug_lower and "9-ano" in src:
+                                        return 10
+                                    if "8" in ug_lower and "8-ano" in src:
+                                        return 10
+                                    if "7" in ug_lower and "7-ano" in src:
+                                        return 10
+                                    if "6" in ug_lower and "6-ano" in src:
+                                        return 10
+                                    if "5" in ug_lower and ("5-ano" in src or "fundamental-1" in src):
+                                        return 10
+                                    if ("médio" in ug_lower or "medio" in ug_lower or "série" in ug_lower or "serie" in ug_lower) and "medio" in src:
+                                        return 10
+                                    return 0
+                                docs_data = sorted(docs_data, key=grade_score_theo, reverse=True)
                             # Se o arquivo físico do e-book teórico existir em disco, carrega o e-book completo para garantir sequência integral dos microciclos
                             top_src = docs_data[0].get("metadata", {}).get("source", "") if docs_data else ""
                             if top_src:
@@ -2678,9 +2730,20 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
             print(f"RAG bypass ou timeout controlado: {e}")
             context_str = ""
 
-        # Build system prompt with RAG context if available
+        # Build system prompt with RAG context and Dynamic Age/Grade Linguistic Adaptation
         if context_str:
-            dynamic_system_prompt += f"\n\n--- MATERIAL DE CONSULTA RELEVANTE PARA A PERGUNTA ATUAL ---\n{context_str}\n(Siga suas regras pedagógicas estritamente. Use este material apenas como base de conhecimento. Não complete lacunas com conhecimento externo.)"
+            # Infere a série/segmento a partir do perfil ou do caminho do material recuperado no RAG
+            ctx_lower = (user_grade + " " + context_str[:600]).lower()
+            if "5-ano" in ctx_lower or "5º ano" in ctx_lower or "5 ano" in ctx_lower:
+                age_instruction = "[CALIBRAGEM LINGUÍSTICA OBRIGATÓRIA — 5º ANO EF1 (10 ANOS)]: Traduza o conteúdo denso do e-book para uma linguagem simples, direta, concreta e acolhedora para uma criança de 10 anos. Use frases curtas em ordem direta. É proibido usar metalinguagem abstrata, 'concursês' ou jargões de séries superiores."
+            elif any(g in ctx_lower for g in ["6-ano", "6º ano", "7-ano", "7º ano"]):
+                age_instruction = "[CALIBRAGEM LINGUÍSTICA OBRIGATÓRIA — 6º/7º ANO EF2 (11–12 ANOS)]: Traduza o conteúdo denso do e-book para uma linguagem simples, direta e guiada para estudantes de 11 a 12 anos. Explique imediatamente qualquer termo técnico novo com palavras simples do cotidiano. Proibido vocabulário rebuscado."
+            elif any(g in ctx_lower for g in ["8-ano", "8º ano", "9-ano", "9º ano"]):
+                age_instruction = "[CALIBRAGEM LINGUÍSTICA OBRIGATÓRIA — 8º/9º ANO EF2 (13–14 ANOS)]: Traduza o conteúdo denso do e-book para uma linguagem simples, direta, clara e objetiva para estudantes de 13 a 14 anos. Mantenha o rigor conceitual do Fundamental II, mas evite palavras rebuscadas, 'concursês' ou jargões universitários."
+            else:
+                age_instruction = "[CALIBRAGEM LINGUÍSTICA OBRIGATÓRIA — ENSINO MÉDIO (15–17 ANOS)]: Preserve 100% do rigor científico, matemático e conceitual do e-book (fórmulas, leis e foco ENEM), mas escreva SEMPRE com linguagem simples, direta, limpa e descomplicada, facilitando a aprendizagem e evitando jargões burocráticos ou de nível superior."
+
+            dynamic_system_prompt += f"\n\n{age_instruction}\n\n--- MATERIAL DE CONSULTA RELEVANTE PARA A PERGUNTA ATUAL ---\n{context_str}\n(Siga suas regras pedagógicas estritamente. Use este material apenas como base de conhecimento, adaptando a linguagem de forma simples e direta à faixa etária do estudante. Não complete lacunas com conhecimento externo.)"
             openai_messages[0]["content"] = dynamic_system_prompt
         elif active_mode in {"modo_aprender", "modo_praticar", "modo_revisar", "modo_resumir", "modo_resolve_questao"}:
             dynamic_system_prompt += "\n\n--- MATERIAL DE CONSULTA RELEVANTE PARA A PERGUNTA ATUAL ---\n[NENHUM MATERIAL RECUPERADO NO RAG PARA ESTE TEMA. Aplique estritamente a regra de Lacuna de Material: não preencha a lacuna com conhecimento externo, informe de forma simples a indisponibilidade e ofereça as alternativas do Menu de Trilhas.]"
