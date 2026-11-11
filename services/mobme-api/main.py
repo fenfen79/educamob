@@ -31,6 +31,22 @@ if os.path.exists(".env.lab"):
 elif os.path.exists("services/mobme-api/.env.lab"):
     load_dotenv("services/mobme-api/.env.lab", override=True)
 
+# Detecção Automática e Segura de Ambiente (Safe-by-Default):
+IS_PRODUCTION_SERVER = (
+    os.getenv("IS_PRODUCTION_SERVER", "").lower() == "true"
+    or os.getenv("ENVIRONMENT", "").lower() == "production"
+)
+IS_LAB_ENV = not IS_PRODUCTION_SERVER or os.getenv("ENVIRONMENT") == "lab" or os.path.exists(".env.lab") or os.path.exists("services/mobme-api/.env.lab")
+
+if IS_LAB_ENV:
+    print("=================================================================")
+    print("🧪 [STATUS: AMBIENTE DE TESTES / LAB ATIVO - SAFE-BY-DEFAULT]")
+    print("   Protegido contra vazamento em producao.")
+    print("=================================================================")
+else:
+    print("🟢 [STATUS: SERVIDOR DE PRODUÇÃO ATIVO NA NUVEM]")
+
+
 SUPABASE_URL = os.getenv("SUPABASE_URL", "")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY", "")
 
