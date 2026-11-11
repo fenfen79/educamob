@@ -1,0 +1,20 @@
+2026-10-29T00:27:51.469214+00:00 | 06f57f3f-8a4f-4b50-8d83-6acf5b8d1ef3 | user | oi
+2026-10-29T00:27:51.648017+00:00 | 06f57f3f-8a4f-4b50-8d83-6acf5b8d1ef3 | ai | Oi! Tudo bem? 😊  Para começarmos nossos estudos, me conta: **qual assunto ou con
+2026-10-29T00:28:43.934524+00:00 | 06f57f3f-8a4f-4b50-8d83-6acf5b8d1ef3 | user | 1
+2026-10-29T00:28:44.204376+00:00 | 06f57f3f-8a4f-4b50-8d83-6acf5b8d1ef3 | ai | Ótima escolha! Vamos mergulhar na teoria. Prepare-se para uma leitura completa e
+2026-10-29T00:29:52.741294+00:00 | 06f57f3f-8a4f-4b50-8d83-6acf5b8d1ef3 | user | 3
+2026-10-29T00:29:53.196128+00:00 | 06f57f3f-8a4f-4b50-8d83-6acf5b8d1ef3 | ai | Perfeito! Vamos ativar sua memória com os flashcards. 🃏  Vou fazer **10 pergunta
+2026-10-29T00:39:24.145825+00:00 | 3fa5e034-dbac-4fbf-94f7-753049e02b12 | user | oi
+2026-10-29T00:39:24.331913+00:00 | 3fa5e034-dbac-4fbf-94f7-753049e02b12 | ai | Olá! Que bom te ver por aqui. 😊  Pronto para estudar? Me conta: **qual assunto o
+2026-10-29T00:39:30.484403+00:00 | 3fa5e034-dbac-4fbf-94f7-753049e02b12 | user | funções inorganicas
+2026-10-29T00:39:30.661339+00:00 | 3fa5e034-dbac-4fbf-94f7-753049e02b12 | ai | Legal! Vamos explorar **Funções Inorgânicas**! 🚀 Como você prefere começar?  1️⃣
+2026-10-29T00:40:39.466153+00:00 | 3fa5e034-dbac-4fbf-94f7-753049e02b12 | user | 1
+2026-10-29T00:40:39.696419+00:00 | 3fa5e034-dbac-4fbf-94f7-753049e02b12 | ai | Perfeito! Você escolheu a Leitura Teórica Aprofundada. Prepare-se para uma imers
+2026-10-29T00:48:20.32414+00:00 | e3b6ccfc-9e25-4553-a3bc-c52ab8b9c884 | user | oi
+2026-10-29T00:48:20.520279+00:00 | e3b6ccfc-9e25-4553-a3bc-c52ab8b9c884 | ai | Olá! Pronto para estudar? Qual matéria ou conteúdo específico você gostaria de a
+2026-10-29T00:48:29.791471+00:00 | e3b6ccfc-9e25-4553-a3bc-c52ab8b9c884 | user | funções inorganicas
+2026-10-29T00:48:29.973486+00:00 | e3b6ccfc-9e25-4553-a3bc-c52ab8b9c884 | ai | Legal! Vamos explorar **Funções Inorgânicas**! 🚀 Como você prefere começar?  1️⃣
+2026-10-29T00:50:03.086508+00:00 | e3b6ccfc-9e25-4553-a3bc-c52ab8b9c884 | user | 1
+2026-10-29T00:50:03.311345+00:00 | e3b6ccfc-9e25-4553-a3bc-c52ab8b9c884 | ai | Perfeito. Vamos mergulhar na teoria das **Funções Inorgânicas**. Prepare-se para
+2026-10-29T00:55:03.383772+00:00 | e3b6ccfc-9e25-4553-a3bc-c52ab8b9c884 | user | 4
+2026-10-29T00:55:03.638397+00:00 | e3b6ccfc-9e25-4553-a3bc-c52ab8b9c884 | ai | Perfeito. Vamos consolidar tudo o que lemos em um **Memorex** — um resumo estrat

@@ -17,15 +17,30 @@ async def get_or_create_user(supabase: AsyncClient, user_id: str, name: str = "A
     
     # Se achou o usuário e o nome NÃO for "Aluno Teste", já podemos retornar rápido
     if response.data and response.data[0].get("name") and response.data[0].get("name") != "Aluno Teste":
-        return response.data[0]
+        user_row = response.data[0]
+        # Se grade_level ainda não foi populado, sincroniza com o auth.users uma vez
+        if not user_row.get("grade_level"):
+            try:
+                auth_resp = await supabase.auth.admin.get_user_by_id(user_id)
+                if auth_resp and auth_resp.user:
+                    meta = auth_resp.user.user_metadata or {}
+                    serie = meta.get("serie")
+                    if serie:
+                        await supabase.table("users").update({"grade_level": serie}).eq("id", user_id).execute()
+                        user_row["grade_level"] = serie
+            except Exception:
+                pass
+        return user_row
         
     real_name = name
+    grade_level = None
     # Vamos tentar buscar o nome real no auth.users
     try:
         auth_resp = await supabase.auth.admin.get_user_by_id(user_id)
         if auth_resp and auth_resp.user:
             meta = auth_resp.user.user_metadata or {}
             real_name = meta.get("full_name") or meta.get("name") or real_name
+            grade_level = meta.get("serie") or grade_level
             # Se ainda for "Aluno Teste", tenta extrair do email
             if real_name == "Aluno Teste" and auth_resp.user.email:
                 real_name = auth_resp.user.email.split("@")[0].capitalize()
@@ -37,18 +52,26 @@ async def get_or_create_user(supabase: AsyncClient, user_id: str, name: str = "A
 
     if not response.data:
         # Create user
-        await supabase.table("users").insert({
+        payload = {
             "id": user_id,
             "name": real_name,
+            "grade_level": grade_level,
             "long_term_memory": "Nenhuma preferência registrada ainda."
-        }).execute()
-        return {"id": user_id, "name": real_name, "long_term_memory": "Nenhuma preferência registrada ainda."}
+        }
+        await supabase.table("users").insert(payload).execute()
+        return payload
     
     user_data = response.data[0]
-    # Atualiza retroativamente quem estava como "Aluno Teste"
+    # Atualiza retroativamente quem estava como "Aluno Teste" ou sem série
+    updates = {}
     if user_data.get("name") == "Aluno Teste":
-        await supabase.table("users").update({"name": real_name}).eq("id", user_id).execute()
+        updates["name"] = real_name
         user_data["name"] = real_name
+    if not user_data.get("grade_level") and grade_level:
+        updates["grade_level"] = grade_level
+        user_data["grade_level"] = grade_level
+    if updates:
+        await supabase.table("users").update(updates).eq("id", user_id).execute()
     return user_data
 
 

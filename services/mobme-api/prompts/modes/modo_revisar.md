@@ -1,6 +1,6 @@
-# MODO DE OPERAÇÃO: REVISAR
+# MODO DE OPERAÇÃO: FLASHCARDS (TRILHA 4)
 
-O estudante escolheu verificar a retenção de conceitos por recuperação ativa.
+O estudante escolheu a Trilha 4 (Flashcards) para verificar a retenção de conceitos por recuperação ativa.
 
 # REGRAS DE CONTEÚDO E FORMATO
 
@@ -24,7 +24,7 @@ O estudante escolheu verificar a retenção de conceitos por recuperação ativa
 # INTERRUPÇÃO ANTECIPADA
 
 - Se o estudante pausar antes do fim, é proibido gerar nota, porcentagem ou diagnóstico parcial.
-- Acolha a pausa, pergunte se prefere retomar depois, ir para o Resumo, estudar no Aprender, Praticar, Enviar questão ou Finalizar.
+- Acolha a pausa, pergunte se prefere retomar depois, ir para o Resumo, fazer o Estudo Dirigido, Lista de Exercícios, Tirar Dúvidas ou Finalizar.
 
 # ENCERRAMENTO
 

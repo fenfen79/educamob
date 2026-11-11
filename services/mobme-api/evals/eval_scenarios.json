@@ -303,14 +303,14 @@
   {
     "id": "S11_DESAMBIGUACAO_CASCATA_E_FORA_ESCOPO",
     "discipline": "Geral",
-    "title": "Guardrail Fora de Escopo (História) + Desambiguação em Cascata ('Funções' -> 'matemaica' -> 'Afim')",
+    "title": "Guardrail Fora de Escopo (Filosofia) + Desambiguação em Cascata ('Funções' -> 'matemaica' -> 'Afim')",
     "track": "modo_acolhida",
     "turns": [
       {
-        "user": "História",
+        "user": "Filosofia",
         "expected_mode": "modo_acolhida",
         "expect_menu": false,
-        "required_substrings": ["Ciências", "Matemática", "Física", "Química"],
+        "required_substrings": ["Ciências", "Matemática", "Física", "Química", "História", "Geografia"],
         "eval_llm": false
       },
       {

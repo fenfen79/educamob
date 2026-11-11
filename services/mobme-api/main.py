@@ -47,7 +47,7 @@ from supabase.client import Client, create_client
 supabase_sync_client: Client = None
 
 AVAILABLE_SUBJECTS_CONTEXT = ""
-AVAILABLE_SUBJECTS_LIST = ["Ciências", "Matemática", "Física", "Química", "História", "Geografia", "Cálculo 1"]
+AVAILABLE_SUBJECTS_LIST = ["Ciências", "Matemática", "Física", "Química", "História", "Geografia", "Cálculo 1", "Língua Portuguesa"]
 
 SUBJECT_DISPLAY_MAP = {
     "ciencias": "Ciências",
@@ -60,6 +60,7 @@ SUBJECT_DISPLAY_MAP = {
     "historia": "História",
     "geografia": "Geografia",
     "portugues": "Língua Portuguesa",
+    "lingua-portuguesa": "Língua Portuguesa",
     "literatura": "Literatura",
     "ingles": "Inglês",
     "filosofia": "Filosofia",
@@ -88,12 +89,14 @@ async def load_available_subjects():
                 dynamic_supported.add(norm_disp)
                 if "calculo" in norm_disp:
                     dynamic_supported.update({"calculo", "cálculo", "calculo 1", "cálculo 1"})
+                if "portuguesa" in norm_disp or "portugues" in norm_disp:
+                    dynamic_supported.update({"portugues", "português", "literatura", "redacao", "redação", "gramatica", "gramática", "lingua portuguesa", "língua portuguesa", "lingua-portuguesa"})
             AVAILABLE_SUBJECTS_LIST = display_subjects
             SUPPORTED_DISCIPLINES = dynamic_supported
             NON_SUPPORTED_DISCIPLINES.difference_update(SUPPORTED_DISCIPLINES)
             ALL_DISCIPLINES = SUPPORTED_DISCIPLINES | NON_SUPPORTED_DISCIPLINES
             subjects_str = ", ".join(AVAILABLE_SUBJECTS_LIST)
-            AVAILABLE_SUBJECTS_CONTEXT = f"\n\n--- MATÉRIAS DISPONÍVEIS NO MATERIAL DE CONSULTA ---\nAtualmente, a sua base de dados possui conteúdo focado estritamente nestas matérias: {subjects_str}. Você SÓ TEM PERMISSÃO para ensinar conteúdos dessas matérias. Caso o aluno solicite ajuda em qualquer matéria não listada (ex: Biologia, Literatura, Língua Portuguesa, Filosofia, Sociologia, Inglês, Artes), você DEVE recusar educadamente explicando que a equipe de professores da Educamob ainda está preparando os materiais dessa disciplina e que, por enquanto, você só pode ajudar com as matérias disponíveis ({subjects_str})."
+            AVAILABLE_SUBJECTS_CONTEXT = f"\n\n--- MATÉRIAS DISPONÍVEIS NO MATERIAL DE CONSULTA ---\nAtualmente, a sua base de dados possui conteúdo focado estritamente nestas matérias: {subjects_str}. Você SÓ TEM PERMISSÃO para ensinar conteúdos dessas matérias. Caso o aluno solicite ajuda em qualquer matéria não listada (ex: Biologia, Filosofia, Sociologia, Inglês, Espanhol, Artes), você DEVE recusar educadamente explicando que a equipe de professores da Educamob ainda está preparando os materiais dessa disciplina e que, por enquanto, você só pode ajudar com as matérias disponíveis ({subjects_str})."
         else:
             AVAILABLE_SUBJECTS_CONTEXT = ""
         print(f"Matérias disponíveis atualizadas dinamicamente na memória da API: {AVAILABLE_SUBJECTS_LIST}")
@@ -203,12 +206,14 @@ GREETINGS = {"oi", "ola", "olá", "bom dia", "boa tarde", "boa noite", "tudo bem
 SUPPORTED_DISCIPLINES = {
     "ciencias", "ciências", "matematica", "matemática", "fisica", "física", 
     "quimica", "química", "historia", "história", "geografia",
-    "calculo", "cálculo", "calculo 1", "cálculo 1", "calculo-1"
+    "calculo", "cálculo", "calculo 1", "cálculo 1", "calculo-1",
+    "lingua-portuguesa", "lingua portuguesa", "língua portuguesa",
+    "portugues", "português", "literatura", "redacao", "redação", "gramatica", "gramática"
 }
 
 NON_SUPPORTED_DISCIPLINES = {
     "biologia", "filosofia", "sociologia", 
-    "portugues", "português", "literatura", "ingles", "inglês", "espanhol", "artes", "redacao", "redação", "gramatica", "gramática"
+    "ingles", "inglês", "espanhol", "artes"
 }
 
 ALL_DISCIPLINES = SUPPORTED_DISCIPLINES | NON_SUPPORTED_DISCIPLINES
@@ -1074,9 +1079,10 @@ async def analyze_topic_curricular_rules(term: str, current_discipline: str = No
 Sua missão é inspecionar o assunto de estudo solicitado pelo estudante e verificar o enquadramento curricular:
 
 1. FORA DO ESCOPO (Disciplinas ainda não presentes na lista [{active_subjects_str}]):
-Se o estudante pedir uma disciplina ou tema que NÃO pertença a [{active_subjects_str}] (ex: Língua Portuguesa, Gramática, Literatura, Redação, Filosofia, Sociologia, Inglês, Espanhol, Artes, ou Biologia de Ensino Médio caso "Biologia" não esteja listada acima):
+Se o estudante pedir uma disciplina ou tema que NÃO pertença a [{active_subjects_str}] (ex: Filosofia, Sociologia, Inglês, Espanhol, Artes, ou Biologia de Ensino Médio caso "Biologia" não esteja listada acima):
 - Nota importante 1: Tópicos de Ciências do Ensino Fundamental (como células, seres vivos, corpo humano, ecologia básica, astronomia e matéria/energia do 5º ao 9º ano) pertencem à disciplina "Ciências" (dentro do escopo). Porém, se o estudante pedir explicitamente a matéria "Biologia" ou um tema exclusivo de Biologia avançada não coberto em Ciências (e "Biologia" não estiver na lista ativa), classifique como fora do escopo!
 - Nota importante 2: As disciplinas "História" e "Geografia" FAZEM PARTE do acervo ativo da Educamob (dentro do escopo)! Todo tema de História (Antiguidade, Idade Média, Brasil Colonial, Império, República, Revoluções, Guerras Mundiais, Guerra Fria, etc.) pertence a "História" e todo tema de Geografia (Cartografia, Clima, Relevo, Urbanização, População, Geopolítica, Globalização, etc.) pertence a "Geografia".
+- Nota importante 3: A disciplina "Língua Portuguesa" FAZ PARTE do acervo ativo da Educamob (dentro do escopo)! Todo tema de Língua Portuguesa, Gramática, Morfossintaxe, Concordância, Regência, Pontuação, Produção Textual, Redação ENEM, Gêneros Textuais, Figuras de Linguagem e Literatura (Quinhentismo, Barroco, Arcadismo, Romantismo, Realismo, Naturalismo, Parnasianismo, Simbolismo, Pré-Modernismo, Modernismo, Vanguardas, Literatura Contemporânea, etc.) pertence a "Língua Portuguesa".
 Retorne ESTRITAMENTE em formato JSON:
 {{
   "desambiguar": false,
@@ -2199,9 +2205,13 @@ async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = N
         for d in ["fisica", "quimica", "matematica", "ciencias", "historia", "geografia", "calculo"]:
             if f"/{d}/" in p or f"\\{d}\\" in p or f"-{d}-" in p or p.startswith(f"{d}/") or f"_{d}_" in p:
                 return d
+        if "/lingua-portuguesa/" in p or "\\lingua-portuguesa\\" in p or "-lingua-portuguesa-" in p or "portugues" in p:
+            return "lingua portuguesa"
         return None
 
     norm_target_disc = strip_accents(session_discipline.lower()) if session_discipline else None
+    if norm_target_disc in ["lingua-portuguesa", "portugues", "portuguesa"]:
+        norm_target_disc = "lingua portuguesa" 
 
     for d in docs_data:
         src = d.get("metadata", {}).get("source", "")

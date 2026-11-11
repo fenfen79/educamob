@@ -77,6 +77,12 @@ DOMAIN_KEYWORDS = {
     "Ciências": [
         "célula", "fotossíntese", "ecossistema", "espécie", "evolução", "genética", "tecido",
         "vírus", "bactéria", "reprodução", "cadeia alimentar", "seres vivos", "organismo"
+    ],
+    "Língua Portuguesa": [
+        "gramática", "sintaxe", "morfologia", "concordância", "regência", "crase",
+        "pontuação", "figuras de linguagem", "texto", "redação", "literatura", "poema",
+        "narrativa", "romantismo", "realismo", "modernismo", "barroco", "quinhentismo",
+        "vanguardas", "gênero textual", "coesão", "coerência"
     ]
 }
 
@@ -86,7 +92,8 @@ DISCIPLINE_BNCC_PREFIXES = {
     "Química": ["CNT", "QUI"],
     "Ciências": ["CI", "CNT"],
     "História": ["HI", "CHS"],
-    "Geografia": ["GE", "CHS"]
+    "Geografia": ["GE", "CHS"],
+    "Língua Portuguesa": ["LP", "LGG", "ART"]
 }
 
 def infer_topic_discipline(topic: str) -> str:
@@ -114,7 +121,8 @@ def check_skill_alignment(session_topic: str, session_disc: str, content: str, r
             src_disc_slug = m_src.group(1)
             disc_slug_map = {
                 "fisica": "Física", "quimica": "Química", "matematica": "Matemática",
-                "historia": "História", "geografia": "Geografia", "ciencias": "Ciências"
+                "historia": "História", "geografia": "Geografia", "ciencias": "Ciências",
+                "lingua-portuguesa": "Língua Portuguesa", "portugues": "Língua Portuguesa"
             }
             mapped_src_disc = disc_slug_map.get(src_disc_slug)
             if mapped_src_disc and mapped_src_disc != disc:
@@ -345,7 +353,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                             msg_has_issue = True
 
                 # P0.2 Falso Bloqueio de Disciplina Homologada ("ainda não atendo conteúdos de Física")
-                m_falso = re.search(r"ainda não atendo conteúdos de \*\*(Física|Matemática|Química|Ciências|História|Geografia|Cálculo 1)\*\*", content, re.IGNORECASE)
+                m_falso = re.search(r"ainda não atendo conteúdos de \*\*(Física|Matemática|Química|Ciências|História|Geografia|Cálculo 1|Língua Portuguesa)\*\*", content, re.IGNORECASE)
                 if m_falso:
                     issue = {
                         "priority": "P0",

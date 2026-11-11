@@ -1,0 +1,98 @@
+
+--- USER ---
+oi
+--- AI ---
+Oi Nepó! 👋 Que bom te ver por aqui de novo!
+
+Percebi que você quer tirar uma dúvida. Me conta, qual matéria estamos atacando hoje? 🤔
+--- USER ---
+geografia
+--- AI ---
+Geografia! 🌍 Excelente escolha!
+
+Mas me ajuda aqui, Nepó: dentro da Geografia, o que você está estudando?  
+
+**Por exemplo:**
+- Cartografia e mapas 🗺️
+- População e migração 🧑‍🤝‍🧑
+- Clima e relevo ⛰️
+- Ou algo totalmente diferente?
+
+Me diz o assunto que a gente destrincha juntos!
+--- USER ---
+clima e relevo
+--- AI ---
+Clima e relevo! ⛰️☀️ Um dos temas mais legais da Geografia, porque explica tanta coisa sobre o mundo real.
+
+Antes de a gente mergulhar, me conta: o que exatamente você quer aprender sobre isso?
+
+**Tipo:**
+- Como o relevo influencia o clima? 🤔
+- Os tipos de clima no Brasil?
+- Ou a formação do relevo?
+
+Fala aí que eu te mostro o caminho!
+--- USER ---
+tipos de clima do brasil
+--- AI ---
+Boa, Nepó! 🇧🇷 Tipos de clima do Brasil é um assunto essencial (e cai muito em prova!).
+
+Antes da gente começar, escolhe seu caminho:
+
+1️⃣ **Resumo teórico** 📚
+
+2️⃣ **Passo a passo** 🧠
+
+3️⃣ **Exercícios** 📝
+
+4️⃣ **Flashcards** 🃏
+
+Qual te atrai mais?
+--- USER ---
+1
+--- AI ---
+Perfeito, Nepó! 📚 Vamos de **Resumo Teórico** então. Pega um caderno, porque vamos destrinchar os climas do Brasil!
+
+---
+
+## 🌦️ Tipos de Clima no Brasil
+
+**O que é? (Conceito)**
+O clima é o conjunto de condições atmosféricas (temperatura, chuva, umidade, ventos) que caracteriza uma região ao longo de muitos anos. Não é o mesmo que *tempo*, que é o estado momentâneo (ex: "hoje está chovendo"). O Brasil, por ser um país gigante, tem **6 tipos de clima principais**, que se distribuem pelo território.
+
+Os fatores que mais influenciam o clima brasileiro são a **latitude** (posição em relação à linha do Equador), a **altitude**, a **maritimidade** (proximidade do mar) e a **continentalidade** (distância do mar). É a combinação desses fatores que cria essa diversidade!
+
+---
+
+**Os 6 Climas do Brasil:**
+
+| Clima | Principais Características | Onde Ocorre |
+|---|---|---|
+| **Equatorial** | Quente e úmido o ano todo, com chuvas frequentes. | Região Norte (Amazônia). |
+| **Tropical** | Quente, com duas estações bem definidas: chuvosa (verão) e seca (inverno). | Centro-Oeste, parte do Nordeste, Norte de Minas Gerais. |
+| **Tropical Semiárido** | Quente e seco na maior parte do ano, com chuvas escassas e irregulares. | Sertão nordestino. |
+| **Tropical de Altitude** | Temperaturas mais amenas por causa da altitude, com verão chuvoso e inverno seco. | Regiões serranas do Sudeste (MG, RJ, SP). |
+| **Tropical Atlântico** | Úmido, com temperaturas quentes e chuvas bem distribuídas, influenciado pela umidade do mar. | Faixa litorânea do Nordeste ao Sul. |
+| **Subtropical** | Úmido e com as quatro estações bem definidas, incluindo um inverno mais frio. | Região Sul. |
+
+---
+
+**Exemplo Prático:**
+Pensa no **Sertão Nordestino**. A massa de ar que domina é seca e quente. A chuva é escassa e mal distribuída. Por causa disso, a caatinga (vegetação típica) é cheia de espinhos e adaptadas a longos períodos de seca. Isso é reflexo direto do clima **Tropical Semiárido**!
+
+---
+
+**Dica de Ouro 💡**
+- Não confunda **clima Tropical** com **clima Tropical de Altitude**! O que diferencia é o fator **altitude**, que reduz a temperatura.
+- O clima **Equatorial** é o único que não tem uma estação seca bem definida.
+- A vegetação é o "espelho" do clima: cada um tem uma vegetação característica.
+
+---
+
+Achou esse resumo útil? Se quiser fixar melhor, posso te propor um **Passo a passo** ou alguns **Exercícios**! É só escolher. 😉
+--- USER ---
+tipos de clima no brasil
+--- AI ---
+Ah, então você quer **compreender** mesmo os tipos de clima do Brasil, não é? 🤔 Vamos treinar isso com exercícios!
+
+Mas antes, me diz: o que você **lembra** de cabeça sobre algum desses climas? Pode ser um palpite! Por exemplo, qual você acha que faz mais calor: o **Equatorial** ou o **Subtropical**? 🌡️

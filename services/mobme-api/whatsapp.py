@@ -1,7 +1,7 @@
 import os
-import requests
+import httpx
 import google.generativeai as genai
-from supabase.client import Client
+from supabase.client import AsyncClient
 
 # Evolution API Settings
 EVO_API_URL = os.getenv("EVOLUTION_API_URL", "http://localhost:8080")
@@ -13,17 +13,17 @@ def format_phone_number(remote_jid: str) -> str:
     number = remote_jid.split("@")[0]
     return f"+{number}"
 
-def fetch_student_data(supabase: Client, phone: str):
+async def fetch_student_data(supabase: AsyncClient, phone: str):
     """Busca o aluno no Supabase atrelado a este telefone."""
     # Como o Supabase não aceita wildcard fácil se não criarmos uma RPC, usamos match exato.
     # Pode ser necessário adaptar a formatação do número conforme salvo no BD.
-    response = supabase.table("users").select("*").eq("guardian_phone", phone).execute()
+    response = await supabase.table("users").select("*").eq("guardian_phone", phone).execute()
     users = response.data
     
     if not users:
         # Tenta sem o '+' caso esteja salvo apenas como números
         clean_phone = phone.replace("+", "")
-        response = supabase.table("users").select("*").eq("guardian_phone", clean_phone).execute()
+        response = await supabase.table("users").select("*").eq("guardian_phone", clean_phone).execute()
         users = response.data
 
     if not users:
@@ -31,12 +31,12 @@ def fetch_student_data(supabase: Client, phone: str):
     
     return users[0]
 
-def fetch_student_progress(supabase: Client, user_id: str):
+async def fetch_student_progress(supabase: AsyncClient, user_id: str):
     """Busca as atividades recentes do aluno."""
-    response = supabase.table("student_progress").select("*").eq("user_id", user_id).order("created_at", desc=True).limit(10).execute()
+    response = await supabase.table("student_progress").select("*").eq("user_id", user_id).order("created_at", desc=True).limit(10).execute()
     return response.data
 
-def generate_family_report(student, progress):
+async def generate_family_report(student, progress):
     """Usa o Gemini para formatar o boletim de forma carinhosa e clara."""
     if not progress:
         return f"Olá! Sou o assistente da Educamob. O(A) aluno(a) {student['name']} ainda não realizou nenhuma atividade na plataforma recentemente. Incentive-o(a) a acessar o Portal de Estudos!"
@@ -63,13 +63,13 @@ Escreva uma mensagem de WhatsApp para o responsável (curta, calorosa e encoraja
 
     model = genai.GenerativeModel("gemini-1.5-flash")
     try:
-        res = model.generate_content(prompt)
+        res = await model.generate_content_async(prompt)
         return res.text.strip()
     except Exception as e:
         print(f"Erro ao gerar report: {e}")
         return f"Olá! Tivemos um pequeno erro ao gerar o relatório detalhado, mas o(a) {student['name']} já realizou {len(progress)} atividades recentes. Acesse o portal para ver os detalhes!"
 
-def send_whatsapp_message(remote_jid: str, text: str):
+async def send_whatsapp_message(remote_jid: str, text: str):
     """Envia a mensagem de volta para o Evolution API."""
     url = f"{EVO_API_URL}/message/sendText/{EVO_INSTANCE_NAME}"
     headers = {
@@ -86,17 +86,20 @@ def send_whatsapp_message(remote_jid: str, text: str):
     }
     
     try:
-        response = requests.post(url, json=payload, headers=headers, timeout=10)
-        response.raise_for_status()
-        print(f"Mensagem enviada com sucesso para {remote_jid}")
-    except requests.exceptions.RequestException as e:
+        async with httpx.AsyncClient() as client:
+            response = await client.post(url, json=payload, headers=headers, timeout=10.0)
+            response.raise_for_status()
+            print(f"Mensagem enviada com sucesso para {remote_jid}")
+    except httpx.RequestError as e:
         print(f"Falha ao enviar mensagem WhatsApp para {remote_jid}: {e}")
+    except httpx.HTTPStatusError as e:
+        print(f"Falha ao enviar mensagem WhatsApp para {remote_jid} com status {e.response.status_code}")
 
-def process_whatsapp_message(supabase: Client, webhook_payload):
+async def process_whatsapp_message(supabase: AsyncClient, webhook_payload):
     """Processa o webhook recebido do Evolution API em background."""
     if isinstance(webhook_payload, list):
         for payload in webhook_payload:
-            process_whatsapp_message(supabase, payload)
+            await process_whatsapp_message(supabase, payload)
         return
         
     if webhook_payload.get("event") != "messages.upsert":
@@ -121,21 +124,21 @@ def process_whatsapp_message(supabase: Client, webhook_payload):
         print(f"Recebida mensagem WhatsApp de: {phone}")
         
         # 1. Buscar o aluno
-        student = fetch_student_data(supabase, phone)
+        student = await fetch_student_data(supabase, phone)
         if not student:
             # Não achou: mensagem padrão
             reply_text = "Olá! 👋 Sou o assistente virtual da Educamob. Não encontrei nenhum aluno matriculado associado a este número de telefone. Se precisar de ajuda, por favor contate nossa secretaria."
-            send_whatsapp_message(remote_jid, reply_text)
+            await send_whatsapp_message(remote_jid, reply_text)
             return
             
         # 2. Buscar progresso
-        progress = fetch_student_progress(supabase, student["id"])
+        progress = await fetch_student_progress(supabase, student["id"])
         
         # 3. Gerar relatório IA
-        reply_text = generate_family_report(student, progress)
+        reply_text = await generate_family_report(student, progress)
         
         # 4. Enviar mensagem
-        send_whatsapp_message(remote_jid, reply_text)
+        await send_whatsapp_message(remote_jid, reply_text)
         
     except Exception as e:
         print(f"Erro no processamento do WhatsApp Webhook: {e}")

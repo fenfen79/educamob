@@ -1,0 +1,2653 @@
+{
+  "aeaad198-707c-470e-8f9d-8079b9a20a26": {
+    "topic": "Hidrostática",
+    "discipline": "Fisica",
+    "current_mode": "modo_teoria",
+    "pending_track": null
+  },
+  "03a03080-e21a-486d-a6cb-27a73c644ca1": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null
+  },
+  "7c365aa7-6016-407f-8761-2254e3c3cf0c": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null
+  },
+  "76f27752-d533-4ad8-946b-779718013705": {
+    "topic": "Teste",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null
+  },
+  "3706b186-918b-479b-8caf-6ed2ef686cc5": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null
+  },
+  "3302a0c6-9d79-4473-ba7a-04d86533a09c": {
+    "topic": "Geografia",
+    "discipline": null,
+    "current_mode": "modo_teoria",
+    "pending_track": null
+  },
+  "bb3c6873-1dde-40a3-8168-74baad1af0b7": {
+    "topic": "Ácidos e bases",
+    "discipline": "Quimica",
+    "current_mode": "modo_teoria",
+    "pending_track": null
+  },
+  "bcc95a81-faf5-436f-a642-b0d39bfb5731": {
+    "topic": "Teste",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null
+  },
+  "66c60376-8db3-4da4-a801-038534c1727c": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null
+  },
+  "c4563d70-2b9a-4812-a8f7-f97867a725f4": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null
+  },
+  "9abd3415-7265-4758-b87d-9dc08c1d003b": {
+    "topic": "Sistema reprodutor humano",
+    "discipline": "Ciencias",
+    "current_mode": "modo_treino",
+    "pending_track": null
+  },
+  "e1e52b1b-a8ab-4eb6-9911-7e2d9220f5b6": {
+    "topic": "Estequiometria",
+    "discipline": "Quimica",
+    "current_mode": "modo_memorex",
+    "pending_track": null
+  },
+  "c6485ee2-c819-4a30-a31c-ace63d9f64d0": {
+    "topic": "Outro",
+    "discipline": "Ciencias",
+    "current_mode": "modo_conclusao",
+    "pending_track": null
+  },
+  "3ea36772-3965-4b7f-9f3f-ff3fd847aea6": {
+    "topic": "Funções inorganicas",
+    "discipline": "Quimica",
+    "current_mode": "modo_conclusao",
+    "pending_track": null
+  },
+  "78f8b170-b048-450d-9710-55a57db8ade9": {
+    "topic": "📐 como resolver equações de 2º grau",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null
+  },
+  "63c1ac85-257f-48ec-9cc6-1d2a367b24dc": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null
+  },
+  "22cf4f19-14a4-48bf-8dec-e8f370f7b166": {
+    "topic": "🌍 o que causou a 1ª guerra mundial",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null
+  },
+  "c7a13f04-edbd-47e3-b76d-5cc237ce027a": {
+    "topic": null,
+    "discipline": "Quimica",
+    "current_mode": "modo_acolhida",
+    "pending_track": null
+  },
+  "03dc9117-27cf-4682-96c8-b36648fce06b": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null
+  },
+  "04f2321c-f7dc-45ca-b9c3-06532b7fdc58": {
+    "topic": "Funções inorganicas",
+    "discipline": "Quimica",
+    "current_mode": "modo_teoria",
+    "pending_track": null
+  },
+  "2f468a1b-f89c-40c2-b1af-2ec9f8af13cd": {
+    "topic": "Funções inorganicas",
+    "discipline": "Quimica",
+    "current_mode": "modo_teoria",
+    "pending_track": null
+  },
+  "9c8feac1-c5e5-4388-906a-21daf56feac2": {
+    "topic": "Funções inorganicas",
+    "discipline": "Quimica",
+    "current_mode": "modo_teoria",
+    "pending_track": null
+  },
+  "2fe28643-4e8a-4681-8806-526aef7d3db0": {
+    "topic": "Funções inorganicas",
+    "discipline": null,
+    "current_mode": "modo_teoria",
+    "pending_track": null
+  },
+  "595d5c08-7c4d-49d4-9717-7b40eab734ef": {
+    "topic": "Funções inorganicas",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null
+  },
+  "4d7a192d-38b2-4dda-a6e6-51b108eec09c": {
+    "topic": "Funções inorganicas",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null
+  },
+  "e4383790-0b41-44dd-bc96-e1ce4ed5bbac": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null
+  },
+  "ffedb1da-ad3e-424d-a0d2-9450422bef1a": {
+    "topic": "Funções inorganicas",
+    "discipline": null,
+    "current_mode": "modo_teoria",
+    "pending_track": null
+  },
+  "06f57f3f-8a4f-4b50-8d83-6acf5b8d1ef3": {
+    "topic": "Funções inorganicas",
+    "discipline": null,
+    "current_mode": "modo_flashcards",
+    "pending_track": null
+  },
+  "3fa5e034-dbac-4fbf-94f7-753049e02b12": {
+    "topic": "Funções inorganicas",
+    "discipline": null,
+    "current_mode": "modo_teoria",
+    "pending_track": null
+  },
+  "e3b6ccfc-9e25-4553-a3bc-c52ab8b9c884": {
+    "topic": "Funções inorganicas",
+    "discipline": null,
+    "current_mode": "modo_memorex",
+    "pending_track": null
+  },
+  "57bebe19-bb0c-40c5-bef6-2582f11fb74f": {
+    "topic": "Quim",
+    "discipline": null,
+    "current_mode": "modo_memorex",
+    "pending_track": null
+  },
+  "dd6dae0d-c22b-4c45-ae5a-287dfaa1561b": {
+    "topic": "Funções inorganicas",
+    "discipline": null,
+    "current_mode": "modo_socratico",
+    "pending_track": null
+  },
+  "d01526f9-426d-4d55-b41e-4d597c129151": {
+    "topic": "📐 como resolver equações de 2º grau",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null
+  },
+  "53a3b81d-875d-4bcf-9cd2-f9385289c108": {
+    "topic": "Bernoulli",
+    "discipline": null,
+    "current_mode": "modo_teoria",
+    "pending_track": null
+  },
+  "9d66d744-327e-41c5-a769-9010681425bc": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Bernoulli",
+    "disambiguation_options": [
+      "**Princípio de Bernoulli** (Física / Hidrodinâmica - voo de aviões, fluidos e sustentação)",
+      "**Equação / Teorema de Bernoulli** (Matemática / Cálculo)",
+      "**Outro tópico específico** de Bernoulli"
+    ],
+    "clean_names": [
+      "Princípio de Bernoulli",
+      "Teorema de Bernoulli",
+      "Bernoulli"
+    ]
+  },
+  "8489dda6-9634-4493-b850-879b846d5783": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "7c20794e-30b2-4e62-ad43-bce7f1d1dfca": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Bernoulli",
+    "disambiguation_options": [
+      "**Princípio de Bernoulli** (Física / Hidrodinâmica - voo de aviões, fluidos e sustentação)",
+      "**Equação / Teorema de Bernoulli** (Matemática / Cálculo)",
+      "**Outro tópico específico** de Bernoulli"
+    ],
+    "clean_names": [
+      "Princípio de Bernoulli",
+      "Teorema de Bernoulli",
+      "Bernoulli"
+    ]
+  },
+  "0754faab-3b84-4773-b93d-fa2508de44ca": {
+    "topic": "Princípio de Bernoulli",
+    "discipline": null,
+    "current_mode": "modo_teoria",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "606e1cca-d365-4aad-ae0a-9abb110acc94": {
+    "topic": "Princípio de Bernoulli",
+    "discipline": null,
+    "current_mode": "modo_teoria",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "843c9429-b3d9-463b-b285-d92a2f35b8a1": {
+    "topic": "Funções inorgânicas",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "c685b547-1214-47f4-85ee-277606ad5c2f": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções",
+    "disambiguation_options": [
+      "**Funções Matemáticas** (Afim de 1º Grau ou Quadrática de 2º Grau)",
+      "**Funções Inorgânicas na Química** (Ácidos, Bases, Sais e Óxidos)",
+      "**Funções Orgânicas na Química** (Álcool, Cetona, Aldeído, etc.)"
+    ],
+    "clean_names": [
+      "Funções Matemáticas (1º e 2º Grau)",
+      "Funções Inorgânicas",
+      "Funções Orgânicas"
+    ]
+  },
+  "4860626b-3a40-48aa-824d-06527f0cd320": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções",
+    "disambiguation_options": [
+      "**Funções Matemáticas** (Afim de 1º Grau ou Quadrática de 2º Grau)",
+      "**Funções Inorgânicas na Química** (Ácidos, Bases, Sais e Óxidos)",
+      "**Funções Orgânicas na Química** (Álcool, Cetona, Aldeído, etc.)"
+    ],
+    "clean_names": [
+      "Funções Matemáticas (1º e 2º Grau)",
+      "Funções Inorgânicas",
+      "Funções Orgânicas"
+    ]
+  },
+  "da03aab0-2bff-45ec-aa46-6cc0c3512fd5": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções",
+    "disambiguation_options": [
+      "**Funções Matemáticas** (Afim de 1º Grau ou Quadrática de 2º Grau)",
+      "**Funções Inorgânicas na Química** (Ácidos, Bases, Sais e Óxidos)",
+      "**Funções Orgânicas na Química** (Álcool, Cetona, Aldeído, etc.)"
+    ],
+    "clean_names": [
+      "Funções Matemáticas (1º e 2º Grau)",
+      "Funções Inorgânicas",
+      "Funções Orgânicas"
+    ]
+  },
+  "32165a94-f903-4bfc-9d70-5ceca984e9b0": {
+    "topic": "Ácidos e Bases de Arrhenius",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "962d0154-01d0-4f48-91e9-57fd9396f74b": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Bernoulli",
+    "disambiguation_options": [
+      "**Princípio de Bernoulli** (Física / Hidrodinâmica - voo de aviões, fluidos e sustentação)",
+      "**Equação / Teorema de Bernoulli** (Matemática / Cálculo)",
+      "**Outro tópico específico** de Bernoulli"
+    ],
+    "clean_names": [
+      "Princípio de Bernoulli",
+      "Teorema de Bernoulli",
+      "Bernoulli"
+    ]
+  },
+  "eb36c45f-7508-40cc-a6eb-8afd700a95d1": {
+    "topic": "Queda livre",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "a9884f48-9018-43c4-ab87-d52d88d107cc": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Eletromagnetismo",
+    "disambiguation_options": [
+      "**Campo Magnético** (Fios, Espiras e Solenoides)",
+      "**Força Magnética** (Cargas em Movimento e Regra da Mão Direita)",
+      "**Indução Eletromagnética e Lei de Faraday-Lenz**"
+    ],
+    "clean_names": [
+      "Campo Magnético",
+      "Força Magnética",
+      "Indução Eletromagnética"
+    ]
+  },
+  "2b956824-f28a-4a73-9b6d-5b3d6cfd77cc": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Dilatação Térmica",
+    "disambiguation_options": [
+      "**Dilatação Linear** (aplicada a fios, barras e cabos; estuda a variação de comprimento com a temperatura)",
+      "**Dilatação Superficial** (aplicada a placas, chapas e superfícies; estuda a variação de área com a temperatura)",
+      "**Dilatação Volumétrica** (aplicada a sólidos e líquidos; estuda a variação de volume com a temperatura)"
+    ],
+    "clean_names": [
+      "Dilatação Linear",
+      "Dilatação Superficial",
+      "Dilatação Volumétrica"
+    ]
+  },
+  "827405b5-917c-4c4b-8ecf-b3b9c12c4e4d": {
+    "topic": "Ácidos",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "66602e62-86be-4197-9b91-6b5772026fe3": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Bernoulli",
+    "disambiguation_options": [
+      "**Princípio de Bernoulli** (Física - Mecânica dos Fluidos: relação entre velocidade e pressão em um fluido ideal)",
+      "**Equação de Bernoulli** (Matemática - Equações Diferenciais: equação diferencial ordinária não linear de primeira ordem)",
+      "**Distribuição de Bernoulli** (Matemática - Probabilidade e Estatística: variável aleatória discreta com dois resultados possíveis)"
+    ],
+    "clean_names": [
+      "Princípio de Bernoulli",
+      "Equação de Bernoulli",
+      "Distribuição de Bernoulli"
+    ]
+  },
+  "33423095-0e37-4f69-931f-ddb803b8dd59": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções",
+    "disambiguation_options": [
+      "**Funções Matemáticas** (álgebra: definição, domínio, contradomínio, imagem, gráficos, funções afim, quadrática, exponencial, logarítmica, trigonométricas)",
+      "**Funções Orgânicas** (química: grupos funcionais, hidrocarbonetos, álcoois, ácidos carboxílicos, aminas, etc.)",
+      "**Funções Inorgânicas** (química: ácidos, bases, sais, óxidos)"
+    ],
+    "clean_names": [
+      "Funções Matemáticas",
+      "Funções Orgânicas",
+      "Funções Inorgânicas"
+    ]
+  },
+  "92b56eee-4484-49f0-9a8b-e6ec421444f3": {
+    "topic": "Queda livre",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "989111ad-4164-4644-8029-88de8a68c57f": {
+    "topic": "Função afim",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "412b29c6-8cdf-4aee-b5ac-12cf91a1f1fd": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Reações Orgânicas",
+    "disambiguation_options": [
+      "**Reações de Substituição** (halogenação, nitração, sulfonação, alquilação de Friedel-Crafts, acilação de Friedel-Crafts)",
+      "**Reações de Adição** (hidrogenação, halogenação, adição de HX, hidratação, adição em alcinos e dienos)",
+      "**Reações de Eliminação** (desidratação de álcoois, desidroalogenação de haletos, eliminação de E1 e E2)"
+    ],
+    "clean_names": [
+      "Reações de Substituição",
+      "Reações de Adição",
+      "Reações de Eliminação"
+    ]
+  },
+  "ad50ef7b-862a-4ec3-8713-ba37df130707": {
+    "topic": "Ácidos",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "99c85400-1ffb-458a-983f-41496aa98591": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Bernoulli",
+    "disambiguation_options": [
+      "**Princípio de Bernoulli** (Física: dinâmica dos fluidos, equação de Bernoulli, aplicações em aviação e tubulações)",
+      "**Distribuição de Bernoulli** (Matemática/Estatística: variável aleatória binária, probabilidade de sucesso/fracasso)",
+      "**Números de Bernoulli** (Matemática: sequência de números racionais usados em séries e teoria dos números)"
+    ],
+    "clean_names": [
+      "Princípio de Bernoulli",
+      "Distribuição de Bernoulli",
+      "Números de Bernoulli"
+    ]
+  },
+  "d9d80e3d-abd1-4bb1-9c06-259b44ca5cc1": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções",
+    "disambiguation_options": [
+      "**Funções Matemáticas** (álgebra: definição, domínio, contradomínio, imagem, gráficos, funções afim, quadrática, exponencial, logarítmica, trigonométricas)",
+      "**Funções Inorgânicas** (química: ácidos, bases, sais, óxidos, segundo a teoria de Arrhenius)",
+      "**Funções Orgânicas** (química: hidrocarbonetos, álcoois, cetonas, ácidos carboxílicos, aminas, etc.)"
+    ],
+    "clean_names": [
+      "Funções Matemáticas",
+      "Funções Inorgânicas",
+      "Funções Orgânicas"
+    ]
+  },
+  "59050c63-9d96-4bd7-a4da-b20f133a6cb4": {
+    "topic": "Queda livre",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "45cd2846-e0fe-421e-950d-af4a84035090": {
+    "topic": "Função afim",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "c9e41562-848f-4a85-affe-e61aa85db3f7": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Reações Orgânicas",
+    "disambiguation_options": [
+      "**Reações de Substituição** (halogenação, nitração, sulfonação, alquilação de Friedel-Crafts, acilação de Friedel-Crafts)",
+      "**Reações de Adição** (hidrogenação, halogenação, hidrohalogenação, hidratação, adição de H2O em alcenos e alcinos)",
+      "**Reações de Eliminação** (desidratação de álcoois, desidroalogenação de haletos, eliminação de E1 e E2)"
+    ],
+    "clean_names": [
+      "Reações de Substituição",
+      "Reações de Adição",
+      "Reações de Eliminação"
+    ]
+  },
+  "0756c062-5feb-4285-8feb-8375942fcd68": {
+    "topic": "Mudar a matéria",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "5ea39765-9078-4e33-8e86-b083d2d05b78": {
+    "topic": "Funções Matemáticas",
+    "discipline": null,
+    "current_mode": "modo_teoria",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "ef3d1b73-3f79-41b7-b90d-f75b6dd36bf7": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções",
+    "disambiguation_options": [
+      "**Funções Matemáticas** (Álgebra: afim, quadrática, exponencial, logarítmica e gráficos)",
+      "**Funções Inorgânicas** (Química: ácidos, bases, sais e óxidos de Arrhenius)",
+      "**Funções Orgânicas** (Química: hidrocarbonetos, álcoois, cetonas, ácidos carboxílicos)"
+    ],
+    "clean_names": [
+      "Funções Matemáticas",
+      "Funções Inorgânicas",
+      "Funções Orgânicas"
+    ]
+  },
+  "7ab59f7e-761c-411d-b31b-658f076699b5": {
+    "topic": "Função afim",
+    "discipline": null,
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "d47fc051-1936-4945-bdc1-02651fb0bfa6": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções",
+    "disambiguation_options": [
+      "**Funções Matemáticas** (Álgebra: afim, quadrática, exponencial, logarítmica e gráficos)",
+      "**Funções Inorgânicas** (Química: ácidos, bases, sais e óxidos de Arrhenius)",
+      "**Funções Orgânicas** (Química: hidrocarbonetos, álcoois, cetonas, ácidos carboxílicos)"
+    ],
+    "clean_names": [
+      "Funções Matemáticas",
+      "Funções Inorgânicas",
+      "Funções Orgânicas"
+    ]
+  },
+  "a92cbce4-f536-4f5b-a479-d82208f77175": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "027a3a57-e351-4e3d-b543-d219c713243f": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "94a8a27d-fa1a-40bc-b0b6-bf8d589f613e": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "c062f2bc-35ea-4a07-ad6c-bfb03e72c016": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "825df28f-39ae-4b49-b110-5543e813ab71": {
+    "topic": null,
+    "discipline": "Química",
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções Químicas",
+    "disambiguation_options": [
+      "**Ácidos de Arrhenius** (Ionização em água, força ácida, hidrácidos e oxiácidos)",
+      "**Bases de Arrhenius** (Dissociação iônica, solubilidade, grau de dissociação e hidróxidos)",
+      "**Sais Inorgânicos** (Reação de neutralização, formulação e nomenclatura)",
+      "**Óxidos e Meio Ambiente** (Classificação: ácidos, básicos, neutros, anfóteros e chuva ácida)"
+    ],
+    "clean_names": [
+      "Ácidos de Arrhenius",
+      "Bases de Arrhenius",
+      "Sais Inorgânicos",
+      "Óxidos Inorgânicos"
+    ]
+  },
+  "958d0f27-14ab-4ade-a636-4241260bc5e1": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_teoria",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "360518d7-f0fc-4b27-8a45-a26d471c8ee2": {
+    "topic": "Ácidos de arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "e9ce476b-b464-43df-9cca-bcd28dd158a1": {
+    "topic": "Ácidos de arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "e62a38a4-9da2-45a0-a7a2-ac1120bd7c8f": {
+    "topic": "Ácidos de arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "b928e738-9246-4fa2-b7d0-289488dc1ee1": {
+    "topic": "Primeira lei de mendel (lei da segregação dos fatores)",
+    "discipline": "Biologia",
+    "current_mode": "modo_teoria",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null
+  },
+  "11a41247-ee99-4a7a-a596-5e3bbfb58033": {
+    "topic": "Ácidos de arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "b3b07d29-ac6e-482c-8065-6aa4c96cded8": {
+    "topic": "Ácidos de arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "d2e60671-d67c-4a70-86bf-3a47c6071bd4": {
+    "topic": "Ácidos de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_treino",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "82587c97-39ff-4a53-a64f-25f5357eb7d8": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "baca0645-2d79-45ac-a275-b666552a7a0b": {
+    "topic": "Matemática",
+    "discipline": "Matemática",
+    "current_mode": "modo_teoria",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "34b3ee9a-f1d1-45e7-a6c4-9bd3c38b8e6f": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "98f5c1ba-6382-4ff8-8e5b-c199ee055f80": {
+    "topic": null,
+    "discipline": "Matemática",
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções Matemáticas",
+    "disambiguation_options": [
+      "**Função Afim / 1º Grau** (Taxa de variação, coeficientes angular e linear, gráficos de reta)",
+      "**Função Quadrática / 2º Grau** (Parábolas, raízes por Bhaskara, ponto de máximo e mínimo)",
+      "**Funções Exponencial e Logarítmica** (Crescimento/decaimento exponencial, propriedades e gráficos)",
+      "**Introdução e Conceito de Função** (Noção de relação, domínio, contradomínio e imagem)"
+    ],
+    "clean_names": [
+      "Função Afim",
+      "Função Quadrática",
+      "Função Exponencial e Logarítmica",
+      "Conceito de Função"
+    ],
+    "disambiguation_depth": 1
+  },
+  "d627f92d-a382-4e10-9b89-83ec56f35999": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "7fed76b7-41db-4ab7-b85d-426b33a1f98a": {
+    "topic": null,
+    "discipline": "Matemática",
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções Matemáticas",
+    "disambiguation_options": [
+      "**Função Afim / 1º Grau** (Taxa de variação, coeficientes angular e linear, gráficos de reta)",
+      "**Função Quadrática / 2º Grau** (Parábolas, raízes por Bhaskara, ponto de máximo e mínimo)",
+      "**Funções Exponencial e Logarítmica** (Crescimento/decaimento exponencial, propriedades e gráficos)",
+      "**Introdução e Conceito de Função** (Noção de relação, domínio, contradomínio e imagem)"
+    ],
+    "clean_names": [
+      "Função Afim",
+      "Função Quadrática",
+      "Função Exponencial e Logarítmica",
+      "Conceito de Função"
+    ],
+    "disambiguation_depth": 1
+  },
+  "4fb05f57-8489-4f3e-8aba-b8d80c0bc4e4": {
+    "topic": "Ácidos de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_socratico",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "efa16ecc-d797-4e88-9f3a-1c37f07cac7c": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_teoria",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "5cdfcd18-72d2-4f28-bb79-ded0e78d0d4c": {
+    "topic": "Coeficiente Angular da Reta",
+    "discipline": "Matemática",
+    "current_mode": "modo_teoria",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "f1b50f4b-2367-42f6-ab53-544a9072ece2": {
+    "topic": "Ácidos de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "271d9e3c-f2b4-4fac-842a-ad266fdea528": {
+    "topic": "Ácidos de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_conclusao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "bd91efcb-ef92-41d7-b732-671d5ed4d807": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "7a33b687-526f-425b-b49d-a3e105f83ef0": {
+    "topic": "Funções Exponencial e Logarítmica",
+    "discipline": "Matemática",
+    "current_mode": "modo_resumir",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "346a4eac-223f-4192-b118-f960bb1a0328": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "9ab69124-b89b-4b37-bee1-26015ce68677": {
+    "topic": "Movimento Retilíneo Uniforme (MRU)",
+    "discipline": "Física",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "7593b973-1eb6-4cca-9c00-bafdaebe8a97": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "4fe73857-bc1a-4e59-8433-d900f389b28c": {
+    "topic": null,
+    "discipline": "Química",
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções Inorgânicas",
+    "disambiguation_options": [
+      "**Ácidos de Arrhenius** (Ionização em água, força ácida, hidrácidos e oxiácidos)",
+      "**Bases de Arrhenius** (Dissociação iônica, solubilidade, grau de dissociação e hidróxidos)",
+      "**Sais Inorgânicos** (Reação de neutralização, formulação e nomenclatura)",
+      "**Óxidos e Meio Ambiente** (Classificação: ácidos, básicos, neutros, anfóteros e chuva ácida)"
+    ],
+    "clean_names": [
+      "Ácidos de Arrhenius",
+      "Bases de Arrhenius",
+      "Sais Inorgânicos",
+      "Óxidos Inorgânicos"
+    ],
+    "disambiguation_depth": 1
+  },
+  "af331d4c-df13-43b1-b045-e1fef3103825": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_aprender",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "1803fcc2-c8d6-4f60-8931-59a28f757f24": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_praticar",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "21dd129e-656c-4a49-be5a-4a804e93901b": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_aprender",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "0d359dce-3b92-47b0-b0a8-d4920b39c26e": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "68b5d441-2c41-4218-a7c7-f98b316b605f": {
+    "topic": "Movimento Retilíneo Uniforme (MRU) - Velocidade Constante",
+    "discipline": "Física",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "eb84c005-5944-4751-80f0-c841032e988b": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "8036742e-4432-4064-9a47-d37c96a7ca92": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_resolve_questao",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "c8c9d868-2463-43af-a88b-90f4046ceba2": {
+    "topic": null,
+    "discipline": "Química",
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções Inorgânicas",
+    "disambiguation_options": [
+      "**Ácidos de Arrhenius** (Ionização em água, força ácida, hidrácidos e oxiácidos)",
+      "**Bases de Arrhenius** (Dissociação iônica, solubilidade, grau de dissociação e hidróxidos)",
+      "**Sais Inorgânicos** (Reação de neutralização, formulação e nomenclatura)",
+      "**Óxidos e Meio Ambiente** (Classificação: ácidos, básicos, neutros, anfóteros e chuva ácida)"
+    ],
+    "clean_names": [
+      "Ácidos de Arrhenius",
+      "Bases de Arrhenius",
+      "Sais Inorgânicos",
+      "Óxidos Inorgânicos"
+    ],
+    "disambiguation_depth": 1
+  },
+  "a48f3453-def2-4c40-82c5-44e15430c615": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_praticar",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "e1350620-32eb-4ac1-815e-282048df4966": {
+    "topic": "Célula e Organelas Celulares",
+    "discipline": "Ciências",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "6f02205b-dd6e-493b-a453-6d75ddcc68b5": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "34f2a300-ed3e-4027-a4d5-e09040e28410": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "bbc4f2a7-1ea8-4190-a623-ab7984e4a689": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_resumir",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "3c786dfb-ffa5-49a2-944e-6d04541a07aa": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_praticar",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "c64176a8-fd41-4dd4-9230-2fcf517f2474": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_revisar",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "1eded71a-495c-41d8-9bed-bd3e32dd6250": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Leis de Newton",
+    "disambiguation_options": [
+      "**Primeira Lei de Newton** (Inércia: conceito, exemplos cotidianos, relação com massa e forças em equilíbrio)",
+      "**Segunda Lei de Newton** (Princípio Fundamental da Dinâmica: F = m·a, aplicações em problemas de força, massa e aceleração)",
+      "**Terceira Lei de Newton** (Ação e Reação: pares de forças, aplicações em sistemas de corpos, propulsão e colisões)"
+    ],
+    "clean_names": [
+      "Primeira Lei de Newton",
+      "Segunda Lei de Newton",
+      "Terceira Lei de Newton"
+    ],
+    "disambiguation_depth": 1
+  },
+  "e558e56d-8927-468e-ad30-14098c8d1f89": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "a7a00380-7205-424e-b5c4-4eece27a1adb": {
+    "topic": "Noção Intuitiva de Limites",
+    "discipline": "Cálculo 1",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "c7f4c4d1-585d-4e4f-8fda-3d8aadff6966": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_resolve_questao",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "5784fa52-0b67-4691-84f9-34cc449e2282": {
+    "topic": "Membrana Plasmática e Núcleo Celular",
+    "discipline": "Ciências",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "7ec05b97-156b-4fe7-b1f5-b49056b14c50": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "4bc298b4-9646-44d7-a5fb-3303d9a7e02a": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_aprender",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "4e3ab537-89c6-4751-8414-46ba1bbcedbf": {
+    "topic": "Frações e Operações com Frações",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "702d749e-a9a9-40cf-9040-049ad42a47b5": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "31510dcf-c54b-46af-a816-25563fd33eee": {
+    "topic": "Função Afim: Aplicação em Problemas de Custo",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "183f6c72-daab-4f29-83bd-1126e6203c65": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": "Funções",
+    "disambiguation_options": [
+      "**Funções Matemáticas** (Álgebra: afim, quadrática, exponencial, logarítmica e gráficos)",
+      "**Funções Inorgânicas** (Química: ácidos, bases, sais e óxidos de Arrhenius)",
+      "**Funções Orgânicas** (Química: hidrocarbonetos, álcoois, cetonas, ácidos carboxílicos)"
+    ],
+    "clean_names": [
+      "Funções Matemáticas",
+      "Funções Inorgânicas",
+      "Funções Orgânicas"
+    ],
+    "disambiguation_depth": 1
+  },
+  "136b1708-a130-49ab-9203-0e0388846254": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_aprender",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "20ef9b91-e1df-4f9d-ad76-a1f4b295ead5": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "46760cc7-2fbb-49ef-8c20-05f078bb7b7c": {
+    "topic": null,
+    "discipline": "Matemática",
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "ca541037-c1d0-4e14-9b82-032cc20fc604": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "d26f3bbb-a05e-4e9c-bd4d-10ac5993afe0": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_aprender",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "955b06fc-4824-43f6-b52d-ef86b521ad98": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_conclusao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "df9d250e-fe40-43b4-9b39-a01e01ee85cf": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "11a7dd3f-4429-4c13-bc4d-cad212947cd9": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "a5bc0150-85d8-4595-9f30-6c174c91fb28": {
+    "topic": "Ácidos de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "55248dab-ff5a-4cab-b3cb-b8bf5b8be59c": {
+    "topic": "Movimento Retilíneo Uniforme (MRU)",
+    "discipline": "Física",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "f2c24f72-7c3f-4f8a-837b-fa7547d87293": {
+    "topic": "Bases de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "ddba5d82-c986-4d74-9f4e-42e0bbc0f9ed": {
+    "topic": "Célula e Organelas Celulares",
+    "discipline": "Ciências",
+    "current_mode": "modo_revisar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "a5f87457-8577-46b6-9c80-a0e355f23890": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_resumir",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "b4915105-3406-4161-aa35-7b567b5e4ca6": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "4381d2b2-0563-4f51-8273-6781fe741809": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "49faf54c-2396-43f8-a152-dd74ab01f321": {
+    "topic": "Noção Intuitiva de Limites",
+    "discipline": "Cálculo 1",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "6916ea95-c1f7-4622-b6f6-9ccb1ab2ce1c": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "45b4ccee-5e82-40a4-9b0b-652ce0b69dbf": {
+    "topic": "Frações e Operações com Frações",
+    "discipline": "Matemática",
+    "current_mode": "modo_conclusao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "dbe8d137-6bd6-40b1-aa9e-73241cb06583": {
+    "topic": "Movimento Retilíneo Uniforme (MRU)",
+    "discipline": "Física",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "57c0b4fb-31a9-43f2-b0b9-4fff9257da88": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "d69fc1d6-2ca3-4bf7-9357-2ad068dd2d58": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "fa70be76-518d-4536-af11-434700657767": {
+    "topic": "Ácidos de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "aceea3db-c398-45ba-8d8e-f477efc609b6": {
+    "topic": "Bases de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "8f1b84d9-cbd7-49d7-bc0f-ef825d6dfc67": {
+    "topic": "Célula e Organelas Celulares",
+    "discipline": "Ciências",
+    "current_mode": "modo_revisar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "47c503d7-5233-4d89-970c-9558537d41cb": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_resumir",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "59e847ee-1a95-4c9a-b2aa-9a17203d762a": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_resumir",
+    "pending_disambiguation": "Segunda Lei de Newton",
+    "disambiguation_options": [
+      "**Física: Dinâmica - Segunda Lei de Newton** (Força resultante, massa e aceleração; aplicações em problemas de movimento retilíneo)",
+      "**Matemática: Vetores e Decomposição de Forças** (Operações vetoriais, componentes cartesianas, soma de vetores aplicada à Segunda Lei de Newton)",
+      "**Física: Aplicações da Segunda Lei de Newton** (Plano inclinado, forças de atrito, sistemas de corpos conectados, elevadores e máquinas de Atwood)"
+    ],
+    "clean_names": [
+      "Segunda Lei de Newton - Dinâmica",
+      "Vetores e Decomposição de Forças",
+      "Aplicações da Segunda Lei de Newton"
+    ],
+    "disambiguation_depth": 2
+  },
+  "7c12eeaa-0df3-40eb-aa8e-d6b520ba46da": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "0cc9f721-00f8-4885-8d43-d6bcfee3bf25": {
+    "topic": "Noção Intuitiva de Limites",
+    "discipline": "Cálculo 1",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "f96217ae-6d03-4f31-8dbe-75bfadd1d9cd": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "40e3278b-10cc-4193-8430-42af88d61017": {
+    "topic": "Frações e Operações com Frações",
+    "discipline": "Matemática",
+    "current_mode": "modo_conclusao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "bf53a4b2-ad26-4c72-8df4-6a68b6232770": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "1c3c677e-64db-4304-aa44-231b4346eb5c": {
+    "topic": "Movimento Retilíneo Uniforme (MRU)",
+    "discipline": "Física",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "c760f8d6-f383-4a39-b277-af0a51023c36": {
+    "topic": "Ácidos de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "disambiguation_reason": null
+  },
+  "ed12aa86-8fc3-4e49-9cc5-f6fba39785fc": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "aa04c9d7-0a1f-40aa-a86c-3b150f9e707c": {
+    "topic": "Bases de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "3250c09f-a0e6-4e8c-983a-bb35e3b3affc": {
+    "topic": "Célula e Organelas Celulares",
+    "discipline": "Ciências",
+    "current_mode": "modo_revisar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "ea024946-bce1-4c1d-8703-5475053ac8de": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_resumir",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "5e87e792-6250-4c25-86d0-6cfc9015d44a": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_resumir",
+    "pending_disambiguation": "Segunda Lei de Newton",
+    "disambiguation_options": [
+      "**Aplicações da Segunda Lei de Newton na Física** (Força resultante, massa e aceleração; resolução de problemas com atrito e planos inclinados)",
+      "**Segunda Lei de Newton e o Cálculo Diferencial** (Relação com a derivada da quantidade de movimento; F = dp/dt e aplicações em Cálculo 1)",
+      "**Vetores e Decomposição de Forças** (Componentes cartesianas, soma vetorial e aplicação da Segunda Lei em sistemas bidimensionais)"
+    ],
+    "clean_names": [
+      "Aplicações da Segunda Lei de Newton na Física",
+      "Segunda Lei de Newton e o Cálculo Diferencial",
+      "Vetores e Decomposição de Forças"
+    ],
+    "disambiguation_depth": 2,
+    "disambiguation_reason": "REGRA_1"
+  },
+  "eb29f53d-be9e-4b2c-ab42-de265f5c3ed7": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "b0d4b153-389e-47e8-82a1-3c1b6765da7a": {
+    "topic": "Noção Intuitiva de Limites",
+    "discipline": "Cálculo 1",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "63e5cbf2-c103-4923-b808-2a3dbf60a474": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "disambiguation_reason": null
+  },
+  "01401bee-2ae4-4042-945b-d23a9765f727": {
+    "topic": "Frações e Operações com Frações",
+    "discipline": "Matemática",
+    "current_mode": "modo_conclusao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "c764d5bb-6177-4e1c-b3d7-8f515a025737": {
+    "topic": "Movimento Retilíneo Uniforme (MRU)",
+    "discipline": "Física",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "ed89b7a7-423d-4aa0-a7d0-b5d4510c46ec": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "b20f05f2-29b6-4315-bbf6-05407c421ab9": {
+    "topic": "Ácidos de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "disambiguation_reason": null
+  },
+  "a41cbd2f-386a-4c1b-af4e-d0868dc4789e": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "9a1472a2-7552-4b49-89c9-6efbce33802d": {
+    "topic": "Bases de Arrhenius",
+    "discipline": "Química",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "1cf7fb03-be41-4137-b4e7-b4b07272f768": {
+    "topic": "Célula e Organelas Celulares",
+    "discipline": "Ciências",
+    "current_mode": "modo_revisar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "f5e54712-e3c2-4567-a153-731cd5452cf2": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_resumir",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "a2a3979a-671a-406b-a837-c51f848f1ef2": {
+    "topic": "Segunda Lei de Newton",
+    "discipline": "Física",
+    "current_mode": "modo_resumir",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "disambiguation_reason": null
+  },
+  "7c14497a-a561-4747-a8fc-6d6c1b1cf2a4": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "03b98e53-9a85-4646-a017-c4579b8016fd": {
+    "topic": "Noção Intuitiva de Limites",
+    "discipline": "Cálculo 1",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "23e30a51-0d44-4175-9d8c-dcb9007b2a43": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "disambiguation_reason": null
+  },
+  "2f841649-4906-4ae8-9949-e5ea754362b0": {
+    "topic": "Frações e Operações com Frações",
+    "discipline": "Matemática",
+    "current_mode": "modo_conclusao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "d525d873-40fe-4e4c-9fc1-2e7c8325d9a6": {
+    "topic": "Função Quadrática",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "cd4a2cc1-6df6-47b5-a6fd-ed4f13752e95": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "ff83d087-e025-4884-9373-98172b52f903": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "ef23e714-ad08-4e6b-8b9b-50819e6d63dc": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "ff0fb3a3-8789-47e6-81e4-10fb48412cb1": {
+    "topic": "Movimento Uniformemente Variado (MUV)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "33873ff2-3705-46a5-9e9f-24c95c8675b0": {
+    "topic": "Segunda Lei de Newton",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "ec82d97e-45c1-494f-8775-180f90e597e2": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "69b6c038-e4cf-478a-99b7-1ca523d4b38e": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "83e181a9-210c-47df-9c7a-8e11a6a68e1f": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "54a0de10-fb42-47fb-a397-f256ed539c58": {
+    "topic": "Movimento Uniformemente Variado (MUV)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "df296413-3f66-480b-b09a-1a81354a597e": {
+    "topic": "Segunda Lei de Newton",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "b7f68d55-6446-452a-9d60-991c274d5bb9": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "06c4779d-4c75-4532-b42a-ada8503977a4": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "5098490e-a620-4963-8741-418482d6cfb0": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "8770536e-1f34-4135-88f4-a716fe4eccd7": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "340f94fa-4e54-4f05-8cab-d21594fb20e7": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "05e08517-e78e-4b2d-8084-7a988768fd1e": {
+    "topic": "Movimento Uniformemente Variado (MUV)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "c8d20ede-66e6-4509-b968-e47b20db8de9": {
+    "topic": "Segunda Lei de Newton",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "bac871d6-6f49-4033-918d-c8e4689e1d33": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "cd4c22a1-2c14-407d-a140-60bc18e22925": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "161bcdc1-2499-442e-9b3e-9e44dfb7b036": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "18622e58-e6fd-4973-bcad-3428d72bc68c": {
+    "topic": "Movimento Uniformemente Variado (MUV)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "02ad3401-342e-420d-8d99-7f38d4f61145": {
+    "topic": "Segunda Lei de Newton",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "abdc0872-7981-4920-96f7-71708ebf8e51": {
+    "topic": "Número de Oxidação (NOX)",
+    "discipline": "Química",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "167eace1-9a1b-4ce4-a285-2c71960bcab8": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "47ae480c-fd59-4c6a-b462-86ce934a801b": {
+    "topic": "Termologia",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "43692c93-b559-42be-b5bd-7d1337fd2190": {
+    "topic": "Termometria",
+    "discipline": "Física",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "e7f30b53-15da-42d1-98be-76ceebe8814d": {
+    "topic": "ENEM 2022",
+    "discipline": "Exame Nacional do Ensino Médio (ENEM)",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "775e454c-b669-4819-bf20-481fbdeac27a": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "bbf6aee1-af4c-429a-8019-2540b0b443f4": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "3ed3ec86-ff8b-4e6a-b2a9-6de9e8bc60e2": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "e684ca14-bdf0-43d6-bdbb-2fdd06a46c1f": {
+    "topic": "Movimento Uniformemente Variado (MUV)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "7f30caeb-e2d7-4cfb-85bf-0882efb81455": {
+    "topic": "Segunda Lei de Newton",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "58099da5-0d38-4713-a82c-08a857a0c804": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "from_image_interruption": true
+  },
+  "d9322598-befd-450f-a097-97f2d148b169": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "57e9a501-ae0c-4be0-b19b-80d13bbc1fec": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "82d65178-11d3-4f7f-921e-556642c1d090": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "72559036-b5aa-4261-be1a-cca08db81a12": {
+    "topic": "Movimento Uniformemente Variado (MUV)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "0234b094-e881-4159-9475-5e6ae0f0360c": {
+    "topic": "Segunda Lei de Newton",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "b4340c01-7f5f-48d8-9248-c89d9853137d": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "from_image_interruption": true
+  },
+  "35196866-9cea-4742-8313-7f11cb6f2307": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "5b6dbca1-346d-4e6e-a0ff-d3fb776bcd03": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "6f6f0eb6-9118-4368-ae0b-e4b9c73672dc": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "36128d3f-6103-4dca-8c4d-0d2f7f1ec377": {
+    "topic": "Movimento Uniformemente Variado (MUV)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "512e263e-48db-4b7d-8176-d54c48a959dc": {
+    "topic": "Segunda Lei de Newton",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "844df427-1fcd-4c2a-9dcc-e73f201af522": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "from_image_interruption": true
+  },
+  "38f287d6-9a99-494d-b200-1dd37059c526": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_aprender",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "5f9681ba-e63a-4eb0-a044-942b2697f8f9": {
+    "topic": "Função Afim (1º Grau)",
+    "discipline": "Matemática",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "5890e6ad-f115-4c0d-bcbe-c45a67103d06": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "0e429a5e-3b32-472f-bb8e-e597d3a8a308": {
+    "topic": "Movimento Uniformemente Variado (MUV)",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "3d21be8e-7960-4d0f-80d6-e207faa6cff1": {
+    "topic": "Segunda Lei de Newton",
+    "discipline": "Física",
+    "current_mode": "modo_resolve_questao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "ff38e7dd-cdf3-4f79-b70b-7aaa5b1dd755": {
+    "topic": "Movimento Uniforme (MU)",
+    "discipline": "Física",
+    "current_mode": "modo_praticar",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "from_image_interruption": true
+  },
+  "bba5db9a-64e2-4e9d-b8c2-5011d89002ee": {
+    "topic": null,
+    "discipline": "Geografia",
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "7a842d54-eab5-4c9d-ab61-1c3125b0e7f1": {
+    "topic": null,
+    "discipline": "História",
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "71e24379-6810-40c3-858c-ce90194649bb": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "3dde0ec3-3f2e-4d54-817d-7c33796d9ba6": {
+    "topic": "Termodinâmica",
+    "discipline": "Física",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "da6262d5-d923-442b-8ce7-ea82e55f466e": {
+    "topic": "Termodinâmica",
+    "discipline": "Física",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "39f7c8a8-92d3-456d-a107-59bebbae3436": {
+    "topic": "Termodinâmica",
+    "discipline": "Física",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "fcdc0552-79d2-49e0-933c-623cc21b45a2": {
+    "topic": "Termodinâmica",
+    "discipline": "Física",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "5bdf241e-cdef-4b63-9be9-23f1c6615986": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_tira_duvidas",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "4dd88845-5735-4741-86b2-0fb65c77ac4c": {
+    "topic": "Termodinâmica",
+    "discipline": "Física",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "16896e0f-37d4-4e8d-aaf2-ef619800a703": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": "modo_tira_duvidas",
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "9af588b8-0efc-4f20-96aa-6b88d63d00fe": {
+    "topic": "Calor e Temperatura",
+    "discipline": "Física",
+    "current_mode": "modo_menu",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "b0341e63-3727-4f48-a83d-ed483630e6f0": {
+    "topic": null,
+    "discipline": null,
+    "current_mode": "modo_acolhida",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  },
+  "6ea95a91-1373-42e6-8560-2d3a79a935fa": {
+    "topic": "Termodinâmica",
+    "discipline": "Física",
+    "current_mode": "modo_conclusao",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "praticar_round": {
+      "topic": "Termodinâmica",
+      "items": [
+        {
+          "id": "q01",
+          "q_num": 1,
+          "habilidade": "EM13CNT103",
+          "dificuldade": "basico",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "A",
+          "resolucao": "",
+          "body": "1. Um resistor é classificado formalmente como ôhmico quando:\n- \n\nA) a razão entre a diferença de potencial aplicada e a corrente elétrica que o percorre é constante.\n- \n\nB) sua temperatura permanece rigorosamente em zero kelvin durante o funcionamento.\n- \n\nC) sua resistência elétrica duplica a cada aumento de dez volts na tensão de rede.\n- \n\nD) ele conduz corrente exclusivamente em um único sentido do circuito.\n- \n\nE) seu material condutor é constituído por um gás altamente rarefeito.",
+          "round_q": 1,
+          "level_label": "Fácil"
+        },
+        {
+          "id": "q02",
+          "q_num": 2,
+          "habilidade": "EM13CNT103",
+          "dificuldade": "basico",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "D",
+          "resolucao": "",
+          "body": "2. No Sistema Internacional de Unidades (SI), a unidade de resistência elétrica é o ohm ($\\Omega$). Em termos das grandezas fundamentais volt (V) e ampère (\n\nA), um ohm corresponde exatamente a:\n- \n\nA) um volt por segundo ($1\\text{ V/s}$).\n- \n\nB) um ampère por volt ($1\\text{ A/V}$).\n- \n\nC) um joule por coulomb ($1\\text{ J/C}$).\n- \n\nD) um volt por ampère ($1\\text{ V/A}$).\n- \n\nE) um watt por ampère ($1\\text{ W/A}$).",
+          "round_q": 2,
+          "level_label": "Fácil"
+        },
+        {
+          "id": "q03",
+          "q_num": 3,
+          "habilidade": "EM13CNT103",
+          "dificuldade": "basico",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "B",
+          "resolucao": "",
+          "body": "3. O gráfico característico da diferença de potencial $U$ em função da intensidade de corrente $i$ para um resistor ôhmico mantido a temperatura constante é:\n- \n\nA) uma parábola com vértice na origem dos eixos.\n- \n\nB) uma reta inclinada que passa pela origem $(0, 0)$.\n- \n\nC) uma hipérbole equilátera assintótica aos eixos.\n- \n\nD) uma curva senoidal com frequência de sessenta hertz.\n- \n\nE) uma linha horizontal paralela ao eixo das correntes.",
+          "round_q": 3,
+          "level_label": "Fácil"
+        },
+        {
+          "id": "q04",
+          "q_num": 4,
+          "habilidade": "EM13CNT103",
+          "dificuldade": "basico",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "D",
+          "resolucao": "",
+          "body": "4. Um resistor ôhmico de resistência $R = 20\\ \\Omega$ é submetido a uma ddp constante de $60\\text{ V}$. A intensidade da corrente elétrica que percorre esse resistor vale:\n- \n\nA) $1{,}5\\text{ A}$.\n- \n\nB) $2{,}0\\text{ A}$.\n- \n\nC) $4{,}0\\text{ A}$.\n- \n\nD) $3{,}0\\text{ A}$.\n- \n\nE) $6{,}0\\text{ A}$.",
+          "round_q": 4,
+          "level_label": "Fácil"
+        },
+        {
+          "id": "q05",
+          "q_num": 5,
+          "habilidade": "EM13CNT106",
+          "dificuldade": "basico",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "A",
+          "resolucao": "",
+          "body": "5. A Segunda Lei de Ohm expressa a dependência geométrica da resistência elétrica de um fio condutor cilíndrico homogêneo através da equação:\n- \n\nA) $R = \\frac{\\rho L}{A}$.\n- \n\nB) $R = \\frac{\\rho A}{L}$.\n- \n\nC) $R = \\frac{L}{\\rho A}$.\n- \n\nD) $R = \\rho L A$.\n- \n\nE) $R = \\frac{A}{\\rho L^2}$.",
+          "round_q": 5,
+          "level_label": "Fácil"
+        },
+        {
+          "id": "q21",
+          "q_num": 21,
+          "habilidade": "EM13CNT106",
+          "dificuldade": "intermediario",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "E",
+          "resolucao": "",
+          "body": "21. Um fio condutor de cobre cilíndrico e homogêneo tem comprimento $L_0$ e resistência $R_0 = 8{,}0\\ \\Omega$. Esse fio é submetido a um processo de trefilação mecânica sem perda de matéria, sendo esticado uniformemente até que seu comprimento final atinja o dobro do original ($L = 2 L_0$). Sabendo que o volume metálico permanece constante durante o processo, a nova resistência elétrica do fio trefilado é de:\n- \n\nA) $8{,}0\\ \\Omega$.\n- \n\nB) $16{,}0\\ \\Omega$.\n- \n\nC) $24{,}0\\ \\Omega$.\n- \n\nD) $64{,}0\\ \\Omega$.",
+          "round_q": 6,
+          "level_label": "Médio"
+        },
+        {
+          "id": "q22",
+          "q_num": 22,
+          "habilidade": "EM13CNT103",
+          "dificuldade": "intermediario",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "E",
+          "resolucao": "",
+          "body": "22. Dois resistores ôhmicos $R_A$ e $R_B$ apresentam curvas características $U \\times i$ lineares. Sabendo que o resistor $R_A$ é percorrido por uma corrente de $2{,}0\\text{ A}$ sob $10\\text{ V}$ e o resistor $R_B$ é percorrido por $1{,}0\\text{ A}$ sob $15\\text{ V}$, a razão entre as potências dissipadas por eles ($P_A / P_B$) quando ambos forem submetidos à mesma tensão de $30\\text{ V}$ vale:\n- \n\nA) $1/3$.\n- \n\nB) $1/2$.\n- \n\nC) $1$.\n- \n\nD) $2$.\n- \n\nE) $3$.",
+          "round_q": 7,
+          "level_label": "Médio"
+        },
+        {
+          "id": "q23",
+          "q_num": 23,
+          "habilidade": "EM13CNT106",
+          "dificuldade": "intermediario",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "C",
+          "resolucao": "",
+          "body": "23. Um fio de nicromo de comprimento $L = 20\\text{ m}$ possui seção transversal circular de diâmetro $D = 1{,}0\\text{ mm}$. Sabendo que a resistividade do nicromo é $\\rho = 1{,}1 \\times 10^{-6}\\ \\Omega\\cdot\\text{m}$ e adotando $\\pi \\approx 3{,}14$, a resistência elétrica desse fio condutor vale aproximadamente:\n- \n\nA) $14\\ \\Omega$.\n- \n\nB) $42\\ \\Omega$.\n- \n\nC) $28\\ \\Omega$.\n- \n\nD) $56\\ \\Omega$.\n- \n\nE) $70\\ \\Omega$.",
+          "round_q": 8,
+          "level_label": "Médio"
+        },
+        {
+          "id": "q24",
+          "q_num": 24,
+          "habilidade": "EM13CNT106",
+          "dificuldade": "intermediario",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "D",
+          "resolucao": "",
+          "body": "24. Dois fios cilíndricos, um de cobre ($\\rho_{\\text{Cu}} = 1{,}7 \\times 10^{-8}\\ \\Omega\\cdot\\text{m}$) e outro de alumínio ($\\rho_{\\text{Al}} = 2{,}8 \\times 10^{-8}\\ \\Omega\\cdot\\text{m}$), possuem o mesmo comprimento $L$ e a mesma resistência elétrica $R$. A razão entre os diâmetros dos fios de alumínio e de cobre ($D_{\\text{Al}} / D_{\\text{Cu}}$) vale aproximadamente:\n- \n\nA) $0{,}78$.\n- \n\nB) $1{,}00$.\n- \n\nC) $1{,}65$.\n- \n\nD) $1{,}28$.\n- \n\nE) $2{,}10$.",
+          "round_q": 9,
+          "level_label": "Médio"
+        },
+        {
+          "id": "q25",
+          "q_num": 25,
+          "habilidade": "EM13CNT106",
+          "dificuldade": "intermediario",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "C",
+          "resolucao": "",
+          "body": "25. Uma bobina de fio condutor de platina possui resistência de $50\\ \\Omega$ a $0^\\circ\\text{C}$. Sabendo que o coeficiente térmico da platina é $\\alpha = 4{,}0 \\times 10^{-3}\\ {^\\circ}\\text{C}^{-1}$, a temperatura na qual a resistência elétrica dessa bobina atingirá o valor de $70\\ \\Omega$ é:\n- \n\nA) $50^\\circ\\text{C}$.\n- \n\nB) $75^\\circ\\text{C}$.\n- \n\nC) $100^\\circ\\text{C}$.\n- \n\nD) $120^\\circ\\text{C}$.\n- \n\nE) $150^\\circ\\text{C}$.",
+          "round_q": 10,
+          "level_label": "Médio"
+        },
+        {
+          "id": "q41",
+          "q_num": 41,
+          "habilidade": "EM13CNT106",
+          "dificuldade": "dificil",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "D",
+          "resolucao": "",
+          "body": "41. Um condutor metálico maciço com formato de tronco de cone circular de comprimento $L = 0{,}10\\text{ m}$ possui raio $r_1 = 2{,}0\\text{ mm}$ em uma das extremidades e raio $r_2 = 4{,}0\\text{ mm}$ na outra extremidade. Sabendo que o material possui resistividade uniforme $\\rho = 1{,}6 \\times 10^{-7}\\ \\Omega\\cdot\\text{m}$ e considerando $\\pi \\approx 3{,}14$, a resistência elétrica total entre as duas bases circulares planas vale aproximadamente:\n- \n\nA) $3{,}2 \\times 10^{-4}\\ \\Omega$.\n- \n\nB) $2{,}56 \\times 10^{-3}\\ \\Omega$.\n- \n\nC) $1{,}28 \\times 10^{-3}\\ \\Omega$.\n- \n\nD) $6{,}4 \\times 10^{-4}\\ \\Omega$.\n- \n\nE) $5{,}12 \\times 10^{-3}\\ \\Omega$.",
+          "round_q": 11,
+          "level_label": "Difícil"
+        },
+        {
+          "id": "q42",
+          "q_num": 42,
+          "habilidade": "EM13CNT106",
+          "dificuldade": "dificil",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "B",
+          "resolucao": "",
+          "body": "42. O espaço entre duas cascas esféricas metálicas condutoras concêntricas e finas de raios $a = 0{,}05\\text{ m}$ e $b = 0{,}10\\text{ m}$ é completamente preenchido por um material fracamente condutor homogêneo de resistividade $\\rho = 200\\ \\Omega\\cdot\\text{m}$. A resistência elétrica radial de fuga entre as duas cascas condutoras esféricas vale aproximadamente:\n- \n\nA) $79{,}6\\ \\Omega$.\n- \n\nB) $159{,}2\\ \\Omega$.\n- \n\nC) $318{,}3\\ \\Omega$.\n- \n\nD) $636{,}6\\ \\Omega$.\n- \n\nE) $1.273{,}2\\ \\Omega$.",
+          "round_q": 12,
+          "level_label": "Difícil"
+        },
+        {
+          "id": "q43",
+          "q_num": 43,
+          "habilidade": "EM13CNT106",
+          "dificuldade": "dificil",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "A",
+          "resolucao": "",
+          "body": "43. Um cabo coaxial condutor de comprimento $L = 100\\text{ m}$ é formado por um fio central cilíndrico de raio $a = 2{,}0\\text{ mm}$ cercado por uma blindagem cilíndrica de raio interno $b = 8{,}0\\text{ mm}$. O meio dielétrico que preenche o espaço intermediário apresenta uma resistividade de fuga de $\\rho = 1{,}0 \\times 10^{10}\\ \\Omega\\cdot\\text{m}$. A resistência de isolamento radial total entre o núcleo central e a blindagem vale aproximadamente ($\text{considere } \\ln(4) \\approx 1{,}386$):\n- \n\nA) $2{,}21 \\times 10^7\\ \\Omega$.\n- \n\nB) $1{,}10 \\times 10^7\\ \\Omega$.\n- \n\nC) $4{,}41 \\times 10^7\\ \\Omega$.\n- \n\nD) $8{,}82 \\times 10^7\\ \\Omega$.\n- \n\nE) $1{,}76 \\times 10^8\\ \\Omega$.",
+          "round_q": 13,
+          "level_label": "Difícil"
+        },
+        {
+          "id": "q44",
+          "q_num": 44,
+          "habilidade": "EM13CNT106",
+          "dificuldade": "dificil",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "B",
+          "resolucao": "",
+          "body": "44. Uma barra cilíndrica de comprimento $L = 0{,}50\\text{ m}$ e seção transversal uniforme $A = 2{,}0 \\times 10^{-6}\\text{ m}^2$ possui uma resistividade elétrica não homogênea que varia linearmente ao longo do seu comprimento segundo a função $\\rho(x) = \\rho_0 \\left(1 + 3 \\frac{x}{L}\\right)$, onde $\\rho_0 = 4{,}0 \\times 10^{-7}\\ \\Omega\\cdot\\text{m}$ e $x$ é a distância medida a partir de uma das extremidades. A resistência elétrica total da barra entre suas extremidades é:\n- \n\nA) $0{,}50\\ \\Omega$.\n- \n\nB) $0{,}25\\ \\Omega$.\n- \n\nC) $0{,}75\\ \\Omega$.\n- \n\nD) $1{,}00\\ \\Omega$.\n- \n\nE) $1{,}25\\ \\Omega$.",
+          "round_q": 14,
+          "level_label": "Difícil"
+        },
+        {
+          "id": "q45",
+          "q_num": 45,
+          "habilidade": "EM13CNT106",
+          "dificuldade": "dificil",
+          "objeto": "Resistores e Leis de Ohm",
+          "gabarito": "C",
+          "resolucao": "",
+          "body": "45. Um extensômetro elétrico de resistência (strain gaug\n\ne) de resistência inicial $R_0 = 120\\ \\Omega$ é colado sobre uma viga metálica submetida a um esforço mecânico de tração uniaxial. A viga sofre uma deformação elástica relativa $\\Delta L / L = 1{,}0 \\times 10^{-3}$ ($0{,}1\\%$). Admitindo que o coeficiente de Poisson do material seja $\\nu = 0{,}30$ e desconsiderando efeitos piezorresistivos, a variação da resistência elétrica $\\Delta R$ do sensor vale:\n- \n\nA) $0{,}072\\ \\Omega$.\n- \n\nB) $0{,}120\\ \\Omega$.\n- \n\nC) $0{,}192\\ \\Omega$.\n- \n\nD) $0{,}240\\ \\Omega$.\n- \n\nE) $0{,}384\\ \\Omega$.",
+          "round_q": 15,
+          "level_label": "Difícil"
+        }
+      ],
+      "source": "content/medio/3-serie/fisica/cap-06-resistores/ebooks/fis3-c06-obj1-primeira-lei-ohm-exercicios.md",
+      "file_path": "C:\\Users\\nepov\\Documents\\Pessoal\\Antigravity\\🚀 Educamob - DevOps e Infra\\content/medio/3-serie/fisica/cap-06-resistores/ebooks\\resistores-exercicios.md"
+    }
+  },
+  "9fe76088-18db-45c9-993b-9bbd30f66865": {
+    "topic": "Cinemática do MHS",
+    "discipline": "Física",
+    "current_mode": "modo_tira_duvidas",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0,
+    "disambiguation_reason": null
+  },
+  "05667f8d-d752-4285-ae15-f890fdab6bd3": {
+    "topic": "Termodinâmica",
+    "discipline": "Física",
+    "current_mode": "modo_tira_duvidas",
+    "pending_track": null,
+    "pending_disambiguation": null,
+    "disambiguation_options": null,
+    "clean_names": null,
+    "disambiguation_depth": 0
+  }
+}

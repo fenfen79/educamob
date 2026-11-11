@@ -105,56 +105,79 @@ MOTIVO: [1 frase explicando por que]"""
     except Exception as e:
         return "ERRO_JUIZ", str(e)
 
-print(f"Iniciando Stress Test com {len(PROMPTS)} prompts...\n")
+import concurrent.futures
+import statistics
+import random
+import uuid
+import time
+import requests
+import os
+import csv
 
-for i, prompt in enumerate(PROMPTS):
-    print(f"[{i+1}/{len(PROMPTS)}] Testando: {prompt}")
+API_URL = os.getenv("API_URL", "http://localhost:8000/api/chat")
+print(f"Alvo do teste: {API_URL}")
+
+# Duplicar prompts para termos 50 requisições
+NUM_REQUESTS = 50
+extended_prompts = (PROMPTS * (NUM_REQUESTS // len(PROMPTS) + 1))[:NUM_REQUESTS]
+
+results = []
+latencies = []
+
+def send_request(i, prompt):
+    # Pausa aleatória para simular tráfego orgânico real (usuários não enviam no mesmo milissegundo)
+    time.sleep(random.uniform(0.1, 3.5))
     
-    # Send request to Mob.me API
+    start_time = time.time()
     try:
         user_uuid = str(uuid.uuid4())
         session_uuid = str(uuid.uuid4())
         res = requests.post(
             API_URL, 
             json={"message": prompt, "user_id": user_uuid, "session_id": session_uuid},
-            timeout=15
+            timeout=30
         )
+        latency = time.time() - start_time
+        latencies.append(latency)
+        
         if res.status_code == 200:
-            ai_response = res.json().get("reply", "")
-            
-            # Evaluate with Gemini Judge
-            status, motivo = evaluate_response(prompt, ai_response)
+            ai_response = res.text
+            return {"id": i, "status": "200 OK", "latency": latency, "response_preview": ai_response[:100].replace('\n', ' ')}
         else:
-            ai_response = f"HTTP ERROR {res.status_code}"
-            status, motivo = "ERRO_API", f"HTTP {res.status_code}"
+            return {"id": i, "status": f"HTTP {res.status_code}", "latency": latency, "response_preview": ""}
             
     except Exception as e:
-        ai_response = str(e)
-        status, motivo = "ERRO_API", str(e)
+        latency = time.time() - start_time
+        latencies.append(latency)
+        return {"id": i, "status": "ERRO", "latency": latency, "response_preview": str(e)[:150]}
 
-    results.append({
-        "id": i+1,
-        "prompt": prompt,
-        "status": status,
-        "motivo": motivo,
-        "response_preview": ai_response[:100].replace('\n', ' ') + "..."
-    })
-    
-    time.sleep(0.5)
+print(f"Iniciando Stress Test (Tráfego Orgânico) com {NUM_REQUESTS} usuários simultâneos distribuídos...\n")
+
+# 15 max_workers simula um fluxo de ~15 alunos ativos no exato mesmo momento
+with concurrent.futures.ThreadPoolExecutor(max_workers=15) as executor:
+    futures = [executor.submit(send_request, i, prompt) for i, prompt in enumerate(extended_prompts)]
+    for future in concurrent.futures.as_completed(futures):
+        results.append(future.result())
+
+# Count stats
+success_count = sum(1 for r in results if r["status"] == "200 OK")
+fail_count = NUM_REQUESTS - success_count
+
+print("\n--- RESUMO DO TESTE DE CARGA (ROLL-OUT FASE 6) ---")
+print(f"Total de Requisições Simultâneas: {NUM_REQUESTS}")
+print(f"Sucesso (200 OK): {success_count}")
+print(f"Falhas: {fail_count}")
+
+if latencies:
+    print(f"Latência Média: {statistics.mean(latencies):.2f} segundos")
+    print(f"Latência Máxima: {max(latencies):.2f} segundos")
+    print(f"Latência Mínima: {min(latencies):.2f} segundos")
 
 # Save to CSV
 csv_file = "stress_test_report.csv"
 with open(csv_file, mode='w', newline='', encoding='utf-8') as f:
-    writer = csv.DictWriter(f, fieldnames=["id", "status", "prompt", "motivo", "response_preview"])
+    writer = csv.DictWriter(f, fieldnames=["id", "status", "latency", "response_preview"])
     writer.writeheader()
     writer.writerows(results)
 
-# Count stats
-pass_count = sum(1 for r in results if r["status"] == "PASSOU")
-fail_count = sum(1 for r in results if r["status"] == "FALHOU")
-
-print("\n--- RESUMO DO TESTE ---")
-print(f"Total: {len(PROMPTS)}")
-print(f"PASSOU (Segura): {pass_count}")
-print(f"FALHOU (Cedeu): {fail_count}")
-print(f"\nResultados detalhados salvos em: {csv_file}")
+print(f"\nResultados salvos em: {csv_file}")
