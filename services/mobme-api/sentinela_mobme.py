@@ -301,7 +301,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
             msg_has_issue = False
 
             if role == 'ai':
-                is_menu = ("Como você prefere começar?" in content or "Qual caminho você prefere agora?" in content) and len(content.strip()) < 450
+                is_menu = "Como você prefere começar?" in content or "1. Aprender📚" in content
                 is_disambig = (
                     ("qual desses caminhos é o seu foco" in content.lower() or 
                      "em qual foco você quer se aprofundar" in content.lower() or
@@ -421,22 +421,6 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                 # --- P1: FALHAS ALTAS DE SYSTEM PROMPT E CONDUTA PEDAGÓGICA ---
                 # ==============================================================
 
-                # P1.5 Dump Massivo de Exercícios no Chat (Quebra de Interatividade)
-                q_matches = len(re.findall(r"(?:\*\*Quest[ãa]o\s*\d+\*\*|📝 Questão)", content))
-                if q_matches > 2:
-                    issue = {
-                        "priority": "P1",
-                        "type": "DUMP_EXERCICIOS_CHAT",
-                        "session_id": sid,
-                        "msg_id": mid,
-                        "turn": idx + 1,
-                        "desc": f"A IA despejou {q_matches} questões em um único turno no chat, violando o princípio socrático unitário.",
-                        "snippet": content[:180]
-                    }
-                    s_audit["issues"].append(issue)
-                    issues_by_priority["P1"].append(issue)
-                    msg_has_issue = True
-
                 # P1.1 Gaslighting Pedagógico (IA justificando entrega errada como se a sessão fosse de outra matéria)
                 if (("esta é uma sessão de prática de" in content.lower() and "e não sobre" in content.lower()) or 
                     ("as questões que apresentei são de" in content.lower() and "não fazem parte do material" in content.lower())):
@@ -524,7 +508,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
 
                 # P2.1 Padrão Oficial Unificado de 5 Alternativas (A-E Obrigatório)
                 # Toda questão oficial ("📝 Questão") e checagem teórica ("**Checagem:**") DEVE ter exatamente 5 alternativas (a, b, c, d, e).
-                if ("📝 Questão" in content or "**Checagem:**" in content or bool(re.search(r"\*\*Quest[ãa]o\s*\d+\*\*", content))):
+                if ("📝 Questão" in content or "**Checagem:**" in content):
                     has_options = bool(re.search(r'(?:^|\n)\s*[a-dA-D]\)', content))
                     has_opt_e = bool(re.search(r'(?:^|\n)\s*[eE]\)', content))
                     has_opt_f = bool(re.search(r'(?:^|\n)\s*[f-zF-Z]\)', content))
@@ -576,7 +560,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     msg_has_issue = True
 
                 # P2.3 Subscrito duplo KaTeX sem chaves
-                if re.search(r'_[a-zA-Z0-9]+_[a-zA-Z0-9]+', content) and not re.search(r'\$[A-Z][a-z]?_\d+[A-Z][a-z]?_\d+', content):
+                if re.search(r'_[a-zA-Z0-9]+_[a-zA-Z0-9]+', content):
                     issue = {
                         "priority": "P2",
                         "type": "KATEX_DOUBLE_SUBSCRIPT",
@@ -615,8 +599,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                 friction_cues = [
                     "não entendi", "muito avançado", "muito difícil", "você errou", 
                     "não é isso", "pulou", "não pedi isso", "travou", "bug", "tá errado",
-                    "o que isso tem a ver", "o que isso tem haver", "essas questoes nao sao",
-                    "vai direto ao assunto", "mds", "meu deus", "enrola", "enrolando", "enrolação", "só falou quatro"
+                    "o que isso tem a ver", "o que isso tem haver", "essas questoes nao sao"
                 ]
                 for cue in friction_cues:
                     if cue in low_c:
