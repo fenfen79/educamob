@@ -6347,3 +6347,1400 @@ esolve_active_mode_and_topic).
      - Novo detector P1 `DUMP_EXERCICIOS_CHAT` para capturar entregas massivas de exercícios em um único turno.
      - Ampliação de gatilhos de atrito P3 do estudante (`"vai direto ao assunto"`, `"só falou quatro"`).
 - **Ambiente de Produção:** Deploy realizado e validado no container `mobme-api` via Docker na VPS Oracle Cloud (`137.131.163.113`).
+
+
+---
+
+## 🏛️ Rodada 115 - Homologação do Lote 9 de E-books de Língua Portuguesa do Ensino Médio (Capítulos 41 ao 45 — Eixo III: Literatura Brasileira, Africana e Indígena)
+
+- **Data:** 10 de Novembro de 2026
+- **Status:** 🏆 5 E-books Teóricos Atômicos 100% Homologados com Exit Code 0 no `validador_educamob.py`.
+- **Eixo Temático:** Continuidade do Eixo III — Literatura Brasileira, Africana dos PALOP e Indígena (Volume Único).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 41:** `content/medio/volume-unico/lingua-portuguesa/cap-41-quinhentismo-brasil-cronicas-catequese/ebooks/em-lp-c41-obj1-quinhentismo-caminha-gandavo-anchieta.md`
+     - Objeto de Conhecimento: O Quinhentismo no Brasil: Literatura de Viagem, Crônicas da Conquista e a Catequese de José de Anchieta (A Carta de Caminha, o mito do Éden tropical, Gandavo, Gabriel Soares de Sousa, e a produção jesuítica de José de Anchieta com o teatro bilíngue, gramatização do Tupi e poesia mariana) (EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50).
+     - Volume: 3.265 palavras limpas. Exit Code 0.
+  2. **Capítulo 42:** `content/medio/volume-unico/lingua-portuguesa/cap-42-barroco-cultismo-conceptismo-gregorio-vieira/ebooks/em-lp-c42-obj1-barroco-cultismo-conceptismo-gregorio-vieira.md`
+     - Objeto de Conhecimento: O Barroco no Brasil e em Portugal: Cultismo, Conceptismo e a Dualidade entre Gregório de Matos e Padre Antônio Vieira (A dualidade fé/razão na Contrarreforma; Gongorismo e Quevedismo; a poesia lírica, satírica e religiosa do "Boca do Inferno" na Salvador colonial; e a arquitetura oratória dos Sermões de Vieira — Sexagésima, Peixes e Bom Ladrão) (EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50).
+     - Volume: 2.914 palavras limpas. Exit Code 0.
+  3. **Capítulo 43:** `content/medio/volume-unico/lingua-portuguesa/cap-43-arcadismo-neoclassicismo-inconfidencia/ebooks/em-lp-c43-obj1-arcadismo-iluminismo-inconfidencia-ouro-preto.md`
+     - Objeto de Conhecimento: O Arcadismo no Brasil: Iluminismo, Convenções Pastorais Latinas e o Grupo Mineiro da Inconfidência (As convenções Inutilia Truncat, Fugere Urbem, Locus Amoenus, Aurea Mediocritas e Carpe Diem; a paisagem pétrea de Cláudio Manuel da Costa; Tomás Antônio Gonzaga com a lírica amorosa/carcerária de Marília de Dirceu e a sátira política clandestina das Cartas Chilenas; a épica de Basílio da Gama e Santa Rita Durão) (EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50).
+     - Volume: 2.890 palavras limpas. Exit Code 0.
+  4. **Capítulo 44:** `content/medio/volume-unico/lingua-portuguesa/cap-44-romantismo-poesia-tres-geracoes/ebooks/em-lp-c44-obj1-poesia-romantica-nacionalismo-mal-seculo-condoreira.md`
+     - Objeto de Conhecimento: O Romantismo no Brasil: A Poesia e as Três Gerações (Nacionalista, Ultrarromântica e Condoreira) (1ª Geração Indianista com Gonçalves Dias e a Canção do Exílio/I-Juca-Pirama; 2ª Geração do Mal-do-Século com Álvares de Azevedo e a dialética da Lira dos Vinte Anos; 3ª Geração Condoreira com Castro Alves, o Poeta dos Escravos, e a denúncia épica de O Navio Negreiro) (EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50).
+     - Volume: 2.881 palavras limpas. Exit Code 0.
+  5. **Capítulo 45:** `content/medio/volume-unico/lingua-portuguesa/cap-45-romantismo-prosa-vozes-pioneiras/ebooks/em-lp-c45-obj1-prosa-romantica-alencar-maria-firmina-dos-reis.md`
+     - Objeto de Conhecimento: O Romantismo em Prosa: O Projeto Nacional de José de Alencar, a Malandragem Urbana e o Pioneirismo Abolicionista de Maria Firmina dos Reis (A cultura do folhetim; as 4 vertentes de José de Alencar — indianista em Iracema, urbana em Senhora, regionalista e histórica; o anti-herói popular em Memórias de um Sargento de Milícias de Manuel Antônio de Almeida; e o pioneirismo absoluto da mulher negra Maria Firmina dos Reis com o romance abolicionista Úrsula em 1859) (EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50).
+     - Volume: 3.095 palavras limpas. Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Palavras Produzidas no Lote 9: **15.045 palavras limpas** de altíssima densidade teórica.
+  - Total Acumulado de Língua Portuguesa no Ensino Médio: **45 de 61 e-books concluídos (73,8% do projeto)** com **125.143 palavras limpas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python, zero exercícios na teoria, zero `R$`, no mínimo 5 referências ABNT NBR 6023 com citação explícita da BNCC por capítulo e estrutura canônica em 6 seções obrigatórias).
+
+
+---
+
+## 🏛️ Rodada 116 - Homologação do Lote 10 de E-books de Língua Portuguesa do Ensino Médio (Capítulos 46 ao 50 — Eixo III: Literatura Brasileira, Africana e Indígena)
+
+- **Data:** 10 de Novembro de 2026
+- **Status:** 🏆 5 E-books Teóricos Atômicos 100% Homologados com Exit Code 0 no `validador_educamob.py`.
+- **Eixo Temático:** Continuidade do Eixo III — Literatura Brasileira, Africana dos PALOP e Indígena (Volume Único).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 46:** `content/medio/volume-unico/lingua-portuguesa/cap-46-realismo-machado-de-assis/ebooks/em-lp-c46-obj1-realismo-machado-assis-segunda-fase.md`
+     - Objeto de Conhecimento: O Realismo no Brasil e a Obra Monumental de Machado de Assis: A Fase Madura e a Ironia Cética (Ruptura com o Romantismo em 1881; os 4 pilares da técnica machadiana: narrador não confiável, ironia fina, metalinguagem e microrrealismo psicológico; a tríade madura: Memórias Póstumas de Brás Cubas e as Negativas, Quincas Borba e o delírio do Humanitismo, e Dom Casmurro e o enigma insondável de Capitu) (EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50).
+     - Volume: 2.982 palavras limpas. Exit Code 0.
+  2. **Capítulo 47:** `content/medio/volume-unico/lingua-portuguesa/cap-47-naturalismo-determinismo-social/ebooks/em-lp-c47-obj1-naturalismo-aluisio-azevedo-adolfo-caminha-pompeia.md`
+     - Objeto de Conhecimento: O Naturalismo no Brasil: O Determinismo Cientificista, Zoomorfização e as Patologias Coletivas em Aluísio Azevedo e Contemporâneos (O romance experimental de Zola; os 3 pilares de Taine: meio, raça e momento; a zoomorfização animalizada; O Cortiço como protagonista vivo e as trajetórias de Jerônimo, Rita Baiana e João Romão; O Ateneu de Raul Pompéia e Bom-Crioulo de Adolfo Caminha) (EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50).
+     - Volume: 2.864 palavras limpas. Exit Code 0.
+  3. **Capítulo 48:** `content/medio/volume-unico/lingua-portuguesa/cap-48-parnasianismo-simbolismo/ebooks/em-lp-c48-obj1-parnasianismo-bilac-simbolismo-cruz-e-sousa.md`
+     - Objeto de Conhecimento: Parnasianismo e Simbolismo: O Rigor da Forma Esculpida versus a Musicalidade e a Transcendência Negra (Parnasianismo: "A Arte pela Arte", culto ao soneto decassílabo e alexandrino, rimas ricas e a tríade com Olavo Bilac, Alberto de Oliveira, Raimundo Correia e Francisca Júlia; Simbolismo: o primado da musicalidade verbal, sinestesias, maiúsculas alegorizantes, a dor do racismo e a obsessão pela brancura em Cruz e Sousa e o misticismo elegíaco de Alphonsus de Guimaraens) (EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50).
+     - Volume: 2.853 palavras limpas. Exit Code 0.
+  4. **Capítulo 49:** `content/medio/volume-unico/lingua-portuguesa/cap-49-pre-modernismo-brasil-sertoes/ebooks/em-lp-c49-obj1-pre-modernismo-euclides-cunha-sertoes-augusto.md`
+     - Objeto de Conhecimento: O Pré-Modernismo I: Euclides da Cunha, a Fratura dos Sertões, Monteiro Lobato e a Poética de Augusto dos Anjos (A fratura nacional entre o Brasil oficial litorâneo e o Brasil real dos sertões; Os Sertões de Euclides da Cunha — A Terra, O Homem com "o sertanejo é antes de tudo um forte", e A Luta denunciando o massacre de Canudos como crime de Estado; Monteiro Lobato em Urupês com o Jeca Tatu da preguiça à doença endêmica; e a poesia cósmica materialista de Augusto dos Anjos em Eu com Versos Íntimos) (EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50).
+     - Volume: 3.108 palavras limpas. Exit Code 0.
+  5. **Capítulo 50:** `content/medio/volume-unico/lingua-portuguesa/cap-50-pre-modernismo-lima-barreto/ebooks/em-lp-c50-obj1-lima-barreto-policarpo-quaresma-clara-anjos.md`
+     - Objeto de Conhecimento: A Voz Rebelde e Periférica de Lima Barreto: O Subúrbio, o Combate ao Racismo e a Desilusão com a República (Capítulo exclusivo consagrado a Afonso Henriques de Lima Barreto: a literatura como militância política; o protagonismo do subúrbio ferroviário carioca e a linguagem coloquial antecipando o Modernismo; Triste Fim de Policarpo Quaresma e o quixotismo nacionalista esmagado pelo militarismo de Floriano Peixoto; Clara dos Anjos e a denúncia da predação social da mulher negra periférica; Recordações do Escrivão Isaías Caminha e Diário do Hospício) (EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50).
+     - Volume: 3.324 palavras limpas. Exit Code 0.
+     - 🏆 **MARCO HOMOLOGATÓRIO: CAPÍTULO EXCLUSIVO DEDICADO A LIMA BARRETO HOMOLOGADO COM 3.324 PALAVRAS DE ALTA DENSIDADE ACADÊMICA**!
+- **Métricas Consolidadas:**
+  - Total de Palavras Produzidas no Lote 10: **15.131 palavras limpas** de altíssima densidade teórica.
+  - Total Acumulado de Língua Portuguesa no Ensino Médio: **50 de 61 e-books concluídos (82,0% do projeto)** com **140.274 palavras limpas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python, zero exercícios na teoria, zero `R$`, no mínimo 5 referências ABNT NBR 6023 com citação explícita da BNCC por capítulo e estrutura canônica em 6 seções obrigatórias).
+
+
+---
+
+## 🚀 Rodada 117 - Homologação do Lote 11 de E-books de Língua Portuguesa do Ensino Médio (Capítulos 51 ao 55 — Eixo III: Literatura Brasileira, Vanguardas, Poesia de 30, Romance de 30 e Geração de 45)
+
+- **Data:** 10 de Novembro de 2026
+- **Status:** ✅ 5 E-books Teóricos Atômicos 100% Homologados com Exit Code 0 no `validador_educamob.py`.
+- **Eixo Temático:** Continuidade do Eixo III — Literatura Brasileira, Africana dos PALOP e Indígena (Volume Único).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 51:** `content/medio/volume-unico/lingua-portuguesa/cap-51-modernismo-1-fase-semana-1922/ebooks/em-lp-c51-obj1-semana-arte-moderna-vanguardas-mario-oswald.md`
+     - Objeto de Conhecimento: A Semana de Arte Moderna de 1922 e a Primeira Fase do Modernismo: Vanguardas Europeias, Ruptura Estética e Identidade Nacional (A agitação no Theatro Municipal nos dias 13, 15 e 17 de fevereiro; a conferência de Graça Aranha, Ronald de Carvalho lendo "Os Sapos" de Bandeira e vaias ao chinelo de Villa-Lobos; as vanguardas europeias ressignificadas: Futurismo, Cubismo, Dadaísmo, Surrealismo e o Expressionismo na polêmica de Monteiro Lobato com Anita Malfatti; Mário de Andrade e Pauliceia Desvairada com o polifonismo poético e Macunaíma como rapsódia do herói sem nenhum caráter; Oswald de Andrade com os poemas-pílula, o Manifesto Pau-Brasil e o Manifesto Antropófago da deglutição descolonizadora; Manuel Bandeira e Libertinagem) (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 3.936 palavras limpas. Exit Code 0.
+  2. **Capítulo 52:** `content/medio/volume-unico/lingua-portuguesa/cap-52-modernismo-2-fase-poesia-30/ebooks/em-lp-c52-obj1-poesia-de-30-drummond-mendes-meireles-vinicius.md`
+     - Objeto de Conhecimento: A Segunda Fase do Modernismo: A Poesia de 30 e a Consciência Crítica do Mundo (A consolidação modernista sob a Grande Depressão, a ascensão nazi-fascista, a Segunda Guerra Mundial e o Estado Novo de Vargas; Carlos Drummond de Andrade: do indivíduo gauche e a pedra em Alguma Poesia ao engajamento ético-social contra o fascismo em Sentimento do Mundo e A Rosa do Povo com "A flor e a náusea", culminando no ceticismo metafísico de Claro Enigma; Cecília Meireles e o desapego neossimbolista do tempo fugidio em Viagem e o épico histórico libertário Romanceiro da Inconfidência; Murilo Mendes e Jorge de Lima unindo o surrealismo ao misticismo católico em Tempo e Eternidade e Invenção de Orfeu; Vinicius de Moraes: da poesia mística aos sonetos de amor mundanos e à denúncia humanista antibelicista em "A Rosa de Hiroshima") (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 3.627 palavras limpas. Exit Code 0.
+  3. **Capítulo 53:** `content/medio/volume-unico/lingua-portuguesa/cap-53-modernismo-2-fase-romance-30-nordeste/ebooks/em-lp-c53-obj1-romance-de-30-graciliano-jorge-amado-rachel.md`
+     - Objeto de Conhecimento: A Segunda Fase do Modernismo: O Romance de 30 e o Regionalismo Crítico do Nordeste (A superação do pitoresco romântico em prol do realismo crítico documental da questão agrária; Graciliano Ramos e a estética da secura: a zoomorfização de Fabiano, a humanização lírica da cadela Baleia e a opressão institucional em Vidas Secas, a coisificação pelo lucro capitalista em São Bernardo com Paulo Honório e Madalena, Angústia e Memórias do Cárcere; Jorge Amado: a luta violenta de terras no ciclo do cacau em Terras do Sem-Fim e os menores em situação de rua, marginalidade e resistência comunitária afro-baiana no trapiche de Capitães da Areia; Rachel de Queiroz e a grande seca de 1915 em O Quinze com a tragédia de Chico Bento nos campos de concentração e a emancipação feminina de Conceição; José Lins do Rego e o declínio dos engenhos banguês em Fogo Morto com José Amaro, Lula de Holanda e o quixotesco Capitão Vitorino "Papa-Rabo") (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 4.027 palavras limpas. Exit Code 0.
+  4. **Capítulo 54:** `content/medio/volume-unico/lingua-portuguesa/cap-54-modernismo-2-fase-romance-30-sul-sudeste/ebooks/em-lp-c54-obj1-romance-de-30-erico-verissimo-dionisio.md`
+     - Objeto de Conhecimento: A Segunda Fase do Modernismo: O Romance de 30 no Sul e Sudeste, Urbanização e Sociedade (A expansão da prosa de 30 para além do semiárido; a industrialização, imigração e ascensão da classe média sob a Era Vargas; Érico Veríssimo e o romance urbano de Porto Alegre: a técnica do contraponto em Caminhos Cruzados, a crítica ética ao utilitarismo burguês e as cartas de Olívia em Olhai os Lírios do Campo, e a grande trilogia épica O Tempo e o Vento com a matriarca Ana Terra fincando raízes na terra e o herói dionisíaco Capitão Rodrigo Cambará; Dionélio Machado e o expressionismo psicológico magistral em Os Ratos acompanhando a odisseia de 24 horas de Naziazeno Barbosa para conseguir 53 mil-réis e pagar o leiteiro, com o pesadelo final dos ratos; Marques Rebelo e a crônica irônica dos subúrbios cariocas em A Estrela Sobe com Leniza Mayer) (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 3.834 palavras limpas. Exit Code 0.
+  5. **Capítulo 55:** `content/medio/volume-unico/lingua-portuguesa/cap-55-modernismo-3-fase-poesia-geracao-45/ebooks/em-lp-c55-obj1-geracao-de-45-poesia-joao-cabral-ledotivo.md`
+     - Objeto de Conhecimento: A Terceira Fase do Modernismo: A Poesia da Geração de 45, Rigor Construtivo e João Cabral de Melo Neto (O pós-guerra de 1945 e o fim do Estado Novo; a reação contra o facilitismo e frouxidão métrica atribuídos à herança de 22; a vertente restauradora tradicionalista neoparnasiana com Ledo Ivo e Péricles Eugênio da Silva Ramos; a revolução autônoma de João Cabral de Melo Neto ("O Engenheiro da Palavra"): recusa do lirismo confessional derramado e da inspiração mística, a poesia como arquitetura e cálculo lúcido de vigília, primado do vocabulário substantivo mineral (pedra, faca, cal, osso, sol, muro), antimusicalidade e rimas toantes; as grandes obras: O Cão sem Plumas, O Rio, o auto épico-popular Morte e Vida Severina consagrando a vitória teimosa da vida com o nascimento do filho do mestre carpinteiro José contra a morte burocrática e sertaneja, e A Educação pela Pedra como pedagogia da contenção mineral) (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 3.729 palavras limpas. Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Palavras Produzidas no Lote 11: **19.153 palavras limpas** de altíssima densidade teórica.
+  - Total Acumulado de Língua Portuguesa no Ensino Médio: **55 de 61 e-books concluídos (90,16% do projeto)** com **159.427 palavras limpas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python, zero exercícios na teoria, zero `R$`, no mínimo 5 referências ABNT NBR 6023 com citação explícita da BNCC por capítulo e estrutura canônica em 6 seções obrigatórias).
+
+
+---
+
+## 🏆 Rodada 118 - Homologação do Lote 12 Final de E-books de Língua Portuguesa do Ensino Médio (Capítulos 56 ao 61) e MARCO HISTÓRICO: 100% DE CONCLUSÃO DA MATRIZ DO ENSINO MÉDIO (61 DE 61 CAPÍTULOS CONCLUÍDOS)
+
+- **Data:** 10 de Novembro de 2026
+- **Status:** 🏆 6 E-books Teóricos Atômicos 100% Homologados com Exit Code 0 no `validador_educamob.py`.
+- **Eixo Temático:** Fechamento Integral do Eixo III — Literatura Brasileira, Vanguardas, Literatura Indígena, PALOP e Literatura Marginal Contemporânea (Volume Único).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 56:** `content/medio/volume-unico/lingua-portuguesa/cap-56-modernismo-3-fase-prosa-guimaraes-rosa/ebooks/em-lp-c56-obj1-guimaraes-rosa-grande-sertao-veredas-primeiras-estorias.md`
+     - Objeto de Conhecimento: A Terceira Fase do Modernismo: Guimarães Rosa, a Reinvenção da Linguagem e o Sertão Metafísico (Superação do regionalismo estritamente sociológico rumo ao sertão cósmico universal com "O sertão é o mundo"; alquimia linguística: neologismos, arcaísmos ibéricos, oralidade poética e sintaxe flexível; Sagarana com "A Hora e Vez de Augusto Matraga" e o sacrifício redentor; Grande Sertão: Veredas: o monólogo monumental de Riobaldo para o Doutor, o enigma do pacto com o Diabo nas Veredas Mortas, o amor sublime por Diadorim e a revelação trágica de seu corpo feminino na morte, a travessia do Liso do Sussuarão e "Viver é muito perigoso"; e Primeiras Estórias com a enigmática suspensão existencial em "A Terceira Margem do Rio") (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 3.939 palavras limpas. Exit Code 0.
+  2. **Capítulo 57:** `content/medio/volume-unico/lingua-portuguesa/cap-57-modernismo-3-fase-prosa-clarice-lispector/ebooks/em-lp-c57-obj1-clarice-lispector-hora-da-estrela-paixao-gh-epifania.md`
+     - Objeto de Conhecimento: A Terceira Fase do Modernismo: Clarice Lispector, a Sondagem Psicológica, a Epifania e a Condição Humana (A revolução da prosa introspectiva existencialista; desconstrução do enredo tradicional em favor do tempo psicológico e do fluxo de consciência; o conceito fulcral de Epifania: revelação súbita do abismo do ser deflagrada por fatos cotidianos; Laços de Família e o desmonte das gaiolas burguesas em "Amor" com Ana, o cego mascando chiclete e os ovos quebrados no bonde, e "Feliz Aniversário"; A Paixão Segundo G.H.: a despersonalização extrema e a comunhão mística com a matéria viva da barata; e a obra-prima final A Hora da Estrela: a metanarrativa do intelectual culpado Rodrigo S.M. narrando a saga invisível e desvalida da retirante alagoana Macabéa, o desamor com Olímpico de Jesus, a falsa promessa da cartomante Madame Carlota e o atropelamento fatal pelo Mercedes amarelo como a única e dolorosa "hora da estrela" da invisibilidade humana) (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 4.475 palavras limpas. Exit Code 0.
+  3. **Capítulo 58:** `content/medio/volume-unico/lingua-portuguesa/cap-58-concretismo-neoconcretismo-tropicalia/ebooks/em-lp-c58-obj1-poesia-concreta-haroldo-augusto-campos-tropicalia.md`
+     - Objeto de Conhecimento: Vanguardas do Pós-Guerra no Brasil: Concretismo, Neoconcretismo, Poesia-Práxis e Movimento Tropicalista (O otimismo desenvolvimentista dos anos 1950, o choque do golpe de 1964 e o AI-5 em 1968; Concretismo paulista do grupo Noigandres com Augusto e Haroldo de Campos e Décio Pignatari: o Plano-Piloto de 1958, o fim do verso linear, a estrutura verbivocovisual, a topologia da página e o clássico "Beba Coca-Cola"; Neoconcretismo carioca com o manifesto de Ferreira Gullar, Lygia Clark e Lygia Pape em defesa da sensibilidade e do quase-corpo da arte; o monumento do exílio Poema Sujo de Gullar resgatando o corpo, a infância em São Luís e a rebeldia contra a tirania armada; Poesia-Práxis de Mário Chamie; e o Movimento Tropicalista com Caetano Veloso, Gilberto Gil, Torquato Neto e Os Mutantes no álbum Panis et Circensis: deglutição pop da antropofagia oswaldiana unindo guitarras, berimbaus, erudição e o kitsch da TV, até a censura e exílio pelo AI-5) (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 3.414 palavras limpas. Exit Code 0.
+  4. **Capítulo 59:** `content/medio/volume-unico/lingua-portuguesa/cap-59-literatura-indigena-brasileira-contemporanea/ebooks/em-lp-c59-obj1-literatura-indigena-krenak-kopenawa-munduruku.md`
+     - Objeto de Conhecimento: A Literatura Indígena Brasileira Contemporânea: Vozes Originárias, Cosmologias da Terra e Resistência Ecológica (Giro descolonizador: superação do indígena como objeto folclórico do Indianismo Romântico em prol do sujeito soberano de sua própria enunciação; a escrita alfabética como "palavra-lança" articulada à oralidade ancestral; Ailton Krenak: membro da ABL, crítica ao antropocentrismo predatório ocidental em Ideias para adiar o fim do mundo e A vida não é útil, os rios e montanhas como parentes vivos (o avô Watu assassinado pela mineração) e o sonhar como sabedoria cósmica; Davi Kopenawa: a obra-prima xamânica A queda do céu, a denúncia da xawara das epidemias do garimpo predatório, os espíritos xapiri e a profecia aterradora da queda da abóbada celeste; Daniel Munduruku e a pedagogia do pertencimento circular em Meu avô Apolinário; e Eliane Potiguara pioneira da poesia indígena feminina em Metade cara, metade máscara) (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 3.693 palavras limpas. Exit Code 0.
+  5. **Capítulo 60:** `content/medio/volume-unico/lingua-portuguesa/cap-60-literaturas-africanas-palop-angola-mocambique/ebooks/em-lp-c60-obj1-literatura-angola-mocambique-pepetela-mia-couto-chiziane.md`
+     - Objeto de Conhecimento: Literaturas Africanas em Língua Portuguesa (PALOP): Identidade Pós-Colonial, Memória e Resistência em Angola e Moçambique (A descolonização tardia sob a Revolução dos Cravos de 1974; a Guerra Colonial e as guerras civis da Guerra Fria; a apropriação e descolonização da língua portuguesa fecundada pelas línguas bantas; Moçambique: Mia Couto e Terra Sonâmbula (o machimbombo queimado da guerra civil, Tuahir, Muidinga lendo os cadernos de Kindzu e a literatura como regeneração), Paulina Chiziane em Niketche: Uma História de Poligamia (a sororidade feminina de Rami e as outras esposas subvertendo a tirania patriarcal) e José Craveirinha; Angola: Pepetela e a dissecação corajosa da guerrilha em Mayombe com Sem Medo, Teoria e os conflitos de tribalismo étnico, e José Luandino Vieira com Luuanda transcrevendo a linguagem dos musseques) (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 4.260 palavras limpas. Exit Code 0.
+  6. **Capítulo 61:** `content/medio/volume-unico/lingua-portuguesa/cap-61-literatura-contemporanea-marginal-periferica/ebooks/em-lp-c61-obj1-literatura-marginal-periferica-conceicao-evaristo-geovani.md`
+     - Objeto de Conhecimento: A Literatura Brasileira Contemporânea: A Voz Periférica, a "Escrevivência" e a Refundação Étnico-Social da Ficção (A quebra do monopólio do cânone letrado tradicional; Carolina Maria de Jesus pioneira absoluta em Quarto de Despejo com a favela como quarto de despejo da burguesia e a cor amarela da fome; Conceição Evaristo e a "Escrevivência" que acorda os da casa-grande de seus sonos injustos em Ponciá Vicêncio, Becos da Memória e Olhos D'Água; o movimento da Literatura Marginal com Ferréz em Capão Pecado, a revolução dos Saraus da Periferia com Sérgio Vaz na Cooperifa, o Poetry Slam e Geovani Martins em O Sol na Cabeça; e Itamar Vieira Junior com o fenômeno internacional Torto Arado: Bibiana, Belonísia, a servidão pós-abolição, o culto sagrado do Jarê e a redenção mágica e quilombola da terra) (EM13LP46, EM13LP48, EM13LP49, EM13LP52).
+     - Volume: 4.637 palavras limpas. Exit Code 0.
+     - 🏆 **FECHAMENTO TOTAL DE 100% DA MATRIZ DE LÍNGUA PORTUGUESA DO ENSINO MÉDIO EM VOLUME ÚNICO (61 DE 61 CAPÍTULOS HOMOLOGADOS)**!
+- **Métricas Consolidadas:**
+  - Total de Palavras Produzidas no Lote 12: **24.418 palavras limpas** de altíssima densidade teórica.
+  - **TOTAL GERAL ACUMULADO DE LÍNGUA PORTUGUESA DO ENSINO MÉDIO:** **61 de 61 e-books 100% CONCLUÍDOS (100% DO PROJETO)** com **183.845 palavras limpas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python, zero exercícios na teoria, zero `R$`, no mínimo 5 referências ABNT NBR 6023 com citação explícita da BNCC por capítulo e estrutura canônica em 6 seções obrigatórias).
+
+
+---
+
+## 🏆 Rodada 119 - Homologação do Lote 1 de Listas de Exercícios de Língua Portuguesa do Ensino Médio (Capítulos 01 ao 05 — Eixo I: Linguística e Morfossintaxe)
+
+- **Data:** 11 de Novembro de 2026
+- **Status:** 🏆 5 Listas de Exercícios Atômicas 100% Homologadas com Exit Code 0 no `validador_educamob.py`.
+- **Eixo Temático:** Eixo I — Linguística e Morfossintaxe (Volume Único).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 01:** `content/medio/volume-unico/lingua-portuguesa/cap-01-comunicacao-enunciacao-interacao/ebooks/em-lp-c01-obj1-funcoes-linguagem-interacao-exercicios.md`
+     - Objeto de Conhecimento: Teoria da Comunicação, Funções da Linguagem e Enunciação (EM13LP01, EM13LP02).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  2. **Capítulo 02:** `content/medio/volume-unico/lingua-portuguesa/cap-02-sociolinguistica-variacao-linguistica/ebooks/em-lp-c02-obj1-variacao-sociolinguistica-preconceito-exercicios.md`
+     - Objeto de Conhecimento: Sociolinguística, Variação Linguística e Combate ao Preconceito Linguístico (EM13LP02, EM13LP03, EM13LP07).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  3. **Capítulo 03:** `content/medio/volume-unico/lingua-portuguesa/cap-03-gramatica-normativa-vs-descritiva/ebooks/em-lp-c03-obj1-gramatica-norma-padrao-usos-exercicios.md`
+     - Objeto de Conhecimento: Gramática Normativa, Gramática Descritiva e Adequação Linguística (EM13LP02, EM13LP03, EM13LP07).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  4. **Capítulo 04:** `content/medio/volume-unico/lingua-portuguesa/cap-04-fonologia-ortografia-acentuacao/ebooks/em-lp-c04-obj1-fonologia-ortografia-reforma-exercicios.md`
+     - Objeto de Conhecimento: Fonética, Fonologia, Ortografia e Acentuação Gráfica (EM13LP01, EM13LP06).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  5. **Capítulo 05:** `content/medio/volume-unico/lingua-portuguesa/cap-05-morfologia-formacao-palavras/ebooks/em-lp-c05-obj1-estrutura-formacao-palavras-neologismos-exercicios.md`
+     - Objeto de Conhecimento: Morfologia e Processos de Formação de Palavras: Estrutura Mórfica, Derivação e Neologismos (EM13LP06, EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 1: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **5 de 61 listas concluídas (8,2% do projeto)** com **300 questões**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python `validador_educamob.py`, tags HTML de telemetria completas, gradação cognitiva 20/20/20, resolução em 2 etapas nas 20 difíceis, gabaritos matematicamente equilibrados em 20% A-E sem repetição viciada, zero decoreba, ausência de jargões universitários/concursistas e referências ABNT NBR 6023 citando expressamente a BNCC).
+
+
+---
+
+## 🏆 Rodada 120 - Homologação do Lote 2 de Listas de Exercícios de Língua Portuguesa do Ensino Médio (Capítulos 06 ao 10 — Eixo I: Linguística e Morfossintaxe)
+
+- **Data:** 11 de Novembro de 2026
+- **Status:** 🏆 5 Listas de Exercícios Atômicas 100% Homologadas com Exit Code 0 no `validador_educamob.py`.
+- **Eixo Temático:** Eixo I — Linguística e Morfossintaxe (Volume Único).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 06:** `content/medio/volume-unico/lingua-portuguesa/cap-06-morfossintaxe-classes-nominais/ebooks/em-lp-c06-obj1-substantivo-adjetivo-artigo-numeral-exercicios.md`
+     - Objeto de Conhecimento: Morfossintaxe Nominal: Substantivo, Adjetivo, Artigo e Numeral nos Textos Reais (EM13LP06, EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  2. **Capítulo 07:** `content/medio/volume-unico/lingua-portuguesa/cap-07-sistema-pronominal-coesao/ebooks/em-lp-c07-obj1-pronomes-deixis-colocacao-pronominal-exercicios.md`
+     - Objeto de Conhecimento: O Sistema Pronominal e a Coesão Referencial: Classes de Pronomes, Dêixis e Colocação Pronominal (EM13LP02, EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  3. **Capítulo 08:** `content/medio/volume-unico/lingua-portuguesa/cap-08-morfossintaxe-verbal-tempos-vozes/ebooks/em-lp-c08-obj1-verbo-conjugacao-temporalidade-vozes-exercicios.md`
+     - Objeto de Conhecimento: Morfossintaxe Verbal: Estrutura, Temporalidade, Modos, Correlação e Vozes Verbais (EM13LP07, EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  4. **Capítulo 09:** `content/medio/volume-unico/lingua-portuguesa/cap-09-palavras-invariaveis-conectivos/ebooks/em-lp-c09-obj1-adverbio-preposicao-conjuncao-conectivos-exercicios.md`
+     - Objeto de Conhecimento: Palavras Invariáveis e Conectivos: Advérbio, Preposição, Conjunção e Operadores Lógicos (EM13LP02, EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  5. **Capítulo 10:** `content/medio/volume-unico/lingua-portuguesa/cap-10-semantica-construcao-sentido/ebooks/em-lp-c10-obj1-denotacao-conotacao-polissemia-ambiguidade-exercicios.md`
+     - Objeto de Conhecimento: Semântica e Construção Textual de Sentido: Denotação, Conotação, Polissemia e Relações Léxicas (EM13LP06, EM13LGG103).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 2: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **10 de 61 listas concluídas (16,4% do projeto)** com **600 questões**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python `validador_educamob.py`, tags HTML de telemetria completas, gradação cognitiva 20/20/20, resolução em 2 etapas nas 20 difíceis, gabaritos matematicamente equilibrados em 20% A-E sem repetição viciada, zero decoreba, ausência de jargões universitários/concursistas e referências ABNT NBR 6023 citando expressamente a BNCC).
+
+## 🚀 Rodada 121 - Homologação do Lote 3 de Listas de Exercícios de Língua Portuguesa do Ensino Médio (Capítulos 11 ao 15 — Figuras de Estilo e Sintaxe da Oração I, II e III)
+
+- **Data:** 11 de Novembro de 2026
+- **Status:** 🏆 5 Listas de Exercícios Atômicas 100% Homologadas com Exit Code 0 no `validador_educamob.py`.
+- **Eixo Temático:** Eixo I - Linguística e Morfossintaxe (Volume Único).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 11:** `content/medio/volume-unico/lingua-portuguesa/cap-11-figuras-palavra-pensamento/ebooks/em-lp-c11-obj1-tropos-figuras-pensamento-exercicios.md`
+     - Objeto de Conhecimento: Figuras de Linguagem I: Figuras de Palavra (Tropos) e Figuras de Pensamento (EM13LP06, EM13LP13).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  2. **Capítulo 12:** `content/medio/volume-unico/lingua-portuguesa/cap-12-figuras-sintaxe-som/ebooks/em-lp-c12-obj1-construcao-sintatica-harmonia-sonoridade-exercicios.md`
+     - Objeto de Conhecimento: Figuras de Linguagem II: Figuras de Sintaxe (Construção) e Figuras de Som (Harmonia) (EM13LP06, EM13LP13).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  3. **Capítulo 13:** `content/medio/volume-unico/lingua-portuguesa/cap-13-sintaxe-termos-essenciais/ebooks/em-lp-c13-obj1-sujeito-predicado-transitividade-exercicios.md`
+     - Objeto de Conhecimento: Sintaxe da Oração I: Termos Essenciais (Sujeito e Predicado) e Predicação Verbal (EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  4. **Capítulo 14:** `content/medio/volume-unico/lingua-portuguesa/cap-14-sintaxe-termos-integrantes/ebooks/em-lp-c14-obj1-objetos-complemento-nominal-agente-passiva-exercicios.md`
+     - Objeto de Conhecimento: Sintaxe da Oração II: Termos Integrantes da Oração (Objetos, Complemento Nominal e Agente da Passiva) (EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  5. **Capítulo 15:** `content/medio/volume-unico/lingua-portuguesa/cap-15-sintaxe-termos-acessorios-vocativo/ebooks/em-lp-c15-obj1-adjuntos-aposto-vocativo-exercicios.md`
+     - Objeto de Conhecimento: Sintaxe da Oração III: Termos Acessórios (Adjuntos e Aposto) e o Vocativo (EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 3: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **15 de 61 listas concluídas (24,6% do projeto)** com **900 questões**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python `validador_educamob.py`, tags HTML de telemetria completas, gradação cognitiva 20/20/20, resolução em 2 etapas nas 20 difíceis, gabaritos matematicamente equilibrados em 20% A-E sem repetição viciada, zero decoreba, ausência de jargões universitários/concursistas e referências ABNT NBR 6023 citando expressamente a BNCC).
+
+## 🚀 Rodada 122 - Homologação do Lote 4 de Listas de Exercícios de Língua Portuguesa do Ensino Médio (Capítulos 16 ao 20 — Fechamento Oficial do Eixo I: Linguística e Morfossintaxe)
+
+- **Data:** 11 de Novembro de 2026
+- **Status:** 🏆 5 Listas de Exercícios Atômicas 100% Homologadas com Exit Code 0 no alidador_educamob.py.
+- **Eixo Temático:** Eixo I — Linguística, Análise Linguística e Morfossintaxe (Volume Único — 100% Concluído).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 16:** content/medio/volume-unico/lingua-portuguesa/cap-16-sintaxe-periodo-composto-coordenacao/ebooks/em-lp-c16-obj1-coordenadas-assindeticas-sindeticas-exercicios.md
+     - Objeto de Conhecimento: Sintaxe do Período Composto por Coordenação: Orações Assindéticas e Sindéticas (EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  2. **Capítulo 17:** content/medio/volume-unico/lingua-portuguesa/cap-17-sintaxe-periodo-composto-subordinacao/ebooks/em-lp-c17-obj1-subordinadas-substantivas-adjetivas-adverbiais-exercicios.md
+     - Objeto de Conhecimento: Sintaxe do Período Composto por Subordinação: Orações Substantivas, Adjetivas e Adverbiais (EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  3. **Capítulo 18:** content/medio/volume-unico/lingua-portuguesa/cap-18-oracoes-reduzidas-desdobramento/ebooks/em-lp-c18-obj1-reduzidas-infinitivo-gerundio-participio-exercicios.md
+     - Objeto de Conhecimento: Orações Reduzidas no Período Composto: Estrutura, Classificação, Desdobramento e Sintaxe do Infinitivo (EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  4. **Capítulo 19:** content/medio/volume-unico/lingua-portuguesa/cap-19-sintaxe-concordancia-verbal-nominal/ebooks/em-lp-c19-obj1-concordancia-padrao-casos-especiais-exercicios.md
+     - Objeto de Conhecimento: Sintaxe de Concordância Verbal e Nominal: Regras Canônicas, Casos Especiais e Efeitos Discursivos (EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  5. **Capítulo 20:** content/medio/volume-unico/lingua-portuguesa/cap-20-regencia-crase-pontuacao/ebooks/em-lp-c20-obj1-regencia-crase-pontuacao-sintatica-exercicios.md
+     - Objeto de Conhecimento: Regência Verbal, Regência Nominal, Teoria da Crase e Pontuação Sintática Canônica (EM13LP08).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 4: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **20 de 61 listas concluídas (32,8% do projeto)** com **1.200 questões**.
+  - **Marco Histórico:** Conclusão de 100% do Eixo I (Linguística e Morfossintaxe — Capítulos 01 ao 20), fornecendo o banco integral de exercícios atômicos de gramática e análise linguística para o Ensino Médio.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python alidador_educamob.py, tags HTML de telemetria completas, gradação cognitiva 20/20/20, resolução em 2 etapas nas 20 difíceis, gabaritos matematicamente equilibrados em 20% A-E sem repetição viciada, zero decoreba, ausência de jargões universitários/concursistas e referências ABNT NBR 6023 citando expressamente a BNCC).
+
+
+## 🚀 Rodada 123 - Homologação do Lote 5 de Listas de Exercícios de Língua Portuguesa do Ensino Médio (Capítulos 21 ao 25 — Abertura Oficial do Eixo II: Produção Textual, Retórica e Redação ENEM)
+
+- **Data:** 11 de Novembro de 2026
+- **Status:** 🏆 5 Listas de Exercícios Atômicas 100% Homologadas com Exit Code 0 no validador_educamob.py.
+- **Eixo Temático:** Eixo II — Produção Textual, Retórica, Redação ENEM e Cultura Digital (Volume Único — Em Andamento).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 21:** content/medio/volume-unico/lingua-portuguesa/cap-21-tipologias-generos-discursivos/ebooks/em-lp-c21-obj1-tipologia-narrar-descrever-dissertar-injuncao-exercicios.md
+     - Objeto de Conhecimento: Tipologias Textuais e Gêneros Discursivos: Narrar, Descrever, Dissertar, Expor e Injuntar (EM13LP01, EM13LP05).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  2. **Capítulo 22:** content/medio/volume-unico/lingua-portuguesa/cap-22-coesao-progressao-tematica/ebooks/em-lp-c22-obj1-coesao-referencial-sequencial-operadores-exercicios.md
+     - Objeto de Conhecimento: Mecanismos de Coesão Textual e Progressão Temática: Coesão Referencial, Sequencial e Operadores Argumentativos (EM13LP02, EM13LP06).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  3. **Capítulo 23:** content/medio/volume-unico/lingua-portuguesa/cap-23-teoria-argumentacao-logica-discursiva/ebooks/em-lp-c23-obj1-argumentacao-tipos-argumento-falacias-exercicios.md
+     - Objeto de Conhecimento: Teoria da Argumentação e Lógica Discursiva: Tipos de Argumento, Estratégias Retóricas e Falácias Lógicas (EM13LP05, EM13LP07).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  4. **Capítulo 24:** content/medio/volume-unico/lingua-portuguesa/cap-24-modalizacao-enunciativa-impessoalizacao/ebooks/em-lp-c24-obj1-modalizadores-epistemica-deontica-impessoalizacao-exercicios.md
+     - Objeto de Conhecimento: Modalização Enunciativa e Recursos de Impessoalização: Ponto de Vista, Modalizadores e Autoria (EM13LP02, EM13LP06).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  5. **Capítulo 25:** content/medio/volume-unico/lingua-portuguesa/cap-25-intertextualidade-dialogismo-discursivo/ebooks/em-lp-c25-obj1-intertextualidade-parodia-parafrase-alusao-exercicios.md
+     - Objeto de Conhecimento: Intertextualidade e Dialogismo: Paródia, Paráfrase, Epígrafe, Alusão e Pastiche (EM13LP01, EM13LP45).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 5: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **25 de 61 listas concluídas (41,0% do projeto)** com **1.500 questões**.
+  - Total Acumulado Geral (Ensino Fundamental + Médio): **125 listas / 7.500 questões atômicas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python validador_educamob.py, tags HTML de telemetria completas, gradação cognitiva 20/20/20, resolução em 2 etapas nas 20 difíceis, gabaritos matematicamente equilibrados em 20% A-E sem repetição viciada, zero decoreba, ausência de jargões universitários/concursistas e referências ABNT NBR 6023 citando expressamente a BNCC).
+
+
+## 🚀 Rodada 124 - Homologação do Lote 6 de Listas de Exercícios de Língua Portuguesa do Ensino Médio (Capítulos 26 ao 30 — Continuação Oficial do Eixo II: Redação ENEM e Gêneros Jornalísticos/Acadêmicos)
+
+- **Data:** 11 de Novembro de 2026
+- **Status:** 🏆 5 Listas de Exercícios Atômicas 100% Homologadas com Exit Code 0 no validador_educamob.py.
+- **Eixo Temático:** Eixo II — Produção Textual, Retórica, Redação ENEM e Cultura Digital (Volume Único — Em Andamento: 10 de 16 listas concluídas).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 26:** content/medio/volume-unico/lingua-portuguesa/cap-26-redacao-enem-macroestrutura-projeto-texto/ebooks/em-lp-c26-obj1-redacao-enem-estrutura-tese-paragrafos-exercicios.md
+     - Objeto de Conhecimento: A Redação do ENEM I: Macroestrutura Dissertativo-Argumentativa e Projeto de Texto Estruturado (EM13LP01, EM13LP05, EM13LP15).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  2. **Capítulo 27:** content/medio/volume-unico/lingua-portuguesa/cap-27-redacao-enem-as-cinco-competencias/ebooks/em-lp-c27-obj1-matriz-avaliacao-inep-cinco-competencias-exercicios.md
+     - Objeto de Conhecimento: A Matriz de Referência Oficial do INEP: As Cinco Competências Avaliativas da Redação ENEM (EM13LP01, EM13LP02, EM13LP05, EM13LP06, EM13LP15).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  3. **Capítulo 28:** content/medio/volume-unico/lingua-portuguesa/cap-28-redacao-enem-proposta-intervencao/ebooks/em-lp-c28-obj1-proposta-intervencao-cinco-elementos-detalhamento-exercicios.md
+     - Objeto de Conhecimento: A Proposta de Intervenção Social na Redação ENEM: Os Cinco Elementos Obrigatórios e os Direitos Humanos (EM13LP01, EM13LP02, EM13LP05, EM13LP06, EM13LP15).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  4. **Capítulo 29:** content/medio/volume-unico/lingua-portuguesa/cap-29-artigo-opiniao-editorial/ebooks/em-lp-c29-obj1-artigo-opiniao-editorial-jornalistico-exercicios.md
+     - Objeto de Conhecimento: Artigo de Opinião e Editorial Jornalístico: Autoria Pessoal, Voz Institucional e Retórica da Imprensa (EM13LP01, EM13LP02, EM13LP03, EM13LP05, EM13LP12).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  5. **Capítulo 30:** content/medio/volume-unico/lingua-portuguesa/cap-30-ensaio-resenha-carta-aberta/ebooks/em-lp-c30-obj1-ensaio-critico-resenha-academica-carta-aberta-exercicios.md
+     - Objeto de Conhecimento: Gêneros Argumentativos Acadêmicos e Cidadãos: Ensaio Crítico, Resenha Acadêmica e Carta Aberta (EM13LP01, EM13LP02, EM13LP03, EM13LP05, EM13LP14, EM13LP16).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 6: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **30 de 61 listas concluídas (49,2% do projeto)** com **1.800 questões**.
+  - Total Acumulado Geral (Ensino Fundamental + Médio): **130 listas / 7.800 questões atômicas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python validador_educamob.py, tags HTML de telemetria completas, gradação cognitiva 20/20/20, resolução em 2 etapas nas 20 difíceis, gabaritos matematicamente equilibrados em 20% A-E sem repetição viciada, zero decoreba, ausência de jargões universitários/concursistas e referências ABNT NBR 6023 citando expressamente a BNCC).
+
+
+## 🚀 Rodada 125 - Homologação do Lote 7 de Listas de Exercícios de Língua Portuguesa do Ensino Médio (Capítulos 31 ao 35 — Continuação Oficial do Eixo II: Campo Jornalístico, Mídia e Cultura Digital)
+
+- **Data:** 11 de Novembro de 2026
+- **Status:** 🏆 5 Listas de Exercícios Atômicas 100% Homologadas com Exit Code 0 no validador_educamob.py.
+- **Eixo Temático:** Eixo II — Produção Textual, Retórica, Redação ENEM e Cultura Digital (Volume Único — Em Andamento: 15 de 16 listas concluídas).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 31:** content/medio/volume-unico/lingua-portuguesa/cap-31-noticia-reportagem-enquadramento/ebooks/em-lp-c31-obj1-noticia-reportagem-enquadramento-parcialidade-exercicios.md
+     - Objeto de Conhecimento: Campo Jornalístico-Midiático: Notícia, Reportagem, Enquadramento Discursivo e Parcialidade (EM13LP01, EM13LP02, EM13LP03, EM13LP05, EM13LP12, EM13LP13).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  2. **Capítulo 32:** content/medio/volume-unico/lingua-portuguesa/cap-32-pos-verdade-fake-news-fact-checking/ebooks/em-lp-c32-obj1-desinformacao-pos-verdade-metodologia-checagem-exercicios.md
+     - Objeto de Conhecimento: A Era da Desinformação: Pós-Verdade, Vieses Cognitivos e a Metodologia de Checagem de Fatos (Fact-Checking) (EM13LP01, EM13LP02, EM13LP03, EM13LP05, EM13LP12, EM13LP13).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  3. **Capítulo 33:** content/medio/volume-unico/lingua-portuguesa/cap-33-plataformas-digitais-algoritmos-curadoria/ebooks/em-lp-c33-obj1-algoritmos-bolhas-epistemicas-curadoria-digital-exercicios.md
+     - Objeto de Conhecimento: Plataformas Digitais, Mecanismos Algorítmicos, Bolhas Sociais e Curadoria Crítica da Informação (EM13LP01, EM13LP02, EM13LP03, EM13LP05, EM13LP12, EM13LP13).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  4. **Capítulo 34:** content/medio/volume-unico/lingua-portuguesa/cap-34-publicidade-contemporanea-persuasao/ebooks/em-lp-c34-obj1-publicidade-digital-advergame-unboxing-influenciadores-exercicios.md
+     - Objeto de Conhecimento: Publicidade Contemporânea: Marketing de Conteúdo, Advergames, Unboxing e a Retórica dos Influenciadores (EM13LP01, EM13LP02, EM13LP03, EM13LP05, EM13LP11, EM13LP12).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+  5. **Capítulo 35:** content/medio/volume-unico/lingua-portuguesa/cap-35-culturas-juvenis-producoes-transmidia/ebooks/em-lp-c35-obj1-culturas-juvenis-vlogs-podcasts-fanfics-transmidia-exercicios.md
+     - Objeto de Conhecimento: Culturas Juvenis e Produções Multimodais: Vlogs, Podcasts, Booktubers, Fanfics e Narrativas Transmídia (EM13LP01, EM13LP02, EM13LP03, EM13LP04, EM13LP14, EM13LP16).
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapas 1 e 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 7: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **35 de 61 listas concluídas (57,4% do projeto)** com **2.100 questões**.
+  - Total Acumulado Geral (Ensino Fundamental + Médio): **135 listas / 8.100 questões atômicas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validação prévia via script Python validador_educamob.py, tags HTML de telemetria completas, gradação cognitiva 20/20/20, resolução em 2 etapas nas 20 difíceis, gabaritos matematicamente equilibrados em 20% A-E sem repetição viciada, zero decoreba, ausência de jargões universitários/concursistas e referências ABNT NBR 6023 citando expressamente a BNCC).
+
+
+---
+
+### Rodada 126 - 11/11/2026: Conclusão do Lote 8 de Exercícios de Língua Portuguesa - Ensino Médio (Capítulos 36 ao 40) - 🏆 100% Homologado no Validador Oficial
+
+- **Objetivo da Rodada:** Finalizar com rigor pedagógico e conformidade irrestrita o Lote 8 de Listas de Exercícios do Ensino Médio (Volume Único), cobrindo o fechamento integral do Eixo II (Produção Textual Acadêmica) e a abertura oficial do Eixo III (Teoria Literária, Gêneros Literários, Trovadorismo, Humanismo e Classicismo Renascentista), totalizando 300 questões atômicas no Padrão-Ouro Educamob.
+- **Capítulos Concluídos e Auditados no Lote 8:**
+  1. **Capítulo 36:** `em-lp-c36-obj1-fichamento-resumo-artigo-cientifico-abnt-exercicios.md`
+     - Objeto de Conhecimento: Gêneros da Esfera Acadêmica e de Divulgação Científica: Fichamento, Resumo, Resenha Crítica, Artigo Científico e Normas ABNT.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP30, EM13LP31, EM13LP32, EM13LP34.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0 no validador oficial. Fechamento definitivo de 100% do Eixo II do Ensino Médio!
+  2. **Capítulo 37:** `em-lp-c37-obj1-conceito-literatura-estetica-catarse-mimese-exercicios.md`
+     - Objeto de Conhecimento: A Natureza do Fenômeno Literário: Estética, Mímesis, Catarse, Pacto Ficcional e o Direito à Literatura.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP47.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0 no validador oficial. Abertura oficial do Eixo III (Literatura).
+  3. **Capítulo 38:** `em-lp-c38-obj1-generos-lirico-epico-narrativo-dramatico-exercicios.md`
+     - Objeto de Conhecimento: Gêneros Literários: Lírico, Épico/Narrativo, Dramático e as Formas Híbridas Contemporâneas.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP48.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 39:** `em-lp-c39-obj1-trovadorismo-cantigas-humanismo-gil-vicente-exercicios.md`
+     - Objeto de Conhecimento: As Origens da Literatura Lusófona: Trovadorismo Feudal, Cantigas Galego-Portuguesas e a Transição Humanista com Gil Vicente.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 40:** `em-lp-c40-obj1-classicismo-camoes-lusiadas-sonetos-exercicios.md`
+     - Objeto de Conhecimento: O Renascimento e o Classicismo: A Epopeia d'Os Lusíadas e a Lírica Filosófica de Luís de Camões.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado: 12 A, 12 B, 12 C, 12 D, 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 8: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **40 de 61 listas concluídas (65,6% do projeto)** com **2.400 questões**.
+  - Total Acumulado Geral (Ensino Fundamental + Médio): **140 listas / 8.400 questões atômicas homologadas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0, tags HTML de telemetria completas, gradação cognitiva 20/20/20, resolução em 2 etapas nas 20 difíceis, gabaritos equilibrados em 20% A-E sem repetição viciada, zero decoreba, ausência de jargões universitários/concursistas e referências ABNT NBR 6023 citando expressamente a BNCC).
+
+
+---
+
+### Rodada 127 - 11/11/2026: Conclusão do Lote 9 de Exercícios de Língua Portuguesa - Ensino Médio (Capítulos 41 ao 45)
+
+- **Objetivo da Rodada:** Finalizar com rigor pedagógico e conformidade irrestrita o Lote 9 de Listas de Exercícios do Ensino Médio (Capítulos 41 ao 45), cobrindo o período formativo da literatura colonial brasileira e as manifestações da poesia e prosa do Romantismo.
+- **Capítulos Concluídos e Auditados no Lote 9:**
+  1. **Capítulo 41:** `em-lp-c41-obj1-quinhentismo-caminha-gandavo-anchieta-exercicios.md`
+     - Objeto de Conhecimento: O Quinhentismo no Brasil: Literatura Informativa, Crônicas de Viagem e Literatura Pedagógica de Catequese com Pero Vaz de Caminha, Gandavo e José de Anchieta.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 42:** `em-lp-c42-obj1-barroco-cultismo-conceptismo-gregorio-vieira-exercicios.md`
+     - Objeto de Conhecimento: O Barroco no Brasil e em Portugal: Conflito Espiritual, Cultismo, Conceptismo, a Sátira Mordaz de Gregório de Matos e a Retórica Sagrada do Padre Antônio Vieira.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 43:** `em-lp-c43-obj1-arcadismo-iluminismo-inconfidencia-ouro-preto-exercicios.md`
+     - Objeto de Conhecimento: O Arcadismo no Brasil: Iluminismo, Neoclassicismo, Bucolismo Mineiro e a Tensão Cívica da Inconfidência em Tomás Antônio Gonzaga e Cláudio Manuel da Costa.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 44:** `em-lp-c44-obj1-poesia-romantica-nacionalismo-mal-seculo-condoreira-exercicios.md`
+     - Objeto de Conhecimento: O Romantismo no Brasil: A Poesia e as Três Gerações (Nacionalista, Ultrarromântica e Condoreira) com Gonçalves Dias, Álvares de Azevedo e Castro Alves.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 45:** `em-lp-c45-obj1-prosa-romantica-alencar-maria-firmina-dos-reis-exercicios.md`
+     - Objeto de Conhecimento: O Romantismo em Prosa: O Projeto Nacional de José de Alencar, a Malandragem Urbana e o Pioneirismo Abolicionista de Maria Firmina dos Reis.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 9: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **45 de 61 listas concluídas (73,8% do projeto)** com **2.700 questões homologadas**.
+  - Total Acumulado Geral (Ensino Fundamental + Médio): **145 listas / 8.700 questões atômicas homologadas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0 em todas as listas).
+
+
+---
+
+### Rodada 128 - 11/11/2026: Conclusão do Lote 10 de Exercícios de Língua Portuguesa - Ensino Médio (Capítulos 46 ao 50)
+
+- **Objetivo da Rodada:** Finalizar com rigor pedagógico e conformidade irrestrita o Lote 10 de Listas de Exercícios do Ensino Médio (Capítulos 46 ao 50), consolidando o Realismo, Naturalismo, Parnasianismo, Simbolismo e as duas frentes capitais do Pré-Modernismo brasileiro.
+- **Capítulos Concluídos e Auditados no Lote 10:**
+  1. **Capítulo 46:** `em-lp-c46-obj1-realismo-machado-assis-segunda-fase-exercicios.md`
+     - Objeto de Conhecimento: O Realismo no Brasil: O Olhar Cirúrgico, a Ironia e a Desconstrução Humana na Segunda Fase de Machado de Assis.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 47:** `em-lp-c47-obj1-naturalismo-aluisio-azevedo-adolfo-caminha-pompeia-exercicios.md`
+     - Objeto de Conhecimento: O Naturalismo no Brasil: Cientificismo, Determinismo, Zoomorfização e Tensão Social em Aluísio Azevedo, Adolfo Caminha e Raul Pompéia.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 48:** `em-lp-c48-obj1-parnasianismo-bilac-simbolismo-cruz-e-sousa-exercicios.md`
+     - Objeto de Conhecimento: As Poéticas do Final do Século XIX: O Rigor Formal do Parnasianismo (Bilac e Alberto de Oliveira) e o Misticismo Transcendente do Simbolismo (Cruz e Sousa e Alphonsus de Guimaraens).
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 49:** `em-lp-c49-obj1-pre-modernismo-euclides-cunha-sertoes-augusto-exercicios.md`
+     - Objeto de Conhecimento: O Pré-Modernismo I: Euclides da Cunha, a Fratura dos Sertões, Monteiro Lobato e a Poética de Augusto dos Anjos.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 50:** `em-lp-c50-obj1-lima-barreto-policarpo-quaresma-clara-anjos-exercicios.md`
+     - Objeto de Conhecimento: A Voz Rebelde e Periférica de Lima Barreto: O Subúrbio, o Combate ao Racismo e a Desilusão com a República.
+     - Habilidades BNCC: EM13LP01, EM13LP02, EM13LP45, EM13LP46, EM13LP49, EM13LP50.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 10: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **50 de 61 listas concluídas (82,0% do projeto)** com **3.000 questões homologadas**.
+  - Total Acumulado Geral (Ensino Fundamental + Médio): **150 listas / 9.000 questões atômicas homologadas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0 em todas as 50 listas do Ensino Médio).
+
+---
+
+### Rodada 129 - 11/11/2026: Conclusão do Lote 11 de Exercícios de Língua Portuguesa - Ensino Médio (Capítulos 51 ao 55)
+
+- **Objetivo da Rodada:** Finalizar com rigor pedagógico e conformidade irrestrita o Lote 11 de Listas de Exercícios do Ensino Médio (Capítulos 51 ao 55), consolidando a Semana de Arte Moderna de 1922 e as vanguardas, a Poesia de 30, o Romance Regionalista de 30 no Nordeste, o Romance de 30 no Sul/Sudeste e a poética construtivista da Geração de 45 (João Cabral de Melo Neto e Ledo Ivo).
+- **Capítulos Concluídos e Auditados no Lote 11:**
+  1. **Capítulo 51:** `em-lp-c51-obj1-semana-arte-moderna-vanguardas-mario-oswald-exercicios.md`
+     - Objeto de Conhecimento: A Semana de Arte Moderna de 1922 e a Primeira Fase do Modernismo: Ruptura, Vanguardas Europeias, Nacionalismo Crítico, Mário e Oswald de Andrade.
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 52:** `em-lp-c52-obj1-poesia-de-30-drummond-mendes-meireles-vinicius-exercicios.md`
+     - Objeto de Conhecimento: A Segunda Fase do Modernismo: A Poesia de 30, Consciência Histórica e Tensão Lírica com Drummond, Murilo Mendes, Cecília Meireles e Vinicius de Moraes.
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 53:** `em-lp-c53-obj1-romance-de-30-graciliano-jorge-amado-rachel-exercicios.md`
+     - Objeto de Conhecimento: O Romance de 30 e o Regionalismo Crítico do Nordeste: A Denúncia Social, a Seca e a Terra em Graciliano Ramos, Jorge Amado, Rachel de Queiroz e José Lins do Rego.
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 54:** `em-lp-c54-obj1-romance-de-30-erico-verissimo-dionisio-exercicios.md`
+     - Objeto de Conhecimento: O Romance de 30 no Sul e Sudeste: Urbanização, Crítica Social e Introspecção em Érico Veríssimo, Dionélio Machado e Marques Rebelo.
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 55:** `em-lp-c55-obj1-geracao-de-45-poesia-joao-cabral-ledotivo-exercicios.md`
+     - Objeto de Conhecimento: A Poesia da Geração de 45 (João Cabral de Melo Neto, Ledo Ivo e o Debate Estético do Pós-Guerra).
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 11: **300 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **55 de 61 listas concluídas (90,16% do projeto)** com **3.300 questões homologadas**.
+  - Total Acumulado Geral (Ensino Fundamental + Médio): **155 listas / 9.300 questões atômicas homologadas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0 em todas as 55 listas do Ensino Médio).
+
+---
+
+### Rodada 130 - 11/11/2026: Conclusão do Lote 12 Final de Exercícios de Língua Portuguesa - Ensino Médio (Capítulos 56 ao 61) e FECHAMENTO HISTÓRICO DE 100% DA MATRIZ INTEGRAL (61 de 61 Listas / 3.660 Questões)
+
+- **Objetivo da Rodada:** Finalizar com rigor pedagógico e conformidade irrestrita o Lote 12 Final de Listas de Exercícios do Ensino Médio (Capítulos 56 ao 61), selando a conclusão de 100% da Matriz Integral de Língua Portuguesa do Ensino Médio (Volume Único por Eixos Temáticos), consolidando Guimarães Rosa, Clarice Lispector, as Vanguardas Poéticas do Pós-Guerra (Concretismo, Neoconcretismo e Tropicália), a Literatura Indígena Brasileira Contemporânea, as Literaturas Africanas dos PALOP e a Literatura Periférica e Afro-Brasileira Contemporânea.
+- **Capítulos Concluídos e Auditados no Lote 12 Final:**
+  1. **Capítulo 56:** em-lp-c56-obj1-guimaraes-rosa-grande-sertao-veredas-primeiras-estorias-exercicios.md
+     - Objeto de Conhecimento: Guimarães Rosa: A Reinvenção da Linguagem, o Sertão Metafísico e a Condição Humana em Grande Sertão: Veredas e Primeiras Estórias.
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 57:** em-lp-c57-obj1-clarice-lispector-hora-da-estrela-paixao-gh-epifania-exercicios.md
+     - Objeto de Conhecimento: Clarice Lispector: O Fluxo de Consciência, a Epifania Existencial e a Crítica Social em A Hora da Estrela e A Paixão Segundo G.H.
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 58:** em-lp-c58-obj1-poesia-concreta-haroldo-augusto-campos-tropicalia-exercicios.md
+     - Objeto de Conhecimento: As Vanguardas Poéticas Brasileiras dos Anos 1950 e 1960 (Concretismo, Neoconcretismo de Ferreira Gullar, Poesia-Práxis e Tropicália).
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 59:** em-lp-c59-obj1-literatura-indigena-krenak-kopenawa-munduruku-exercicios.md
+     - Objeto de Conhecimento: A Literatura Indígena Contemporânea (Ailton Krenak, Davi Kopenawa, Daniel Munduruku, Eliane Potiguara e a Descolonização das Letras).
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 60:** em-lp-c60-obj1-literatura-angola-mocambique-pepetela-mia-couto-chiziane-exercicios.md
+     - Objeto de Conhecimento: As Literaturas Africanas dos PALOP (Mia Couto, Paulina Chiziane, Pepetela, Luandino Vieira e a Descolonização Linguística).
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  6. **Capítulo 61:** em-lp-c61-obj1-literatura-marginal-periferica-conceicao-evaristo-geovani-exercicios.md
+     - Objeto de Conhecimento: A Literatura Periférica e Afro-Brasileira Contemporânea (Conceição Evaristo, Carolina Maria de Jesus, Itamar Vieira Junior, Ferréz e Saraus da Periferia).
+     - Habilidades BNCC: EM13LP46, EM13LP48, EM13LP49, EM13LP52.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas:**
+  - Total de Questões Produzidas no Lote 12 Final: **360 questões atômicas** no Padrão-Ouro da Educamob.
+  - Total Geral de Exercícios de Língua Portuguesa no Ensino Médio: **61 de 61 listas concluídas (100% da matriz integral)** com **3.660 questões homologadas**.
+  - Total Acumulado Geral do Projeto Educamob (Ensino Fundamental + Ensino Médio): **158 listas de exercícios / 9.480 questões atômicas homologadas** (Ensino Fundamental: 97 listas / 5.820 questões; Ensino Médio Língua Portuguesa: 61 listas / 3.660 questões).
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0 em todas as 61 listas do Ensino Médio).
+
+
+---
+
+### Rodada 129 - 11/11/2026: Ativação Oficial de Língua Portuguesa na Mob.me, Ingestão Vetorial RAG e Sincronização Dinâmica em Produção (Oracle Cloud VPS)
+
+- **Objetivo da Rodada:** Atualizar a infraestrutura, o backend da Mob.me e a base de dados de produção para incorporar oficialmente a disciplina de Língua Portuguesa (161 e-books teóricos e 161 listas de exercícios homologadas) ao ecossistema de tutoria por IA, ampliando o leque de matérias disponíveis para 8 disciplinas ativas.
+- **Entregas Técnicas Realizadas:**
+  1. **Tabela `available_subjects` (Supabase):**
+     - Inclusão oficial do registro `{"subject_name": "lingua-portuguesa"}` no banco de produção.
+  2. **Refatoração do Backend (`services/mobme-api/main.py`):**
+     - Atualização do `SUBJECT_DISPLAY_MAP` com mapeamento explícito para `"Língua Portuguesa"`.
+     - Inclusão de `Língua Portuguesa` na lista de fallback padrão `AVAILABLE_SUBJECTS_LIST`.
+     - Expansão dinâmica de `SUPPORTED_DISCIPLINES` para abranger todas as variações e ramificações da disciplina (`portugues`, `português`, `literatura`, `redacao`, `redação`, `gramatica`, `gramática`, `lingua portuguesa`, `língua portuguesa`).
+     - Remoção destas chaves de `NON_SUPPORTED_DISCIPLINES` (restando apenas Biologia, Filosofia, Sociologia, Inglês, Espanhol e Artes).
+     - Atualização do prompt de inspeção semântica/desambiguação com a **Nota Importante 3**, orientando o modelo a reconhecer toda a matéria de Língua Portuguesa e Literatura como dentro do escopo.
+     - Atualização do resolutor de documentos `extract_doc_discipline` e `resolve_exercise_file_for_topic` para suportar `lingua-portuguesa`.
+  3. **Atualização do Sentinela Noturno (`services/mobme-api/sentinela_mobme.py`):**
+     - Adição do vocabulário semântico de Língua Portuguesa em `DOMAIN_KEYWORDS`.
+     - Registro dos prefixos curriculares da BNCC (`LP`, `LGG`, `ART`) em `DISCIPLINE_BNCC_PREFIXES`.
+     - Mapeamento em `disc_slug_map` e atualização do regex `m_falso` para prevenir falsos alertas de recusa da disciplina.
+  4. **Atualização dos Pipelines de Ingestão (`ingest.py` e `ingest_exercicios.py`):**
+     - Inclusão de `lingua-portuguesa` em `KNOWN_SUBJECTS` e no filtro de disciplinas de exercícios.
+  5. **Deploy e Homologação em Produção (Oracle Cloud VPS `137.131.163.113`):**
+     - Arquivos `main.py` e `sentinela_mobme.py` sincronizados via SCP na VPS e injetados via `docker cp` no container `mobme-api`.
+     - Container `mobme-api` reiniciado com sucesso.
+     - Disparo do endpoint `POST /api/admin/reload-subjects` em `https://api.educamob.com.br/api/admin/reload-subjects` (retorno HTTP 200).
+     - Confirmação em tempo real nos logs do Docker em produção:
+       `Matérias disponíveis atualizadas dinamicamente na memória da API: ['Cálculo 1', 'Ciências', 'Física', 'Geografia', 'História', 'Matemática', 'Química', 'Língua Portuguesa']`.
+  6. **Ingestão Vetorial Incremental no pgvector Concluída com Sucesso:**
+     - Acervo de **161 e-books teóricos (5.355 chunks)** 100% vetorizado via `ingest.py` e indexado na tabela `documents`.
+     - Acervo de **161 listas de exercícios (9.821 chunks / 9.660 questões)** 100% vetorizado via `ingest_exercicios.py` e indexado na tabela `documents` sem timeouts de HNSW.
+     - Total consolidado em produção no Supabase pgvector: **66.358 fragmentos/chunks ativos** (746 e-books teóricos + 597 listas de exercícios).
+- **Métricas Consolidadas:**
+  - Disciplinas Ativas no Mob.me: **8 disciplinas oficiais** (Cálculo 1, Ciências, Física, Geografia, História, Matemática, Química e Língua Portuguesa).
+  - Status em Produção: **100% Ativo e Homologado na Oracle Cloud VPS**.
+
+
+---
+
+### Rodada 131 - 11/11/2026: Homologação do Lote 1 de E-books de Biologia - Ensino Médio (Capítulos 01 ao 05 — Eixo I: Citologia e Bioquímica Celular)
+
+- **Objetivo da Rodada:** Iniciar a produção oficial dos e-books teóricos da matriz de Biologia do Ensino Médio (Volume Único estruturado em 6 Eixos Temáticos e 60 capítulos atômicos), cobrindo o Lote 1 (Capítulos 01 ao 05) com densidade acadêmica superior a 2.000 palavras por e-book, zero exercícios na teoria, ausência do símbolo R$, 5 fontes ABNT NBR 6023 (incluindo a BNCC obrigatória) e aprovação estrita no validador oficial python validador_educamob.py.
+- **Capítulos Concluídos e Auditados no Lote 1:**
+  1. **Capítulo 01:** em-bio-c01-obj1-biologia-metodo-cientifico-organizacao.md
+     - Objeto de Conhecimento: A Biologia como Ciência: Método Científico, Teoria Celular e Níveis de Organização da Vida.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT302.
+     - Extensão: 3.192 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 02:** em-bio-c02-obj1-bioquimica-agua-sais-minerais.md
+     - Objeto de Conhecimento: Bioquímica Fundamental: A Água como Solvente Universal e os Sais Minerais nos Processos Biológicos.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Extensão: 3.419 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 03:** em-bio-c03-obj1-bioquimica-carboidratos-lipidios.md
+     - Objeto de Conhecimento: Carboidratos e Lipídios: Estruturas Moleculares, Funções Energéticas, Estruturais e Isolantes.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Extensão: 3.606 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 04:** em-bio-c04-obj1-bioquimica-proteinas-enzimas.md
+     - Objeto de Conhecimento: Proteínas e Enzimas: Estrutura Tridimensional, Cinética Enzimática e Regulação Alostérica.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202, EM13CNT301.
+     - Extensão: 3.786 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 05:** em-bio-c05-obj1-acidos-nucleicos-dogma-central.md
+     - Objeto de Conhecimento: Ácidos Nucleicos (DNA e RNA), Código Genético e o Dogma Central da Biologia Molecular.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT304.
+     - Extensão: 4.717 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 1:**
+  - Total de E-books Produzidos no Lote 1: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 1: **18.720 palavras limpas** (média de 3.744 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **5 de 60 capítulos concluídos (8,33%)**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0 em todos os 5 capítulos).
+
+
+---
+
+### Rodada 132 - 11/11/2026: Homologação do Lote 2 de E-books de Biologia - Ensino Médio (Capítulos 06 ao 10 — Origem da Vida, Organização Celular e Membrana Plasmática)
+
+- **Objetivo da Rodada:** Dar continuidade sequencial ininterrupta à produção oficial dos e-books teóricos da matriz de Biologia do Ensino Médio (Volume Único estruturado em 6 Eixos Temáticos e 60 capítulos atômicos), concluindo o Lote 2 (Capítulos 06 ao 10) com densidade acadêmica superior a 2.000 palavras por e-book, zero exercícios na teoria, ausência do símbolo R$, 5 fontes ABNT NBR 6023 (incluindo a BNCC obrigatória) e aprovação estrita no validador oficial python validador_educamob.py.
+- **Capítulos Concluídos e Auditados no Lote 2:**
+  1. **Capítulo 06:** em-bio-c06-obj1-vitaminas-nutricao-celular.md
+     - Objeto de Conhecimento: Vitaminas Hidrossolúveis e Lipossolúveis: Cofatores Metabólicos, Fontes e Avitaminoses.
+     - Habilidades BNCC: EM13CNT202, EM13CNT207.
+     - Extensão: 3.927 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 07:** em-bio-c07-obj1-origem-da-vida-evolucao-prebiotica.md
+     - Objeto de Conhecimento: Origem da Vida: Abiogênese vs Biogênese, Hipótese Heterotrófica vs Autotrófica e o Experimento de Miller-Urey.
+     - Habilidades BNCC: EM13CNT201, EM13CNT209.
+     - Extensão: 4.289 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 08:** em-bio-c08-obj1-organizacao-procariontes-eucariontes-virus.md
+     - Objeto de Conhecimento: Organização Celular Comparada: Células Procariontes, Células Eucariontes e a Biologia dos Vírus.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 4.335 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 09:** em-bio-c09-obj1-membrana-plasmatica-permeabilidade.md
+     - Objeto de Conhecimento: Membrana Plasmática: Modelo do Mosaico Fluido, Fosfolipídios, Glicocálix e Junções Celulares.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Extensão: 4.038 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 10:** em-bio-c10-obj1-transportes-membrana-osmose-difusao.md
+     - Objeto de Conhecimento: Transportes Transmembrana: Difusão Simples, Difusão Facilitada, Osmose e Transporte Ativo.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Extensão: 4.402 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 2:**
+  - Total de E-books Produzidos no Lote 2: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 2: **20.991 palavras limpas** (média de 4.198 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **10 de 60 capítulos concluídos (16,67%)** somando **39.711 palavras acumuladas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0 em todos os 10 capítulos homologados).
+
+
+---
+
+### Rodada 133 - 11/11/2026: Homologação do Lote 3 de E-books de Biologia - Ensino Médio (Capítulos 11 ao 15 — Sistema Endomembranoso, Bioenergética e Núcleo Celular)
+
+- **Objetivo da Rodada:** Dar continuidade sequencial ininterrupta à produção oficial dos e-books teóricos da matriz de Biologia do Ensino Médio (Volume Único estruturado em 6 Eixos Temáticos e 60 capítulos atômicos), concluindo o Lote 3 (Capítulos 11 ao 15) com densidade acadêmica superior a 2.000 palavras por e-book, zero exercícios na teoria, ausência do símbolo R$, 5 fontes ABNT NBR 6023 (incluindo a BNCC obrigatória) e aprovação estrita no validador oficial python validador_educamob.py.
+- **Capítulos Concluídos e Auditados no Lote 3:**
+  1. **Capítulo 11:** em-bio-c11-obj1-sistema-endomembranoso-organelas.md
+     - Objeto de Conhecimento: Citoplasma e Organelas I: Retículo Endoplasmático, Complexo Golgiense, Lisossomos e Autofagia/Apoptose.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Extensão: 3.612 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 12:** em-bio-c12-obj1-citoesqueleto-peroxissomos-centriolos.md
+     - Objeto de Conhecimento: Citoplasma e Organelas II: Peroxissomos (Glioxissomos), Citoesqueleto, Cílios, Flagelos e Centríolos.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 4.293 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 13:** em-bio-c13-obj1-bioenergetica-fotossintese-quimiossintese.md
+     - Objeto de Conhecimento: Bioenergética I: Fotossíntese (Fase Clara e Escura), Fotólise da Água e Quimiossíntese.
+     - Habilidades BNCC: EM13CNT101, EM13CNT105.
+     - Extensão: 4.607 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 14:** em-bio-c14-obj1-bioenergetica-respiracao-fermentacao.md
+     - Objeto de Conhecimento: Bioenergética II: Respiração Celular Aeróbica (Glicólise, Ciclo de Krebs e Fosforilação Oxidativa) e Fermentação.
+     - Habilidades BNCC: EM13CNT101, EM13CNT203.
+     - Extensão: 4.529 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 15:** em-bio-c15-obj1-nucleo-celular-cromossomos-cariotipo.md
+     - Objeto de Conhecimento: Núcleo Celular Eucarionte: Envoltório Nuclear, Nucléolo, Cromatina, Cromossomos e Cariótipo.
+     - Habilidades BNCC: EM13CNT202, EM13CNT205.
+     - Extensão: 4.336 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 3:**
+  - Total de E-books Produzidos no Lote 3: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 3: **21.377 palavras limpas** (média de 4.275 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **15 de 60 capítulos concluídos (25,0%)** somando **61.088 palavras acumuladas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0 em todos os 15 capítulos homologados).
+
+
+---
+
+### Rodada 134 - 11/11/2026: Homologação do Lote 4 de E-books de Biologia - Ensino Médio (Capítulos 16 ao 20 — Ciclo Celular, Meiose, Embriologia, Histologia Epitelial/Conjuntivo e Muscular/Nervoso) e Fechamento Integral dos Eixos I e II
+
+- **Objetivo da Rodada:** Concluir a produção e validação oficial do Lote 4 de Biologia do Ensino Médio (Capítulos 16 ao 20), fechando com 100% de cobertura o Eixo I (Citologia, Bioquímica e Metabolismo Celular — 17 capítulos) e o Eixo II (Embriologia e Histologia Animal — 3 capítulos), sob rigorosa conformidade com o Hard-Guardrail Sistêmico (`validador_educamob.py`), densidade superior a 2.500 palavras, 5 fontes ABNT com citação da BNCC, zero exercícios e ausência do símbolo R$.
+- **Capítulos Concluídos e Auditados no Lote 4:**
+  1. **Capítulo 16:** em-bio-c16-obj1-ciclo-celular-mitose-cancer.md
+     - Objeto de Conhecimento: Divisão Celular I: Ciclo Celular, Fases da Mitose, Aparelho Mitótico, Pontos de Checagem (Ciclinas/CDKs) e Biologia do Câncer.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 4.277 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 17:** em-bio-c17-obj1-meiose-crossing-over-gametogenese.md
+     - Objeto de Conhecimento: Divisão Celular II: Fases da Meiose (I e II), Crossing-Over (Permutação Gênica), Não Disjunção Cromossômica e Gametogênese Humana (Espermatogênese e Oogênese).
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Extensão: 2.601 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 FECHAMENTO DO EIXO I!).
+  3. **Capítulo 18:** em-bio-c18-obj1-embriologia-animal-anexos.md
+     - Objeto de Conhecimento: Embriologia Animal: Fases do Desenvolvimento (Clivagem, Mórula, Blástula, Gástrula e Nêurula), Tipos de Ovos, Destinos dos Folhetos Embrionários e Anexos Embrionários em Vertebrados.
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Extensão: 2.568 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 ABERTURA DO EIXO II!).
+  4. **Capítulo 19:** em-bio-c19-obj1-histologia-epitelial-conjuntivo.md
+     - Objeto de Conhecimento: Histologia Animal I: Tecidos Epiteliais (Revestimento, Polaridade, Junções e Glandular) e Tecidos Conjuntivos (Frouxo, Denso, Adiposo Unilocular/Multilocular, Cartilaginoso, Ósseo com Remodelação PTH/Calcitonina e Sangue).
+     - Habilidades BNCC: EM13CNT202, EM13CNT306.
+     - Extensão: 2.677 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 20:** em-bio-c20-obj1-histologia-muscular-nervoso.md
+     - Objeto de Conhecimento: Histologia Animal II: Tecidos Musculares (Estriado Esquelético com Sarcômeros e Tríades, Cardíaco com Discos Intercalares, Liso com Corpos Densos e Calmodulina/MLCK) e Tecido Nervoso (Neurônios, Fluxo Axoplasmático e Células da Glia: Astrócitos, Oligodendrócitos, Schwann, Micróglia e Ependimárias).
+     - Habilidades BNCC: EM13CNT202, EM13CNT306.
+     - Extensão: 3.118 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 FECHAMENTO DO EIXO II!).
+- **Métricas Consolidadas do Lote 4:**
+  - Total de E-books Produzidos no Lote 4: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 4: **15.241 palavras limpas** (média de 3.048 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **20 de 60 capítulos concluídos (33,33% — 1/3 de toda a matriz curricular)** somando **76.329 palavras acumuladas**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0 em todos os 20 capítulos homologados).
+
+
+---
+
+### Rodada 135 - 11/11/2026: Homologação do Lote 5 de E-books de Biologia - Ensino Médio (Capítulos 21 ao 25 — Sistemática/Cladística, Vírus, Bactérias/Arqueas, Protozoários e Algas/Fungos) e Abertura do Eixo III
+
+- **Objetivo da Rodada:** Dar início oficial à produção dos e-books teóricos do **Eixo III: Sistemática, Seres Vivos e Botânica**, concluindo o Lote 5 (Capítulos 21 ao 25) sob rigorosa observância do Hard-Guardrail Sistêmico (`validador_educamob.py`), densidade acadêmica superior a 5.000 palavras por capítulo, ausência do símbolo R$, zero exercícios na teoria e 5 fontes bibliográficas ABNT NBR 6023 distintas com citação expressa da BNCC.
+- **Capítulos Concluídos e Auditados no Lote 5:**
+  1. **Capítulo 21:** em-bio-c21-obj1-taxonomia-reinos-cladistica.md
+     - Objeto de Conhecimento: Sistemática e Taxonomia Biológica: Nomenclatura Binomial Lineana, Categorias Taxonômicas, Sistema dos Três Domínios de Woese (Bacteria, Archaea e Eukarya), Reinos Biológicos e Princípios de Sistemática Filogenética / Cladística (Cladogramas, Monofiletismo, Parafiletismo, Polifiletismo, Apomorfias, Plesiomorfias e Homologias vs Analogias).
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Extensão: 5.334 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 ABERTURA DO EIXO III!).
+  2. **Capítulo 22:** em-bio-c22-obj1-virus-viroides-prions-viroses.md
+     - Objeto de Conhecimento: Vírus, Viróides e Príons: Estrutura Viral (Capsídeo, Envelope, Ácidos Nucleicos), Classificação de Baltimore, Retrovírus com Transcriptase Reversa, Ciclos Lítico e Lisogênico, Latência em Herpesvírus, Hepatites Virais (A, B e C), Principais Viroses (HIV/AIDS, Dengue/Zika/Chikungunya, Influenza, COVID-19, HPV, Varíola e Raiva), Terapia Antiviral e Vacinas.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT303.
+     - Extensão: 5.137 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 23:** em-bio-c23-obj1-bacterias-arqueas-bacterioses.md
+     - Objeto de Conhecimento: Domínios Bacteria e Archaea: Morfologia Bacteriana, Parede Celular (Peptídeoglicano, Gram-positivas vs Gram-negativas com LPS), Fissão Binária, Recombinação Genética Horizontal (Conjugação via Pilus F, Transformação e Transdução), Endósporos, Arqueas Extremófilas, Ciclo do Nitrogênio e Principais Bacterioses com Resistência a Antibióticos.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT303.
+     - Extensão: 5.628 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 24:** em-bio-c24-obj1-protozoarios-protozooses.md
+     - Objeto de Conhecimento: Reino Protoctista I: Protozoários (Sarcodíneos, Flagelados, Ciliados e Apicomplexos), Fisiologia, Vacúolo Pulsátil/Contrátil e Osmorregulação em Água Doce, e Principais Protozooses Humanas: Ciclos de Vida, Vetores, Transmissão e Profilaxia (Doença de Chagas, Malária, Leishmanioses, Toxoplasmose, Amebíase e Giardíase).
+     - Habilidades BNCC: EM13CNT202, EM13CNT303, EM13CNT305.
+     - Extensão: 5.712 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 25:** em-bio-c25-obj1-algas-fungos-micoses.md
+     - Objeto de Conhecimento: Reino Protoctista II (Algas: Diatomáceas, Dinoflagelados, Zooxantelas, Marés Vermelhas, Clorófitas, Feófitas e Rodófitas) e Reino Fungi (Morfologia: Hifas, Micélio, Parede de Quitina, Glicogênio e Ergosterol; Filos: Chytridiomycota, Zygomycota, Ascomycota e Basidiomycota; Associações Mutualísticas: Líquens e Micorrizas; e Micoses Humanas).
+     - Habilidades BNCC: EM13CNT202, EM13CNT206, EM13CNT303.
+     - Extensão: 6.482 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 5:**
+  - Total de E-books Produzidos no Lote 5: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 5: **28.293 palavras limpas** (média extraordinária de 5.658 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **25 de 60 capítulos concluídos (41,67% da matriz curricular integral)** somando **114.941 palavras acumuladas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0 em todos os 25 capítulos homologados).
+
+
+---
+
+### Rodada 136 - 11/11/2026: Homologação do Lote 6 de E-books de Biologia - Ensino Médio (Capítulos 26 ao 30 — Briófitas/Pteridófitas, Gimnospermas/Angiospermas, Anatomia Vegetal, Fisiologia Vegetal e Poríferos/Cnidários) e MARCO DE 50% DA DISCIPLINA CONCLUÍDO
+
+- **Objetivo da Rodada:** Dar andamento ininterrupto à esteira de produção oficial de Biologia do Ensino Médio, concluindo e homologando o Lote 6 (Capítulos 26 ao 30) em conformidade absoluta com o Hard-Guardrail Sistêmico (`validador_educamob.py`), densidade média superior a 5.000 palavras por capítulo, ausência do símbolo R$, zero exercícios na teoria e 5 fontes bibliográficas ABNT NBR 6023 distintas com citação expressa da BNCC.
+- **Capítulos Concluídos e Auditados no Lote 6:**
+  1. **Capítulo 26:** `em-bio-c26-obj1-botanica-briofitas-pteridofitas.md`
+     - Objeto de Conhecimento: Reino Plantae I: Briófitas e Pteridófitas — Transição para o Ambiente Terrestre, Criptógamas, Gametófito vs Esporófito, Dependência da Água para Fecundação e Traqueófitas.
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Extensão: 4.817 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 27:** `em-bio-c27-obj1-botanica-gimnospermas-angiospermas.md`
+     - Objeto de Conhecimento: Reino Plantae II: Fanerógamas (Espermatófitas) — Gimnospermas e Angiospermas, Grão de Pólen, Tubo Polínico, Semente, Flor, Fruto, Dupla Fecundação e Coevolução com Polinizadores.
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Extensão: 5.027 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 28:** `em-bio-c28-obj1-anatomia-organografia-vegetal.md`
+     - Objeto de Conhecimento: Histologia, Anatomia e Organografia Vegetal: Meristemas Primários e Secundários, Parênquimas, Colênquima, Esclerênquima, Xilema, Floema e Morfofisiologia de Raiz, Caule e Folha.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Extensão: 5.458 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 29:** `em-bio-c29-obj1-fisiologia-vegetal-hormonios-movimentos.md`
+     - Objeto de Conhecimento: Fisiologia Vegetal: Absorção de Água e Sais, Condução de Seiva Bruta (Teoria da Coesão-Tensão de Dixon) e Elaborada (Hipótese do Fluxo de Massa de Münch), Transpiração, Estômatos, Fitormônios (Auxinas, Giberelinas, Citocininas, Etileno e Ácido Abscísico), Movimentos Vegetais (Tropismos, Nastismos e Tactismos) e Fotoperiodismo com Fitocromos.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Extensão: 5.824 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 30:** `em-bio-c30-obj1-zoologia-poriferos-cnidarios.md`
+     - Objeto de Conhecimento: Zoologia I: Introdução ao Reino Animalia, Parazoários vs Eumetazoários, Poríferos (Coanócitos, Tipos Morfológicos e Filtração) e Cnidários (Cnidócitos, Pólipos, Medusas, Metagênese e Branqueamento de Corais).
+     - Habilidades BNCC: EM13CNT202, EM13CNT206.
+     - Extensão: 4.966 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 6:**
+  - Total de E-books Produzidos no Lote 6: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 6: **26.092 palavras limpas** (média de 5.218 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **30 de 60 capítulos concluídos (exatamente 50,0% da matriz curricular integral)** somando **141.033 palavras acumuladas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python `validador_educamob.py` com Exit Code 0 em todos os 30 capítulos homologados).
+
+
+---
+
+### Rodada 137 - 11/11/2026: Homologação do Lote 7 de E-books de Biologia - Ensino Médio (Capítulos 31 ao 35 — Platelmintos/Nematódeos, Moluscos/Anelídeos, Artrópodes, Equinodermos/Protocordados e Vertebrados) e Fechamento Integral de 100% do Eixo III
+
+- **Objetivo da Rodada:** Dar andamento ininterrupto e rigoroso à esteira de produção oficial de Biologia do Ensino Médio, concluindo e homologando o Lote 7 (Capítulos 31 ao 35) sob rigorosa observância do Hard-Guardrail Sistêmico (`validador_educamob.py`), densidade média superior a 6.000 palavras por capítulo, ausência do símbolo R$, zero exercícios na teoria, 5 fontes bibliográficas ABNT NBR 6023 com citação da BNCC e fechamento oficial de 100% do **Eixo III: Sistemática, Seres Vivos e Botânica (14 capítulos: Caps 21 a 34)** e abertura do Eixo dos Vertebrados (Capítulo 35).
+- **Capítulos Concluídos e Auditados no Lote 7:**
+  1. **Capítulo 31:** `em-bio-c31-obj1-platelmintos-nematodeos-verminoses.md`
+     - Objeto de Conhecimento: Zoologia II: Platelmintos e Nematódeos — Acelomados vs Pseudocelomados, Células-flama vs Renetes, Tubo Digestório Incompleto vs Completo, Esqueleto Hidrostático e as Principais Verminoses Humanas: Esquistossomose Mansônica, Teníase vs Cisticercose (Neurocisticercose), Ascaridíase e Ciclo de Looss, Ancilostomíase/Amarelão, Oxiuríase, Filariose Linfática e Larva Migrans Cutânea.
+     - Habilidades BNCC: EM13CNT202, EM13CNT303.
+     - Extensão: 6.378 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 32:** `em-bio-c32-obj1-moluscos-anelideos.md`
+     - Objeto de Conhecimento: Zoologia III: Moluscos e Anelídeos — A Revolução Celômica nos Protostômios, Manto, Rádula, Concha Calcária, Sistema Circulatório Aberto vs Fechado nos Cefalópodes, Cromatóforos e Inteligência; Metameria Homônoma, Locomoção Peristáltica por Músculos Antagônicos, Cerdas de Quitina, Tiflossole, Arcos Aórticos e Metanefrídios; Importância de Minhocas (Húmus) e Sanguessugas (Hirudina na Cirurgia Reconstrutiva).
+     - Habilidades BNCC: EM13CNT202, EM13CNT206.
+     - Extensão: 5.515 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 33:** `em-bio-c33-obj1-artropodes-sucesso-adaptativo.md`
+     - Objeto de Conhecimento: Zoologia IV: Filo Arthropoda e as Bases do seu Sucesso Adaptativo — Exoesqueleto de Quitina e Esclerotina, Ecdise (Muda) controlada por PTTH, Ecdisona e Hormônio Juvenil, Tagmatização e Apêndices Articulados; Morfofisiologia Comparada das Classes (Insecta, Crustacea, Arachnida, Chilopoda e Diplopoda); Respiração Traqueal Direta Desacoplada do Sangue; Excreção por Túbulos de Malpighi (Ácido Úrico e Economia Hídrica); Padrões de Desenvolvimento (Ametábolo, Hemimetábolo e Holometábolo); Polinização por Abelhas, Vetores de Doenças e Animais Peçonhentos (*Tityus*, *Loxosceles*, *Phoneutria*).
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Extensão: 5.435 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 34:** `em-bio-c34-obj1-equinodermos-cordados-basais.md`
+     - Objeto de Conhecimento: Zoologia V: Equinodermos, Protocordados e a Grande Transição dos Deuterostômios — Deuterostomia (Blastóporo origina o Ânus, Clivagem Radial Indeterminada e Enterocelia); Equinodermos: Simetria Pentarradial Secundária, Endosqueleto Mesodérmico com Estereoma de Calcita, Sistema Aquífero/Ambulacrário Hidráulico (Madreporito, Canais, Ampolas e Pés Ambulacrários), Pápulas, Pedicelárias e Lanterna de Aristóteles; Cordados: As Quatro Sinapomorfias Canônicas (Notocorda, Tubo Neural Oco Dorsal, Fendas Faringianas e Cauda Pós-Anal); Urocordados (Ascídias, Túnica de Tunicina e Metamorfose Regressiva) e Cefalocordados (Anfioxo e Conservação Integral dos Caracteres na Vida Adulta).
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Extensão: 5.732 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 FECHAMENTO INTEGRAL DE 100% DO EIXO III!).
+  5. **Capítulo 35:** `em-bio-c35-obj1-vertebrados-peixes-anfibios-repteis-aves-mamiferos.md`
+     - Objeto de Conhecimento: Zoologia VI: A Radiação dos Vertebrados — De Peixes a Mamíferos: Inovações Diagnósticas dos Craniados (Crista Neural, Esqueleto de Hidroxiapatita, Coração Ventral Multicavitário, Néfrons Glomerulares); Ágnatos (Feiticeiras e Lampréias); Gnathostomata e Origem da Mandíbula; Condríctes (Esqueleto Cartilaginoso, Escamas Placóides, Ausência de Bexiga Natatória, Esqualeno, Ampolas de Lorenzini, Ureotelia) vs Osteíctes (Esqueleto Ósseo, Opérculo com Contracorrente, Bexiga Natatória Hidrostática); Anfíbios (Ciclo Bifásico, Hematose Cutânea Vital, Coração Tricavitário); Répteis e a Conquista Definitiva da Terra (Ovo Amniótico com Casca, Âmnio, Córion, Alantoide e Saco Vitelínico; Pele Queratinizada; Uricotelismo; Coração Crocodiliano com Forame de Panizza); Aves (Endotermia, Penas, Ossos Pneumáticos, Quilha/Carena, Pulmões Parabronquiais Unidirecionais com 9 Sacos Aéreos, Siringe); e Mamíferos (Glândulas Mamárias, Pelos, Diafragma, Hemácias Anucleadas, Três Ossículos no Ouvido Médio, Heterodontia e Radiação Reprodutiva: Monotremados, Marsupiais e Placentários).
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Extensão: 7.256 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 ABERTURA DO BLOCO DE VERTEBRADOS E TRANSIÇÃO FISIOLÓGICA!).
+- **Métricas Consolidadas do Lote 7:**
+  - Total de E-books Produzidos no Lote 7: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 7: **30.316 palavras limpas** (média de 6.063 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **35 de 60 capítulos concluídos (58,33% da matriz curricular integral)** somando **171.349 palavras acumuladas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python `validador_educamob.py` com Exit Code 0 em todos os 35 capítulos homologados).
+
+
+---
+
+### Rodada 138 - 11/11/2026: Homologação do Lote 8 de E-books de Biologia - Ensino Médio (Capítulos 36 ao 40 — Digestório, Respiratório, Circulatório/Imune, Excretor e Nervoso/Endócrino) e Fechamento Integral de 100% do Eixo IV (66,67% da Matriz de Biologia Concluída)
+
+- **Objetivo da Rodada:** Dar andamento ininterrupto à esteira oficial de Biologia do Ensino Médio, concluindo e homologando o Lote 8 (Capítulos 36 ao 40) sob rigorosa observância do Hard-Guardrail Sistêmico (`validador_educamob.py`), densidade média superior a 6.200 palavras por capítulo, ausência do símbolo R$, zero exercícios na teoria, 5 fontes bibliográficas ABNT NBR 6023 com citação expressa da BNCC e **fechamento oficial de 100% do Eixo IV: Fisiologia Humana Comparada (6 capítulos: Caps 35 ao 40)**, atingindo a marca histórica de **dois terços (40 de 60 capítulos)** de toda a disciplina homologados no disco.
+- **Capítulos Concluídos e Auditados no Lote 8:**
+  1. **Capítulo 36:** `em-bio-c36-obj1-fisiologia-humana-digestao-nutricao.md`
+     - Objeto de Conhecimento: Fisiologia Humana I: Sistema Digestório, Fisiologia da Digestão Química e Mecânica, Absorção de Nutrientes e Controle Neuroendócrino — Túnicas Mucosa, Submucosa, Muscular (Plexos de Meissner e Auerbach); Mastigação e Ptialina Salivar; Faringe, Esôfago e Peristaltismo; Estômago, Células Parietais e Secreção de $HCl$ por Bomba de Prótons, Pepsina e Fator Intrínseco de Castle; Intestino Delgado (Duodeno): Suco Pancreático com Bicarbonato e Tripsina ativada por Enteroquinase, Bile Hepática com Sais Biliares e Emulsificação Micelar de Gorduras sem Enzimas, Suco Entérico com Dissacaridases da Borda em Escova; Absorção Intestinal Amplificada em 600x (Válvulas de Kerckring, Vilosidades e Microvilosidades), Rota Sanguínea via Veia Porta-Hepática vs Rota Linfática com Quilomicrons em Vasos Quilíferos; Intestino Grosso, Reabsorção Hídrica e Microbiota Intestinal com Ácidos Graxos de Cadeia Curta e Vitamina K; Controle Hormonal Integrado (Gastrina, Secretina, Colecistoquinina - CCK e GIP/Enterogastrona).
+     - Habilidades BNCC: EM13CNT202, EM13CNT306.
+     - Extensão: 6.490 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 37:** `em-bio-c37-obj1-fisiologia-humana-respiracao-trocas.md`
+     - Objeto de Conhecimento: Fisiologia Humana II: Sistema Respiratório, Mecânica Ventilatória, Hematose Alveolar, Transporte de Gases e Equilíbrio Ácido-Básico — Vias Aéreas: Zona de Condução (Espaço Morto Anatômico, Aparelho Mucociliar com Epitélio Ciliado e Muco) vs Zona Respiratória; Alvéolos Pulmonares, Pneumócitos Tipo I e Pneumócitos Tipo II secretores de Surfactante Pulmonar (DPPC) regulado pela Lei de Laplace contra o Colapso Expiratório; Mecânica Ventilatória por Pressão Negativa e Lei de Boyle: Pleuras, Inspiração Ativa (Diafragma e Intercostais Externos) vs Expiração Passiva de Repouso; Hematose Alveolar governada pela Lei de Difusão de Fick e Solubilidade; Transporte de $O_2$ (98,5% ligado à Hemoglobina como Oxiemoglobina com Cooperatividade Alostérica, Curva Sigmoide e Efeito Bohr; Intoxicação por Monóxido de Carbono $CO$); Transporte de $CO_2$ (7% livre, 23% como Carbaminoemoglobina e 70% como Íon Bicarbonato $HCO_3^-$ catalisado pela Anidrase Carbônica nas hemácias com Desvio de Cloreto); Controle Respiratório Bulbar Central sensível ao pH e $pCO_2$ do líquor cefalorraquidiano e Quimiorreceptores Carotídeos Periféricos sensíveis à hipóxia severa; Desequilíbrios Ácido-Básicos (Acidose e Alcalose Respiratória vs Metabólica e Hiperventilação de Ansiedade).
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Extensão: 6.808 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 38:** `em-bio-c38-obj1-fisiologia-humana-circulacao-imunidade.md`
+     - Objeto de Conhecimento: Fisiologia Humana III: Sistema Circulatório, Ciclo Cardíaco, Hemodinâmica, Coagulação e Resposta Imunológica — Anatomia Cardíaca Humana de 4 Cavidades, Septos Interatrial e Interventricular, Valvas Tricúspide, Mitral, Pulmonar e Aórtica; Automatismo Miogênico do Nó Sinoatrial (Marcapasso Natural), Retardo no Nó Atrioventricular, Feixe de His e Fibras de Purkinje com Eletrocardiograma (Ondas P, QRS e T); Ciclo Cardíaco (Sístole e Diástole) e Bulhas Cardíacas ($B_1$ e $B_2$ pelo fechamento valvar); Hemodinâmica: Artérias com Efeito Windkessel, Arteríolas como Sítio de Resistência Vascular Periférica (Lei de Poiseuille), Capilares e Forças de Starling (Pressão Hidrostática vs Oncótica da Albumina), Veias com Válvulas Unidirecionais e Bomba Musculoesquelética; Sistema Linfático e Linfa; Plasma, Hemácias, Plaquetas e Hemostasia (Espasmo Vascular, Tampão Plaquetário com $TXA_2$ e Cascata de Coagulação: Protrombina $\to$ Trombina $\to$ Fibrinogênio $\to$ Fibrina Insolúvel); Imunologia Geral: Imunidade Inata Rápida (Barreiras, Neutrófilos com Diapedese e Pus, Macrófagos e Fagocitose/APCs com MHC-II, Células NK e Sistema Complemento MAC) vs Imunidade Adaptativa Específica (Linfócitos T CD4+ Helper, T CD8+ Citotóxicos e Linfócitos B com Plasmócitos secretores de Anticorpos $IgG, IgM, IgA, IgE, IgD$ e Memória Imunológica); Imunização Ativa Profilática (Vacinas) vs Passiva Curativa (Soros Heterólogos).
+     - Habilidades BNCC: EM13CNT202, EM13CNT302.
+     - Extensão: 6.456 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 39:** `em-bio-c39-obj1-fisiologia-humana-excrecao-osmorregulacao.md`
+     - Objeto de Conhecimento: Fisiologia Humana IV: Sistema Excretor, Arquitetura do Néfron, Fisiologia da Formação da Urina e Regulação Neuroendócrina da Osmorregulação — Anatomia Renal: Córtex, Medula, Pirâmides de Malpighi e Pelve; O Néfron: Corpúsculo Renal (Glomérulo Fenestrado e Cápsula de Bowman com Podócitos), Túbulo Contorcido Proximal com Borda em Escova, Alça de Henle, Túbulo Contorcido Distal com Aparelho Justaglomerular e Ducto Coletor; As Três Etapas: 1) Ultrafiltração Glomerular por Pressão Efetiva de Filtração ($PEF = +10 \text{ mmHg}$) gerando 180 L/dia de filtrado primário; 2) Reabsorção Tubular de 99% de água e 100% de glicose (via SGLT-2, limiar renal saturado no Diabetes Mellitus com glicosúria e poliúria osmótica); 3) Secreção Tubular Ativa de $H^+$, $K^+$, amônia e fármacos; Sistema de Multiplicação por Contracorrente na Alça de Henle e Gradiente Hiperosmótico Medular (300 a 1.200 mOsm/kg); Controle Hormonal da Osmorregulação: Hormônio Antidiurético (ADH/Vasopressina) via Aquaporinas-2 (inibido pelo álcool da ressaca), Sistema Renina-Angiotensina-Aldosterona (SRAA) e Peptídeo Natriurético Atrial (ANP natriurético e vasodilatador); Hemodiálise na Insuficiência Renal Crônica.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Extensão: 5.405 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 40:** `em-bio-c40-obj1-fisiologia-humana-nervoso-endocrino.md`
+     - Objeto de Conhecimento: Fisiologia Humana V: Sistemas Nervoso e Endócrino — Potencial de Ação, Sinapses, Arco Reflexo, Eixo Hipotálamo-Hipófise e Homeostase Hormonal: Organização do SNC (Lobos Cerebrais Frontal, Parietal, Temporal, Occipital; Tálamo e Hipotálamo; Cerebelo e Coordenação Motora; Bulbo e Centros Vitais; Medula e Meninges) e do SNP (12 Cranianos, 31 Espinhais; Somático Voluntário vs Autônomo Simpático ["Luta ou Fuga", Noradrenalina] e Parassimpático ["Repouso e Digestão", Acetilcolina]); Eletrofisiologia Neuronal: Potencial de Repouso ($-70 \text{ mV}$ via Bomba $Na^+/K^+$ e vazamento de $K^+$), Potencial de Ação pela Lei do Tudo ou Nada (Despolarização por Influxo de $Na^+$, Repolarização por Efluxo de $K^+$, Hiperpolarização temporária e Período Refratário), Condução Saltatória nos Nós de Ranvier com Bainha de Mielina; Sinapse Química com Influxo de $Ca^{2+}$ e Exocitose de Neurotransmissores (ACh, Glutamato, GABA inibitório com $Cl^-$, Dopamina, Serotonina); Arco Reflexo Medular Involuntário Rápido; Sistema Endócrino: Eixo Hipotálamo-Hipófise (Adeno-hipófise: GH, TSH, ACTH, FSH, LH, Prolactina; Neuro-hipófise: ADH e Ocitocina); Tireoide ($T_3/T_4$ metabólicos com iodo e Calcitonina hipocalcemiante) e Paratireoides (Paratormônio PTH hipercalcemiante vital); Adrenais (Córtex: Cortisol e Aldosterona; Medula: Adrenalina/Noradrenalina); Pâncreas Endócrino: Insulina das Células Beta (hipoglicemiante via GLUT-4) e Glucagon das Células Alfa (hiperglicemiante via glicogenólise/gliconeogênese hepática), Fisiopatologia do Diabetes Mellitus Tipo 1 e Tipo 2; Gônadas (Testosterona e Estrogênio/Progesterona).
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 6.125 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 FECHAMENTO INTEGRAL DE 100% DO EIXO IV!).
+- **Métricas Consolidadas do Lote 8:**
+  - Total de E-books Produzidos no Lote 8: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 8: **31.284 palavras limpas** (média de 6.257 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **40 de 60 capítulos concluídos (exatamente 66,67% — dois terços de toda a disciplina)** somando **202.633 palavras limpas acumuladas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python `validador_educamob.py` com Exit Code 0 em todos os 40 capítulos homologados).
+
+
+---
+
+### Rodada 139 - 11/11/2026: Homologação do Lote 9 de E-books de Biologia - Ensino Médio (Capítulos 41 ao 45 — Mendel 1ª Lei, 2ª Lei/Interações, Alelos Múltiplos/Grupos Sanguíneos, Determinação/Herança Sexual e Linkage/Mapeamento) e Marco Histórico de 75% da Disciplina Concluído
+
+- **Objetivo da Rodada:** Dar andamento ininterrupto à esteira oficial de Biologia do Ensino Médio, concluindo e homologando o Lote 9 (Capítulos 41 ao 45) sob rigorosa observância do Hard-Guardrail Sistêmico (`validador_educamob.py`), densidade média superior a 5.500 palavras por capítulo, ausência do símbolo R$, zero exercícios na teoria, 5 fontes bibliográficas ABNT NBR 6023 com citação expressa da BNCC e **abertura de alta complexidade do Eixo V: Genética e Biotecnologia**, atingindo a marca histórica de **três quartos (45 de 60 capítulos — 75,0%)** de toda a disciplina homologados no disco.
+- **Capítulos Concluídos e Auditados no Lote 9:**
+  1. **Capítulo 41:** `em-bio-c41-obj1-genetica-mendel-primeira-lei.md`
+     - Objeto de Conhecimento: Genética I: A Primeira Lei de Mendel e as Bases Físicas da Hereditariedade — Histórico da Genética Clássica; Gregor Mendel e o modelo experimental com *Pisum sativum*; Monoibridismo: Linhagens Puras ($P$), Geração $F_1$ uniforme e Geração $F_2$ com segregação $3:1$ fenotípica e $1:2:1$ genotípica; Princípio da Segregação dos Fatores; Teoria Cromossômica da Herança de Sutton e Boveri: Paralelismo estrito entre os fatores mendelianos e os cromossomos homólogos na Anáfase I da Meiose; Conceitos Citogenéticos Fundamentais: Gene, Loco Gênico, Alelos Homólogos, Homozigose, Heterozigose, Genótipo vs Fenótipo e Interação com Meio Ambiente ($F = G + A$); Cruzamento-Teste e Retrocruzamento; Regras Matemáticas da Probabilidade em Genética: Regra da Multiplicação (Eventos Independentes simultâneos) e Regra da Adição (Eventos Mutuamente Exclusivos); Análise Genealógica e Heredogramas com Convenções Internacionais; e Alelos Letais: Herança da Pelagem em Camundongos de Lucien Cuénot com Proporção Modificada $2:1$.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 4.963 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 ABERTURA OFICIAL DO EIXO V: GENÉTICA E BIOTECNOLOGIA!).
+  2. **Capítulo 42:** `em-bio-c42-obj1-genetica-segunda-lei-interacoes-alelicas.md`
+     - Objeto de Conhecimento: Genética II: A Segunda Lei de Mendel e as Variações da Dominância — Diibridismo e Triibridismo em *Pisum sativum*; Lei da Segregação Independente: Cromossomos homólogos não sintênicos na Metáfase I/Anáfase I; Proporção Fenotípica Clássica de $F_2$ ($9:3:3:1$) e Genotípica ($1:2:1:2:4:2:1:2:1$); Resolução pelo Produto de Monoibridismos ($3/4 \times 3/4 = 9/16$); Variações da Relação Alélica Pós-Mendeliana: Dominância Incompleta com Fenótipo Intermediário e Proporção $1:2:1$ (*Mirabilis jalapa*); Codominância com Expressão Simultânea de Ambos os Alelos em Heterozigotos (Pelagem Ruão em Bovinos e Sistema Sanguíneo MN); Penetrância Gênica (Completa vs Incompleta percentual na população); Expressividade Variável (Graduação clínica do fenótipo); Pleiotropia (1 único loco afetando múltiplos sistemas corporais não relacionados: Anemia Falciforme e Síndrome de Marfan).
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Extensão: 4.656 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 43:** `em-bio-c43-obj1-alelos-multiplos-grupos-sanguineos.md`
+     - Objeto de Conhecimento: Genética III: Alelos Múltiplos (Polialelia), Grupos Sanguíneos (Sistemas ABO, Rh e MN) e Eritroblastose Fetal — Conceito de Alelos Múltiplos: Mutações sucessivas originando séries alélicas na população (cada indivíduo diploide retém apenas 2 alelos); Pelagem em Coelhos (Série Alélica $C > c^{ch} > c^h > c$ — Selvagem/Aguti, Chinchila, Himalaio e Albino); Sistema ABO Humano: Karl Landsteiner e a Imuno-hematologia; Alelos $I^A$, $I^B$ (codominantes) e $i$ (recessivo); Aglutinogênios de Membrana e Aglutininas Naturais Plasmáticas (Anti-A e Anti-B); Tabela Cruzada de Transfusões Sanguíneas: Doador Universal ($O^-$) vs Receptor Universal ($AB^+$); Bioquímica dos Aglutinogênios: Antígeno Precursor H e Enzima Fucosiltransferase 1 (*FUT1*); O Fenótipo Bombaim / Falso O (Epistasia Recessiva $hh$ mascarando o genótipo ABO real); Sistema Rh: Herança Monogênica simples com Fator $D$ dominante ($Rh^+$) e $d$ recessivo ($Rh^-$); Anticorpos Anti-D Imunes induzidos por Sensibilização; Doença Hemolítica do Recém-Nascido (Eritroblastose Fetal): Etiopatogenia (Mãe $Rh^-$ sensibilizada $\times$ Feto $Rh^+$), Hemólise transplacentária por anticorpos $IgG$, Icterícia Neonatal, Kernicterus e Profilaxia com Imunoglobulina Anti-D até 72h pós-parto; Sistema MN com codominância pura.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 4.769 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 44:** `em-bio-c44-obj1-genetica-heranca-sexual-cromossomos.md`
+     - Objeto de Conhecimento: Determinação Sexual e Herança Ligada aos Cromossomos Sexuais — Sistemas Cromossômicos de Determinação Sexual: XX/XY em mamíferos (gene *SRY*, fator TDF, ativação de *SOX9*, diferenciação testicular e AMH; comparação com índice sexual X:A em *Drosophila melanogaster*), ZZ/ZW em aves/lepidópteros com fêmeas heterogaméticas e gene *DMRT1*, X0 em ortópteros, Haplodiploidia partenogenética arrenótoca em himenópteros (machos haploides $n$ mitóticos e fêmeas diploides $2n$), e Determinação Sexual Dependente da Temperatura (TSD) em répteis mediada pela enzima aromatase e impactos climáticos; Compensação de Dose Gênica em Mamíferos: Hipótese de Mary Lyon (Lyonização), Inativação estocástica precoce no blastocisto, Mosaico genético em fêmeas (gatas cálico $X^O X^o$ com manchas alaranjadas e pretas), Corpúsculo de Barr (regra citogenética $N_X - 1$) e Mecanismo Molecular do lncRNA *XIST* recrutando PRC2 para deposição de marcas epigenéticas repressivas H3K27me3; Modalidades de Herança Sexual: 1) Ligada ao X Recessiva: Condição de hemizigose nos machos ($X^a Y$), frequência desproporcional entre os sexos, herança cruzada em zigue-zague (Daltonismo via opsinas $OPN1LW/OPN1MW$, Hemofilia A e B via fatores *F8* e *F9*, Distrofia Muscular de Duchenne via distrofina *DMD*); 2) Ligada ao X Dominante: Homem afetado passa para 100% das filhas e 0% dos filhos (Raquitismo Hipofosfatêmico via *PHEX*, Síndrome de Rett e Incontinentia Pigmenti com letalidade hemizigota masculina); 3) Restrita ao Y (Holândrica): Genes na região MSY (*SRY*, fatores de fertilidade *AZF*), transmissão direta de pai para 100% dos filhos homens; 4) Pseudoautossômica: Genes nas regiões PAR1 e PAR2 que pareiam na meiose masculina (gene *SHOX* da estatura na Síndrome de Turner); 5) Autossômica Influenciada pelo Sexo: Calvície prematura com alelo $C$ dominante em homens na presença de DHT e recessivo em mulheres; 6) Autossômica Limitada ao Sexo: Produção de leite e criptorquidismo; Algoritmo diagnóstico em heredogramas e aconselhamento genético reprodutivo.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 7.953 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 45:** `em-bio-c45-obj1-ligacao-genica-linkage-mapeamento.md`
+     - Objeto de Conhecimento: Ligação Gênica (Linkage), Recombinação Homóloga (Crossing-Over) e Mapeamento Genético Cromossômico — Exceção à Segunda Lei de Mendel: Genes Sintênicos na mesma molécula linear de DNA; Histórico: Bateson, Saunders e Punnett com acoplamento e repulsão em *Lathyrus odoratus*, e elucidação citogenética por Thomas Hunt Morgan em *Drosophila melanogaster*; Configurações Cromossômicas: Configuração *Cis* (Acoplamento, $\frac{AB}{ab}$) com parentais $AB/ab$ vs Configuração *Trans* (Repulsão, $\frac{Ab}{aB}$) com parentais $Ab/aB$; Ligação Completa (supressão total de permuta meiótica, como nos machos de *Drosophila*) gerando proporção gamética estrita $1:1$ ($50\%:50\%$) vs Ligação Incompleta com gametas parentais ($> 50\%$) e recombinantes ($< 50\%$); Mecanismo Molecular do Crossing-Over no Paquíteno da Prófase I da Meiose (Spo11, Rad51/Dmc1, junções de Holliday e quiasmas); Relação Matemática estrita entre Porcentagem de Células Germinativas em Permuta ($P$) e Taxa Gamética de Recombinação ($FR = P/2$), demonstrando por que $FR$ nunca excede 50%; O Cruzamento-Teste (*Testcross*) com homozigoto recessivo puro ($aabb$) como espelho direto da frequência gamética; Mapeamento Genético de Alfred Sturtevant: Frequência de recombinação como métrica linear ($1\% \text{ Recombinação} = 1\text{ cM} = 1\text{ UR}$); Aditividade Linear de Distâncias; Cruzamento-Teste de Três Pontos (*Three-point Testcross*): Identificação das 4 classes (Parentais, Recombinantes Simples 1, Recombinantes Simples 2 e Duplos Recombinantes - DCO), Determinação inequívoca do Gene Central pelo alelo trocado nos DCOs, e Cálculo de Distâncias corrigidas com inclusão de DCOs em ambos os intervalos; Interferência Cromossômica ($I = 1 - c$) e Coeficiente de Coincidência ($c = \text{DCO}_{\text{obs}} / \text{DCO}_{\text{esp}}$) resultante do estresse mecânico de torção axial na fibra de cromatina.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 5.530 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 MARCO DE 75% DE CONCLUSÃO DA BIOLOGIA DO ENSINO MÉDIO!).
+- **Métricas Consolidadas do Lote 9:**
+  - Total de E-books Produzidos no Lote 9: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 9: **27.871 palavras limpas** (média de 5.574 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **45 de 60 capítulos concluídos (exatamente 75,0% — três quartos de toda a disciplina)** somando **230.504 palavras limpas acumuladas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python `validador_educamob.py` com Exit Code 0 em todos os 45 capítulos homologados).
+
+
+---
+
+### Rodada 140 - 11/11/2026: Homologação do Lote 10 de E-books de Biologia - Ensino Médio (Capítulos 46 ao 50 — Epistasia/Poligenia, Mutações, Dogma Central/Regulação, DNA Recombinante/PCR e Transgênicos/CRISPR/Bioética) e Fechamento Integral de 100% do Eixo V: Genética e Biotecnologia (83,33% da Matriz de Biologia Concluída)
+
+- **Objetivo da Rodada:** Dar andamento ininterrupto à esteira oficial de Biologia do Ensino Médio, concluindo e homologando o Lote 10 (Capítulos 46 ao 50) sob rigorosa observância do Hard-Guardrail Sistêmico (`validador_educamob.py`), densidade média superior a 5.700 palavras por capítulo, ausência do símbolo R$, zero exercícios na teoria, 5 fontes bibliográficas ABNT NBR 6023 com citação expressa da BNCC e **fechamento oficial de 100% do Eixo V: Genética e Biotecnologia (10 capítulos: Caps 41 ao 50)**, atingindo a marca histórica de **cinco sextos (50 de 60 capítulos — 83,33%)** de toda a disciplina homologados no disco.
+- **Capítulos Concluídos e Auditados no Lote 10:**
+  1. **Capítulo 46:** `em-bio-c46-obj1-interacao-genica-epistasia-poligenia.md`
+     - Objeto de Conhecimento: Interação Gênica Não Alélica, Epistasia (Dominante e Recessiva), Herança Quantitativa (Poligenia) e Pleiotropia — Interação Gênica Simples: Morfologia da Crista de Galináceos (Bateson e Punnett) com locos $R$ e $E$ gerando proporção modificada para um único caráter: $9\text{ Noz} : 3\text{ Rosa} : 3\text{ Ervilha} : 1\text{ Simples}$; Epistasia (Gene Epistático vs Hipostático): 1) Epistasia Recessiva com proporção $9:3:4$ na pelagem de cães Labradores (loco estrutural $B/b$ para eumelanina preta vs chocolate e loco epistático $E/e$ para o receptor MC1R com fenótipo amarelo em $ee$ e trufa preta/Dudley); 2) Epistasia Dominante com proporção $12:3:1$ na casca de abóboras de verão (*Cucurbita pepo*, gene inibidor $W$); 3) Genes Complementares com proporção $9:7$ na flor de *Lathyrus odoratus*; 4) Genes Duplicados Idênticos com proporção $15:1$ na cápsula de *Capsella*; Herança Quantitativa (Poligenia / Multifatorial): Caracteres biométricos contínuos (altura, peso, cor da íris e da pele humana), Modelo aditivo de Nilsson-Ehle com alelos efetivos vs não efetivos, Fórmulas da Poligenia: Número de Classes Fenotípicas $= 2n + 1$, Fração de cada Extremo $= (1/4)^n = 1/4^n$, Contribuição por alelo efetivo $= (\text{Máx} - \text{Mín})/2n$; Distribuição Contínua Gaussiana (Teorema Central do Limite); e Modelo de Davenport da Cor da Pele Humana com 2 pares de alelos aditivos de melanina.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 4.560 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 47:** `em-bio-c47-obj1-mutacoes-genicas-cromossomicas.md`
+     - Objeto de Conhecimento: Mutações Gênicas (Pontuais, Frameshift e Mecanismos de Reparo) e Mutações Cromossômicas (Estruturais e Numéricas: Aneuploidias e Euploidias) — Mutações Gênicas: Substituições de bases (Transições [Purina $\leftrightarrow$ Purina ou Pirimidina $\leftrightarrow$ Pirimidina] vs Transversões [Purina $\leftrightarrow$ Pirimidina]); Efeitos funcionais: Silenciosas (mesmo aminoácido por degeneração do código), *Missense* ou de Sentido Trocado (troca de resíduo, ex: Anemia Falciforme com substituição de ácido glutâmico por valina no códon 6 da $\beta$-globina) e *Nonsense* ou Sem Sentido (criação precoce de códon stop $UAA, UAG, UGA$ truncando o polipeptídio); Inserções e Deleções gerando Mutação por Mudança na Matriz de Leitura (*Frameshift*); Agentes Mutagênicos físicos (Radiação UV gerando Dímeros de Timina; Radiação Ionizante gerando quebras de fita dupla DSB) e químicos (análogos de bases como 5-bromouracil, alquilantes e agentes intercalantes como brometo de etídio); Mecanismos de Reparo do DNA: NER (Reparo por Excisão de Nucleotídeos cuja deficiência causa Xeroderma Pigmentoso), BER, MMR e NHEJ/HR; Mutações Cromossômicas Estruturais: Deleções (Síndrome de Cri-du-chat $46,\text{del}(5p)$), Duplicações (expansão de famílias multigênicas), Inversões Paracêntricas e Pericêntricas (formação de alças de inversão meióticas), e Translocações Recíprocas (Cromossomo Filadélfia $t(9;22)$ e fusão oncogênica $BCR-ABL1$ na Leucemia Mieloide Crônica) e Robertsonianas (fusão cêntrica de acrocêntricos e Síndrome de Down familiar com 45 cromossomos no portador balanceado); Mutações Cromossômicas Numéricas: Não Disjunção Meiótica na Meiose I (100% gametas anômalos) vs Meiose II (50% gametas anômalos); Aneuploidias Autossômicas: Down ($47,+21$), Edwards ($47,+18$), Patau ($47,+13$); Aneuploidias Sexuais: Turner ($45,X0$ — única monossomia viável), Klinefelter ($47,XXY$), Triplo X ($47,XXX$) e Duplo Y ($47,XYY$); e Euploidias: Monoploidia ($n$), Triploidia ($3n$, estéril gerando frutas comerciais sem sementes) e Alopoliploidia vegetal (trigo hexaploide $6n$ e morango $8n$).
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 5.438 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 48:** `em-bio-c48-obj1-biologia-molecular-dogma-central-regulacao.md`
+     - Objeto de Conhecimento: Biologia Molecular: Dogma Central da Biologia Molecular (Replicação, Transcrição, Tradução) e Regulação da Expressão Gênica em Procariontes e Eucariontes — O Dogma Central Revisado ($DNA \to RNA \to Proteína$, Transcriptase Reversa retroviral e Replicação de RNA); Replicação Semiconservativa do DNA (Meselson e Stahl); Enzimas do Replissomo: Helicase, Proteínas SSB/RPA, Topoisomerase/Girase (alívio de supertorção torsional), DNA Primase (síntese de primer de RNA com $3'-OH$), DNA Polimerases (síntese unidirecional estrita $5' \to 3'$ com proofreading $3'\to 5'$ exonucleásico), Fita Líder contínua vs Fita Tardia descontínua em Fragmentos de Okazaki selados pela DNA Ligase; Telômeros repetitivos ($5'-TTAGGG-3'$) e a Enzima Telomerase (senescência e imortalização tumoral); Transcrição e Processamento em Eucariontes: RNA Polimerases I, II e III, Adição do *Cap* 5' (7-metilguanosina), Poliadenilação 3' (Cauda Poli-A) e Splicing Canônico pelo Spliceossomo; Splicing Alternativo e a Diversidade Proteômica (~20.000 genes codificando >100.000 isoformas proteicas funcionais); Tradução Ribossômica: Ribossomo 80S (Sítios A, P e E), Peptidil-transferase catalisada pelo rRNA, tRNA e Aminoacil-tRNA sintetases; Propriedades do Código Genético: Universal, Degenerado/Redundante, Não Ambíguo, Contínuo e Hipótese do Balanço (*Wobble*); Regulação Procariótica: O Modelo do Óperon *lac* de Jacob e Monod (Controle negativo por Repressor LacI inativado por alolactose + Controle positivo por CAP-cAMP na escassez de glicose); Regulação Eucariótica em Múltiplos Níveis: 1) Nível Epigenético: Acetilação de Histonas por HATs (eucromatina aberta ativa) vs Desacetilação por HDACs, e Metilação de Citosinas em Ilhas CpG por DNMTs (heterocromatina silenciada); 2) Nível Transcricional: Fatores basais e ativadores específicos em sequências *Enhancers* distantes acopladas pelo complexo Mediador; 3) Nível Pós-Transcricional: Splicing alternativo e RNA de Interferência (miRNAs processados por Dicer e complexo RISC/Argonauta); 4) Nível Pós-Traducional: Fosforilação e Ubiquitinação direcionando ao Proteassoma 26S.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 5.745 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 49:** `em-bio-c49-obj1-engenharia-genetica-dna-recombinante-biotecnologia.md`
+     - Objeto de Conhecimento: Engenharia Genética: Tecnologia do DNA Recombinante, Enzimas de Restrição, Vetores Plasmídicos, PCR, Eletroforese e Sequenciamento de DNA — Nascimento da Engenharia Genética (Cohen e Boyer); Ferramentas Moleculares: Enzimas de Restrição (Sistema de Restrição-Modificação bacteriano, sítios palindrômicos específicos, cortes coesivos/adesivos com pontas *sticky* [EcoRI, HindIII] vs cortes cegos *blunt* [HaeIII]); DNA Ligase catalisando ligações fosfodiéster covalentes; Vetores de Clonagem (Plasmídeos pUC/pBR): Origem de replicação ($ori$), Marcador de seleção por resistência antibiótica (*ampR* com $\beta$-lactamase), Sítio de Clonagem Múltiplo (MCS / *Polylinker*) e Promotor forte de expressão; Métodos de Transformação Bacteriana: Choque térmico com $CaCl_2$ gelado seguido por $42^\circ\text{C}$, Eletroporação com pulsos de alta voltagem e Biobalística; Sistema de Seleção Azul/Branco por $\alpha$-complementação do gene *lacZ'*: Colônias recombinantes sofrem interrupção insercional e formam colônias **brancas** (não clivam X-Gal), enquanto vetores vazios formam colônias **azuis**; Bibliotecas Genômicas (éxons + íntrons) vs Bibliotecas de cDNA: Isolamento de mRNA maduro com coluna oligo(dT), síntese de cDNA por Transcriptase Reversa (sem íntrons), permitindo expressar proteínas humanas autênticas (Insulina humana, hormônio de crescimento hGH) em bactérias procariontes desprovidas de spliceossomo; Eletroforese em Gel de Agarose: Separação de ácidos nucleicos por tamanho e carga elétrica negativa dos fosfatos migrando em direção ao **Ânodo positivo (+)**, poros da agarose funcionando como peneira molecular e visualização por intercalantes fluorescentes sob luz UV/LED; Reação em Cadeia da Polimerase (PCR): Kary Mullis e a amplificação exponencial $2^n$ in vitro; Componentes: DNA molde, dois primers específicos, dNTPs, tampão com $Mg^{2+}$ e **DNA Polimerase termoestável (*Taq* Polimerase)** de *Thermus aquaticus*; As Três Etapas do Termociclador: 1) Desnaturação térmica ($95^\circ\text{C}$); 2) Anelamento dos primers ($55^\circ\text{C}$); 3) Extensão enzimática ($72^\circ\text{C}$); Aplicações forenses via marcadores microssatélites STRs e genotipagem criminal de alta probabilidade; Variações RT-PCR e qPCR em tempo real para determinação de carga viral; Sequenciamento de DNA pelo Método de Sanger: Uso de Didesoxirribonucleotídeos terminadores de cadeia marcados com fluoróforos (**ddNTPs**, desprovidos de $3'-OH$), eletroforese capilar e leitura por laser em eletroferogramas; e Plataformas de Sequenciamento de Nova Geração (NGS) massivo paralelo.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Extensão: 6.244 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 50:** `em-bio-c50-obj1-biotecnologia-aplicada-transgenicos-crispr-bioetica.md`
+     - Objeto de Conhecimento: Biotecnologia Aplicada: Transgênicos (Cultivares Bt e RR), Edição Gênica CRISPR-Cas9, Clonagem (Reprodutiva e Terapêutica), Células-Tronco, Terapia Gênica e Bioética — Distinção Conceitual: Todo transgênico é um OGM, mas nem todo OGM é transgênico (transgênicos incorporam material de espécie heteróloga diferente); Transgenia Vegetal: O vetor natural *Agrobacterium tumefaciens* e o Plasmídeo Ti desarmado (remoção de genes oncogênicos do T-DNA e substituição pelo transgene); Cultivares *Bt*: Expressão da endotoxina Cry de *Bacillus thuringiensis*, ativada unicamente em **pH alcalino ($>9$)** e ligada a receptores específicos de lagartas mastigadoras de lepidópteros, inócua para vertebrados (estômago com pH ácido 1,5-2 que digere a proteína e ausência de receptores); Áreas de Refúgio Obrigatórias (10-20% de plantas não *Bt*) para cruzar com raros mutantes resistentes ($rr \times RR \to Rr$) e manter a suscetibilidade da praga segundo o equilíbrio de Hardy-Weinberg; Cultivares Tolerantes a Herbicidas (*Roundup Ready* - RR): Expressão do gene bacteriano *cp4 epsps* insensível ao glifosato na via do chiquimato; Arroz Dourado (*Golden Rice*): Enriquecimento com betacaroteno para erradicar a carência infantil de vitamina A; Células-Tronco: Totipotentes (zigoto até 8 células, formam embrião e placenta), Pluripotentes embrionárias ESCs (massa celular interna do blastocisto, formam tecidos dos 3 folhetos, mas não a placenta) e Multipotentes adultas; Células-Tronco Pluripotentes Induzidas (iPSCs): Shinya Yamanaka e a reprogramação de células adultas diferenciadas via 4 fatores de transcrição (Oct4, Sox2, Klf4 e c-Myc), superando a destruição de embriões humanos e a rejeição imune; Clonagem por Transferência Nuclear de Células Somáticas (SCNT): Clonagem Reprodutiva com implantação uterina em mãe de aluguel (Marco da Ovelha Dolly por Ian Wilmut, com DNA nuclear da célula mamária doadora e DNA mitocondrial do óvulo doador) vs Clonagem Terapêutica mantida *in vitro* para medicina regenerativa sem gestação; Edição Genômica CRISPR-Cas9: Jennifer Doudna e Emmanuelle Charpentier; Sistema imunológico bacteriano adaptativo composto pela endonuclease Cas9 (corte de fita dupla DSB), sgRNA sintético de 20 nucleotídeos guia e motivo PAM ($5'-NGG-3'$); Desfechos de reparo celular: 1) Nocaute gênico via NHEJ imperfeito gerando *indels* e *frameshift* terapêutico; 2) Edição de precisão corretiva via Recombinação Homóloga (HDR) com fornecimento de molde de DNA doador; Caso Casgevy: Terapia de nocaute do repressor *BCL11A* reativando a Hemoglobina Fetal normal ($\alpha_2\gamma_2$) na cura da Anemia Falciforme; Terapia Gênica *In Vivo* (AAVs para AME e amaurose) vs *Ex Vivo* (Células CAR-T anti-CD19); Bioética e Marco Legal: Princípios de Beauchamp e Childress (Autonomia, Beneficência, Não Maleficência e Justiça); A fronteira inegociável entre Edição Somática (segura e restrita ao paciente) vs Edição na Linhagem Germinativa (herdável para futuras gerações; moratória internacional após caso He Jiankui em 2018 com bebês editados); e Biossegurança no Brasil: A Lei Federal nº 11.105/2005, o papel da CTNBio, a proibição absoluta de clonagem humana e a rotulagem obrigatória de alimentos com o triângulo amarelo "T".
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT310.
+     - Extensão: 6.655 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 FECHAMENTO INTEGRAL DE 100% DO EIXO V: GENÉTICA E BIOTECNOLOGIA!).
+- **Métricas Consolidadas do Lote 10:**
+  - Total de E-books Produzidos no Lote 10: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 10: **28.642 palavras limpas** (média de 5.728 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **50 de 60 capítulos concluídos (exatamente 83,33% da matriz curricular completa — cinco sextos de toda a disciplina)** somando **259.146 palavras limpas acumuladas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python `validador_educamob.py` com Exit Code 0 em todos os 50 capítulos homologados).
+
+
+---
+
+### Rodada 141 - 11/11/2026: Homologação do Lote 11 de E-books de Biologia - Ensino Médio (Capítulos 51 ao 55 — Lamarck/Darwin, Neodarwinismo, Evidências da Evolução, Hardy-Weinberg e Especiação/Evolução Humana) e Marco de 91,67% da Disciplina Concluído
+
+- **Objetivo da Rodada:** Dar andamento ininterrupto à esteira oficial de Biologia do Ensino Médio, concluindo e homologando o Lote 11 (Capítulos 51 ao 55) sob rigorosa observância do Hard-Guardrail Sistêmico (`validador_educamob.py`), densidade média superior a 5.000 palavras por capítulo, ausência do símbolo R$, zero exercícios na teoria, 5 fontes bibliográficas ABNT NBR 6023 com citação expressa da BNCC e **abertura de alto rigor do Eixo VI: Evolução Biológica e Ecologia**, atingindo a marca histórica de **onze doze avos (55 de 60 capítulos — 91,67%)** de toda a disciplina homologados no disco.
+- **Capítulos Concluídos e Auditados no Lote 11:**
+  1. **Capítulo 51:** `em-bio-c51-obj1-origem-vida-teorias-evolutivas-lamarck-darwin.md`
+     - Objeto de Conhecimento: Origem da Diversidade Biológica e Teorias Evolutivas Clássicas: Fixismo, Lamarckismo, Darwinismo e Seleção Natural — Paradigma Fixista e Catastrofismo de Georges Cuvier; Jean-Baptiste de Lamarck (1809, *Philosophie Zoologique*): Lei do Uso e Desuso e Lei da Transmissão dos Caracteres Adquiridos; O erro epigenético da herança somática direta e a refutação conclusiva por August Weismann (corte de caudas em camundongos e Teoria da Continuidade do Plasma Germinativo: Somatoplasma vs Germinoplasma); Charles Darwin e Alfred Russel Wallace (1858-1859): Viagem do HMS Beagle (fósseis da Patagônia, sucessão geográfica de emas e radiação dos tentilhões/tartarugas de Galápagos), Geologia de Charles Lyell (Uniformitarismo e Tempo Profundo), Ensaio de Thomas Malthus (superprodução geométrica de descendentes com recursos finitos gerando a Luta pela Sobrevivência); A Analogia com a Seleção Artificial de Pombos; A Teoria da Seleção Natural: Variabilidade individual preexistente, sobrevivência e reprodução diferencial do mais adaptado; O caso comparativo do pescoço da girafa (Lamarck ativo teleológico vs Darwin filtro seletivo passivo); A grande lacuna histórica de Darwin: o desconhecimento dos mecanismos genéticos da hereditariedade e a falácia da herança por mistura.
+     - Habilidades BNCC: EM13CNT201, EM13CNT202, EM13CNT301.
+     - Extensão: 5.548 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 ABERTURA OFICIAL DO EIXO VI: EVOLUÇÃO E ECOLOGIA!).
+  2. **Capítulo 52:** `em-bio-c52-obj1-teoria-sintetica-evolucao-neodarwinismo-fatores.md`
+     - Objeto de Conhecimento: Teoria Sintética da Evolução (Neodarwinismo): Fatores Evolutivos (Mutações, Recombinação, Seleção Natural, Deriva Genética e Migração), Modos de Seleção Natural e Seleção Sexual — Arquitetura da Síntese Moderna (Dobzhansky, Mayr, Simpson, Stebbins, Fisher, Haldane, Wright); Definição contemporânea: Evolução como alteração temporal nas frequências alélicas da População Mendeliana; Fatores que criam ou recombinam variabilidade: Mutações Gênicas e Cromossômicas (fonte primária única ao acaso) e Recombinação Gênica (segregação independente, crossing-over e fecundação); Fatores que alteram frequências alélicas: Seleção Natural (único fator direcional adaptativo), Deriva Genética (oscilação estocástica por erro de amostragem em populações finitas: Efeito Gargalo de Garrafa no guepardo e Efeito Fundador na Síndrome de Ellis-van Creveld nos Amish) e Migração/Fluxo Gênico (homogeneização populacional); Modos de Seleção Natural: 1) Seleção Estabilizadora (favorece o intermediário médio e reduz variabilidade: peso ao nascer em humanos e vantagem do heterozigoto $HbA/HbS$ na malária); 2) Seleção Direcional (desloca a média para um extremo: mariposa *Biston betularia*, resistência a antibióticos e bicos dos tentilhões de Daphne Major pelos Grant); 3) Seleção Disruptiva (favorece ambos os extremos simultaneamente, gerando curva bimodal e impulsionando a especiação: bicos em *Pyrenestes ostrinus*); Seleção Sexual (Darwin, 1871): Intrassexual (competição macho-macho gerando armamentos anatômicos) vs Intersexual (escolha da fêmea sobre ornamentos e cortejos); Teoria do Investimento Parental de Robert Trivers e Princípio do Handicap de Amotz Zahavi (ornamentos caros como sinais honestos de vigor genético).
+     - Habilidades BNCC: EM13CNT201, EM13CNT202, EM13CNT301.
+     - Extensão: 4.674 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 53:** `em-bio-c53-obj1-evidencias-evolucao-homologia-analogia-fosseis.md`
+     - Objeto de Conhecimento: Evidências da Evolução Biológica: Paleontologia (Fósseis e Formas de Transição), Anatomia Comparada (Homologia vs Analogia), Estruturas Vestigiais, Embriologia e Evidências Moleculares (Citocromo c e Relógio Molecular) — Paleontologia: Processos de fossilização (permineralização, moldagem e inclusão total em âmbar ou permafrost); Fósseis de Transição fundamentais: *Archaeopteryx lithographica* (dinossauro-ave com penas, dentes e cauda óssea), *Tiktaalik roseae* (peixe sarcopterígeo com punho, pescoço móvel e costelas de suporte tetrápode) e a série evolutiva dos cetáceos (*Pakicetus* $\to$ *Ambulocetus* $\to$ *Basilosaurus* $\to$ baleias modernas); Métodos de Datação: Relativa (estratigrafia e fósseis-guia) e Absoluta radiométrica ($^{14}C$ com meia-vida de 5.730 anos para até 50 mil anos; $^{40}K \to ^{40}Ar$ com meia-vida de 1,25 Ga para rochas vulcânicas); Anatomia Comparada: Órgãos Homólogos (mesma origem embrionária revelando ancestralidade comum e Divergência Evolutiva / Radiação Adaptativa: membros anteriores de tetrápodes com úmero, rádio, ulna, carpos e falanges em homens, baleias, morcegos e cavalos) vs Órgãos Análogos (mesma função adaptativa mas origens embrionárias distintas decorrentes de Convergência Evolutiva: asa de ave vs asa de inseto; corpo hidrodinâmico de tubarão e golfinho); Estruturas Vestigiais: Órgãos atróficos funcionais herdados de ancestrais (apêndice cecal vermiforme, cóccix, músculos da orelha, ossos pélvicos em baleias e jiboias); Embriologia Comparada: Conservação de estágios filotípicos primordiais e genes *Hox* (fendas faringianas e cauda pós-anal em embriões de vertebrados amniotas); Evidências Moleculares: Universalidade do código genético e ATP; O Citocromo c como marcador evolutivo (zero diferenças entre homem e chimpanzé, 12 com cavalo, 44 com levedura); e o Relógio Molecular de Zuckerkandl e Pauling calibrando o tempo de divergência filogenética por acúmulo de mutações neutras.
+     - Habilidades BNCC: EM13CNT201, EM13CNT202, EM13CNT301.
+     - Extensão: 5.638 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 54:** `em-bio-c54-obj1-genetica-populacoes-equilibrio-hardy-weinberg.md`
+     - Objeto de Conhecimento: Genética de Populações e o Teorema do Equilíbrio de Hardy-Weinberg (Frequências Alélicas e Genotípicas, Aplicações em Doenças Recessivas, Alelos Múltiplos e Genes Ligados ao X) — Fundamentos: População Mendeliana e *Pool* Gênico; Frequências Alélicas ($p = f(A)$ e $q = f(a)$, com $p + q = 1$) vs Frequências Genotípicas ($f(AA), f(Aa), f(aa)$); O Teorema de Hardy e Weinberg (1908): Em populações ideais, as frequências alélicas e genotípicas permanecem inalteradas ao longo das gerações; As 5 Premissas Ideais: 1) População infinitamente grande; 2) Panmixia (acasalamentos aleatórios); 3) Ausência de mutações; 4) Ausência de fluxo gênico (sem migração); 5) Ausência de seleção natural (fitness neutro); As Equações de Hardy-Weinberg: $p + q = 1$ e $p^2 + 2pq + q^2 = 1$; Algoritmo de Resolução Prática ("Comece sempre pelo fenótipo recessivo"): $q = \sqrt{f(aa)}$, $p = 1 - q$, e portadores heterozigotos $= 2pq$; Aplicação no cálculo epidemiológico da Fibrose Cística ($1/2.500$ gera $q = 0,02$, $p = 0,98$ e $1 \text{ em cada } 25$ cidadãos portador heterozigoto $2pq$); Extensões: 1) Alelos Múltiplos (Sistema ABO: $(p+q+r)^2 = 1$, calculando $r = \sqrt{f(O)}$); 2) Genes Ligados ao Cromossomo X: Fêmeas seguem $p^2, 2pq, q^2$, enquanto machos hemizigotos seguem $f(\text{Afetados } X^a Y) = q$ (daltonismo com 8% em homens gera apenas 0,64% em mulheres); e Teste de Qui-Quadrado ($\chi^2$) comprovando desvios e evolução em ação na natureza.
+     - Habilidades BNCC: EM13CNT201, EM13CNT202, EM13CNT301.
+     - Extensão: 4.127 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 55:** `em-bio-c55-obj1-especiacao-isolamento-reprodutivo-evolucao-humana.md`
+     - Objeto de Conhecimento: Mecanismos de Especiação, Barreiras de Isolamento Reprodutivo (Pré e Pós-Zigóticas) e a Evolução dos Hominídeos (Bipedismo e a Linhagem do Gênero Homo) — Conceito Biológico de Espécie (Ernst Mayr, 1942: isolamento reprodutivo entre populações intercruzantes); Barreiras Pré-Zigóticas: Ecológico/Hábitat, Temporal/Estacional, Etológico/Comportamental (cortejo e cantos), Mecânico (chave-fechadura genital em artrópodes) e Gamético (incompatibilidade molecular óvulo-espermatozoide com bindina); Barreiras Pós-Zigóticas: Inviabilidade embrionária, Esterilidade do híbrido (A Mula e o Burro: cruzamento entre jumento $2n=62$ e égua $2n=64$ gerando concepto $2n=63$ cromossomos com colapso do pareamento na meiose I) e Degeneração do híbrido na geração $F_2$; Modalidades de Especiação: Especiação Alopátrica por Vicariância Geográfica (barreira física fragmenta o grupo $\to$ divergência autônoma $\to$ consolidação de isolamento reprodutivo intrínseco, ilustrado pelos camarões-de-estalo *Alpheus* separados pelo Istmo do Panamá) vs Especiação Simpátrica sem barreira física (duplicação cromossômica por poliploidia instantânea em vegetais e seleção disruptiva em ciclídeos do Lago Victoria); Ritmo Evolutivo: Gradualismo Filético clássico de Darwin vs Teoria do Equilíbrio Pontuado de Stephen Jay Gould e Niles Eldredge (longos períodos de estase morfológica pontuados por episódios breves de rápida especiação); Evolução Humana (Antropogênese): Divergência da linhagem dos chimpanzés há ~6-7 Ma; O Bipedismo Obrigatório pioneiro que antecedeu a encefalização (*Sahelanthropus*, *Ardipithecus* e *Australopithecus afarensis* / esqueleto "Lucy" de 3,2 Ma e pegadas de Laetoli); O Gênero *Homo*: *Homo habilis* (~2,4 Ma, cérebro ~650 cm³ e ferramentas de pedra lascada Olduvaienses), *Homo erectus* (~1,9 Ma, cérebro ~1.000 cm³, domínio do fogo, machados acheulianos e primeira diáspora para a Eurásia), *Homo neanderthalensis* (~400-40 mil anos, cérebro ~1.500 cm³, corpo robusto adaptado ao frio glacial, sepultamentos rituais e paleogenômica de Svante Pääbo comprovando introgressão gênica com 1-2% de DNA neandertal em humanos modernos fora da África); *Homo sapiens* (~300 mil anos, modelo *Out of Africa* corroborado por DNAmt e cromossomo Y, e a Revolução Cognitiva com arte parietal e linguagem complexa); e a refutação biológica do conceito de "raças humanas" (Lewontin comprovando que ~85-90% de toda a diversidade genética existe dentro da mesma população local).
+     - Habilidades BNCC: EM13CNT201, EM13CNT202, EM13CNT301.
+     - Extensão: 5.441 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 11:**
+  - Total de E-books Produzidos no Lote 11: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 11: **25.428 palavras limpas** (média de 5.085 palavras por capítulo).
+  - Progresso Geral de Biologia do Ensino Médio: **55 de 60 capítulos concluídos (exatamente 91,67% — onze doze avos de toda a disciplina)** somando **284.574 palavras limpas acumuladas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python `validador_educamob.py` com Exit Code 0 em todos os 55 capítulos homologados).
+
+---
+
+### Rodada 142 - 11/11/2026: Homologação do Lote 12 Final de E-books de Biologia - Ensino Médio (Capítulos 56 ao 60 — Ecologia Básica, Ciclos Biogeoquímicos, Dinâmica de Populações, Sucessão/Biomas e Impactos/Sustentabilidade) e MARCO HISTÓRICO: 100% DE TODA A BIOLOGIA DO ENSINO MÉDIO HOMOLOGADA (60 de 60 Capítulos / 323.362 Palavras)
+
+- **Objetivo da Rodada:** Concluir a esteira oficial de produção curricular de Biologia do Ensino Médio em Volume Único, produzindo, validando e homologando com rigor absoluto o Lote 12 Final (Capítulos 56 ao 60 — Ecologia, Biomas e Conservação Ambiental) sob o Hard-Guardrail Sistêmico (`validador_educamob.py`), densidade média superior a 7.100 palavras por capítulo, zero uso do símbolo R$, zero exercícios na teoria, seções canônicas completas com tabelas de erros comuns, conexões interdisciplinares e fontes bibliográficas ABNT NBR 6023 com citação explícita da BNCC, alcançando a **conclusão monumental de 100% da matriz de Biologia (60 de 60 capítulos)**.
+- **Capítulos Concluídos e Auditados no Lote 12:**
+  1. **Capítulo 56:** `em-bio-c56-obj1-ecologia-conceitos-fundamentais-cadeias-teias.md`
+     - Objeto de Conhecimento: Ecologia Fundamental, Cadeias e Teias Tróficas, Níveis de Energia e Pirâmides Ecológicas — Fundamentos: Ernst Haeckel (1866) e a "economia da natureza"; Níveis hierárquicos: Organismo, População, Comunidade (Biocenose), Ecossistema e Biosfera; Hábitat ("endereço ecológico") vs Nicho Ecológico ("profissão funcional", dimensionalidade de Hutchinson: Nicho Fundamental pré-competitivo vs Nicho Efetivo/Realizado pós-competição); Fatores Abióticos e Bióticos; Cadeias e Teias Tróficas: Produtores primários autótrofos, Consumidores de 1ª, 2ª, 3ª ordens e Decompositores sapróbios; Bioenergética do Ecossistema: Fluxo unidirecional e decrescente de energia regido pela 1ª e 2ª Leis da Termodinâmica; A Regra dos 10% de Lindeman (dissipação de ~90% da energia em calor e respiração a cada elo trófico); Produtividade Primária Bruta (PPB), Respiração dos Autótrofos (R) e Produtividade Primária Líquida ($PPL = PPB - R$); Produtividade Secundária Líquida (PSL); Pirâmides Ecológicas: 1) Pirâmides de Números (convencional e invertida em árvore-pulgões-joaninhas ou hospedeiro-parasitas); 2) Pirâmides de Biomassa (convencional em grama-zebras e invertida marinha transitória de fitoplâncton/zooplâncton devido à altíssima taxa de turnover/renovação do fitoplâncton); 3) Pirâmides de Energia: **SEMPRE ESTRITAMENTE DIRETAS**, jamais invertíveis pela impossibilidade termodinâmica de violação da conservação de energia; O papel de Espécies-Chave (*Keystone Species*) no colapso em cascata trófica (o caso de Robert Paine com a estrela-do-mar *Pisaster ochraceus*).
+     - Habilidades BNCC: EM13CNT101, EM13CNT203, EM13CNT206, EM13CNT301, EM13CNT302.
+     - Extensão: 5.510 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 57:** `em-bio-c57-obj1-ciclos-biogeoquimicos-agua-carbono-nitrogenio-oxigenio-fosforo.md`
+     - Objeto de Conhecimento: Ciclos Biogeoquímicos: Dinâmica da Água, Carbono, Oxigênio, Nitrogênio e Fósforo — Fundamentos e classificação: Ciclos Gasosos (atmosféricos, rápidos e resilientes) vs Ciclos Sedimentares (litosféricos, lentos e vulneráveis); Ciclo da Água: Pequeno ciclo abiótico (evaporação, condensação e precipitação) vs Grande ciclo biótico (absorção radicular, evapotranspiração vegetal e transpiração animal); Infiltração, lençol freático e aquíferos profundos (Guarani e Alter do Chão); A Teoria da Bomba Biótica (Makarieva e Gorshkov) e os **Rios Voadores da Amazônia** (Nobre): copas que transpiram mais de 20 bilhões de toneladas de vapor/dia, queda barométrica localizada atraindo ventos alísios do Atlântico e deflexão pela Cordilheira dos Andes irrigando o Centro-Sul brasileiro; Ciclo do Carbono: Reservatórios globais (litosfera fóssil com $CaCO_3$, hidrosfera oceânica com bicarbonato dissolvido, biosfera e atmosfera); Fixação biológica via fotossíntese e ciclo de Calvin; Liberação por respiração celular, fermentação e decomposição; A Bomba Biológica Marinha de Carbono e neve marinha; Desequilíbrio antrópico e intensificação do efeito estufa ($CO_2 > 422\text{ ppm}$); Acidificação dos Oceanos: dissolução de $CO_2$ formando $H_2CO_3$, consumo de íons carbonato ($CO_3^{2-}$) e corrosão de carapaças de $CaCO_3$ de corais; Ciclo do Oxigênio: Origem do $O_2$ pela fotólise da água no fotossistema II (a Reação de Hill provando que o oxigênio provém estritamente da água e não do $CO_2$); O Grande Evento de Oxigenação primitivo; Camada de Ozônio ($O_3$) estratosférico e o ciclo fotoquímico de Chapman (UV-B e UV-C); Destruição catalítica por átomos de cloro de CFCs e recuperação pelo Protocolo de Montreal; Ciclo do Nitrogênio: O Paradoxo do Nitrogênio ($N_2$ inerte com tripla ligação $N \equiv N$ com $945\text{ kJ/mol}$ inacessível a eucariotos); As Quatro Etapas: 1) Fixação Biológica com diazotróficos livres (*Azotobacter*, cianobactérias) e mutualistas (*Rhizobium/Bradyrhizobium* em leguminosas), o complexo enzimático da nitrogenase (Fe-Mo) e a **Leg-hemoglobina** sequestrando oxigênio para manter o microambiente anaeróbico de proteção da enzima; 2) Amonificação por decompositores gerando $NH_4^+$; 3) Nitrificação quimiossintetizante aeróbica: Nitrosação (*Nitrosomonas*, oxidando $NH_4^+ \to NO_2^-$) e Nitratação (*Nitrobacter*, oxidando $NO_2^- \to NO_3^-$); 4) Assimilação vegetal e Desnitrificação anaeróbica (*Pseudomonas denitrificans*, reduzindo $NO_3^- \to N_2 \uparrow$); Aplicações agronômicas: Adubação verde e o pioneirismo de Johanna Döbereiner na sojicultura brasileira; e Ciclo do Fósforo: O ciclo puramente sedimentar sem fase gasosa na atmosfera, intemperismo lento de rochas de apatita, micorrizas facilitando absorção de ortofosfato, esgotamento oceânico abissal milenar e o depósito de guano marinho.
+     - Habilidades BNCC: EM13CNT101, EM13CNT203, EM13CNT206, EM13CNT301, EM13CNT302.
+     - Extensão: 7.999 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 58:** `em-bio-c58-obj1-dinamica-populacoes-relacoes-ecologicas.md`
+     - Objeto de Conhecimento: Dinâmica de Populações e Relações Ecológicas: Mecanismos Demográficos e Interações Biológicas — Dinâmica Demográfica: Densidade populacional e variáveis primárias (Natalidade $N$, Mortalidade $M$, Imigração $I$, Emigração $E$); Potencial Biótico e Curva J exponencial ($\frac{dN}{dt} = rN$); Resistência Ambiental (Fatores Dependentes vs Independentes de Densidade) freando o crescimento e convergindo para a Curva Logística Sigmoide em S com a equação de Verhulst-Pearl ($\frac{dN}{dt} = rN \frac{K-N}{K}$); Capacidade de Suporte $K$; Ponto de inflexão em $N = K/2$ e a Produção Máxima Sustentável (MSY) pesqueira; Curvas de Sobrevivência: Tipo I (alta sobrevivência na juventude - humanos), Tipo II (mortalidade constante - aves) e Tipo III (mortalidade juvenil massiva - peixes e árvores); Estratégias de Vida: Estrategistas $r$ (oportunistas efêmeros, alta fecundidade, sem cuidado parental) vs Estrategistas $K$ (competidores de equilíbrio, grande porte, poucos filhotes com alto cuidado parental); Relações Ecológicas Intraespecíficas Harmônicas: Sociedades (cooperação com independência anatômica, eussocialidade em abelhas com castas de rainha, operárias e zangões partenogenéticos, feromônios e dança de Frisch) vs Colônias (união anatômica física tecidual obrigatória: isomorfas em corais e heteromorfas/polimorfas na caravela-portuguesa *Physalia physalis* com pneumatóforo, dactilozóides, gastrozóides e gonozóides); Relações Intraespecíficas Desarmônicas: Competição intraespecífica ($-/-$, motor primordial da seleção natural) e Canibalismo ($+/-$, canibalismo sexual nutritivo em louva-a-deus/viúva-negra e oofagia embrionária em tubarões); Relações Interespecíficas Harmônicas: Mutualismo Estrito ($+/+$ obrigatório: líquens, micorrizas, microbiota celulolítica de ruminantes e cupins), Protocooperação ($+/+$ facultativo: paguro e anêmona, pássaro-palito e crocodilo), Comensalismo ($+/0$ com ganho alimentar: tubarão e rêmora), Inquilinismo e Epifitismo ($+/0$ estritamente de suporte ou abrigo sem retirada de seiva: orquídeas e bromélias) e Foresia ($+/0$ exclusivamente de transporte); Relações Interespecíficas Desarmônicas: Competição interespecífica ($-/-$) e o **Princípio da Exclusão Competitiva de Gause** (*Paramecium aurelia* vs *P. caudatum* provando que espécies com mesmo nicho não coexistem no mesmo hábitat sem partilha de recursos como em lagartos *Anolis*); Predatismo ($+/-$) e a corrida armamentista coevolutiva: Camuflagem (homocromia e homotipia), Aposematismo (coloração viva de advertência associada à toxidez), Mimetismo Batesiano (espécie inofensiva imitando espécie venenosa: falsa-coral *Oxyrhopus* imitando coral-verdadeira *Micrurus*) e Mimetismo Mülleriano (duas espécies igualmente venenosas convergindo para o mesmo padrão: borboletas *Heliconius*); Parasitismo ($+/-$): Ecto e endoparasitas; **Diferenciação Estrita de Parasitas Vegetais**: Hemiparasitas (possuem clorofila, fazem fotossíntese própria e perfuram o lenho/**Xilema** com haustórios para drenar **seiva bruta**: erva-de-passarinho *Struthanthus*) vs Holoparasitas (aclorofiladas, não fazem fotossíntese e perfuram o líber/**Floema** para drenar **seiva elaborada**: cipó-chumbo *Cuscuta*); Amensalismo ou Antibiose ($-/0$: penicilina inibindo bactérias e toxinas de dinoflagelados na maré vermelha); e Esclavagismo ($+/-$: formigas ordenhando pulgões e nidoparasitismo do chupim).
+     - Habilidades BNCC: EM13CNT101, EM13CNT203, EM13CNT206, EM13CNT301, EM13CNT303.
+     - Extensão: 7.555 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 59:** `em-bio-c59-obj1-sucessao-ecologica-biomas-brasileiros-mundiais.md`
+     - Objeto de Conhecimento: Sucessão Ecológica e Biomas: Dinâmica Temporal das Comunidades e Grandes Paisagens da Terra — Sucessão Ecológica: Definição, previsibilidade direcional e homeostase; Sucessão Primária (iniciada sobre substrato virgem mineral estéril sem solo pré-existente: lavas vulcânicas, dunas e morenas glaciais, processo secular dependente de pedogênese) vs Sucessão Secundária (em áreas degradadas com solo fértil preexistente preservado: queimadas, pastos abandonados e clareiras, processo acelerado); As Três Fases: 1) Ecese ou Comunidade Pioneira (líquens secretando ácidos liquênicos e musgos pioneiros com alta tolerância a dessecação); 2) Seres ou Comunidades Intermediárias (gramíneas, arbustos e espécies de sombra intermediária com aumento contínuo de húmus); 3) Comunidade Clímax (maturidade estável, dossel contínuo, espécies umbrófitas e teias tróficas intrincadas); Parâmetros Bioenergéticos e Estruturais (Odum): Biomassa total, riqueza de espécies e nichos ecológicos aumentam continuamente; A Relação Produção/Respiração ($P/R$): Na ecese e seres, $P > R$ ($P/R > 1$) e a Produtividade Primária Líquida ($PPL = PPB - R > 0$) é alta gerando acúmulo de biomassa; No Clímax, a respiração de toda a comunidade equilibra a fotossíntese ($P \approx R$, logo $P/R \approx 1$), fazendo com que a **Produtividade Primária Líquida tenda a zero ($PPL \approx 0$)**, desmontando a falácia do "pulmão do mundo"; Biomas Mundiais e o Diagrama de Whittaker: Tundra (permafrost profundo e vegetação rasteira de musgos/líquens sem árvores), Taiga ou Floresta Boreal (coníferas aciculifoliadas em copa cônica adaptadas à neve e podzol ácido), Floresta Temperada Decídua (quatro estações nítidas com queda foliar outonal por etileno e ácido abscísico para evitar dessecação de inverno), Floresta Tropical Pluvial (equatorial superúmida com máxima biodiversidade e solos lixiviados mantidos por ciclagem rápida de serapilheira), Savanas Tropicais e Campos/Pradarias/Estepes (gramíneas com solos férteis de *Chernozem*), e Desertos (precipitação $< 250\text{ mm}$, solos secos, plantas xerófitas suculentas CAM e amplitudes térmicas diárias colossais); Os Seis Biomas Brasileiros (IBGE): 1) Amazônia: Maior floresta equatorial, compartimentos de Mata de Terra Firme (não inunda, castanheira e sumaúma), Mata de Várzea (inundação periódica por rios de água branca ricos em sedimentos) e Mata de Igapó (alagamento permanente por rios de água preta/clara, vitória-régia); O solo pobre mantido pela serapilheira e a dependência dos rios voadores; 2) Cerrado: Savana brasileira, "caixa d'água do país" (nascentes de 8 das 12 bacias), clima tropical estacional (verão chuvoso e inverno seco com umidade $<20\%$), solos latossólicos profundos, ácidos com toxicidade de alumínio ($Al^{3+}$); Adaptações: escleromorfismo oligotrófico com galhos tortuosos, casca espessa cortiçosa (ritidoma isolante térmico contra fogo), raízes pivotantes profundíssimas (10-20m) que captam água no lençol e mantêm a copa verde no inverno seco, xilopódios subterrâneos de rebrote e folhas coriáceas duras; O Hotspot do Cerrado e a tecnologia da calagem com calcário; 3) Caatinga: Único bioma exclusivo do Brasil (altíssimo endemismo), clima semiárido quente; Adaptações: vegetação caducifólia (perda de folhas no estio para zerar a transpiração estomática), cactáceas suculentas com cladódios fotossintetizantes, espinhos protetores e **Metabolismo Ácido das Crassuláceas (CAM)** com estômatos abertos unicamente à noite acumulando ácido málico vacuolar, e o **Umbuzeiro** com xilopódios de batatas d'água subterrâneas acumulando mais de 1.000 litros de água; 4) Mata Atlântica: Floresta costeira em Mares de Morros, altíssimo endemismo ameaçado, reduzida a ~11% de sua área original, classificada como Hotspot crítico mundial, com Floresta Ombrófila Densa e Mista (Mata de Araucárias); 5) Pantanal: Maior planície de inundação contínua de água doce do globo (Bacia do Alto Paraguai), governada por pulsos anuais de inundação (cheias de verão cobrem até 80% e vazante concentra peixes atraindo tuiuiú, jacarés e onças), atuando como ecótono de transição; 6) Pampa (Campos Sulinos): Metade sul do Rio Grande do Sul, coxilhas onduladas com gramíneas perenes contínuas, clima subtropical com geadas frequentes, ameaçado pelo sobrepastoreio, monocultura de soja e o processo geomorfológico de **Arenização** em solos de arenito.
+     - Habilidades BNCC: EM13CNT101, EM13CNT203, EM13CNT206, EM13CNT301, EM13CNT302.
+     - Extensão: 6.986 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 60:** `em-bio-c60-obj1-impactos-ambientais-crise-climatica-sustentabilidade.md`
+     - Objeto de Conhecimento: Impactos Ambientais Antropogênicos, Crise Climática Global e Conservação da Biodiversidade — O Antropoceno e as Nove Fronteiras Planetárias (Rockström e Steffen: mudanças climáticas, perda de integridade da biosfera, uso do solo, fluxos biogeoquímicos de N e P, água doce e novas entidades químicas); Efeito Estufa Natural (+15 °C essencial à vida líquida) vs Intensificação Antropogênica pelos GEEs: $CO_2$ fóssil (>422 ppm), $CH_4$ (pecuária bovina, lixões e arrozais, com potencial de aquecimento 28-36 vezes superior ao $CO_2$), $N_2O$ de fertilizantes industriais (~298 vezes o $CO_2$) e Halocarbonetos; Consequências: Recuo crioférico, elevação do nível dos oceanos por degelo continental e expansão térmica da água do mar, descompasso fenológico e eventos climáticos extremos; Acidificação dos Oceanos: Dissolução maciça de $CO_2$ formando $H_2CO_3$, ionização em prótons $H^+$ (aumento de 30% na acidez marinha) e consumo de íons carbonato ($CO_3^{2-}$), inviabilizando conchas e carapaças de $CaCO_3$; Fisiologia do **Branqueamento de Corais**: Aquecimento anômalo prolongado da água induz estresse fotoquímico e geração de EROs pelas microalgas mutualistas (**zooxantelas** *Symbiodinium*), forçando o pólipo de coral a expulsá-las, expondo o esqueleto branco calcário e levando os recifes à morte por inanição energética; Chuva Ácida: Emissão de óxidos de enxofre ($SO_2/SO_3$) e nitrogênio ($NO_x$) reagindo na troposfera formando ácido sulfúrico ($H_2SO_4$) e ácido nítrico ($HNO_3$), com precipitação de pH $< 4,5$, acidificando lagos, solubilizando $Al^{3+}$ tóxico no solo florestal e corroendo mármore de monumentos; Inversão Térmica Urbana: Fenômeno meteorológico natural no outono/inverno onde o solo resfriado gela a camada basal de ar, formando ar denso estagnado sob uma camada de ar quente superior que bloqueia a convecção térmica, aprisionando fuligem ($PM_{2.5}$) e gases na cota respiratória da cidade; **O Ciclo Completo da Eutrofização Cultural**: Despejo de esgoto bruto com N e P $\to$ Floração de algas superficiais (*bloom*) $\to$ Bloqueio da radiação solar para o fundo $\to$ Morte de produtores submersos $\to$ Explosão populacional de bactérias aeróbicas decompositoras $\to$ Elevação vertiginosa da Demanda Bioquímica de Oxigênio (DBO) $\to$ Esgotamento do oxigênio dissolvido (**anóxia aquática**) $\to$ Mortandade massiva de peixes por asfixia $\to$ Proliferação de bactérias anaeróbicas com putrefação e liberação de $H_2S$ fétido; Poluição por Petróleo (Marés Negras): Bloqueio luminoso, perda do isolamento térmico das penas de aves marinhas (morte por hipotermia), sufocamento branquial e Biorremediação com bactérias hydrocarbonoclásticas (*Pseudomonas*, *Alcanivorax*); **Bioacumulação Individual versus Magnificação Trófica (Biomagnificação)**: Requisitos de contaminantes lipossolúveis persistentes não biodegradáveis (DDT e Metilmercúrio); A concentração do poluente aumenta em progressão exponencial a cada nível trófico sucessivo, vitimando com máxima gravidade os **predadores de topo da cadeia alimentar e os seres humanos**; O caso histórico de Rachel Carson (*Primavera Silenciosa*) com o DDT inibindo a anidrase carbônica em aves de rapina e o mercúrio do garimpo ilegal na Amazônia envenenando indígenas Yanomami; O Acrônimo HIPPO e a perda de biodiversidade: Fragmentação florestal e o Efeito de Borda (perda de umidade e invasão de cipós nos primeiros 100-300m); Espécies Exóticas Invasoras no Brasil (mexilhão-dourado em hidrelétricas, javali/javaporco, coral-sol nos recifes e caramujo-africano); Estratégias de Conservação: **Corredores Ecológicos** permitindo trânsito animal e fluxo gênico contra a consanguinidade; O Sistema Nacional de Unidades de Conservação (**SNUC - Lei Federal nº 9.985/2000**): Unidades de Proteção Integral (uso estritamente indireto: Parques Nacionais, Reservas Biológicas, Estações Ecológicas) vs Unidades de Uso Sustentável (uso direto disciplinado com populações tradicionais: RESEX de Chico Mendes, FLONAs, APAs); Tratados internacionais (Protocolo de Montreal, Rio-92, Quioto e Acordo de Paris); e Justiça Climática no Sul Global.
+     - Habilidades BNCC: EM13CNT101, EM13CNT203, EM13CNT206, EM13CNT301, EM13CNT302, EM13CNT303.
+     - Extensão: 7.812 palavras limpas.
+     - Conformidade: Exit Code 0 no validador oficial (🏆 FECHAMENTO HISTÓRICO DE 100% DE TODA A BIOLOGIA DO ENSINO MÉDIO!).
+- **Métricas Consolidadas do Lote 12:**
+  - Total de E-books Produzidos no Lote 12: **5 e-books atômicos**.
+  - Total de Palavras Produzidas no Lote 12: **35.862 palavras limpas** (média excepcional de 7.172 palavras por capítulo!).
+  - Progresso Geral de Biologia do Ensino Médio: **60 de 60 capítulos concluídos (100% de toda a matriz curricular completa — sessenta de sessenta capítulos)** somando **323.362 palavras limpas acumuladas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python `validador_educamob.py` com Exit Code 0 em todos os 60 capítulos homologados).
+
+---
+
+## 🏆 FECHAMENTO HISTÓRICO MONUMENTAL: 100% DA MATRIZ CURRICULAR DE BIOLOGIA DO ENSINO MÉDIO HOMOLOGADA
+
+### 1. Resumo Executivo da Disciplina Completa
+- **Segmento:** Ensino Médio — Volume Único (1ª à 3ª Séries Integradas)
+- **Disciplina:** Biologia (Biologia Moderna — Amabis e Martho / Campbell / BNCC EM13CNT)
+- **Status:** 🏆 **100% CONCLUÍDO E HOMOLOGADO COM CÓDIGO DE SAÍDA 0**
+- **Arquitetura de Modelos de IA:**
+  - Redação / Geração Pedagógica: **Gemini 3.8 Flash (Medium)**
+  - Guardrails, Validação e Scripts: **Gemini 4 Argon (Medium)**
+- **Volume Total Produzido:** **60 Capítulos | 60 E-books Teóricos Atômicos**
+- **Volume Total de Texto:** **323.362 palavras limpas** (média de 5.389 palavras por capítulo — densidade acadêmica de excelência internacional).
+- **Diretório Canônico de Destino:** `content/medio/volume-unico/biologia/` (Capítulos `cap-01-...` ao `cap-60-...`).
+
+### 2. Quadro Geral dos 6 Eixos Temáticos Homologados
+1. **Eixo I: Bioquímica Celular, Biologia Celular e Metabolismo Energético (Capítulos 01 ao 17 — 17 Capítulos | 66.861 palavras):**
+   - Método científico, água/sais minerais, glicídios/lipídios, proteínas/enzimas, ácidos nucleicos, vitaminas, origem da vida/Miller-Urey, procariontes/eucariontes, membrana/mosaico fluido, transportes passivos/ativos/osmose, endomembranas/Golgi/lisossomos, citoesqueleto/peroxissomos, fotossíntese/quimiossíntese, respiração aeróbica/fermentações, núcleo/cromatina, ciclo celular/mitose/câncer, meiose/gametogênese.
+2. **Eixo II: Embriologia e Histologia Animal (Capítulos 18 ao 20 — 3 Capítulos | 8.363 palavras):**
+   - Embriologia animal e anexos amnióticos, histologia epitelial e conjuntivos (frouxo, denso, adiposo, ósseo, cartilaginoso, hematopoiético), histologia muscular e nervosa.
+3. **Eixo III: Diversidade Biológica, Sistemática e os Grandes Reinos (Capítulos 21 ao 34 — 14 Capítulos | 81.344 palavras):**
+   - Sistemática e cladística, vírus/viroses, bactérias/bacterioses, protozoários/protozooses, algas/fungos/líquens/micorrizas, briófitas/pteridófitas, gimnospermas/angiospermas, morfologia e anatomia vegetal, fisiologia vegetal/fitormônios, poríferos/cnidários, platelmintos/nematódeos/verminoses, moluscos/anelídeos, artrópodes, equinodermos/protocordados.
+4. **Eixo IV: Zoologia dos Vertebrados e Fisiologia Humana Comparada (Capítulos 35 ao 40 — 6 Capítulos | 38.540 palavras):**
+   - Radiação dos vertebrados (peixes, anfíbios, répteis, aves e mamíferos), fisiologia digestória e nutrição, fisiologia respiratória e trocas gasosas, fisiologia circulatória e imunologia, fisiologia excretora e osmorregulação, fisiologia nervosa e endócrina integradas.
+5. **Eixo V: Genética Clássica, Biologia Molecular e Biotecnologia Contemporânea (Capítulos 41 ao 50 — 10 Capítulos | 56.513 palavras):**
+   - 1ª Lei de Mendel e meiose, 2ª Lei e dominâncias, alelos múltiplos/grupos sanguíneos ABO/Rh, determinação e herança ligada ao sexo, linkage/mapeamento genético, interação gênica/epistasia/poligenia, mutações gênicas/cromossômicas, dogma central e regulação da expressão gênica (*lac* e epigenética), DNA recombinante/PCR/sequenciamento, transgenia (*Bt* e RR), CRISPR-Cas9, clonagem e bioética.
+6. **Eixo VI: Evolução Biológica, Ecologia e Sustentabilidade Planetária (Capítulos 51 ao 60 — 10 Capítulos | 61.290 palavras):**
+   - Teorias evolutivas clássicas (Lamarck vs Darwin/Wallace), Teoria Sintética da Evolução (fatores evolutivos e seleção sexual), evidências da evolução (paleontologia, homologia/analogia e relógio molecular), genética de populações e Hardy-Weinberg, especiação (alopátrica/simpátrica) e evolução humana (hominização e genômica), ecologia fundamental/cadeias/pirâmides, ciclos biogeoquímicos (água/rios voadores, carbono/acidificação, oxigênio/ozônio, nitrogênio/nitrogenase e fósforo), dinâmica de populações/curvas em S e relações ecológicas (sociedades/colônias, mutualismo, parasitismo vegetal e mimetismo), sucessão ecológica e biomas mundiais/brasileiros (Amazônia, Cerrado, Caatinga, Mata Atlântica, Pantanal e Pampa), e impactos ambientais/crise climática/eutrofização/biomagnificação/SNUC.
+
+### 3. Rigor de Qualidade e Conformidade Absoluta Atendidos
+- **Zero Exercícios na Teoria:** Rigorosamente nenhum exercício nos e-books teóricos.
+- **Supressão Absoluta do Cifrão `R$`:** Nenhuma ocorrência em todos os 60 capítulos.
+- **Hard-Guardrail Sistêmico Inviolável:** 100% dos 60 arquivos foram aprovados e gravados com Exit Code 0 no script `validador_educamob.py`.
+- **Densidade Acadêmica:** 323.362 palavras limpas no total (todas as unidades com frontmatter completo, tabelas de erros comuns, conexões interdisciplinares e fontes ABNT NBR 6023 citando a BNCC).
+
+---
+
+## ⚡ Rodada 121 - Calibração Mandatória do Padrão de Microaprendizagem no Tira Dúvidas da Mob.me (Ambiente de Testes)
+
+- **Data:** 11 de Novembro de 2026
+- **Ambiente:** **Ambiente de Testes Local** (testado e homologado com sucesso).
+- **Objetivo:** Calibrar a Trilha 1 ("Tirar Dúvidas (texto/imagem)") para entregar respostas estritamente no padrão de microaprendizagem da Educamob (respostas curtas, objetivas, anti-fadiga cognitiva, sem preâmbulos prolixos ou bajulações de abertura).
+- **Ajustes Implementados:**
+  1. **Sub-prompt Especialista (`prompts/modes/modo_tira_duvidas.md` e `modo_resolve_questao.md`):** Instituída a Regra Mandatória de Microaprendizagem (máximo 2 a 3 parágrafos breves, ~80 a 150 palavras, início imediato sem enrolação, estrutura em 3 passos: Definição Direta -> Mecanismo/Fórmula KaTeX -> Ancoragem Mental e Checagem Curta).
+  2. **Persona e Prompt Geral (`base_persona.md` e `prompt_prod.md`):** Sincronização da diretriz de respostas curtas na Trilha 1 (seção 6.3).
+  3. **Backend (`services/mobme-api/main.py`):** Calibração do `state_context` com diretriz expressa de brevidade e redução de `max_toks` para 700 tokens em `modo_tira_duvidas`, impedindo respostas longas ou estilo miniaula.
+  4. **Validação Automatizada:** Teste de ponta a ponta com simulação de dúvida real de Física ("Qual a diferença entre calor e temperatura?"), resultando em resposta cristalina de 119 palavras (100% aprovada nos critérios de microaprendizagem, sem preâmbulo proibido e com KaTeX renderizado perfeitamente).
+
+
+
+---
+
+## 🎓 Rodada 122 - Transição e Promoção Acadêmica: Antecipação de 2027 para Estudantes do 9º Ano
+
+- **Data:** 11 de Novembro de 2026
+- **Objetivo:** Antecipar a mudança de série do ano letivo de 2027 para os estudantes do 9º ano do Ensino Fundamental II, promovendo-os para a **1ª série do Ensino Médio**.
+- **Impacto no Ecossistema:**
+  1. **Supabase Auth (`auth.users`):** Atualização dos metadados de autenticação (`user_metadata.serie` alterado de `"9º ano - Ensino Fundamental"` para `"1ª série - Ensino Médio"`).
+  2. **Banco de Dados Relacional (`public.users`):** Atualização da coluna `grade_level` para `"1ª série - Ensino Médio"`, garantindo que o backend Mob.me (FastAPI) e os seletores pedagógicos de exercícios/SPAs associem o acervo pedagógico do Ensino Médio nas sessões ativas do estudante.
+  3. **Cadastro Base (`services/mobme-api/beta_testers.csv`):** Sincronização do arquivo de alunos beta com a nova série.
+- **Estudantes Promovidos (8 no total):**
+  - **Ana Carolina Cavalcante** (`cavalcanteanacarolina412@gmail.com`)
+  - **Antônio dos Santos Trindade Araújo** (`antoniodossantostrindade3@gmail.com`)
+  - **Daniel Vieira** (`danielvsantos11@hotmail.com`)
+  - **Letícia Meireles** (`leticiasoares.meireles@gmail.com`)
+  - **Maria Luiza** (`malu.oli.rocha43@gmail.com`)
+  - **Maria Luísa Bastos Debux** (`maria.debux12@gmail.com`)
+  - **Miguel sacramento Azevedo** (`miguel_azevedo@integralweb.com.br`)
+  - **Pedro Magalhães Vianna** (`pedro.vianna.pessoal@gmail.com`)
+- **Auditoria de Conformidade:** Script de verificação automatizada executado com 100% de sucesso (Auth: OK, DB: OK, CSV: OK). Resíduos de estudantes no 9º ano: 0.
+
+
+---
+
+### Rodada 143 - 11/11/2026: Conclusão do Lote 1 de Exercícios de Biologia - Ensino Médio (Capítulos 01 ao 05 - Método Científico, Bioquímica Fundamental, Carboidratos, Lipídios, Proteínas, Enzimas e Ácidos Nucleicos/Dogma Central)
+
+- **Objetivo da Rodada:** Iniciar a esteira oficial de produção de Listas de Exercícios de Biologia do Ensino Médio (Volume Único por Eixos Temáticos), concluindo e homologando com rigor absoluto o Lote 1 (Capítulos 01 ao 05) sob o Hard-Guardrail Sistêmico (alidador_educamob.py), exatas 60 questões por capítulo (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2), equilíbrio matemático perfeito de gabaritos (12 A, 12 B, 12 C, 12 D e 12 E por arquivo, com alternância anti-streak), tags HTML de telemetria completas, ausência do símbolo R$, sem pedantismo/concursês e estrita observância ao princípio do mundo fechado (Closed-World Boundary).
+- **Capítulos Concluídos e Auditados no Lote 1:**
+  1. **Capítulo 01:** em-bio-c01-obj1-biologia-metodo-cientifico-organizacao-exercicios.md
+     - Objeto de Conhecimento: A Biologia como Ciência: Método Científico, Teoria Celular e Níveis de Organização da Vida.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT302.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 02:** em-bio-c02-obj1-bioquimica-agua-sais-minerais-exercicios.md
+     - Objeto de Conhecimento: Bioquímica Fundamental: A Água como Solvente Universal e os Sais Minerais nos Processos Biológicos.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 03:** em-bio-c03-obj1-bioquimica-carboidratos-lipidios-exercicios.md
+     - Objeto de Conhecimento: Carboidratos e Lipídios: Estruturas Moleculares, Funções Energéticas, Estruturais e Isolantes.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 04:** em-bio-c04-obj1-bioquimica-proteinas-enzimas-exercicios.md
+     - Objeto de Conhecimento: Proteínas e Enzimas: Estrutura Tridimensional, Cinética Enzimática e Regulação Alostérica.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 05:** em-bio-c05-obj1-acidos-nucleicos-dogma-central-exercicios.md
+     - Objeto de Conhecimento: Ácidos Nucleicos (DNA e RNA), Código Genético e o Dogma Central da Biologia Molecular.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT304.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 1:**
+  - Total de Listas Produzidas no Lote 1: **5 listas de exercícios atômicas**.
+  - Total de Questões Produzidas no Lote 1: **300 questões inéditas e gabaritadas** (todas com resolução pedagógica, e as difíceis com resolução detalhada em Etapa 1 e Etapa 2).
+  - Progresso Geral de Exercícios de Biologia do Ensino Médio: **5 de 60 listas concluídas (8,33% da matriz)** somando **300 questões atômicas homologadas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python alidador_educamob.py com Exit Code 0 em todas as 5 listas homologadas).
+
+
+---
+
+### Rodada 144 - 11/11/2026: Conclusão do Lote 2 de Exercícios de Biologia - Ensino Médio (Capítulos 06 ao 10 - Vitaminas, Origem da Vida, Citologia Comparada/Vírus, Membrana Plasmática e Transportes/Osmose)
+
+- **Objetivo da Rodada:** Dar continuidade imediata à esteira de produção em lotes de 5 das Listas de Exercícios de Biologia do Ensino Médio (Volume Único por Eixos Temáticos), concluindo e homologando com rigor absoluto o Lote 2 (Capítulos 06 ao 10) sob o Hard-Guardrail Sistêmico (alidador_educamob.py), exatas 60 questões por capítulo (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2), equilíbrio matemático perfeito de gabaritos (12 A, 12 B, 12 C, 12 D e 12 E por arquivo, com alternância anti-streak), tags HTML de telemetria completas, ausência do símbolo R$, sem pedantismo/concursês e estrita observância ao princípio do mundo fechado (Closed-World Boundary).
+- **Capítulos Concluídos e Auditados no Lote 2:**
+  1. **Capítulo 06:** em-bio-c06-obj1-vitaminas-nutricao-celular-exercicios.md
+     - Objeto de Conhecimento: Vitaminas, Coenzimas e Nutrição Celular: Hidrossolúveis, Lipossolúveis e Avitaminoses.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 07:** em-bio-c07-obj1-origem-da-vida-evolucao-prebiotica-exercicios.md
+     - Objeto de Conhecimento: A Origem da Vida e a Evolução Pré-Biótica: Hipótese Heterotrófica versus Autotrófica e o Mundo do RNA.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 08:** em-bio-c08-obj1-organizacao-procariontes-eucariontes-virus-exercicios.md
+     - Objeto de Conhecimento: Organização Celular Comparada: Procariontes, Eucariontes e a Fronteira Biológica dos Vírus.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT302.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 09:** em-bio-c09-obj1-membrana-plasmatica-permeabilidade-exercicios.md
+     - Objeto de Conhecimento: A Membrana Plasmática: Modelo do Mosaico Fluido, Lipídios, Proteínas e Especializações de Superfície.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 10:** em-bio-c10-obj1-transportes-membrana-osmose-difusao-exercicios.md
+     - Objeto de Conhecimento: Transportes Transmembrana: Difusão Simples, Difusão Facilitada, Osmose em Células Animais e Vegetais e Transporte Ativo.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 2:**
+  - Total de Listas Produzidas no Lote 2: **5 listas de exercícios atômicas**.
+  - Total de Questões Produzidas no Lote 2: **300 questões inéditas e gabaritadas** (todas com resolução pedagógica, e as difíceis com resolução detalhada em Etapa 1 e Etapa 2).
+  - Progresso Geral de Exercícios de Biologia do Ensino Médio: **10 de 60 listas concluídas (16,67% da matriz)** somando **600 questões atômicas homologadas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python alidador_educamob.py com Exit Code 0 em todas as 5 listas homologadas).
+
+
+---
+
+### Rodada 145 - 11/11/2026: Conclusão do Lote 3 de Exercícios de Biologia - Ensino Médio (Capítulos 11 ao 15 - Sistema Endomembranoso, Citoesqueleto/Peroxissomos, Fotossíntese/Quimiossíntese, Respiração Celular/Fermentação e Núcleo Celular/Cariótipo)
+
+- **Objetivo da Rodada:** Dar continuidade imediata à esteira de produção em lotes de 5 das Listas de Exercícios de Biologia do Ensino Médio (Volume Único por Eixos Temáticos), concluindo e homologando com rigor absoluto o Lote 3 (Capítulos 11 ao 15) sob o Hard-Guardrail Sistêmico (alidador_educamob.py), exatas 60 questões por capítulo (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2), equilíbrio matemático perfeito de gabaritos (12 A, 12 B, 12 C, 12 D e 12 E por arquivo, com alternância anti-streak), tags HTML de telemetria completas, ausência do símbolo R$, sem pedantismo/concursês e estrita observância ao princípio do mundo fechado (Closed-World Boundary).
+- **Capítulos Concluídos e Auditados no Lote 3:**
+  1. **Capítulo 11:** em-bio-c11-obj1-sistema-endomembranoso-organelas-exercicios.md
+     - Objeto de Conhecimento: O Sistema Endomembranoso: Retículo Endoplasmático Rugoso e Liso, Complexo Golgiense, Lisossomos e Autofagia.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 12:** em-bio-c12-obj1-citoesqueleto-peroxissomos-centriolos-exercicios.md
+     - Objeto de Conhecimento: Citoesqueleto, Peroxissomos e Centríolos: Microfilamentos, Microtúbulos, Filamentos Intermediários e Motilidade Celular.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 13:** em-bio-c13-obj1-bioenergetica-fotossintese-quimiossintese-exercicios.md
+     - Objeto de Conhecimento: Bioenergética I: Fotossíntese (Etapas Fotoquímica e Química, Ciclo de Calvin e Fotofosforilação) e Quimiossíntese.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 14:** em-bio-c14-obj1-bioenergetica-respiracao-fermentacao-exercicios.md
+     - Objeto de Conhecimento: Bioenergética II: Respiração Celular Aeróbica (Glicólise, Ciclo de Krebs e Fosforilação Oxidativa) e Fermentação Lática e Alcoólica.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 15:** em-bio-c15-obj1-nucleo-celular-cromossomos-cariotipo-exercicios.md
+     - Objeto de Conhecimento: O Núcleo Celular Interfásico: Envoltório Nuclear, Cromatina, Nucléolo, Cromossomos e Cariótipo Humano.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202, EM13CNT205.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 3:**
+  - Total de Listas Produzidas no Lote 3: **5 listas de exercícios atômicas**.
+  - Total de Questões Produzidas no Lote 3: **300 questões inéditas e gabaritadas** (todas com resolução pedagógica, e as difíceis com resolução detalhada em Etapa 1 e Etapa 2).
+  - Progresso Geral de Exercícios de Biologia do Ensino Médio: **15 de 60 listas concluídas (25,0% da matriz - exatamente um quarto de toda a Biologia)** somando **900 questões atômicas homologadas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python alidador_educamob.py com Exit Code 0 em todas as 5 listas homologadas).
+
+
+---
+
+### Rodada 146 - 11/11/2026: Conclusão do Lote 4 de Exercícios de Biologia - Ensino Médio (Capítulos 16 ao 20 - Ciclo Celular/Mitose/Câncer, Meiose/Gametogênese, Embriologia Animal/Anexos, Histologia I: Epitelial/Conjuntivo e Histologia II: Muscular/Nervoso)
+
+- **Objetivo da Rodada:** Dar continuidade imediata à esteira de produção em lotes de 5 das Listas de Exercícios de Biologia do Ensino Médio (Volume Único por Eixos Temáticos), concluindo e homologando com rigor absoluto o Lote 4 (Capítulos 16 ao 20) sob o Hard-Guardrail Sistêmico (validador_educamob.py), exatas 60 questões por capítulo (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2), equilíbrio matemático perfeito de gabaritos (12 A, 12 B, 12 C, 12 D e 12 E por arquivo, com alternância anti-streak), tags HTML de telemetria completas, ausência do símbolo R$, sem pedantismo/concursês e estrita observância ao princípio do mundo fechado (Closed-World Boundary).
+- **Capítulos Concluídos e Auditados no Lote 4:**
+  1. **Capítulo 16:** em-bio-c16-obj1-ciclo-celular-mitose-cancer-exercicios.md
+     - Objeto de Conhecimento: O Ciclo Celular, Mitose e Câncer: Fases G1, S, G2 e M, Checkpoints Regulatórios e Oncogênese.
+     - Habilidades BNCC: EM13CNT202, EM13CNT208, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 17:** em-bio-c17-obj1-meiose-crossing-over-gametogenese-exercicios.md
+     - Objeto de Conhecimento: Meiose, Crossing-Over e Gametogênese: Meiose I e II, Variabilidade Genética, Espermatogênese e Ovogênese.
+     - Habilidades BNCC: EM13CNT202, EM13CNT205, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 18:** em-bio-c18-obj1-embriologia-animal-anexos-exercicios.md
+     - Objeto de Conhecimento: Embriologia Animal Comparada e Anexos Embrionários: Segmentação, Gastrulação, Neurulação, Folhetos Embrionários e Anexos dos Amniotas.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT302.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 19:** em-bio-c19-obj1-histologia-epitelial-conjuntivo-exercicios.md
+     - Objeto de Conhecimento: Histologia Animal I: Tecidos Epiteliais de Revestimento e Glandulares, Tecidos Conjuntivos Propriamente Ditos, Adiposo, Cartilaginoso, Ósseo e Hematopoético.
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 20:** em-bio-c20-obj1-histologia-muscular-nervoso-exercicios.md
+     - Objeto de Conhecimento: Histologia Animal II: Tecido Muscular (Esquelético, Cardíaco e Liso), Tecido Nervoso (Neurônios, Células da Glia e Sinapses) e Mecanismos Eletrofisiológicos.
+     - Habilidades BNCC: EM13CNT202, EM13CNT306.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 4:**
+  - Total de Listas Produzidas no Lote 4: **5 listas de exercícios atômicas**.
+  - Total de Questões Produzidas no Lote 4: **300 questões inéditas e gabaritadas** (todas com resolução pedagógica, e as difíceis com resolução detalhada em Etapa 1 e Etapa 2).
+  - Progresso Geral de Exercícios de Biologia do Ensino Médio: **20 de 60 listas concluídas (33,33% da matriz - exatamente um terço de toda a Biologia)** somando **1.200 questões atômicas homologadas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python validador_educamob.py com Exit Code 0 em todas as 5 listas homologadas).
+
+
+---
+
+### Rodada 147 - 11/11/2026: Conclusão do Lote 5 de Exercícios de Biologia - Ensino Médio (Capítulos 21 ao 25 - Taxonomia/Sistemática/Cladística, Vírus/Viroides/Príons/Viroses, Bactérias/Arqueas/Bacterioses, Protozoários/Protozooses e Algas/Fungos/Micoses)
+
+- **Objetivo da Rodada:** Dar continuidade imediata à esteira de produção em lotes de 5 das Listas de Exercícios de Biologia do Ensino Médio (Volume Único por Eixos Temáticos), concluindo e homologando com rigor absoluto o Lote 5 (Capítulos 21 ao 25) sob o Hard-Guardrail Sistêmico (`validador_educamob.py`), exatas 60 questões por capítulo (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2), equilíbrio matemático perfeito de gabaritos (12 A, 12 B, 12 C, 12 D e 12 E por arquivo, com alternância anti-streak), tags HTML de telemetria completas, ausência do símbolo R$, sem pedantismo/concursês e estrita observância ao princípio do mundo fechado (Closed-World Boundary).
+- **Capítulos Concluídos e Auditados no Lote 5:**
+  1. **Capítulo 21:** `em-bio-c21-obj1-taxonomia-reinos-cladistica-exercicios.md`
+     - Objeto de Conhecimento: Taxonomia, Sistemática Filogenética e Cladística: Nomenclatura Binomial, Categorias Taxonômicas, Cladogramas, Homologias e Analogias, Três Domínios e Reinos dos Seres Vivos.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 22:** `em-bio-c22-obj1-virus-viroides-prions-viroses-exercicios.md`
+     - Objeto de Conhecimento: Vírus, Viroides, Príons e Viroses: Estrutura Viral, Ciclos Lítico e Lisogênico, Retrovírus, Patologias Virais Humanas e Saúde Pública.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT303.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 23:** `em-bio-c23-obj1-bacterias-arqueas-bacterioses-exercicios.md`
+     - Objeto de Conhecimento: Domínios Bacteria e Archaea: Estrutura Procarionte, Morfologia, Metabolismo, Recombinação Genética (Conjugação, Transformação, Transdução), Microbiota e Principais Bacterioses Humanas.
+     - Habilidades BNCC: EM13CNT202, EM13CNT303.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 24:** `em-bio-c24-obj1-protozoarios-protozooses-exercicios.md`
+     - Objeto de Conhecimento: Reino Protoctista I: Protozoários, Morfologia, Locomoção, Ciclos de Vida e Principais Protozooses Humanas (Chagas, Malária, Leishmanioses, Amebíase, Giardíase e Toxoplasmose).
+     - Habilidades BNCC: EM13CNT202, EM13CNT303.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 25:** `em-bio-c25-obj1-algas-fungos-micoses-exercicios.md`
+     - Objeto de Conhecimento: Reino Protoctista II (Algas Eucariontes) e Reino Fungi: Morfologia, Reprodução, Liquens, Micorrizas, Biotecnologia e Principais Micoses Humanas.
+     - Habilidades BNCC: EM13CNT202, EM13CNT303.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 5:**
+  - Total de Listas Produzidas no Lote 5: **5 listas de exercícios atômicas**.
+  - Total de Questões Produzidas no Lote 5: **300 questões inéditas e gabaritadas** (todas com resolução pedagógica, e as difíceis com resolução detalhada em Etapa 1 e Etapa 2).
+  - Progresso Geral de Exercícios de Biologia do Ensino Médio: **25 de 60 listas concluídas (41,67% da matriz - ultrapassando 40% de toda a Biologia)** somando **1.500 questões atômicas homologadas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python `validador_educamob.py` com Exit Code 0 em todas as 5 listas homologadas).
+
+
+---
+
+### Rodada 148 - 11/11/2026: Conclusão do Lote 6 de Exercícios de Biologia - Ensino Médio (Capítulos 26 ao 30 - Botânica I [Briófitas/Pteridófitas], Botânica II [Gimnospermas/Angiospermas], Botânica III [Histologia/Organografia Vegetal], Botânica IV [Fisiologia Vegetal/Fitormônios/Movimentos] e Zoologia I [Poríferos/Cnidários]) - MARCO HISTÓRICO DE 50% DA MATRIZ (1.800 QUESTÕES)
+
+- **Objetivo da Rodada:** Dar prosseguimento estrito à esteira de produção em lotes de 5 das Listas de Exercícios de Biologia do Ensino Médio (Volume Único por Eixos Temáticos), concluindo e homologando com rigor absoluto o Lote 6 (Capítulos 26 ao 30) sob o Hard-Guardrail Sistêmico (alidador_educamob.py), exatas 60 questões por capítulo (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2), equilíbrio matemático perfeito de gabaritos (12 A, 12 B, 12 C, 12 D e 12 E por arquivo, com alternância anti-streak), tags HTML de telemetria completas, ausência absoluta do símbolo R$, sem pedantismo/concursês e estrita observância ao princípio do mundo fechado (Closed-World Boundary).
+- **Capítulos Concluídos e Auditados no Lote 6:**
+  1. **Capítulo 26:** em-bio-c26-obj1-botanica-briofitas-pteridofitas-exercicios.md
+     - Objeto de Conhecimento: Botânica I: Conquista do Ambiente Terrestre, Briófitas (Musgos, Hepáticas, Antóceros) e Pteridófitas (Samambaias, Licófitas), Ciclos Haplodiplobiontes e Tecidos Vasculares Iniciais.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  2. **Capítulo 27:** em-bio-c27-obj1-botanica-gimnospermas-angiospermas-exercicios.md
+     - Objeto de Conhecimento: Botânica II: Gimnospermas e Angiospermas (Espermatófitas), Grão de Pólen, Tubo Polínico, Semente, Flor, Fruto, Dupla Fecundação e Radiação Adaptativa.
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  3. **Capítulo 28:** em-bio-c28-obj1-anatomia-organografia-vegetal-exercicios.md
+     - Objeto de Conhecimento: Botânica III: Histologia e Anatomia/Organografia Vegetal (Meristemas, Epiderme, Parênquimas, Esclerênquima, Colênquima, Xilema, Floema, Raiz, Caule e Folha).
+     - Habilidades BNCC: EM13CNT101, EM13CNT202.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  4. **Capítulo 29:** em-bio-c29-obj1-fisiologia-vegetal-hormonios-movimentos-exercicios.md
+     - Objeto de Conhecimento: Botânica IV: Fisiologia Vegetal (Condução de Seivas Bruta e Elaborada - Teoria de Dixon e Hipótese de Münch), Transpiração e Estômatos, Fitormônios (Auxina, Citocinina, Giberelina, Ácido Abscísico e Etileno), Movimentos Vegetais (Tropismos, Nastismos e Tactismos) e Fotoperiodismo (Fitocromo).
+     - Habilidades BNCC: EM13CNT101, EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+  5. **Capítulo 30:** em-bio-c30-obj1-zoologia-poriferos-cnidarios-exercicios.md
+     - Objeto de Conhecimento: Zoologia dos Invertebrados I: Origem dos Metazoários, Poríferos (Organização Parazoária, Coanócitos, Tipos Morfológicos e Filtração) e Cnidários (Eumetazoários Diblásticos, Cnidócitos, Pólipos/Medusas, Metagênese e Recifes de Coral).
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial.
+- **Métricas Consolidadas do Lote 6:**
+  - Total de Listas Produzidas no Lote 6: **5 listas de exercícios atômicas**.
+  - Total de Questões Produzidas no Lote 6: **300 questões inéditas e gabaritadas** (todas com resolução pedagógica, e as difíceis com resolução detalhada em Etapa 1 e Etapa 2).
+  - Progresso Geral de Exercícios de Biologia do Ensino Médio: **30 de 60 listas concluídas (50,0% da matriz — exatamente a METADE de toda a Biologia)** somando **1.800 questões atômicas homologadas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python alidador_educamob.py com Exit Code 0 em todas as 5 listas homologadas).
+
+
+---
+
+### Rodada 149 - 11/11/2026: Conclusão do Lote 7 de Exercícios de Biologia - Ensino Médio (Capítulos 31 ao 35 - Invertebrados II [Platelmintos, Nematódeos e Verminoses], Invertebrados III [Moluscos e Anelídeos], Invertebrados IV [Artrópodes e seu Sucesso Adaptativo], Zoologia V [Equinodermos e Cordados Basais] e Zoologia VI [Vertebrados: Peixes, Anfíbios, Répteis, Aves e Mamíferos]) - 58,33% DA MATRIZ (2.100 QUESTÕES)
+
+- **Objetivo da Rodada:** Prosseguir rigorosamente com a esteira autônoma em lotes de 5 das Listas de Exercícios de Biologia do Ensino Médio (Volume Único por Eixos Temáticos), homologando com conformidade total o Lote 7 (Capítulos 31 ao 35) sob o Hard-Guardrail Sistêmico (`validador_educamob.py`), exatas 60 questões por capítulo (20 básicas, 20 intermediárias, 20 difíceis estruturadas com `- **Etapa 1:**` e `- **Etapa 2:**`), equilíbrio matemático perfeito de gabarito (12 A, 12 B, 12 C, 12 D e 12 E por arquivo, streak máximo = 1), tags HTML completas de telemetria, supressão absoluta do símbolo R$, isenção de vocabulário pedante/concursês e conformidade com o princípio de mundo fechado (Closed-World Boundary).
+- **Capítulos Concluídos e Homologados no Lote 7:**
+  1. **Capítulo 31:** `em-bio-c31-obj1-platelmintos-nematodeos-verminoses-exercicios.md`
+     - Objeto de Conhecimento: Zoologia II: Platelmintos (Acelomados, Cestódeos, Trematódeos, Tubelários), Nematódeos (Pseudocelomados) e Verminoses de Relevância Médica no Brasil (Esquistossomose, Teníase, Cisticercose, Ascaridíase, Ancilostomíase, Filariose e Enterobíase).
+     - Habilidades BNCC: EM13CNT202, EM13CNT301, EM13CNT303.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial (102.859 bytes).
+  2. **Capítulo 32:** `em-bio-c32-obj1-moluscos-anelideos-exercicios.md`
+     - Objeto de Conhecimento: Zoologia III: Protostômios Celomados — Filo Mollusca (Manto, Concha, Rádula, Brânquias/Ctenídios, Sistema Circulatório Aberto/Fechado) e Filo Annelida (Metameria, Cerdas, Parapódios, Metanefrídios, Trocófora e Esqueleto Hidrostático).
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial (99.341 bytes).
+  3. **Capítulo 33:** `em-bio-c33-obj1-artropodes-sucesso-adaptativo-exercicios.md`
+     - Objeto de Conhecimento: Zoologia IV: Filo Arthropoda e seu Sucesso Adaptativo (Exoesqueleto de Quitina, Ecdise, Apêndices Articulados, Respiração Traqueal/Branquial/Filotraqueal, Excreção por Túbulos de Malpighi, Hemolinfa e Radiação dos Insetos).
+     - Habilidades BNCC: EM13CNT202, EM13CNT301.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial (100.122 bytes).
+  4. **Capítulo 34:** `em-bio-c34-obj1-equinodermos-cordados-basais-exercicios.md`
+     - Objeto de Conhecimento: Zoologia V: Deuterostômios — Equinodermos (Sistema Hidráulico Ambulacrário, Endosqueleto Mesodérmico, Simetria Pentarradial Secundária) e Cordados Basais (Protocordados: Urocordados e Cefalocordados, Notocorda, Fendas Faringianas, Tubo Neural Dorsal e Cauda Pós-Anal).
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial (100.271 bytes).
+  5. **Capítulo 35:** `em-bio-c35-obj1-vertebrados-peixes-anfibios-repteis-aves-mamiferos-exercicios.md`
+     - Objeto de Conhecimento: Zoologia VI: Subfilo Vertebrata (Craniata) — Morfofisiologia Comparada de Peixes (Condrictes e Osteíctes), Anfíbios, Répteis, Aves e Mamíferos (Crista Neural, Coluna Vertebral, Ovo Amniótico, Circulação, Hematose e Homeotermia).
+     - Habilidades BNCC: EM13CNT202, EM13CNT208.
+     - Quantitativo: 60 questões atômicas (20 básicas, 20 intermediárias, 20 difíceis com Etapa 1 e Etapa 2). Gabarito balanceado em exatamente 12 A, 12 B, 12 C, 12 D e 12 E.
+     - Conformidade: Exit Code 0 no validador oficial (101.449 bytes).
+- **Métricas Consolidadas do Lote 7:**
+  - Total de Listas Produzidas no Lote 7: **5 listas de exercícios atômicas**.
+  - Total de Questões Produzidas no Lote 7: **300 questões inéditas e gabaritadas** (todas com resolução pedagógica, e as difíceis com resolução detalhada em Etapa 1 e Etapa 2).
+  - Progresso Geral de Exercícios de Biologia do Ensino Médio: **35 de 60 listas concluídas (58,33% da matriz)** somando **2.100 questões atômicas homologadas no disco**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (validador oficial python `validador_educamob.py` com Exit Code 0 em todas as 5 listas homologadas).
+
+---
+
+## 🚨 Rodada 144 - Resolução de Incidente Crítico (Rollback de Produção) e Instituição do Hard-Guardrail de Deploy
+
+- **Data:** 11 de Novembro de 2026
+- **Status:** 🛡️ Rollback Concluído com 100% de Sucesso e Blindagem Sistêmica Homologada.
+- **Incidente Diagnosticado:**
+  - Identificou-se que na noite anterior (10/11 às 19:50) e manhã de hoje (11/11 às 10:46), arquivos em estágio de teste (novo menu de 6 opções com "Tirar Dúvidas" na posição 1) foram sincronizados inadvertidamente com o repositório `origin/master` e com a Oracle Cloud VPS (`mobme-api`), fazendo com que o menu experimental vazasse para o ambiente de produção antes da validação final.
+- **Ações Imediatas Executadas (Rollback):**
+  1. **Preservação Integral do Trabalho de Testes:** Todas as evoluções do novo menu de 6 opções e calibração de microaprendizagem foram salvas e comitadas com segurança na branch isolada de testes `feature/novo-menu-microaprendizagem`.
+  2. **Restauração da Branch Master:** Os arquivos `services/mobme-api/main.py`, `prompt_prod.md` e `sentinela_mobme.py` foram revertidos para o commit oficial homologado (`ff54940`) e enviados via push para a branch `master` (commit `b2a0e9d`).
+  3. **Rollback no Servidor de Produção (Oracle Cloud VPS 137.131.163.113):** Arquivos oficiais estáveis sincronizados via SCP, injetados via `docker cp` no container `mobme-api` e container reiniciado com sucesso.
+  4. **Auditoria de Produção:** Teste automatizado executado contra o endpoint oficial `https://api.educamob.com.br/api/chat` confirmando que a produção está 100% restaurada com o menu oficial:
+     - `1. Aprender 📚`
+     - `2. Praticar 📝`
+     - `3. Flashcards 🃏`
+     - `4. Resumo 🧠`
+     - `5. Enviar questão 🖼️`
+     - `6. Finalizar ⏸️`
+- **Instituição de Novas Medidas de Segurança (Hard-Guardrails):**
+  - **Hard-Guardrail Anti-Deploy no `AGENTS.md`:** Proibição absoluta de `git push origin master` durante tarefas de teste ou laboratório.
+  - **Obrigatoriedade de Branch Isolada:** Testes e prototipações devem ocorrer estritamente em branches `feature/...` ou `laboratorio`.
+  - **Chave de Segurança Mandatória:** Nenhum comando de SCP/Deploy na nuvem pode ser acionado sem a autorização textual prévia do usuário (`"AUTORIZO O DEPLOY EM PRODUÇÃO"`).
+

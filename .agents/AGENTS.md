@@ -33,6 +33,16 @@ Este arquivo define as regras e diretrizes comportamentais globais para todos os
 - Todos os valores em Real devem ser escritos com o número seguido da palavra "reais" (ou "centavos"). Exemplo: Em vez de `R$ 50,00`, escreva `50,00 reais`. Em vez de `R$ 0,50`, escreva `0,50 reais` ou `50 centavos`.
 - **Motivo:** O símbolo `$` conflita diretamente com a sintaxe de demarcação do MathJax/LaTeX nos SPAs, gerando erros crônicos de renderização nas fórmulas matemáticas da plataforma.
 
+## ⚠️ HARD-GUARDRAIL SISTÊMICO DE ISOLAMENTO DE AMBIENTES E BLOQUEIO DE DEPLOY
+
+- **REGRA CRÍTICA DRACONIANA DE NÃO-PROLIFERAÇÃO EM PRODUÇÃO:**
+  1. **PROIBIÇÃO ABSOLUTA DE `git push origin master`:** Sob nenhuma hipótese qualquer agente de IA ou script automatizado tem autorização para executar `git push origin master` durante tarefas de teste, laboratório, prototipação ou validação preliminar.
+  2. **ISOLAMENTO MANDATÓRIO DE AMBIENTE DE TESTES (BRANCHES DEDICADAS):** Todo e qualquer trabalho solicitado pelo usuário sob a diretriz de "Ambiente de Testes", "Laboratório", "Ajustes Experimentais" ou "Validação Prévia" DEVE ser realizado OBRIGATORIAMENTE em branch separada (ex: `feature/...`, `testes/...` ou `laboratorio`). É ESTRITAMENTE PROIBIDO realizar commits com códigos de teste na branch `master`.
+  3. **CHAVE DE SEGURANÇA PARA DEPLOY EM PRODUÇÃO:** Comandos que impactem servidores em nuvem (Oracle Cloud VPS `137.131.163.113`, GitHub Pages ou containers Docker em produção) via SCP, SSH, `docker cp`, `docker restart` ou endpoints de reload em produção (`https://api.educamob.com.br`) SÓ PODEM SER ACIONADOS se o usuário fornecer a autorização explícita e inequívoca por escrito:
+     `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+     Sem essa frase textual, o agente está formalmente BLOQUEADO de realizar qualquer ação que propague arquivos locais para a infraestrutura de produção.
+  4. **BLINDAGEM DO BANCO DE DADOS SUPABASE:** Ao rodar baterias de testes manuais ou scripts de verificação no backend local (`localhost:8000`), é PROIBIDO utilizar identificadores de alunos reais ou gravar resíduos em tabelas de produção que afetem relatórios ou histórico dos beta-testers. Utilize estritamente UUIDs de teste isolados (ex: `00000000-0000-0000-0000-000000000001`).
+
 ## ⚠️ HARD-GUARDRAIL SISTÊMICO (MANDATÓRIO PARA TODOS OS AGENTES)
 
 - **REGRA CRÍTICA DE BLOQUEIO DE SALVAMENTO:** A partir deste momento, NENHUM agente de IA (E-book Creator, Exercise Creator, SPA Creator ou você) tem autorização para usar a ferramenta nativa `write_to_file` ou `replace_file_content` para salvar arquivos diretamente dentro da pasta final `content/` (nem arquivos teóricos nem listas de exercícios).
@@ -48,3 +58,14 @@ Este arquivo define as regras e diretrizes comportamentais globais para todos os
 - **REGRA DE CONTEXTO:** Para fins de deploy, manutenção e arquitetura, o servidor backend real da Mob.me (`mobme-api`) e a integração do WhatsApp (`evolution-api`) **NÃO** são hospedados localmente.
 - O ambiente de produção está provisionado na **Oracle Cloud (arquitetura ARM64)**.
 - Ambos os serviços rodam conteinerizados via **Docker** e se comunicam internamente pela rede do Docker para recebimento de Webhooks.
+
+## Padrão-Ouro de Calibragem Pedagógica de Exercícios (Homologado)
+
+- **REGRA CRÍTICA DE CALIBRAGEM:** Todas as listas de exercícios do ecossistema Educamob devem seguir rigorosamente o padrão-ouro validado no piloto `ef06ci13-exercicios.md`:
+  1. **Gradação Real de Dificuldade:**
+     - **Básico (q01-q20):** TEM QUE SER FÁCIL. 1 único passo cognitivo direto (reconhecimento imediato, identificação conceitual primária, sem pegadinhas).
+     - **Intermediário (q21-q40):** Dificuldade média real (aplicação prática, comparação entre hipóteses e modelos, relação de causa e efeito).
+     - **Difícil (q41-q60):** Desafio estimulante, NÃO impossível (situações-problema investigativas resolvidas em duas etapas lógicas com Etapa 1 e Etapa 2, cálculos proporcionais simples e acessíveis para a série).
+  2. **Proibição Absoluta de Decorebas e Curiosidades Inúteis:** Foco 100% no método científico e nas habilidades BNCC. Proibido cobrar nomes secundários de pessoas, datas de viagem/nascimento, termos de conversão arcaicos ou números isolados decorados.
+  3. **Tom Humanizado e Acolhedor (Padrão Mob.me e SPA):** Linguagem clara, concisa e compatível com a faixa etária da série. Distratores baseados em dúvidas conceituais reais dos alunos; proibido criar alternativas absurdas, cômicas ou caricatas (ex: "animais comem ondas de rádio").
+  4. **Balanceamento Obrigatório de Gabarito (A-E):** As 60 questões devem distribuir as respostas corretas de forma equilibrada entre as alternativas (~12 A, ~12 B, ~12 C, ~12 D e ~12 E). Proibido concentrar o gabarito na letra A ou repetir a mesma letra mais de 3 vezes consecutivas.
