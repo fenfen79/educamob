@@ -429,6 +429,37 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                 # --- P1: FALHAS ALTAS DE SYSTEM PROMPT E CONDUTA PEDAGÓGICA ---
                 # ==============================================================
 
+                # P1.3 Desvio do Banco Oficial de Exercícios (Criação Sintética pelo LLM no Chat)
+                m_q_loose = re.findall(r"(?:###\s*Quest[ãa]o\s*(\d+))", content, re.IGNORECASE)
+                if m_q_loose:
+                    max_q_num = max([int(n) for n in m_q_loose])
+                    if max_q_num > 15:
+                        issue = {
+                            "priority": "P0",
+                            "type": "DESVIO_BANCO_EXERCICIOS_LLM",
+                            "session_id": sid,
+                            "msg_id": mid,
+                            "turn": idx + 1,
+                            "desc": f"A IA ultrapassou o teto regulamentar de 15 questões (apresentou Questão {max_q_num}), indicando geração autônoma fora do banco homologado -exercicios.md.",
+                            "snippet": content[:180]
+                        }
+                        s_audit["issues"].append(issue)
+                        issues_by_priority["P0"].append(issue)
+                        msg_has_issue = True
+                    elif "📝 Questão" not in content and "**Checagem:**" not in content:
+                        issue = {
+                            "priority": "P1",
+                            "type": "QUESTOES_SINTETICAS_SEM_BANCO",
+                            "session_id": sid,
+                            "msg_id": mid,
+                            "turn": idx + 1,
+                            "desc": f"A IA improvisou questão sintética ('### Questão {max_q_num}') fora do formato homologado ('📝 Questão X/15') e sem vínculo com o banco -exercicios.md.",
+                            "snippet": content[:180]
+                        }
+                        s_audit["issues"].append(issue)
+                        issues_by_priority["P1"].append(issue)
+                        msg_has_issue = True
+
                 # P1.5 Dump Massivo de Exercícios no Chat (Quebra de Interatividade)
                 q_matches = len(re.findall(r"(?:\*\*Quest[ãa]o\s*\d+\*\*|📝 Questão)", content))
                 if q_matches > 2:
@@ -511,15 +542,16 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     issues_by_priority["P1"].append(issue)
                     msg_has_issue = True
 
-                # P1.5 Postura: Bajulação tóxica proibida
-                if any(tp in content.lower() for tp in TOXIC_PRAISE):
+                # P1.4 Detecção Semântica de Bajulação Superlativa (2ª Pessoa) e Elogios Proibidos
+                m_superlativo = re.search(r'\bvocê\s+(?:está|é|foi)\s+(?:voando|arrasando|brilhando|incrível|um\s+gênio|demais|show|destruindo|imbatível)', content, re.IGNORECASE)
+                if m_superlativo or any(tp in content.lower() for tp in TOXIC_PRAISE):
                     issue = {
                         "priority": "P1",
-                        "type": "BAJULACAO_TOXICA",
+                        "type": "BAJULACAO_SUPERLATIVA" if m_superlativo else "BAJULACAO_TOXICA",
                         "session_id": sid,
                         "msg_id": mid,
                         "turn": idx + 1,
-                        "desc": "Uso de comemorações extravagantes ou bajulação proibida pelas regras de postura.",
+                        "desc": "Uso de predicados superlativos ou gírias comemorativas dirigidas à pessoa do estudante." if m_superlativo else "Uso de comemorações extravagantes ou bajulação proibida pelas regras de postura.",
                         "snippet": content[:180]
                     }
                     s_audit["issues"].append(issue)
@@ -584,7 +616,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     msg_has_issue = True
 
                 # P2.3 Subscrito duplo KaTeX sem chaves
-                if re.search(r'_[a-zA-Z0-9]+_[a-zA-Z0-9]+', content) and not re.search(r'\$[A-Z][a-z]?_\d+[A-Z][a-z]?_\d+', content):
+                if re.search(r'_[a-zA-Z0-9]+_[a-zA-Z0-9]+', content) and not re.search(r'\$[A-Z][a-z]?_\d+[A-Z][a-z]?_\d+', content) and not re.search(r'0,[a-z]_\d[a-z]_\d', content):
                     issue = {
                         "priority": "P2",
                         "type": "KATEX_DOUBLE_SUBSCRIPT",

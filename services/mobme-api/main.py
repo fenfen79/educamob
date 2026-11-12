@@ -1194,7 +1194,38 @@ async def resolve_active_mode_and_topic(
     extracted_text: str = ""
 ):
     state = get_or_init_session_state(session_id, db_history)
-    msg_clean = current_message.strip().lower()
+    # 0. Sanitização Universal de Emojis e Símbolos Decorativos no Input
+    # Transforma "2. Praticar📝" em "2. praticar", "3. Flashcards 🃏" em "3. flashcards"
+    msg_raw = current_message.strip().lower()
+    msg_clean = re.sub(r'[\U00010000-\U0010ffff\u2600-\u27ff\u2b50\ufe0f\u20e3]', '', msg_raw).strip()
+    msg_clean = re.sub(r'\s+', ' ', msg_clean)
+
+    # 0.0 Detecção de Menu Recém-Exibido no Histórico:
+    # Se a última mensagem da IA continha as opções do menu (ex: ao concluir a teoria),
+    # o backend força a quebra de estudo ativo para que o aluno possa escolher a próxima trilha livremente.
+    last_ai_had_menu = False
+    for m in reversed(db_history):
+        if m.get("role") == "ai":
+            c_last = m.get("content", "")
+            has_prompt = any(p in c_last for p in [
+                "Como você prefere começar?", 
+                "O que você gostaria de fazer agora?", 
+                "Qual caminho você prefere agora?",
+                "Qual caminho você prefere seguir?",
+                "Qual das opções você prefere?",
+                "O que prefere fazer agora?",
+                "Como você gostaria de continuar?",
+                "Menu de Trilhas",
+                "menu de trilhas"
+            ])
+            has_options = any(o in c_last for o in [
+                "1. Aprender", "2. Praticar", "1. Tirar Dúvidas", "2. Estudo Dirigido", 
+                "1. Estudo Dirigido", "3. Flashcards", "4. Flashcards", "3. Resumo", "5. Lista de Exercícios",
+                "1️⃣", "2️⃣"
+            ])
+            if (has_prompt and has_options) or ("1. Tirar Dúvidas" in c_last and "2. Estudo Dirigido" in c_last) or ("1. Aprender" in c_last and "2. Praticar" in c_last):
+                last_ai_had_menu = True
+            break
     
     # 0.0 Retomada de trilha pausada por envio prévio de imagem
     if state.get("paused_track") and not has_image:
@@ -1534,7 +1565,8 @@ async def resolve_active_mode_and_topic(
     target_mode = None
     is_short_choice = len(msg_clean) <= 75
     current_active_mode = state.get("current_mode")
-    in_active_study = current_active_mode in {"modo_aprender", "modo_praticar", "modo_revisar", "modo_resolve_questao", "modo_tira_duvidas"}
+    # Se a última mensagem exibiu o menu, o aluno NÃO está mais em meio a um quiz/etapa ativa
+    in_active_study = (current_active_mode in {"modo_aprender", "modo_praticar", "modo_revisar", "modo_resolve_questao", "modo_tira_duvidas"}) and not last_ai_had_menu
 
     # 4.1. Retorno explícito ao Menu Canônico de Trilhas
     if is_short_choice and msg_clean in {"menu", "ver menu", "voltar", "voltar menu", "mudar trilha", "mudar de trilha", "trilhas", "menu de trilhas", "trocar modo", "trocar de modo", "opcoes", "opções"}:
@@ -1551,156 +1583,86 @@ async def resolve_active_mode_and_topic(
             # Dígitos numéricos isolados (1, 2, 3, 4, 5, 6), letras (a, b, c, d, e) e valores de cálculo
             # são SEMPRE respostas do estudante às perguntas e NÃO escolhas de menu.
             # Apenas comandos ou nomes explícitos de trilha trocam de modo.
-            if (
-                msg_clean in {
-                    "1️⃣", "1️⃣ tirar duvidas", "1️⃣ tirar dúvidas", "1️⃣ tirar duvidas (texto/imagem)", "1️⃣ tirar dúvidas (texto/imagem)",
-                    "1. tirar duvidas", "1. tirar dúvidas", "1. tirar duvidas (texto/imagem)", "1. tirar dúvidas (texto/imagem)",
-                    "1️⃣ tira duvidas", "1️⃣ tira dúvidas", "1. tira duvidas", "1. tira dúvidas",
-                    "tirar duvidas", "tirar dúvidas", "tirar duvidas (texto/imagem)", "tirar dúvidas (texto/imagem)",
-                    "tira duvidas", "tira dúvidas", "enviar questao", "enviar questão", "resolve questao", "resolve questão"
-                }
-                or msg_clean.startswith("1. tirar")
-                or msg_clean.startswith("1️⃣ tirar")
-                or msg_clean.startswith("1. tira")
-                or msg_clean.startswith("1️⃣ tira")
-                or "tirar duvidas" in msg_clean
-                or "tirar dúvidas" in msg_clean
-                or "tira duvidas" in msg_clean
-                or "tira dúvidas" in msg_clean
-                or "modo tira duvidas" in msg_clean
-                or "modo tira dúvidas" in msg_clean
-                or "enviar questao" in msg_clean
-                or "enviar questão" in msg_clean
-                or "resolve questao" in msg_clean
-                or "resolve questão" in msg_clean
-                or "resolver questao" in msg_clean
-                or "resolver questão" in msg_clean
-                or "tirar duvida de questao" in msg_clean
-                or "tirar dúvida de questão" in msg_clean
-            ):
-                target_mode = "modo_tira_duvidas"
-            elif (
-                msg_clean in {
-                    "2️⃣", "2️⃣ estudo dirigido", "2. estudo dirigido", "1️⃣ estudo dirigido", "1. estudo dirigido", "estudo dirigido",
-                    "2️⃣ aprender", "2. aprender", "1️⃣ aprender", "1. aprender", "aprender", "aprender microciclos", "modo aprender",
-                    "bora ler", "teoria", "quero teoria", "ir para teoria", "ir pra teoria",
-                    "sem flashcards, teoria", "sem flash cards, teoria", "sem flashcards", "sem flash cards"
-                }
-                or msg_clean.startswith("2. estudo dirigido")
-                or msg_clean.startswith("2️⃣ estudo dirigido")
-                or msg_clean.startswith("1. estudo dirigido")
-                or msg_clean.startswith("1️⃣ estudo dirigido")
-                or msg_clean.startswith("2. aprender")
-                or msg_clean.startswith("2️⃣ aprender")
-                or "estudo dirigido" in msg_clean
-                or "quero aprender" in msg_clean
-                or ("teoria" in msg_clean and not any(w in msg_clean for w in ["questao", "questão", "exercicio", "exercício"]))
-                or ("explicacao" in msg_clean or "explicação" in msg_clean)
-            ):
-                target_mode = "modo_aprender"
-            elif (
-                msg_clean in {"3️⃣", "3️⃣ resumo", "3️⃣ resumir", "3. resumo", "4. resumo", "4️⃣ resumo", "resumo"}
-                or msg_clean.startswith("3. resumo")
-                or msg_clean.startswith("3️⃣ resumo")
-                or "quero resumo" in msg_clean
-                or "quero resumir" in msg_clean
-                or "resumir memorex" in msg_clean
-                or "modo resumir" in msg_clean
-                or "ver memorex" in msg_clean
-                or "fazer resumo" in msg_clean
-            ):
+            if any(w in msg_clean for w in ["flashcard", "flashcards", "cartao", "cartão", "cartoes", "cartões", "revisar", "revisao", "revisão"]) or msg_clean in {"4️⃣", "4. flashcards", "4️⃣ flashcards", "3. flashcards", "3️⃣ flashcards"}:
+                target_mode = "modo_revisar"
+            elif any(w in msg_clean for w in ["resumo", "resumir", "memorex", "sintese", "síntese"]) or msg_clean in {"3️⃣", "3. resumo", "3️⃣ resumo", "4. resumo", "4️⃣ resumo"}:
                 target_mode = "modo_resumir"
             elif (
-                msg_clean in {"4️⃣", "4️⃣ flashcards", "4️⃣ revisar", "4. flashcards", "3. flashcards", "3️⃣ flashcards", "flashcards"}
-                or msg_clean.startswith("4. flashcards")
-                or msg_clean.startswith("4️⃣ flashcards")
-                or "quero flashcards" in msg_clean
-                or "modo flashcards" in msg_clean
-                or "quero revisar" in msg_clean
-                or "modo revisar" in msg_clean
-                or "flashcards" in msg_clean
-                or "ver flashcards" in msg_clean
-            ):
-                target_mode = "modo_revisar"
-            elif (
-                msg_clean in {
-                    "5️⃣", "5️⃣ lista de exercicios", "5️⃣ lista de exercícios", "5. lista de exercicios", "5. lista de exercícios",
-                    "lista de exercicios", "lista de exercícios", "5️⃣ praticar", "5. praticar", "2. praticar", "2️⃣ praticar", "praticar"
-                }
-                or msg_clean.startswith("5. lista")
-                or msg_clean.startswith("5️⃣ lista")
-                or "lista de exercicios" in msg_clean
-                or "lista de exercícios" in msg_clean
-                or "quero praticar" in msg_clean
-                or "modo praticar" in msg_clean
-                or "fazer exercicios" in msg_clean
-                or "fazer exercícios" in msg_clean
-            ):
+                any(w in msg_clean for w in ["praticar", "exercicio", "exercício", "exercicios", "exercícios", "questoes", "questões", "treino"])
+                and not any(w in msg_clean for w in ["enviar questao", "enviar questão", "resolve questao", "resolve questão"])
+            ) or msg_clean in {"5️⃣", "5. praticar", "5️⃣ praticar", "2. praticar", "2️⃣ praticar", "5. lista de exercicios", "5. lista de exercícios"}:
                 target_mode = "modo_praticar"
-            elif msg_clean in {"6️⃣", "6️⃣ finalizar", "6. finalizar", "7️⃣", "7️⃣ finalizar", "7. finalizar", "8️⃣"} or msg_clean in {"finalizar", "encerrar", "sair", "tchau", "concluir a sessao", "concluir a sessão", "encerrar sessao", "encerrar sessão"}:
+            elif any(w in msg_clean for w in ["estudo dirigido", "aprender", "teoria", "microciclo", "bora ler"]) or msg_clean in {"2️⃣", "2. estudo dirigido", "2️⃣ estudo dirigido", "1. estudo dirigido", "1️⃣ estudo dirigido", "1. aprender", "2. aprender"}:
+                target_mode = "modo_aprender"
+            elif any(w in msg_clean for w in ["tirar duvida", "tirar dúvida", "tirar duvidas", "tirar dúvidas", "tira duvida", "tira dúvida", "tira duvidas", "tira dúvidas", "enviar questao", "enviar questão", "resolve questao", "resolve questão"]) or msg_clean in {"1️⃣", "1. tirar duvidas", "1. tirar dúvidas", "1️⃣ tirar duvidas", "1️⃣ tirar dúvidas"}:
+                target_mode = "modo_tira_duvidas"
+            elif any(w in msg_clean for w in ["finalizar", "encerrar", "sair", "tchau", "concluir"]) or msg_clean in {"6️⃣", "6. finalizar", "6️⃣ finalizar", "7. finalizar", "7️⃣ finalizar"}:
                 target_mode = "modo_conclusao"
         else:
-            # Fora de estudo ativo (ex: em modo_menu ou modo_acolhida):
-            # Dígitos numéricos 1..6 e ordinais selecionam a respectiva trilha canônica
-            if state.get("topic"):
+            # Fora de estudo ativo (ex: em modo_menu, modo_acolhida, ou após exibição de menu):
+            # 1. Prioridade Semântica Universal: o nome textual explícito SEMPRE prevalece sobre qualquer dígito
+            if any(w in msg_clean for w in ["flashcard", "flashcards", "cartao", "cartão", "cartoes", "cartões", "revisar", "revisao", "revisão"]):
+                target_mode = "modo_revisar"
+            elif any(w in msg_clean for w in ["resumo", "resumir", "memorex", "sintese", "síntese"]):
+                target_mode = "modo_resumir"
+            elif (
+                any(w in msg_clean for w in ["praticar", "exercicio", "exercício", "exercicios", "exercícios", "questoes", "questões", "treino"])
+                and not any(w in msg_clean for w in ["enviar questao", "enviar questão", "resolve questao", "resolve questão"])
+            ):
+                target_mode = "modo_praticar"
+            elif any(w in msg_clean for w in ["estudo dirigido", "aprender", "teoria", "microciclo", "bora ler", "me explica"]):
+                target_mode = "modo_aprender"
+            elif any(w in msg_clean for w in ["tirar duvida", "tirar dúvida", "tirar duvidas", "tirar dúvidas", "tira duvida", "tira dúvida", "tira duvidas", "tira dúvidas", "duvida", "dúvida", "enviar questao", "enviar questão", "resolve questao", "resolve questão"]):
+                target_mode = "modo_tira_duvidas"
+            elif any(w in msg_clean for w in ["finalizar", "encerrar", "sair", "tchau", "concluir"]):
+                target_mode = "modo_conclusao"
+
+            # 2. Casamento ordinal estrito (somente se não houve intenção textual explícita concorrente)
+            if not target_mode:
                 if (
                     msg_clean in {"1", "1️⃣"}
                     or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?1(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("1.")
                     or msg_clean.startswith("1️⃣")
-                    or any(w in msg_clean for w in ["tirar duvida", "tirar dúvida", "tirar duvidas", "tirar dúvidas", "tira duvida", "tira dúvida", "tira duvidas", "tira dúvidas", "duvida", "dúvida", "duvidas", "dúvidas", "perguntar", "enviar questao", "enviar questão", "resolve questao", "resolve questão", "resolver questao", "resolver questão"])
                 ):
                     target_mode = "modo_tira_duvidas"
                 elif (
                     msg_clean in {"2", "2️⃣"}
                     or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?2(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("2.")
                     or msg_clean.startswith("2️⃣")
-                    or any(w in msg_clean for w in ["estudo dirigido", "aprender", "microciclo", "bora ler", "teoria", "explicar", "explicacao", "explicação", "explicando", "me explica"])
                 ):
                     target_mode = "modo_aprender"
                 elif (
                     msg_clean in {"3", "3️⃣"}
                     or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?3(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("3.")
                     or msg_clean.startswith("3️⃣")
-                    or any(w in msg_clean for w in ["resumo", "resumir", "memorex"])
                 ):
                     target_mode = "modo_resumir"
                 elif (
                     msg_clean in {"4", "4️⃣"}
                     or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?4(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("4.")
                     or msg_clean.startswith("4️⃣")
-                    or any(w in msg_clean for w in ["flashcard", "flashcards", "revisar", "revisao", "revisão"])
                 ):
                     target_mode = "modo_revisar"
                 elif (
                     msg_clean in {"5", "5️⃣"}
                     or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?5(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("5.")
                     or msg_clean.startswith("5️⃣")
-                    or any(w in msg_clean for w in ["lista de exercicio", "lista de exercício", "lista de exercicios", "lista de exercícios", "praticar", "exercicio", "exercício", "exercicios", "exercícios", "treino", "desafio", "questoes", "questões"])
                 ):
                     target_mode = "modo_praticar"
                 elif (
                     msg_clean in {"6", "6️⃣", "7", "7️⃣", "8", "8️⃣"}
-                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?[678](?:[\.,:\s\-]|$)", msg_clean))
+                    or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?[678](?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("6.")
                     or msg_clean.startswith("6️⃣")
+                    or msg_clean.startswith("7.")
                     or msg_clean.startswith("7️⃣")
-                    or msg_clean.startswith("8️⃣")
-                    or any(w in msg_clean for w in ["finalizar", "encerrar", "sair", "tchau", "concluir"])
                 ):
-                    target_mode = "modo_conclusao"
-            else:
-                # Sem tema prévio
-                if msg_clean in {"1", "1️⃣", "tirar duvidas", "tirar dúvidas", "tira duvidas", "tira dúvidas", "enviar questao", "enviar questão", "resolve questao", "resolve questão"} or msg_clean.startswith("1.") or msg_clean.startswith("1️⃣"):
-                    target_mode = "modo_tira_duvidas"
-                elif msg_clean in {"2", "2️⃣", "estudo dirigido", "aprender", "microciclos", "bora ler"} or msg_clean.startswith("2.") or msg_clean.startswith("2️⃣"):
-                    target_mode = "modo_aprender"
-                elif msg_clean in {"3", "3️⃣", "resumo", "resumir", "memorex"} or msg_clean.startswith("3.") or msg_clean.startswith("3️⃣"):
-                    target_mode = "modo_resumir"
-                elif msg_clean in {"4", "4️⃣", "flashcards", "flashcard", "revisar"} or msg_clean.startswith("4.") or msg_clean.startswith("4️⃣"):
-                    target_mode = "modo_revisar"
-                elif msg_clean in {"5", "5️⃣", "lista de exercicios", "lista de exercícios", "praticar", "exercicios", "exercícios", "treino", "desafio"} or msg_clean.startswith("5.") or msg_clean.startswith("5️⃣"):
-                    target_mode = "modo_praticar"
-                elif msg_clean in {"6", "6️⃣", "7", "7️⃣", "finalizar", "encerrar"} or msg_clean.startswith("6.") or msg_clean.startswith("6️⃣") or msg_clean.startswith("7.") or msg_clean.startswith("7️⃣"):
-                    target_mode = "modo_conclusao"
+                    target_mode = "modo_conclusao"\
 
     if target_mode:
         if target_mode == "modo_conclusao":

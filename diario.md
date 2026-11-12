@@ -6347,3 +6347,32 @@ esolve_active_mode_and_topic).
      - Novo detector P1 `DUMP_EXERCICIOS_CHAT` para capturar entregas massivas de exercícios em um único turno.
      - Ampliação de gatilhos de atrito P3 do estudante (`"vai direto ao assunto"`, `"só falou quatro"`).
 - **Ambiente de Produção:** Deploy realizado e validado no container `mobme-api` via Docker na VPS Oracle Cloud (`137.131.163.113`).
+
+
+---
+
+## 🏛️ Rodada 116 - Ciclo de Monitoramento Dual-Agent: Resolução do Bypass de Exercícios por Sanitização Universal de Emojis, Prioridade Semântica de Trilhas, Blindagem contra Bajulação e Calibração dos Detectores de Geração Sintética
+
+- **Data:** 12 de Novembro de 2026
+- **Status:** ✅ Pacote Consolidado de Correções Aplicado, Testado e Homologado em Produção (Oracle Cloud ARM64 `137.131.163.113`).
+- **Escopo:** Sincronização entre Agente 1 (Sentinela Noturno) e Agente 2 (Arquiteto Analista / Solucionador).
+- **Causas-Raízes Forenses Investigadas e Solucionadas:**
+  1. **Bypass do Banco Oficial de 15 Exercícios (`ad70f43f` - Pedro Santana):**
+     - *Diagnóstico Real:* O estudante concluiu formalmente o Estudo Dirigido e a IA exibiu o Menu Canônico com emojis decorativos (ex: `2. Praticar📝`). Pedro digitou `"2. Praticar📝"`.
+     - *Falha no Backend:* A amnésia de estado (`in_active_study` mantido como `True` por ausência de inspeção do histórico recente) combinada com a falta de sanitização do emoji `📝` no input fez com que a escolha falhasse na verificação de conjunto exata. O modo permaneceu em `modo_aprender` e a engine determinística de 15 itens (`resolve_exercise_file_for_topic`) nunca foi acionada. Como resultado, o LLM improvisou 18 questões soltas no chat sem gabarito prévio nem telemetria HTML.
+     - *Solução:* Sanitização universal de emojis Unicode no pré-processamento de input (`msg_clean`), detecção de menu canônico recém-exibido no histórico (`last_ai_had_menu -> in_active_study = False`) e inclusão ampla de palavras-chave da trilha de exercícios.
+  2. **Conflito de Roteamento Dígito vs. Palavra-Chave (`ac062f8a` e `63762ce8` - João Victor):**
+     - *Diagnóstico Real:* O estudante digitou `"3. Flashcards 🃏"` querendo estudar cartões. Como a checagem numérica (`^3`) precedia a semântica e na versão anterior a opção 3 era Resumo, o backend forçou o aluno para `modo_resumir`, gerando um resumo de 1.200 palavras e provocando o abandono imediato da sessão em ambas as tentativas.
+     - *Solução:* Arquitetura em duas camadas no `main.py` onde a **intenção semântica explícita** (`flashcard`, `resumo`, `praticar`, `aprender`, `tira duvidas`, `finalizar`) tem precedência absoluta sobre dígitos ordinais isolados.
+  3. **Blindagem Semântica contra Bajulação Superlativa e Meta-Discurso de TI (`prompt_prod.md`):**
+     - Inserção do Princípio da Validação Factual da Tarefa: o foco do feedback de acerto deve ser no cálculo e no raciocínio, proibindo terminantemente predicados superlativos em 2ª pessoa comemorativos (`você está voando/arrasando/total/um gênio`).
+     - Proibição universal de termos técnicos de computação em conversa com os alunos (`"banco de dados"`, `"acervo da sessão"`, `"material homologado"`, `"vetorização"`).
+  4. **Novos Detectores no Sentinela Noturno (`sentinela_mobme.py`):**
+     - Detector P0 `DESVIO_BANCO_EXERCICIOS_LLM`: captura autônoma de qualquer questão além do teto regulamentar de 15 itens (capturou as questões 16, 17 e 18 de Pedro Santana).
+     - Detector P1 `QUESTOES_SINTETICAS_SEM_BANCO`: audita questões avulsas formatadas pelo LLM sem vínculo com o banco oficial `-exercicios.md`.
+     - Detector P1 `BAJULACAO_SUPERLATIVA`: análise semântica em 2ª pessoa para predicados superlativos direcionados ao estudante.
+     - Imunização completa de falsos positivos em menus (teto de tamanho `< 450` e presença de opções canônicas) e KaTeX com variáveis múltiplas subscritas (`$0,d_1d_2$`).
+- **Ambiente de Produção:**
+  - Código compilado localmente com Exit Code 0.
+  - Sincronização de `main.py`, `sentinela_mobme.py` e `prompts/prompt_prod.md` para o VPS Oracle Cloud ARM64 (`137.131.163.113`).
+  - Reinicialização com sucesso do contêiner `mobme-api` e execução do Sentinela Noturno em produção sem falsos positivos residuais.
