@@ -1059,6 +1059,32 @@ SEMANTIC_TOPIC_CACHE["funcoes matematica"] = SEMANTIC_TOPIC_CACHE["funcoes matem
 SEMANTIC_TOPIC_CACHE["funcao matematica"] = SEMANTIC_TOPIC_CACHE["funcoes matematicas"]
 SEMANTIC_TOPIC_CACHE["funcoes|quimica"] = SEMANTIC_TOPIC_CACHE["funcoes quimicas"]
 
+# Mapeamento Canônico: Sexualidade e Reprodução Humana -> Ciências (8º Ano BNCC EF08CI07-EF08CI11)
+SEMANTIC_TOPIC_CACHE["reproducao e sexualidade humana"] = {
+    "desambiguar": True,
+    "fora_do_escopo": False,
+    "motivo": "REGRA_2",
+    "disciplina_identificada": "Ciências",
+    "tema_raiz": "Reprodução e Sexualidade Humana",
+    "opcoes": [
+        "**Sistema Reprodutor e Fecundação** (Anatomia feminina e masculina, gametas e fecundação)",
+        "**Métodos Contraceptivos e ISTs** (Prevenção à gravidez precoce e infecções sexualmente transmissíveis)",
+        "**Puberdade e Hormônios** (Transformações corporais, ciclo menstrual e ação hormonal)"
+    ],
+    "clean_names": [
+        "Sistema Reprodutor e Fecundação",
+        "Métodos Contraceptivos e ISTs",
+        "Puberdade e Hormônios"
+    ]
+}
+SEMANTIC_TOPIC_CACHE["sexo"] = SEMANTIC_TOPIC_CACHE["reproducao e sexualidade humana"]
+SEMANTIC_TOPIC_CACHE["sexualidade"] = SEMANTIC_TOPIC_CACHE["reproducao e sexualidade humana"]
+SEMANTIC_TOPIC_CACHE["reproducao humana"] = SEMANTIC_TOPIC_CACHE["reproducao e sexualidade humana"]
+SEMANTIC_TOPIC_CACHE["sistema reprodutor"] = SEMANTIC_TOPIC_CACHE["reproducao e sexualidade humana"]
+SEMANTIC_TOPIC_CACHE["sistema reprodutor e fecundacao"] = {"desambiguar": False, "fora_do_escopo": False, "motivo": "ESPECIFICO", "disciplina_identificada": "Ciências", "tema_formatado": "Sistema Reprodutor e Fecundação"}
+SEMANTIC_TOPIC_CACHE["metodos contraceptivos e ists"] = {"desambiguar": False, "fora_do_escopo": False, "motivo": "ESPECIFICO", "disciplina_identificada": "Ciências", "tema_formatado": "Métodos Contraceptivos e ISTs"}
+SEMANTIC_TOPIC_CACHE["puberdade e hormonios"] = {"desambiguar": False, "fora_do_escopo": False, "motivo": "ESPECIFICO", "disciplina_identificada": "Ciências", "tema_formatado": "Puberdade e Hormônios"}
+
 async def analyze_topic_curricular_rules(term: str, current_discipline: str = None) -> dict:
     """
     ÁRBITRO CURRICULAR SEMÂNTICO (Solução 1 - LLM-First):
@@ -1094,16 +1120,28 @@ async def analyze_topic_curricular_rules(term: str, current_discipline: str = No
 
 Sua missão é inspecionar o assunto de estudo solicitado pelo estudante e verificar o enquadramento curricular:
 
-1. FORA DO ESCOPO (Disciplinas ainda não presentes na lista [{active_subjects_str}]):
-Se o estudante pedir uma disciplina ou tema que NÃO pertença a [{active_subjects_str}] (ex: Filosofia, Sociologia, Inglês, Espanhol, Artes, ou Biologia de Ensino Médio caso "Biologia" não esteja listada acima):
-- Nota importante 1: Tópicos de Ciências do Ensino Fundamental (como células, seres vivos, corpo humano, ecologia básica, astronomia e matéria/energia do 5º ao 9º ano) pertencem à disciplina "Ciências" (dentro do escopo). Porém, se o estudante pedir explicitamente a matéria "Biologia" ou um tema exclusivo de Biologia avançada não coberto em Ciências (e "Biologia" não estiver na lista ativa), classifique como fora do escopo!
-- Nota importante 2: As disciplinas "História" e "Geografia" FAZEM PARTE do acervo ativo da Educamob (dentro do escopo)! Todo tema de História (Antiguidade, Idade Média, Brasil Colonial, Império, República, Revoluções, Guerras Mundiais, Guerra Fria, etc.) pertence a "História" e todo tema de Geografia (Cartografia, Clima, Relevo, Urbanização, População, Geopolítica, Globalização, etc.) pertence a "Geografia".
-- Nota importante 3: A disciplina "Língua Portuguesa" FAZ PARTE do acervo ativo da Educamob (dentro do escopo)! Todo tema de Língua Portuguesa, Gramática, Morfossintaxe, Concordância, Regência, Pontuação, Produção Textual, Redação ENEM, Gêneros Textuais, Figuras de Linguagem e Literatura (Quinhentismo, Barroco, Arcadismo, Romantismo, Realismo, Naturalismo, Parnasianismo, Simbolismo, Pré-Modernismo, Modernismo, Vanguardas, Literatura Contemporânea, etc.) pertence a "Língua Portuguesa".
+1. FORA DO ESCOPO:
+A) TEMAS NÃO ESCOLARES / ENTRETENIMENTO (Futebol, Campeonatos, Esportes profissionais, Celebridades, Games, Política partidária atual, amenidades, conversas cotidianas):
+Se o estudante solicitar amenidades, resultados ou notícias de esportes (ex: "campeonato brasileiro", "qual a classificação atual", "escalação do time", "quem ganhou o jogo", "BBB", "games", "fofoca"):
 Retorne ESTRITAMENTE em formato JSON:
 {{
   "desambiguar": false,
   "fora_do_escopo": true,
-  "disciplina_identificada": "Nome real da disciplina fora do escopo (ex: Língua Portuguesa, Filosofia, Biologia, etc.)",
+  "disciplina_identificada": "Não Escolar",
+  "tema_formatado": "Tema solicitado"
+}}
+
+B) DISCIPLINAS ESCOLARES NÃO HOMOLOGADAS (ex: Filosofia, Sociologia, Inglês, Espanhol, Artes, ou temas exclusivos de Biologia do Ensino Médio):
+Se pedir uma matéria da grade escolar que não pertença a [{active_subjects_str}], retorne o nome real dessa matéria (ex: "Filosofia", "Sociologia", "Inglês", "Espanhol", "Artes").
+ATENÇÃO CRÍTICA: NUNCA atribua "Biologia" nem qualquer disciplina científica a perguntas de esportes, tabelas de campeonato ou conversas informais!
+- Nota de Ciências: Tópicos de Ciências do Ensino Fundamental (anatomia humana, reprodução e sexualidade humana, puberdade, métodos contraceptivos, células, seres vivos, ecologia, astronomia, matéria e energia do 5º ao 9º ano) pertencem à disciplina "Ciências" (DENTRO DO ESCOPO)!
+- Nota de História e Geografia: "História" e "Geografia" FAZEM PARTE do acervo ativo da Educamob (DENTRO DO ESCOPO)!
+- Nota de Língua Portuguesa: "Língua Portuguesa" FAZ PARTE do acervo ativo da Educamob (DENTRO DO ESCOPO)! Todo tema de Língua Portuguesa, Gramática, Morfossintaxe, Concordância, Regência, Pontuação, Produção Textual, Redação ENEM, Gêneros Textuais, Figuras de Linguagem e Literatura pertence a "Língua Portuguesa".
+Retorne ESTRITAMENTE em formato JSON:
+{{
+  "desambiguar": false,
+  "fora_do_escopo": true,
+  "disciplina_identificada": "Nome real da disciplina não homologada",
   "tema_formatado": "Nome do assunto"
 }}
 
@@ -1256,6 +1294,26 @@ async def resolve_active_mode_and_topic(
             save_session_states()
             return "modo_tira_duvidas", state.get("topic"), state
 
+    # 0.08 Mapeamento Curricular Imediato: Sexualidade e Reprodução Humana -> Ciências (8º Ano BNCC EF08CI07-EF08CI11)
+    if not state.get("topic") and msg_clean in {"sexo", "sexualidade", "reproducao humana", "reprodução humana", "sistema reprodutor", "reproducao", "reprodução"}:
+        state["discipline"] = "Ciências"
+        state["pending_disambiguation"] = "Reprodução e Sexualidade Humana"
+        state["disambiguation_options"] = [
+            "**Sistema Reprodutor e Fecundação** (Anatomia feminina e masculina, gametas e fecundação)",
+            "**Métodos Contraceptivos e ISTs** (Prevenção à gravidez precoce e infecções sexualmente transmissíveis)",
+            "**Puberdade e Hormônios** (Transformações corporais, ciclo menstrual e ação hormonal)"
+        ]
+        state["clean_names"] = [
+            "Sistema Reprodutor e Fecundação",
+            "Métodos Contraceptivos e ISTs",
+            "Puberdade e Hormônios"
+        ]
+        state["disambiguation_depth"] = 1
+        state["disambiguation_reason"] = "REGRA_2"
+        state["current_mode"] = "modo_acolhida"
+        save_session_states()
+        return "modo_acolhida", None, state
+
     # 0.1 Tratamento Híbrido Inteligente para envio de imagem em qualquer momento (Trilha 1 unificada: Tirar Dúvidas (texto/imagem))
     if has_image:
         current_active = state.get("current_mode", "modo_acolhida")
@@ -1391,7 +1449,6 @@ async def resolve_active_mode_and_topic(
             # Blindagem de Acolhida: bloqueia na largada tópicos de disciplinas não suportadas mesmo sem citar o nome da matéria
             _topic_lower = strip_accents(selected_topic.lower())
             _non_supported_cues = {
-                "portugues": ["oracao subordinada", "oracoes subordinadas", "oracao coordenada", "oracoes coordenadas", "conjuncao", "conjuncoes", "adjunto adnominal", "adjunto adverbial", "predicado", "crase", "concordancia verbal", "concordancia nominal", "figuras de linguagem", "transitividade verbal"],
                 "biologia": ["citologia", "genetica", "fotossintese", "mitose", "meiose", "angiospermas", "pteridofitas", "briofitas", "gimnospermas", "dna", "rna", "cladograma"],
                 "filosofia": ["empirismo", "racionalismo", "imperativo categorico", "sartre", "nietzsche", "maieutica", "alegoria da caverna"],
                 "sociologia": ["durkheim", "weber", "karl marx", "estratificacao social", "fato social"]
@@ -1423,7 +1480,7 @@ async def resolve_active_mode_and_topic(
 
             # Guardrail contra temas fora do escopo selecionados
             norm_non_supported = {strip_accents(d) for d in NON_SUPPORTED_DISCIPLINES}
-            if norm_disc and norm_disc in norm_non_supported:
+            if norm_disc and (norm_disc in norm_non_supported or norm_disc in {"nao escolar", "entretenimento", "geral"}):
                 state["topic"] = None
                 state["pending_disambiguation"] = None
                 state["disambiguation_options"] = None
@@ -1431,7 +1488,19 @@ async def resolve_active_mode_and_topic(
                 state["disambiguation_depth"] = 0
                 state["disambiguation_reason"] = None
                 state["discipline"] = None
-                state["out_of_scope_discipline"] = SUBJECT_DISPLAY_MAP.get(norm_disc, disc_id)
+                state["out_of_scope_discipline"] = "Não Escolar" if norm_disc in {"nao escolar", "entretenimento", "geral"} else SUBJECT_DISPLAY_MAP.get(norm_disc, disc_id)
+                state["current_mode"] = "modo_acolhida"
+                save_session_states()
+                return "modo_acolhida", None, state
+            elif analysis.get("fora_do_escopo"):
+                state["topic"] = None
+                state["pending_disambiguation"] = None
+                state["disambiguation_options"] = None
+                state["clean_names"] = None
+                state["disambiguation_depth"] = 0
+                state["disambiguation_reason"] = None
+                state["discipline"] = None
+                state["out_of_scope_discipline"] = "Não Escolar"
                 state["current_mode"] = "modo_acolhida"
                 save_session_states()
                 return "modo_acolhida", None, state
@@ -1708,21 +1777,26 @@ async def resolve_active_mode_and_topic(
         norm_disc = strip_accents(disc_id) if disc_id else None
         norm_supported = {strip_accents(d) for d in SUPPORTED_DISCIPLINES}
 
-        # GUARDRAIL SISTÊMICO: Disciplina fora do acervo oficial (ex: Português, Gramática, Literatura, Filosofia)
+        # GUARDRAIL SISTÊMICO: Disciplina fora do acervo oficial (ex: Filosofia, Sociologia) ou Tema Não Escolar
         norm_non_supported = {strip_accents(d) for d in NON_SUPPORTED_DISCIPLINES}
-        if norm_disc and norm_disc in norm_non_supported:
+        if norm_disc and (norm_disc in norm_non_supported or norm_disc in {"nao escolar", "entretenimento", "geral"}):
             state["topic"] = None
             state["pending_disambiguation"] = None
             state["disambiguation_options"] = None
             state["clean_names"] = None
             state["discipline"] = None
-            state["out_of_scope_discipline"] = SUBJECT_DISPLAY_MAP.get(norm_disc, disc_id)
+            state["out_of_scope_discipline"] = "Não Escolar" if norm_disc in {"nao escolar", "entretenimento", "geral"} else SUBJECT_DISPLAY_MAP.get(norm_disc, disc_id)
             state["current_mode"] = "modo_acolhida"
             save_session_states()
             return "modo_acolhida", None, state
         elif analysis.get("fora_do_escopo"):
-            # Conversa informal, saudação ou texto sem tema curricular (ex: "e ai plito")
+            # Conversa informal, amenidades ou tema não curricular
             state["topic"] = None
+            state["pending_disambiguation"] = None
+            state["disambiguation_options"] = None
+            state["clean_names"] = None
+            state["discipline"] = None
+            state["out_of_scope_discipline"] = "Não Escolar"
             state["current_mode"] = "modo_acolhida"
             save_session_states()
             return "modo_acolhida", None, state
@@ -2327,16 +2401,19 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
 
             save_session_states()
             active_list_str = ", ".join(AVAILABLE_SUBJECTS_LIST)
-            if not disc_name or disc_name.strip().lower() in {"indefinida", "desconhecida", "outro", "outra", "none", "", "nao identificada", "não identificada"}:
+            # Resposta Humanizada de Professora Real (Zero Jargão de TI)
+            disc_clean = (disc_name or "").strip().lower()
+            if disc_clean in {"nao escolar", "não escolar", "entretenimento", "geral", "indefinida", "desconhecida", "outro", "outra", "none", "", "nao identificada", "não identificada"}:
                 out_of_scope_msg = (
-                    f"No momento, o acervo da Educamob no Mob.me possui materiais homologados estritamente para as disciplinas: **{active_list_str}**.\n\n"
-                    f"Qual assunto de **{active_list_str}** você gostaria de estudar hoje?"
+                    "Aqui na Mob.me nosso foco total é te ajudar com as matérias e tarefas da escola! 🎒\n\n"
+                    f"Trabalhamos com conteúdos de **{active_list_str}**. "
+                    "Qual assunto escolar você precisa estudar hoje?"
                 )
             else:
                 out_of_scope_msg = (
-                    f"No momento, o acervo da Educamob no Mob.me possui materiais homologados estritamente para as disciplinas: **{active_list_str}**. "
-                    f"Por isso, ainda não atendo conteúdos de **{disc_name}**.\n\n"
-                    f"Qual assunto de **{active_list_str}** você gostaria de estudar hoje?"
+                    f"No momento, nossa tutoria ainda não atende a conteúdos de **{disc_name}**. 📚\n\n"
+                    f"Apoio você nos estudos de **{active_list_str}**. "
+                    "Que outro assunto escolar você gostaria de ver hoje?"
                 )
             async def direct_out_of_scope_stream():
                 yield f"data: {json.dumps({'session_id': current_session_id})}\n\n"

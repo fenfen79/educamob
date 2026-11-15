@@ -6376,3 +6376,30 @@ esolve_active_mode_and_topic).
   - Código compilado localmente com Exit Code 0.
   - Sincronização de `main.py`, `sentinela_mobme.py` e `prompts/prompt_prod.md` para o VPS Oracle Cloud ARM64 (`137.131.163.113`).
   - Reinicialização com sucesso do contêiner `mobme-api` e execução do Sentinela Noturno em produção sem falsos positivos residuais.
+
+---
+
+## 🏛️ Rodada 117 - Ciclo de Monitoramento Dual-Agent: Erradicação do Meta-Discurso Técnico de TI, Humanização de Fora de Escopo, Blindagem de Persona (Anti-"Mob estudio") e Roteamento Curricular de Sexualidade (Ciências 8º Ano BNCC)
+
+- **Data:** 15 de Novembro de 2026
+- **Status:** ✅ Pacote Consolidado de Correções Aplicado, Testado e Homologado Localmente na Branch `feature/novo-menu-microaprendizagem`.
+- **Escopo:** Sincronização entre Agente 1 (Sentinela Noturno) e Agente 2 (Arquiteto Analista / Solucionador).
+- **Causas-Raízes Forenses Investigadas e Solucionadas:**
+  1. **Meta-Discurso Técnico de TI Hardcoded (`main.py`):**
+     - *Diagnóstico Forense:* As recusas de matérias não suportadas disparavam a mensagem fria e robótica `"No momento, o acervo da Educamob no Mob.me possui materiais homologados estritamente para as disciplinas: ..."`. Essa string estava escrita de forma estática no código Python (`main.py:2332` e `main.py:2337`), violando frontalmente a diretriz de tom acolhedor e humanizado de professora.
+     - *Solução:* Substituição completa por fala natural e acolhedora de tutora escolar, diferenciando pedagogicamente temas não escolares/entretenimento de matérias escolares não homologadas (`"Aqui na Mob.me nosso foco total é te ajudar com as matérias e tarefas da escola! Trabalhamos com conteúdos de..."` e `"No momento, nossa tutoria ainda não atende a conteúdos de [Disciplina]. Apoio você nos estudos de..."`), eliminando 100% dos jargões de software.
+  2. **Bug do Classificador Curricular (Esportes rotulados como "Biologia" em `main.py`):**
+     - *Diagnóstico Forense:* Quando o estudante perguntava sobre futebol ou amenidades (ex: *"qual a classificaçao atual"*), o classificador semântico (`analyze_topic_curricular_rules`) não encontrava disciplina e simplesmente copiava o termo `"Biologia"` que estava presente como exemplo no texto do prompt do `DeepSeek-Flash`.
+     - *Solução:* Reestruturação do prompt do classificador com separação estrita de: A) Temas Não Escolares / Entretenimento (retorna `disciplina_identificada: "Não Escolar"`) e B) Disciplinas Escolares Não Homologadas (com proibição expressa de atribuir "Biologia" a amenidades). Ajuste no roteador do backend para que consultas não escolares ativem `out_of_scope_discipline = "Não Escolar"`.
+  3. **Roteamento Curricular de Sexualidade e Reprodução Humana para Ciências (`main.py`):**
+     - *Diagnóstico Forense:* Ao digitar `"sexo"`, o sistema bloqueava a consulta sob a alegação incorreta de "Biologia fora do escopo", ignorando que reprodução humana, anatomia genital, métodos contraceptivos, puberdade e ISTs são conteúdos curriculares oficiais e obrigatórios da BNCC em **Ciências do 8º Ano** (`EF08CI07` a `EF08CI11`).
+     - *Solução:* Inserção de pré-filtro determinístico imediato (`msg_clean in {"sexo", "sexualidade", "reproducao humana", ...}`) e população no `SEMANTIC_TOPIC_CACHE` mapeando esses termos para a disciplina **Ciências** com menu de desambiguação em 3 tópicos atômicos da BNCC (Sistema Reprodutor e Fecundação, Métodos Contraceptivos e ISTs, Puberdade e Hormônios).
+  4. **Blindagem de Persona contra Alucinação de Lore e Gírias (`prompt_prod.md`, `base_persona.md`, `modo_acolhida.md`):**
+     - *Diagnóstico Forense:* Ao receber a consulta `"campeonato brasileiro"`, a IA alucinou a existência de um *"Mob estudio"* e de um *"anúncio oficial"*, usando gírias comemorativas (*"Top!"*) e se propondo a debater tabelas esportivas.
+     - *Solução:* Travas estritas inseridas no Pilar 5 de tom de voz proibindo terminantemente a invenção de lore, cenários, estúdios ou anúncios fictícios, banindo gírias coloquiais de comemoração e prescrevendo postura acolhedora com redirecionamento em 1 linha para os estudos escolares.
+- **Validação Técnica Local:**
+  - Código compilado com Exit Code 0 via `python -m py_compile services/mobme-api/main.py`.
+  - Suíte de testes automatizados (`scratch/test_fixes.py`) aprovada com 100% de sucesso nas 6 baterias (mapeamento de sexo para Ciências 8º ano, desambiguação, classificação de futebol como "Não Escolar", ausência de contaminação de Biologia e humanização do streaming de output).
+- **Governança de Ambientes:**
+  - Alterações consolidadas na branch de isolamento `feature/novo-menu-microaprendizagem`.
+  - Nenhuma alteração enviada para produção ou VPS Oracle Cloud, em estrito cumprimento da Chave de Segurança (aguardando autorização inequívoca `"AUTORIZO O DEPLOY EM PRODUÇÃO"`).
