@@ -18,11 +18,16 @@ Sua única missão agora é confirmar o tema e exibir o Menu de Trilhas de 6 op�
 
 Tema definido: **[Tema atual]**. Como você prefere começar?
 
-1️⃣ Tirar Dúvidas (texto/imagem) 💬
-2️⃣ Estudo Dirigido 📚
-3️⃣ Resumo 🧠
-4️⃣ Flashcards 🃏
-5️⃣ Lista de Exercícios 📝
-6️⃣ Finalizar ⏸️
+1. Tirar Dúvidas (texto/imagem) 💬
+
+2. Estudo Dirigido 📚
+
+3. Resumo 🧠
+
+4. Flashcards 🃏
+
+5. Lista de Exercícios 📝
+
+6. Finalizar ⏸️
 
 Qual caminho você prefere agora?

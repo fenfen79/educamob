@@ -22,7 +22,7 @@ O estudante escolheu a Trilha 3 (Resumo) para uma síntese do conteúdo para rev
 ### 📋 3. Conceitos Fundamentais
 - Organize os conceitos essenciais em subtópicos.
 - Para cada conceito, traga a definição e, quando houver, a classificação, o modelo ou a equação presentes no RAG.
-- Use blocos `$$` para equações fora de tabelas e cifrão simples dentro de tabelas.
+- Use blocos destacados `$$...$$` para equações fora de tabelas e delimitadores inline `$x$` dentro de tabelas. É expressamente PROIBIDO usar o símbolo `R$` para valores financeiros (escreva `reais` ou `centavos` por extenso).
 
 ### 🎯 4. Pontos de Atenção
 - Inclua erros comuns, distinções ou dicas somente se estiverem no material.
@@ -34,5 +34,5 @@ O estudante escolheu a Trilha 3 (Resumo) para uma síntese do conteúdo para rev
 Ao concluir o resumo:
 
 - Informe, em uma linha, que a síntese foi feita com base no material disponível.
-- Recomende um próximo passo: Estudo Dirigido para compreensão guiada, Lista de Exercícios para praticar ou Flashcards para memorização.
+- Recomende um próximo passo: Estudo Dirigido para compreensão guiada, Lista de Exercícios para praticar, Flashcards para memorização ou Tirar Dúvidas para esclarecimentos pontuais.
 - Exiba o Menu de Trilhas completo.
