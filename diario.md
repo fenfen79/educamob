@@ -6603,3 +6603,480 @@ esolve_active_mode_and_topic).
 - **Governança:**
   - Branch ativa: `feature/novo-menu-microaprendizagem`.
   - Zero pushes para master ou comandos na Oracle Cloud VPS.
+
+
+---
+
+## 🔬 Rodada 124 — Recalibração Pedagógica Padrão-Ouro e Erradicação de Jargão: Lote 2 de Biologia (Capítulos 06 ao 10)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 100% RECALIBRADO, AUDITADO E HOMOLOGADO COM EXIT CODE 0 NO VALIDADOR OFICIAL.
+- **Contexto Operacional:**
+  - Segunda etapa da esteira sequencial lote a lote de recalibração pedagógica das listas de exercícios de Biologia do Ensino Médio.
+  - O **Lote 2 (Capítulos 06 ao 10)** abrange: Vitaminas e Nutrição Celular (Cap 06), Origem da Vida e Evolução Prebiótica (Cap 07), Organização Celular: Procariontes, Eucariontes e Vírus (Cap 08), Membrana Plasmática e Permeabilidade (Cap 09) e Transportes de Membrana: Osmose e Difusão (Cap 10). Total de 300 questões auditadas e recalibradas.
+- **Ações Corretivas Executadas no Lote 2 (300 Questões):**
+  1. **Capítulo 06 (`cap-06-vitaminas-nutricao-celular`):**
+     - Erradicado o jargão universitário/clínico `podócitos` (substituído por `túbulos renais` / `tecidos renais`).
+     - Condensados 8 enunciados prolixos > 500 caracteres (Q41, Q43, Q44, Q45, Q50, Q54, Q58, Q59) para o padrão conciso (280-380 caracteres), preservando rigor bioquímico das avitaminoses e coenzimas. Homologado com Exit Code 0.
+  2. **Capítulo 07 (`cap-07-origem-da-vida-evolucao-prebiotica`):**
+     - Condensados 12 enunciados prolixos de narrativa profunda (Q41 a Q47, Q49, Q53, Q54, Q57, Q58) de até 838 caracteres para o intervalo estrito de 300 a 380 caracteres.
+     - Preservado o alinhamento BNCC/ENEM para o experimento de Miller-Urey, quimiosmose alcalina em fontes hidrotermais, hipótese do Mundo do RNA e estromatólitos fósseis do Arqueano. Homologado com Exit Code 0.
+  3. **Capítulo 08 (`cap-08-organizacao-procariontes-eucariontes-virus`):**
+     - Recalibrados e condensados 13 enunciados extensos (Q41 a Q47, Q49 a Q51, Q53, Q58, Q60) com remoção de vinhetas de medicina terciária (sepse com pielonefrite) e tecnicismos biofísicos.
+     - Enunciados adaptados para a faixa etária do EM (15 a 17 anos), focando em endotoxinas bacterianas (LPS), mecanismos de ação de antibióticos (rifampicina, cloranfenicol), teoria endossimbiótica, arqueias Asgard e vírus gigantes. Homologado com Exit Code 0.
+  4. **Capítulo 09 (`cap-09-membrana-plasmatica-permeabilidade`):**
+     - Erradicado o termo da blacklist `pressão oncótica` em Q59 (substituído por `pressão osmótica das proteínas do plasma`).
+     - Condensados 14 enunciados > 500 caracteres (Q21, Q41 a Q46, Q49 a Q51, Q53, Q55, Q56, Q58) com simplificação didática do modelo de Frye-Edidin, técnica de FRAP, balsas lipídicas, junções intercelulares e aquaporinas. Homologado com Exit Code 0.
+  5. **Capítulo 10 (`cap-10-transportes-membrana-osmose-difusao`):**
+     - Erradicado termo da blacklist `tetrodotoxina` em Q46 (adaptado para neurotoxina bloqueadora de canais de sódio voltagem-dependentes).
+     - Erradicadas 10 ocorrências do jargão acadêmico `SNARE` em Q26, Q27, Q48 e Q59 (substituídas pedagogicamente por `proteínas de ancoragem e fusão vesicular`).
+     - Condensados 11 enunciados > 500 caracteres (Q41, Q42, Q46, Q47, Q49, Q51, Q52, Q54, Q57, Q58, Q60) e alternativas prolixas (Q48, Q50, Q53). Homologado com Exit Code 0.
+- **Prova Real Consolidada do Lote 2:**
+  - **Enunciados > 500 caracteres:** 0 (100% em conformidade).
+  - **Alternativas > 250 caracteres:** 0 (100% em conformidade).
+  - **Termos proibidos da blacklist / jargões:** 0 ocorrências.
+  - **Cifrão proibido `R$`:** 0 ocorrências.
+  - **Distribuição de Gabaritos:** Rigorosamente balanceada em 20% por alternativa (12 A, 12 B, 12 C, 12 D, 12 E) em todos os 5 capítulos, sem vícios de repetição (streak <= 1).
+  - **Scaffolding de Resolução:** 100% das 100 questões do Nível Difícil (Q41 a Q60 dos 5 capítulos) estruturadas em duas etapas didáticas (`- **Etapa 1:**` e `- **Etapa 2:**`).
+- **Governança:**
+  - Branch ativa: `feature/novo-menu-microaprendizagem`.
+  - Zero pushes para master e zero intervenções em infraestrutura de nuvem em conformidade com os Hard-Guardrails.
+
+
+---
+
+## 🔬 Rodada 125 — Recalibração Pedagógica Padrão-Ouro e Erradicação de Jargão: Lote 3 de Biologia (Capítulos 11 ao 15)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 100% RECALIBRADO, AUDITADO E HOMOLOGADO COM EXIT CODE 0 NO VALIDADOR OFICIAL.
+- **Contexto Operacional:**
+  - Terceira etapa da esteira sequencial lote a lote de recalibração pedagógica das listas de exercícios de Biologia do Ensino Médio.
+  - O **Lote 3 (Capítulos 11 ao 15)** abrange: Sistema Endomembranoso e Organelas (Cap 11), Citoesqueleto, Peroxissomos e Centríolos (Cap 12), Bioenergética: Fotossíntese e Quimiossíntese (Cap 13), Bioenergética: Respiração e Fermentação (Cap 14) e Núcleo Celular, Cromossomos e Cariótipo (Cap 15). Total de 300 questões auditadas e recalibradas.
+- **Ações Corretivas Executadas no Lote 3 (300 Questões):**
+  1. **Capítulo 11 (cap-11-sistema-endomembranoso-organelas):**
+     - Erradicadas todas as menções de jargão acadêmico/pós-graduação SNARE (Q25, Q26, Q27, Q33, Q41, Q44, Q51, Q52, Q56, Q59), adaptando para linguagem didática de Ensino Médio/ENEM (proteínas de fusão e reconhecimento vesicular).
+     - Condensados enunciados prolixos > 500 caracteres (Q41, Q42, Q44, Q51, Q58) e alternativa prolixa de Q55 (de 252 para 136 chars).
+     - Homologado com Exit Code 0 no validador oficial.
+  2. **Capítulo 12 (cap-12-citoesqueleto-peroxissomos-centriolos):**
+     - Condensados enunciados extensos Q41 (cílios nodais e assimetria embrionária) e Q56 (ensaio de FRAP com nocodazol).
+     - Eliminada citação de distrator com jargão da blacklist em Q51.
+     - Homologado com Exit Code 0 no validador oficial.
+  3. **Capítulo 13 (cap-13-bioenergetica-fotossintese-quimiossintese):**
+     - Condensados enunciados prolixos Q41 (oxidação da água no Fotossistema II), Q42 (experimento histórico de Jagendorf em tilacoides) e Q60 (fluxo reverso de elétrons em Nitrobacter).
+     - Eliminado termo de blacklist no distrator de Q50.
+     - Preservada estrita integridade das equações LaTeX em modo matemático balanceado ($).
+     - Homologado com Exit Code 0 no validador oficial.
+  4. **Capítulo 14 (cap-14-bioenergetica-respiracao-fermentacao):**
+     - Condensados enunciados extensos Q41 (desacoplamento mitocondrial por 2,4-DNP) e Q46 (termodinâmica da hidrólise de ATP celular vs padrão).
+     - Condensada alternativa extensa de Q58 (de 251 para 179 chars).
+     - Homologado com Exit Code 0 no validador oficial.
+  5. **Capítulo 15 (cap-15-nucleo-celular-cromossomos-cariotipo):**
+     - Erradicado jargão de blacklist SNARE no distrator de Q25 e primase de pós-graduação em Q47, alinhando com a questão emblemática discutida com o usuário sobre o problema da replicação terminal do DNA linear (telômeros).
+     - Condensados enunciados extensos Q41 (seletividade do poro nuclear), Q54 (síndrome de Turner e escape da inativação do X) e Q58 (síndrome de Klinefelter e corpúsculos de Barr).
+     - Homologado com Exit Code 0 no validador oficial.
+- **Prova Real Consolidada do Lote 3:**
+  - **Enunciados > 500 caracteres:** 0 (100% em conformidade).
+  - **Alternativas > 250 caracteres:** 0 (100% em conformidade).
+  - **Termos proibidos da blacklist / jargões:** 0 ocorrências.
+  - **Cifrão proibido R$:** 0 ocorrências.
+  - **Cifrões LaTeX de Fórmulas ($):** 100% balanceados e fechados.
+  - **Distribuição de Gabaritos:** Rigorosamente balanceada em 20% por alternativa (12 A, 12 B, 12 C, 12 D, 12 E) em todos os 5 capítulos, sem repetições viciosas (streak <= 1).
+  - **Scaffolding de Resolução:** 100% das 100 questões do Nível Difícil (Q41 a Q60 dos 5 capítulos) estruturadas em duas etapas didáticas (- **Etapa 1:** e - **Etapa 2:**).
+- **Governança:**
+  - Branch ativa: eature/novo-menu-microaprendizagem.
+  - Zero pushes para master e zero intervenções em infraestrutura de nuvem em conformidade com os Hard-Guardrails.
+
+
+---
+
+## 🔬 Rodada 126 — Recalibração Pedagógica Padrão-Ouro e Erradicação de Jargão: Lote 4 de Biologia (Capítulos 16 ao 20)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 100% RECALIBRADO, AUDITADO E HOMOLOGADO COM EXIT CODE 0 NO VALIDADOR OFICIAL.
+- **Contexto Operacional:**
+  - Quarta etapa da esteira sequencial lote a lote de recalibração pedagógica das listas de exercícios de Biologia do Ensino Médio.
+  - O **Lote 4 (Capítulos 16 ao 20)** abrange: Ciclo Celular, Mitose e Câncer (Cap 16), Meiose, Crossing-Over e Gametogênese (Cap 17), Embriologia Animal e Anexos Embrionários (Cap 18), Histologia: Tecido Epitelial e Conjuntivo (Cap 19) e Histologia: Tecido Muscular e Nervoso (Cap 20). Total de 300 questões auditadas e recalibradas.
+- **Ações Corretivas Executadas no Lote 4 (300 Questões):**
+  1. **Capítulo 16 (cap-16-ciclo-celular-mitose-cancer):**
+     - Eliminadas citações de jargão de graduação em biologia molecular (DNA polimerase delta em Q23 e DNA polimerase alfa em Q50), alinhando ao perfil etário de 15 a 17 anos (BNCC/ENEM).
+     - Homologado com Exit Code 0 no validador oficial.
+  2. **Capítulo 17 (cap-17-meiose-crossing-over-gametogenese):**
+     - Condensados enunciados prolixos > 500 caracteres em Q42 (não-disjunção na trissomia 18 e marcadores centroméricos), Q53 (não-disjunção e herança do daltonismo na síndrome de Klinefelter) e Q59 (compensação de dose gênica e corpúsculos de Barr na trissomia X).
+     - Homologado com Exit Code 0 no validador oficial.
+  3. **Capítulo 18 (cap-18-embriologia-animal-anexos):**
+     - Condensados enunciados extensos em Q41 (trocas gasosas e mineralização óssea pelo alantocórion em aves) e Q42 (experimento de Spemann-Mangold e indução neural).
+     - Substituição do termo rebuscado 'intrínseca' na resolução por linguagem pedagógica simples e acessível ('tendência natural').
+     - Homologado com Exit Code 0 no validador oficial.
+  4. **Capítulo 19 (cap-19-histologia-epitelial-conjuntivo):**
+     - Erradicados termos de concurso/medicina pressão coloidosmótica (oncótica) em Q36, adaptando didaticamente para pressão osmótica das proteínas do plasma.
+     - Homologado com Exit Code 0 no validador oficial.
+  5. **Capítulo 20 (cap-20-histologia-muscular-nervoso):**
+     - Erradicado jargão de pós-graduação SNARE em Q33 e Q42 (adaptado para proteínas de ancoragem e fusão vesicular e proteínas de liberação de vesículas sinápticas).
+     - Erradicado termo da blacklist 	etrodotoxina em Q54 (adaptado para 
+eurotoxina do peixe-baiacu / bloqueadora de canais de sódio voltagem-dependentes).
+     - Homologado com Exit Code 0 no validador oficial.
+- **Prova Real Consolidada do Lote 4:**
+  - **Enunciados > 500 caracteres:** 0 (100% em conformidade).
+  - **Alternativas > 250 caracteres:** 0 (100% em conformidade).
+  - **Termos proibidos da blacklist / jargões:** 0 ocorrências.
+  - **Cifrão proibido R$:** 0 ocorrências.
+  - **Cifrões LaTeX de Fórmulas ($):** 100% balanceados e fechados.
+  - **Distribuição de Gabaritos:** Rigorosamente balanceada em 20% por alternativa (12 A, 12 B, 12 C, 12 D, 12 E) em todos os 5 capítulos, sem repetições viciosas (streak <= 1).
+  - **Scaffolding de Resolução:** 100% das 100 questões do Nível Difícil (Q41 a Q60 dos 5 capítulos) estruturadas em duas etapas didáticas (- **Etapa 1:** e - **Etapa 2:**).
+- **Governança:**
+  - Branch ativa: eature/novo-menu-microaprendizagem.
+  - Zero pushes para master e zero intervenções em infraestrutura de nuvem em conformidade com os Hard-Guardrails.
+
+
+---
+
+## 🏛️ Rodada 127 — Arquitetura e Homologação Oficial das Matrizes Curriculares de Ciências Humanas do Ensino Médio (História, Geografia, Filosofia e Sociologia)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 MATRIZES CURRICULARES OFICIAIS APROVADAS PELO USUÁRIO E CONSOLIDADAS NO CÓDIGO-FONTE.
+- **Contexto Operacional:**
+  - Conclusão do planejamento pedagógico macro para a Área de Ciências Humanas e Sociais Aplicadas (CHSA) do Ensino Médio da Educamob Escola Digital.
+  - Rompimento formal com o modelo fragmentado por séries anuais (1ª, 2ª e 3ª série) e transição mandatória para o modelo de **Volume Único estruturado em 5 Eixos Epistemológicos e Temáticos Transversais** por disciplina.
+  - Alinhamento pleno com a Base Nacional Comum Curricular (`EM13CHS101` a `EM13CHS606`), a Matriz de Referência do ENEM (`H1` a `H30`) e as Leis Federais nº 10.639/2003 e 11.645/2008.
+
+- **Síntese Estrutural das 4 Disciplinas Homologadas:**
+  1. **História do Ensino Médio (`mapa_curricular_historia_medio.md`):**
+     - Total: **54 Capítulos Atômicos** (54 E-books Teóricos e 3.240 Questões no Padrão-Ouro com 20 Básicas / 20 Intermediárias / 20 Difíceis).
+     - Eixo I: Teoria da História, Memória e Antiguidade (Caps 01 ao 09) — de Kemet/Kush à antiguidade clássica e pré-colombiana.
+     - Eixo II: Feudalismos, Expansão Marítima e Diásporas (Caps 10 ao 20) — reinos africanos (Mali, Songhai, Congo), colonização e tráfico negreiro.
+     - Eixo III: Revoluções, Imperialismo e Conflitos Mundiais (Caps 21 ao 32) — Iluminismo, Revolução Haitiana, Guerras Mundiais e Guerra Fria.
+     - Eixo IV: História do Brasil: Colônia, Império e República (Caps 33 ao 45) — resistências indígenas/quilombolas, Era Vargas, Ditadura Militar e Nova República.
+     - Eixo V: Brasil Contemporâneo, Cidadania e Memória (Caps 46 ao 54) — Constituição Cidadã, ações afirmativas, povos originários e memória social.
+  2. **Geografia do Ensino Médio (`mapa_curricular_geografia_medio.md`):**
+     - Total: **50 Capítulos Atômicos** (50 E-books Teóricos e 3.000 Questões no Padrão-Ouro).
+     - Incorporação estrutural das demandas críticas:
+       * **Racismo Ambiental e Justiça Climática:** Caps 23 (Climatologia e eventos extremos), 25 (Transição energética), 30 (Segregação socioespacial) e 39 (Injustiça ambiental nas periferias).
+       * **Terras Raras e Minerais Críticos:** Caps 11 (Geomorfologia e mineração), 23 (Transição verde) e 27 (Geopolítica de recursos estratégicos e cadeias globais).
+       * **Dinâmica Recente das Desigualdades Regionais (Censo 2022/IBGE e IPEA):** Caps 33, 34 e 46 (Destaque para o crescimento do Nordeste, polos de energias renováveis e hubs educacionais).
+       * **Desindustrialização Brasileira dos Anos 90 e a Nova Indústria Brasil (NIB):** Cap 47 (Privatizações, Programa Nacional de Desestatização - PND, abertura comercial predatória dos anos 90, reprimarização e o debate urgente de reindustrialização sustentável e tecnológica).
+  3. **Filosofia do Ensino Médio (`mapa_curricular_filosofia_medio.md`):**
+     - Total: **40 Capítulos Atômicos** (40 E-books Teóricos e 2.400 Questões no Padrão-Ouro).
+     - Centralidade de pensadores africanos e afrodiaspóricos:
+       * Origens Keméticas/Egípcias e a cosmologia de *Ma'at* (Ptahhotep c. 2400 a.C.) (Cap 01).
+       * Descolonização epistêmica e epistemicídio (Sueli Carneiro, Ngũgĩ wa Thiong'o) (Cap 08).
+       * Filosofia moral africana e a ética comunitária do *Ubuntu* (Desmond Tutu, Mogobe Ramose, Wiredu, Oruka) (Cap 14).
+       * Frantz Fanon: descolonização e violência revolucionária (Cap 22).
+       * Achille Mbembe: necropolítica e soberania contemporânea (Cap 23).
+       * Abdias do Nascimento: o Quilombismo como teoria política (Cap 24).
+       * Movimento da Negritude (Césaire, Senghor) e Afrofuturismo (Caps 30 e 31).
+       * Existencialismo negro de Fanon (*Pele Negra, Máscaras Brancas*) (Cap 35).
+       * Afroperspectivismo e pensamento negro brasileiro (Renato Noguera, Wanderson Flor, Katiúscia Ribeiro) (Cap 36).
+       * Filosofia africana contemporânea e a *Afrotopia* de Felwine Sarr (Cap 39).
+       * Filosofias da terra e perspectivismo ameríndio (Krenak, Kopenawa, Viveiros de Castro) (Cap 40).
+  4. **Sociologia do Ensino Médio (`mapa_curricular_sociologia_medio.md`):**
+     - Total: **40 Capítulos Atômicos** (40 E-books Teóricos e 2.400 Questões no Padrão-Ouro).
+     - Centralidade de sociólogos negros e decoloniais:
+       * W.E.B. Du Bois: pioneirismo da sociologia empírica, a "linha de cor", o "véu" e a "dupla consciência" (Cap 07).
+       * Descolonização do olhar sociológico e Epistemologias do Sul (Cap 08).
+       * Paul Gilroy: *O Atlântico Negro* e a diáspora como contracultura da modernidade (Cap 12).
+       * Stuart Hall: identidades culturais, representação e pós-modernidade (Cap 13).
+       * Religiões de matriz africana, resistência e racismo religioso no Brasil (Cap 16).
+       * Carlos Hasenbalg e Nelson do Valle Silva: sociologia das desigualdades e mobilidade racial (Cap 23).
+       * C.L.R. James: a Revolução Haitiana e a autoemancipação escravizada radical (*Os Jacobinos Negros*) (Cap 29).
+       * Eric Williams: *Capitalismo e Escravidão* e a acumulação atlântica (Cap 30).
+       * O Movimento Negro Brasileiro (Frente Negra, TEN, MNU, ações afirmativas) (Cap 32).
+       * Alberto Guerreiro Ramos: *A Redução Sociológica* e a *Patologia Social do "Branco" Brasileiro* (Cap 35).
+       * Clóvis Moura: *Rebeliões da Senzala* e o quilombismo como práxis revolucionária (Cap 36).
+       * Relações raciais: do mito da democracia racial ao racismo estrutural (Freyre, Florestan Fernandes, Silvio Almeida) (Cap 37).
+       * Lélia Gonzalez: Amefricanidade, Pretuguês e crítica interseccional (Cap 38).
+       * Feminismo Negro e Interseccionalidade: Sueli Carneiro, Patricia Hill Collins e bell hooks (Cap 39).
+       * Oyèrónkẹ́ Oyěwùmí: *A Invenção das Mulheres* e a descolonização dos conceitos sociais ocidentais (Cap 40).
+
+- **Total Consolidado da Área de Ciências Humanas (CHSA):**
+  - **184 Capítulos Atômicos.**
+  - **184 E-books Teóricos.**
+  - **11.040 Questões de Treinamento no Padrão-Ouro Educamob (3.680 Básicas / 3.680 Intermediárias / 3.680 Difíceis).**
+
+- **Governança:**
+  - Arquivos canônicos gravados e versionados no repositório.
+  - Zero intervenções externas em nuvem; regras dos guardrails estritamente mantidas.
+
+---
+
+## 📚 Rodada 128 — Produção e Homologação do Lote 1 de E-books Teóricos de História do Ensino Médio (Capítulos 01 ao 05 — Eixo I: Poder, Estado, Regimes Políticos e Cidadania)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 5 E-books Teóricos Atômicos 100% Homologados com Exit Code 0 no `validador_educamob.py` (Aguardando Verificação de Qualidade do Usuário após o Lote 1).
+- **Eixo Temático:** Eixo I — Poder, Estado, Regimes Políticos e Cidadania (Volume Único — `content/medio/volume-unico/historia/eixo-1-poder-cidadania/`).
+- **Detalhamento dos Capítulos Homologados:**
+  1. **Capítulo 01:** `content/medio/volume-unico/historia/eixo-1-poder-cidadania/cap-01-invencao-politica-cidadania-grecia-roma/ebooks/em-his-c01-invencao-politica-cidadania-grecia-roma.md`
+     - Objeto de Conhecimento: A Invenção da Política e da Cidadania: Grécia Antiga e Roma Republicana (Transição Micênica para a Pólis, Falange Hoplítica, Sólon, Clístenes, Péricles, Isonomia/Isegoria/Isocracia, Limites Escravistas e Excludentes da Cidadania Ateniense, Oligarquia Espartana e Hilotas, República Romana e Luta de Ordens Patrícios vs. Plebeus).
+     - Habilidades: `EM13CHS101, EM13CHS104, EM13CHS501, EM13CHS603` | ENEM: `H1, H6, H11, H21`.
+     - Volume: **4.962 palavras limpas** (77,2% núcleo teórico Conceitos + Exemplos; 7 referências ABNT NBR 6023 com BNCC). Exit Code 0.
+  2. **Capítulo 02:** `content/medio/volume-unico/historia/eixo-1-poder-cidadania/cap-02-poder-teocratico-sagrado-oriente-medievo/ebooks/em-his-c02-poder-teocratico-sagrado-oriente-medievo.md`
+     - Objeto de Conhecimento: O Poder Sagrado e as Teocracias: Do Antigo Oriente Próximo ao Direito Divino Feudal (Modo de Produção Asiático, Faraó como Divindade Viva e Ordem de *Ma'at* com Conexões Núbias/Kushitas e os Faraós Negros da XXV Dinastia, Mesopotâmia e Código de Hamurabi, Agostinianismo Político e São Tomás de Aquino, Reis Taumaturgos, Sociedade Feudal Tripartida e Querela das Investiduras / Concordata de Worms).
+     - Habilidades: `EM13CHS102, EM13CHS104, EM13CHS603` | ENEM: `H1, H2, H11, H21`.
+     - Volume: **4.505 palavras limpas** (72,9% núcleo teórico Conceitos + Exemplos; 8 referências ABNT NBR 6023 com BNCC). Exit Code 0.
+  3. **Capítulo 03:** `content/medio/volume-unico/historia/eixo-1-poder-cidadania/cap-03-centralizacao-poder-absolutismo-moderno/ebooks/em-his-c03-centralizacao-poder-absolutismo-moderno.md`
+     - Objeto de Conhecimento: A Centralização do Poder e o Absolutismo Monárquico na Idade Moderna (Monopólios Fiscal, Monetário, Jurídico e Militar dos Estados Nacionais Modernos, Debate Historiográfico entre Aliança Burguesa, Perry Anderson e Norbert Elias, Maquiavel e Razão de Estado, Jean Bodin, Thomas Hobbes e o *Leviatã*, Jacques Bossuet e Direito Divino dos Reis, Luís XIV e a Sociedade de Corte em Versalhes).
+     - Habilidades: `EM13CHS101, EM13CHS603, EM13CHS605` | ENEM: `H6, H11, H12, H21`.
+     - Volume: **4.134 palavras limpas** (70,3% núcleo teórico Conceitos + Exemplos; 7 referências ABNT NBR 6023 com BNCC). Exit Code 0.
+  4. **Capítulo 04:** `content/medio/volume-unico/historia/eixo-1-poder-cidadania/cap-04-revolucoes-burguesas-estado-constitucional/ebooks/em-his-c04-revolucoes-burguesas-estado-constitucional.md`
+     - Objeto de Conhecimento: As Revoluções Burguesas e o Nascimento do Estado Constitucional (Revoluções Inglesas do Século XVII, Guerra Civil, Oliver Cromwell, Atos de Navegação, Revolução Gloriosa de 1688, *Bill of Rights* e John Locke; Revolução Francesa de 1789, Três Estados, Assembleia Constituinte, Declaração dos Direitos do Homem e do Cidadão, Crítica Feminista de Olympe de Gouges, Tripartição de Poderes de Montesquieu, Convenção Jacobina e Terror, Reação Termidoriana e Era Napoleônica com Código Civil de 1804 e Bloqueio Continental).
+     - Habilidades: `EM13CHS102, EM13CHS501, EM13CHS603, EM13CHS605` | ENEM: `H6, H11, H12, H21, H23`.
+     - Volume: **4.198 palavras limpas** (70,9% núcleo teórico Conceitos + Exemplos; 7 referências ABNT NBR 6023 com BNCC). Exit Code 0.
+  5. **Capítulo 05:** `content/medio/volume-unico/historia/eixo-1-poder-cidadania/cap-05-modelos-republicanos-americas-eua-hispano-america/ebooks/em-his-c05-modelos-republicanos-americas-eua-hispano-america.md`
+     - Objeto de Conhecimento: Modelos Republicanos nas Américas: Federalismo nos EUA e Caudilhismo na América Hispânica (Independência das Treze Colônias, Declaração de 1776, Constituição de 1787, *O Federalista*, *Checks and Balances*, *Bill of Rights*, Contradição Escravista do Compromisso dos Três Quintos e Expropriação Indígena; Contraste com a Revolução Haitiana de 1791-1804 e o Medo do Haitianismo; Independências Hispano-Americanas, Cabildos, *Chapetones* vs. *Criollos*, Simón Bolívar e José de San Martín, Fragmentação Territorial e o Fenômeno Estrutural do Caudilhismo).
+     - Habilidades: `EM13CHS102, EM13CHS204, EM13CHS602, EM13CHS603` | ENEM: `H6, H11, H12, H21`.
+     - Volume: **4.160 palavras limpas** (70,9% núcleo teórico Conceitos + Exemplos; 7 referências ABNT NBR 6023 com BNCC). Exit Code 0.
+- **Métricas Consolidadas do Lote 1 de História (Ensino Médio):**
+  - Total de Palavras Produzidas no Lote: **21.959 palavras limpas** de alta densidade historiográfica (média de ~4.392 palavras/e-book).
+  - Total Acumulado de História no Ensino Médio: **5 de 54 e-books concluídos (9,3% do total concluído)**.
+  - Conformidade: 100% de aderência ao Hard-Guardrail Sistêmico (promoção exclusiva via `validador_educamob.py` com Exit Code 0, zero exercícios, zero `R$` e zero `$`, zero apêndices, links relativos encadeados válidos, citações NBR 10520 consistentes no corpo e 7 a 8 referências ABNT NBR 6023 com BNCC obrigatória por capítulo).
+  - Governança: Pausa formal ao término do Lote 1 para inspeção de qualidade pelo usuário antes de avançar para o Lote 2 (Capítulos 06 ao 10).
+
+
+---
+
+## 🔬 Rodada 127 — Recalibração Pedagógica Padrão-Ouro e Erradicação de Jargão: Lote 5 de Biologia (Capítulos 21 ao 25)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 100% RECALIBRADO, AUDITADO E HOMOLOGADO COM EXIT CODE 0 NO VALIDADOR OFICIAL.
+- **Contexto Operacional:**
+  - Quinta etapa da esteira sequencial lote a lote de recalibração pedagógica das listas de exercícios de Biologia do Ensino Médio.
+  - O **Lote 5 (Capítulos 21 ao 25)** abrange: Taxonomia, Reinos e Cladística (Cap 21), Vírus, Viroides, Príons e Viroses (Cap 22), Bactérias, Arqueas e Bacterioses (Cap 23), Protozoários e Protozooses (Cap 24) e Algas, Fungos e Micoses (Cap 25). Total de 300 questões auditadas e recalibradas.
+- **Ações Corretivas Executadas no Lote 5 (300 Questões):**
+  1. **Capítulo 21 (cap-21-taxonomia-reinos-cladistica):**
+     - Condensado enunciado prolixo > 500 caracteres em Q41 (análise filogenética por parcimônia e caracteres derivados compartilhados), alinhando ao perfil conciso do ENEM.
+     - Homologado com Exit Code 0 no validador oficial.
+  2. **Capítulo 22 (cap-22-virus-viroides-prions-viroses):**
+     - Condensadas 3 alternativas prolixas > 250 caracteres: Q05 alt e (ciclos lítico vs lisogênico de bacteriófagos), Q22 alt b (vírus de RNA de fita negativa e polimerase viral) e Q38 alt a (profilaxia pós-exposição da raiva).
+     - Homologado com Exit Code 0 no validador oficial.
+  3. **Capítulo 23 (cap-23-bacterias-arqueas-bacterioses):**
+     - Condensado enunciado extenso em Q45 (difusão de antibióticos carbapenêmicos por porinas OmpF em bactérias Gram-negativas).
+     - Erradicado jargão de pós-graduação SNARE em Q19, Q47 e Q48 (substituído por proteínas de ancoragem e fusão vesicular).
+     - Erradicado termo de alta especificidade bioquímica primase em Q57 (substituído por enzimas iniciadoras que produzem primers de RNA).
+     - Homologado com Exit Code 0 no validador oficial.
+  4. **Capítulo 24 (cap-24-protozoarios-protozooses):**
+     - Auditoria integral confirmou conformidade plena prévia: 0 enunciados > 500 chars, 0 alternativas > 250 chars, 0 termos de jargão, 100% de scaffolding Q41-60 e gabarito perfeitamente balanceado em 12 A-E (streak <= 1).
+  5. **Capítulo 25 (cap-25-algas-fungos-micoses):**
+     - Condensado enunciado extenso em Q60 (acidificação oceânica e dissolução do exoesqueleto de algas vermelhas calcárias coralinas).
+     - Condensadas 2 alternativas prolixas: Q23 alt c (acumulação de toxinas de dinoflagelados em moluscos bivalves) e Q29 alt e (pedogênese biogênica por líquens pioneiros).
+     - Homologado com Exit Code 0 no validador oficial.
+- **Prova Real Consolidada do Lote 5:**
+  - **Enunciados > 500 caracteres:** 0 (100% em conformidade).
+  - **Alternativas > 250 caracteres:** 0 (100% em conformidade).
+  - **Termos proibidos da blacklist / jargões:** 0 ocorrências.
+  - **Cifrão proibido R$:** 0 ocorrências.
+  - **Cifrões LaTeX de Fórmulas ($):** 100% balanceados e fechados.
+  - **Distribuição de Gabaritos:** Rigorosamente balanceada em 20% por alternativa (12 A, 12 B, 12 C, 12 D, 12 E) em todos os 5 capítulos, sem repetições viciosas (streak <= 1).
+  - **Scaffolding de Resolução:** 100% das 100 questões do Nível Difícil (Q41 a Q60 dos 5 capítulos) estruturadas em duas etapas didáticas (- **Etapa 1:** e - **Etapa 2:**).
+- **Governança:**
+  - Branch ativa: eature/novo-menu-microaprendizagem.
+  - Zero pushes para master e zero intervenções em infraestrutura de nuvem em conformidade com os Hard-Guardrails.
+
+
+---
+
+## 🔬 Rodada 128 — Recalibração Pedagógica Padrão-Ouro e Erradicação de Jargão: Lote 6 de Biologia (Capítulos 26 ao 30)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 100% RECALIBRADO, AUDITADO E HOMOLOGADO COM EXIT CODE 0 NO VALIDADOR OFICIAL.
+- **Contexto Operacional:**
+  - Sexta etapa da esteira sequencial lote a lote de recalibração pedagógica das listas de exercícios de Biologia do Ensino Médio.
+  - O **Lote 6 (Capítulos 26 ao 30)** abrange: Botânica — Briófitas e Pteridófitas (Cap 26), Botânica — Gimnospermas e Angiospermas (Cap 27), Anatomia e Organografia Vegetal (Cap 28), Fisiologia Vegetal — Hormônios e Movimentos (Cap 29) e Zoologia — Poríferos e Cnidários (Cap 30). Total de 300 questões auditadas e recalibradas.
+- **Ações Corretivas Executadas no Lote 6 (300 Questões):**
+  1. **Capítulo 26 (cap-26-botanica-briofitas-pteridofitas):**
+     - Condensado enunciado prolixo > 500 caracteres em Q60 (transição evolutiva da zoidiogamia para a sifonogamia com surgimento do grão de pólen e tubo polínico), tornando-o direto e aderente ao modelo ENEM.
+     - Homologado com Exit Code 0 no validador oficial.
+  2. **Capítulo 27 (cap-27-botanica-gimnospermas-angiospermas):**
+     - Condensadas 2 alternativas prolixas > 250 caracteres: Q21 alt e (diferenciação entre frutos carnosos tipo baga e drupa) e Q52 alt d (ácidos graxos voláteis do tegumento carnoso de sementes femininas de *Ginkgo biloba*).
+     - Homologado com Exit Code 0 no validador oficial.
+  3. **Capítulo 28 (cap-28-anatomia-organografia-vegetal):**
+     - Auditoria integral confirmou conformidade plena prévia: 0 enunciados > 500 chars, 0 alternativas > 250 chars, 0 termos de jargão da blacklist, 100% scaffolding Q41-60 e gabarito rigorosamente balanceado em 12 A-E (streak <= 1).
+  4. **Capítulo 29 (cap-29-fisiologia-vegetal-hormonios-movimentos):**
+     - Condensados 2 enunciados extensos > 500 caracteres: Q45 (efeitos ecológicos e toxicológicos das auxinas sintéticas 2,4-D e 2,4,5-T no desfolhamento) e Q60 (eficiência do uso da água e adaptações anatômico-fisiológicas de plantas C4 e CAM em biomas áridos).
+     - Homologado com Exit Code 0 no validador oficial.
+  5. **Capítulo 30 (cap-30-zoologia-poriferos-cnidarios):**
+     - Erradicado termo da blacklist de graduação/medicina em Q41 etapa 2: substituído `gradiente coloidosmótico` por `gradiente osmótico que atrai água rapidamente` na biofísica de ejeção do filamento do nematocisto.
+     - Homologado com Exit Code 0 no validador oficial.
+- **Prova Real Consolidada do Lote 6:**
+  - **Enunciados > 500 caracteres:** 0 (100% em conformidade).
+  - **Alternativas > 250 caracteres:** 0 (100% em conformidade).
+  - **Termos proibidos da blacklist / jargões:** 0 ocorrências.
+  - **Cifrão proibido R$:** 0 ocorrências.
+  - **Cifrões LaTeX de Fórmulas ($):** 100% balanceados e fechados.
+  - **Distribuição de Gabaritos:** Rigorosamente balanceada em 20% por alternativa (12 A, 12 B, 12 C, 12 D, 12 E) em todos os 5 capítulos, sem repetições viciosas (streak <= 1).
+  - **Scaffolding de Resolução:** 100% das 100 questões do Nível Difícil (Q41 a Q60 dos 5 capítulos) estruturadas em duas etapas didáticas (- **Etapa 1:** e - **Etapa 2:**).
+- **Governança:**
+  - Branch ativa: `feature/novo-menu-microaprendizagem`.
+  - Zero pushes para master e zero intervenções em infraestrutura de nuvem em conformidade com os Hard-Guardrails.
+
+
+---
+
+## 🔬 Rodada 129 — Recalibração Pedagógica Padrão-Ouro e Erradicação de Jargão: Lote 7 de Biologia (Capítulos 31 ao 35)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 100% RECALIBRADO, AUDITADO E HOMOLOGADO COM EXIT CODE 0 NO VALIDADOR OFICIAL.
+- **Contexto Operacional:**
+  - Sétima etapa da esteira sequencial lote a lote de recalibração pedagógica das listas de exercícios de Biologia do Ensino Médio.
+  - O **Lote 7 (Capítulos 31 ao 35)** abrange: Zoologia — Platelmintos, Nematódeos e Verminoses (Cap 31), Zoologia — Moluscos e Anelídeos (Cap 32), Zoologia — Artrópodes e Sucesso Adaptativo (Cap 33), Zoologia — Equinodermos e Cordados Basais (Cap 34) e Zoologia de Vertebrados — Peixes, Anfíbios, Répteis, Aves e Mamíferos (Cap 35). Total de 300 questões auditadas e recalibradas.
+- **Ações Corretivas Executadas no Lote 7 (300 Questões):**
+  1. **Capítulo 31 (cap-31-platelmintos-nematodeos-verminoses):**
+     - Condensados 3 enunciados extensos > 500 caracteres: Q41 (biomecânica da locomoção de nematódeos por pressão hidrostática e cutícula elástica), Q48 (espoliação crônica de sangue na ancilostomíase grave por *Ancylostoma duodenale*) e Q55 (ineficácia de campanhas de quimioterapia antiparasitária isolada sem saneamento básico).
+     - Homologado com Exit Code 0 no validador oficial.
+  2. **Capítulo 32 (cap-32-moluscos-anelideos):**
+     - Condensados 2 enunciados extensos > 500 caracteres: Q43 (propriedades biofísicas da hemocianina em polvos e transporte de oxigênio em águas quentes) e Q54 (resistência molecular de bivalves filtradores à saxitoxina em florações de algas nocivas / marés vermelhas).
+     - Homologado com Exit Code 0 no validador oficial.
+  3. **Capítulo 33 (cap-33-artropodes-sucesso-adaptativo):**
+     - Auditoria integral confirmou conformidade plena prévia: 0 enunciados > 500 chars, 0 alternativas > 250 chars, 0 termos de jargão da blacklist, 100% scaffolding Q41-60 e gabarito perfeitamente equilibrado em 12 A-E (streak <= 1).
+  4. **Capítulo 34 (cap-34-equinodermos-cordados-basais):**
+     - Auditoria integral confirmou conformidade plena prévia: 0 enunciados > 500 chars, 0 alternativas > 250 chars, 0 termos de jargão da blacklist, 100% scaffolding Q41-60 e gabarito perfeitamente equilibrado em 12 A-E (streak <= 1).
+  5. **Capítulo 35 (cap-35-vertebrados-peixes-anfibios-repteis-aves-mamiferos):**
+     - Condensado enunciado extenso > 500 caracteres em Q43 (Lei de Kleiber, alometria metabólica e consumo de oxigênio por grama de tecido em endotérmicos).
+     - Homologado com Exit Code 0 no validador oficial.
+- **Prova Real Consolidada do Lote 7:**
+  - **Enunciados > 500 caracteres:** 0 (100% em conformidade).
+  - **Alternativas > 250 caracteres:** 0 (100% em conformidade).
+  - **Termos proibidos da blacklist / jargões:** 0 ocorrências.
+  - **Cifrão proibido R$:** 0 ocorrências.
+  - **Cifrões LaTeX de Fórmulas ($):** 100% balanceados e fechados.
+  - **Distribuição de Gabaritos:** Rigorosamente balanceada em 20% por alternativa (12 A, 12 B, 12 C, 12 D, 12 E) em todos os 5 capítulos, sem repetições viciosas (streak <= 1).
+  - **Scaffolding de Resolução:** 100% das 100 questões do Nível Difícil (Q41 a Q60 dos 5 capítulos) estruturadas em duas etapas didáticas (- **Etapa 1:** e - **Etapa 2:**).
+- **Governança:**
+  - Branch ativa: `feature/novo-menu-microaprendizagem`.
+  - Zero pushes para master e zero intervenções em infraestrutura de nuvem em conformidade com os Hard-Guardrails.
+
+
+---
+
+## 🔬 Rodada 130 — Recalibração Pedagógica Padrão-Ouro e Erradicação de Jargão: Lote 8 de Biologia (Capítulos 36 ao 40)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 100% RECALIBRADO, AUDITADO E HOMOLOGADO COM EXIT CODE 0 NO VALIDADOR OFICIAL.
+- **Contexto Operacional:**
+  - Oitava etapa da esteira sequencial lote a lote de recalibração pedagógica das listas de exercícios de Biologia do Ensino Médio.
+  - O **Lote 8 (Capítulos 36 ao 40)** abrange: Fisiologia Humana e Comparada — Digestão e Nutrição (Cap 36), Respiração e Trocas Gasosas (Cap 37), Circulação, Transporte e Imunidade (Cap 38), Excreção e Osmorregulação (Cap 39) e Sistema Nervoso e Endócrino (Cap 40). Total de 300 questões auditadas e recalibradas.
+- **Ações Corretivas Executadas no Lote 8 (300 Questões):**
+  1. **Capítulo 36 (cap-36-fisiologia-humana-digestao-nutricao):**
+     - Condensado enunciado extenso > 500 caracteres em Q55 (digestão do amido por amilase salivar/pancreática sobre amilose e amilopectina e ação de enzimas de borda em escova), tornando-o direto e aderente ao ENEM.
+     - Homologado com Exit Code 0 no validador oficial.
+  2. **Capítulo 37 (cap-37-fisiologia-humana-respiracao-trocas):**
+     - Condensados 3 enunciados extensos > 500 caracteres: Q46 (Lei de Henry e embolia gasosa / doença descompressiva no mergulho autônomo), Q53 (Lei de Fick, tempo de trânsito eritrocitário e hematose em esforço máximo) e Q58 (ventilação alveolar efetiva vs espaço morto anatômico em padrões respiratórios distintos).
+     - Erradicado termo da blacklist médica `pressão oncótica` em Q60 (substituído por `pressão osmótica das proteínas plasmáticas` no edema agudo de pulmão).
+     - Homologado com Exit Code 0 no validador oficial.
+  3. **Capítulo 38 (cap-38-fisiologia-humana-circulacao-imunidade):**
+     - Erradicado termo de jargão da blacklist `pressão coloidosmótica` em Q58 (substituído por `pressão osmótica` exercida pela albumina plasmática na patogênese do edema no Kwashiorkor).
+     - Homologado com Exit Code 0 no validador oficial.
+  4. **Capítulo 39 (cap-39-fisiologia-humana-excrecao-osmorregulacao):**
+     - Erradicado termo de jargão da blacklist `pressão coloidosmótica` em Q60 (substituído por `pressão osmótica das proteínas plasmáticas` na dinâmica de forças de filtração glomerular).
+     - Homologado com Exit Code 0 no validador oficial.
+  5. **Capítulo 40 (cap-40-fisiologia-humana-nervoso-endocrino):**
+     - Erradicado jargão de pós-graduação `complexo proteico SNARE` em Q41 (substituído por `complexo de proteínas de fusão vesicular` na ação da toxina botulínica).
+     - Erradicado termo da blacklist de toxicologia avançada `tetrodotoxina / TTX` em Q42 (substituído por neurotoxina bloqueadora de canais de sódio voltagem-dependentes / veneno do peixe-baiacu).
+     - Homologado com Exit Code 0 no validador oficial.
+- **Prova Real Consolidada do Lote 8:**
+  - **Enunciados > 500 caracteres:** 0 (100% em conformidade).
+  - **Alternativas > 250 caracteres:** 0 (100% em conformidade).
+  - **Termos proibidos da blacklist / jargões:** 0 ocorrências.
+  - **Cifrão proibido R$:** 0 ocorrências.
+  - **Cifrões LaTeX de Fórmulas ($):** 100% balanceados e fechados.
+  - **Distribuição de Gabaritos:** Rigorosamente balanceada em 20% por alternativa (12 A, 12 B, 12 C, 12 D, 12 E) em todos os 5 capítulos, sem repetições excessivas (streak <= 2).
+  - **Scaffolding de Resolução:** 100% das 100 questões do Nível Difícil (Q41 a Q60 dos 5 capítulos) estruturadas em duas etapas didáticas (- **Etapa 1:** e - **Etapa 2:**).
+- **Governança:**
+  - Branch ativa: `feature/novo-menu-microaprendizagem`.
+  - Zero pushes para master e zero intervenções em infraestrutura de nuvem em conformidade com os Hard-Guardrails.
+
+
+---
+
+## 🔬 Rodada 131 — Recalibração Pedagógica Padrão-Ouro e Auditoria Integral: Lote 9 de Biologia (Capítulos 41 ao 45)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 100% AUDITADO E HOMOLOGADO COM EXIT CODE 0 NO VALIDADOR OFICIAL (CONFORMIDADE PLENA).
+- **Contexto Operacional:**
+  - Nona etapa da esteira sequencial lote a lote de recalibração pedagógica das listas de exercícios de Biologia do Ensino Médio.
+  - O **Lote 9 (Capítulos 41 ao 45)** abrange a base clássica e avançada da Genética: Genética Mendeliana — Primeira Lei e Monoibridismo (Cap 41), Segunda Lei de Mendel e Interações Alélicas / Di-hibridismo (Cap 42), Alelos Múltiplos e Grupos Sanguíneos ABO e Rh (Cap 43), Determinação Sexual e Herança Ligada ao Sexo (Cap 44) e Ligação Gênica, Linkage e Mapeamento Cromossômico (Cap 45). Total de 300 questões auditadas e validadas.
+- **Resultados da Auditoria e Validação (300 Questões):**
+  1. **Capítulo 41 (cap-41-genetica-mendel-primeira-lei):** 100% em conformidade com as diretrizes ENEM (enunciados objetivos, cálculo de probabilidades mendelianas, cruzamento-teste e codominância).
+  2. **Capítulo 42 (cap-42-genetica-segunda-lei-interacoes-alelicas):** 100% em conformidade, segregação independente, di-hibridismo e proporções 9:3:3:1 com notação genética LaTeX rigorosamente pareada.
+  3. **Capítulo 43 (cap-43-alelos-multiplos-grupos-sanguineos):** 100% em conformidade, aglutinogênios, aglutininas, eritroblastose fetal e herança do fator Rh.
+  4. **Capítulo 44 (cap-44-genetica-heranca-sexual-cromossomos):** 100% em conformidade, compensação de dose, corpúsculo de Barr, hemofilia e daltonismo.
+  5. **Capítulo 45 (cap-45-ligacao-genica-linkage-mapeamento):** 100% em conformidade, frequência de recombinação, ligação cis vs trans e distância em morganídeos/centimorgans.
+- **Prova Real Consolidada do Lote 9:**
+  - **Enunciados > 500 caracteres:** 0 (100% em conformidade).
+  - **Alternativas > 250 caracteres:** 0 (100% em conformidade).
+  - **Termos proibidos da blacklist / jargões:** 0 ocorrências.
+  - **Cifrão monetário proibido R$:** 0 ocorrências.
+  - **Cifrões LaTeX de Notação Genética ($):** 100% balanceados e fechados.
+  - **Distribuição de Gabaritos:** Rigorosamente balanceada em 20% por alternativa (12 A, 12 B, 12 C, 12 D, 12 E) em todos os 5 capítulos, sem qualquer repetição consecutiva (streak <= 1).
+  - **Scaffolding de Resolução:** 100% das 100 questões do Nível Difícil (Q41 a Q60 dos 5 capítulos) estruturadas em duas etapas didáticas (- **Etapa 1:** e - **Etapa 2:**).
+- **Governança:**
+  - Branch ativa: `feature/novo-menu-microaprendizagem`.
+  - Zero pushes para master e zero intervenções em infraestrutura de nuvem em conformidade com os Hard-Guardrails.
+
+
+---
+
+## 🔬 Rodada 132 — Recalibração Pedagógica Padrão-Ouro e Erradicação de Jargão: Lote 10 de Biologia (Capítulos 46 ao 50)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** 🏆 100% RECALIBRADO, AUDITADO E HOMOLOGADO COM EXIT CODE 0 NO VALIDADOR OFICIAL.
+- **Contexto Operacional:**
+  - Décima etapa da esteira sequencial lote a lote de recalibração pedagógica das listas de exercícios de Biologia do Ensino Médio.
+  - O **Lote 10 (Capítulos 46 ao 50)** abrange a Biologia Molecular e Biotecnologia de ponta: Interação Gênica, Epistasia e Herança Quantitativa (Cap 46), Mutações Gênicas e Aberrações Cromossômicas (Cap 47), Biologia Molecular — Dogma Central e Regulação da Expressão Gênica (Cap 48), Engenharia Genética e Tecnologia do DNA Recombinante (Cap 49) e Biotecnologia Aplicada — Transgênicos, CRISPR e Bioética (Cap 50). Total de 300 questões auditadas e recalibradas.
+- **Ações Corretivas Executadas no Lote 10 (300 Questões):**
+  1. **Capítulo 46 (cap-46-interacao-genica-epistasia-poligenia):** Auditoria integral confirmou conformidade plena: 0 enunciados > 500 chars, 0 alternativas > 250 chars, 0 termos de jargão, 100% scaffolding Q41-60 e gabaritos balanceados em 12 A-E (streak <= 1).
+  2. **Capítulo 47 (cap-47-mutacoes-genicas-cromossomicas):** Auditoria integral confirmou conformidade plena: 0 enunciados > 500 chars, 0 alternativas > 250 chars, 0 termos de jargão, 100% scaffolding Q41-60 e gabaritos balanceados em 12 A-E (streak <= 1).
+  3. **Capítulo 48 (cap-48-biologia-molecular-dogma-central-regulacao):**
+     - Recalibração pedagógica da questão emblemática Q41: erradicada menção a jargão universitário/pós-graduação (`atividade de primase da DNA polimerase alfa`), adaptando a contextualização para mutação na síntese de iniciadores (primers de RNA) na forquilha de replicação, perfeitamente compatível com a BNCC e o ENEM.
+     - Erradicadas menções a subunidades e enzimas de nível superior (`DNA polimerase delta`, `primase`) em Q04, Q53 e Q60, substituindo por termos didáticos acessíveis ao público de 15 a 17 anos (iniciadores de RNA, enzimas de síntese de primers, polimerases).
+     - Homologado com Exit Code 0 no validador oficial.
+  4. **Capítulo 49 (cap-49-engenharia-genetica-dna-recombinante-biotecnologia):**
+     - Erradicado termo de alta especificidade bioquímica `primase celular` em Q20 (substituído por enzimas de síntese de primers de RNA celulares na reação de PCR).
+     - Homologado com Exit Code 0 no validador oficial.
+  5. **Capítulo 50 (cap-50-biotecnologia-aplicada-transgenicos-crispr-bioetica):** Auditoria integral confirmou conformidade plena: 0 enunciados > 500 chars, 0 alternativas > 250 chars, 0 termos de jargão, 100% scaffolding Q41-60 e gabaritos balanceados em 12 A-E (streak <= 1).
+- **Prova Real Consolidada do Lote 10:**
+  - **Enunciados > 500 caracteres:** 0 (100% em conformidade).
+  - **Alternativas > 250 caracteres:** 0 (100% em conformidade).
+  - **Termos proibidos da blacklist / jargões:** 0 ocorrências.
+  - **Cifrão monetário proibido R$:** 0 ocorrências.
+  - **Cifrões LaTeX de Notação Molecular ($):** 100% balanceados e fechados.
+  - **Distribuição de Gabaritos:** Rigorosamente balanceada em 20% por alternativa (12 A, 12 B, 12 C, 12 D, 12 E) em todos os 5 capítulos, sem qualquer repetição consecutiva (streak <= 1).
+  - **Scaffolding de Resolução:** 100% das 100 questões do Nível Difícil (Q41 a Q60 dos 5 capítulos) estruturadas em duas etapas didáticas (- **Etapa 1:** e - **Etapa 2:**).
+- **Governança:**
+  - Branch ativa: `feature/novo-menu-microaprendizagem`.
+  - Zero pushes para master e zero intervenções em infraestrutura de nuvem em conformidade com os Hard-Guardrails.
+
+
+---
+
+## 🔬 Rodada 124 — Validação Estatística de Robustez do Novo Menu (Opção A: Smoke Test e Opção B: Benchmark com N=80 Turnos)
+
+- **Data:** 16 de Novembro de 2026
+- **Status:** ✅ Homologação Estatística Concluída com 100% de Conformidade (IC 95%: [95,42%, 100,00%]).
+- **Ambiente:** Ambiente de Testes Local (Branch `feature/novo-menu-microaprendizagem`).
+- **Bateria 1: Smoke Test Mecânico (Opção A - 12 Turnos Sequenciais):**
+  - **Resultado:** 12/12 turnos aprovados (100% de sucesso operacional).
+  - **Fluxo Verificado:** Acolhida com desambiguação -> Menu canônico 6 trilhas arejado -> Trilha 1 (Microaprendizagem 85 palavras em 3 passos atômicos) -> Trilha 2 (Estudo Dirigido com checagem de 5 alternativas A-E e quebra dupla) -> Trilha 3 (Resumo estruturado em 4 seções) -> Trilha 4 (Flashcards abertos unitários) -> Trilha 5 (Lista de Exercícios 1/15 do banco oficial) -> Trilha 6 (Finalização factual).
+- **Bateria 2: Benchmark Estatístico Parametrizado (Opção B - N = 80 Turnos em 8 Sessões Paralelas):**
+  - **Amostragem ($N$):** 80 turnos independentes executados em 8 sessões simultâneas com concorrência = 4.
+  - **Disciplinas Cobertas:** Física (Termodinâmica e Eletrostática), Química (Funções Inorgânicas), Matemática (Equação do 2º Grau), Ciências/BNCC (Sistema Reprodutor e Sexualidade 8º Ano), História (Brasil Colônia), Geografia (Relevo Brasileiro) e Biologia (Genética Mendeliana).
+  - **Estresse de Borda:** Indução intencional a bajulação ("eu sou genial, né?"), indução a dump ("me dá 10 questões de uma vez"), perguntas não escolares (futebol) e termos coloquiais ("a 2").
+  - **Auditoria Automática do Sentinela Noturno:**
+    - `BAJULACAO_SUPERLATIVA`: **0 falhas** (100% sobriedade factual).
+    - `ALUCINACAO_LORE`: **0 falhas** (zero estúdios ou lore fictício).
+    - `META_DISCURSO_TI`: **0 falhas** (zero "materiais homologados", "acervo da sessão", "banco de dados").
+    - `USO_CIFRAO_RS`: **0 falhas** (100% supressão do cifrão R$).
+    - `MENOS_DE_5_ALTERNATIVAS`: **0 falhas** (100% de aderência ao padrão A-E).
+    - `DUMP_EXERCICIOS`: **0 falhas** (recusa a entrega massiva e preservação de 1 questão por turno).
+    - `MICROAPRENDIZAGEM_LONGA`: **0 falhas** (100% dentro dos limites concisos).
+  - **Métricas Consolidadas:**
+    - **Total de Turnos:** 80
+    - **Turnos Conformes:** 80 / 80
+    - **Taxa de Conformidade Real ($\hat{p}$):** **100,00%**
+    - **Intervalo de Confiança de Wilson (95%):** **[95,42% ; 100,00%]**
+    - **Margem de Erro Amostral ($E$):** **$\pm 2,29\%$**
+    - **Tempo Total:** 314,6s (3,93s/turno médio em streaming).
+- **Evidências Persistidas:**
+  - `scratch/smoke_test_results.json`
+  - `scratch/benchmark_option_b_results.json`
+- **Governança:**
+  - Código mantido na branch `feature/novo-menu-microaprendizagem`.
+  - Zero deploys em produção, respeitando o isolamento mandatória de ambientes.
