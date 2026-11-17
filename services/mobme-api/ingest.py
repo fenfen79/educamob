@@ -141,40 +141,53 @@ else:
             continue
             
         print(f"[{idx_f:03d}/{len(files_to_ingest):03d}] {str_path.split('/')[-1]} ({len(splits)} chunks)...")
-        for i in range(0, len(splits), batch_size):
-            batch = splits[i:i + batch_size]
-            retries = 4
-            while retries > 0:
+        # Geração de embeddings em lote único por arquivo (evita múltiplas chamadas HTTP)
+        tentativas_emb = 5
+        embeddings_vectors = None
+        while tentativas_emb > 0:
+            try:
+                embeddings_vectors = embeddings.embed_documents([s.page_content for s in splits])
+                break
+            except Exception as ee:
+                tentativas_emb -= 1
+                if tentativas_emb == 0:
+                    print(f"  ❌ Erro fatal ao gerar embeddings para {str_path}: {ee}")
+                    raise ee
+                print(f"  ⚠️ Erro na API de embeddings ({str(ee)[:80]}). Retentando em 4s... ({tentativas_emb} restantes)")
+                time.sleep(4)
+
+        rows = [
+            {
+                "content": s.page_content,
+                "metadata": s.metadata,
+                "embedding": emb
+            }
+            for s, emb in zip(splits, embeddings_vectors)
+        ]
+
+        # Inserção direta em micro-lotes de 5 para evitar timeout do índice HNSW
+        micro_batch_size = 5
+        for j in range(0, len(rows), micro_batch_size):
+            sub_rows = rows[j:j + micro_batch_size]
+            tentativas_insert = 5
+            while tentativas_insert > 0:
                 try:
-                    SupabaseVectorStore.from_documents(
-                        batch,
-                        embeddings,
-                        client=supabase,
-                        table_name="documents",
-                        query_name="match_documents"
-                    )
+                    supabase.table("documents").insert(sub_rows).execute()
                     break
-                except Exception as e:
-                    err_s = str(e)
-                    retries -= 1
+                except Exception as ie:
+                    err_s = str(ie)
+                    tentativas_insert -= 1
                     if "57014" in err_s or "timeout" in err_s.lower():
-                        # Subdivide em micro-lotes de 5 para evitar statement timeout no índice HNSW
-                        print(f"  Aviso: Timeout HNSW no lote ({len(batch)} chunks). Inserindo em micro-lotes de 5...")
-                        for j in range(0, len(batch), 5):
-                            sub_b = batch[j:j+5]
-                            SupabaseVectorStore.from_documents(
-                                sub_b,
-                                embeddings,
-                                client=supabase,
-                                table_name="documents",
-                                query_name="match_documents"
-                            )
+                        print(f"  ⚠️ Timeout HNSW em micro-lote de 5. Inserindo unitariamente...")
+                        for single_row in sub_rows:
+                            supabase.table("documents").insert([single_row]).execute()
                         break
-                    elif retries > 0:
-                        print(f"  Aviso ({err_s[:80]}). Retentando em 4s...")
+                    elif tentativas_insert > 0:
+                        print(f"  ⚠️ Erro ao inserir ({err_s[:80]}). Retentando em 4s... ({tentativas_insert} restantes)")
                         time.sleep(4)
                     else:
-                        raise e
+                        print(f"❌ Erro fatal ao inserir registros de {str_path}: {ie}. Abortando.")
+                        raise ie
         
         total_chunks_inserted += len(splits)
         ingest_state[str_path] = file_hashes[str_path]

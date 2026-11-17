@@ -150,7 +150,7 @@ def main():
     disciplines = {}
     for f in exercise_files:
         norm_path = str(f).replace("\\", "/").lower()
-        for disc in ["matematica", "ciencias", "fisica", "quimica", "historia", "geografia", "lingua-portuguesa"]:
+        for disc in ["matematica", "ciencias", "fisica", "quimica", "historia", "geografia", "lingua-portuguesa", "biologia"]:
             if f"/{disc}/" in norm_path or f"/{disc}-" in norm_path:
                 disciplines[disc] = disciplines.get(disc, 0) + 1
                 break

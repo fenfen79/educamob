@@ -7571,3 +7571,71 @@ eurotoxina do peixe-baiacu / bloqueadora de canais de sódio voltagem-dependente
 - **Governança:**
   - Branch mantida: `feature/novo-menu-microaprendizagem`.
   - Hard-guardrail ativo: Zero push para `master`, zero deploy em produção.
+
+
+---
+
+## 🏛️ Rodada 126 — Produção e Homologação do Lote 1 de Listas de Exercícios de História EM (Capítulos 01 ao 05 — Eixo I)
+
+- **Data:** 17 de Novembro de 2026.
+- **Status:** 🏆 Homologado com 100% de Aprovação Técnica (Exit Code 0 via validador_educamob.py).
+- **Componente Curricular:** História — Ensino Médio (Volume Único por 5 Eixos Temáticos).
+- **Eixo Temático:** Eixo I: Poder, Estado e Cidadania na Experiência Histórica.
+- **Escopo e Arquivos Homologados:**
+  1. **Capítulo 01:** A Invenção da Política, da Democracia e da Cidadania na Grécia e em Roma Antiga
+     - Arquivo: content/medio/volume-unico/historia/eixo-1-poder-cidadania/cap-01-invencao-politica-cidadania-grecia-roma/ebooks/em-his-c01-invencao-politica-cidadania-grecia-roma-exercicios.md
+     - Volume: 60 questões (20 básicas, 20 intermediárias, 20 difíceis). Gabarito: 12 A, 12 B, 12 C, 12 D, 12 E (Max streak 1).
+  2. **Capítulo 02:** Poder Teocrático, Legitimação Sagrada e Monarquias no Antigo Oriente e no Medievo
+     - Arquivo: content/medio/volume-unico/historia/eixo-1-poder-cidadania/cap-02-poder-teocratico-sagrado-oriente-medievo/ebooks/em-his-c02-poder-teocratico-sagrado-oriente-medievo-exercicios.md
+     - Volume: 60 questões (20 básicas, 20 intermediárias, 20 difíceis). Gabarito: 12 A, 12 B, 12 C, 12 D, 12 E (Max streak 1).
+  3. **Capítulo 03:** Centralização do Poder, Razão de Estado e Absolutismo na Europa Moderna
+     - Arquivo: content/medio/volume-unico/historia/eixo-1-poder-cidadania/cap-03-centralizacao-poder-absolutismo-moderno/ebooks/em-his-c03-centralizacao-poder-absolutismo-moderno-exercicios.md
+     - Volume: 60 questões (20 básicas, 20 intermediárias, 20 difíceis). Gabarito: 12 A, 12 B, 12 C, 12 D, 12 E (Max streak 1).
+  4. **Capítulo 04:** As Revoluções Burguesas, o Liberalismo e a Construção do Estado Constitucional
+     - Arquivo: content/medio/volume-unico/historia/eixo-1-poder-cidadania/cap-04-revolucoes-burguesas-estado-constitucional/ebooks/em-his-c04-revolucoes-burguesas-estado-constitucional-exercicios.md
+     - Volume: 60 questões (20 básicas, 20 intermediárias, 20 difíceis). Gabarito: 12 A, 12 B, 12 C, 12 D, 12 E (Max streak 1).
+  5. **Capítulo 05:** Modelos Republicanos nas Américas: Federalismo nos EUA e Caudilhismo na América Hispânica
+     - Arquivo: content/medio/volume-unico/historia/eixo-1-poder-cidadania/cap-05-modelos-republicanos-americas-eua-hispano-america/ebooks/em-his-c05-modelos-republicanos-americas-eua-hispano-america-exercicios.md
+     - Volume: 60 questões (20 básicas, 20 intermediárias, 20 difíceis). Gabarito: 12 A, 12 B, 12 C, 12 D, 12 E (Max streak 1).
+
+- **Garantias e Métricas de Qualidade:**
+  - **300 questões** rigorosamente tripartidas (100 básicas, 100 intermediárias, 100 difíceis) e 1.500 alternativas inéditas.
+  - **Simetria Perfeita de Gabaritos:** Exatamente 20% de incidência para cada letra (A, B, C, D, E) em todas as 5 listas, com repetição consecutiva máxima de 1 item.
+  - **Resoluções Pedagógicas:** 100% das questões difíceis contam com resolução passo a passo em 3 etapas estruturadas (- **Etapa 1:**, - **Etapa 2:**, - **Etapa 3:**).
+  - **Mundo Fechado e Anti-Alucinação:** 100% dos conceitos derivados estritamente da teoria dos respectivos e-books base.
+  - **Conformidade de Linguagem:** Zero termos de concursês ou vocabulário pedante; zero símbolos de cifrão (R$).
+  - **Telemetria Completa:** Tags de telemetria HTML presentes e validadas em todos os itens.
+- **Progresso Acumulado:** 5 de 54 listas de História EM concluídas (9,3% do acervo — 300 de 3.240 questões).
+
+
+---
+
+## 🚀 Rodada 127 — Atualização e Deploy Oficial de Matérias em Produção: Inclusão de Biologia e Ingestão de História EM (9 Matérias Ativas)
+
+- **Data:** 17 de Novembro de 2026.
+- **Status:** 🏆 100% Homologado, Indexado no pgvector, Sincronizado na Nuvem e Ativo no System Prompt em Produção.
+- **Autorização de Governança:** Chave de segurança mandatória fornecida pelo usuário: `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+- **Escopo e Entregas Realizadas:**
+  1. **Ativação da Disciplina `biologia` no Banco de Dados Supabase:**
+     - Registro da chave canônica `biologia` na tabela `available_subjects` do PostgreSQL Supabase.
+     - Expansão do catálogo oficial para **9 matérias ativas**: **Biologia, Cálculo 1, Ciências, Física, Geografia, História, Língua Portuguesa, Matemática e Química**.
+  2. **Sincronização do Acervo Físico na Nuvem (Oracle Cloud VPS ARM64 `137.131.163.113`):**
+     - Compactação e envio de 174 arquivos Markdown (8,53 MB não compactados / 2,74 MB tar.gz):
+       - **120 arquivos de Biologia** (60 e-books teóricos + 60 listas de exercícios com 3.600 questões Padrão-Ouro).
+       - **54 e-books teóricos de História do Ensino Médio** (Lotes 1 ao 11 concluídos).
+     - Transferência criptografada via SCP e extração em `/home/ubuntu/educamob/content/medio/volume-unico/`, bind-mount no contêiner `mobme-api` em `/app/content/medio/volume-unico/`.
+     - 100% dos arquivos validados fisicamente dentro do contêiner Docker para leitura direta do resolvedor determinístico de exercícios (`resolve_exercise_file_for_topic`).
+  3. **Ingestão Vetorial de Teoria no Supabase pgvector (`ingest.py`):**
+     - Otimização do pipeline de inserção: migração de upsert do LangChain (gargalo de timeout 57014 HNSW) para inserção direta em micro-lotes de 5 registros com geração de embeddings em lote único via DeepInfra (`BAAI/bge-m3`).
+     - Processamento de **114 e-books teóricos novos** (60 de Biologia + 54 de História EM), inserindo **5.674 fragmentos (chunks) estruturados**.
+     - Base teórica consolidada do RAG ampliada para **860 e-books indexados** com hashes criptográficos MD5 persistidos em `ingest_state.json`.
+  4. **Ingestão Vetorial Massiva de Exercícios (`ingest_exercicios.py`):**
+     - Vetorização integral das **60 listas de exercícios de Biologia** (3.600 questões Padrão-Ouro 20% A-E), totalizando **3.660 chunks** indexados com sucesso em 17,14 minutos.
+     - Rastreamento incremental de hashes salvo em `ingest_state_exercicios.json`, totalizando 657 listas de exercícios indexadas no banco.
+  5. **Recarga Dinâmica sem Downtime (Live Reload):**
+     - Acionamento do endpoint `https://api.educamob.com.br/api/admin/reload-subjects` (HTTP 200 OK).
+     - Confirmação em tempo real nos logs do contêiner:
+       `Matérias disponíveis atualizadas dinamicamente na memória da API: ['Biologia', 'Cálculo 1', 'Ciências', 'Física', 'Geografia', 'História', 'Língua Portuguesa', 'Matemática', 'Química']`.
+- **Governança:**
+  - Branch mantida: `feature/novo-menu-microaprendizagem`.
+  - Zero push para `master`.

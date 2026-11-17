@@ -618,6 +618,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
 | **Química - 3ª Série (Química III - Exercícios)** | **19 de 19 listas (1.140 questões homologadas)** | 🏆 **100% Concluído e Homologado (Cap 01 ao 19)** |
 | **TOTAL GERAL DE QUÍMICA (Exercícios)** | **53 de 53 listas (3.180 questões homologadas)** | 🏆 **100% Homologado no Muro de Contenção (Exit Code 0, Gabarito 20% A-E, 0 Falhas)** |
 | **Ingestão Supabase (Mob.me RAG - Química)** | **112 e-books teóricos (3.197 chunks) + 53 listas de exercícios (3.077 chunks) + `quimica` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (Teoria e Exercícios)** |
+| **Ingestão Supabase (Mob.me RAG - Biologia)** | **60 e-books teóricos (3.593 chunks) + 60 listas de exercícios (3.660 chunks) + `biologia` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (Volume Único EM)** |
 | **Ciências - 5º Ano (Exercícios)** | **11 de 11 listas (660 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 10 anos)** |
 | **Ciências - 6º Ano (Exercícios)** | **13 de 13 listas (780 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 11 anos)** |
 | **Ciências - 7º Ano (Exercícios)** | **15 de 15 listas (900 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 12 anos)** |
@@ -638,7 +639,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
 | **História - 8º Ano (Exercícios)** | **16 de 16 listas (960 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 13 anos)** |
 | **História - 9º Ano (Exercícios)** | **18 de 18 listas (1.080 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 14 anos)** |
 | **TOTAL GERAL DE HISTÓRIA (Exercícios)** | **62 de 62 listas (3.720 questões)** | 🏆 **Ensino Fundamental 100% Homologado no Padrão-Ouro (Equilíbrio Matemático 20% A-E, 0 Falhas)** |
-| **Ingestão Supabase (Mob.me RAG - História)** | **62 e-books teóricos (2.356 chunks) + `historia` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (5º ao 9º Ano)** |
+| **Ingestão Supabase (Mob.me RAG - História)** | **116 e-books teóricos (4.437 chunks) + 62 listas (3.782 chunks) + `historia` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (Fund 2 e EM)** |
 | **Língua Portuguesa - 5º Ano (Exercícios)** | **20 de 20 listas (1.200 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, linguagem adequada aos 10 anos)** |
 | **Língua Portuguesa - 6º Ano (Exercícios)** | **20 de 20 listas (1.200 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Exit Code 0, 20% A-E, sem decoreba, linguagem para 11 anos)** |
 | **Língua Portuguesa - 7º Ano (Exercícios)** | **10 de 20 listas (600 questões homologadas - Lotes 1 e 2 Concluídos)** | ⏳ **50% Homologado no Padrão-Ouro (Cap 01 ao 10 com Exit Code 0, 12 anos)** |
@@ -646,6 +647,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
 | **Língua Portuguesa - 9º Ano (Exercícios)** | **0 de 20 listas (Aguardando Lotes)** | ⏳ **Pendente** |
 | **TOTAL GERAL DE LÍNGUA PORTUGUESA (Exercícios)** | **40 de 100 listas (2.400 de 6.000 questões)** | ⏳ **5º e 6º Anos 100% Concluídos e Homologados (Exit Code 0)** |
 | **Biologia - Ensino Médio (Volume Único)** | **60 de 60 listas (3.600 de 3.600 questões homologadas - 100% Concluído)** | ✅ **100% Homologado no Padrão-Ouro (Cap 01 ao 60 com Exit Code 0, 15-17 anos)** |
+| **História - Ensino Médio (Volume Único)** | **5 de 54 listas (300 de 3.240 questões homologadas - Lote 1 Concluído)** | ⏳ **9,3% Homologado no Padrão-Ouro (Cap 01 ao 05 com Exit Code 0, 15-17 anos, 20% A-E)** |
 | **TOTAL GERAL NO SUPABASE (RAG)** | **585 e-books teóricos (26.704 chunks) + 436 listas (20.843+ chunks)** | 🏆 **7 Disciplinas Ativas: Matemática, Física, Química, Ciências, História, Geografia e Cálculo 1** |
 
 ---
@@ -945,3 +947,42 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
   4. *Deploy do Patch em Produção:* Atualização cirúrgica em `sentinela_mobme.py`, injeção no container `mobme-api` e reexecução da auditoria noturna.
   5. *Resultados Consolidados:* Extinção total dos 7 falso-positivos (P2 = 0), elevação da conformidade estatística para **84,39%** (ou **98,27%** descontando trocas voluntárias de matérias) e confirmação de **100% de blindagem em P1 (zero bajulações, zero desvios de exercícios e zero alucinações de estúdio)**.
 
+
+
+### 129. Execução Integral das Recomendações do Calibrador de Biologia EM (100% Padrão Ouro) ✅ Concluído
+- **Data de Homologação:** 17 de Novembro de 2026.
+- **Escopo Executado:**
+  1. *Saneamento e Recalibração de 43 Arquivos:* Aplicação das diretrizes da auditoria em 37 e-books teóricos e 6 listas de exercícios via `validador_educamob.py` com 100% de aprovação (Exit Code 0).
+  2. *Erradicação de Desvios de Escopo:* Eliminação total de termos clínicos de nível universitário (*Doença de Hirschsprung, podócitos, feedback tubuloglomerular, pressão oncótica/coloidosmótica, fibrilina-1, ácido fenilpirúvico e Michaelis-Menten numérico*), substituídos pela abordagem integrada de homeostase e aplicações práticas da BNCC e do ENEM.
+  3. *Eliminação de Pedantismo Arcaico:* Saneamento de 104 ocorrências de vocabulário rebuscado (*epistemológico, ontológico, teleológico, corroborar, intrínseco, subjacente, efêmero*), elevando a clareza e fluidez para a faixa etária de 15 a 18 anos.
+  4. *Métricas Consolidadas Pós-Recalibração:*
+     - **Score Geral de Biologia: 94.62 / 100 (🟢 100% PADRÃO OURO)**.
+     - **60 de 60 Listas de Exercícios com Selo Ouro (Score Médio: 95.25 / 100)**.
+     - **60 de 60 E-books Teóricos com Selo Ouro (Score Médio: 94.00 / 100)**.
+     - **Total de 120 arquivos em conformidade plena (3.600 questões auditadas)**.
+
+### 131. Produção e Homologação do Lote 1 de Listas de Exercícios de História EM (Capítulos 01 ao 05 — Eixo I) ✅ Concluído
+- **Data de Homologação:** 17 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 01 ao 05 do componente História — Ensino Médio (Volume Único / Eixo I: Poder, Estado e Cidadania):
+  1. *Capítulo 01:* A Invenção da Política, da Democracia e da Cidadania na Grécia e em Roma Antiga (em-his-c01-invencao-politica-cidadania-grecia-roma-exercicios.md — 60 questões).
+  2. *Capítulo 02:* Poder Teocrático, Legitimação Sagrada e Monarquias no Antigo Oriente e no Medievo (em-his-c02-poder-teocratico-sagrado-oriente-medievo-exercicios.md — 60 questões).
+  3. *Capítulo 03:* Centralização do Poder, Razão de Estado e Absolutismo na Europa Moderna (em-his-c03-centralizacao-poder-absolutismo-moderno-exercicios.md — 60 questões).
+  4. *Capítulo 04:* As Revoluções Burguesas, o Liberalismo e a Construção do Estado Constitucional (em-his-c04-revolucoes-burguesas-estado-constitucional-exercicios.md — 60 questões).
+  5. *Capítulo 05:* Modelos Republicanos nas Américas: Federalismo nos EUA e Caudilhismo na América Hispânica (em-his-c05-modelos-republicanos-americas-eua-hispano-america-exercicios.md — 60 questões).
+- **Métricas do Lote:**
+  - **Total de Exercícios:** 300 questões de múltipla escolha (5 alternativas cada, total de 1.500 alternativas).
+  - **Distribuição de Dificuldade:** 100 Básicas (20 por cap.), 100 Intermediárias (20 por cap.), 100 Difíceis (20 por cap.).
+  - **Equilíbrio Matemático de Gabaritos:** Exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada lista (20% por letra), streaks máximos <= 1.
+  - **Resoluções Detalhadas:** 100% das questões difíceis com resolução passo a passo em 3 etapas (- **Etapa 1:**, - **Etapa 2:**, - **Etapa 3:**).
+  - **Total Alinhamento Pedagógico e BNCC:** Habilidades EM13CHS101 a EM13CHS606, tags de telemetria completas em 100% dos itens.
+- **Validação Formal:** 100% promovido via alidador_educamob.py com Exit Code 0, cumprindo os guardrails de zero termos de cifrão (R$), zero vocabulário pedante/concursês e estrito mundo fechado baseado nos e-books teóricos.
+- **Progresso de História EM (Exercícios):** 5 de 54 listas concluídas (9,3% do total curricular — 300 de 3.240 questões).
+
+### 132. Atualização e Deploy Oficial das Matérias em Produção (Inclusão de Biologia e Ingestão de História EM) ✅ Concluído
+- **Data de Homologação:** 17 de Novembro de 2026.
+- **Escopo Executado:**
+  1. *Ativação de Biologia em Produção:* Inserção de `biologia` na tabela `available_subjects` do Supabase e notificação em tempo real do endpoint `/api/admin/reload-subjects` da API de produção (`https://api.educamob.com.br`), elevando o catálogo oficial para 9 matérias ativas.
+  2. *Sincronização Física na Nuvem:* Upload e descompactação de 174 arquivos (120 de Biologia e 54 de História EM) no host da VPS Oracle Cloud ARM64 (`137.131.163.113`) e no contêiner `mobme-api:/app/content/medio/volume-unico/`.
+  3. *Ingestão Vetorial de Teoria:* Indexação de 114 e-books teóricos (60 Biologia + 54 História EM) via `BAAI/bge-m3` no Supabase pgvector, totalizando 860 e-books teoricamente cobertos no acervo consolidado.
+  4. *Ingestão Vetorial de Exercícios:* Indexação de 60 listas de exercícios de Biologia (3.600 questões Padrão-Ouro 20% A-E - 3.660 chunks) em 17,14 minutos.
+  5. *Live Reload Homologado:* Confirmação de recarga no contêiner com 9 disciplinas operacionais no System Prompt da Mob.me.
