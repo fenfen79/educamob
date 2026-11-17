@@ -648,7 +648,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
 | **Língua Portuguesa - 9º Ano (Exercícios)** | **0 de 20 listas (Aguardando Lotes)** | ⏳ **Pendente** |
 | **TOTAL GERAL DE LÍNGUA PORTUGUESA (Exercícios)** | **40 de 100 listas (2.400 de 6.000 questões)** | ⏳ **5º e 6º Anos 100% Concluídos e Homologados (Exit Code 0)** |
 | **Biologia - Ensino Médio (Volume Único)** | **60 de 60 listas (3.600 de 3.600 questões homologadas - 100% Concluído)** | ✅ **100% Homologado no Padrão-Ouro (Cap 01 ao 60 com Exit Code 0, 15-17 anos)** |
-| **História - Ensino Médio (Volume Único)** | **23 de 54 listas (1.380 de 3.240 questões homologadas - Lotes 1, 2, 3 e 4 Concluídos)** | ⏳ **42,6% Homologado no Padrão-Ouro (Cap 01 ao 23 com Exit Code 0 — 100% Eixo I e 100% Eixo II Concluídos, 15-17 anos, 20% A-E)** |
+| **História - Ensino Médio (Volume Único)** | **54 de 54 listas (3.240 de 3.240 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Cap 01 ao 54 com Exit Code 0 — 100% dos Eixos I, II, III, IV e V Concluídos, 15-17 anos, 20% A-E)** |
 | **TOTAL GERAL NO SUPABASE (RAG)** | **585 e-books teóricos (26.704 chunks) + 436 listas (20.843+ chunks)** | 🏆 **7 Disciplinas Ativas: Matemática, Física, Química, Ciências, História, Geografia e Cálculo 1** |
 
 ---
