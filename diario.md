@@ -7672,3 +7672,76 @@ eurotoxina do peixe-baiacu / bloqueadora de canais de sódio voltagem-dependente
 - **Governança:**
   - Código mantido na branch `feature/novo-menu-microaprendizagem`.
   - Zero push para `master`, zero deploy em produção.
+
+
+---
+
+## 🔬 Rodada 127 — Homologação do Lote 2 de Exercícios de História EM (Capítulos 06 ao 12 — 100% do Eixo I Concluído)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado no Padrão-Ouro e Validado via `validador_educamob.py` com Exit Code 0
+- **Ambiente:** Ambiente de Testes Local (Branch `feature/novo-menu-microaprendizagem`). Zero deploys em produção.
+- **Escopo e Entregas Realizadas:**
+  - Construção, validação sistêmica e promoção oficial de 7 listas completas de exercícios (420 novas questões de múltipla escolha):
+    1. **Capítulo 06:** A Construção do Estado Nacional Brasileiro e as Disputas de Poder no Império (`em-his-c06-construcao-estado-nacional-brasileiro-imperio-exercicios.md` — 60 questões).
+    2. **Capítulo 07:** República Oligárquica, Coronelismo, Mandonismo e Práticas Eleitorais no Brasil (`em-his-c07-republica-oligarquica-coronelismo-mandonismo-exercicios.md` — 60 questões).
+    3. **Capítulo 08:** A Crise das Democracias Liberais e a Ascensão dos Totalitarismos na Europa (`em-his-c08-crise-democracias-ascensao-totalitarismos-exercicios.md` — 60 questões).
+    4. **Capítulo 09:** O Estado Modernizador: Populismo, Trabalhismo e Conflitos na Era Vargas e na Experiência Democrática (1945–1964) (`em-his-c09-estado-populismo-trabalhismo-vargas-democracia-1945-1964-exercicios.md` — 60 questões).
+    5. **Capítulo 10:** Autoritarismo e Terror de Estado: As Ditaduras Civis-Militares no Brasil e no Cone Sul (`em-his-c10-autoritarismo-ditaduras-civis-militares-cone-sul-exercicios.md` — 60 questões).
+    6. **Capítulo 11:** As Lutas pela Redemocratização, Diretas Já e a Constituição Cidadã de 1988 (`em-his-c11-redemocratizacao-diretas-ja-constituicao-cidada-1988-exercicios.md` — 60 questões).
+    7. **Capítulo 12:** Democracia, Cidadania e a Crise de Representatividade Política no Século XXI (`em-his-c12-democracia-instituicoes-crise-representacao-seculo-xxi-exercicios.md` — 60 questões).
+- **Métricas Consolidadas do Eixo I (Poder, Estado, Regimes Políticos e Cidadania):**
+  - **12 de 12 Listas Homologadas (100% do Eixo I Fechado):** 720 questões atômicas no Padrão-Ouro.
+  - **Equilíbrio Matemático Perfeito:** Exatamente 144 gabaritos de cada letra (A, B, C, D, E) em todo o Eixo I (20% por letra), com streak consecutivo máximo de 1 em todas as listas.
+  - **Distribuição de Dificuldade:** 240 Básicas, 240 Intermediárias e 240 Difíceis.
+  - **Resoluções em 3 Etapas:** 100% das 240 questões difíceis com passo a passo formativo (`- **Etapa 1:**`, `- **Etapa 2:**`, `- **Etapa 3:**`).
+  - **Conformidade de Muro de Contenção:** Zero termos pedantes/concursês, zero menções a cifrão (`R$`), e estrito emparelhamento com a teoria ensinada nos e-books atômicos.
+- **Governança:**
+  - Código e arquivos de conteúdo mantidos na branch de trabalho local.
+  - Zero push para `master`, zero deploy em produção.
+
+
+---
+
+## 🔬 Rodada 128 — Segundo Benchmark Estatístico do Fim do Mundo ($N = 1.000$ Turnos com "Leia e Aprenda")
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 Homologação Estatística Reconfirmada com 98,00% de Conformidade Global e Intervalo de Confiança de Wilson (95%) em [96,93%, 98,70%] (Margem de Erro $E = \pm 0,89\%$).
+- **Ambiente:** Ambiente de Testes Local Isolado (Branch `feature/novo-menu-microaprendizagem`). Zero deploys em produção.
+- **Escopo e Volume do Teste:**
+  - **Amostragem ($N$):** 1.000 turnos conversacionais reais, distribuídos em 100 sessões completas de 10 turnos cada.
+  - **Pipeline Executado:** Ciclo de vida real do FastAPI (`lifespan`, Supabase PostgreSQL/Auth, busca vetorial RAG pgvector de 12 a 24 chunks, inferência LLM via DeepInfra e streaming SSE `StreamingResponse`).
+  - **Concorrência:** 8 sessões assíncronas paralelas via `asyncio.Semaphore(8)`.
+  - **Tempo Total:** 596,6s (~9,94 minutos | média de 0,60s/turno sob concorrência e cache semântico).
+- **Validação Específica da Nova Nomenclatura ("Leia e Aprenda"):**
+  - Auditoria ativa através do novo sensor do Sentinela Noturno (`MENU_NOMENCLATURA_OBSOLETA`).
+  - **Resultado:** **ZERO ocorrências** do termo antigo *"Estudo Dirigido"* no menu emitido pela IA em todos os 1.000 turnos (100% de conformidade para *"Leia e Aprenda"*).
+- **Matriz de Super-Stress Intencional (8 Clusters Hostis):**
+  1. **Cluster 1: Bajulação Agressiva / Elogios Sedutores (150 turnos):**
+     - *Resultado:* **150 / 150 (100,00%)** | IC 95%: [97,50%, 100,00%] | **0 falhas de bajulação superlativa**.
+  2. **Cluster 2: Injeção de Prompt / Jailbreak / Quebra de Personagem (100 turnos):**
+     - *Resultado:* **100 / 100 (100,00%)** | IC 95%: [96,30%, 100,00%] | **0 quebras de persona**.
+  3. **Cluster 3: Lore, Esportes e Amenidades (100 turnos):**
+     - *Resultado:* **100 / 100 (100,00%)** | IC 95%: [96,30%, 100,00%] | **0 alucinações de estúdio ou perda de foco pedagógico**.
+  4. **Cluster 4: BNCC Sexualidade e Reprodução Humana (100 turnos):**
+     - *Resultado:* **100 / 100 (100,00%)** | IC 95%: [96,30%, 100,00%] | **0 recusas indevidas** (100% de abordagem científica conforme a BNCC).
+  5. **Cluster 5: Chaos Track Hopping / Anti-Amnésia (150 turnos):**
+     - *Resultado:* **150 / 150 (100,00%)** | IC 95%: [97,50%, 100,00%] | **0 falhas de fluxo** (rastreamento de estado e contexto perfeito).
+  6. **Cluster 6: Dump Massivo de Dúvidas / Múltiplas Questões (150 turnos):**
+     - *Resultado:* **147 / 150 (98,00%)** | IC 95%: [94,29%, 99,32%] | Apenas 3 detecções de dump.
+  7. **Cluster 7: Símbolo Monetário em Matemática Financeira (100 turnos):**
+     - *Resultado:* **91 / 100 (91,00%)** | IC 95%: [83,77%, 95,19%] | 91% de conversão perfeita para reais por extenso sob bombardeio com cifrão no input do aluno; 9 espelhamentos residuais.
+  8. **Cluster 8: Microaprendizagem, Gírias Extremas e Coloquialismos (150 turnos):**
+     - *Resultado:* **142 / 150 (94,67%)** | IC 95%: [89,83%, 97,27%] | 7 detecções de dump e 1 resposta com extensão acima do teto de microaprendizagem.
+- **Dossiê Estatístico Consolidado:**
+  - **Total de Turnos Executados:** 1.000
+  - **Turnos Conformes:** 980
+  - **Taxa de Conformidade Real ($\hat{p}$):** **98,00%**
+  - **Intervalo de Confiança de Wilson (95%):** **[96,93% ; 98,70%]**
+  - **Margem de Erro Amostral ($E$):** **$\pm 0,89\%$**
+  - **Falhas de Segurança Crítica (P1):** **0 falhas** (Bajulação = 0, Jailbreak = 0, Lore/Estúdio = 0, Recusa BNCC = 0, Nomenclatura Obsoleta = 0).
+- **Evidências Físicas Persistidas:**
+  - Arquivo de resultados: `scratch/doomsday_1000_results.json`
+- **Governança:**
+  - Branch mantida: `feature/novo-menu-microaprendizagem`.
+  - Hard-guardrail ativo: Zero push para `master`, zero deploy em produção.
