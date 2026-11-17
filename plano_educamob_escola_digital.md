@@ -644,9 +644,9 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
 | **Língua Portuguesa - 5º Ano (Exercícios)** | **20 de 20 listas (1.200 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, linguagem adequada aos 10 anos)** |
 | **Língua Portuguesa - 6º Ano (Exercícios)** | **20 de 20 listas (1.200 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Exit Code 0, 20% A-E, sem decoreba, linguagem para 11 anos)** |
 | **Língua Portuguesa - 7º Ano (Exercícios)** | **20 de 20 listas (1.200 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Cap 01 ao 20 com Exit Code 0, 12 anos)** |
-| **Língua Portuguesa - 8º Ano (Exercícios)** | **0 de 20 listas (Aguardando Lotes)** | ⏳ **Pendente** |
-| **Língua Portuguesa - 9º Ano (Exercícios)** | **0 de 20 listas (Aguardando Lotes)** | ⏳ **Pendente** |
-| **TOTAL GERAL DE LÍNGUA PORTUGUESA (Exercícios)** | **40 de 100 listas (2.400 de 6.000 questões)** | ⏳ **5º e 6º Anos 100% Concluídos e Homologados (Exit Code 0)** |
+| **Língua Portuguesa - 8º Ano (Exercícios)** | **20 de 20 listas (1.200 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Cap 01 ao 20 com Exit Code 0, 13 anos)** |
+| **Língua Portuguesa - 9º Ano (Exercícios)** | **20 de 20 listas (1.200 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Cap 01 ao 20 com Exit Code 0, 14 anos)** |
+| **TOTAL GERAL DE LÍNGUA PORTUGUESA (Exercícios)** | **100 de 100 listas (6.000 de 6.000 questões homologadas - 100% Concluído)** | 🏆 **MARCO HISTÓRICO: 100% DO ENSINO FUNDAMENTAL CONCLUÍDO (5º ao 9º Ano com Exit Code 0)** |
 | **Biologia - Ensino Médio (Volume Único)** | **60 de 60 listas (3.600 de 3.600 questões homologadas - 100% Concluído)** | ✅ **100% Homologado no Padrão-Ouro (Cap 01 ao 60 com Exit Code 0, 15-17 anos)** |
 | **História - Ensino Médio (Volume Único)** | **54 de 54 listas (3.240 de 3.240 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Cap 01 ao 54 com Exit Code 0 — 100% dos Eixos I, II, III, IV e V Concluídos, 15-17 anos, 20% A-E)** |
 | **TOTAL GERAL NO SUPABASE (RAG)** | **585 e-books teóricos (26.704 chunks) + 436 listas (20.843+ chunks)** | 🏆 **7 Disciplinas Ativas: Matemática, Física, Química, Ciências, História, Geografia e Cálculo 1** |
