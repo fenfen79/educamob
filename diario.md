@@ -7745,3 +7745,203 @@ eurotoxina do peixe-baiacu / bloqueadora de canais de sódio voltagem-dependente
 - **Governança:**
   - Branch mantida: `feature/novo-menu-microaprendizagem`.
   - Hard-guardrail ativo: Zero push para `master`, zero deploy em produção.
+
+---
+
+## 🔬 Rodada 129 — Homologação do Lote 3 de Exercícios de História EM (Capítulos 13 ao 17 — Início do Eixo II)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado no Padrão-Ouro e Validado via `validador_educamob.py` com Exit Code 0
+- **Ambiente:** Ambiente de Testes Local (Branch `feature/novo-menu-microaprendizagem`). Zero deploys em produção.
+- **Escopo e Entregas Realizadas:**
+  - Construção, auditoria de fechamento de mundo, erradicação de pedantismo e promoção oficial de 5 listas completas de exercícios (300 novas questões de múltipla escolha):
+    1. **Capítulo 13:** O Trabalho Compulsório no Mundo Clássico: O Escravismo Antigo na Grécia e em Roma (`em-his-c13-trabalho-compulsorio-mundo-classico-escravismo-exercicios.md` — 60 questões).
+    2. **Capítulo 14:** A Servidão Feudal, as Corporações de Ofício e a Transição para o Capitalismo Comercial (`em-his-c14-servidao-feudal-corporacoes-oficio-capitalismo-comercial-exercicios.md` — 60 questões).
+    3. **Capítulo 15:** A Plantation Colonial, o Tráfico Transatlântico e a Escravidão Africana no Atlântico Moderno (`em-his-c15-plantation-trafico-transatlantico-escravidao-africana-exercicios.md` — 60 questões).
+    4. **Capítulo 16:** As Modalidades de Exploração do Trabalho dos Povos Originários: Escambo, Escravização Indígena, Mita e Encomienda (`em-his-c16-trabalho-indigena-americas-coloniais-mita-encomienda-exercicios.md` — 60 questões).
+    5. **Capítulo 17:** A Economia Mineradora e a Diversificação do Trabalho Urbano no Brasil do Século XVIII (`em-his-c17-economia-mineradora-trabalho-urbano-brasil-seculo-xviii-exercicios.md` — 60 questões).
+- **Métricas Consolidadas do Lote 3:**
+  - **300 Questões Homologadas:** 100 Básicas, 100 Intermediárias e 100 Difíceis.
+  - **Equilíbrio Matemático Perfeito:** Exatamente 12 gabaritos de cada letra (A, B, C, D, E) em cada lista (60 de cada alternativa no Lote 3), com streak consecutivo máximo de 1 em todas as listas.
+  - **Resoluções em 3 Etapas:** 100% das 100 questões difíceis com resolução detalhada passo a passo (`- **Etapa 1:**`, `- **Etapa 2:**`, `- **Etapa 3:**`).
+  - **Conformidade de Muro de Contenção:** Zero termos pedantes/concursês, zero menções a cifrão (`R$`), e estrito emparelhamento com a teoria ensinada nos e-books atômicos.
+- **Progresso Acumulado de História EM:** 17 de 54 listas (1.020 de 3.240 questões — 31,5% do total curricular concluído).
+- **Governança:**
+  - Código e arquivos de conteúdo mantidos na branch de trabalho local.
+  - Zero push para `master`, zero deploy em produção.
+
+---
+
+## 🔬 Rodada 130 — Homologação do Lote 4 de Exercícios de História EM (Capítulos 18 ao 23 — Conclusão Integral do Eixo II)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado no Padrão-Ouro e Validado via `validador_educamob.py` com Exit Code 0 (Conclusão de 100% do Eixo II)
+- **Ambiente:** Ambiente de Testes Local (Branch `feature/novo-menu-microaprendizagem`). Zero deploys em produção.
+- **Escopo e Entregas Realizadas:**
+  - Construção, auditoria de fechamento de mundo, erradicação de pedantismo e promoção oficial de 6 listas completas de exercícios (360 novas questões de múltipla escolha):
+    1. **Capítulo 18:** A Primeira Revolução Industrial: Maquinofatura, a Disciplina da Fábrica e a Formação da Classe Operária (`em-his-c18-primeira-revolucao-industrial-maquinofatura-proletariado-exercicios.md` — 60 questões).
+    2. **Capítulo 19:** As Ideologias Operárias do Século XIX: Socialismo Utópico, Socialismo Científico (Marxismo) e Anarquismo (`em-his-c19-ideologias-operarias-seculo-xix-socialismo-marxismo-anarquismo-exercicios.md` — 60 questões).
+    3. **Capítulo 20:** A Transição para o Trabalho Livre no Brasil: Imigração Europeia, Parceria, Colonato e o Pós-Abolição (`em-his-c20-transicao-trabalho-livre-brasil-imigracao-pos-abolicao-exercicios.md` — 60 questões).
+    4. **Capítulo 21:** A Segunda Revolução Industrial, Taylorismo, Fordismo e a Nova Morfologia do Trabalho no Capitalismo Monopolista (`em-his-c21-segunda-revolucao-industrial-taylorismo-fordismo-capitalismo-monopolista-exercicios.md` — 60 questões).
+    5. **Capítulo 22:** O Movimento Operário e Sindical Brasileiro: Da Greve Geral de 1917 ao Trabalhismo Varguista e à CLT (`em-his-c22-movimento-sindical-brasileiro-greves-1917-clt-trabalhismo-exercicios.md` — 60 questões).
+    6. **Capítulo 23:** As Mutações do Trabalho no Capitalismo Tardio: Toyotismo, Flexibilização, Quarta Revolução Industrial e a Uberização (`em-his-c23-terceira-quarta-revolucao-industrial-toyotismo-uberizacao-exercicios.md` — 60 questões — **CONCLUSÃO INTEGRAL DE 100% DO EIXO II**).
+- **Métricas Consolidadas do Lote 4:**
+  - **360 Questões Homologadas:** 120 Básicas, 120 Intermediárias e 120 Difíceis.
+  - **Equilíbrio Matemático Perfeito:** Exatamente 12 gabaritos de cada letra (A, B, C, D, E) em cada lista (72 de cada alternativa no Lote 4; 276 de cada letra no acumulado), com streak consecutivo máximo de 1 em todas as 6 listas.
+  - **Resoluções em 3 Etapas:** 100% das 120 questões difíceis com resolução detalhada passo a passo (`- **Etapa 1:**`, `- **Etapa 2:**`, `- **Etapa 3:**`).
+  - **Conformidade de Muro de Contenção:** Zero termos pedantes/concursês, zero menções a cifrão (`R$`), e estrito emparelhamento com a teoria ensinada nos e-books atômicos.
+- **Progresso Acumulado de História EM:** 23 de 54 listas (1.380 de 3.240 questões — 42,6% do total curricular concluído). Eixos I e II 100% homologados e concluídos!
+- **Governança:**
+  - Código e arquivos de conteúdo mantidos na branch de trabalho local.
+  - Zero push para `master`, zero deploy em produção.
+
+---
+
+## 🔬 Rodada 131 — Homologação do Lote 5 de Exercícios de História EM (Capítulos 24 ao 29 — Eixo III: Início da Dimensão Espacial e Territorial)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado no Padrão-Ouro e Validado via `validador_educamob.py` com Exit Code 0 (50% do Eixo III concluído; > 53% de todo o Ensino Médio de História)
+- **Ambiente:** Ambiente de Testes Local (Branch `feature/novo-menu-microaprendizagem`). Zero deploys em produção.
+- **Escopo e Entregas Realizadas:**
+  - Construção, auditoria de fechamento de mundo, erradicação de pedantismo e promoção oficial de 6 listas completas de exercícios (360 novas questões de múltipla escolha):
+    1. **Capítulo 24:** Impérios, Rotas Comerciais e a Construção de Fronteiras na Antiguidade (`em-his-c24-imperios-rotas-comerciais-antiguidade-fronteiras-exercicios.md` — 60 questões).
+    2. **Capítulo 25:** O Mediterrâneo Medieval em Disputa: Cristandade, Islã e as Cruzadas (`em-his-c25-mediterraneo-disputa-cristandade-isla-cruzadas-exercicios.md` — 60 questões).
+    3. **Capítulo 26:** A Expansão Marítima e a Partilha do Mundo: Tratado de Tordesilhas e o Exclusivo Colonial (`em-his-c26-expansao-maritima-partilha-mundo-tordesilhas-pacto-colonial-exercicios.md` — 60 questões).
+    4. **Capítulo 27:** A Formação Territorial do Brasil: Bandeirismo, Pecuária, Tratados de Limites e Diplomacia (`em-his-c27-formacao-territorial-brasil-bandeiras-pecuaria-tratados-exercicios.md` — 60 questões).
+    5. **Capítulo 28:** O Imperialismo Norte-Americano no Século XIX: Marcha para o Oeste, Destino Manifesto e Doutrina Monroe (`em-his-c28-imperialismo-norte-americano-seculo-xix-destino-manifesto-monroe-exercicios.md` — 60 questões).
+    6. **Capítulo 29:** O Neocolonialismo Europeu: A Partilha da África e a Submissão da Ásia (`em-his-c29-neocolonialismo-europeu-partilha-africa-submissao-asia-exercicios.md` — 60 questões).
+- **Métricas Consolidadas do Lote 5:**
+  - **360 Questões Homologadas:** 120 Básicas, 120 Intermediárias e 120 Difíceis.
+  - **Equilíbrio Matemático Perfeito:** Exatamente 12 gabaritos de cada letra (A, B, C, D, E) em cada lista (72 de cada alternativa no Lote 5; 348 de cada letra no acumulado), com streak consecutivo máximo de 1 em todas as 6 listas.
+  - **Resoluções em 3 Etapas:** 100% das 120 questões difíceis com resolução detalhada passo a passo (`- **Etapa 1:**`, `- **Etapa 2:**`, `- **Etapa 3:**`).
+  - **Conformidade de Muro de Contenção:** Zero termos pedantes/concursês, zero menções a cifrão (`R$`), e estrito emparelhamento com a teoria ensinada nos e-books atômicos.
+- **Progresso Acumulado de História EM:** 29 de 54 listas (1.740 de 3.240 questões — **53,7%** do total curricular concluído). A marca histórica de mais de metade de todo o Ensino Médio de História foi superada!
+- **Governança:**
+  - Código e arquivos de conteúdo mantidos na branch de trabalho local.
+  - Zero push para `master`, zero deploy em produção.
+
+## Rodada 132 — Conclusão Integral do Lote 6 e Fechamento Total de 100% do Eixo III de História EM (Capítulos 30 ao 35 — Território, Espaço e Fronteiras)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado no Padrão-Ouro e Validado via alidador_educamob.py com Exit Code 0 (100% do Eixo III concluído; 64,8% de todo o Ensino Médio de História)
+- **Ambiente:** Ambiente de Testes Local (Branch eature/novo-menu-microaprendizagem). Zero deploys em produção.
+- **Escopo e Entregas Realizadas:**
+  - Construção, auditoria de fechamento de mundo, erradicação de pedantismo e promoção oficial de 6 listas completas de exercícios (360 novas questões de múltipla escolha):
+    1. **Capítulo 30:** A Geopolítica da Bacia do Prata e a Guerra do Paraguai (em-his-c30-geopolitica-bacia-prata-guerra-paraguai-exercicios.md — 60 questões).
+    2. **Capítulo 31:** A Primeira Guerra Mundial: Choque de Impérios, Trincheiras e a Dissolução de Quatro Tronos (em-his-c31-primeira-guerra-mundial-choque-imperios-fim-trono-exercicios.md — 60 questões).
+    3. **Capítulo 32:** A Segunda Guerra Mundial: Expansionismo Territorial do Eixo, Batalhas Globais e a Ordem Pós-Guerra (em-his-c32-segunda-guerra-mundial-expansionismo-eixo-ordem-pos-guerra-exercicios.md — 60 questões).
+    4. **Capítulo 33:** A Guerra Fria e a Ordem Bipolar: Cortina de Ferro, Corrida Armamentista e Guerras por Procuração (em-his-c33-guerra-fria-ordem-bipolar-cortina-ferro-guerras-procuracao-exercicios.md — 60 questões).
+    5. **Capítulo 34:** A Descolonização Afro-Asiática: Conferência de Bandung, Não Alinhamento e Guerras de Libertação (em-his-c34-descolonizacao-afro-asiatica-bandung-guerras-libertacao-exercicios.md — 60 questões).
+    6. **Capítulo 35:** A Nova Ordem Mundial, Conflitos no Oriente Médio e a Crise Global dos Refugiados (em-his-c35-nova-ordem-mundial-oriente-medio-crise-global-refugiados-exercicios.md — 60 questões).
+- **Métricas Consolidadas do Lote 6 e Fechamento do Eixo III:**
+  - **360 Questões Homologadas no Lote 6:** 120 Básicas, 120 Intermediárias e 120 Difíceis.
+  - **100% do Eixo III Concluído:** 12 capítulos × 60 questões = 720 questões Padrão-Ouro (Capítulos 24 ao 35).
+  - **Equilíbrio Matemático Perfeito:** Exatamente 12 gabaritos de cada letra (A, B, C, D, E) em cada lista (72 de cada alternativa no Lote 6; 420 de cada letra no acumulado geral), com streak consecutivo máximo de 1 em todas as listas.
+  - **Resoluções em 3 Etapas:** 100% das 120 questões difíceis com resolução detalhada passo a passo (- **Etapa 1:**, - **Etapa 2:**, - **Etapa 3:**).
+  - **Conformidade de Muro de Contenção:** Zero termos pedantes/concursês, zero menções a cifrão (R$), e estrito emparelhamento com a teoria ensinada nos e-books atômicos.
+- **Progresso Acumulado de História EM:** 35 de 54 listas (2.100 de 3.240 questões — **64,8%** do total curricular concluído). Eixos I, II e III 100% finalizados!
+- **Próximos Passos:** Prosseguir para o **Lote 7 (Capítulos 36 ao 40)**, iniciando o **Eixo IV: Cultura, Memória, Identidade e Diversidade**.
+- **Governança:**
+  - Código e arquivos de conteúdo mantidos na branch de trabalho local.
+  - Zero push para master, zero deploy em produção.
+
+
+## Rodada 133 — Produção e Homologação do Lote 7 de História EM (Capítulos 36 ao 40 — Abertura do Eixo IV: Memória, Identidades e Diversidade Cultural)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado no Padrão-Ouro e Validado via `validador_educamob.py` com Exit Code 0 (74,0% de todo o Ensino Médio de História concluído — 40 de 54 listas)
+- **Ambiente:** Ambiente de Testes Local (Branch `feature/novo-menu-microaprendizagem`). Zero deploys em produção.
+- **Escopo e Entregas Realizadas:**
+  - Construção, auditoria de fechamento de mundo, erradicação de pedantismo e promoção oficial de 5 listas completas de exercícios (300 novas questões de múltipla escolha):
+    1. **Capítulo 36:** Epistemologias Históricas: Memória, Fontes e Crítica ao Eurocentrismo (`em-his-c36-epistemologias-historicas-memoria-fontes-critica-eurocentrismo-exercicios.md` — 60 questões).
+    2. **Capítulo 37:** Civilizações Ameríndias Ancestrais: Maias, Astecas, Incas e Povos Originários do Brasil (`em-his-c37-civilizacoes-amerindias-ancestrais-maias-astecas-incas-povos-brasil-exercicios.md` — 60 questões).
+    3. **Capítulo 38:** Áfricas Pré-Coloniais: Reinos e Impérios Ancestrais (`em-his-c38-africas-pre-coloniais-reinos-imperios-ancestrais-exercicios.md` — 60 questões).
+    4. **Capítulo 39:** Diáspora Africana no Atlântico: Identidades, Resistências e Religiosidades (`em-his-c39-diaspora-africana-atlantico-identidades-religiosidades-exercicios.md` — 60 questões).
+    5. **Capítulo 40:** Quilombos e Resistência Anticolonial: Palmares, Malês e Insurreições (`em-his-c40-quilombos-resistencia-anticolonial-palmares-males-insurreicoes-exercicios.md` — 60 questões).
+- **Métricas Consolidadas do Lote 7:**
+  - **300 Questões Homologadas no Lote 7:** 100 Básicas, 100 Intermediárias e 100 Difíceis.
+  - **Equilíbrio Matemático Perfeito:** Exatamente 12 gabaritos de cada letra (A, B, C, D, E) em cada lista (60 de cada alternativa no Lote 7; 480 de cada letra no acumulado geral), com streak consecutivo máximo de 1 em todas as listas.
+  - **Resoluções em 3 Etapas:** 100% das 100 questões difíceis com resolução detalhada passo a passo (`- **Etapa 1:**`, `- **Etapa 2:**`, `- **Etapa 3:**`).
+  - **Conformidade de Muro de Contenção:** Zero termos pedantes/concursês, zero menções a cifrão (`R$`), e estrito emparelhamento com a teoria ensinada nos e-books atômicos.
+- **Progresso Acumulado de História EM:** 40 de 54 listas (2.400 de 3.240 questões — **74,0%** do total curricular concluído).
+- **Próximos Passos:** Prosseguir para o **Lote 8 (Capítulos 41 ao 44)**, finalizando integralmente o **Eixo IV: Memória, Identidades e Diversidade Cultural**.
+- **Governança:**
+  - Código e arquivos de conteúdo mantidos na branch de trabalho local.
+  - Zero push para `master`, zero deploy em produção.
+
+
+## Rodada 134 — Conclusão Integral do Lote 8 e Fechamento Total de 100% do Eixo IV de História EM (Capítulos 41 ao 44 — Memória, Identidades e Diversidade Cultural)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado no Padrão-Ouro e Validado via `validador_educamob.py` com Exit Code 0 (100% do Eixo IV concluído; 81,5% de todo o Ensino Médio de História — 44 de 54 listas)
+- **Ambiente:** Ambiente de Testes Local (Branch `feature/novo-menu-microaprendizagem`). Zero deploys em produção.
+- **Escopo e Entregas Realizadas:**
+  - Construção, auditoria de fechamento de mundo, erradicação de pedantismo e promoção oficial de 4 listas completas de exercícios (240 novas questões de múltipla escolha):
+    1. **Capítulo 41:** As Ideologias de Branqueamento e o Mito da Democracia Racial no Brasil (`em-his-c41-ideologias-branqueamento-mito-democracia-racial-brasil-exercicios.md` — 60 questões).
+    2. **Capítulo 42:** O Protagonismo Intelectual e Artístico Negro e Indígena no Brasil (`em-his-c42-protagonismo-intelectual-artistico-negro-indigena-brasil-exercicios.md` — 60 questões).
+    3. **Capítulo 43:** O Movimento Negro Contemporâneo: Direitos Civis, MNU e Vidas Negras Importam (`em-his-c43-movimento-negro-contemporaneo-direitos-civis-mnu-vidas-negras-exercicios.md` — 60 questões).
+    4. **Capítulo 44:** A Luta Indígena Contemporânea: Demarcação Territorial, Marco Temporal e Vozes Originárias (`em-his-c44-luta-indigena-contemporanea-demarcacao-marco-temporal-povos-originarios-exercicios.md` — 60 questões).
+- **Métricas Consolidadas do Lote 8 e Fechamento do Eixo IV:**
+  - **240 Questões Homologadas no Lote 8:** 80 Básicas, 80 Intermediárias e 80 Difíceis.
+  - **100% do Eixo IV Concluído:** 9 capítulos × 60 questões = 540 questões Padrão-Ouro (Capítulos 36 ao 44).
+  - **Equilíbrio Matemático Perfeito:** Exatamente 12 gabaritos de cada letra (A, B, C, D, E) em cada lista (48 de cada alternativa no Lote 8; 528 de cada letra no acumulado geral), com streak consecutivo máximo de 1 em todas as listas.
+  - **Resoluções em 3 Etapas:** 100% das 80 questões difíceis com resolução detalhada passo a passo (`- **Etapa 1:**`, `- **Etapa 2:**`, `- **Etapa 3:**`).
+  - **Conformidade de Muro de Contenção:** Zero termos pedantes/concursês, zero menções a cifrão (`R$`), e estrito emparelhamento com a teoria ensinada nos e-books atômicos.
+- **Progresso Acumulado de História EM:** 44 de 54 listas (2.640 de 3.240 questões — **81,5%** do total curricular concluído). Eixos I, II, III e IV 100% finalizados!
+- **Próximos Passos:** Prosseguir para o **Lote 9 (Capítulos 45 ao 49)**, iniciando o último eixo do currículo — **Eixo V: Cultura, Patrimônio e Meio Ambiente**.
+- **Governança:**
+  - Código e arquivos de conteúdo mantidos na branch de trabalho local.
+  - Zero push para `master`, zero deploy em produção.
+
+
+---
+
+## 🚀 Rodada 135 — Deploy e Homologação Oficial do Novo Menu de 6 Opções ("Leia e Aprenda") em Produção na Oracle Cloud VPS ARM64 (`137.131.163.113`)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado, Injetado no Contêiner Docker `mobme-api` e Validado ao Vivo via API Pública (`api.educamob.com.br`)
+- **Autorização de Governança:** Chave de segurança mandatória fornecida pelo usuário: `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+- **Escopo e Entregas Realizadas:**
+  1. **Backup Preventivo na Nuvem:**
+     - Diretório `/home/ubuntu/educamob/services/mobme-api` integralmente copiado para `/home/ubuntu/educamob/services/mobme-api.bak_20261117_menu` na VPS antes de qualquer alteração.
+  2. **Transferência e Sincronização dos Fontes:**
+     - Pacote `scratch/deploy_mobme_api_novo_menu.tar.gz` (92.596 bytes) transferido via SCP criptografado para `/home/ubuntu/educamob/services/`.
+     - Injeção atômica no contêiner de produção via `docker cp /home/ubuntu/educamob/services/mobme-api/. mobme-api:/app/`.
+     - Contêiner `mobme-api` reiniciado com sucesso via `docker restart mobme-api` com inicialização limpa (Uvicorn rodando na porta 8080 mapeada para 8000 via Caddy).
+  3. **Validação e Sanity Check ao Vivo em Produção (`https://api.educamob.com.br/api/chat`):**
+     - **Turno 1 (Desambiguação e Acolhida):** Estudante solicita "Quero estudar Termodinâmica". A API responde identificando a matéria Física e oferecendo os 3 focos de estudo com badges numéricos.
+     - **Turno 2 (Exibição do Menu Oficial):** Ao selecionar o foco "1" (Leis da Termodinâmica), a API exibe instantaneamente o novo Super Menu com as 6 opções consolidadas:
+       - `1. Tirar Dúvidas (texto/imagem) 💬`
+       - `2. Leia e Aprenda 📚`
+       - `3. Resumo 🧠`
+       - `4. Flashcards 🃏`
+       - `5. Lista de Exercícios 📝`
+       - `6. Finalizar ⏸️`
+       - **Auditoria de Nomenclatura:** Confirmação de 100% de conformidade com `"Leia e Aprenda"` e ZERO menções ao termo obsoleto `"Estudo Dirigido"`.
+     - **Turno 3 (Ativação de Trilha):** O envio de `"2"` ativa com sucesso a Trilha 2 (`modo_aprender`), entregando a primeira micro-aula fundamentada no acervo e-book da Educamob.
+  4. **Frontend Sincronizado (`apps/mobme`):**
+     - Build de produção Next.js compilado com sucesso (`npm run build`) incorporando os novos botões da Trilha 2 (*"Leia e Aprenda"*) e os cards atualizados.
+- **Governança:**
+  - Branch de origem: `feature/novo-menu-microaprendizagem`.
+  - Servidor em nuvem: Oracle Cloud VPS ARM64 (`137.131.163.113`) 100% atualizado e em conformidade.
+
+---
+
+### Rodada 135 — Conclusão Integral do Lote 9 de História EM (Capítulos 45 ao 49 — Eixo V: Cultura, Ideologias, Ciência e Sociedade no Antropoceno)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado no Padrão-Ouro e Validado via `validador_educamob.py` com Exit Code 0 (90,7% de todo o Ensino Médio de História concluído — 49 de 54 listas)
+- **Ambiente:** Ambiente de Testes Local (Branch `feature/novo-menu-microaprendizagem`). Zero deploys em produção.
+- **Escopo e Entregas Realizadas:**
+  - Construção, auditoria de fechamento de mundo, erradicação de pedantismo e promoção oficial de 5 listas completas de exercícios (300 novas questões de múltipla escolha):
+    1. **Capítulo 45:** Humanismo e Renascimento Cultural: Antropocentrismo, Perspectiva e a Ruptura Moderna (`em-his-c45-humanismo-renascimento-cultural-antropocentrismo-ruptura-moderna-exercicios.md` — 60 questões).
+    2. **Capítulo 46:** As Reformas Religiosas e a Fratura da Cristandade Ocidental (`em-his-c46-reformas-religiosas-fratura-cristandade-ocidental-exercicios.md` — 60 questões).
+    3. **Capítulo 47:** O Século das Luzes: O Racionalismo Iluminista, a Enciclopédia e as Liberdades (`em-his-c47-seculo-luzes-racionalismo-iluminista-enciclopedia-liberdades-exercicios.md` — 60 questões).
+    4. **Capítulo 48:** A Ciência do Século XIX: Positivismo, Higienismo, Darwinismo Social e Eugênia (`em-his-c48-ciencia-seculo-xix-positivismo-higienismo-darwinismo-social-exercicios.md` — 60 questões).
+    5. **Capítulo 49:** Vanguardas Europeias e o Modernismo no Brasil: A Semana de 1922 e a Identidade Nacional (`em-his-c49-vanguardas-europeias-modernismo-brasil-semana-1922-exercicios.md` — 60 questões).
+- **Métricas Consolidadas de Qualidade:**
+  - **Volume de Exercícios do Lote 9:** 300 questões atômicas inéditas, totalizando 1.500 alternativas rigorosamente calibradas.
+  - **Equilíbrio Matemático de Gabaritos:** Exatamente 12 alternativas A, 12 B, 12 C, 12 D e 12 E em cada uma das 5 listas, estruturadas em ciclos regulares de dispersão (repetição máxima consecutiva = 1).
+  - **Scaffolding Pedagógico:** 100 questões de nível difícil (20 por lista) contemplando resolução analítica em 3 etapas com `- **Etapa 1:**`, `- **Etapa 2:**`, `- **Etapa 3:**`.
+  - **Zero Cifrão e Zero Pedantismo:** Banimento absoluto de `R$`, bare `$`, e de vocabulário rebuscado ('epistemológica', 'ontológica', 'consubstanciada', 'vernáculo', 'prerrogativa', 'efêmera', 'dicotomia', 'hegemônica').
+  - **Status Global da Trilha de História EM:** 49 de 54 capítulos homologados (2.940 questões de 3.240 — **90,7%** do currículo completo). Restam apenas os 5 capítulos finais do Lote 10 para o fechamento de 100% de História do Ensino Médio.
