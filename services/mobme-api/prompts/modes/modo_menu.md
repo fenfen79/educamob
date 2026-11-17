@@ -20,7 +20,7 @@ Tema definido: **[Tema atual]**. Como você prefere começar?
 
 1. Tirar Dúvidas (texto/imagem) 💬
 
-2. Estudo Dirigido 📚
+2. Leia e Aprenda 📚
 
 3. Resumo 🧠
 

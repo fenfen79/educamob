@@ -792,6 +792,8 @@ LEGACY_MODE_ALIASES = {
     "modo_sos": "modo_tira_duvidas",
     "modo_resolve_questao": "modo_tira_duvidas",
     "modo_estudo_dirigido": "modo_aprender",
+    "modo_leia_e_aprenda": "modo_aprender",
+    "modo_leia_aprenda": "modo_aprender",
     "modo_tira_duvidas": "modo_tira_duvidas",
     "modo_tirar_duvidas": "modo_tira_duvidas",
     "modo_duvidas": "modo_tira_duvidas",
@@ -840,7 +842,7 @@ def get_or_init_session_state(session_id: str, db_history: list) -> dict:
                 continue
             if cl in ALL_DISCIPLINES:
                 continue
-            if cl in {"1", "2", "3", "4", "5", "6", "7", "8"} or any(w in cl for w in ["bora ler", "aprender", "estudo dirigido", "tira duvidas", "tira dúvidas"]):
+            if cl in {"1", "2", "3", "4", "5", "6", "7", "8"} or any(w in cl for w in ["bora ler", "aprender", "leia e aprenda", "leia aprenda", "estudo dirigido", "tira duvidas", "tira dúvidas"]):
                 continue
             if len(content) < 40 and cl not in ALL_DISCIPLINES and cl not in INVALID_TOPIC_WORDS and not state["topic"]:
                 # Não atribui tema cegamente se não for validado
@@ -1257,11 +1259,11 @@ async def resolve_active_mode_and_topic(
                 "menu de trilhas"
             ])
             has_options = any(o in c_last for o in [
-                "1. Aprender", "2. Praticar", "1. Tirar Dúvidas", "2. Estudo Dirigido", 
-                "1. Estudo Dirigido", "3. Flashcards", "4. Flashcards", "3. Resumo", "5. Lista de Exercícios",
+                "1. Aprender", "2. Praticar", "1. Tirar Dúvidas", "2. Leia e Aprenda", "2. Estudo Dirigido", 
+                "1. Leia e Aprenda", "1. Estudo Dirigido", "3. Flashcards", "4. Flashcards", "3. Resumo", "5. Lista de Exercícios",
                 "1️⃣", "2️⃣"
             ])
-            if (has_prompt and has_options) or ("1. Tirar Dúvidas" in c_last and "2. Estudo Dirigido" in c_last) or ("1. Aprender" in c_last and "2. Praticar" in c_last):
+            if (has_prompt and has_options) or ("1. Tirar Dúvidas" in c_last and ("2. Leia e Aprenda" in c_last or "2. Estudo Dirigido" in c_last)) or ("1. Aprender" in c_last and "2. Praticar" in c_last):
                 last_ai_had_menu = True
             break
     
@@ -1392,7 +1394,7 @@ async def resolve_active_mode_and_topic(
         for idx in range(min(5, len(clean_names))):
             num_str = str(idx + 1)
             emoji_str = f"{idx + 1}\ufe0f\u20e3"
-            if msg_clean in {num_str, emoji_str} or msg_clean == f"{num_str}." or (msg_clean.startswith(f"{num_str}.") and not any(w in msg_clean for w in ["estudo dirigido", "aprender", "praticar", "flashcards", "resumo", "enviar questao", "tira duvidas", "tira dúvidas", "finalizar"])):
+            if msg_clean in {num_str, emoji_str} or msg_clean == f"{num_str}." or (msg_clean.startswith(f"{num_str}.") and not any(w in msg_clean for w in ["leia e aprenda", "leia aprenda", "estudo dirigido", "aprender", "praticar", "flashcards", "resumo", "enviar questao", "tira duvidas", "tira dúvidas", "finalizar"])):
                 selected_topic = clean_names[idx]
                 break
         
@@ -1542,7 +1544,7 @@ async def resolve_active_mode_and_topic(
             pre_track = None
             if msg_clean.startswith("1️⃣") or msg_clean.startswith("1.") or any(w in msg_clean for w in ["tirar duvidas", "tirar dúvidas", "tira duvidas", "tira dúvidas", "enviar questao", "enviar questão", "resolve questao", "resolve questão", "resolver questao", "resolver questão"]):
                 pre_track = "modo_tira_duvidas"
-            elif msg_clean.startswith("2️⃣") or msg_clean.startswith("2.") or any(w in msg_clean for w in ["estudo dirigido", "aprender", "microciclos", "bora ler", "teoria"]):
+            elif msg_clean.startswith("2️⃣") or msg_clean.startswith("2.") or any(w in msg_clean for w in ["leia e aprenda", "leia aprenda", "estudo dirigido", "aprender", "microciclos", "bora ler", "teoria"]):
                 pre_track = "modo_aprender"
             elif msg_clean.startswith("3️⃣") or msg_clean.startswith("3.") or any(w in msg_clean for w in ["resumir", "memorex", "resumo"]):
                 pre_track = "modo_resumir"
@@ -1626,7 +1628,7 @@ async def resolve_active_mode_and_topic(
 
     # 4. Seleção do Menu Canônico de 6 Trilhas
     # 1. Tirar Dúvidas (texto/imagem) -> modo_tira_duvidas
-    # 2. Estudo Dirigido              -> modo_aprender
+    # 2. Leia e Aprenda               -> modo_aprender
     # 3. Resumo                       -> modo_resumir
     # 4. Flashcards                   -> modo_revisar
     # 5. Lista de Exercícios          -> modo_praticar
@@ -1648,7 +1650,7 @@ async def resolve_active_mode_and_topic(
     # 4.2. Reconhecimento de escolha de trilha
     if is_short_choice:
         if in_active_study:
-            # Em modo de estudo pedagógico ativo (Estudo Dirigido, Lista de Exercícios, Flashcards ou Tirar Dúvidas):
+            # Em modo de estudo pedagógico ativo (Leia e Aprenda / Estudo Dirigido, Lista de Exercícios, Flashcards ou Tirar Dúvidas):
             # Dígitos numéricos isolados (1, 2, 3, 4, 5, 6), letras (a, b, c, d, e) e valores de cálculo
             # são SEMPRE respostas do estudante às perguntas e NÃO escolhas de menu.
             # Apenas comandos ou nomes explícitos de trilha trocam de modo.
@@ -1661,7 +1663,7 @@ async def resolve_active_mode_and_topic(
                 and not any(w in msg_clean for w in ["enviar questao", "enviar questão", "resolve questao", "resolve questão"])
             ) or msg_clean in {"5️⃣", "5. praticar", "5️⃣ praticar", "2. praticar", "2️⃣ praticar", "5. lista de exercicios", "5. lista de exercícios"}:
                 target_mode = "modo_praticar"
-            elif any(w in msg_clean for w in ["estudo dirigido", "aprender", "teoria", "microciclo", "bora ler"]) or msg_clean in {"2️⃣", "2. estudo dirigido", "2️⃣ estudo dirigido", "1. estudo dirigido", "1️⃣ estudo dirigido", "1. aprender", "2. aprender"}:
+            elif any(w in msg_clean for w in ["leia e aprenda", "leia aprenda", "estudo dirigido", "aprender", "teoria", "microciclo", "bora ler"]) or msg_clean in {"2️⃣", "2. leia e aprenda", "2️⃣ leia e aprenda", "2. estudo dirigido", "2️⃣ estudo dirigido", "1. estudo dirigido", "1️⃣ estudo dirigido", "1. aprender", "2. aprender"}:
                 target_mode = "modo_aprender"
             elif any(w in msg_clean for w in ["tirar duvida", "tirar dúvida", "tirar duvidas", "tirar dúvidas", "tira duvida", "tira dúvida", "tira duvidas", "tira dúvidas", "enviar questao", "enviar questão", "resolve questao", "resolve questão"]) or msg_clean in {"1️⃣", "1. tirar duvidas", "1. tirar dúvidas", "1️⃣ tirar duvidas", "1️⃣ tirar dúvidas"}:
                 target_mode = "modo_tira_duvidas"
@@ -1679,7 +1681,7 @@ async def resolve_active_mode_and_topic(
                 and not any(w in msg_clean for w in ["enviar questao", "enviar questão", "resolve questao", "resolve questão"])
             ):
                 target_mode = "modo_praticar"
-            elif any(w in msg_clean for w in ["estudo dirigido", "aprender", "teoria", "microciclo", "bora ler", "me explica"]):
+            elif any(w in msg_clean for w in ["leia e aprenda", "leia aprenda", "estudo dirigido", "aprender", "teoria", "microciclo", "bora ler", "me explica"]):
                 target_mode = "modo_aprender"
             elif any(w in msg_clean for w in ["tirar duvida", "tirar dúvida", "tirar duvidas", "tirar dúvidas", "tira duvida", "tira dúvida", "tira duvidas", "tira dúvidas", "duvida", "dúvida", "enviar questao", "enviar questão", "resolve questao", "resolve questão"]):
                 target_mode = "modo_tira_duvidas"
@@ -2471,7 +2473,7 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
             super_menu_msg = (
                 f"Tema definido: **{current_topic}**. Como você prefere começar?\n\n"
                 f"1. Tirar Dúvidas (texto/imagem) 💬\n\n"
-                f"2. Estudo Dirigido 📚\n\n"
+                f"2. Leia e Aprenda 📚\n\n"
                 f"3. Resumo 🧠\n\n"
                 f"4. Flashcards 🃏\n\n"
                 f"5. Lista de Exercícios 📝\n\n"
@@ -2495,7 +2497,7 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} and session_state.get("paused_track"):
             paused_info = session_state.get("paused_track")
             p_mode = paused_info.get("mode")
-            p_name = "Lista de Exercícios" if p_mode == "modo_praticar" else ("Estudo Dirigido" if p_mode == "modo_aprender" else "Flashcards")
+            p_name = "Lista de Exercícios" if p_mode == "modo_praticar" else ("Leia e Aprenda" if p_mode == "modo_aprender" else "Flashcards")
             state_context += (
                 f"\n\n--- INSTRUÇÃO HÍBRIDA DE RESOLUÇÃO DE IMAGEM EM TRILHA ATIVA ---\n"
                 f"O estudante enviou uma imagem enquanto estava em andamento em {p_name} do tema '{current_topic}'.\n"
@@ -2576,12 +2578,12 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                 llm_user_message = f"[Comando de Trilha]: Envio esta imagem com minha dúvida sobre {current_topic} na opção 1. Tirar Dúvidas (texto/imagem). Explique detalhadamente usando o acervo oficial."
             elif active_mode == "modo_aprender":
                 state_context += (
-                    "\nAção do Estudante: O aluno acabou de escolher a Trilha 2 (Estudo Dirigido). Inicie a primeira etapa de estudos usando exclusivamente o material RAG recuperado para este tema. "
+                    "\nAção do Estudante: O aluno acabou de escolher a Trilha 2 (Leia e Aprenda). Inicie a primeira etapa de estudos usando exclusivamente o material RAG recuperado para este tema. "
                     "Cada etapa deve ter um objetivo curto, um trecho do e-book e uma checagem de compreensão ancorada no trecho ('### [Título do Tópico]', '**Objetivo:**', trecho e '**Checagem:**'). "
                     "REGRA CRÍTICA: Proibido usar a palavra 'microciclo' ou 'miniciclo' no título ou no texto; use apenas o título do conceito no cabeçalho '###'. "
                     "Não exiba o Menu de Trilhas antes de concluir as etapas disponíveis."
                 )
-                llm_user_message = f"[Comando de Trilha]: Escolho a opção 2. Estudo Dirigido 📚 sobre {current_topic}. Inicie imediatamente a primeira etapa de estudos."
+                llm_user_message = f"[Comando de Trilha]: Escolho a opção 2. Leia e Aprenda 📚 sobre {current_topic}. Inicie imediatamente a primeira etapa de estudos."
             elif active_mode == "modo_resumir":
                 state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 3 (Resumo). Entregue imediatamente a síntese estruturada (600 a 1.000 palavras) usando exclusivamente o material RAG recuperado a partir de '### 🌐 1. Visão Panorâmica', e ao final exiba o Menu de Trilhas de 6 opções."
                 llm_user_message = f"[Comando de Trilha]: Escolho a opção 3. Resumo 🧠 sobre {current_topic}. Ignore qualquer pergunta anterior em aberto e gere imediatamente a síntese estruturada completa."

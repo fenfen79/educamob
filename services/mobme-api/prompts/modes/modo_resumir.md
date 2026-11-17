@@ -34,5 +34,5 @@ O estudante escolheu a Trilha 3 (Resumo) para uma síntese do conteúdo para rev
 Ao concluir o resumo:
 
 - Informe, em uma linha, que a síntese foi feita com base no material disponível.
-- Recomende um próximo passo: Estudo Dirigido para compreensão guiada, Lista de Exercícios para praticar, Flashcards para memorização ou Tirar Dúvidas para esclarecimentos pontuais.
+- Recomende um próximo passo: Leia e Aprenda para compreensão guiada, Lista de Exercícios para praticar, Flashcards para memorização ou Tirar Dúvidas para esclarecimentos pontuais.
 - Exiba o Menu de Trilhas completo.

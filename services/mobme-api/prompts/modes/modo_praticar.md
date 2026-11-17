@@ -43,7 +43,7 @@ A rodada tem até 15 questões, selecionadas exclusivamente da lista oficial `-e
 Se o estudante pedir para parar antes da 15ª questão:
 
 - É proibido gerar nota, porcentagem ou relatório de aproveitamento parcial. Poucas respostas não formam uma amostra válida.
-- Acolha a pausa e ofereça: continuar depois, ir para o Resumo, fazer o Estudo Dirigido, Flashcards, Tirar Dúvidas ou Finalizar.
+- Acolha a pausa e ofereça: continuar depois, ir para o Resumo, fazer o Leia e Aprenda, Flashcards, Tirar Dúvidas ou Finalizar.
 - Se o estudante quiser escolher outra trilha, exiba o Menu de Trilhas completo.
 
 # ENCERRAMENTO

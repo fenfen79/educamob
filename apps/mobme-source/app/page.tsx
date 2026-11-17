@@ -180,14 +180,14 @@ const sanitizeContent = (content: string) => {
 
     // Normaliza opções das 6 Trilhas mesmo que venham SEM numeração ou com emojis colados
     textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[156][\.\)\-]?\s*|[156]\uFE0F?\u20E3\s*)?(?:Tirar?\s+D[úu]vidas(?:\s*\(texto\/imagem\))?|Enviar\s+quest[ãa]o)\s*(?:💬|🖼️)?/gi, "\n\n1\uFE0F\u20E3 Tirar Dúvidas (texto/imagem) 💬");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[12][\.\)\-]?\s*|[12]\uFE0F?\u20E3\s*)?(?:Estudo\s+Dirigido|Aprender)\s*📚?/gi, "\n\n2\uFE0F\u20E3 Estudo Dirigido 📚");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[12][\.\)\-]?\s*|[12]\uFE0F?\u20E3\s*)?(?:Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender)\s*📚?/gi, "\n\n2\uFE0F\u20E3 Leia e Aprenda 📚");
     textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[34][\.\)\-]?\s*|[34]\uFE0F?\u20E3\s*)?(?:Resumo)\s*🧠?/gi, "\n\n3\uFE0F\u20E3 Resumo 🧠");
     textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[34][\.\)\-]?\s*|[34]\uFE0F?\u20E3\s*)?(?:Flashcards)\s*🃏?/gi, "\n\n4\uFE0F\u20E3 Flashcards 🃏");
     textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[25][\.\)\-]?\s*|[25]\uFE0F?\u20E3\s*)?(?:Lista\s+de\s+Exerc[íi]cios|Praticar)\s*📝?/gi, "\n\n5\uFE0F\u20E3 Lista de Exercícios 📝");
     textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[67][\.\)\-]?\s*|[67]\uFE0F?\u20E3\s*)?(?:Finalizar)\s*⏸️?/gi, "\n\n6\uFE0F\u20E3 Finalizar ⏸️");
 
-    // Garante que opções numeradas do menu (1. Tirar Dúvidas..., 2. Estudo Dirigido...) ou keycaps (1️⃣, 2️⃣...) sempre fiquem com badge e parágrafos separados (\n\n)
-    textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*(?=(?:Tirar?\s+D[úu]vidas|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar))/gi, (match, num) => `\n\n${num}\uFE0F\u20E3 `);
+    // Garante que opções numeradas do menu (1. Tirar Dúvidas..., 2. Leia e Aprenda...) ou keycaps (1️⃣, 2️⃣...) sempre fiquem com badge e parágrafos separados (\n\n)
+    textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*(?=(?:Tirar?\s+D[úu]vidas|Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar))/gi, (match, num) => `\n\n${num}\uFE0F\u20E3 `);
     textPart = textPart.replace(/([^\n])\n?(([0-9]|10)\uFE0F?\u20E3)/g, "$1\n\n$2");
     textPart = textPart.replace(/(([0-9]|10)\uFE0F?\u20E3[^\n]+)\n([^\n0-9])/g, "$1\n\n$3");
 
@@ -306,6 +306,7 @@ const splitMessageMenu = (text: string): { content: string; menu: string | null 
     text.includes("1️⃣") ||
     text.includes("1. Tirar Dúvidas") ||
     text.includes("1. Tira Dúvidas") ||
+    text.includes("1. Leia e Aprenda") ||
     text.includes("1. Estudo Dirigido") ||
     text.includes("1. Aprender")
   ) && (
@@ -316,6 +317,7 @@ const splitMessageMenu = (text: string): { content: string; menu: string | null 
     text.includes("Finalizar ⏸️") ||
     text.includes("Lista de Exercícios") ||
     text.includes("Tirar Dúvidas") ||
+    text.includes("Leia e Aprenda") ||
     text.includes("Estudo Dirigido")
   );
   if (!hasMenu) {
@@ -328,6 +330,9 @@ const splitMessageMenu = (text: string): { content: string; menu: string | null 
   }
   if (menuIndex1 === -1) {
     menuIndex1 = text.indexOf("1. Tira Dúvidas");
+  }
+  if (menuIndex1 === -1) {
+    menuIndex1 = text.indexOf("1. Leia e Aprenda");
   }
   if (menuIndex1 === -1) {
     menuIndex1 = text.indexOf("1. Estudo Dirigido");
@@ -440,6 +445,7 @@ const getTrackFromInput = (input: string, lastAiText: string = ""): "teoria" | "
   const isTrackMenuOnScreen = (
     lastAiText.includes("1️⃣") ||
     lastAiText.includes("1. Tirar Dúvidas") ||
+    lastAiText.includes("1. Leia e Aprenda") ||
     lastAiText.includes("1. Estudo Dirigido") ||
     lastAiText.includes("1. Aprender")
   ) && (
@@ -452,12 +458,14 @@ const getTrackFromInput = (input: string, lastAiText: string = ""): "teoria" | "
     return null;
   }
   
-  // 2. Estudo Dirigido
+  // 2. Leia e Aprenda
   if (
     text === "2" || 
     text.startsWith("2 ") || 
     text.startsWith("2.") || 
     text.includes("2️⃣") || 
+    text.includes("leia e aprenda") || 
+    text.includes("leia aprenda") || 
     text.includes("estudo dirigido") || 
     text.includes("aprender") || 
     text.includes("microciclo")
@@ -1303,11 +1311,11 @@ export default function ChatApp() {
               e.stopPropagation();
               if (!isTyping) {
                 // Se o texto circundante for explicitamente uma trilha do menu principal, envia o comando com rótulo
-                const isTrackMenu = /Tirar?\s+D[úu]vidas|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar/i.test(text);
+                const isTrackMenu = /Tirar?\s+D[úu]vidas|Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar/i.test(text);
                 if (isTrackMenu) {
                   const trackLabels: Record<string, string> = {
                     "1": "1. Tirar Dúvidas (texto/imagem) 💬",
-                    "2": "2. Estudo Dirigido 📚",
+                    "2": "2. Leia e Aprenda 📚",
                     "3": "3. Resumo 🧠",
                     "4": "4. Flashcards 🃏",
                     "5": "5. Lista de Exercícios 📝",
@@ -1413,12 +1421,12 @@ export default function ChatApp() {
       const textStr = getNodeText(children).trim();
 
       // 0. Trilhas de Aprendizagem Interativas (Menu de 6 Opções)
-      const trilhaMatch = textStr.match(/^([1-6])(?:\uFE0F?\u20E3|[\.\)\-]?\s*)(Tirar?\s+D[úu]vidas(?:\s*\(texto\/imagem\))?|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar)/i);
+      const trilhaMatch = textStr.match(/^([1-6])(?:\uFE0F?\u20E3|[\.\)\-]?\s*)(Tirar?\s+D[úu]vidas(?:\s*\(texto\/imagem\))?|Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar)/i);
       if (trilhaMatch) {
         const num = trilhaMatch[1];
         const trilhaInfoMap: Record<string, { title: string; emoji: string; desc: string; cmd: string }> = {
           "1": { title: "Tirar Dúvidas (texto/imagem)", emoji: "💬", desc: "Pergunte o que quiser ou envie imagens sobre o assunto", cmd: "1" },
-          "2": { title: "Estudo Dirigido", emoji: "📚", desc: "Teoria guiada passo a passo com checagens", cmd: "2" },
+          "2": { title: "Leia e Aprenda", emoji: "📚", desc: "Teoria guiada passo a passo com checagens", cmd: "2" },
           "3": { title: "Resumo", emoji: "🧠", desc: "Síntese dos conceitos-chave e mapa mental", cmd: "3" },
           "4": { title: "Flashcards", emoji: "🃏", desc: "Fixação ativa e repetição espaçada", cmd: "4" },
           "5": { title: "Lista de Exercícios", emoji: "📝", desc: "Lista de exercícios graduados com gabarito oficial", cmd: "5" },

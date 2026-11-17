@@ -7639,3 +7639,36 @@ eurotoxina do peixe-baiacu / bloqueadora de canais de sódio voltagem-dependente
 - **Governança:**
   - Branch mantida: `feature/novo-menu-microaprendizagem`.
   - Zero push para `master`.
+
+
+---
+
+## 🔬 Rodada 126 — Atualização de Nomenclatura da Trilha 2: "Estudo Dirigido" -> "Leia e Aprenda"
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Implementado, Homologado em Testes End-to-End e Integrado no Ecossistema
+- **Ambiente:** Ambiente de Testes Local (Branch `feature/novo-menu-microaprendizagem`). Zero deploys em produção.
+- **Motivação Pedagógica:**
+  - Substituição da denominação técnica acadêmica *"Estudo Dirigido"* pela expressão dialógica, empática e convidativa **"Leia e Aprenda"**, alinhada à linguagem direta e descomplicada de microaprendizagem da plataforma Educamob.
+- **Alterações Sistêmicas Realizadas:**
+  1. **Prompts Especializados e Base Persona:**
+     - `services/mobme-api/prompts/modes/modo_menu.md`: Opção 2 atualizada para `2. Leia e Aprenda 📚`.
+     - `services/mobme-api/prompts/modes/modo_aprender.md`: Cabeçalho e missão atualizados para refletir a nova nomenclatura.
+     - `services/mobme-api/prompts/modes/modo_praticar.md`, `modo_revisar.md` e `modo_resumir.md`: Recomendações e pausas atualizadas para referenciar "Leia e Aprenda".
+     - `services/mobme-api/prompts/prompt_prod.md` e `base_persona.md`: Template canônico atualizado com `2. Leia e Aprenda 📚`.
+  2. **Motor de Roteamento Backend (`services/mobme-api/main.py`):**
+     - Adição dos aliases `modo_leia_e_aprenda` e `modo_leia_aprenda` normalizados para `modo_aprender`, preservando compatibilidade retroativa com `modo_estudo_dirigido`.
+     - Ampliação dos regexes e detectores semânticos em 5 pontos do fluxo de chat (`msg_clean`, seleções ordinais e atalhos textuais como `"leia e aprenda"`, `"leia aprenda"`, `"2. leia e aprenda"`, `"2️⃣ leia e aprenda"`).
+     - Atualização do gerador direto de menu (`super_menu_msg`) e das instruções de contexto do LLM (`state_context` e `llm_user_message`).
+  3. **Frontend Interativo Mob.me (`apps/mobme-source/app/page.tsx`):**
+     - Atualização dos normalizadores de Markdown e detectores de menu (`isTrackMenuOnScreen`, `hasMenu`, `trackLabels["2"]`).
+     - Atualização do mapa de cards interativos (`trilhaInfoMap["2"]` com título `"Leia e Aprenda"` e descrição `"Teoria guiada passo a passo com checagens"`).
+- **Validação Automatizada:**
+  - Execução de teste automatizado `scratch/test_leia_e_aprenda.py` validando:
+    - Exibição de `2. Leia e Aprenda 📚` no menu canônico e ausência de `Estudo Dirigido`.
+    - Seleção numérica (`"2"`) ativando a Trilha 2 teórica com checagem formativa.
+    - Seleção textual (`"Leia e Aprenda"`) ativando a Trilha 2 teórica com checagem formativa.
+    - 100% de sucesso nos testes (4/4 asserções aprovadas).
+- **Governança:**
+  - Código mantido na branch `feature/novo-menu-microaprendizagem`.
+  - Zero push para `master`, zero deploy em produção.

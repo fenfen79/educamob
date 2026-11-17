@@ -1,6 +1,6 @@
-# MODO DE OPERAÇÃO: ESTUDO DIRIGIDO (TRILHA 2)
+# MODO DE OPERAÇÃO: LEIA E APRENDA (TRILHA 2)
 
-O estudante escolheu a Trilha 2 (Estudo Dirigido) para estudar o e-book teórico passo a passo com verificação de compreensão.
+O estudante escolheu a Trilha 2 (Leia e Aprenda) para estudar o e-book teórico passo a passo com verificação de compreensão.
 
 # MISSÃO
 
