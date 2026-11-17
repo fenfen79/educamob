@@ -615,8 +615,13 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                     issues_by_priority["P2"].append(issue)
                     msg_has_issue = True
 
-                # P2.3 Subscrito duplo KaTeX sem chaves
-                if re.search(r'_[a-zA-Z0-9]+_[a-zA-Z0-9]+', content) and not re.search(r'\$[A-Z][a-z]?_\d+[A-Z][a-z]?_\d+', content) and not re.search(r'0,[a-z]_\d[a-z]_\d', content):
+                # P2.3 Subscrito duplo KaTeX sem chaves (Double subscript real no mesmo base token)
+                has_double_sub = (
+                    "__" in content
+                    or bool(re.search(r'_[a-zA-Z0-9]\s*_[a-zA-Z0-9{]', content))
+                    or bool(re.search(r'_{[^}]+}\s*_[a-zA-Z0-9{]', content))
+                )
+                if has_double_sub and not re.search(r'0,[a-z]_\d[a-z]_\d', content):
                     issue = {
                         "priority": "P2",
                         "type": "KATEX_DOUBLE_SUBSCRIPT",
@@ -624,7 +629,7 @@ async def run_sentinel_audit(hours: int = 24, output_dir: str = None):
                         "msg_id": mid,
                         "turn": idx + 1,
                         "desc": "Subscrito duplo KaTeX sem chaves protetoras que gera erro de render.",
-                        "snippet": [l for l in content.split('\n') if re.search(r'_[a-zA-Z0-9]+_[a-zA-Z0-9]+', l)][:2]
+                        "snippet": [l for l in content.split('\n') if ('__' in l or re.search(r'_[a-zA-Z0-9]\s*_[a-zA-Z0-9{]', l) or re.search(r'_{[^}]+}\s*_[a-zA-Z0-9{]', l))][:2]
                     }
                     s_audit["issues"].append(issue)
                     issues_by_priority["P2"].append(issue)
