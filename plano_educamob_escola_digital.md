@@ -643,7 +643,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
 | **Ingestão Supabase (Mob.me RAG - História)** | **116 e-books teóricos (4.437 chunks) + 62 listas (3.782 chunks) + `historia` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (Fund 2 e EM)** |
 | **Língua Portuguesa - 5º Ano (Exercícios)** | **20 de 20 listas (1.200 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, linguagem adequada aos 10 anos)** |
 | **Língua Portuguesa - 6º Ano (Exercícios)** | **20 de 20 listas (1.200 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Exit Code 0, 20% A-E, sem decoreba, linguagem para 11 anos)** |
-| **Língua Portuguesa - 7º Ano (Exercícios)** | **10 de 20 listas (600 questões homologadas - Lotes 1 e 2 Concluídos)** | ⏳ **50% Homologado no Padrão-Ouro (Cap 01 ao 10 com Exit Code 0, 12 anos)** |
+| **Língua Portuguesa - 7º Ano (Exercícios)** | **20 de 20 listas (1.200 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Cap 01 ao 20 com Exit Code 0, 12 anos)** |
 | **Língua Portuguesa - 8º Ano (Exercícios)** | **0 de 20 listas (Aguardando Lotes)** | ⏳ **Pendente** |
 | **Língua Portuguesa - 9º Ano (Exercícios)** | **0 de 20 listas (Aguardando Lotes)** | ⏳ **Pendente** |
 | **TOTAL GERAL DE LÍNGUA PORTUGUESA (Exercícios)** | **40 de 100 listas (2.400 de 6.000 questões)** | ⏳ **5º e 6º Anos 100% Concluídos e Homologados (Exit Code 0)** |
@@ -1157,3 +1157,12 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
     - **Equilíbrio Matemático de Gabaritos:** Exatamente 648 alternativas A, 648 B, 648 C, 648 D e 648 E distribuídas em ciclos perfeitos sem qualquer repetição consecutiva (streak máximo <= 1).
     - **Aderência Curricular:** 100% de aderência às habilidades da BNCC (`EM13CHS101` a `EM13CHS606`), à Matriz do ENEM (`H1` a `H30`) e às Leis 10.639/03 e 11.645/08.
     - **Validação Formal:** 100% aprovado pelo `validador_educamob.py` com Exit Code 0, guardrails de fechamento de mundo teórico, supressão de cifrão (`R$`) e repúdio irrestrito a jargões pedantes.
+
+
+142. Padronização Visual e Interatividade Unificada do Menu de 6 Trilhas no Mob.me (Badges 1, 2 e 5 sincronizados com 3, 4 e 6) ✅ Concluído
+- **Data de Homologação:** 17 de Novembro de 2026.
+- **Escopo Executado:**
+  1. Diagnóstico e resolução da inconsistência visual onde as opções 1, 2 e 5 do menu inicial renderizavam como listas markdown estáticas enquanto 3, 4 e 6 renderizavam como badges laranjas clicáveis.
+  2. Atualização das expressões regulares de normalização em `apps/mobme-source/app/page.tsx` com suporte a qualquer padrão de numeração, assegurando isolamento em parágrafos e conversão consistente para keycaps `1️⃣` a `6️⃣`.
+  3. Remoção de blocos legados de cards no componente `p` de Markdown, padronizando 100% das opções no design de badges laranjas (`.orange-badge`) e tornando a linha inteira interativa ao clique (`cursor-pointer`).
+  4. Recompilação estática Next.js com Turbopack (Exit Code 0) e sincronização dos arquivos estáticos em `apps/mobme/`.

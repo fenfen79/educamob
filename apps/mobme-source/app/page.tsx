@@ -178,13 +178,13 @@ const sanitizeContent = (content: string) => {
     // Normaliza opções de menu em negrito: 1. **Tirar Dúvidas (texto/imagem) 💬** -> 1. Tirar Dúvidas (texto/imagem) 💬
     textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*\*\*([^\*\n]+)\*\*/gi, (m, n, rest) => `\n\n${n}. ${rest}`);
 
-    // Normaliza opções das 6 Trilhas mesmo que venham SEM numeração ou com emojis colados
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[156][\.\)\-]?\s*|[156]\uFE0F?\u20E3\s*)?(?:Tirar?\s+D[úu]vidas(?:\s*\(texto\/imagem\))?|Enviar\s+quest[ãa]o)\s*(?:💬|🖼️)?/gi, "\n\n1\uFE0F\u20E3 Tirar Dúvidas (texto/imagem) 💬");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[12][\.\)\-]?\s*|[12]\uFE0F?\u20E3\s*)?(?:Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender)\s*📚?/gi, "\n\n2\uFE0F\u20E3 Leia e Aprenda 📚");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[34][\.\)\-]?\s*|[34]\uFE0F?\u20E3\s*)?(?:Resumo)\s*🧠?/gi, "\n\n3\uFE0F\u20E3 Resumo 🧠");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[34][\.\)\-]?\s*|[34]\uFE0F?\u20E3\s*)?(?:Flashcards)\s*🃏?/gi, "\n\n4\uFE0F\u20E3 Flashcards 🃏");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[25][\.\)\-]?\s*|[25]\uFE0F?\u20E3\s*)?(?:Lista\s+de\s+Exerc[íi]cios|Praticar)\s*📝?/gi, "\n\n5\uFE0F\u20E3 Lista de Exercícios 📝");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:[67][\.\)\-]?\s*|[67]\uFE0F?\u20E3\s*)?(?:Finalizar)\s*⏸️?/gi, "\n\n6\uFE0F\u20E3 Finalizar ⏸️");
+    // Normaliza opções das 6 Trilhas mesmo que venham SEM numeração, com numerações variadas ou com emojis colados
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Tirar?\s+D[úu]vidas(?:\s*\(texto\/imagem\))?|Enviar\s+quest[ãa]o)\s*(?:💬|🖼️)?/gi, "\n\n1\uFE0F\u20E3 Tirar Dúvidas (texto/imagem) 💬");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender)\s*📚?/gi, "\n\n2\uFE0F\u20E3 Leia e Aprenda 📚");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Resumo)\s*🧠?/gi, "\n\n3\uFE0F\u20E3 Resumo 🧠");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Flashcards)\s*🃏?/gi, "\n\n4\uFE0F\u20E3 Flashcards 🃏");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Lista\s+de\s+Exerc[íi]cios|Praticar)\s*📝?/gi, "\n\n5\uFE0F\u20E3 Lista de Exercícios 📝");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Finalizar)\s*⏸️?/gi, "\n\n6\uFE0F\u20E3 Finalizar ⏸️");
 
     // Garante que opções numeradas do menu (1. Tirar Dúvidas..., 2. Leia e Aprenda...) ou keycaps (1️⃣, 2️⃣...) sempre fiquem com badge e parágrafos separados (\n\n)
     textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*(?=(?:Tirar?\s+D[úu]vidas|Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar))/gi, (match, num) => `\n\n${num}\uFE0F\u20E3 `);
@@ -1420,50 +1420,31 @@ export default function ChatApp() {
     p: ({ node, children, ...props }: any) => {
       const textStr = getNodeText(children).trim();
 
-      // 0. Trilhas de Aprendizagem Interativas (Menu de 6 Opções)
-      const trilhaMatch = textStr.match(/^([1-6])(?:\uFE0F?\u20E3|[\.\)\-]?\s*)(Tirar?\s+D[úu]vidas(?:\s*\(texto\/imagem\))?|Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar)/i);
-      if (trilhaMatch) {
-        const num = trilhaMatch[1];
-        const trilhaInfoMap: Record<string, { title: string; emoji: string; desc: string; cmd: string }> = {
-          "1": { title: "Tirar Dúvidas (texto/imagem)", emoji: "💬", desc: "Pergunte o que quiser ou envie imagens sobre o assunto", cmd: "1" },
-          "2": { title: "Leia e Aprenda", emoji: "📚", desc: "Teoria guiada passo a passo com checagens", cmd: "2" },
-          "3": { title: "Resumo", emoji: "🧠", desc: "Síntese dos conceitos-chave e mapa mental", cmd: "3" },
-          "4": { title: "Flashcards", emoji: "🃏", desc: "Fixação ativa e repetição espaçada", cmd: "4" },
-          "5": { title: "Lista de Exercícios", emoji: "📝", desc: "Lista de exercícios graduados com gabarito oficial", cmd: "5" },
-          "6": { title: "Finalizar", emoji: "⏸️", desc: "Pausar e salvar o progresso da sessão", cmd: "6" },
-        };
-        const info = trilhaInfoMap[num] || { title: trilhaMatch[2], emoji: "🚀", desc: "Avançar na trilha", cmd: num };
-
+      // 0. Se for linha de Menu de Trilhas (com badge laranja), torna a linha inteira interativa com cursor pointer e clique direto
+      const trilhaRegex = /^[ \t]*[1-6]\uFE0F?\u20E3/;
+      if (trilhaRegex.test(textStr)) {
+        const numMatch = textStr.match(/^([1-6])/);
+        const num = numMatch ? numMatch[1] : null;
         return (
-          <button
-            type="button"
-            disabled={isTyping}
+          <p
+            className="my-2.5 leading-relaxed text-[var(--text-primary)] text-[0.98rem] cursor-pointer group"
             onClick={() => {
-              if (!isTyping) {
-                handleSend(info.cmd);
+              if (!isTyping && num) {
+                const trackLabels: Record<string, string> = {
+                  "1": "1. Tirar Dúvidas (texto/imagem) 💬",
+                  "2": "2. Leia e Aprenda 📚",
+                  "3": "3. Resumo 🧠",
+                  "4": "4. Flashcards 🃏",
+                  "5": "5. Lista de Exercícios 📝",
+                  "6": "6. Finalizar ⏸️",
+                };
+                handleSend(trackLabels[num] || num);
               }
             }}
-            className="w-full text-left my-2 p-3.5 md:p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] hover:bg-[var(--bg-hover)] active:scale-[0.99] transition-all duration-150 shadow-sm flex items-center justify-between group cursor-pointer"
-            title={`Iniciar trilha: ${info.title}`}
+            {...props}
           >
-            <div className="flex items-center gap-3.5">
-              <span className="w-8 h-8 rounded-lg bg-[var(--accent-primary-light)] text-[var(--accent-primary)] font-extrabold flex items-center justify-center shrink-0 text-sm group-hover:bg-[var(--accent-primary)] group-hover:text-black transition-colors shadow-xs">
-                {num}
-              </span>
-              <div>
-                <div className="font-bold text-[var(--text-primary)] text-[0.98rem] flex items-center gap-2">
-                  <span>{info.title}</span>
-                  <span className="text-base select-none">{info.emoji}</span>
-                </div>
-                <div className="text-xs text-[var(--text-muted)] font-normal mt-0.5">
-                  {info.desc}
-                </div>
-              </div>
-            </div>
-            <span className="text-[var(--accent-primary)] text-sm font-semibold opacity-75 group-hover:opacity-100 group-hover:translate-x-1 transition-all flex items-center gap-1 select-none pr-1">
-              Começar <span className="text-base">➔</span>
-            </span>
-          </button>
+            {processChildren(children)}
+          </p>
         );
       }
 

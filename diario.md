@@ -7980,3 +7980,29 @@ eurotoxina do peixe-baiacu / bloqueadora de canais de sódio voltagem-dependente
 - **Governança:**
   - Branch de trabalho: `feature/novo-menu-microaprendizagem`.
   - Zero push para `master`, zero deploy em produção. Todos os guardrails cumpridos à risca.
+
+
+---
+
+### Rodada 137 — Padronização Visual e Interatividade Unificada do Menu de 6 Trilhas (Badges 1, 2 e 5 sincronizados com 3, 4 e 6)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado e Compilado com Sucesso no Next.js (Turbopack) com Exit Code 0.
+- **Ambiente:** Ambiente de Testes Local (Branch `feature/novo-menu-microaprendizagem`). Zero deploys em produção.
+- **Diagnóstico da Causa Raiz:**
+  - O usuário identificou que na exibição do menu de boas-vindas ("Como você prefere começar?"), as opções 3 ("Resumo 🧠"), 4 ("Flashcards 🃏") e 6 ("Finalizar ⏸️") apareciam com o design estilizado de badge laranja (`orange-badge`) e eram clicáveis, enquanto as opções 1 ("Tirar Dúvidas 💬"), 2 ("Leia e Aprenda 📚") e 5 ("Lista de Exercícios 📝") apareciam como itens de lista ordenada tradicional (`<ol>`) com marcadores numéricos estáticos e não clicáveis.
+  - Causa 1: A expressão regular em `sanitizeContent` (`apps/mobme-source/app/page.tsx`) utilizava restrições legadas nos prefixos numéricos (`[156]` para opção 1, `[12]` para opção 2 e `[25]` para opção 5). Quando a IA gerava a numeração canônica com ponto (`1. Tirar Dúvidas...`), certas variações de pontuação ou formatação não convertiam para keycap emojis (`1️⃣`, `2️⃣`, `5️⃣`), fazendo com que o CommonMark interpretasse as linhas como lista ordenada HTML (`<ol><li>`), onde os números são gerados pelo navegador via CSS marker e não pelo React.
+  - Causa 2: No componente de parágrafo (`markdownComponents.p`), existia a lógica legada `trilhaMatch` que tentava renderizar cards volumosos com o botão "Começar ➔". O padrão oficial aprovado pelo design da Educamob são os badges laranjas compactos (`.orange-badge`).
+- **Implementações e Refatorações Realizadas:**
+  1. **Higienização e Normalização Universal (`apps/mobme-source/app/page.tsx`):**
+     - As expressões regulares das 6 opções foram atualizadas para aceitar qualquer prefixo numérico (`(?:\d+[\.\)\-]?\s*|\d+️?⃣\s*)?`), convertendo de forma infalível todas as opções 1 a 6 para seus respectivos keycaps (`1️⃣` a `6️⃣`) cercados por parágrafos duplos (`\n\n`), blindando contra a conversão acidental em tags `<ol>`.
+  2. **Unificação Visual e Interatividade Total (`markdownComponents.p`):**
+     - Removida a tentativa de renderização de cards grandes (`trilhaMatch`).
+     - Agora, todas as opções de trilhas (1 a 6) acionam `renderWithBadges`, gerando de forma homogênea o botão `<button className="orange-badge">{num}</button>` com o estilo laranja sólido moderno.
+     - Adicionado `cursor-pointer` e manipulador de clique na linha completa do parágrafo (`onClick`), permitindo ao aluno acionar a trilha clicando tanto no badge numérico quanto no texto do título.
+  3. **Recompilação e Exportação Estática Next.js:**
+     - Build de produção executado com sucesso (`npm run build` via Turbopack, 0 erros TypeScript).
+     - Exportação sincronizada para `apps/mobme/`.
+- **Governança:**
+  - Branch de trabalho: `feature/novo-menu-microaprendizagem`.
+  - Servidor em nuvem: Zero alterações sem a chave autorizadora explícita.
