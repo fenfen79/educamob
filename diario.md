@@ -7744,3 +7744,25 @@ esolve_active_mode_and_topic).
   - **Obrigatoriedade de Branch Isolada:** Testes e prototipações devem ocorrer estritamente em branches `feature/...` ou `laboratorio`.
   - **Chave de Segurança Mandatória:** Nenhum comando de SCP/Deploy na nuvem pode ser acionado sem a autorização textual prévia do usuário (`"AUTORIZO O DEPLOY EM PRODUÇÃO"`).
 
+
+
+---
+
+## 🚀 Rodada 145 — Deploy Oficial do Frontend Mob.me com Padronização de Badges Interativos do Menu (GitHub Pages)
+
+- **Data:** 17 de Novembro de 2026
+- **Status:** 🏆 100% Homologado e Publicado em Produção via GitHub Pages (`app.educamob.com.br`)
+- **Autorização de Governança:** Chave de segurança mandatória fornecida pelo usuário: `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+- **Diagnóstico do Incidente:**
+  - No frontend da Mob.me (`https://app.educamob.com.br/apps/mobme/`), ao receber a mensagem de boas-vindas com as 6 trilhas de aprendizagem, as opções **1 (Tirar Dúvidas 💬)**, **2 (Leia e Aprenda 📚)** e **5 (Lista de Exercícios 📝)** renderizavam como marcadores de lista estáticos em Markdown (`<ol><li>`), enquanto as opções **3 (Resumo 🧠)**, **4 (Flashcards 🃏)** e **6 (Finalizar ⏸️)** renderizavam como badges laranjas clicáveis (`.orange-badge`).
+- **Ações e Correções Implementadas:**
+  1. **Ajuste de Expressões Regulares de Normalização (`apps/mobme-source/app/page.tsx`):**
+     - Generalização das regexes em `sanitizeContent` para aceitar qualquer prefixo numérico `(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?` com lookahead para os novos nomes das trilhas (`Tirar D[úu]vidas|Leia e Aprenda|Lista de Exerc[íi]cios|Flashcards|Resumo|Finalizar`), convertendo uniformemente para keycaps `1️⃣` a `6️⃣` isolados em parágrafos.
+  2. **Interatividade e Padronização de Badges:**
+     - Remoção de renderização legada de cartões pesados no componente `<p>` de Markdown, assegurando que todas as 6 opções renderizem via `<p>` padronizado com badges `.orange-badge`.
+     - Inclusão de `cursor-pointer` e manipulador `onClick` na linha inteira do parágrafo da trilha, permitindo ao estudante clicar tanto no badge quadrado quanto no texto da opção para selecionar a trilha.
+  3. **Build e Exportação Estática:**
+     - Recompilação completa com Next.js Turbopack (`npm run build`) gerando o bundle estático oficial `06_5ee8if23ve.js`.
+     - Exportação sincronizada para `apps/mobme/`.
+  4. **Deploy em Produção:**
+     - Commit e push autorizados na branch `master` para atualização instantânea do GitHub Pages em `app.educamob.com.br`.

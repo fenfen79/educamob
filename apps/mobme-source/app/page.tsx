@@ -175,19 +175,19 @@ const sanitizeContent = (content: string) => {
     textPart = textPart.replace(/(respectivamente|abaixo|seguir)[ \t]*:?[ \t]*([aA]\))(?=[ \t]+\S)/gi, '$1:\n\n$2');
     textPart = textPart.replace(/([^\n])[ \t]+([b-eB-E]\))(?=[ \t]+\S)/g, '$1\n\n$2');
 
-    // Normaliza opções de menu em negrito: 1. **Aprender📚** -> 1. Aprender📚
+    // Normaliza opções de menu em negrito: 1. **Tirar Dúvidas (texto/imagem) 💬** -> 1. Tirar Dúvidas (texto/imagem) 💬
     textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*\*\*([^\*\n]+)\*\*/gi, (m, n, rest) => `\n\n${n}. ${rest}`);
 
-    // Normaliza opções das 6 Trilhas mesmo que venham SEM numeração ou com emojis colados (ex: "Aprender📚", "Praticar📝")
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:1[\.\)\-]?\s*|1\uFE0F?\u20E3\s*)?(?:Aprender)\s*📚?/gi, "\n\n1\uFE0F\u20E3 Aprender 📚");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:2[\.\)\-]?\s*|2\uFE0F?\u20E3\s*)?(?:Praticar)\s*📝?/gi, "\n\n2\uFE0F\u20E3 Praticar 📝");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:3[\.\)\-]?\s*|3\uFE0F?\u20E3\s*)?(?:Flashcards)\s*🃏?/gi, "\n\n3\uFE0F\u20E3 Flashcards 🃏");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:4[\.\)\-]?\s*|4\uFE0F?\u20E3\s*)?(?:Resumo)\s*🧠?/gi, "\n\n4\uFE0F\u20E3 Resumo 🧠");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:5[\.\)\-]?\s*|5\uFE0F?\u20E3\s*)?(?:Enviar\s+quest[ãa]o)\s*🖼️?/gi, "\n\n5\uFE0F\u20E3 Enviar questão 🖼️");
-    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:6[\.\)\-]?\s*|6\uFE0F?\u20E3\s*)?(?:Finalizar)\s*⏸️?/gi, "\n\n6\uFE0F\u20E3 Finalizar ⏸️");
+    // Normaliza opções das 6 Trilhas mesmo que venham SEM numeração, com numerações variadas ou com emojis colados
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Tirar?\s+D[úu]vidas(?:\s*\(texto\/imagem\))?|Enviar\s+quest[ãa]o)\s*(?:💬|🖼️)?/gi, "\n\n1\uFE0F\u20E3 Tirar Dúvidas (texto/imagem) 💬");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender)\s*📚?/gi, "\n\n2\uFE0F\u20E3 Leia e Aprenda 📚");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Resumo)\s*🧠?/gi, "\n\n3\uFE0F\u20E3 Resumo 🧠");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Flashcards)\s*🃏?/gi, "\n\n4\uFE0F\u20E3 Flashcards 🃏");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Lista\s+de\s+Exerc[íi]cios|Praticar)\s*📝?/gi, "\n\n5\uFE0F\u20E3 Lista de Exercícios 📝");
+    textPart = textPart.replace(/(?:^|\n)[ \t]*(?:\d+[\.\)\-]?\s*|\d+\uFE0F?\u20E3\s*)?(?:Finalizar)\s*⏸️?/gi, "\n\n6\uFE0F\u20E3 Finalizar ⏸️");
 
-    // Garante que opções numeradas do menu (1. Aprender, 2. Praticar...) ou keycaps (1️⃣, 2️⃣...) sempre fiquem com badge e parágrafos separados (\n\n)
-    textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*(?=(?:Aprender|Praticar|Flashcards|Resumo|Enviar quest|Finalizar))/gi, (match, num) => `\n\n${num}\uFE0F\u20E3 `);
+    // Garante que opções numeradas do menu (1. Tirar Dúvidas..., 2. Leia e Aprenda...) ou keycaps (1️⃣, 2️⃣...) sempre fiquem com badge e parágrafos separados (\n\n)
+    textPart = textPart.replace(/(?:^|\n)([1-6])[\.\)\-]?\s*(?=(?:Tirar?\s+D[úu]vidas|Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar))/gi, (match, num) => `\n\n${num}\uFE0F\u20E3 `);
     textPart = textPart.replace(/([^\n])\n?(([0-9]|10)\uFE0F?\u20E3)/g, "$1\n\n$2");
     textPart = textPart.replace(/(([0-9]|10)\uFE0F?\u20E3[^\n]+)\n([^\n0-9])/g, "$1\n\n$3");
 
@@ -216,7 +216,7 @@ const sanitizeContent = (content: string) => {
       continue;
     }
 
-    // Se a linha for uma das opções do Menu de Trilhas (1️⃣ Aprender... 6️⃣ Finalizar)
+    // Se a linha for uma das opções do Menu de Trilhas (1️⃣ Tirar Dúvidas... 6️⃣ Finalizar)
     const trilhaRegex = /^[ \t]*[1-6]\uFE0F?\u20E3/;
     if (trilhaRegex.test(trimmed)) {
       if (processedLines.length > 0 && processedLines[processedLines.length - 1].trim() !== "") {
@@ -302,19 +302,41 @@ const sanitizeContent = (content: string) => {
 const splitMessageMenu = (text: string): { content: string; menu: string | null } => {
   if (!text) return { content: "", menu: null };
 
-  const hasMenu = (text.includes("1️⃣") || text.includes("1. Aprender")) && (
+  const hasMenu = (
+    text.includes("1️⃣") ||
+    text.includes("1. Tirar Dúvidas") ||
+    text.includes("1. Tira Dúvidas") ||
+    text.includes("1. Leia e Aprenda") ||
+    text.includes("1. Estudo Dirigido") ||
+    text.includes("1. Aprender")
+  ) && (
     text.includes("6️⃣") ||
     text.includes("6. Finalizar") ||
+    text.includes("7️⃣") ||
+    text.includes("7. Finalizar") ||
     text.includes("Finalizar ⏸️") ||
-    text.includes("Aprender") ||
-    text.includes("8️⃣") ||
-    text.includes("Bora ler!")
+    text.includes("Lista de Exercícios") ||
+    text.includes("Tirar Dúvidas") ||
+    text.includes("Leia e Aprenda") ||
+    text.includes("Estudo Dirigido")
   );
   if (!hasMenu) {
     return { content: text, menu: null };
   }
 
   let menuIndex1 = text.indexOf("1️⃣");
+  if (menuIndex1 === -1) {
+    menuIndex1 = text.indexOf("1. Tirar Dúvidas");
+  }
+  if (menuIndex1 === -1) {
+    menuIndex1 = text.indexOf("1. Tira Dúvidas");
+  }
+  if (menuIndex1 === -1) {
+    menuIndex1 = text.indexOf("1. Leia e Aprenda");
+  }
+  if (menuIndex1 === -1) {
+    menuIndex1 = text.indexOf("1. Estudo Dirigido");
+  }
   if (menuIndex1 === -1) {
     menuIndex1 = text.indexOf("1. Aprender");
   }
@@ -420,49 +442,62 @@ const LOADING_MESSAGES: Record<string, string[]> = {
 const getTrackFromInput = (input: string, lastAiText: string = ""): "teoria" | "flashcards" | "memorex" | null => {
   if (!input) return null;
   const text = input.trim().toLowerCase();
-  const isTrackMenuOnScreen = (lastAiText.includes("1️⃣") || lastAiText.includes("1. Aprender")) && 
-                              (lastAiText.includes("6️⃣") || lastAiText.includes("6. Finalizar") || lastAiText.includes("Finalizar"));
+  const isTrackMenuOnScreen = (
+    lastAiText.includes("1️⃣") ||
+    lastAiText.includes("1. Tirar Dúvidas") ||
+    lastAiText.includes("1. Leia e Aprenda") ||
+    lastAiText.includes("1. Estudo Dirigido") ||
+    lastAiText.includes("1. Aprender")
+  ) && (
+    lastAiText.includes("6️⃣") ||
+    lastAiText.includes("6. Finalizar") ||
+    lastAiText.includes("7️⃣") ||
+    lastAiText.includes("Finalizar")
+  );
   if (!isTrackMenuOnScreen && ["1", "2", "3", "4", "5", "6"].includes(text)) {
     return null;
   }
   
-  // 1. Aprender
+  // 2. Leia e Aprenda
   if (
-    text === "1" || 
-    text.startsWith("1 ") || 
-    text.startsWith("1.") || 
-    text.includes("1️⃣") || 
+    text === "2" || 
+    text.startsWith("2 ") || 
+    text.startsWith("2.") || 
+    text.includes("2️⃣") || 
+    text.includes("leia e aprenda") || 
+    text.includes("leia aprenda") || 
+    text.includes("estudo dirigido") || 
     text.includes("aprender") || 
     text.includes("microciclo")
   ) {
     return "teoria";
   }
 
-  // 3. Flashcards
+  // 3. Resumo
   if (
     text === "3" || 
     text.startsWith("3 ") || 
     text.startsWith("3.") || 
+    text.startsWith("3-") || 
     text.includes("3️⃣") || 
-    text.includes("flashcard") || 
-    text.includes("flashcards") || 
-    text.includes("revisar")
-  ) {
-    return "flashcards";
-  }
-
-  // 4. Resumo
-  if (
-    text === "4" || 
-    text.startsWith("4 ") || 
-    text.startsWith("4.") || 
-    text.startsWith("4-") || 
-    text.includes("4️⃣") || 
     text.includes("resumo") || 
     text.includes("resumir") || 
     text.includes("memorex")
   ) {
     return "memorex";
+  }
+
+  // 4. Flashcards
+  if (
+    text === "4" || 
+    text.startsWith("4 ") || 
+    text.startsWith("4.") || 
+    text.includes("4️⃣") || 
+    text.includes("flashcard") || 
+    text.includes("flashcards") || 
+    text.includes("revisar")
+  ) {
+    return "flashcards";
   }
   
   return null;
@@ -1276,16 +1311,16 @@ export default function ChatApp() {
               e.stopPropagation();
               if (!isTyping) {
                 // Se o texto circundante for explicitamente uma trilha do menu principal, envia o comando com rótulo
-                const isTrackMenu = /Aprender|Praticar|Flashcards|Resumo|Enviar\s+quest|Finalizar/i.test(text);
+                const isTrackMenu = /Tirar?\s+D[úu]vidas|Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar/i.test(text);
                 if (isTrackMenu) {
                   const trackLabels: Record<string, string> = {
-                    "1": "1. Aprender📚",
-                    "2": "2. Praticar📝",
-                    "3": "3. Flashcards 🃏",
-                    "4": "4. Resumo 🧠",
-                    "5": "5. Enviar questão 🖼️",
+                    "1": "1. Tirar Dúvidas (texto/imagem) 💬",
+                    "2": "2. Leia e Aprenda 📚",
+                    "3": "3. Resumo 🧠",
+                    "4": "4. Flashcards 🃏",
+                    "5": "5. Lista de Exercícios 📝",
                     "6": "6. Finalizar ⏸️",
-                    "8": "6. Finalizar ⏸️"
+                    "7": "6. Finalizar ⏸️"
                   };
                   handleSend(trackLabels[num] || num);
                 } else {
@@ -1385,50 +1420,31 @@ export default function ChatApp() {
     p: ({ node, children, ...props }: any) => {
       const textStr = getNodeText(children).trim();
 
-      // 0. Trilhas de Aprendizagem Interativas (Menu de 6 Opções)
-      const trilhaMatch = textStr.match(/^([1-6])(?:\uFE0F?\u20E3|[\.\)\-]?\s*)(Aprender|Praticar|Flashcards|Resumo|Enviar\s+quest[ãa]o|Finalizar)/i);
-      if (trilhaMatch) {
-        const num = trilhaMatch[1];
-        const trilhaInfoMap: Record<string, { title: string; emoji: string; desc: string; cmd: string }> = {
-          "1": { title: "Aprender", emoji: "📚", desc: "Teoria guiada passo a passo com checagens", cmd: "1" },
-          "2": { title: "Praticar", emoji: "📝", desc: "Lista de exercícios graduados com gabarito oficial", cmd: "2" },
-          "3": { title: "Flashcards", emoji: "🃏", desc: "Fixação ativa e repetição espaçada", cmd: "3" },
-          "4": { title: "Resumo", emoji: "🧠", desc: "Síntese dos conceitos-chave e mapa mental", cmd: "4" },
-          "5": { title: "Enviar questão", emoji: "🖼️", desc: "Tire dúvidas enviando texto ou foto", cmd: "5" },
-          "6": { title: "Finalizar", emoji: "⏸️", desc: "Pausar e salvar o progresso da sessão", cmd: "6" },
-        };
-        const info = trilhaInfoMap[num] || { title: trilhaMatch[2], emoji: "🚀", desc: "Avançar na trilha", cmd: num };
-
+      // 0. Se for linha de Menu de Trilhas (com badge laranja), torna a linha inteira interativa com cursor pointer e clique direto
+      const trilhaRegex = /^[ \t]*[1-6]\uFE0F?\u20E3/;
+      if (trilhaRegex.test(textStr)) {
+        const numMatch = textStr.match(/^([1-6])/);
+        const num = numMatch ? numMatch[1] : null;
         return (
-          <button
-            type="button"
-            disabled={isTyping}
+          <p
+            className="my-2.5 leading-relaxed text-[var(--text-primary)] text-[0.98rem] cursor-pointer group"
             onClick={() => {
-              if (!isTyping) {
-                handleSend(info.cmd);
+              if (!isTyping && num) {
+                const trackLabels: Record<string, string> = {
+                  "1": "1. Tirar Dúvidas (texto/imagem) 💬",
+                  "2": "2. Leia e Aprenda 📚",
+                  "3": "3. Resumo 🧠",
+                  "4": "4. Flashcards 🃏",
+                  "5": "5. Lista de Exercícios 📝",
+                  "6": "6. Finalizar ⏸️",
+                };
+                handleSend(trackLabels[num] || num);
               }
             }}
-            className="w-full text-left my-2 p-3.5 md:p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] hover:bg-[var(--bg-hover)] active:scale-[0.99] transition-all duration-150 shadow-sm flex items-center justify-between group cursor-pointer"
-            title={`Iniciar trilha: ${info.title}`}
+            {...props}
           >
-            <div className="flex items-center gap-3.5">
-              <span className="w-8 h-8 rounded-lg bg-[var(--accent-primary-light)] text-[var(--accent-primary)] font-extrabold flex items-center justify-center shrink-0 text-sm group-hover:bg-[var(--accent-primary)] group-hover:text-black transition-colors shadow-xs">
-                {num}
-              </span>
-              <div>
-                <div className="font-bold text-[var(--text-primary)] text-[0.98rem] flex items-center gap-2">
-                  <span>{info.title}</span>
-                  <span className="text-base select-none">{info.emoji}</span>
-                </div>
-                <div className="text-xs text-[var(--text-muted)] font-normal mt-0.5">
-                  {info.desc}
-                </div>
-              </div>
-            </div>
-            <span className="text-[var(--accent-primary)] text-sm font-semibold opacity-75 group-hover:opacity-100 group-hover:translate-x-1 transition-all flex items-center gap-1 select-none pr-1">
-              Começar <span className="text-base">➔</span>
-            </span>
-          </button>
+            {processChildren(children)}
+          </p>
         );
       }
 
