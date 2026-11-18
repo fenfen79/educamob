@@ -8033,3 +8033,52 @@ eurotoxina do peixe-baiacu / bloqueadora de canais de sódio voltagem-dependente
 - **Governança:**
   - Branch de trabalho: `feature/novo-menu-microaprendizagem`.
   - Zero push para `master`, zero deploy em produção. Todos os guardrails cumpridos à risca.
+
+
+---
+
+### Rodada 139 — Produção e Homologação do Lote 1 de E-books Teóricos de Geografia do Ensino Médio (Capítulos 01 ao 05 — Eixo I: Epistemologia Geográfica, Cartografia e Tecnologias Espaciais)
+
+- **Data:** 18 de Novembro de 2026
+- **Status:** 🏆 **100% HOMOLOGADO E PROMOVIDO COM EXIT CODE 0 NO VALIDADOR OFICIAL** (alidador_educamob.py).
+- **Ambiente:** Ambiente de Testes Local (Branch eature/novo-menu-microaprendizagem). Zero deploys em produção, zero push para master.
+- **Escopo e Produção Executada:**
+  - Produção atômica de 5 e-books teóricos de alta densidade acadêmica para o componente de Geografia do Ensino Médio (Volume Único estruturado por 5 Eixos Transversais), alinhados estritamente ao mapa_curricular_geografia_medio.md:
+    1. **Capítulo 01:** *A Ciência Geográfica: Categorias Fundamentais e Correntes de Pensamento* (em-geo-c01-ciencia-geografica-categorias-pensamento.md — 4.433 palavras). Cobre a evolução epistemológica da Geografia (Determinismo de Ratzel, Possibilismo de La Blache, Geografia Quantitativa Neopositivista e Geografia Crítica com Milton Santos, Lacoste e Harvey) e disseca profundamente as 5 categorias espaciais: Espaço Geográfico (Sistemas de Objetos e Sistemas de Ações), Paisagem (dimensão perceptiva e rugosidades históricas), Lugar (espaço vivido e topofilia de Yi-Fu Tuan), Território (relações de poder, soberania e apropriação por Raffestin e Haesbaert) e Região (diferenciação analítica de áreas por Corrêa).
+    2. **Capítulo 02:** *Fundamentos da Cartografia: Forma da Terra, Coordenadas, Fusos Horários e Escalas* (em-geo-c02-fundamentos-cartografia-coordenadas-fusos-escalas.md — 4.119 palavras). Cobre a forma física da Terra (o Geoide equipotencial gravitacional vs. Elipsoide de revolução WGS-84/SIRGAS2000 vs. Esfera ideal); sistema ortogonal de coordenadas (paralelos, latitude e zonas térmicas; meridianos, longitude e Greenwich); dinâmica matemática e astronômica dos fusos horários mundiais (^\circ/	ext{h}$) e a legislação dos quatro fusos horários do Brasil (Lei nº 12.876/13: UTC-2, UTC-3, UTC-4 e UTC-5 com referendo popular do Acre); e a teoria da escala cartográfica ( = d/D$, escala gráfica vs. numérica, resolução matemática do paradoxo escala grande vs. escala pequena).
+    3. **Capítulo 03:** *Projeções Cartográficas e a Dimensão Ideológica dos Mapas* (em-geo-c03-projecoes-cartograficas-ideologia-mapas.md — 4.626 palavras). Cobre a impossibilidade geométrica da planificação esférica sem distorção (Teorema Egregium de Gauss e a Indicatriz de Tissot); as 4 propriedades métricas (conformes, equivalentes, equidistantes e afiláticas/compromisso); as 3 superfícies de contato (cilíndricas, cônicas e azimutais/planares, com análise geopolítica do emblema polar da ONU); o confronto ideológico clássico Mercator (conforme, loxodromias náuticas e eurocentrismo cartográfico) vs. Peters / Gall-Peters (equivalente, manifesto terceiro-mundista do Sul Global e proporção real dos continentes) vs. Robinson (compromisso didático); e a desconstrução crítica do mapa como discurso de poder e convenções arbitrárias (J. B. Harley, Mark Monmonier e o mapa invertido de Stuart McArthur).
+    4. **Capítulo 04:** *Cartografia Temática, Perfis Topográficos e Curvas de Nível* (em-geo-c04-cartografia-tematica-curvas-nivel.md — 4.009 palavras). Cobre a Semiologia Gráfica de Jacques Bertin (3 implantações: ponto, linha e área; 6 variáveis visuais: tamanho, valor/luminosidade, cor/matiz, forma, orientação e granulação); cartografia qualitativa, ordenada e coroplética quantitativa; o método crítico da anamorfose geográfica (cartogramas da população mundial e concentração do PIB no Brasil); a representação altimétrica tridimensional por curvas de nível (isóípsas: propriedades, equidistância vertical constante, leitura de encostas íngremes vs. suaves, regra dos 'Vês' apontando para a montante do vale fluvial); e a construção geométrica e cálculo de gradiente de perfis topográficos (-B$) com exagero vertical.
+    5. **Capítulo 05:** *Sensoriamento Remoto, Imagens de Satélite e Fotografias Aéreas* (em-geo-c05-sensoriamento-remoto-imagens-satelite.md — 4.420 palavras). Cobre os fundamentos físicos da radiação eletromagnética, janelas atmosféricas e assinaturas espectrais ópticas (comportamento de absorção/reflexão de vegetação verde sadia, água límpida, água túrbida, solo exposto e áreas urbanas); sensores passivos ópticos vs. sensores ativos de micro-ondas (RADAR/SAR capazes de penetrar nuvens na Amazônia); as quatro resoluções fundamentais de um sistema orbital (espacial, espectral, temporal e radiométrica em bits); o cálculo matemático do Índice de Vegetação por Diferença Normalizada ($	ext{NDVI} = [	ext{NIR} - 	ext{RED}] / [	ext{NIR} + 	ext{RED}]$); a composição de imagens em cor verdadeira vs. falsa-cor clássica (vegetação em vermelho/magenta); satélites civis de observação (Landsat, Sentinel, CBERS e o satélite 100% brasileiro Amazonia-1); e as aplicações estratégicas de soberania e fiscalização ambiental do INPE na Amazônia Legal (PRODES anual de corte raso vs. DETER em tempo real para ações do IBAMA).
+- **Métricas Consolidadas do Lote:**
+  - **Total de E-books Homologados:** 5 e-books atômicos (Capítulos 01 ao 05).
+  - **Volume de Palavras Limpas:** **21.607 palavras** (média excepcional de 4.321 palavras por e-book, superando com folga o limite mínimo de 2.000 palavras do validador e a recomendação de 2.500 a 3.500 do mapa curricular).
+  - **Core Teórico:** Mais de 60% de densidade estrita entre Conceitos e Estudos de Caso Práticos.
+  - **Auditoria de Guardrails:** 100% de conformidade técnica com o alidador_educamob.py (zero exercícios, zero menções ao cifrão proibido 'R$', metadados YAML de 11 campos completos, mínimo de 5 referências bibliográficas consagradas por e-book com citação obrigatória da BNCC).
+- **Progresso de Geografia do Ensino Médio:**
+  - **5 de 50 e-books concluídos** (**10,0%** do total curricular / 62,5% do Eixo I).
+- **Governança:**
+  - Branch de trabalho: eature/novo-menu-microaprendizagem.
+  - Zero push para master, zero deploy em produção. Todos os guardrails cumpridos rigorosamente.
+
+
+---
+
+## 🏛️ Rodada 128 — Deploy Oficial e Ingestão Vetorial das Listas de Exercícios de História EM em Produção (54 Listas / 3.240 Questões)
+
+- **Data:** 18 de Novembro de 2026.
+- **Status:** 🏆 100% Sincronizado na Nuvem, Indexado no pgvector e Ativo na Mob.me.
+- **Autorização de Governança:** Chave de segurança mandatória fornecida pelo usuário: `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+- **Escopo e Entregas Realizadas:**
+  1. **Sincronização do Acervo Físico na Nuvem (Oracle Cloud VPS ARM64 `137.131.163.113`):**
+     - Upload do pacote `historia_em_exercicios.tar.gz` (1,37 MB) contendo todas as **54 listas de exercícios de História do Ensino Médio** (Capítulos 01 ao 54).
+     - Extração no diretório `/home/ubuntu/educamob/content/medio/volume-unico/historia/` e validação dentro do contêiner Docker `mobme-api` em `/app/content/medio/volume-unico/historia/` (totalizando 108 arquivos Markdown: 54 e-books teóricos + 54 listas de exercícios).
+     - 100% dos arquivos disponíveis para resolução determinística de questões pelo backend (`resolve_exercise_file_for_topic`).
+  2. **Ingestão Vetorial de Exercícios no Supabase pgvector (`ingest_exercicios.py`):**
+     - Vetorização integral das **54 listas de exercícios de História EM** (3.240 questões no Padrão-Ouro 20% A-E com scaffolding estruturado).
+     - Geração de embeddings em lote único via DeepInfra (`BAAI/bge-m3`) e inserção direta em micro-lotes de 5 registros na tabela `documents`, com persistência incremental em `ingest_state_exercicios.json`.
+     - Total acumulado de listas de exercícios de História indexadas na plataforma: **116 listas** (6 de Fundamental 1 + 56 de Fundamental 2 + 54 de Ensino Médio).
+  3. **Recarga Dinâmica sem Downtime (Live Reload):**
+     - Disparo do endpoint `https://api.educamob.com.br/api/admin/reload-subjects` (HTTP 200 OK) assegurando a sincronia das 9 disciplinas homologadas.
+- **Governança:**
+  - Branch mantida: `feature/novo-menu-microaprendizagem`.
+  - Zero push para `master`.

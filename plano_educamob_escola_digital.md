@@ -640,7 +640,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
 | **História - 8º Ano (Exercícios)** | **16 de 16 listas (960 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 13 anos)** |
 | **História - 9º Ano (Exercícios)** | **18 de 18 listas (1.080 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, 14 anos)** |
 | **TOTAL GERAL DE HISTÓRIA (Exercícios)** | **62 de 62 listas (3.720 questões)** | 🏆 **Ensino Fundamental 100% Homologado no Padrão-Ouro (Equilíbrio Matemático 20% A-E, 0 Falhas)** |
-| **Ingestão Supabase (Mob.me RAG - História)** | **116 e-books teóricos (4.437 chunks) + 62 listas (3.782 chunks) + `historia` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (Fund 2 e EM)** |
+| **Ingestão Supabase (Mob.me RAG - História)** | **116 e-books teóricos (4.437 chunks) + 116 listas de exercícios (7.076 chunks) + `historia` em `available_subjects`** | ✅ **100% Ingerido e Vetorizado no PostgreSQL (Fund 1, Fund 2 e EM)** |
 | **Língua Portuguesa - 5º Ano (Exercícios)** | **20 de 20 listas (1.200 questões)** | 🏆 **100% Homologado no Padrão-Ouro (20% A-E, sem decoreba, linguagem adequada aos 10 anos)** |
 | **Língua Portuguesa - 6º Ano (Exercícios)** | **20 de 20 listas (1.200 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Exit Code 0, 20% A-E, sem decoreba, linguagem para 11 anos)** |
 | **Língua Portuguesa - 7º Ano (Exercícios)** | **20 de 20 listas (1.200 questões homologadas - 100% Concluído)** | 🏆 **100% Homologado no Padrão-Ouro (Cap 01 ao 20 com Exit Code 0, 12 anos)** |
@@ -1166,3 +1166,23 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
   2. Atualização das expressões regulares de normalização em `apps/mobme-source/app/page.tsx` com suporte a qualquer padrão de numeração, assegurando isolamento em parágrafos e conversão consistente para keycaps `1️⃣` a `6️⃣`.
   3. Remoção de blocos legados de cards no componente `p` de Markdown, padronizando 100% das opções no design de badges laranjas (`.orange-badge`) e tornando a linha inteira interativa ao clique (`cursor-pointer`).
   4. Recompilação estática Next.js com Turbopack (Exit Code 0) e sincronização dos arquivos estáticos em `apps/mobme/`.
+
+
+### 143. Produção e Homologação do Lote 1 de E-books Teóricos de Geografia EM (Capítulos 01 ao 05 — Eixo I: Epistemologia Geográfica, Cartografia e Tecnologias Espaciais) ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 01 ao 05 do componente Geografia — Ensino Médio (Volume Único / Eixo I: Epistemologia Geográfica, Cartografia e Tecnologias Espaciais):
+  1. *Capítulo 01:* A Ciência Geográfica: Categorias Fundamentais e Correntes de Pensamento (em-geo-c01-ciencia-geografica-categorias-pensamento.md — 4.433 palavras).
+  2. *Capítulo 02:* Fundamentos da Cartografia: Forma da Terra, Coordenadas, Fusos Horários e Escalas (em-geo-c02-fundamentos-cartografia-coordenadas-fusos-escalas.md — 4.119 palavras).
+  3. *Capítulo 03:* Projeções Cartográficas e a Dimensão Ideológica dos Mapas (em-geo-c03-projecoes-cartograficas-ideologia-mapas.md — 4.626 palavras).
+  4. *Capítulo 04:* Cartografia Temática, Perfis Topográficos e Curvas de Nível (em-geo-c04-cartografia-tematica-curvas-nivel.md — 4.009 palavras).
+  5. *Capítulo 05:* Sensoriamento Remoto, Imagens de Satélite e Fotografias Aéreas (em-geo-c05-sensoriamento-remoto-imagens-satelite.md — 4.420 palavras).
+- **Métricas do Lote:** 21.607 palavras limpas auditadas (média de 4.321 palavras por e-book).
+- **Progresso de Geografia EM:** 5 de 50 e-books teóricos concluídos e promovidos (10,0% do currículo total).
+- **Validação Formal:** 100% aprovado pelo alidador_educamob.py com Exit Code 0, cumprindo rigorosamente os guardrails de zero exercícios no corpo teórico, zero termos de cifrão (R$), metadados YAML de 11 campos completos, mínimo de 5 referências bibliográficas consagradas com citação obrigatória da BNCC e alinhamento estrito às competências BNCC EM13CHS101 a EM13CHS302 e à Matriz do ENEM.
+
+### 133. Deploy Oficial e Ingestão Vetorial de Exercícios de História EM em Produção ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:**
+  1. *Sincronização Física na Nuvem:* Upload e descompactação de 54 listas de exercícios de História do Ensino Médio (Capítulos 01 ao 54 / 3.240 questões) na VPS Oracle Cloud ARM64 (`137.131.163.113`) em `/app/content/medio/volume-unico/historia/`.
+  2. *Ingestão Vetorial de Exercícios:* Indexação de 54 listas de exercícios de História EM via `BAAI/bge-m3` no Supabase pgvector (`documents`), totalizando 116 listas de História em toda a Educação Básica.
+  3. *Live Reload Homologado:* Confirmação de recarga no endpoint `/api/admin/reload-subjects` da API de produção (`https://api.educamob.com.br`).
