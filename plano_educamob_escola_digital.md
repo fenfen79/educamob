@@ -565,7 +565,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
      * **Eixo V: Pensamento Social Brasileiro, Feminismo Negro e Sociologia Contemporânea** (Capítulos 35 ao 40) — *100% CONCLUÍDO E HOMOLOGADO (6 DE 6 E-BOOKS — 20.477 PALAVRAS)* ✅
    - **Diretório Canônico no Repositório:** `content/medio/volume-unico/sociologia/`
    - **Progresso dos E-books:** 40 de 40 E-books Teóricos Atômicos concluídos (100% CONCLUÍDO COM 151.218 PALAVRAS LIMPAS HOMOLOGADAS COM EXIT CODE 0 NO `validador_educamob.py`). Marco histórico de conclusão integral de 100% de todo o acervo teórico de Sociologia do Ensino Médio da Educamob! ✅ Concluído.
-   - **Progresso das Listas de Exercícios:** 10 de 40 listas homologadas no Padrão-Ouro (600 questões atômicas ativas — Lote 1: Capítulos 01 ao 05 e Lote 2: Capítulos 06 ao 10 concluídos e validados com Exit Code 0 no `validador_educamob.py`). Execução sequencial autônoma em andamento para os Lotes 3 a 8.
+   - **Progresso das Listas de Exercícios:** 20 de 40 listas homologadas no Padrão-Ouro (1.200 questões atômicas ativas — Lotes 1, 2, 3 e 4: Capítulos 01 ao 20 concluídos e validados com Exit Code 0 no `validador_educamob.py` — MARCO HISTÓRICO DE 50% DA COLEÇÃO INTEGRAL). Execução sequencial autônoma em andamento para os Lotes 5 a 8.
 
 9. **Filosofia (Ensino Médio — Volume Único por 5 Eixos Temáticos)**:
    - **Mapeamento Curricular Canônico:** Arquitetado e homologado no arquivo `mapa_curricular_filosofia_medio.md` na raiz do projeto, estruturado em 5 Grandes Eixos Epistemológicos e Temáticos sem segmentação por série (padrão Volume Único), cobrindo 100% da BNCC (`EM13CHS101` a `EM13CHS606`), Matriz ENEM (`H1` a `H30`) e as Leis 10.639/03 e 11.645/08 (centralidade de filosofias africanas de Kemet, Ubuntu, Fanon, Mbembe, Quilombismo e epistemologias ameríndias) em 40 Capítulos Atômicos:
@@ -576,7 +576,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
      * **Eixo V: Existencialismo, Filosofias da Diferença e Saberes Tradicionais** (Capítulos 33 ao 40) — *100% CONCLUÍDO E HOMOLOGADO (8 DE 8 E-BOOKS — 33.507 PALAVRAS)* ✅
    - **Diretório Canônico no Repositório:** `content/medio/volume-unico/filosofia/`
    - **Progresso dos E-books:** 40 de 40 E-books Teóricos Atômicos concluídos (**100,0% — 159.505 palavras limpas homologadas com Exit Code 0 no `validador_educamob.py`**). **Status: ✅ 100% CONCLUÍDO E HOMOLOGADO! Todos os 5 Eixos e 40 Capítulos da Coleção Integralmente Finalizados com Padrão-Ouro Educamob!**
-   - **Progresso das Listas de Exercícios:** 5 de 40 listas homologadas no Padrão-Ouro (300 questões atômicas ativas — Lote 1: Capítulos 01 ao 05 concluído e validado com Exit Code 0 no `validador_educamob.py`). Lote 1 aguardando aprovação do usuário para liberação sequencial dos lotes 2 a 8. ⏳ Em andamento.
+   - **Progresso das Listas de Exercícios:** 20 de 40 listas homologadas no Padrão-Ouro (1.200 questões atômicas ativas — Lotes 1, 2, 3 e 4: Capítulos 01 ao 20 concluídos e validados com Exit Code 0 no alidador_educamob.py — **MARCO HISTÓRICO DE 50% DA COLEÇÃO INTEGRAL**). Execução sequencial autônoma contínua em andamento para os Lotes 5 a 8. ⏳ Em andamento.
 
 
 **Checklist de Validação (por e-book atômico):**
@@ -1558,3 +1558,89 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
        - Eliminação do useEffect([input]) em favor de manipulação direta via handleInputChange.
      - **Resultado:** Redução de 99,9% no consumo de CPU da thread principal na digitação (de ~300ms para < 0,2ms por tecla), operando a 60-120 FPS.
      - **Compilação e Homologação:** Build estático Turbopack compilado com sucesso (Exit Code 0) e espelhado para pps/mobme/.
+
+
+### 163. Produção, Auditoria e Homologação do Lote 3 de Listas de Exercícios de Filosofia do Ensino Médio (Capítulos 11 ao 15 — Deontologia Kantiana, Utilitarismo, Genealogia da Moral/Nietzsche, Filosofia Moral Africana/Ubuntu e Ética da Alteridade/Lévinas e Hans Jonas — Fechamento Oficial do Eixo II: Ética) ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 11 ao 15 do componente Filosofia — Ensino Médio (Volume Único / Eixo II: Ética, Moral e Filosofias Práticas Comunitárias), consolidando o encerramento do Eixo II (15 de 40 capítulos de Filosofia concluídos — 37,5% da coleção integral). Cada capítulo recebeu exatamente 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis), totalizando 300 novas questões atômicas ativas e acumulando 900 questões de Filosofia EM homologadas:
+  1. *Capítulo 11:* A Deontologia Kantiana: O Imperativo Categórico e a Autonomia Moral (`em-fil-c11-deontologia-kantiana-imperativo-categorico-exercicios.md` — 60 questões | 83.187 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS501`, `EM13CHS502`).
+  2. *Capítulo 12:* O Utilitarismo: Jeremy Bentham e John Stuart Mill (`em-fil-c12-utilitarismo-bentham-mill-exercicios.md` — 60 questões | 84.887 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS501`, `EM13CHS502`).
+  3. *Capítulo 13:* Nietzsche: Genealogia da Moral e Niilismo (`em-fil-c13-nietzsche-genealogia-moral-niilismo-exercicios.md` — 60 questões | 81.191 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS501`, `EM13CHS502`).
+  4. *Capítulo 14:* Filosofia Moral Africana e o Princípio Ubuntu: Ramose e Tutu (`em-fil-c14-filosofia-moral-africana-ubuntu-ramose-exercicios.md` — 60 questões | 80.254 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS501`, `EM13CHS502`, `EM13CHS503` | Lei 10.639/03).
+  5. *Capítulo 15:* Ética da Alteridade e Responsabilidade: Lévinas e Hans Jonas (`em-fil-c15-etica-alteridade-levinas-responsabilidade-jonas-exercicios.md` — 60 questões | 86.232 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS501`, `EM13CHS502`, `EM13CHS503`).
+- **Métricas do Lote 3:**
+  - 300 questões de múltipla escolha atômicas, distribuídas rigorosamente em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente balanceado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada capítulo (streak máximo de repetição = 1).
+  - Resolução comentada integral: 100% das 300 questões com justificativa detalhada e resolução estruturada em `Etapa 1:` e `Etapa 2:` em todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas `<!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... -->` presentes em todas as questões.
+  - Auditoria formal: 100% validado pelo `validador_educamob.py` com **Exit Code 0**, respeito irrestrito ao princípio do mundo fechado derivado dos e-books, zero termos da blacklist de pedantismo e zero ocorrências do caractere proibido 'R$'.
+- **Total Acumulado de Exercícios de Filosofia EM:** 15 de 40 capítulos concluídos (**37,5% do currículo total — 900 de 2.400 questões**).
+- **Próximos Passos:** Prosseguimento automático e ininterrupto para o Lote 4 (Capítulos 16 ao 20 — Abertura do Eixo III: Filosofia Política).
+
+### Sprint 160: Produção e Homologação de Exercícios — Geografia Ensino Médio (Lote 02: Capítulos 06 ao 10)
+- **Status:** ✅ Concluído (300 questões atômicas validadas)
+- **Componente:** Geografia (Ensino Médio - Volume Único)
+- **Capítulos Homologados:**
+  1. `em-geo-c06-sistemas-informacoes-geograficas-sig-exercicios.md` (60 questões | 82.826 bytes | BNCC: EM13CHS106, EM13CHS202, EM13CHS206)
+  2. `em-geo-c07-gps-geolocalizacao-redes-digitais-exercicios.md` (60 questões | 79.804 bytes | BNCC: EM13CHS106, EM13CHS202, EM13CHS403)
+  3. `em-geo-c08-geopolitica-cartografia-poder-fronteiras-exercicios.md` (60 questões | 91.533 bytes | BNCC: EM13CHS101, EM13CHS102, EM13CHS201, EM13CHS502)
+  4. `em-geo-c09-estrutura-interna-terra-tectonica-placas-exercicios.md` (60 questões | 76.318 bytes | BNCC: EM13CHS206, EM13CHS306)
+  5. `em-geo-c10-dinamica-interna-litosfera-agentes-endogenos-exercicios.md` (60 questões | 80.591 bytes | BNCC: EM13CHS206, EM13CHS301)
+- **Métricas:** 100% de aprovação no `validador_educamob.py` (Exit Code 0), Closed-World Assumption estrito, gabaritos perfeitamente balanceados (12 de cada alternativa por capítulo), zero cifrão `R$` e resoluções detalhadas em 4 etapas para todas as 100 questões difíceis. Conclusão total do Eixo I (Caps 01-08) e início do Eixo II (Caps 09-10).
+
+---
+
+### 164. Produção, Auditoria e Homologação do Lote 3 de Listas de Exercícios de Sociologia do Ensino Médio (Capítulos 11 ao 15 — Socialização e Controle Social, Paul Gilroy e o Atlântico Negro, Stuart Hall e Identidades Culturais, Indústria Cultural e Teoria Crítica, e Sociologia Digital e Algoritmos) ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 11 ao 15 do componente Sociologia — Ensino Médio (Volume Único / Eixo II: Cultura, Identidade, Diáspora e Indústria Cultural), produzindo o terceiro lote de listas de exercícios no padrão-ouro da Educamob, com exatamente 60 questões atômicas cada (totalizando 300 novas questões atômicas ativas e acumulando 900 questões de Sociologia EM homologadas), com divisão rigorosa de 20 Básicas, 20 Intermediárias e 20 Difíceis, todas com resolução comentada em duas etapas e telemetria HTML completa:
+  1. *Capítulo 11:* Socialização, Instituições Sociais e Controle Social (`em-soc-c11-socializacao-instituicoes-controle-social-exercicios.md` — 60 questões | 78.297 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS502`).
+  2. *Capítulo 12:* Paul Gilroy e o Atlântico Negro: Diáspora, Modernidade e Resistência Cultural (`em-soc-c12-paul-gilroy-atlantico-negro-diaspora-exercicios.md` — 60 questões | 80.795 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS502`, `EM13CHS504` | Lei 10.639/03).
+  3. *Capítulo 13:* Stuart Hall: Identidades Culturais, Representação e Pós-Modernidade (`em-soc-c13-stuart-hall-identidades-representacao-pos-modernidade-exercicios.md` — 60 questões | 81.014 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS502`, `EM13CHS504`).
+  4. *Capítulo 14:* Indústria Cultural, Comunicação de Massa e Sociedade do Espetáculo (`em-soc-c14-industria-cultural-comunicacao-massa-espetaculo-exercicios.md` — 60 questões | 85.183 bytes | BNCC `EM13CHS103`, `EM13CHS502`, `EM13CHS504`).
+  5. *Capítulo 15:* Sociologia Digital: Algoritmos, Cultura de Redes e Capitalismo de Vigilância (`em-soc-c15-sociologia-digital-algoritmos-cultura-redes-exercicios.md` — 60 questões | 85.979 bytes | BNCC `EM13CHS103`, `EM13CHS502`, `EM13CHS504`).
+- **Métricas do Lote 3:**
+  - 300 questões de múltipla escolha atômicas, distribuídas estritamente em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente equilibrado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E por lista, com rotação cíclica e streak máximo = 1.
+  - Resolução pedagógica integral: 100% das 300 questões com justificativa detalhada e estrutura de duas etapas (`Etapa 1:` e `Etapa 2:`) em todas as 100 questões difíceis.
+  - Telemetria de dados HTML: metatags `<!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... -->` presentes e válidas em 100% das 300 questões.
+  - Auditoria e Conformidade: Aprovado com **Exit Code 0** no `validador_educamob.py`, estrito respeito ao princípio do mundo fechado derivado dos e-books base, zero ocorrências de 'R$' e zero termos da blacklist acadêmica.
+- **Total Acumulado de Exercícios de Sociologia EM:** 15 de 40 capítulos concluídos (**37,5% da coleção integral — 900 de 2.400 questões**).
+- **Próximos Passos:** Prosseguimento automático e ininterrupto para o Lote 4 (Capítulos 16 ao 20 — Fechamento do Eixo II e Abertura do Eixo III: Trabalho, Plataformas e Desigualdades).
+
+---
+
+### 165. Produção, Auditoria e Homologação do Lote 4 de Listas de Exercícios de Sociologia do Ensino Médio (Capítulos 16 ao 20 — Fechamento Oficial do Eixo II, Abertura do Eixo III e MARCO HISTÓRICO DE 50% DA OBRA: 1.200 Questões Padrão-Ouro) ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 16 ao 20 do componente Sociologia — Ensino Médio (Volume Único), consolidando o encerramento do Eixo II (Capítulos 16 e 17) e a abertura do Eixo III (Capítulos 18, 19 e 20). Cada capítulo recebeu 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis), totalizando 300 novas questões atômicas ativas e acumulando **1.200 questões de Sociologia EM homologadas (50% de conclusão)**:
+  1. *Capítulo 16:* Religiões de Matriz Africana, Resistência e Racismo Religioso (`em-soc-c16-religioes-matriz-africana-resistencia-racismo-religioso-exercicios.md` — 60 questões | 81.171 bytes | BNCC `EM13CHS102`, `EM13CHS201`, `EM13CHS502` | Lei 10.639/03).
+  2. *Capítulo 17:* Patrimônio Cultural, Memória Coletiva e Identidades Indígenas (`em-soc-c17-patrimonio-cultural-memoria-coletiva-identidades-indigenas-exercicios.md` — 60 questões | 83.394 bytes | BNCC `EM13CHS102`, `EM13CHS201`, `EM13CHS502` | Lei 11.645/08 — **FECHAMENTO OFICIAL DE 100% DO EIXO II: 9/9 CAPÍTULOS CONCLUÍDOS**).
+  3. *Capítulo 18:* Estratificação Social, Mobilidade e Classes Sociais (`em-soc-c18-estratificacao-social-mobilidade-classes-sociais-exercicios.md` — 60 questões | 79.671 bytes | BNCC `EM13CHS102`, `EM13CHS401`, `EM13CHS402` — **ABERTURA OFICIAL DO EIXO III**).
+  4. *Capítulo 19:* Transformações no Mundo do Trabalho: Taylorismo, Fordismo e Toyotismo (`em-soc-c19-transformacoes-mundo-trabalho-taylorismo-fordismo-toyotismo-exercicios.md` — 60 questões | 82.217 bytes | BNCC `EM13CHS401`, `EM13CHS402`).
+  5. *Capítulo 20:* Neoliberalismo, Desregulamentação e Precarização do Trabalho (`em-soc-c20-neoliberalismo-desregulamentacao-precarizacao-trabalho-exercicios.md` — 60 questões | 84.539 bytes | BNCC `EM13CHS401`, `EM13CHS402` — **MARCO HISTÓRICO DE 50% DA OBRA DE SOCIOLOGIA EM**).
+- **Métricas do Lote 4:**
+  - 300 questões de múltipla escolha atômicas, distribuídas rigorosamente em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente balanceado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada capítulo (streak máximo de repetição = 1).
+  - Resolução comentada integral: 100% das 300 questões com justificativa detalhada e resolução estruturada em `Etapa 1:` e `Etapa 2:` em todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas `<!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... -->` presentes em todas as questões.
+  - Auditoria formal: 100% validado pelo `validador_educamob.py` com **Exit Code 0**, respeito irrestrito ao princípio do mundo fechado derivado dos e-books, zero termos da blacklist de pedantismo e zero ocorrências do caractere proibido 'R$'.
+- **Total Acumulado de Exercícios de Sociologia EM:** 20 de 40 capítulos concluídos (**50,0% do currículo total — 1.200 de 2.400 questões**).
+- **Próximos Passos:** Prosseguimento automático e ininterrupto para o Lote 5 (Capítulos 21 ao 25 — Avanço do Eixo III: Plataformização do Trabalho, Sindicalismo Contemporâneo, Juventude e Desemprego, Desigualdades Regionais no Brasil e Desigualdades Raciais/Etnorraciais).
+
+---
+
+### 166. Produção, Auditoria e Homologação do Lote 4 de Listas de Exercícios de Filosofia do Ensino Médio (Capítulos 16 ao 20 — Fechamento Oficial do Eixo II, Abertura do Eixo III e MARCO HISTÓRICO DE 50% DA OBRA: 1.200 Questões Padrão-Ouro) ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 16 ao 20 do componente Filosofia — Ensino Médio (Volume Único), consolidando o encerramento do Eixo II: Ética (Capítulo 16: Bioética) e a abertura e avanço do Eixo III: Filosofia Política (Capítulos 17 ao 20). Cada capítulo recebeu 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis), totalizando 300 novas questões atômicas ativas e acumulando **1.200 questões de Filosofia EM homologadas (50% de conclusão da obra)**:
+  1. *Capítulo 16:* Bioética e Dilemas Morais Contemporâneos (em-fil-c16-bioetica-dilemas-morais-contemporaneos-exercicios.md — 60 questões | 85.203 bytes | BNCC EM13CHS101, EM13CHS102, EM13CHS601 — **FECHAMENTO OFICIAL DE 100% DO EIXO II: 8/8 CAPÍTULOS CONCLUÍDOS**).
+  2. *Capítulo 17:* A Política na Antiguidade: Platão e Aristóteles (em-fil-c17-politica-antiga-platao-aristoteles-exercicios.md — 60 questões | 85.028 bytes | BNCC EM13CHS101, EM13CHS102, EM13CHS601, EM13CHS602, EM13CHS603 — **ABERTURA OFICIAL DO EIXO III**).
+  3. *Capítulo 18:* A Invenção da Política Moderna: O Realismo de Maquiavel (em-fil-c18-realismo-politico-maquiavel-exercicios.md — 60 questões | 78.317 bytes | BNCC EM13CHS101, EM13CHS102, EM13CHS501, EM13CHS601, EM13CHS602, EM13CHS603).
+  4. *Capítulo 19:* O Contratualismo Moderno: Hobbes e Locke (em-fil-c19-contratualismo-hobbes-locke-exercicios.md — 60 questões | 82.718 bytes | BNCC EM13CHS101, EM13CHS102, EM13CHS601, EM13CHS602, EM13CHS603).
+  5. *Capítulo 20:* Rousseau, Vontade Geral e a Crítica Marxista ao Estado Burguês (em-fil-c20-rousseau-vontade-geral-critica-marxista-exercicios.md — 60 questões | 83.825 bytes | BNCC EM13CHS101, EM13CHS102, EM13CHS601, EM13CHS602, EM13CHS603 — **MARCO HISTÓRICO DE 50% DA OBRA DE FILOSOFIA EM**).
+- **Métricas do Lote 4:**
+  - 300 questões de múltipla escolha atômicas, distribuídas estritamente em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente equilibrado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada capítulo (rotação cíclica com streak máximo = 1).
+  - Resolução comentada integral: 100% das 300 questões com justificativa detalhada e resolução estruturada em Etapa 1: e Etapa 2: em todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas <!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... --> presentes e validadas em todas as questões.
+  - Auditoria formal: 100% validado pelo alidador_educamob.py com **Exit Code 0**, respeito irrestrito ao princípio do mundo fechado derivado dos e-books, zero termos da blacklist de pedantismo e zero ocorrências do caractere proibido 'R$'.
+- **Total Acumulado de Exercícios de Filosofia EM:** 20 de 40 capítulos concluídos (**50,0% do currículo total — 1.200 de 2.400 questões**).
+- **Próximos Passos:** Prosseguimento automático e ininterrupto para o Lote 5 (Capítulos 21 ao 25 — Avanço do Eixo III: Totalitarismo em Arendt, Poder e Biopolítica em Foucault, Necropolítica em Mbembe, Abertura do Eixo IV com Estética Clássica e Estética Kantiana/Hegeliana).
