@@ -565,7 +565,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
      * **Eixo V: Pensamento Social Brasileiro, Feminismo Negro e Sociologia Contemporânea** (Capítulos 35 ao 40) — *100% CONCLUÍDO E HOMOLOGADO (6 DE 6 E-BOOKS — 20.477 PALAVRAS)* ✅
    - **Diretório Canônico no Repositório:** `content/medio/volume-unico/sociologia/`
    - **Progresso dos E-books:** 40 de 40 E-books Teóricos Atômicos concluídos (100% CONCLUÍDO COM 151.218 PALAVRAS LIMPAS HOMOLOGADAS COM EXIT CODE 0 NO `validador_educamob.py`). Marco histórico de conclusão integral de 100% de todo o acervo teórico de Sociologia do Ensino Médio da Educamob! ✅ Concluído.
-   - **Progresso das Listas de Exercícios:** 20 de 40 listas homologadas no Padrão-Ouro (1.200 questões atômicas ativas — Lotes 1, 2, 3 e 4: Capítulos 01 ao 20 concluídos e validados com Exit Code 0 no `validador_educamob.py` — MARCO HISTÓRICO DE 50% DA COLEÇÃO INTEGRAL). Execução sequencial autônoma em andamento para os Lotes 5 a 8.
+   - **Progresso das Listas de Exercícios:** 35 de 40 listas homologadas no Padrão-Ouro (2.100 questões atômicas ativas — Lotes 1 a 7 concluídos e validados com Exit Code 0 no `validador_educamob.py` — MARCO HISTÓRICO DE 87,5% DA COLEÇÃO INTEGRAL / 2.100 DE 2.400 QUESTÕES). Execução sequencial autônoma do Lote 8 Final (Capítulos 36 ao 40) em andamento para conclusão definitiva de 100% da obra.
 
 9. **Filosofia (Ensino Médio — Volume Único por 5 Eixos Temáticos)**:
    - **Mapeamento Curricular Canônico:** Arquitetado e homologado no arquivo `mapa_curricular_filosofia_medio.md` na raiz do projeto, estruturado em 5 Grandes Eixos Epistemológicos e Temáticos sem segmentação por série (padrão Volume Único), cobrindo 100% da BNCC (`EM13CHS101` a `EM13CHS606`), Matriz ENEM (`H1` a `H30`) e as Leis 10.639/03 e 11.645/08 (centralidade de filosofias africanas de Kemet, Ubuntu, Fanon, Mbembe, Quilombismo e epistemologias ameríndias) em 40 Capítulos Atômicos:
@@ -1644,3 +1644,142 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
   - Auditoria formal: 100% validado pelo alidador_educamob.py com **Exit Code 0**, respeito irrestrito ao princípio do mundo fechado derivado dos e-books, zero termos da blacklist de pedantismo e zero ocorrências do caractere proibido 'R$'.
 - **Total Acumulado de Exercícios de Filosofia EM:** 20 de 40 capítulos concluídos (**50,0% do currículo total — 1.200 de 2.400 questões**).
 - **Próximos Passos:** Prosseguimento automático e ininterrupto para o Lote 5 (Capítulos 21 ao 25 — Avanço do Eixo III: Totalitarismo em Arendt, Poder e Biopolítica em Foucault, Necropolítica em Mbembe, Abertura do Eixo IV com Estética Clássica e Estética Kantiana/Hegeliana).
+
+---
+
+### 167. Produção, Auditoria e Homologação do Lote 2 de Listas de Exercícios de Geografia do Ensino Médio (Capítulos 06 ao 10 — Fechamento Oficial do Eixo I e Abertura do Eixo II: SIG, GPS e Redes Digitais, Geopolítica da Cartografia, Tectônica de Placas e Agentes Endógenos — 300 Questões Padrão-Ouro) ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 06 ao 10 do componente Geografia — Ensino Médio (Volume Único), consolidando o fechamento do Eixo I (Cartografia e Tecnologias Espaciais: Capítulos 06 a 08) e a abertura do Eixo II (Geossistemas Físicos e Dinâmica Natural da Terra: Capítulos 09 e 10). Cada capítulo recebeu 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis), totalizando 300 novas questões atômicas ativas e acumulando 600 questões de Geografia EM homologadas:
+  1. *Capítulo 06:* Sistemas de Informações Geográficas (SIG) e Modelagem Espacial (em-geo-c06-sistemas-informacoes-geograficas-sig-exercicios.md — 60 questões | 83.757 bytes | BNCC EM13CHS106, EM13CHS206).
+  2. *Capítulo 07:* GPS, Navegação por Satélite e Redes Digitais de Localização (em-geo-c07-gps-geolocalizacao-redes-digitais-exercicios.md — 60 questões | 80.707 bytes | BNCC EM13CHS106, EM13CHS206).
+  3. *Capítulo 08:* Geopolítica da Cartografia: O Mapa como Instrumento de Poder e Fronteiras (em-geo-c08-geopolitica-cartografia-poder-fronteiras-exercicios.md — 60 questões | 92.461 bytes | BNCC EM13CHS102, EM13CHS206 — **FECHAMENTO OFICIAL DE 100% DO EIXO I: 8/8 CAPÍTULOS CONCLUÍDOS**).
+  4. *Capítulo 09:* Estrutura Interna da Terra e a Teoria da Tectônica de Placas (em-geo-c09-estrutura-interna-terra-tectonica-placas-exercicios.md — 60 questões | 77.234 bytes | BNCC EM13CHS206, EM13CHS306 — **ABERTURA OFICIAL DO EIXO II**).
+  5. *Capítulo 10:* Dinâmica Interna da Litosfera: Vulcanismo, Tectonismo e Terremotos (em-geo-c10-dinamica-interna-litosfera-agentes-endogenos-exercicios.md — 60 questões | 81.496 bytes | BNCC EM13CHS206, EM13CHS301).
+- **Métricas do Lote 2:**
+  - 300 questões de múltipla escolha atômicas, distribuídas estritamente em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente balanceado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada capítulo (streak máximo consecutivo de 1 repetição).
+  - Resoluções detalhadas em 4 etapas estruturadas (Etapa 1:, Etapa 2:, Etapa 3:, Etapa 4:) para todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas <!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... --> presentes e válidas em 100% das 300 questões.
+  - Auditoria e Conformidade: Aprovado com **Exit Code 0** no alidador_educamob.py, estrito respeito ao princípio do mundo fechado derivado dos e-books base, zero ocorrências de 'R$' e zero termos da blacklist acadêmica.
+- **Total Acumulado de Exercícios de Geografia EM:** 10 de 50 capítulos concluídos (**20,0% da coleção integral — 600 de 3.000 questões**).
+
+---
+
+### 168. Produção, Auditoria e Homologação do Lote 3 de Listas de Exercícios de Geografia do Ensino Médio (Capítulos 11 ao 15 — Avanço do Eixo II: Recursos Minerais, Intemperismo, Relevo Brasileiro, Pedologia e Fundamentos de Climatologia — 300 Questões Padrão-Ouro) ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 11 ao 15 do componente Geografia — Ensino Médio (Volume Único / Eixo II: Geossistemas Físicos e Dinâmica Natural da Terra). Cada capítulo recebeu 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis), totalizando 300 novas questões atômicas ativas e acumulando 900 questões de Geografia EM homologadas:
+  1. *Capítulo 11:* Estrutura Geológica e Recursos Minerais: Escudos, Bacias e Terras Raras (em-geo-c11-estrutura-geologica-recursos-minerais-terras-raras-exercicios.md — 60 questões | 87.969 bytes | BNCC EM13CHS206, EM13CHS306).
+  2. *Capítulo 12:* Dinâmica Externa da Litosfera: Intemperismo, Erosão e Ação Antrópica (em-geo-c12-dinamica-externa-litosfera-intemperismo-erosao-exercicios.md — 60 questões | 88.088 bytes | BNCC EM13CHS206, EM13CHS306).
+  3. *Capítulo 13:* Geomorfologia do Brasil: As Classificações de Aroldo de Azevedo, Aziz Ab'Sáber e Jurandyr Ross (em-geo-c13-geomorfologia-classificacao-relevo-brasileiro-exercicios.md — 60 questões | 81.823 bytes | BNCC EM13CHS206, EM13CHS306).
+  4. *Capítulo 14:* Pedologia: Formação, Tipos de Solo e Degradação dos Solos no Brasil (em-geo-c14-pedologia-formacao-solos-brasil-exercicios.md — 60 questões | 82.196 bytes | BNCC EM13CHS206, EM13CHS306).
+  5. *Capítulo 15:* Fundamentos de Climatologia: Elementos, Fatores e Dinâmica da Atmosfera (em-geo-c15-fundamentos-climatologia-elementos-fatores-exercicios.md — 60 questões | 81.613 bytes | BNCC EM13CHS206, EM13CHS306).
+- **Métricas do Lote 3:**
+  - 300 questões de múltipla escolha atômicas, distribuídas estritamente em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente balanceado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E por lista (streak máximo de repetição = 1).
+  - Resoluções pedagógicas em 4 etapas estruturadas (Etapa 1:, Etapa 2:, Etapa 3:, Etapa 4:) em todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas <!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... --> presentes e válidas em todas as 300 questões.
+  - Auditoria formal: 100% aprovado pelo alidador_educamob.py com **Exit Code 0**, respeito estrito ao princípio do mundo fechado, zero termos de concursês banidos e zero cifrão 'R$'.
+- **Total Acumulado de Exercícios de Geografia EM:** 15 de 50 capítulos concluídos (**30,0% do currículo total — 900 de 3.000 questões**).
+- **Próximos Passos:** Prosseguimento imediato para o Lote 4 (Capítulos 16 ao 20 — Circulação da Atmosfera/El Niño, Climas do Brasil e Mundo/Climatogramas, Hidrosfera e Geopolítica dos Mares, Hidrografia Brasileira/Aquíferos e Domínios Morfoclimáticos do Brasil/Aziz Ab'Sáber — **CONCLUINDO 100% DO EIXO II: GEOSSISTEMAS FÍSICOS**).
+
+
+### 167. Produção, Auditoria e Homologação do Lote 5 de Listas de Exercícios de Sociologia do Ensino Médio (Capítulos 21 ao 25 — Avanço do Eixo III: Uberização e Plataformas, Desigualdades Globais/Nacionais e Piketty, Hasenbalg/Silva e Desigualdades Raciais, Divisão Sexual do Trabalho e Cuidado, Segregação Socioespacial e Direito à Cidade — 300 Questões Padrão-Ouro / 1.500 Questões Acumuladas / 62,5% da Coleção Integral) ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 21 ao 25 do componente Sociologia — Ensino Médio (Volume Único), consolidando o avanço pelo Eixo III (Estratificação Social, Mundo do Trabalho e Desigualdades). Produção de 300 novas questões atômicas no Padrão-Ouro (60 questões por capítulo: 20 Básicas, 20 Intermediárias e 20 Difíceis com resolução pedagógica estruturada em Etapa 1 e Etapa 2).
+- **Status da Obra:** 25 de 40 listas de Sociologia EM concluídas e homologadas no disco (1.500 de 2.400 questões — 62,5% da coleção integral concluída com Exit Code 0).
+- **Capítulos Homologados:**
+  1. `em-soc-c21-era-uberizacao-capitalismo-plataforma-exercicios.md`: 60 questões (85.368 bytes) | BNCC `EM13CHS401`, `EM13CHS402`, `H16`, `H17`, `H18` ✅
+  2. `em-soc-c22-desigualdades-economicas-globais-nacionais-exercicios.md`: 60 questões (91.514 bytes) | BNCC `EM13CHS102`, `EM13CHS401`, `H16`, `H19` ✅
+  3. `em-soc-c23-carlos-hasenbalg-nelson-valle-silva-desigualdades-raciais-exercicios.md`: 60 questões (92.935 bytes) | BNCC `EM13CHS102`, `EM13CHS401`, `EM13CHS502`, `H16`, `H17`, `H24` ✅
+  4. `em-soc-c24-divisao-sexual-trabalho-economia-cuidado-exercicios.md`: 60 questões (93.482 bytes) | BNCC `EM13CHS102`, `EM13CHS401`, `EM13CHS402`, `H16`, `H17` ✅
+  5. `em-soc-c25-segregacao-socioespacial-desigualdades-urbanas-exercicios.md`: 60 questões (96.487 bytes) | BNCC `EM13CHS102`, `EM13CHS401`, `EM13CHS404`, `H16`, `H17`, `H18` ✅
+- **Conformidade de Engenharia:** 100% aprovado no `validador_educamob.py`, gabaritos perfeitamente balanceados (12 A, 12 B, 12 C, 12 D, 12 E por lista com rotação circular estrita), zero uso de R$ e aderência draconiana ao princípio do mundo fechado em relação aos e-books fonte.
+
+
+---
+
+### 168. Produção, Auditoria e Homologação do Lote 6 de Listas de Exercícios de Sociologia do Ensino Médio (Capítulos 26 ao 30 — Fechamento Oficial do Eixo III e Avanço do Eixo IV: Desigualdades Regionais e Furtado, Poder/Dominação e Teorias do Estado, Formas/Regimes de Governo e Totalitarismo, C.L.R. James e Jacobinos Negros, Eric Williams e Capitalismo/Escravidão — 300 Questões Padrão-Ouro / 1.800 Questões Acumuladas / MARCO HISTÓRICO DE 75% DA COLEÇÃO INTEGRAL) ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 26 ao 30 do componente Sociologia — Ensino Médio (Volume Único), consolidando o **fechamento oficial de 100% do Eixo III** (Capítulo 26: Desigualdades Regionais e a Questão do Nordeste) e a abertura e avanço monumental pelo **Eixo IV: Estado, Poder, Política, Cidadania e Movimentos Sociais** (Capítulos 27, 28, 29 e 30). Produção de 300 novas questões atômicas no Padrão-Ouro (60 questões por capítulo: 20 Básicas, 20 Intermediárias e 20 Difíceis com resolução comentada estruturada em Etapa 1 e Etapa 2).
+- **Status da Obra:** 30 de 40 listas de Sociologia EM concluídas e homologadas no disco (**1.800 de 2.400 questões — exatamente 75,0% da coleção integral concluída com Exit Code 0**).
+- **Capítulos Homologados (Lote 6):**
+  1. `em-soc-c26-desigualdades-regionais-brasil-nordeste-exercicios.md`: 60 questões (93.666 bytes) | BNCC `EM13CHS102`, `EM13CHS206`, `EM13CHS401`, `H16`, `H17`, `H19` — **FECHAMENTO OFICIAL DE 100% DO EIXO III: 9/9 CAPÍTULOS CONCLUÍDOS!** ✅
+  2. `em-soc-c27-poder-dominacao-teorias-estado-exercicios.md`: 60 questões (93.929 bytes) | BNCC `EM13CHS601`, `EM13CHS602`, `H16`, `H17`, `H18` — **ABERTURA OFICIAL DO EIXO IV: ESTADO, PODER, POLÍTICA, CIDADANIA E MOVIMENTOS SOCIAIS!** ✅
+  3. `em-soc-c28-formas-regimes-governo-democracia-autoritarismo-exercicios.md`: 60 questões (92.361 bytes) | BNCC `EM13CHS601`, `EM13CHS602`, `EM13CHS603`, `H16`, `H17`, `H18` ✅
+  4. `em-soc-c29-clr-james-revolucao-haitiana-jacobinos-negros-exercicios.md`: 60 questões (96.015 bytes) | BNCC `EM13CHS502`, `EM13CHS601`, `EM13CHS602`, `EM13CHS603`, `H16`, `H17`, `H18` ✅
+  5. `em-soc-c30-eric-williams-capitalismo-escravidao-exercicios.md`: 60 questões (100.385 bytes) | BNCC `EM13CHS102`, `EM13CHS401`, `EM13CHS601`, `H16`, `H17`, `H18` — **MARCO HISTÓRICO DE 75% DE SOCIOLOGIA EM HOMOLOGADO!** ✅
+- **Conformidade de Engenharia:** 100% aprovado no `validador_educamob.py` com **Exit Code 0**, gabaritos perfeitamente balanceados (exatamente 12 A, 12 B, 12 C, 12 D, 12 E por lista com rotação circular canônica e streak máximo = 1), zero uso de 'R$' e aderência draconiana ao princípio do mundo fechado em relação aos e-books fonte.
+- **Próximos Passos:** Prosseguimento automático para o **Lote 7 (Capítulos 31 ao 35)** — Cidadania e Direitos Humanos (T.H. Marshall), Movimentos Sociais e Ação Coletiva, Alberto Guerreiro Ramos (A Redução Sociológica e a Patologia do Branco Brasileiro), Clóvis Moura (Quilombos, Rebeldia Negra e Escravismo Colonial) e Gilberto Freyre / Sérgio Buarque de Holanda (Abertura do Eixo V: Sociologia Brasileira).
+
+---
+
+### 169. Produção, Auditoria e Homologação do Lote 4 de Listas de Exercícios de Geografia do Ensino Médio (Capítulos 16 ao 20 — Circulação Geral da Atmosfera/ENOS, Climas e Climatogramas, Hidrosfera/Amazônia Azul, Hidrografia e Aquíferos, e Domínios Morfoclimáticos/Aziz Ab'Sáber — FECHAMENTO OFICIAL DE 100% DO EIXO II: 1.200 QUESTÕES PADRÃO-OURO / 40% DA OBRA) ✅ Concluído
+- **Data de Homologação:** 18 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 16 ao 20 do componente Geografia — Ensino Médio (Volume Único / Eixo II: Geossistemas Físicos e Dinâmica Natural da Terra), consolidando o encerramento integral e definitivo de 100% do Eixo II (12/12 capítulos concluídos). Cada capítulo recebeu 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis), totalizando 300 novas questões atômicas ativas e acumulando 1.200 questões de Geografia EM homologadas:
+  1. *Capítulo 16:* Circulação Geral da Atmosfera, Massas de Ar e Fenômenos Climáticos Globais (em-geo-c16-circulacao-atmosfera-massas-ar-el-nino-exercicios.md — 60 questões | 79.233 bytes | BNCC EM13CHS206, EM13CHS301, EM13CHS306).
+  2. *Capítulo 17:* Os Climas do Brasil e do Mundo: Análise de Climatogramas (em-geo-c17-climas-brasil-mundo-climatogramas-exercicios.md — 60 questões | 83.493 bytes | BNCC EM13CHS206, EM13CHS306).
+  3. *Capítulo 18:* Hidrosfera: Dinâmica das Águas Oceânicas e Geopolítica dos Mares (em-geo-c18-hidrosfera-aguas-oceanicas-geopolitica-mares-exercicios.md — 60 questões | 86.560 bytes | BNCC EM13CHS204, EM13CHS206, EM13CHS301, EM13CHS604).
+  4. *Capítulo 19:* Hidrografia Brasileira e Gestão das Águas Continentais (em-geo-c19-hidrografia-brasileira-bacias-aquiferos-exercicios.md — 60 questões | 84.218 bytes | BNCC EM13CHS206, EM13CHS301, EM13CHS302, EM13CHS306).
+  5. *Capítulo 20:* Os Domínios Morfoclimáticos do Brasil e a Teoria de Aziz Ab'Sáber (em-geo-c20-dominios-morfoclimaticos-brasil-aziz-absaber-exercicios.md — 60 questões | 84.380 bytes | BNCC EM13CHS206, EM13CHS301, EM13CHS302, EM13CHS306 — **FECHAMENTO OFICIAL DE 100% DO EIXO II: 12/12 CAPÍTULOS CONCLUÍDOS**).
+- **Métricas do Lote 4:**
+  - 300 questões de múltipla escolha atômicas, distribuídas estritamente em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente equilibrado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada capítulo (streak máximo de repetição = 1).
+  - Resoluções detalhadas em 4 etapas estruturadas (Etapa 1:, Etapa 2:, Etapa 3:, Etapa 4:) para todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas <!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... --> presentes e válidas em 100% das 300 questões.
+  - Auditoria e Conformidade: Aprovado com **Exit Code 0** no alidador_educamob.py, respeito integral ao mundo fechado dos e-books base, zero ocorrências de 'R$' e zero termos da blacklist acadêmica.
+- **Total Acumulado de Exercícios de Geografia EM:** 20 de 50 capítulos concluídos (**40,0% da coleção integral — 1.200 de 3.000 questões**).
+- **Próximos Passos:** Prosseguimento imediato para o Lote 5 (Capítulos 21 ao 25 — Abertura do Eixo III: Meio Ambiente, Recursos Naturais e o Antropoceno: O Conceito de Antropoceno, Biomas Brasileiros e Desmatamento, Recursos Minerais e Desastres Tecnológicos, Crise Hídrica e Recursos Hídricos no Brasil, e Gestão de Resíduos Sólidos e Saneamento Básico).
+
+
+---
+
+### 170. Produção, Auditoria e Homologação do Lote 7 de Listas de Exercícios de Sociologia do Ensino Médio (Capítulos 31 ao 35 — Fechamento Oficial do Eixo IV e Abertura do Eixo V: Evolução da Cidadania, Movimento Negro e Reparação, Movimentos Sociais Clássicos e Novos, Segurança Pública/Encarceramento em Massa, e Alberto Guerreiro Ramos/Redução Sociológica — 300 Questões Padrão-Ouro / 2.100 Questões Acumuladas / MARCO HISTÓRICO DE 87,5% DA COLEÇÃO INTEGRAL) ✅ Concluído
+- **Data de Homologação:** 19 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 31 ao 35 do componente Sociologia — Ensino Médio (Volume Único), consolidando o **fechamento oficial de 100% do Eixo IV: Estado, Poder, Política, Cidadania e Movimentos Sociais (8 de 8 Capítulos Concluídos)** e a **abertura oficial do Eixo V: Pensamento Social Brasileiro, Feminismo Negro e Sociologia Contemporânea** (Capítulo 35). Produção e auditoria rigorosa de 300 novas questões atômicas no Padrão-Ouro (60 questões por capítulo: 20 Básicas, 20 Intermediárias e 20 Difíceis com resolução comentada estruturada em Etapa 1 e Etapa 2).
+- **Status da Obra:** 35 de 40 listas de Sociologia EM concluídas e homologadas no disco (**2.100 de 2.400 questões — exatamente 87,5% da coleção integral concluída com Exit Code 0**).
+- **Capítulos Homologados (Lote 7):**
+  1. `em-soc-c31-evolucao-cidadania-direitos-civis-politicos-sociais-exercicios.md`: 60 questões (93.058 bytes) | BNCC `EM13CHS601`, `EM13CHS602`, `EM13CHS603`, `H16`, `H17`, `H18` ✅
+  2. `em-soc-c32-movimento-negro-brasileiro-reparacao-igualdade-exercicios.md`: 60 questões (94.750 bytes) | BNCC `EM13CHS502`, `EM13CHS601`, `EM13CHS605` ✅
+  3. `em-soc-c33-movimentos-sociais-classicos-novos-exercicios.md`: 60 questões (95.820 bytes) | BNCC `EM13CHS601`, `EM13CHS605`, `EM13CHS606` ✅
+  4. `em-soc-c34-seguranca-publica-encarceramento-massa-violencia-exercicios.md`: 60 questões (96.110 bytes) | BNCC `EM13CHS502`, `EM13CHS601`, `EM13CHS603` — **FECHAMENTO OFICIAL DE 100% DO EIXO IV: 8/8 CAPÍTULOS CONCLUÍDOS!** ✅
+  5. `em-soc-c35-alberto-guerreiro-ramos-reducao-sociologica-exercicios.md`: 60 questões (95.340 bytes) | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS502` — **ABERTURA OFICIAL DO EIXO V: PENSAMENTO SOCIAL BRASILEIRO E SOCIOLOGIA CONTEMPORÂNEA!** ✅
+- **Conformidade de Engenharia:** 100% aprovado no `validador_educamob.py` com **Exit Code 0**, gabaritos perfeitamente balanceados (exatamente 12 A, 12 B, 12 C, 12 D, 12 E por lista com rotação circular canônica e streak máximo = 1), zero uso de 'R$' e aderência draconiana ao princípio do mundo fechado em relação aos e-books fonte.
+- **Próximos Passos:** Prosseguimento automático e imediato para o **Lote 8 Final (Capítulos 36 ao 40)** — Clóvis Moura (Rebeliões da Senzala e Quilombismo), Debate sobre Relações Raciais e Racismo Estrutural, Lélia Gonzalez (Amefricanidade e Pretuguês), Feminismo Negro e Interseccionalidade (Carneiro, Collins e hooks), e Oyèrónkẹ́ Oyěwùmí (A Invenção das Mulheres) — **RUMO À CONCLUSÃO DEFINITIVA DE 100% DE SOCIOLOGIA DO ENSINO MÉDIO (40/40 LISTAS — 2.400 QUESTÕES PADRÃO-OURO)**.
+
+---
+
+### 171. Produção, Auditoria e Homologação do Lote 5 de Listas de Exercícios de Geografia do Ensino Médio (Capítulos 21 ao 25 — Abertura do Eixo III: Sociedade, Recursos Naturais e Emergência Socioambiental: Sociedade-Natureza e Antropoceno/Capitaloceno, Desmatamento e Queimadas, Mineração e Terras Raras, Crise Hídrica e Gestão das Águas, e Lixo e Poluição Urbana — 300 Questões Padrão-Ouro / 1.500 Questões Acumuladas / MARCO HISTÓRICO DE 50,0% DA COLEÇÃO INTEGRAL) ✅ Concluído
+- **Data de Homologação:** 19 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 21 ao 25 do componente Geografia — Ensino Médio (Volume Único / Eixo III: Sociedade, Recursos Naturais e Emergência Socioambiental). Cada capítulo recebeu 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis com resolução estruturada em 4 etapas), totalizando 300 novas questões atômicas ativas e acumulando 1.500 questões de Geografia EM homologadas:
+  1. *Capítulo 21:* A Relação Sociedade-Natureza e o Conceito de Antropoceno (em-geo-c21-sociedade-natureza-antropoceno-capitaloceno-exercicios.md — 60 questões | 84.568 bytes | BNCC EM13CHS102, EM13CHS301, EM13CHS306, EM13CHS504).
+  2. *Capítulo 22:* O Desmatamento e as Queimadas nos Biomas Brasileiros (em-geo-c22-desmatamento-queimadas-biomas-brasileiros-exercicios.md — 60 questões | 80.010 bytes | BNCC EM13CHS206, EM13CHS301, EM13CHS302, EM13CHS306).
+  3. *Capítulo 23:* Impactos da Mineração, Desastres Ambientais e Terras Raras no Brasil (em-geo-c23-impactos-mineracao-desastres-terras-raras-brasil-exercicios.md — 60 questões | 81.191 bytes | BNCC EM13CHS102, EM13CHS301, EM13CHS302, EM13CHS503, EM13CHS601).
+  4. *Capítulo 24:* Crise Hídrica Global e Gestão das Águas no Brasil (em-geo-c24-crise-hidrica-gestao-aguas-brasil-exercicios.md — 60 questões | 82.216 bytes | BNCC EM13CHS206, EM13CHS301, EM13CHS302, EM13CHS306).
+  5. *Capítulo 25:* A Questão do Lixo, Poluição Urbana e Vulnerabilidade Social (em-geo-c25-questao-lixo-poluicao-metropoles-exercicios.md — 60 questões | 83.295 bytes | BNCC EM13CHS301, EM13CHS302, EM13CHS306 — **MARCO HISTÓRICO DE EXATAMENTE 50,0% DA COLEÇÃO DE GEOGRAFIA EM CONCLUÍDA**).
+- **Métricas do Lote 5:**
+  - 300 questões de múltipla escolha atômicas, distribuídas estritamente em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente equilibrado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada capítulo (streak máximo de repetição = 1).
+  - Resoluções detalhadas em 4 etapas estruturadas (- **Etapa 1:**, - **Etapa 2:**, - **Etapa 3:**, - **Etapa 4:**) para todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas <!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... --> presentes e válidas em 100% das 300 questões.
+  - Auditoria e Conformidade: Aprovado com **Exit Code 0** no alidador_educamob.py, respeito integral ao mundo fechado dos e-books base, zero ocorrências de 'R$' e zero termos da blacklist acadêmica.
+- **Total Acumulado de Exercícios de Geografia EM:** 25 de 50 capítulos concluídos (**exatamente 50,0% da coleção integral — 1.500 de 3.000 questões homologadas**).
+- **Próximos Passos:** Prosseguimento imediato para o **Lote 6 (Capítulos 26 ao 30)** — Conclusão do Eixo III: Matriz Energética Brasileira e Fontes Renováveis, Geopolítica do Petróleo e Transição Energética, A Agropecuária Brasileira e a Questão Agrária, Agroecologia e Segurança Alimentar, e Mudanças Climáticas Globais e Justiça Climática.
+
+---
+
+### 172. Produção, Auditoria e Homologação do Lote 5 de Listas de Exercícios de Filosofia do Ensino Médio (Capítulos 21 ao 25 — Fechamento Oficial do Eixo III e Abertura do Eixo IV: Poder/Disciplina/Biopolítica em Foucault e Agamben, Frantz Fanon e a Descolonização, Achille Mbembe e a Necropolítica, Abdias do Nascimento e o Quilombismo, e Mímesis/Catarse na Grécia Antiga — 300 Questões Padrão-Ouro / 1.500 Questões Acumuladas / MARCO HISTÓRICO DE 62,5% DA COLEÇÃO INTEGRAL) ✅ Concluído
+- **Data de Homologação:** 19 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 21 ao 25 do componente Filosofia — Ensino Médio (Volume Único), consolidando o **fechamento oficial de 100% do Eixo III: Filosofia Política, Poder, Resistência e Necropolítica (Capítulos 17 ao 24)** e a **abertura oficial do Eixo IV: Estética, Filosofia da Arte e Poéticas da Negritude** (Capítulo 25). Cada capítulo recebeu exatamente 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis com resolução comentada estruturada em Etapa 1 e Etapa 2), totalizando 300 novas questões atômicas no lote e acumulando 1.500 questões de Filosofia EM homologadas:
+  1. *Capítulo 21:* Poder, Disciplina e Biopolítica: Foucault e Agamben (em-fil-c21-poder-disciplina-biopolitica-foucault-agamben-exercicios.md — 60 questões | 85.492 bytes | BNCC EM13CHS101, EM13CHS102, EM13CHS601, EM13CHS602, EM13CHS603).
+  2. *Capítulo 22:* Frantz Fanon e a Filosofia da Descolonização (em-fil-c22-frantz-fanon-filosofia-descolonizacao-exercicios.md — 60 questões | 85.471 bytes | BNCC EM13CHS101, EM13CHS102, EM13CHS601, EM13CHS602, EM13CHS603, EM13CHS606 | Lei 10.639/03).
+  3. *Capítulo 23:* Achille Mbembe e a Necropolítica (em-fil-c23-achille-mbembe-necropolitica-exercicios.md — 60 questões | 85.773 bytes | BNCC EM13CHS101, EM13CHS102, EM13CHS601, EM13CHS602, EM13CHS603, EM13CHS606 | Lei 10.639/03).
+  4. *Capítulo 24:* O Quilombismo e a Resistência Negra: Abdias do Nascimento (em-fil-c24-quilombismo-resistencia-abdias-nascimento-exercicios.md — 60 questões | 86.824 bytes | BNCC EM13CHS101, EM13CHS102, EM13CHS601, EM13CHS602, EM13CHS603, EM13CHS606 | Lei 10.639/03 e 11.645/08 — **FECHAMENTO OFICIAL DE 100% DO EIXO III: 8/8 CAPÍTULOS CONCLUÍDOS!** ✅).
+  5. *Capítulo 25:* Mímesis e Catarse: A Filosofia da Arte na Grécia Antiga (em-fil-c25-estetica-antiga-mimesis-catarse-exercicios.md — 60 questões | 84.760 bytes | BNCC EM13CHS101, EM13CHS102, EM13CHS301, EM13CHS302 — **ABERTURA OFICIAL DO EIXO IV: ESTÉTICA, FILOSOFIA DA ARTE E POÉTICAS DA NEGRITUDE!** ✅).
+- **Métricas do Lote 5:**
+  - 300 questões atômicas de múltipla escolha distribuídas em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito perfeitamente balanceado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada capítulo (streak máximo de repetição = 1).
+  - Resoluções pedagógicas desdobradas em duas etapas obrigatórias (- **Etapa 1:** e - **Etapa 2:**) em todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas presentes e válidas em 100% das 300 questões.
+  - Auditoria e Conformidade: Aprovado com **Exit Code 0** no alidador_educamob.py, respeito estrito ao mundo fechado derivado dos e-books base, zero ocorrências de 'R$' e zero termos da blacklist acadêmica.
+- **Total Acumulado de Exercícios de Filosofia EM:** 25 de 40 capítulos concluídos (**62,5% da coleção integral — 1.500 de 2.400 questões homologadas**).
+- **Próximos Passos:** Prosseguimento automático e ininterrupto para o **Lote 6 (Capítulos 26 ao 30)** — Avanço do Eixo IV (Estética Moderna e Iluminismo, Walter Benjamin e a Reprodutibilidade Técnica, Adorno e Horkheimer com a Indústria Cultural, Estética da Negritude com Césaire/Senghor, e Estética Decolonial e Lélia Gonzalez).
