@@ -1,0 +1,912 @@
+# -*- coding: utf-8 -*-
+import os
+import sys
+import re
+import subprocess
+from collections import Counter
+
+def balancear_questoes(questoes_brutas):
+    alvo_letras = ['A', 'B', 'C', 'D', 'E'] * 12
+    questoes_balanceadas = []
+
+    for i, q in enumerate(questoes_brutas):
+        num, hab, dif, enunc, a, b, c, d, e, gab_orig, res = q
+        alvo = alvo_letras[i]
+        
+        alt_map = {'A': a, 'B': b, 'C': c, 'D': d, 'E': e}
+        
+        if gab_orig != alvo:
+            texto_correto = alt_map[gab_orig]
+            texto_outro = alt_map[alvo]
+            alt_map[alvo] = texto_correto
+            alt_map[gab_orig] = texto_outro
+            
+        novo_gab = alvo
+        questoes_balanceadas.append((
+            num, hab, dif, enunc,
+            alt_map['A'], alt_map['B'], alt_map['C'], alt_map['D'], alt_map['E'],
+            novo_gab, res
+        ))
+        
+    return questoes_balanceadas
+
+def gerar_cap07():
+    dest_path = "content/medio/volume-unico/filosofia/eixo-1-epistemologia/cap-07-criticismo-kantiano-filosofia-ciencia/ebooks/em-fil-c07-criticismo-kantiano-filosofia-ciencia-exercicios.md"
+    temp_draft = "temp_draft.md"
+
+    questoes_brutas = []
+
+    # ----------------------------------------------------
+    # NÍVEL BÁSICO (Questões 1 a 20)
+    # ----------------------------------------------------
+    questoes_brutas.append((
+        1, "EM13CHS101", "basico",
+        "Ao publicar a Crítica da Razão Pura em 1781, Immanuel Kant fundou qual corrente filosófica para investigar os limites e o alcance do saber humano?",
+        "O Ceticismo niilista absoluto.",
+        "O Criticismo (Filosofia Transcendental).",
+        "O Dogmatismo escolástico medieval.",
+        "O Utilitarismo pragmático liberal.",
+        "O Materialismo atomista helenístico.",
+        "B",
+        "Kant fundou o Criticismo como um exame crítico rigoroso das faculdades da razão antes de realizar especulações metafísicas infundadas."
+    ))
+
+    questoes_brutas.append((
+        2, "EM13CHS101", "basico",
+        "Em que consistiu a célebre 'Revolução Copernicana' operada por Kant na teoria do conhecimento?",
+        "Na tese de que a Terra gira em torno do Sol em uma órbita ovalada.",
+        "Na inversão do polo: em vez de o sujeito regular-se passivamente pelos objetos exteriores, são os objetos que se regulam pelas estruturas cognitivas do sujeito.",
+        "No abandono das pesquisas de física teórica em favor de rituais com ervas aromáticas.",
+        "Na imposição de que todos os filósofos devem morar na cidade de Königsberg.",
+        "Na proibição de utilizar cálculos matemáticos em artigos de jornais.",
+        "B",
+        "A Revolução Copernicana de Kant inverte a relação cognitiva: a mente do sujeito transcendental é ativa e molda o modo como apreendemos a realidade fenomênica."
+    ))
+
+    questoes_brutas.append((
+        3, "EM13CHS101", "basico",
+        "Na classificação kantiana dos juízos quanto à origem, como são chamados os conhecimentos independentes de qualquer experiência empírica, dotados de universalidade e necessidade?",
+        "Juízos a posteriori.",
+        "Juízos a priori.",
+        "Juízos passageiros.",
+        "Juízos emocionais.",
+        "Juízos míticos.",
+        "B",
+        "Os juízos a priori independem da experiência sensível contingente, sendo rigorosamente universais e logicamente necessários."
+    ))
+
+    questoes_brutas.append((
+        4, "EM13CHS101", "basico",
+        "E como são definidos os juízos cuja validade depende da experiência empírica sensível imediata e contingente?",
+        "Juízos a priori.",
+        "Juízos a posteriori.",
+        "Juízos sagrados.",
+        "Juízos matemáticos puros.",
+        "Juízos regulativos eternos.",
+        "B",
+        "Juízos a posteriori são derivados da observação empírica direta dos fatos, sendo particulares e provisórios."
+    ))
+
+    questoes_brutas.append((
+        5, "EM13CHS101", "basico",
+        "Quanto à relação entre sujeito e predicado, como Kant define os 'Juízos Analíticos'?",
+        "Afirmações em que o predicado acrescenta informações inéditas que ampliam o conhecimento de mundo.",
+        "Afirmações explicativas nas quais o predicado já está implicitamente contido no conceito do sujeito (ex: 'todo corpo é extenso').",
+        "Frases poéticas que rimam no final de cada estrofe em peças teatrais.",
+        "Decretos administrativos assinados por reis em cerimônias públicas.",
+        "Relatos de marinheiros sobre ilhas desertas no oceano Pacífico.",
+        "B",
+        "Nos juízos analíticos, o predicado apenas desdobra o que já está contido no sujeito; são juízos explicativos que não acrescentam conteúdo empírico novo."
+    ))
+
+    questoes_brutas.append((
+        6, "EM13CHS101", "basico",
+        "Por outro lado, o que caracteriza os 'Juízos Sintéticos' na epistemologia kantiana?",
+        "Eles não possuem verbo nem sujeito gramatical identificado.",
+        "O predicado acrescenta uma informação nova ao sujeito, ampliando o nosso conhecimento sobre a realidade.",
+        "Eles tratam exclusivamente de números primos da aritmética.",
+        "São frases falsas ditadas por oradores sofistas em assembleias populares.",
+        "São orações religiosas recitadas em altares da Antiguidade.",
+        "B",
+        "Os juízos sintéticos são ampliativos: o predicado expande nosso saber conectando ao sujeito um atributo que não estava previamente contido em seu conceito."
+    ))
+
+    questoes_brutas.append((
+        7, "EM13CHS101", "basico",
+        "Qual classe de juízos é considerada por Kant como a base indispensável da verdadeira ciência, por ampliar o conhecimento e possuir universalidade e necessidade absoluta?",
+        "Juízos Analíticos a posteriori.",
+        "Juízos Sintéticos a priori.",
+        "Juízos de Senso Comum passageiros.",
+        "Juízos Místicos oraculares.",
+        "Juízos Retóricos de ocasião.",
+        "B",
+        "Os juízos sintéticos a priori são o fundamento da matemática pura e da física: ampliam o saber (sintéticos) com necessidade e universalidade (a priori)."
+    ))
+
+    questoes_brutas.append((
+        8, "EM13CHS101", "basico",
+        "Na Crítica da Razão Pura, quais são as duas formas puras a priori da Sensibilidade que estruturam todas as percepções humanas no espaço e no tempo?",
+        "Fogo e Terra fértil.",
+        "Espaço e Tempo.",
+        "Som e Sabor adocicado.",
+        "Luz solar e Sombra noturna.",
+        "Peso e Velocidade do vento.",
+        "B",
+        "Espaço e Tempo não são coisas materiais exteriores nem conceitos abstratos, mas intuições puras a priori da sensibilidade pelas quais percebemos os objetos."
+    ))
+
+    questoes_brutas.append((
+        9, "EM13CHS101", "basico",
+        "Na faculdade do Entendimento, Kant identifica conceitos puros a priori que organizam a multiplicidade das sensações. Como esses conceitos puros são denominados?",
+        "Acidentes passageiros.",
+        "Categorias do Entendimento (como Causalidade e Substância).",
+        "Sentimentos do coração.",
+        "Ideias Fictícias da fantasia.",
+        "Vontades políticas do Estado.",
+        "B",
+        "As 12 categorias do entendimento (divididas em quantidade, qualidade, relação e modalidade) são as estruturas racionais a priori que julgam e sintetizam os dados sensíveis."
+    ))
+
+    questoes_brutas.append((
+        10, "EM13CHS101", "basico",
+        "Na distinção seminal de Kant, o que é o 'Fenômeno' (Phaenomenon)?",
+        "Uma ilusão diabólica que engana a mente durante as noites de tempestade.",
+        "A coisa tal como ela aparece e é estruturada pelas formas da sensibilidade e pelas categorias do entendimento humano.",
+        "O núcleo oculto da matéria atômica que só pode ser visto por microscópios potentes.",
+        "A alma imaterial dos governantes enterrada em monumentos de mármore.",
+        "Um milagre inexplicável que suspende as leis do universo físico.",
+        "B",
+        "Fenômeno é o objeto do conhecimento humano legítimo: a realidade na medida em que nos aparece filtrada e organizada pelas nossas estruturas cognitivas a priori."
+    ))
+
+    questoes_brutas.append((
+        11, "EM13CHS101", "basico",
+        "E o que representa o 'Númeno' ou 'Coisa-em-si' (Ding an sich) na filosofia kantiana?",
+        "Uma máquina a vapor utilizada em fábricas de tecidos.",
+        "A realidade da coisa em si mesma, independente de nossa sensibilidade, sendo inacessível ao conhecimento teórico humano.",
+        "O planeta mais distante do sistema solar observado por astrônomos.",
+        "A substância química usada para tingir roupas cerimoniais na Prússia.",
+        "O conjunto de leis civis aprovadas pelos tribunais populares da cidade.",
+        "B",
+        "O Númeno (a coisa-em-si) é um conceito-limite: a realidade tal como seria em si mesma, sem a mediação do espaço, do tempo e das categorias, inacessível ao intelecto humano."
+    ))
+
+    questoes_brutas.append((
+        12, "EM13CHS504", "basico",
+        "No século XX, o filósofo Karl Popper criticou o método indutivo e formulou qual critério fundamental de demarcação entre ciência e não ciência?",
+        "O Princípio da Autoridade dos cientistas idosos.",
+        "O Critério da Falsificabilidade (ou Refutabilidade).",
+        "A contagem de votos a favor de uma tese em congressos públicos.",
+        "A aprovação de teorias por meio de enciclopédias religiosas.",
+        "A exigência de rimas em relatórios de química orgânica.",
+        "B",
+        "Karl Popper propôs que uma teoria só é científica se for empiricamente testável e passível de ser refutada ou falseada por observações experimentais."
+    ))
+
+    questoes_brutas.append((
+        13, "EM13CHS504", "basico",
+        "Segundo Karl Popper, por que a confirmação repetida de casos particulares (indução) não basta para provar que uma teoria é verdadeira em definitivo?",
+        "Porque os cientistas de laboratório costumam perder anotações antigas.",
+        "Porque mesmo que observemos milhares de cisnes brancos, basta um único cisne negro para refutar a hipótese universal.",
+        "Porque as leis da física mudam quando viajamos de trem para outros países.",
+        "Porque as publicações científicas são muito caras para os estudantes comuns.",
+        "Porque a matemática perdeu sua utilidade após a invenção da imprensa.",
+        "B",
+        "Popper aponta a assimetria lógica: nenhuma quantidade de observações favoráveis prova uma tese universal, mas uma única observação contrária basta para refutá-la."
+    ))
+
+    questoes_brutas.append((
+        14, "EM13CHS504", "basico",
+        "Em seu livro clássico A Estrutura das Revoluções Científicas, qual conceito central Thomas Kuhn formulou para designar o conjunto compartilhado de crenças, valores e técnicas de uma comunidade científica?",
+        "Doutrina mística de laboratório.",
+        "Paradigma Científico.",
+        "Mito cosmológico da criação.",
+        "Contrato civil de mercado.",
+        "Tábula Rasa experimental.",
+        "B",
+        "Um Paradigma Científico é o modelo consensual de problemas e soluções aceito por uma comunidade científica durante determinada época histórica."
+    ))
+
+    questoes_brutas.append((
+        15, "EM13CHS504", "basico",
+        "Como Thomas Kuhn denomina o período histórico em que os cientistas trabalham resolvendo quebra-cabeças dentro dos limites de um paradigma dominante estável?",
+        "Período de Anarquia total.",
+        "Ciência Normal.",
+        "Ciência Extraordinária.",
+        "Revolução Cívica.",
+        "Inquisição experimental.",
+        "B",
+        "Durante a 'Ciência Normal', os pesquisadores não buscam derrubar o paradigma vigente; articulam teorias e resolvem quebra-cabeças sob as regras consolidadas do modelo."
+    ))
+
+    questoes_brutas.append((
+        16, "EM13CHS504", "basico",
+        "Na dinâmica kuhniana da ciência, o que ocorre quando anomalias acumuladas não conseguem mais ser explicadas pelas regras do paradigma vigente?",
+        "Os cientistas encerram os laboratórios e abandonam o estudo do mundo físico.",
+        "Instaura-se um período de Crise que abre caminho para a Ciência Extraordinária e uma Revolução Científica.",
+        "O governo monárquico prende os pesquisadores que registraram erros nos cadernos de campo.",
+        "As leis da gravidade são suspensas até que um novo rei seja coroado na capital.",
+        "A comunidade científica passa a utilizar apenas a astrologia para explicar o clima.",
+        "B",
+        "O acúmulo de anomalias que resistem à solução dentro do paradigma vigente provoca uma crise estrutural, desencadeando debates extraordinários e a substituição por um novo paradigma."
+    ))
+
+    questoes_brutas.append((
+        17, "EM13CHS504", "basico",
+        "Thomas Kuhn sustenta que paradigmas científicos rivais (como a física de Aristóteles e a mecânica de Newton) são 'incomensuráveis'. O que isso significa?",
+        "Que não possuem réguas de madeira compridas o suficiente para medi-los.",
+        "Que não podem ser comparados de forma neutra por um padrão de medida comum universal, pois enxergam e conceituam o mundo por linguagens e pressupostos distintos.",
+        "Que ambos contêm o mesmo número exato de equações algébricas impressas.",
+        "Que ambos foram formulados pelo mesmo filósofo prussiano em Königsberg.",
+        "Que um deles foi proibido por decretos das assembleias democráticas gregas.",
+        "B",
+        "Incomensurabilidade significa que paradigmas sucessivos adotam conceitos e visões de mundo tão diferentes que não há um vocabulário neutro para julgar um pelo outro de fora."
+    ))
+
+    questoes_brutas.append((
+        18, "EM13CHS504", "basico",
+        "Em sua obra polêmica Contra o Método, qual filósofo da ciência defendeu o 'anarquismo metodológico' ou pluralismo teórico?",
+        "Karl Popper.",
+        "Paul Feyerabend.",
+        "René Descartes.",
+        "John Locke.",
+        "Francis Bacon.",
+        "B",
+        "Paul Feyerabend formulou a tese do anarquismo metodológico, sustentando que na história real da ciência não existe uma receita ou cartilha metodológica única e rígida."
+    ))
+
+    questoes_brutas.append((
+        19, "EM13CHS504", "basico",
+        "Qual slogan provocador Paul Feyerabend utiliza para demonstrar que o progresso científico violou reiteradamente regras de métodos estabelecidos?",
+        "'Apenas a matemática é verdadeira.'",
+        "'Tudo vale' (anything goes).",
+        "'Os sentidos nunca se enganam.'",
+        "'A tradição deve governar os testes.'",
+        "'A física é feita por decretos legais.'",
+        "B",
+        "A famosa máxima 'tudo vale' de Feyerabend expressa que o avanço da ciência ocorre quando os pesquisadores quebram regras dogmáticas e exploram estratégias metodológicas plurais."
+    ))
+
+    questoes_brutas.append((
+        20, "EM13CHS101", "basico",
+        "Ao reconciliar o Racionalismo e o Empirismo na Crítica da Razão Pura, qual síntese clássica resume o pensamento de Kant sobre o conhecimento?",
+        "'O homem é um animal de quatro patas que aprende a falar nas feiras da cidade.'",
+        "'Pensamentos sem conteúdo sensível são vazios; intuições sensíveis sem conceitos são cegas.'",
+        "'Toda verdade depende exclusivamente de sonhos revelados por anjos da guarda.'",
+        "'A razão pura pode conhecer o além sem precisar observar nenhum objeto concreto da terra.'",
+        "'Os sentidos são suficientes para explicar todas as leis da astronomia sem o uso de conceitos.'",
+        "B",
+        "A célebre máxima kantiana sintetiza a exigência conjunta: a sensibilidade fornece a matéria das impressões (intuições), e o entendimento fornece a forma conceitual racional para estruturá-las."
+    ))
+
+    # ----------------------------------------------------
+    # NÍVEL INTERMEDIÁRIO (Questões 21 a 40)
+    # ----------------------------------------------------
+    questoes_brutas.append((
+        21, "EM13CHS101", "intermediario",
+        "Considere a afirmação geométrica: 'A soma dos ângulos internos de qualquer triângulo plano é igual a 180 graus'. Sob a teoria dos juízos de Kant, como essa proposição é classificada?",
+        "Juízo Analítico a posteriori.",
+        "Juízo Sintético a priori.",
+        "Juízo Acidental contingente.",
+        "Juízo Ilusório passageiro.",
+        "Juízo Dogmático mítico.",
+        "B",
+        "Trata-se de um juízo sintético a priori: a ideia de triângulo (figura de três lados) não contém analiticamente a soma de 180°, mas a razão demonstra sua verdade necessária e universal na geometria."
+    ))
+
+    questoes_brutas.append((
+        22, "EM13CHS101", "intermediario",
+        "Por que, para Immanuel Kant, a Metafísica tradicional (que pretendia provar a imortalidade da alma e a existência de Deus pela razão pura) não pode ser considerada uma ciência estrita?",
+        "Porque os autores de metafísica escreviam textos em línguas que ninguém conseguia ler na Europa.",
+        "Porque seus objetos (Alma, Mundo como totalidade e Deus) não podem ser dados na experiência sensível no espaço e no tempo, não formando fenômenos testáveis.",
+        "Porque as universidades públicas de Königsberg foram fechadas por falta de verbas orçamentárias.",
+        "Porque a física newtoniana demonstrou que os seres humanos não possuem faculdade da razão.",
+        "Porque os governantes da Prússia exigiram que todos os filósofos ensinassem apenas contabilidade comercial.",
+        "B",
+        "A ciência exige a convergência entre conceitos do intelecto e dados empíricos da sensibilidade no espaço e tempo. Objetos metafísicos transcendem a experiência sensível, não gerando ciência."
+    ))
+
+    questoes_brutas.append((
+        23, "EM13CHS504", "intermediario",
+        "Karl Popper utilizou o critério da falseabilidade para criticar certas teorias que se blindavam contra qualquer contestação empírica (como a psicanálise freudiana e a astrologia). Por que essas teorias foram consideradas pseudocientíficas por Popper?",
+        "Porque seus livros continham palavras em línguas estrangeiras que dificultavam a leitura pública.",
+        "Porque eram construídas de modo tão elástico e abrangente que qualquer fato concebível era interpretado como confirmação, não admitindo nenhum teste que pudesse refutá-las.",
+        "Porque seus praticantes cobravam valores em moedas de ouro por suas consultas diárias.",
+        "Porque a física newtoniana proibiu o estudo dos sonhos e das constelações celestes no século XX.",
+        "Porque os governos europeus fecharam os consultórios médicos que utilizavam divãs de veludo.",
+        "B",
+        "Para Popper, uma teoria que explica tudo e não pode ser desmentida por nenhum dado empírico observável é infalseável e imune ao teste rigoroso, não pertencendo à ciência empírica genuína."
+    ))
+
+    questoes_brutas.append((
+        24, "EM13CHS101", "intermediario",
+        "Ao refutar o realismo ingênuo, a Revolução Copernicana de Kant demonstra que os seres humanos utilizam 'óculos cognitivos' constitutivos para ver o mundo. O que são esses óculos?",
+        "Instrumentos de vidro óptico fabricados por relojoeiros e astrônomos para corrigir a miopia.",
+        "As formas a priori da sensibilidade (espaço e tempo) e as categorias puras do intelecto que estruturam ativamente a experiência humana.",
+        "As crenças políticas aprovadas pela maioria dos cidadãos nas assembleias democráticas.",
+        "As palavras escritas nos dicionários de língua alemã adotados pelas escolas de ensino médio.",
+        "As regras de etiqueta cívica que impedem que as pessoas se desentendam durante o almoço.",
+        "B",
+        "A metáfora ilustra a teoria transcendental: não temos acesso direto à coisa em si sem filtros; nós a enxergamos forçosamente através das lentes a priori do espaço, tempo e categorias do entendimento."
+    ))
+
+    questoes_brutas.append((
+        25, "EM13CHS504", "intermediario",
+        "Na perspectiva de Thomas Kuhn, por que os cientistas que operavam no paradigma geocêntrico ptolomaico resistiram por tanto tempo em aceitar o modelo heliocêntrico de Copérnico e Galileu?",
+        "Porque os astrônomos de Ptolomeu recebiam pensões financeiras da marinha para defender a Terra imóvel.",
+        "Porque o paradigma não é apenas uma teoria isolada, mas toda uma cosmovisão compartilhada, com instrumentos, técnicas e manuais que organizavam a prática profissional da comunidade.",
+        "Porque os telescópios de vidro óptico foram destruídos por piratas durante viagens marítimas no Mediterrâneo.",
+        "Porque o modelo de Copérnico exigia que todos os astrônomos aprendessem a nadar nas águas do oceano.",
+        "Porque as leis civis da época proibiam que se olhasse para o céu durante o dia com lupas de leitura.",
+        "B",
+        "A mudança de paradigma não é uma simples troca de hipótese; envolve uma conversão científica e uma reestruturação profunda de métodos, conceitos e instrumentos de trabalho da comunidade."
+    ))
+
+    questoes_brutas.append((
+        26, "EM13CHS101", "intermediario",
+        "Na Crítica da Razão Pura, Kant investiga o papel da faculdade da Razão em distinção ao Entendimento. Qual é a função legítima das Ideias transcendentais da Razão (Alma, Mundo e Deus)?",
+        "Servir como objetos empíricos para experiências químicas em tubos de ensaio.",
+        "Atuar como Ideias Regulativas que orientam a busca da unidade sistemática máxima do conhecimento, sem pretensão de constituir ciência empírica.",
+        "Determinar os preços das mercadorias vendidas nas lojas comerciais das capitais europeias.",
+        "Impedir que os professores de física ensinem a gravitação universal nas escolas.",
+        "Substituir o estudo da biologia por orações fúnebres entoadas em jazigos cívicos.",
+        "B",
+        "As ideias da razão não produzem conhecimento direto de objetos, mas exercem um papel regulativo indispensável: guiam o entendimento a buscar a maior coesão e totalidade do saber."
+    ))
+
+    questoes_brutas.append((
+        27, "EM13CHS504", "intermediario",
+        "Ao defender o pluralismo metodológico, Paul Feyerabend utilizou o exemplo histórico de Galileu Galilei demonstrando que o astrônomo italiano:",
+        "Seguiu rigorosamente a cartilha positivista dos tratados de lógica aprovados em Roma.",
+        "Recorreu a artifícios de persuasão, metáforas e hipóteses ad hoc antes de possuir evidências telescópicas conclusivas para vencer as resistências do geocentrismo.",
+        "Recusou olhar pelo telescópio óptico por medo de sofrer queimaduras na retina dos olhos.",
+        "Afirmou que a Terra estava parada no centro do cosmos e que o Sol era uma lâmpada mágica.",
+        "Foi coroado rei da Itália após apresentar cálculos de geometria aos senadores de Veneza.",
+        "B",
+        "Feyerabend mostra que Galileu não seguiu uma regra fria e neutra: usou propaganda retórica, modelos preliminares e quebrou métodos consolidados para viabilizar o avanço da física moderna."
+    ))
+
+    questoes_brutas.append((
+        28, "EM13CHS101", "intermediario",
+        "Como a distinção kantiana entre Fenômeno e Númeno soluciona a querela entre o mecanicismo determinista da física de Newton e a liberdade moral da vontade humana?",
+        "Provando que as leis do movimento mecânico são ilusões infantis que a razão deve abandonar.",
+        "Mostrando que no plano fenomênico da natureza física o homem está sujeito à causalidade mecanicista, mas no plano numênico moral a razão prática é autônoma e livre.",
+        "Afirmando que a liberdade moral só existe para cidadãos que possuem propriedades agrícolas de terra.",
+        "Defendendo que as máquinas de tecelagem operam impulsionadas por sentimentos de honra cívica.",
+        "Impondo que os tribunais de justiça julguem as pessoas consultando posições das estrelas no céu.",
+        "B",
+        "Kant articula os dois planos: enquanto fenômeno corpóreo no espaço e tempo, o ser humano obedece às leis da física causal; enquanto ser numênico moral, é dotado de liberdade e responsabilidade ética."
+    ))
+
+    questoes_brutas.append((
+        29, "EM13CHS504", "intermediario",
+        "O conceito de 'Falsificabilidade' de Popper estabelece que uma teoria com alta qualidade científica é aquela que:",
+        "Nunca erra em nenhuma previsão porque foi abençoada por deuses da tradição mitológica.",
+        "Possui grande conteúdo informativo empírico, faz previsões arriscadas e específicas, e sobreviveu a testes rigorosos de tentativa de refutação.",
+        "É redigida em versos rimados de dez sílabas métricas para impressionar os jurados de concursos.",
+        "Foi aprovada por unanimidade em votação popular secreta realizada pelos cidadãos nas ruas.",
+        "Trata de assuntos tão abstratos que nenhum experimento em laboratório é capaz de contradizê-la.",
+        "B",
+        "Para Popper, boas teorias científicas arriscam o pescoço: formulam previsões empíricas ousadas que poderiam dar errado, demonstrando robustez ao resistir aos testes de falseamento."
+    ))
+
+    questoes_brutas.append((
+        30, "EM13CHS101", "intermediario",
+        "Considere a proposição: 'O calor dilata os corpos de metal'. De acordo com Immanuel Kant, como esse enunciado da física experimental é classificado?",
+        "Juízo Analítico a priori.",
+        "Juízo Sintético a posteriori.",
+        "Juízo Ilusório subjetivo.",
+        "Juízo Sagrado eterno.",
+        "Juízo Categórico moral.",
+        "B",
+        "Trata-se de um juízo sintético a posteriori: o conceito de metal não contém em si a dilatação (é sintético, amplia o saber) e sua validação factual depende do teste empírico (a posteriori)."
+    ))
+
+    questoes_brutas.append((
+        31, "EM13CHS504", "intermediario",
+        "Durante a Revolução Científica descrita por Thomas Kuhn, a transição de um paradigma antigo para um novo modelo não decorre apenas de cálculos matemáticos neutros, mas envolve:",
+        "A compra de laboratórios de química por banqueiros de moedas estrangeiras.",
+        "Fatores históricos, sociológicos, psicológicos e consensos construídos no interior da comunidade científica organizada.",
+        "O fechamento obrigatório de todas as faculdades de medicina por prazo de cinquenta anos.",
+        "A substituição de telescópios ópticos por espelhos decorativos instalados em palácios reais.",
+        "A intervenção armada de generais que ordenam aos físicos quais fórmulas devem ser escritas.",
+        "B",
+        "Kuhn demonstra que a ciência é uma prática social: a escolha entre paradigmas concorrentes em crise mobiliza debates de valores, convencimento intersubjetivo e dinâmica sociológica da comunidade de pares."
+    ))
+
+    questoes_brutas.append((
+        32, "EM13CHS101", "intermediario",
+        "Em que medida a crítica de Immanuel Kant superou o ceticismo de David Hume sobre a causalidade física?",
+        "Kant provou que o princípio da causalidade foi gravado por artesãos antigos em pirâmides de pedra.",
+        "Kant demonstrou que a causalidade não é um mero hábito psicológico empírico contingente, mas uma categoria a priori do entendimento necessária para estruturar a experiência do mundo.",
+        "Kant concordou com Hume que a ciência é uma ilusão e aconselhou os jovens a abandonarem os estudos.",
+        "Kant defendeu que as causas e efeitos ocorrem de trás para a frente quando observados no inverno.",
+        "Kant determinou que as leis newtonianas devem ser substituídas por oráculos recitados em templos.",
+        "B",
+        "Kant responde a Hume mostrando que a causalidade é uma regra formal a priori da mente humana: sem ela, a própria experiência coerente de sucessão temporal de eventos físicos seria impossível."
+    ))
+
+    questoes_brutas.append((
+        33, "EM13CHS504", "intermediario",
+        "No embate contemporâneo contra o negacionismo científico e as notícias falsas (fake news) em temas de saúde pública, o critério de falseabilidade de Popper é fundamental porque:",
+        "Permite provar que qualquer boato publicado na internet é uma revelação científica indubitável.",
+        "Fornece um padrão objetivo para desmascarar discursos pseudocientíficos e teorias conspiratórias que rejeitam testes controlados e se blindam contra a refutação empírica.",
+        "Obriga os médicos a utilizarem tratamentos sem respaldo científico para agradar aos pacientes.",
+        "Proíbe que os biólogos publiquem dados sobre vacinas em jornais de circulação geral.",
+        "Exige que as pesquisas biomédicas sejam avaliadas por jurados sorteados em praça aberta.",
+        "B",
+        "Teorias da conspiração e curas milagrosas recusam testes de falseamento e adaptam argumentos para justificar fracassos; o método científico exige hipóteses vulneráveis a dados reais observáveis."
+    ))
+
+    questoes_brutas.append((
+        34, "EM13CHS101", "intermediario",
+        "Por que Immanuel Kant rejeitou a tese empirista de que a mente humana é uma 'folha em branco' passiva (Tábula Rasa)?",
+        "Porque as folhas de papel da Prússia continham marcas d'água de fábricas de celulose.",
+        "Porque se a mente fosse puramente passiva, seria incapaz de organizar a multiplicidade caótica das sensações brutas em um todo ordenado de leis universais e necessárias.",
+        "Porque as crianças nascem sabendo falar e escrever todas as línguas antigas da Europa.",
+        "Porque a memória humana guarda fórmulas de geometria aprendidas em encarnações prévias.",
+        "Porque o parlamento municipal proibiu o uso de cadernos escolares de capa dura nas cidades.",
+        "B",
+        "Para Kant, dados sensíveis brutos sem a atividade estruturadora a priori das formas da sensibilidade e dos conceitos do intelecto seriam um turbilhão incoerente e inapreensível."
+    ))
+
+    questoes_brutas.append((
+        35, "EM13CHS504", "intermediario",
+        "Ao tratar da história da ciência, Thomas Kuhn afirma que os cientistas maduros que lideram o paradigma dominante raramente abandonam suas convicções diante das primeiras anomalias. Por que isso ocorre?",
+        "Porque os cientistas são pagos por governantes para esconder os erros dos relatórios oficiais.",
+        "Porque a ciência normal precisa de estabilidade e persistência metodológica para explorar ao máximo o potencial explicativo de um paradigma antes de decretar seu esgotamento.",
+        "Porque os aparelhos de laboratório químico são indestrutíveis e nunca erram nas medições.",
+        "Porque as leis da física foram escritas em placas de bronze que não podem ser alteradas.",
+        "Porque os pesquisadores têm medo de perder seus diplomas de doutorado em audiências públicas.",
+        "B",
+        "Se os cientistas abandonassem o modelo a cada anomalia ou ruído no laboratório, nenhum paradigma desenvolveria instrumentos sofisticados nem alcançaria maturidade explicativa de problemas."
+    ))
+
+    questoes_brutas.append((
+        36, "EM13CHS101", "intermediario",
+        "Qual é o significado do termo 'Transcendental' na filosofia crítica de Immanuel Kant?",
+        "Diz respeito a experiências místicas que permitem à alma conversar com os anjos no céu.",
+        "Refere-se ao estudo não dos objetos em si mesmos, mas do nosso modo de conhecer os objetos, na medida em que esse modo é possível a priori.",
+        "Designa a travessia de oceanos perigosos em barcos de madeira movidos a vela.",
+        "Significa a renúncia às leis civis da cidade em benefício de viver em florestas distantes.",
+        "Indica o hábito de dormir durante as conferências públicas de matemática pura.",
+        "B",
+        "Transcendental em Kant não é o que ultrapassa o mundo (transcendente), mas a investigação das condições formais a priori que tornam possível a própria experiência objetiva humana."
+    ))
+
+    questoes_brutas.append((
+        37, "EM13CHS504", "intermediario",
+        "A tese de Paul Feyerabend em Contra o Método foi frequentemente interpretada como um ataque à racionalidade da ciência. Como os comentadores contemporâneos corrigem essa leitura redutora?",
+        "Mostrando que Feyerabend pretendia fechar todas as faculdades de medicina para reabrir templos antigos.",
+        "Esclarecendo que seu objetivo não era destruir a ciência, mas combater o dogmatismo e a arrogância metodológica, defendendo uma postura aberta, plural e interdisciplinar no fazer científico.",
+        "Confirmando que Feyerabend considerava a astrologia superior a qualquer pesquisa de astronomia.",
+        "Provando que Feyerabend foi expulso das universidades europeias por desacato a magistrados civis.",
+        "Demonstrando que os cientistas de laboratório devem usar instrumentos de madeira descartando metais.",
+        "B",
+        "Feyerabend combatia a imagem mitificada da ciência como um método rígido, universal e neutro; sua defesa era a do pluralismo democrático que reconhece a criatividade e a diversidade de caminhos investigativos."
+    ))
+
+    questoes_brutas.append((
+        38, "EM13CHS101", "intermediario",
+        "Na Crítica da Razão Pura, Kant afirma que o 'Espaço' não é uma propriedade real das coisas em si mesmas. Qual argumento sustenta essa afirmação?",
+        "Podemos conceber sem contradição o espaço desprovido de qualquer objeto material, mas jamais podemos representar um objeto material desprovido de espaço tridimensional.",
+        "O espaço diminui de tamanho durante a noite e aumenta ao meio-dia sob o calor do sol.",
+        "Os astronautas demonstraram que o espaço sideral termina nas fronteiras das estrelas fixas.",
+        "O espaço foi desenhado no chão por geômetras que construíam as muralhas de Atenas.",
+        "As pessoas cegas não possuem senso de audição e não conseguem caminhar pelas ruas.",
+        "A",
+        "O espaço é a condição formal a priori da sensibilidade externa: não o derivamos da experiência de objetos; ao contrário, é o espaço prévio na mente que torna possível representar objetos fora de nós."
+    ))
+
+    questoes_brutas.append((
+        39, "EM13CHS504", "intermediario",
+        "Ao comparar o conceito de progresso científico em Karl Popper e Thomas Kuhn, nota-se uma divergência de modelos, pois:",
+        "Popper concebe o avanço como aproximação cumulativa da verdade por contínua refutação racional de conjecturas, enquanto Kuhn o enxerga como rupturas revolucionárias descontínuas de paradigmas incomensuráveis.",
+        "Popper afirma que a ciência só anda para trás e Kuhn defende que as teorias nunca mudam na história.",
+        "Ambos afirmam que a ciência depende de aprovação prévia em assembleias políticas municipais.",
+        "Popper defende o retorno à alquimia e Kuhn afirma que a física deve abandonar os laboratórios.",
+        "Kuhn considera a matemática inútil e Popper sustenta que os telescópios devem ser banidos.",
+        "A",
+        "Para Popper, a ciência avança pelo falseamento cumulativo de hipóteses erradas; para Kuhn, o progresso dá-se em saltos qualitativos de rupturas estruturais (revoluções científicas)."
+    ))
+
+    questoes_brutas.append((
+        40, "EM13CHS101", "intermediario",
+        "A famosa pergunta kantiana 'Como são possíveis os juízos sintéticos a priori?' é decisiva para a filosofia ocidental porque sua resposta positiva garante que:",
+        "As poesias dramáticas possuem maior rigor do que as demonstrações de geometria analítica.",
+        "A ciência pura da natureza e a matemática possuem fundamentos racionais universais e necessários sem depender do ceticismo contingente do hábito empírico.",
+        "Os tratados de teologia escolástica devem ser declarados leis civis obrigatórias em todo o país.",
+        "O ser humano é incapaz de formular qualquer cálculo verdadeiro sobre a velocidade dos planetas.",
+        "Os governantes monárquicos possuem mandato divino perpétuo para legislar sem prestar contas.",
+        "B",
+        "Provar a possibilidade dos juízos sintéticos a priori foi a façanha de Kant: salvou a física newtoniana e a matemática da corrosão cética de Hume, estabelecendo seus alicerces racionais firmes."
+    ))
+
+    # ----------------------------------------------------
+    # NÍVEL DIFÍCIL (Questões 41 a 60)
+    # ----------------------------------------------------
+    questoes_brutas.append((
+        41, "EM13CHS103", "dificil",
+        "Analise a célebre passagem da Crítica da Razão Pura: 'Até agora se supôs que todo o nosso conhecimento devia regular-se pelos objetos; porém, todas as tentativas de descobrir algo a priori sobre eles por meio de conceitos acabaram falhando. Que se experimente, pois, uma vez admitir que são os objetos que se devem regular pelo nosso conhecimento.' Como essa formulação rebate o realismo ingênuo?",
+        "Negando a existência fática da matéria exterior e adotando uma posição solipsista e fantasiosa.",
+        "Demonstrando que a objetividade científica não resulta da contemplação passiva das coisas brutas, mas da estruturação racional ativa operada pelas faculdades a priori do sujeito transcendental.",
+        "Exigindo que os cientistas abandonem o método experimental em benefício de meditações solitárias em mosteiros.",
+        "Afirmando que o ser humano cria as leis físicas por meio de orações cantadas ao pôr do sol.",
+        "Proibindo o uso de balanças e cronômetros nos laboratórios químicos da universidade.",
+        "B",
+        "**Etapa 1:** Compreender a ruptura com o realismo passivo tradicional, que imaginava a mente como um espelho inerte do mundo exterior.\n**Etapa 2:** Evidenciar que a objetividade fenomênica decorre das condições formais a priori (espaço, tempo e categorias) com que o sujeito transcendental constitui o objeto de experiência possível."
+    ))
+
+    questoes_brutas.append((
+        42, "EM13CHS105", "dificil",
+        "Considere o problema da refutabilidade de Karl Popper diante do seguinte exemplo: um pesquisador formula a tese de que 'todas as ações humanas são motivadas pelo egoísmo inconsciente' e, diante de um homem que arrisca a vida para salvar uma criança de um afogamento, argumenta que ele o fez para aplacar seu egoísmo de sentir-se herói. Como a epistemologia popperiana desmonta essa blindagem?",
+        "Apoiando a tese do pesquisador por considerá-la bela e inspiradora para a literatura romântica.",
+        "Evidenciando que uma hipótese que reinterpreta qualquer contraexemplo como confirmação de si mesma é infalseável e imune ao teste empírico, carecendo de estatuto científico estrito.",
+        "Obrigando o homem que salvou a criança a prestar depoimento perante um tribunal militar de disciplina.",
+        "Provando que as águas de rios gelados contêm propriedades químicas que alteram a moralidade das pessoas.",
+        "Demonstrando que os heróis cívicos devem ser condecorados com moedas de prata emitidas pelo tesouro nacional.",
+        "B",
+        "**Etapa 1:** Analisar a manobra convencionalista de proteção da tese contra testes empíricos adversos.\n**Etapa 2:** Concluir que uma hipótese formulada de modo a abarcar qualquer comportamento concebível não proíbe nenhum evento empírico; sendo infalseável, não possui valor de demarcação científica."
+    ))
+
+    questoes_brutas.append((
+        43, "EM13CHS103", "dificil",
+        "Ao examinar a transição da física newtoniana para a física relativística de Albert Einstein no século XX, como a teoria das revoluções científicas de Thomas Kuhn explica a superação do paradigma newtoniano?",
+        "Como a queima intencional dos cadernos de cálculo de Newton por inveja de pesquisadores rivais.",
+        "Como o acúmulo de anomalias empíricas (como o desvio da órbita do periélio de Mercúrio e o comportamento da luz) que geraram uma crise no modelo newtoniano, culminando na adoção de um novo paradigma de espaço-tempo curvo.",
+        "Como a constatação de que a gravidade foi inventada por relojoeiros ingleses no século XVII.",
+        "Como uma ordem governamental baixada pelos parlamentos europeus para acelerar a produção de motores elétricos.",
+        "Como a substituição do método da física pela leitura das profecias medievais de astrólogos da corte.",
+        "B",
+        "**Etapa 1:** Descrever o ciclo kuhniano: ciência normal newtoniana, acúmulo de anomalias inexplicáveis e crise teórica estrutural.\n**Etapa 2:** Identificar que a teoria da relatividade geral inaugurou um novo paradigma conceitual incomensurável, reconfigurando os conceitos basilares de matéria, tempo, espaço e gravitação na física moderna."
+    ))
+
+    questoes_brutas.append((
+        44, "EM13CHS101", "dificil",
+        "Na 'Estética Transcendental' da Crítica da Razão Pura, Kant argumenta que o Tempo é a forma a priori do sentido interno. Qual desdobramento essa teoria provoca sobre a autopercepção da mente?",
+        "Permite à mente humana enxergar o futuro com a mesma exatidão de um vidente da Antiguidade.",
+        "Demonstra que conhecemos a nós mesmos apenas como fenômeno temporalizado de estados sucessivos de consciência, e não como alma em si mesma (númeno imutável).",
+        "Comprova que o tempo cessa de correr toda vez que a pessoa se concentra na resolução de equações algébricas.",
+        "Afirma que os relógios mecânicos de pêndulo foram inventados para ditar o ritmo das batidas do coração.",
+        "Exige que os estudantes de filosofia usem ampulhetas de areia durante as refeições diárias.",
+        "B",
+        "**Etapa 1:** Compreender o tempo como intuição pura formal que estrutura todos os fenômenos da vida psíquica interna sucessiva.\n**Etapa 2:** Concluir que, assim como não conhecemos a matéria física exterior em si mesma, também nosso autoconhecimento psíquico interno é fenomênico (conhecemos o 'eu empírico' temporalizado, não o númeno da alma)."
+    ))
+
+    questoes_brutas.append((
+        45, "EM13CHS504", "dificil",
+        "Em debates de bioética e medicina experimental, a exigência de testes duplo-cegos e grupos de controle com placebo para aprovar novos medicamentos conecta-se ao falseacionismo de Karl Popper porque:",
+        "Pretende provar que os médicos de hospitais possuem poderes divinos de cura que dispensam medicamentos reais.",
+        "Submete a eficácia do novo fármaco à mais rigorosa tentativa de refutação e falseamento empírico controlado, garantindo que o efeito terapêutico não decorra de sugestão psicológica ou acaso estatístico.",
+        "Obriga os laboratórios a distribuir comprimidos de açúcar para economizar recursos orçamentários.",
+        "Determina que os pacientes sejam tratados sem o uso de substâncias químicas comprovadas em laboratório.",
+        "Exige que todos os médicos aprendam a rezar orações em latim antes de aplicar injeções nos enfermos.",
+        "B",
+        "**Etapa 1:** Analisar o desenho metodológico do ensaio clínico duplo-cego como tentativa de refutar a hipótese nula.\n**Etapa 2:** Evidenciar a aplicação do método popperiano: a validade do medicamento só é admitida provisoriamente após sobreviver a testes rigorosamente planejados para tentar falsear sua eficácia terapêutica real."
+    ))
+
+    questoes_brutas.append((
+        46, "EM13CHS103", "dificil",
+        "Ao examinar as Antinomias da Razão Pura no capítulo sobre a 'Dialética Transcendental', Kant demonstra que quando a razão humana tenta legislar sobre o universo como totalidade cósmica fora da experiência sensível, ela cai em contradições insolúveis (teses e antíteses igualmente demonstráveis). O que isso prova sobre a razão humana?",
+        "Que a razão humana é um defeito biológico que impede a sobrevivência pacífica das sociedades civis.",
+        "Que a razão humana ultrapassa seus limites legítimos quando aplica as categorias do entendimento fora do campo da experiência sensível fenomênica, caindo na ilusão dialética.",
+        "Que os matemáticos de Königsberg deviam queimar os livros que tratavam da infinitude do espaço sideral.",
+        "Que as leis civis da Prússia deviam proibir que os cidadãos olhassem para o céu noturno em noites de lua cheia.",
+        "Que os paradoxos de Zenão de Eleia foram resolvidos de forma definitiva por generais militares romanos.",
+        "B",
+        "**Etapa 1:** Analisar o mecanismo das antinomias kantianas (ex: 'o mundo tem início no tempo' vs 'o mundo é eterno no tempo').\n**Etapa 2:** Concluir que a paralisia das antinomias evidencia a fronteira da razão teórica: categorias como causalidade e espaço só funcionam legitimamente quando aplicadas a dados sensíveis fenomênicos; fora deles, geram ilusões metafísicas insolúveis."
+    ))
+
+    questoes_brutas.append((
+        47, "EM13CHS504", "dificil",
+        "Considere a afirmação de Paul Feyerabend: 'A ideia de que a ciência pode e deve ser governada de acordo com regras fixas e universais é tanto irrealista quanto perniciosa.' Qual argumento histórico Feyerabend mobiliza para defender essa tese em face do cientificismo estrito?",
+        "Ele afirma que os cientistas mais ilustres utilizavam feitiços noturnos para calcular a trajetória dos planetas.",
+        "Ele demonstra que as maiores viradas científicas da história (como a física de Galileu e a relatividade) só ocorreram porque os pesquisadores violaram deliberadamente regras de métodos estabelecidas e recorreram a estratégias heurísticas heterodoxas.",
+        "Ele prova que as ciências da natureza devem ser substituídas pelo estudo exclusivo de romances medievais de cavalaria.",
+        "Ele defende que as universidades públicas devem proibir o ensino de química experimental aos jovens.",
+        "Ele sustenta que a tecnologia digital foi criada por artesãos que não sabiam ler nem calcular números inteiros.",
+        "B",
+        "**Etapa 1:** Examinar a reconstrução histórica feita por Feyerabend em Contra o Método contra a cartilha positivista rígida.\n**Etapa 2:** Reconhecer que o engessamento metodológico teria bloqueado rupturas seminais: o progresso real da ciência exigiu historicamente audácia, oportunismo metodológico e flexibilidade criativa de fronteiras."
+    ))
+
+    questoes_brutas.append((
+        48, "EM13CHS101", "dificil",
+        "Qual é a distinção conceitual precisa entre o 'Idealismo Transcendental' de Kant e o 'Idealismo Subjetivo' ou imaterialista do bispo George Berkeley?",
+        "Kant afirma que os objetos físicos não existem fora de nós e que tudo é ilusão da mente divina que nos engana.",
+        "Berkeley sustentava que a matéria não existe e que 'ser é ser percebido' (esse est percipi), enquanto Kant afirma categoricamente a existência real da matéria exterior (númeno), limitando o idealismo à forma das nossas representações a priori dos fenômenos.",
+        "Ambos os filósofos defendiam que os corpos físicos são formados por pedras preciosas invisíveis aos olhos humanos.",
+        "Kant negava o uso da matemática nas ciências e Berkeley afirmava que os planetas eram desenhados por anjos no céu.",
+        "Berkeley defendia a física newtoniana e Kant afirmava que a gravidade só funciona durante as estações de chuva.",
+        "B",
+        "**Etapa 1:** Contrastar o imaterialismo radical de Berkeley (rejeição da matéria exterior) com o criticismo kantiano.\n**Etapa 2:** Evidenciar a defesa explícita de Kant na 'Refutação do Idealismo': há coisas exteriores em si mesmas que nos afetam (matéria real), embora nosso modo de conhecê-las seja ideal/transcendental (estruturado pelo sujeito)."
+    ))
+
+    questoes_brutas.append((
+        49, "EM13CHS504", "dificil",
+        "Ao examinar a tese kuhniana de que 'dois cientistas que operam em paradigmas rivais vivem em mundos diferentes', sociólogos da ciência concluem que o debate científico não é puramente formal e neutro. Qual implicação teórica decorre dessa visão?",
+        "A ciência deve ser declarada uma mentira total e os hospitais modernos devem ser fechados pela justiça.",
+        "A observação empírica é 'impregnada de teoria' (theory-laden): não existem dados puros neutros colhidos da natureza; os fatos são percebidos, descritos e interpretados a partir do arcabouço conceitual do paradigma aceito pelo observador.",
+        "Os cientistas de laboratório utilizam óculos de realidade virtual para desenhar estrelas em quartos escuros.",
+        "Os cálculos de física experimental mudam de acordo com a moeda financeira usada para pagar os salários dos professores.",
+        "A verdade das ciências depende unicamente de sorteios de dados de osso realizados em praças públicas.",
+        "B",
+        "**Etapa 1:** Analisar o conceito teórico contemporâneo da 'impregnação teórica da observação' (*theory-ladenness*).\n**Etapa 2:** Concluir que a visão positivista do dado empírico nu é ilusória: o cientista já observa o mundo através das lentes conceituais, hipóteses e vocabulário estruturador do paradigma em que foi socializado profissionalmente."
+    ))
+
+    questoes_brutas.append((
+        50, "EM13CHS103", "dificil",
+        "Em sua obra A Lógica da Pesquisa Científica, Karl Popper substitui a busca positivista pela 'certeza definitiva' da verdade pelo conceito de aceitação provisória de hipóteses que resistem a testes severos. O que significa afirmar que uma teoria resistiu com sucesso aos testes empíricos de falseamento?",
+        "Significa que a teoria foi declarada eterna, divina e imune a quaisquer novas pesquisas experimentais futuras.",
+        "Significa que a teoria demonstrou sua solidez ao resistir aos mais severos testes empíricos de falseamento até o momento, mantendo sua validade provisória enquanto testes novos não a refutarem.",
+        "Significa que todos os cidadãos da cidade assinaram um termo concordando com o texto das equações físicas.",
+        "Significa que a teoria foi impressa em livros de couro vermelho distribuídos gratuitamente pelo parlamento.",
+        "Significa que os cientistas receberam medalhas de ouro em banquetes oferecidos pelos reis da Europa.",
+        "B",
+        "**Etapa 1:** Compreender o falibilismo metodológico de Popper e a recusa da pretensão de verdades empíricas irrefutáveis.\n**Etapa 2:** Reconhecer a força da sustentação empírica provisória: uma teoria científica nunca é 'verificada definitivamente'; é uma hipótese audaciosa provisoriamente aceita enquanto resistir às tentativas rigorosas de demolição pelos testes de falseamento."
+    ))
+
+    questoes_brutas.append((
+        51, "EM13CHS101", "dificil",
+        "Na arquitetura da Crítica da Razão Pura, Kant divide a lógica transcendental em 'Analítica Transcendental' e 'Dialética Transcendental'. Qual a missão específica da Analítica Transcendental?",
+        "Ensinar aos poetas como rimar sonetos líricos em cerimônias de coroação de governantes.",
+        "Desdobrar e justificar o uso legítimo dos conceitos puros do entendimento (categorias) como regras formais que conferem inteligibilidade aos fenômenos da experiência sensível.",
+        "Provar que os sonhos noturnos contêm profecias matemáticas infalíveis sobre colheitas de trigo.",
+        "Condenar os cientistas que utilizam instrumentos mecânicos de medição de pressão do ar.",
+        "Substituir o estudo da física pelas leis civis aprovadas pelos tribunais populares da cidade.",
+        "B",
+        "**Etapa 1:** Definir a tarefa da Analítica Transcendental na teoria kantiana do conhecimento.\n**Etapa 2:** Concluir que a Analítica é a 'lógica da verdade': expõe os elementos puros do entendimento e as condições a priori sob as quais os objetos da experiência possível podem ser pensados e conhecidos com validade objetiva."
+    ))
+
+    questoes_brutas.append((
+        52, "EM13CHS504", "dificil",
+        "Considere o debate contemporâneo sobre a crise de reprodutibilidade em artigos científicos em psicologia e biomedicina (onde muitos experimentos publicados não são replicados por outros laboratórios). Sob a ótica popperiana, qual exigência metodológica é descumprida quando um resultado empírico não pode ser reproduzido por terceiros?",
+        "A exigência de que os cientistas paguem taxas de registro em dinheiro para publicar em revistas indexadas.",
+        "O princípio basilar da intersubjetividade e da testabilidade empírica controlada: um efeito que não pode ser reproduzido metodicamente por outros pesquisadores não adquire status de fato científico objetivo, permanecendo como mera anomalia acidental isolada.",
+        "A obrigatoriedade de que todos os autores pertençam a faculdades localizadas no norte da Europa.",
+        "A regra cívica de que os pacientes devem votar a favor do remédio antes de iniciar o tratamento clínico.",
+        "O preceito de que os gráficos de estatística devem utilizar apenas cores primárias nos relatórios impressos.",
+        "B",
+        "**Etapa 1:** Conectar a crise de reprodutibilidade aos alicerces da demarcação científica popperiana.\n**Etapa 2:** Evidenciar que para Popper a ciência é pública e intersubjetiva: se o teste não pode ser falseado ou replicado de forma independente por qualquer membro da comunidade de pares, o resultado carece de valor demonstrativo real."
+    ))
+
+    questoes_brutas.append((
+        53, "EM13CHS103", "dificil",
+        "Ao formular a Crítica da Faculdade do Juízo (1790), Kant investiga o juízo de finalidade na biologia dos organismos vivos. Por que a física mecanicista newtoniana pura é incapaz de explicar satisfatoriamente a vida biológica segundo Kant?",
+        "Porque os animais e plantas possuem almas místicas que conversam com adivinhos nas florestas da Prússia.",
+        "Porque em um organismo vivo as partes só existem em vista do todo e o todo se reproduz pelas partes (causalidade circular organísmica), exigindo o conceito regulativo de finalidade natural que a mecânica cega não contempla.",
+        "Porque as leis da gravitação não afetam os corpos dos mamíferos quando eles correm pelas campinas.",
+        "Porque os botânicos do século XVIII utilizavam microscópios de madeira que distorciam as células vegetais.",
+        "Porque o rei da Prússia baixou um decreto proibindo o uso de equações de física em tratados de botânica.",
+        "B",
+        "**Etapa 1:** Analisar os limites do paradigma mecanicista linear (causa e efeito mecânico exterior) diante da autofinalidade e autoreprodução da vida orgânica.\n**Etapa 2:** Concluir com Kant que a biologia exige a ideia regulativa de finalidade própria do organismo (a famosa afirmação de que 'jamais haverá um Newton para explicar uma folha de grama pela mecânica pura')."
+    ))
+
+    questoes_brutas.append((
+        54, "EM13CHS504", "dificil",
+        "Ao analisar a incomensurabilidade entre paradigmas em Thomas Kuhn, críticos apontaram o risco de relativismo total, sugerindo que a mudança de teoria científica se tornaria uma mera 'conversão irracional de seitas'. Como Kuhn rebateu essa leitura extrema?",
+        "Concordando que a ciência é uma religião irracional e abandonando seus estudos universitários nos Estados Unidos.",
+        "Esclarecendo que, embora não haja um algoritmo neutro único, os cientistas compartilham valores epistêmicos consistentes (precisão preditiva, coerência interna, amplitude de alcance, simplicidade e fecundidade teórica) que guiam escolhas racionais legítimas no debate da comunidade.",
+        "Afirmando que a verdade da física depende exclusivamente de decretos militares emitidos por generais da marinha.",
+        "Defendendo que as teorias científicas devem ser escolhidas por meio de sorteios de cartas de baralho em praça pública.",
+        "Proibindo o uso de computadores eletrônicos nos centros de pesquisa astronômica do mundo.",
+        "B",
+        "**Etapa 1:** Interpretar o conceito de 'valores epistêmicos compartilhados' formulado pelo próprio Kuhn no pós-escrito de 1969 de A Estrutura das Revoluções Científicas.\n**Etapa 2:** Evidenciar que a ausência de uma regra algorítmica matemática neutra não anula a racionalidade da deliberação da comunidade científica: os pares mobilizam critérios epistêmicos maduros (precisão, simplicidade, escopo) para justificar a transição paradigmática."
+    ))
+
+    questoes_brutas.append((
+        55, "EM13CHS101", "dificil",
+        "No capítulo da Crítica da Razão Pura dedicado ao 'Esquematismo dos Conceitos Puros do Entendimento', Kant enfrenta o enigma de como categorias abstratas do intelecto podem se aplicar às intuições sensíveis concretas. Qual elemento mediador resolve esse problema?",
+        "A força física da respiração dos pulmões que oxigena o crânio dos pesquisadores.",
+        "O Esquema Transcendental, uma determinação temporal a priori produzida pela imaginação produtiva que torna as categorias aplicáveis à sensibilidade estruturada no tempo.",
+        "O uso de compassos de metal e réguas milimetradas por estudantes de engenharia.",
+        "A leitura de versos poéticos recitados por corais cívicos durante o meio-dia.",
+        "A ingestão de infusões medicinais de ervas cultivadas em hortas botânicas.",
+        "B",
+        "**Etapa 1:** Identificar a heterogeneidade radical entre categorias lógicas intelectuais puras e sensações sensíveis empíricas.\n**Etapa 2:** Concluir que a mediação necessária é operada pelo Esquematismo: a imaginação transcendental traduz as categorias em regras temporais (ex: a categoria de substância é esquematizada como permanência no tempo; a de causalidade, como sucessão regular no tempo)."
+    ))
+
+    questoes_brutas.append((
+        56, "EM13CHS504", "dificil",
+        "Na filosofia da ciência do século XX, o filósofo Imre Lakatos propôs a 'Metodologia dos Programas de Pesquisa Científica' como uma mediação entre Karl Popper e Thomas Kuhn. O que caracteriza o 'Núcleo Rígido' (Hard Core) de um programa de pesquisa lakatosiano?",
+        "Uma placa de ferro puro guardada no cofre de segurança de universidades públicas.",
+        "O conjunto fundamental de hipóteses teóricas centrais que os cientistas decidem proteger de falseamentos imediatos, cercando-o por um 'cinturão protetor' de hipóteses auxiliares que absorvem o impacto das anomalias experimentais.",
+        "Uma lista de preces religiosas que os pesquisadores devem recitar antes de ligar aparelhos elétricos.",
+        "A exigência de que todos os artigos de física sejam aprovados por votação de operários de indústrias de calçados.",
+        "O valor cobrado pelos editores para registrar os direitos autorais de livros científicos.",
+        "B",
+        "**Etapa 1:** Compreender a estrutura do programa de pesquisa científica de Lakatos (núcleo rígido, heurística positiva e negativa, e cinturão de hipóteses protetoras).\n**Etapa 2:** Evidenciar que Lakatos combina a tenacidade de Kuhn (proteger o núcleo teórico) com o rigor de Popper (modificar hipóteses auxiliares do cinturão diante de testes empíricos), superando o dilema entre falseacionismo ingênuo e relativismo de conversão."
+    ))
+
+    questoes_brutas.append((
+        57, "EM13CHS103", "dificil",
+        "Ao examinar a relação entre Ciência, Tecnologia e Sociedade (estudos CTS), sociólogos contemporâneos apoiam-se na crítica de Paul Feyerabend para alertar contra o perigo do 'Cientificismo Dogmático'. Em que consiste esse perigo?",
+        "Em proibir que os cientistas recebam salários em moedas emitidas pelo tesouro nacional.",
+        "Em transformar a ciência em uma nova religião laica intocável, desqualificando autoritariamente saberes tradicionais, éticos e democráticos, e convertendo a autoridade dos especialistas em tirania tecnocrática desprovida de controle cívico.",
+        "Em obrigar as indústrias químicas a utilizarem apenas tecidos de algodão orgânico em suas roupas de trabalho.",
+        "Em determinar que os computadores digitais sejam desmontados no início de cada ano bissexto.",
+        "Em exigir que os astrônomos de observatórios públicos durmam apenas quatro horas por noite.",
+        "B",
+        "**Etapa 1:** Analisar o diagnóstico de Feyerabend sobre a ideologização da ciência e a fusão acrítica entre saber técnico e poder estatal.\n**Etapa 2:** Concluir com a sociologia CTS: o cientificismo autoritário usurpa a deliberação democrática ao pretender que decisões com impacto social e ambiental sejam resolvidas por monopólio de técnicos, desconsiderando a cidadania e a pluralidade de saberes."
+    ))
+
+    questoes_brutas.append((
+        58, "EM13CHS101", "dificil",
+        "Analise a famosa passagem do ensaio de Kant intitulado Resposta à Pergunta: O que é o Esclarecimento? (Aufklärung, 1784): 'O Esclarecimento é a saída do homem de sua menoridade, da qual ele mesmo é culpado. A menoridade é a incapacidade de fazer uso de seu próprio entendimento sem a condução de um outro.' Como essa postura ética e cívica se articula com a epistemologia crítica kantiana?",
+        "Ela prega que as pessoas devem obedecer cegamente aos decretos da nobreza para evitar perturbações civis.",
+        "Ela proclama a coragem de pensar por si mesmo (Sapere aude!), conectando a libertação dos dogmas cognitivos na teoria do conhecimento com a conquista da maioridade moral e política do cidadão autônomo na esfera pública.",
+        "Ela proíbe que os jovens ingressem em bibliotecas públicas sem autorização assinada por juízes de paz.",
+        "Ela defende que a filosofia deve abandonar o rigor conceitual para compor hinos patrióticos militares.",
+        "Ela afirma que as leis civis são verdades eternas da natureza que nenhum cidadão tem o direito de questionar.",
+        "B",
+        "**Etapa 1:** Interpretar o lema do Iluminismo kantiano: Sapere aude! (Tenha a coragem de fazer uso do seu próprio entendimento).\n**Etapa 2:** Articular a crítica teórica da razão com a emancipação prática: assim como a epistemologia expurga a tutela do dogmatismo metafísico herdado, a ética do Esclarecimento convoca o cidadão a assumir a autonomia da razão livre contra a servidão voluntária a autoridades externas."
+    ))
+
+    questoes_brutas.append((
+        59, "EM13CHS504", "dificil",
+        "Ao investigar a emergência da Teoria da Relatividade e da Mecânica Quântica no século XX, nota-se que o conceito de determinismo estrito de causa e efeito da mecânica de Laplace foi posto em xeque pelo Princípio da Incerteza de Heisenberg. Sob a filosofia da ciência, qual impacto essa transição provocou?",
+        "Comprovou que os físicos teóricos cometeram fraudes financeiras em seus relatórios orçamentários.",
+        "Demonstrou que na escala subatômica a natureza opera no registro da probabilidade quântica e que o próprio ato de medição do observador afeta o sistema mensurado, sepultando o ideal mecanicista clássico de determinismo absoluto e observador neutro descolado.",
+        "Exigiu que todos os aceleradores de partículas atômicas fossem fechados imediatamente pelos governos ocidentais.",
+        "Provou que a energia elétrica é gerada pela queima espontânea de pensamentos poéticos de cientistas.",
+        "Determinou que as leis da matemática não possuem validade para calcular órbitas planetárias no céu.",
+        "B",
+        "**Etapa 1:** Contrastar o determinismo mecânico clássico (demônio de Laplace) com o paradigma da mecânica quântica contemporânea.\n**Etapa 2:** Reconhecer a ruptura metodológica: a física contemporânea incorpora a probabilidade quântica, a dualidade onda-partícula e a interação sujeito-aparelho de medição, superando a ilusão de um cosmos mecanicista linear previsível."
+    ))
+
+    questoes_brutas.append((
+        60, "EM13CHS103", "dificil",
+        "Ao sintetizar o arco que conecta o Criticismo de Kant à Filosofia da Ciência Contemporânea (Popper, Kuhn e Feyerabend), qual conclusão metodológica perene se estabelece para a compreensão do conhecimento científico na modernidade?",
+        "A ciência é um edifício de dogmas perfeitos, divinos e imutáveis que não admite nenhuma dúvida, teste empírico ou revisão histórica de suas premissas.",
+        "A ciência é uma empresa racional e histórica dinâmica, constituída pela atividade crítica do sujeito, pela constante vulnerabilidade a testes empíricos de falseamento e pela evolução de paradigmas interpretativos que transformam progressivamente nosso modo de compreender a realidade.",
+        "A ciência deve ser abandonada em favor de adivinhações místicas e de oráculos poéticos consultados em momentos de crise social.",
+        "O progresso da ciência decorre unicamente de decretos autoritários baixados por ministros de Estado sem consulta aos pesquisadores.",
+        "A verdade do mundo físico pode ser conhecida na sua totalidade absoluta por qualquer pessoa que decore dez teoremas de geometria plana.",
+        "B",
+        "**Etapa 1:** Sintetizar o fio condutor da reflexão crítica: da crítica kantiana ao dogmatismo ingênuo à teoria falibilista e sociológica contemporânea.\n**Etapa 2:** Concluir que a ciência é uma conquista humana aberta, autocrítica e em constante revisão: progride não por proclamar dogmas infalíveis, mas por sua coragem de formular modelos rigorosos, expô-los à refutação empírica e reconstruir historicamente suas teorias."
+    ))
+
+    # Auditoria de vocabulário e blacklist
+    padroes_proibidos = [
+        r"\bsupracitad[oa]s?\b", r"\boutrossim\b", r"\bdestarte\b", r"\bprecípu[oa]s?\b",
+        r"\bconsubstancia\w*\b", r"\bdepreende-se\b", r"\binfere-se\s+que\s+a\s+assertiva\b",
+        r"\bassertiva\b", r"\bmormente\b", r"\bno\s+tocante\s+a\b", r"\batinente\w*\b",
+        r"\bconcernente\w*\b", r"\bdirimir\b", r"\benseja\w*\b", r"\bauferir\b",
+        r"\bprescind\w*\b", r"\bimprescind\w*\b", r"\binexor\w*\b", r"\bidiossincra\w*\b",
+        r"\banátema\b", r"\bprerrogativa\w*\b", r"\bcorrobor\w*\b", r"\bintrínsec[oa]s?\b",
+        r"\bextrínsec[oa]s?\b", r"\bdicotomi\w*\b", r"\bsubjacente\w*\b", r"\befêmer[oa]s?\b",
+        r"\bmitigar\b", r"\bfomentar\b", r"\bhegemônic\w*\b", r"\bepistemológic\w*\b",
+        r"\bontológic\w*\b", r"\baxiológic\w*\b", r"\bteleológic\w*\b", r"\bhermenêutic\w*\b",
+        r"\bpropedêutic\w*\b", r"\bvernáculo\b", r"\bqui-la\b", r"\bfi-lo\b", r"\bfizerdes\b",
+        r"\baqueloutro\w*\b", r"R\$\s*\d"
+    ]
+
+    print(f"Total de questões brutas: {len(questoes_brutas)}")
+    assert len(questoes_brutas) == 60, f"Erro: esperava 60, obteve {len(questoes_brutas)}"
+
+    # Balanceamento de gabaritos
+    questoes = balancear_questoes(questoes_brutas)
+
+    # Teste de termos proibidos em todas as questões
+    erros_termos = []
+    for q in questoes:
+        num, hab, dif, enunc, a, b, c, d, e, gab, res = q
+        texto_q = f"{enunc} {a} {b} {c} {d} {e} {res}".lower()
+        for pat in padroes_proibidos:
+            m = re.search(pat, texto_q)
+            if m:
+                erros_termos.append(f"Questão {num}: termo proibido '{m.group(0)}' encontrado!")
+
+    if erros_termos:
+        print("\n[ERRO NA AUDITORIA DE TERMOS PROIBIDOS]:")
+        for err in erros_termos:
+            print(f" - {err}")
+        sys.exit(1)
+
+    # Montagem do Markdown
+    header = """---
+série: "Ensino Médio"
+disciplina: "Filosofia"
+eixo: "eixo-1-epistemologia"
+capitulo: "cap-07-criticismo-kantiano-filosofia-ciencia"
+objeto_de_conhecimento: "A Revolução Copernicana de Immanuel Kant na Crítica da Razão Pura; O Sujeito Transcendental e os Juízos Sintéticos a Priori; A Distinção entre Fenômeno e Númeno; A Filosofia da Ciência no Século XX: Karl Popper e o Critério da Falsificabilidade contra o Positivismo Lógico; Thomas Kuhn: Paradigmas Científicos, Ciência Normal e Revoluções Científicas; Paul Feyerabend e o Pluralismo Metodológico."
+ebook_fonte: "em-fil-c07-criticismo-kantiano-filosofia-ciencia.md"
+habilidades: "EM13CHS101, EM13CHS103, EM13CHS105, EM13CHS504, H1, H2, H11"
+total_exercicios: 60
+distribuicao: "20 Básicos / 20 Intermediários / 20 Difíceis"
+---
+
+# Exercícios: O Criticismo Kantiano e a Filosofia da Ciência Contemporânea
+
+"""
+
+    corpo = header
+    gabaritos_finais = []
+
+    # Nível Básico
+    corpo += "## Nível Básico\n\n"
+    for q in questoes[:20]:
+        num, hab, dif, enunc, a, b, c, d, e, gab, res = q
+        gabaritos_finais.append(gab)
+        corpo += f"<!-- id: q{num:02d} | tipo: multipla-escolha | habilidade: {hab} | dificuldade: {dif} | objeto: cap-07-criticismo-kantiano-filosofia-ciencia -->\n"
+        corpo += f"### Questão {num}\n\n"
+        corpo += f"{enunc}\n\n"
+        corpo += f"- (A) {a}\n"
+        corpo += f"- (B) {b}\n"
+        corpo += f"- (C) {c}\n"
+        corpo += f"- (D) {d}\n"
+        corpo += f"- (E) {e}\n\n"
+        corpo += f"**Gabarito:** ({gab})\n\n"
+        corpo += f"**Resolução Comentada:**\n{res}\n\n---\n\n"
+
+    # Nível Intermediário
+    corpo += "## Nível Intermediário\n\n"
+    for q in questoes[20:40]:
+        num, hab, dif, enunc, a, b, c, d, e, gab, res = q
+        gabaritos_finais.append(gab)
+        corpo += f"<!-- id: q{num:02d} | tipo: multipla-escolha | habilidade: {hab} | dificuldade: {dif} | objeto: cap-07-criticismo-kantiano-filosofia-ciencia -->\n"
+        corpo += f"### Questão {num}\n\n"
+        corpo += f"{enunc}\n\n"
+        corpo += f"- (A) {a}\n"
+        corpo += f"- (B) {b}\n"
+        corpo += f"- (C) {c}\n"
+        corpo += f"- (D) {d}\n"
+        corpo += f"- (E) {e}\n\n"
+        corpo += f"**Gabarito:** ({gab})\n\n"
+        corpo += f"**Resolução Comentada:**\n{res}\n\n---\n\n"
+
+    # Nível Difícil
+    corpo += "## Nível Difícil\n\n"
+    for q in questoes[40:]:
+        num, hab, dif, enunc, a, b, c, d, e, gab, res = q
+        gabaritos_finais.append(gab)
+        corpo += f"<!-- id: q{num:02d} | tipo: multipla-escolha | habilidade: {hab} | dificuldade: {dif} | objeto: cap-07-criticismo-kantiano-filosofia-ciencia -->\n"
+        corpo += f"### Questão {num}\n\n"
+        corpo += f"{enunc}\n\n"
+        corpo += f"- (A) {a}\n"
+        corpo += f"- (B) {b}\n"
+        corpo += f"- (C) {c}\n"
+        corpo += f"- (D) {d}\n"
+        corpo += f"- (E) {e}\n\n"
+        corpo += f"**Gabarito:** ({gab})\n\n"
+        corpo += f"**Resolução Comentada:**\n{res}\n\n---\n\n"
+
+    corpo += """## Referências
+
+- BRASIL. Ministério da Educação. *Base Nacional Comum Curricular: Educação é a Base*. Brasília: MEC/Secretaria de Educação Básica, 2018.
+- CHAUÍ, Marilena. *Convite à Filosofia*. São Paulo: Ática, 2002.
+- FEYERABEND, Paul. *Contra o Método*. Tradução de Cezar Augusto Mortari. São Paulo: Editora Unesp, 2011.
+- KANT, Immanuel. *Crítica da Razão Pura*. Tradução de Manuela Pinto dos Santos e Alexandre Fradique Morujão. 5. ed. Lisboa: Fundação Calouste Gulbenkian, 2001.
+- KUHN, Thomas S. *A Estrutura das Revoluções Científicas*. Tradução de Beatriz Vianna Boeira e Nelson Boeira. 12. ed. São Paulo: Perspectiva, 2013.
+- MARCONDES, Danilo. *Iniciação à História da Filosofia: Dos Pré-Socráticos a Wittgenstein*. 11. ed. Rio de Janeiro: Jorge Zahar, 2007.
+- POPPER, Karl R. *A Lógica da Pesquisa Científica*. Tradução de Leônidas Hegenberg e Octanny Silveira da Mota. São Paulo: Cultrix, 2013.
+"""
+
+    print("Total de Gabaritos detectados:", len(gabaritos_finais))
+    print("Contagem por letra:", Counter(gabaritos_finais))
+
+    assert len(gabaritos_finais) == 60
+    assert all(count == 12 for count in Counter(gabaritos_finais).values()), "Gabarito desbalanceado!"
+
+    print("[AUDITORIA INTERNA APROVADA] Todas as 60 questões atendem rigorosamente às travas pedagógicas!")
+
+    # Grava rascunho temporário
+    with open(temp_draft, "w", encoding="utf-8") as f:
+        f.write(corpo)
+    print(f"Rascunho temporário salvo com sucesso ({len(corpo.encode('utf-8'))} bytes).")
+
+    # Invoca o validador oficial
+    cmd = [sys.executable, "validador_educamob.py", temp_draft, dest_path]
+    print(f"Executando validador: {' '.join(cmd)}")
+    res_val = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
+    print(res_val.stdout)
+    if res_val.stderr:
+        print("[STDERR]:", res_val.stderr)
+
+    if res_val.returncode == 0:
+        print("\n[SUCESSO TOTAL] Cap 07 validado e homologado com Exit Code 0!")
+    else:
+        print(f"\n[FALHA NA VALIDAÇÃO] Exit code: {res_val.returncode}")
+        sys.exit(res_val.returncode)
+
+if __name__ == "__main__":
+    gerar_cap07()

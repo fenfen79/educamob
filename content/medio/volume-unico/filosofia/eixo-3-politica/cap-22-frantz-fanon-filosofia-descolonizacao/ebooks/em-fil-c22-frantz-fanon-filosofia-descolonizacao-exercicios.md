@@ -1,734 +1,1013 @@
 ---
 série: "Ensino Médio"
-volume: "volume-unico"
-disciplina: "Sociologia"
-eixo: "eixo-4-estado-poder-politica-cidadania"
-unidade_temática: "Eixo IV: Estado, Poder, Política, Cidadania e Movimentos Sociais"
-capitulo: "cap-34-seguranca-publica-encarceramento-massa-violencia"
-arquivo_ebook: "em-soc-c34-seguranca-publica-encarceramento-massa-violencia.md"
-ebook_fonte: "content/medio/volume-unico/sociologia/eixo-4-estado-poder-politica-cidadania/cap-34-seguranca-publica-encarceramento-massa-violencia/ebooks/em-soc-c34-seguranca-publica-encarceramento-massa-violencia.md"
-objeto_de_conhecimento: "Segurança Pública, Encarceramento em Massa e a Sociologia da Violência; Dimensões da Violência: Violência Estrutural (Johan Galtung), Violência Simbólica (Pierre Bourdieu) e Violência Interpessoal; A Criminologia Crítica e a Teoria da Seletividade Penal (Alessandro Baratta e Raúl Zaffaroni); A Virada Punitiva e as 'Prisões da Miséria' em Loïc Wacquant (A Mão Esquerda versus a Mão Direita do Estado); A Lei de Drogas (Lei nº 11.343/2006) e o Hiperencarceramento Seletivo (Artigos 28 e 33); A Explosão do Encarceramento Feminino no Brasil; O Perfil Sociodemográfico da População Prisional Brasileira (FBSP e IPEA); A Barbárie Carcerária e o Reconhecimento do Estado de Coisas Inconstitucional pelo STF na ADPF 347 (2015); As Facções Prisionais (CV e PCC em 1993 pós-Massacre do Carandiru) e a Autodefesa Coletiva; Michel Misse e a 'Sujeição Criminal'; Gabriel Feltran e a Gestão da Ordem do Crime (O Proceder); Achille Mbembe e a Necropolítica (A Soberania como Produção da Morte e as Zonas de Morte / Death-Worlds); O Atlas da Violência e a Disparidade Racial dos Homicídios de Jovens Negros; A Letalidade Policial e os Autos de Resistência; A Desmilitarização das Polícias, o Ciclo Completo e o Uso de Câmeras Corporais; Michel Foucault e a Gestão Diferencial dos Ilegalismos em Vigiar e Punir; A Crise Sanitária da Tuberculose no Cárcere; Audiências de Custódia; Lei Maria da Penha (Lei nº 11.340/2006) e o Paradigma da Justiça Restaurativa."
-habilidades: "EM13CHS502, EM13CHS601, EM13CHS603"
+disciplina: "Filosofia"
+eixo: "Eixo III: Filosofia Política, Poder, Resistência e Necropolítica"
+capitulo: "Capítulo 22: Frantz Fanon e a Filosofia da Descolonização"
+objeto_de_conhecimento: "A fenomenologia do colonialismo, a epidermalização da inferioridade em Pele Negra, Máscaras Brancas, a violência descolonizadora em Os Condenados da Terra, a crítica à burguesia nacional e a criação do Homem Novo"
+ebook_fonte: "em-fil-c22-frantz-fanon-filosofia-descolonizacao.md"
+habilidades:
+  - "EM13CHS101"
+  - "EM13CHS102"
+  - "EM13CHS601"
+  - "EM13CHS602"
+  - "EM13CHS603"
+  - "EM13CHS606"
 total_exercicios: 60
-distribuicao:
-  basico: 20
-  intermediario: 20
-  dificil: 20
+distribuicao: "20 Básicos / 20 Intermediários / 20 Difíceis"
 ---
 
-# Exercícios — Segurança Pública, Encarceramento em Massa e a Sociologia da Violência
+# Lista de Exercícios: Frantz Fanon e a Filosofia da Descolonização
 
-## Nível Básico (Questões 1-20)
+## Nível Básico
 
-<!-- id: q01 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: basico | objeto: Johan Galtung e a violência estrutural -->
-**Questão 1** (EM13CHS502) — A sociologia contemporânea da violência distingue diferentes modalidades de manifestação da agressão social. De acordo com o sociólogo Johan Galtung, como se caracteriza a chamada 'violência estrutural'?
-A) É a violência silenciosa e invisível embutida nas estruturas socioeconômicas desiguais, expressa na miséria extrema, na falta de saneamento básico, na desnutrição e na negação de atendimento médico regular a populações vulneráveis.
-B) É o roubo à mão armada praticado por quadrilhas organizadas contra agências bancárias nas capitais metropolitanas.
-C) É a briga física esporádica entre torcedores de equipes rivais nas imediações de arenas desportivas.
-D) É o vandalismo noturno que quebra vitrines comerciais durante protestos de rua não autorizados.
-E) É o disparo intencional de armas de fogo em vias públicas durante perseguições de trânsito em rodovias.
+<!-- id: q01 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 1
 
-**Gabarito:** A
-**Resolução Comentada:** Johan Galtung ensina que a violência não é apenas o tiro ou a facada: a violência estrutural é a morte lenta provocada pela fome, pela falta de esgoto e pelo abandono do Estado, ceifando vidas sem precisar puxar um gatilho.
+Qual é a formação profissional e a origem geográfica do pensador Frantz Fanon, fundamentais para a criação de sua Filosofia da Descolonização?
 
-<!-- id: q02 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: basico | objeto: Pierre Bourdieu e a violência simbólica -->
-**Questão 2** (EM13CHS601) — Em seus estudos sociológicos sobre a dominação, Pierre Bourdieu formulou o conceito de 'violência simbólica'. Qual dinâmica define essa modalidade insidiosa de poder?
-A) A imposição de toques de recolher noturnos declarados por forças armadas de infantaria em cidades litorâneas.
-B) A imposição sutil e invisível de hierarquias sociais, preconceitos e estereótipos que é aceita e naturalizada involuntariamente pelas próprias vítimas, fazendo com que os dominados considerem sua condição subalterna como algo normal.
-C) A destruição física de templos religiosos por grupos extremistas fanáticos armados.
-D) A aplicação compulsória de multas de trânsito por radares eletrônicos instalados em vias expressas.
-E) A prisão em flagrante de contraventores que realizam apostas clandestinas de corridas de cavalos.
+A) Médico psiquiatra e ensaísta nascido na ilha caribenha da Martinica.
+B) Engenheiro mecânico nascido na Inglaterra industrial vitoriana.
+C) Arquiteto urbanista nascido na capital imperial de Portugal.
+D) Advogado tributarista nascido na cidade portuária de Gênova.
+E) Professor de teologia medieval nascido nos Países Baixos.
 
-**Gabarito:** B
-**Resolução Comentada:** A violência simbólica de Pierre Bourdieu é aquela que entra na nossa cabeça: não precisa de agressão física porque faz a própria pessoa oprimida acreditar que é inferior e que merece o lugar subalterno que a sociedade lhe reservou.
+**Gabarito:** (A)
 
-<!-- id: q03 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: A Criminologia Crítica e a Teoria da Seletividade Penal -->
-**Questão 3** (EM13CHS603) — A tradição da Criminologia Crítica (representada por autores como Alessandro Baratta e Raúl Zaffaroni) rompeu com a criminologia tradicional ao formular a Teoria da Seletividade Penal. Qual é a tese central dessa abordagem?
-A) A afirmação de que todas as classes sociais sofrem a mesma vigilância e repressão policial independentemente de sua renda.
-B) A proposição de que o crime violento é transmitido geneticamente por linhagens biológicas familiares degeneradas.
-C) A constatação de que o sistema de justiça penal não atua de forma universal e neutra, mas seleciona e rotula prioritariamente indivíduos das classes populares e periféricas, enquanto garante impunidade a crimes de colarinho branco.
-D) A exigência de que os tribunais estaduais julguem apenas causas cíveis referentes a títulos de crédito imobiliário.
-E) A defesa de que o código penal deve ser substituído por manuais de conduta expedidos por congregações religiosas.
-
-**Gabarito:** C
-**Resolução Comentada:** A Criminologia Crítica provou que a lei não é igual para todos: a polícia e a justiça prendem aos montes os jovens pobres por crimes de rua, mas fecham os olhos para as fraudes financeiras e a corrupção bilionária dos ricos.
-
-<!-- id: q04 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: Loïc Wacquant e 'As Prisões da Miséria' -->
-**Questão 4** (EM13CHS603) — Em 'As Prisões da Miséria' (2001), o sociólogo Loïc Wacquant investigou a virada punitiva contemporânea e a ascensão do encarceramento em massa. Como Wacquant explica a transição do Estado Providência para o Estado Penal?
-A) Pela decisão governamental de extinguir todas as penitenciárias públicas para transferir os detentos para colônias agrícolas familiares.
-B) Pela constatação de que a população das metrópoles abandonou voluntariamente o trabalho assalariado para viver de apostas esportivas.
-C) Pela proibição definitiva do porte de armas de fogo por policiais militares durante patrulhamentos comunitários.
-D) Pelo recuo das políticas de assistência social, moradia e emprego digno (a 'mão esquerda' do Estado) e a expansão agressiva do aparelho repressivo e policial (a 'mão direita' do Estado) para gerenciar e encarcerar a pobreza excedente gerada pelo neoliberalismo.
-E) Pela celebração do modelo cooperativo fabril como a única causa da estabilização da taxa de juros bancários.
-
-**Gabarito:** D
-**Resolução Comentada:** Loïc Wacquant mostra que o neoliberalismo cortou os direitos sociais (a mão esquerda acolhedora do Estado) e fortaleceu a polícia e a cadeia (a mão direita punitiva) para trancar a pobreza gerada pela miséria em vez de combatê-la.
-
-<!-- id: q05 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: A Lei Federal de Drogas nº 11.343/2006 e a discricionariedade policial -->
-**Questão 5** (EM13CHS603) — Sancionada com a promessa de despenalizar o uso recreativo de substâncias, a Lei Federal nº 11.343/2006 tornou-se o principal motor da explosão carcerária no Brasil. Qual brecha jurídica e sociológica produziu esse efeito perverso?
-A) A fixação de penas de prisão perpétua automáticas para quem for flagrado portando qualquer tipo de semente vegetal importada.
-B) A obrigatoriedade de julgamento de todos os casos de infrações de trânsito perante o Tribunal Penal Internacional de Haia.
-C) A proibição expressa de atuação de advogados constituídos e defensores públicos nos inquéritos de flagrante delito.
-D) A permissão de venda livre de substâncias químicas entorpecentes em todas as redes de supermercados das capitais.
-E) A ausência deliberada de critérios objetivos de quantidade e peso para distinguir o usuário do traficante, deixando a tipificação ao arbítrio da polícia com base em preconceitos de classe, raça e território.
-
-**Gabarito:** E
-**Resolução Comentada:** A Lei de Drogas de 2006 cometeu um erro desastroso: não fixou um limite claro de gramas entre usuário e traficante. O resultado é o racismo institucional: jovem branco rico com maconha é 'usuário'; jovem negro de periferia com a mesma quantidade vira 'traficante' e vai preso.
-
-<!-- id: q06 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: O impacto da Lei de Drogas no encarceramento feminino -->
-**Questão 6** (EM13CHS603) — Estudos do Ministério da Justiça e do Fórum Brasileiro de Segurança Pública revelam que a vigência da Lei nº 11.343/2006 produziu um impacto devastador e desproporcional sobre a população carcerária feminina. Qual dado evidencia essa realidade?
-A) O crescimento vertiginoso de mais de 500% no número de mulheres encarceradas no Brasil, sendo a esmagadora maioria presa por tráfico de drogas varejista não violento, na condição de rés primárias e chefes de família.
-B) A diminuição absoluta da presença de mulheres nas penitenciárias em decorrência do fechamento compulsório de todas as alas femininas.
-C) A proibição de visitas íntimas masculinas em hospitais públicos estaduais por ordem de conselhos tutelares municipais.
-D) A concessão automática de aposentadorias integrais para mães solos inscritas em cursos técnicos de mecânica naval.
-E) A transferência de todas as sentenças criminais femininas para comissões eclesiásticas de arbitragem paroquial.
-
-**Gabarito:** A
-**Resolução Comentada:** A Lei de Drogas gerou uma tragédia oculta: o encarceramento feminino explodiu mais de 500%. São mulheres pobres e mães solos que entram no varejo desarmado da droga para sustentar os filhos e acabam jogadas em masmorras desumanas.
-
-<!-- id: q07 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: basico | objeto: O perfil sociodemográfico da população prisional no Brasil -->
-**Questão 7** (EM13CHS502) — O Anuário Brasileiro de Segurança Pública e o Atlas da Violência traçam com precisão matemática o perfil sociodemográfico do contingente carcerário nacional. Quais características compõem a maioria absoluta dos mais de 850 mil presos no país?
-A) Cidadãos aposentados com mais de setenta anos de idade que possuam pós-graduação completa em engenharia civil.
-B) População majoritariamente negra (mais de 68%), jovem (mais de 55% com menos de 29 anos), de baixa renda e com baixa escolaridade formal, egressa de bairros periféricos desprovidos de serviços públicos.
-C) Diretores executivos de corretoras cambiais internacionais acusados de crimes financeiros corporativos.
-D) Fazendeiros latifundiários condenados por desmatamento ilegal e queima de reservas florestais nativas.
-E) Médicos e advogados proprietários de clínicas particulares nas regiões centrais nobres das capitais.
-
-**Gabarito:** B
-**Resolução Comentada:** O raio-X do cárcere brasileiro não deixa dúvidas sobre o alvo da seletividade penal: quase 70% são negros, mais da metade é jovem de menos de 29 anos e a imensa maioria não terminou a escola e vem das periferias desassistidas.
-
-<!-- id: q08 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: O Estado de Coisas Inconstitucional na ADPF 347 pelo STF -->
-**Questão 8** (EM13CHS603) — Em 2015, no julgamento da ADPF 347, o Supremo Tribunal Federal reconheceu solenemente uma categoria jurídica inédita aplicada ao sistema penitenciário brasileiro. Qual declaração foi emitida pela corte constitucional?
-A) A decretação de que as penitenciárias brasileiras atendem integralmente aos padrões mundiais de hotelaria e bem-estar humano.
-B) A autorização para que detentos com menos de vinte anos exerçam mandatos de vereador em regime semiliberdade.
-C) O reconhecimento de que o sistema prisional brasileiro encontra-se em um 'Estado de Coisas Inconstitucional' (ECI), caracterizado pela violação massiva, sistêmica e persistente de direitos humanos e dignidade nas celas superlotadas.
-D) A ordem imediata de demolição de todos os prédios dos tribunais de justiça estaduais por excesso de gastos administrativos.
-E) A suspensão da vigência do Código de Processo Penal e a entrega das penitenciárias a ordens monásticas de clausura.
-
-**Gabarito:** C
-**Resolução Comentada:** Na histórica ADPF 347, o STF declarou que o sistema penitenciário brasileiro vive um 'Estado de Coisas Inconstitucional': as cadeias são masmorras ilegais onde direitos humanos básicos previstos na Constituição são esmagados diariamente.
-
-<!-- id: q09 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: basico | objeto: As origens sociológicas das facções prisionais brasileiras -->
-**Questão 9** (EM13CHS601) — Sociólogos da violência como Michel Misse e Gabriel Feltran demonstram que as facções criminosas prisionais (como o CV nos anos 1970/1980 e o PCC em 1993) não nasceram de filmes de ficção, mas das entranhas das prisões. Qual foi a gênese institucional desses coletivos?
-A) A filiação voluntária de detentos a partidos políticos conservadores para financiar campanhas eleitorais municipais.
-B) A criação de academias literárias prisionais financiadas pela corte imperial europeia no século XIX.
-C) A determinação judicial de que os prisioneiros gerenciem cooperativas mercantis de exportação de soja para o exterior.
-D) Uma resposta organizativa coletiva e de autodefesa dos próprios detentos contra a anomia, a violência brutal dos carcereiros, a barbárie estatal e o trauma do Massacre do Carandiru de 1992, preenchendo o vácuo de ordem deixado pelo Estado.
-E) A organização de comissões de desarmamento geral compostas por bispos diocesanos e delegados civis aposentados.
-
-**Gabarito:** D
-**Resolução Comentada:** As facções prisionais nasceram da barbárie da masmorra estatal: o PCC, por exemplo, foi fundado em 1993 logo após o Massacre do Carandiru para os presos se protegerem do massacre policial e organizarem a sobrevivência mínima dentro do inferno das celas.
-
-<!-- id: q10 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: A prisão como agência de recrutamento do crime organizado -->
-**Questão 10** (EM13CHS603) — A criminologia sociológica denuncia a contradição do discurso punitivista tradicional ao analisar o que ocorre quando um infrator primário é encarcerado em uma penitenciária superlotada. Como o presídio funciona perante o crime organizado?
-A) Como um centro de formação superior técnica que garante diplomas acadêmicos reconhecidos por órgãos federais.
-B) Como uma estância de férias temporária que elimina qualquer contato entre os reclusos e as redes do submundo.
-C) Como um mosteiro de reflexão filosófica individual onde os apenados dedicam seus dias à meditação espiritual.
-D) Como uma agência estatal de colocação profissional que garante empregos formais com estabilidade no funcionalismo civil.
-E) Como uma agência de recrutamento forçado: para não ser assassinado ou violentado na superlotação degradante, o jovem novato é compelido a submeter-se à proteção e à disciplina da facção dominante, saindo da cadeia endividado com o crime.
-
-**Gabarito:** E
-**Resolução Comentada:** O sistema prisional funciona como a maior universidade do crime: o jovem sem violência preso com alguns gramas de droga é jogado em uma cela com 40 homens; para não morrer, precisa pedir proteção à facção e sai do presídio soldado do crime organizado.
-
-<!-- id: q11 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: basico | objeto: Achille Mbembe e o conceito de Necropolítica -->
-**Questão 11** (EM13CHS502) — O filósofo camaronês Achille Mbembe publicou em 2003 o seminal ensaio 'Necropolítica' (*Necropolitics*), formulando uma das teorias mais influentes das ciências humanas contemporâneas. O que Mbembe entende por 'necropolítica'?
-A) A capacidade e o poder soberano do Estado de ditar quem tem o direito de viver e quem deve ser deixado ou forçado a morrer, transformando a morte em ferramenta estruturante de gestão populacional de territórios periféricos e racializados.
-B) A organização de eleições periódicas regulares para a escolha de representantes em conselhos funerários municipais.
-C) A celebração cívica da memória de heróis da independência nacional em monumentos públicos de capitais republicanas.
-D) A cobrança compulsória de tributos sobre seguros de vida privados operados por bancos transnacionais.
-E) O financiamento público da construção de hospitais gerais de excelência médica em todas as regiões metropolitanas.
-
-**Gabarito:** A
-**Resolução Comentada:** Achille Mbembe ensina que 'necropolítica' é a política da morte: o poder brutal que o Estado assume de decidir quem merece viver e quais corpos (geralmente negros, pobres e periféricos) são tratados como descartáveis e matáveis.
-
-<!-- id: q12 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: basico | objeto: O conceito de zonas de morte (death-worlds) na necropolítica -->
-**Questão 12** (EM13CHS502) — Dentro da estrutura conceitual da Necropolítica de Achille Mbembe, surge a categoria de 'zonas de morte' ou 'mundos da morte' (*death-worlds*). Como esse conceito se materializa no contexto urbano periférico brasileiro?
-A) Em condomínios de alto padrão cercados por muros eletrificados e segurança patrimonial privada motorizada.
-B) Em territórios periféricos, favelas e guetos onde a proteção constitucional do Estado de Direito é sumariamente suspensa, e onde as populações racializadas habitam sob o terror cotidiano de incursões policiais letais e tiroteios armados.
-C) Em ilhas costeiras desabitadas destinadas à preservação exclusiva de aves marinhas migratórias e crustáceos.
-D) Em fazendas agropecuárias automatizadas geridas por inteligência artificial e sensores climáticos de precisão.
-E) Em prédios administrativos de ministérios federais onde os funcionários trabalham em salas com ar-condicionado central.
-
-**Gabarito:** B
-**Resolução Comentada:** As 'zonas de morte' de Mbembe são as favelas e periferias: lugares onde a lei e a Constituição parecem não existir; onde helicópteros atiram de cima e onde as mães choram o medo diário de ver seus filhos alvejados por balas do Estado.
-
-<!-- id: q13 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: basico | objeto: O Atlas da Violência e a disparidade racial dos homicídios -->
-**Questão 13** (EM13CHS502) — Os relatórios empíricos anuais do *Atlas da Violência* (elaborados conjuntamente pelo IPEA e pelo Fórum Brasileiro de Segurança Pública) evidenciam a profunda desigualdade racial na letalidade violenta no Brasil. Qual indicador confirma a gravidade desse cenário?
-A) A constatação estatística de que homens brancos com alta renda salarial são as maiores vítimas de mortes por armas de fogo no país.
-B) A inexistência de qualquer discrepância percentual no número de homicídios cometidos entre as diferentes regiões da federação.
-C) O dadoestarrecedor de que de cada cem pessoas assassinadas por armas de fogo no Brasil mais de setenta e sete são pessoas negras, evidenciando o recorte de cor da violência letal no país.
-D) A redução absoluta a zero das mortes causadas por intervenções policiais em todas as capitais das regiões Nordeste e Sudeste.
-E) A comprovação de que as ocorrências de homicídio atingem primordialmente diplomatas estrangeiros em aeroportos internacionais.
-
-**Gabarito:** C
-**Resolução Comentada:** Os dados oficiais do Atlas da Violência são incontestáveis: a cada 100 pessoas assassinadas no Brasil, mais de 77 são negras. O sangue que mais corre pelas sarjetas das metrópoles brasileiras tem cor e classe social definidas.
-
-<!-- id: q14 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: basico | objeto: A desconstrução da relação causal entre pobreza e crime violento -->
-**Questão 14** (EM13CHS601) — O senso comum preconceituoso costuma associar mecanicamente a pobreza e os territórios de favela à propensão natural para a prática de crimes violentos. Como a sociologia crítica desconstrói esse estigma elitista?
-A) Demonstrando que a taxa de mortalidade infantil nas favelas é idêntica à dos bairros mais ricos das capitais europeias.
-B) Afirmando que a riqueza material e a herança familiar protegem os indivíduos de cometer infrações de ordem patrimonial.
-C) Sustentando que o desemprego crônico é uma escolha voluntária de indivíduos desinteressados pelo trabalho fabril assalariado.
-D) Evidenciando que a esmagadora maioria dos moradores de favelas e periferias (mais de 99%) é composta por trabalhadores honestos e pacíficos, demonstrando que a violência não decorre da pobreza em si, mas da desigualdade abissal e da ausência de direitos públicos.
-E) Alegando que a violência urbana foi completamente erradicada nas cidades que adotaram a digitalização bancária de pagamentos.
-
-**Gabarito:** D
-**Resolução Comentada:** Pobreza não é sinônimo de crime: quem mora na favela acorda às quatro da manhã, trabalha de sol a sol e sustenta a cidade com suor. O que alimenta a violência é a desigualdade profunda, o abandono dos jovens e o tráfico de armas ilegais.
-
-<!-- id: q15 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: Michel Foucault e 'Vigiar e Punir' -->
-**Questão 15** (EM13CHS603) — Em 'Vigiar e Punir: Nascimento da prisão' (1975), Michel Foucault realizou uma genealogia do sistema penitenciário moderno. Qual conclusão desmistificadora Foucault alcança quanto à finalidade real da prisão?
-A) A conclusão de que a prisão moderna alcançou plenamente o objetivo de reabilitar os apenados e extinguir a delinquência social.
-B) A ideia de que o modelo panóptico foi desenhado unicamente para hospedar encontros acadêmicos de filosofia política clássica.
-C) A afirmação de que os presídios foram criados por ordens monásticas para substituir os tribunais leigos de acusação fiscal.
-D) A certeza de que a humanização das penas eliminou qualquer forma de sofrimento moral ou disciplinar dos corpos enclausurados.
-E) A constatação de que a prisão nunca foi projetada para 'ressocializar' ninguém, mas sim para administrar diferencialmente os ilegalismos populares, disciplinar os corpos operários e estigmatizar permanentemente as classes dominadas.
-
-**Gabarito:** E
-**Resolução Comentada:** Michel Foucault provou que a promessa de 'ressocialização' do presídio é uma mentira secular: a prisão moderna foi inventada pela burguesia para vigiar, quebrar a espinha dos pobres e carimbar para sempre a etiqueta de criminoso nas classes trabalhadoras.
-
-<!-- id: q16 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: O sistema prisional como vetor epidemiológico e crise sanitária -->
-**Questão 16** (EM13CHS603) — Pesquisas em saúde coletiva e medicina preventiva apontam as penitenciárias superlotadas como graves vetores epidemiológicos de doenças infecciosas. Qual ameaça sanitária é potencializada pela degradação carcerária?
-A) A proliferação epidêmica de tuberculose multirresistente em taxas até trinta vezes superiores à média nacional, que atinge presos e se espalha para agentes penitenciários, advogados, familiares nas filas e para toda a sociedade urbana.
-B) A transmissão contagiosa de moléstias cardiovasculares hereditárias causadas pelo consumo excessivo de café solúvel matinal.
-C) A erradicação automática de todas as viroses respiratórias sazonais devido ao isolamento físico das celas de concreto armado.
-D) A substituição dos tratamentos antibióticos hospitalares por banhos de sol coletivos nos pátios das delegacias regionais.
-E) O aumento inexplicável da imunidade biológica dos reclusos contra infecções bacterianas causadas pela ingestão de alimentos azedos.
-
-**Gabarito:** A
-**Resolução Comentada:** A masmorra superlotada é uma bomba biológica: sem ventilação e amontoados no chão úmido, a tuberculose corre frouxa a taxas 30 vezes maiores que a média, contaminando familiares, agentes e voltando para a cidade pelas mãos de quem sai da prisão.
-
-<!-- id: q17 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: A blindagem penal dos crimes de colarinho branco -->
-**Questão 17** (EM13CHS603) — A sociologia jurídica destaca o contraste escandaloso entre o rigor punitivo aplicado aos crimes patrimoniais de rua e o tratamento conferido aos chamados crimes de colarinho branco (*white-collar crimes*). Como se manifesta essa assimetria?
-A) Na prisão preventiva automática de banqueiros flagrados em esquemas de remessa ilegal de divisas para paraísos fiscais internacionais.
-B) Na facilidade de encarceramento massivo de jovens por furtos simples de alimentos ou pequenos comércios, contrastada com a leniência processual, prescrições e impunidade sistêmica que blindam fraudes fiscais e lavagem corporativa de bilhões de reais.
-C) Na proibição judicial de contratação de escritórios de advocacia privada para defender acusados de desvio de recursos públicos federais.
-D) Na suspensão compulsória de todos os direitos políticos de acionistas controladores de empreendimentos industriais poluidores.
-E) Na cobrança de fianças milionárias em dinheiro vivo para a libertação imediata de jovens desempregados presos em periferias.
-
-**Gabarito:** B
-**Resolução Comentada:** A balança da justiça no Brasil tem dois pesos e duas medidas: quem rouba uma lata de leite na farmácia pega anos de cadeia fechada; o bilionário que sonega milhões na Receita ou o banqueiro que lava dinheiro paga uma multa amena e segue livre.
-
-<!-- id: q18 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: basico | objeto: A letalidade policial e o dispositivo dos 'autos de resistência' -->
-**Questão 18** (EM13CHS502) — A terminologia jurídica dos chamados 'autos de resistência' (ou mortes decorrentes de intervenção policial) tem sido historicamente denunciada por entidades de direitos humanos no Brasil. Qual função institucional esse mecanismo desempenhou na prática?
-A) A concessão automática de prêmios de produtividade em dinheiro aos policiais que realizarem mediações de paz em disputas de vizinhança.
-B) A obrigatoriedade de julgamento de todos os confrontos policiais por tribunais do júri populares nas semanas subsequentes ao fato.
-C) A chancela administrativa da presunção automática de legitimidade da ação policial violenta, funcionando como um salvo-conduto institucional que encobre execuções sumárias sob a alegação genérica de legítima defesa contra suposta reação armada.
-D) A destinação prioritária de verbas de segurança pública para a compra de viaturas blindadas de resgate médico rodoviário.
-E) O afastamento preventivo imediato e aposentadoria compulsória de agentes envolvidos em disparos de armas letais em vias públicas.
-
-**Gabarito:** C
-**Resolução Comentada:** O 'auto de resistência' funcionou por décadas como licença para matar: o policial que atirava em um jovem na favela alegava que 'ele reagiu', o boletim de ocorrência era encerrado sem perícia séria e a morte virava apenas uma estatística impune.
-
-<!-- id: q19 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: O impacto do uso de câmeras corporais nos uniformes policiais -->
-**Questão 19** (EM13CHS603) — A adoção de câmeras corporais acopladas aos uniformes dos policiais militares em programas de segurança pública (como o programa pioneiro 'Olho Vivo' em São Paulo) gerou resultados estatísticos amplamente analisados por sociólogos. Qual foi o efeito empírico comprovado dessa tecnologia?
-A) O aumento substancial do número de confrontos armados letais em todas as áreas territoriais com câmeras ativadas.
-B) A recusa terminante dos comandantes operacionais de infantaria em autorizar a fiscalização técnica dos aparelhos de gravação.
-C) A destruição imediata de todas as provas documentais exigidas pelo Ministério Público em processos de investigação de abusos.
-D) A redução drástica da letalidade policial nas comunidades patrulhadas e a queda expressiva na morte de policiais em serviço, garantindo maior transparência probatória e proteção jurídica aos próprios agentes da lei.
-E) A cobrança de taxas tributárias sobre os aparelhos telefônicos celulares dos cidadãos que transitam próximos às viaturas.
-
-**Gabarito:** D
-**Resolução Comentada:** As câmeras corporais provaram que a transparência salva vidas dos dois lados: nos batalhões que usaram câmeras em SP, as mortes causadas pela polícia despencaram mais de 80% e a morte de policiais também caiu, trazendo segurança e verdade aos fatos.
-
-<!-- id: q20 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: Alternativas para uma segurança pública cidadã e democrática -->
-**Questão 20** (EM13CHS603) — A sociologia crítica da violência contrapõe o modelo tradicional de guerra punitiva às propostas de segurança pública cidadã e preventiva. Quais diretrizes estruturantes norteiam essa perspectiva democrática de segurança?
-A) A ampliação contínua das penas de prisão e a contratação de milícias armadas privadas para patrulhamento de áreas comerciais nobres.
-B) O fechamento compulsório de centros comunitários juvenis para a construção de presídios de segurança máxima nos centros das capitais.
-C) A transferência do comando de todas as polícias estaduais para juntas consultivas formadas por executivos de indústrias automobilísticas.
-D) A autorização legal para que guardas municipais realizem batidas arbitrárias sem mandado judicial no interior de residências populares.
-E) A desmilitarização das polícias, investimento maciço em inteligência investigativa e asfixia financeira do crime organizado, combinados com a garantia de direitos humanos, educação integral, cultura e oportunidades reais para a juventude nas periferias.
-
-**Gabarito:** E
-**Resolução Comentada:** Segurança de verdade não se faz com guerra e sangue de inocentes: faz-se com polícia cidadã desmilitarizada, inteligência para pegar os barões do crime e muito investimento em escolas, creches, parques e oportunidades para os jovens periféricos.
-
-## Nível Intermediário (Questões 21-40)
-
-<!-- id: q21 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: intermediario | objeto: A articulação tridimensional da violência na teoria sociológica -->
-**Questão 21** (EM13CHS502) — A sociologia contemporânea articula as três dimensões da violência (estrutural, simbólica e interpessoal) como um sistema integrado de dominação social. Como essas dimensões se relacionam na produção da realidade urbana brasileira?
-A) A violência interpessoal visível (homicídios e assaltos) é a ponta aguda de um iceberg, alimentada pela violência estrutural crônica (miséria, falta de saneamento e escolas) e legitimada pela violência simbólica que desumaniza os corpos periféricos perante o Estado.
-B) A violência estrutural decorre exclusivamente de desastres naturais que independem das escolhas orçamentárias dos governos eleitos.
-C) A violência interpessoal ocorre unicamente no interior de agências bancárias devido ao acúmulo de moedas metálicas nos caixas.
-D) A violência simbólica impede que as pessoas leiam manuais de trânsito em veículos coletivos de transporte metropolitano.
-E) As três modalidades de violência extinguem-se automaticamente quando o governo decreta feriados prolongados para servidores civis.
-
-**Gabarito:** A
-**Resolução Comentada:** As três violências se alimentam mutuamente: o tiro na favela (violência interpessoal) é sustentado pelo abandono de esgoto e creche (violência estrutural) e justificado pelo preconceito que diz que preto e pobre é suspeito (violência simbólica).
-
-<!-- id: q22 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: A teoria da rotulação social (labelling approach) em Alessandro Baratta -->
-**Questão 22** (EM13CHS603) — Na Criminologia Crítica, Alessandro Baratta desenvolve a teoria da rotulação social (*labelling approach*). Como essa teoria explica a relação entre o sistema penal e a produção da criminalidade?
-A) Ao demonstrar que o desvio moral é uma patologia congênita transmitida biologicamente através do sangue familiar.
-B) Ao demonstrar que o crime não é uma qualidade própria do ato praticado, mas uma etiqueta social e jurídica atribuída seletivamente pelas agências de controle punitivo aos indivíduos mais vulneráveis e estigmatizados da sociedade.
-C) Ao afirmar que a punição penal consegue ressocializar cem por cento dos condenados nos primeiros seis meses de pena.
-D) Ao propor que os registros criminais sejam impressos em cartões de visita particulares de livre distribuição comercial.
-E) Ao defender que a rotulação penal atinge com rigor desmedido unicamente os donos de grandes conglomerados industriais.
-
-**Gabarito:** B
-**Resolução Comentada:** A teoria da rotulação prova que 'criminoso' é um rótulo que a polícia e a justiça colam nos mais fracos: duas pessoas cometem a mesma infração, mas o pobre da periferia ganha a etiqueta de bandido, enquanto o rico é tratado com desculpas e respeito.
-
-<!-- id: q23 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: A gestão punitiva da miséria segundo Loïc Wacquant -->
-**Questão 23** (EM13CHS603) — Loïc Wacquant investiga a montagem do 'Estado penal' na transição do capitalismo de bem-estar para o regime de flexibilização neoliberal. Qual função política é atribuída ao sistema penitenciário hipertrofiado nesse modelo?
-A) A erradicação definitiva da desigualdade socioeconômica através da distribuição de lucros bancários aos apenados.
-B) A formação obrigatória de poetas e escritores clássicos para atuação em companhias de teatro renascentistas.
-C) A contenção, o confinamento e a neutralização da força de trabalho excedente, precarizada e marginalizada pelo desmonte dos direitos trabalhistas e sociais, substituindo a rede de proteção social pelas celas de concreto.
-D) A substituição dos postos de saúde pública municipais por hospitais geridos por militares da marinha mercante.
-E) O aumento compulsório dos salários mínimos pagos a operários da construção civil através de decretos do Ministério do Trabalho.
-
-**Gabarito:** C
-**Resolução Comentada:** Loïc Wacquant revela a frieza do sistema: como o mercado neoliberal não quer garantir emprego nem direitos aos trabalhadores pobres, o Estado usa a polícia e o presídio como um grande depósito para trancar a miséria e esconder os excluídos.
-
-<!-- id: q24 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: A seletividade territorial e de classe na Lei de Drogas (Lei 11.343/2006) -->
-**Questão 24** (EM13CHS603) — Pesquisas empíricas sobre prisões em flagrante por tráfico de drogas no Brasil revelam uma gritante disparidade nas decisões judiciais. De que modo a ausência de critérios objetivos na Lei 11.343/2006 aprofunda essa desigualdade territorial e racial?
-A) Ao punir com multas de valor idêntico os motoristas que ultrapassarem os limites de velocidade em autoestradas federais.
-B) Ao exigir que todos os laudos periciais de substâncias sejam assinados por diplomatas de países vizinhos da América Latina.
-C) Ao conceder liberdade provisória imediata a todos os presos detidos portando fuzis e munições de grosso calibre nas favelas.
-D) Ao permitir que a mesma quantidade de entorpecente resulte em enquadramento como 'usuário' (pena leve e educativa) para jovens brancos de bairros nobres e como 'traficante hediondo' (anos de prisão fechada) para jovens negros de periferia.
-E) Ao transferir a fiscalização aduaneira de portos e aeroportos para conselhos tutelares de cidades do interior paulista.
-
-**Gabarito:** D
-**Resolução Comentada:** A Lei de Drogas gerou dois Brasis: se um jovem branco rico é parado com 20 gramas no bairro nobre, a polícia diz que é usuário e ele vai para casa; se um menino negro na favela for pego com a mesma quantidade, é jogado na cadeia como traficante sem fiança.
-
-<!-- id: q25 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: As consequências sociais do encarceramento massivo de mulheres -->
-**Questão 25** (EM13CHS603) — A explosão do encarceramento feminino no Brasil decorrente da Lei de Drogas afeta profundamente o tecido social das comunidades mais pobres. Qual consequência estrutural é provocada pela prisão em massa dessas mulheres?
-A) A ampliação imediata de creches públicas municipais geridas por cooperativas de alimentação orgânica nas capitais.
-B) A concessão automática de bolsas de estudo universitárias para todos os dependentes de presidiárias em cursos de medicina.
-C) A elevação imediata da renda média familiar em todas as residências chefiadas por mães solos nas grandes periferias.
-D) O encerramento definitivo de todos os processos judiciais relativos a disputas de herança em cartórios de notas.
-E) A desestruturação profunda da reprodução social comunitária, gerando o desamparo de crianças órfãs de mães vivas, a perda da única fonte de subsistência do lar e a reprodução intergeracional da miséria e da vulnerabilidade.
-
-**Gabarito:** E
-**Resolução Comentada:** Prender mães solos por pequeno tráfico destrói a família na periferia: os filhos ficam desamparados sem quem lhes dê comida, são mandados para abrigos ou para a rua, perpetuando o ciclo trágico da dor e da exclusão social por gerações.
-
-<!-- id: q26 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: A teoria do Estado de Coisas Inconstitucional na ADPF 347 -->
-**Questão 26** (EM13CHS603) — Ao julgar a ADPF 347 em 2015, o Supremo Tribunal Federal adotou a doutrina do 'Estado de Coisas Inconstitucional' (ECI), originária da Corte Constitucional da Colômbia. Sob quais circunstâncias essa categoria jurídica extraordinária é declarada pelo tribunal?
-A) Quando há um quadro persistente de violação generalizada e sistemática de direitos fundamentais protegidos pela Constituição, associado a um bloqueio institucional crônico dos poderes públicos que exige reformas estruturais conjuntas.
-B) Quando a arrecadação de tributos estaduais atinge superávit primário por mais de cinco anos consecutivos nas contas públicas.
-C) Quando o número de candidatos inscritos em vestibulares públicos de engenharia supera as vagas oferecidas.
-D) Quando os governadores decidem unificar os conselhos de turismo em agências corporativas de transporte rodoviário.
-E) Quando os tribunais superiores decidem fechar os cartórios judiciais durante os meses de férias escolares de verão.
-
-**Gabarito:** A
-**Resolução Comentada:** O 'Estado de Coisas Inconstitucional' é reconhecido quando a tragédia é tão grande e generalizada que nenhum juiz ou lei isolada resolve: as prisões viraram depósitos humanos que violam a Constituição de ponta a ponta, exigindo ação de todos os poderes da República.
-
-<!-- id: q27 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: intermediario | objeto: O Massacre do Carandiru (1992) e o surgimento do PCC (1993) -->
-**Questão 27** (EM13CHS601) — No dia 2 de outubro de 1992, a tropa de choque da Polícia Militar invadiu a Casa de Detenção de São Paulo (Carandiru), resultando no assassinato de 111 detentos desarmados. Qual desfecho institucional e sociológico decorreu dessa tragédia no ano seguinte?
-A) A demolição imediata de todos os presídios do território nacional e a abolição das penas privativas de liberdade.
-B) A fundação do Primeiro Comando da Capital (PCC) em 1993 na Casa de Custódia de Taubaté, articulando os presos em uma organização coletiva de autodefesa contra a violência policial e as arbitrariedades do sistema penitenciário.
-C) A promulgação de uma nova Constituição que instituiu a censura prévia de imprensa sobre a cobertura de ocorrências policiais.
-D) A criação de fundos de investimento para financiar a vinda de guardas penitenciários de agências de segurança estrangeiras.
-E) A renúncia voluntária dos diretores de penitenciárias para assumir a coordenação de associações esportivas recreativas.
-
-**Gabarito:** B
-**Resolução Comentada:** O Massacre do Carandiru em 1992 foi um choque monstruoso de barbárie estatal: a PM fuzilou 111 presos desarmados. Em resposta, em 1993, nasceu o PCC no 'Piranhão' de Taubaté para que os presos nunca mais fossem chacinados indefesos pelo Estado.
-
-<!-- id: q28 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: intermediario | objeto: A regulação do crime e a pacificação interna nos presídios segundo Gabriel Feltran -->
-**Questão 28** (EM13CHS601) — Em pesquisas pioneiras sobre o mundo do crime em São Paulo, o sociólogo Gabriel Feltran descreve como as facções prisionais introduziram uma forma singular de regulação interna. De que maneira a consolidação do 'proceder' alterou a dinâmica cotidiana das celas?
-A) Incentivando assassinatos caóticos e desordenados entre todos os reclusos nos horários de refeição coletiva.
-B) Subordinando a rotina carcerária à leitura diária obrigatória de manuais de direito comercial marítimo do século XVIII.
-C) Impondo uma disciplina coletiva rígida que baniu estupros, extorsões de familiares e assassinatos sem autorização ('debates'), reduzindo a anomia interna das cadeias e cobrando lealdade e mensalidades dos membros.
-D) Exigindo que os prisioneiros entregassem todos os seus bens imobiliários às secretarias estaduais de educação pública.
-E) Proibindo expressamente que os detentos recebam visitas de advogados, defensores e parentes de primeiro grau.
-
-**Gabarito:** C
-**Resolução Comentada:** Gabriel Feltran mostra que o crime criou suas próprias leis nas celas: o 'proceder' proibiu estupros e covardias e criou os 'debates', reduzindo as brigas internas, mas cobrando uma lealdade de ferro e transformando a facção no verdadeiro poder do presídio.
-
-<!-- id: q29 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: intermediario | objeto: A distinção entre a biopolítica de Foucault e a necropolítica de Mbembe -->
-**Questão 29** (EM13CHS502) — Ao formular sua teoria da Necropolítica, Achille Mbembe estabelece um diálogo crítico com o conceito de Biopolítica formulado por Michel Foucault. O que diferencia a necropolítica pós-colonial da biopolítica europeia moderna?
-A) A crença de que as sociedades africanas foram poupadas de qualquer intervenção militar durante a colonização ocidental.
-B) A suposição de que as prisões no continente europeu foram desenhadas exclusivamente para abrigar generais da nobreza feudal.
-C) A afirmação de que a taxa de mortalidade em conflitos urbanos é matematicamente idêntica em todos os continentes do globo.
-D) Enquanto a biopolítica ocidental gerenciava a vida populacional sob a fórmula do 'fazer viver e deixar morrer', a necropolítica opera nos territórios periféricos e racializados sob a lógica implacável do 'fazer morrer e deixar viver', administrando a destruição de corpos descartáveis.
-E) A defesa incondicional de que as forças armadas europeias sejam dissolvidas para a criação de assembleias populares municipais.
-
-**Gabarito:** D
-**Resolução Comentada:** Foucault viu a Europa onde o Estado cuida da saúde e da previdência da população ('fazer viver e deixar morrer'); Mbembe mostra a realidade cruel do Sul Global e da periferia: o Estado age para exterminar corpos negros e pobres ('fazer morrer e deixar viver').
-
-<!-- id: q30 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: intermediario | objeto: A legitimação da letalidade policial pelo sistema de justiça -->
-**Questão 30** (EM13CHS502) — A sociologia das instituições policiais aponta que a alta letalidade das intervenções estatais em favelas não se sustenta apenas na ponta do fuzil do policial, mas em uma engrenagem judiciária permissiva. Qual mecanismo viabiliza a manutenção da impunidade nesses casos?
-A) A exigência de que todos os inquéritos de mortes violentas sejam decididos por assembleias populares de moradores de rua.
-B) A transmissão televisiva ao vivo de todos os depoimentos prestados por peritos de polícia científica perante juízes civis.
-C) A aplicação automática de penas de demissão para qualquer agente estatal envolvido em disparos acidentais em estandes de tiro.
-D) A obrigatoriedade de que todos os familiares das vítimas recebam indenizações milionárias no prazo improrrogável de vinte e quatro horas.
-E) O arquivamento rotineiro de inquéritos pelo Ministério Público com base exclusiva no depoimento dos policiais envolvidos, somado à ausência de perícias periciais independentes no local dos fatos e à aceitação acrítica do álibi do confronto armado.
-
-**Gabarito:** E
-**Resolução Comentada:** A impunidade da letalidade policial é sistêmica: o policial que atira é a única testemunha ouvida; o Ministério Público arquiva quase todos os casos alegando confronto sem fazer perícia independente, e a morte do jovem na favela fica sem justiça.
-
-<!-- id: q31 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: A falácia criminológica do punitivismo e endurecimento de penas -->
-**Questão 31** (EM13CHS603) — O discurso populista penal frequentemente propõe que o aumento generalizado das penas de prisão e a redução da maioridade penal resolveriam os índices de criminalidade. Qual evidência sociológica e estatística desmente essa proposição?
-A) O fato empírico de que o Brasil multiplicou por quatro sua população carcerária nas últimas décadas sem diminuir os índices de homicídios e roubos, comprovando que o encarceramento massivo em masmorras desumanas apenas fortalece as facções e alimenta a reincidência violenta.
-B) A comprovação de que o aumento do número de presídios gerou enriquecimento instantâneo para todos os moradores de cidades rurais.
-C) O encerramento completo de todos os tribunais criminais estaduais por carência absoluta de réus denunciados pela promotoria.
-D) A demonstração de que a taxa de desemprego é nula nos países que adotam penas perpétuas para crimes patrimoniais simples.
-E) A redução automática de conflitos armados urbanos quando as forças policiais utilizam uniformes coloridos de gala militar.
-
-**Gabarito:** A
-**Resolução Comentada:** Prender mais não diminui o crime: nos últimos 30 anos o Brasil quadruplicou o número de presos, chegando a quase 900 mil pessoas, e as facções criminosas só ficaram mais ricas e poderosas. Prender em masmorras só ensina mais violência e reincidência.
-
-<!-- id: q32 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: A desmilitarização das polícias e a segurança cidadã -->
-**Questão 32** (EM13CHS603) — A proposta de desmilitarização das polícias estaduais brasileiras é uma das diretrizes mais debatidas por especialistas em segurança pública e direitos humanos. Qual é o fundamento teórico e republicano que sustenta essa reivindicação?
-A) A defesa de que as cidades metropolitanas não necessitam de patrulhamento ostensivo para preservação da ordem pública.
-B) A superação da lógica bélica da ditadura militar que enxerga o cidadão de periferia como 'inimigo interno a ser abatido', substituindo-a pelo paradigma da segurança cidadã onde a polícia é uma instituição civil protetora dos direitos fundamentais da população.
-C) A imposição de que todos os policiais militares sejam compulsoriamente transferidos para bases aéreas no hemisfério norte.
-D) A permissão de que qualquer indivíduo civil porte armamentos pesados sem necessidade de registro em órgãos governamentais.
-E) A subordinação definitiva das delegacias de polícia civil a capitanias de portos marítimos regionais.
-
-**Gabarito:** B
-**Resolução Comentada:** Desmilitarizar a polícia não é acabar com ela: é tirar a doutrina militar que trata a favela como território de guerra e o morador preto e pobre como 'inimigo a abater', criando uma polícia cidadã e comunitária que protege todas as vidas com respeito à lei.
-
-<!-- id: q33 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: O modelo do 'ciclo completo de polícia' -->
-**Questão 33** (EM13CHS603) — No modelo policial brasileiro, vigora uma cisão jabuticaba entre a Polícia Militar (policiamento ostensivo preventivo) e a Polícia Civil (investigação judiciária). O que propõe o paradigma do 'ciclo completo de polícia' para superar as ineficiências desse arranjo?
-A) A demolição de todos os prédios que abriguem delegacias especializadas de atendimento a mulheres e vulneráveis.
-B) A proibição de que agentes policiais utilizem computadores para redigir autos de prisão em flagrante nas cidades.
-C) A permissão para que uma mesma corporação policial realize tanto o policiamento ostensivo de rua quanto os atos investigativos e periciais iniciais, agilizando o esclarecimento de crimes e superando o conflito corporativo entre PM e Civil.
-D) A transferência de todas as investigações criminais para conselhos paroquiais de arbitragem religiosa privada.
-E) A obrigatoriedade de que todos os policiais militares se formem compulsoriamente em escolas de pilotagem aeronáutica.
-
-**Gabarito:** C
-**Resolução Comentada:** O Brasil é um dos raros países do mundo que divide a polícia em duas: uma só patrulha e a outra só investiga, gerando briga de vaidades e ineficiência. O ciclo completo permite que a polícia previna e investigue junta, agilizando a solução dos crimes.
-
-<!-- id: q34 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: O controle de armas de fogo e a redução da violência letal -->
-**Questão 34** (EM13CHS603) — Estudos criminológicos fundamentados em estatísticas do Ministério da Saúde e do FBSP avaliam o impacto do Estatuto do Desarmamento (Lei nº 10.826/2003) no Brasil. O que as evidências empíricas revelam sobre a proliferação desregulada de armas de fogo?
-A) Que a concessão irrestrita de armas para a população civil elimina automaticamente a prática de assaltos em comércios de rua.
-B) Que a quantidade de revólveres em circulação não guarda qualquer correlação com o número de homicídios intencionais nos estados.
-C) Que o porte de armas por transeuntes reduz a incidência de acidentes domésticos e suicídios entre adolescentes secundaristas.
-D) Que quanto maior o número de armas de fogo em circulação na sociedade, maior é a taxa de homicídios interpessoais, feminicídios e mortes acidentais, além de alimentar o mercado clandestino de desvio de armamentos para as facções criminosas.
-E) Que as armas de fogo compradas legalmente por civis tornam-se inoperantes quando transportadas em veículos automotores particulares.
-
-**Gabarito:** D
-**Resolução Comentada:** A ciência e os dados comprovam sem contestação: mais armas significam mais mortes. Mais armas em casa aumentam os feminicídios, as mortes em brigas de bar e no trânsito, e servem para abastecer o mercado negro do crime organizado com fuzis e pistolas.
-
-<!-- id: q35 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: A privatização dos presídios e a mercantilização da punição -->
-**Questão 35** (EM13CHS603) — Em países como os Estados Unidos e em experiências de parcerias público-privadas (PPPs) carcerárias no Brasil, a gestão penitenciária foi aberta a empresas com fins lucrativos. Qual crítica sociológica e ética é formulada contra os chamados 'presídios privados'?
-A) A ausência de lucros comerciais que inviabiliza o pagamento de salários a guardas particulares terceirizados.
-B) A recusa dos investidores privados em receber recursos de bancos de desenvolvimento econômico e social.
-C) A concessão automática de indultos de liberdade para todos os presos matriculados em cursos livres de marcenaria.
-D) A proibição de fornecimento de colchões e refeições pelas concessionárias privadas durante o período de chuvas de verão.
-E) A criação de um incentivo econômico perverso para manter as celas sempre cheias e defender leis cada vez mais duras, transformando o aprisionamento de seres humanos em fonte de dividendos financeiros corporativos.
-
-**Gabarito:** E
-**Resolução Comentada:** Privatizar presídio é transformar dor humana em lucro na bolsa de valores: a empresa ganha dinheiro quanto mais gente estiver trancada na cela. Isso gera um lobby imoral para prender mais pessoas e vetar qualquer chance de liberdade ou ressocialização.
-
-<!-- id: q36 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: intermediario | objeto: A gestão diferencial dos ilegalismos em Michel Foucault -->
-**Questão 36** (EM13CHS601) — Em 'Vigiar e Punir', Michel Foucault introduziu a inovadora categoria de 'gestão diferencial dos ilegalismos'. De acordo com Foucault, como o sistema de justiça moderno administra as infrações penais na sociedade de classes?
-A) Punindo com o encarceramento degradante e violento os ilegalismos dos bens e da propriedade cometidos pelas classes populares, enquanto os ilegalismos dos negócios e as fraudes fiscais cometidas pelas elites burguesas são geridos com multas brandas e conciliações cíveis.
-B) Eliminando todas as multas tributárias e aplicando penas de trabalho forçado a diretores de bancos internacionais.
-C) Submetendo todos os cidadãos à mesma vigilância panóptica independentemente de sua renda ou moradia metropolitana.
-D) Proibindo que magistrados utilizem togas e vestimentas formais durante as sessões plenárias dos tribunais de justiça.
-E) Declarando extinta a propriedade privada dos meios de produção através de decretos do poder executivo municipal.
-
-**Gabarito:** A
-**Resolução Comentada:** Michel Foucault desmascara a farsa da igualdade perante a lei: o sistema penal serve para gerenciar os ilegalismos de classe; se a infração é de pobre (pequeno furto, droga de rua), toma anos de cadeia; se a infração é de rico (sonegação de milhões), paga uma multa e tudo bem.
-
-<!-- id: q37 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: A crise sanitária da tuberculose nas prisões brasileiras -->
-**Questão 37** (EM13CHS603) — A epidemiologia social aponta o sistema carcerário brasileiro como um polo de irradiação de tuberculose de proporções alarmantes. Quais fatores institucionais tornam as celas verdadeiros incubadores biológicos dessa enfermidade respiratória?
-A) O fornecimento compulsório de medicamentos antibióticos importados em doses duplicadas a todos os recém-admitidos.
-B) A superlotação desumana que amontoa dezenas de homens em cubículos sem ventilação natural, ausência de luz solar direta, umidade crônica e alimentação precária, gerando baixa imunidade e transmissão contínua do bacilo pelo ar.
-C) A proibição de contato físico entre agentes prisionais e profissionais de enfermagem em postos de triagem penitenciária.
-D) O cancelamento de todas as aulas de educação física nos pátios das colônias agrícolas de regime semiaberto.
-E) A realização de exames periódicos laboratoriais obrigatórios com divulgação pública semanal de dados de saúde.
-
-**Gabarito:** B
-**Resolução Comentada:** A tuberculose adora o cárcere superlotado: celas sem janela, com o dobro ou triplo de capacidade, escuras, úmidas e homens desnutridos respirando o mesmo ar sufocante. O bacilo corre frouxo e faz das prisões brasileiras verdadeiras câmaras de tortura sanitária.
-
-<!-- id: q38 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: A relevância institucional das audiências de custódia -->
-**Questão 38** (EM13CHS603) — Instituídas nacionalmente para cumprir os tratados internacionais de direitos humanos (como o Pacto de San José da Costa Rica), as audiências de custódia revolucionaram o processo penal brasileiro. Qual é a finalidade principal desse procedimento nas primeiras vinte e quatro horas da prisão?
-A) A cobrança compulsória de custas processuais bancárias diretamente das contas poupança dos réus primários.
-B) A transferência de prisioneiros sem mandado judicial para penitenciárias de segurança máxima situadas em outros estados.
-C) Permitir que o preso em flagrante seja apresentado presencialmente perante um juiz, garantindo a fiscalização de eventuais torturas policiais e avaliando a real necessidade da prisão preventiva contra medidas cautelares em liberdade.
-D) A execução sumária de sentenças condenatórias definitivas sem a manifestação prévia de advogados de defesa técnica.
-E) A aplicação de testes laboratoriais de DNA para elaboração de cadastros burocráticos biométricos confidenciais.
-
-**Gabarito:** C
-**Resolução Comentada:** A audiência de custódia é uma conquista fundamental civilizatória: em até 24 horas a pessoa presa precisa olhar no olho do juiz, que checa se ela apanhou da polícia, apura a legalidade do flagrante e evita que pessoas que poderiam responder livres fiquem mofando na cadeia.
-
-<!-- id: q39 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: intermediario | objeto: A Lei Maria da Penha (Lei nº 11.340/2006) e a proteção de gênero -->
-**Questão 39** (EM13CHS502) — A promulgação da Lei Federal nº 11.340/2006 (Lei Maria da Penha) representou uma das maiores conquistas no enfrentamento à violência doméstica e familiar contra a mulher no Brasil. Qual mudança de paradigma foi consolidada por esse diploma legal?
-A) A consideração da violência conjugal como um assunto privado de vizinhança que deve ser resolvido sem intervenção estatal.
-B) A permissão de que homens acusados de agressões físicas paguem suas penas exclusivamente com a doação de cestas básicas.
-C) A proibição de concessão de medidas protetivas de urgência para mulheres que não possuam certidão de casamento formalizado.
-D) A tipificação da violência doméstica como uma grave violação de direitos humanos, proibindo penas de cestas básicas e criando medidas protetivas de urgência, varas especializadas e rede integrada de atendimento à vítima.
-E) A determinação judicial de que as queixas de violência sejam retratadas compulsoriamente após a primeira conciliação verbal.
-
-**Gabarito:** D
-**Resolução Comentada:** A Lei Maria da Penha mudou a história do Brasil: tirou a violência doméstica da covardia do silêncio, proibiu as ridículas penas de cesta básica e garantiu que agressor de mulher seja punido com medidas protetivas rigorosas e cadeia de verdade.
-
-<!-- id: q40 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: O paradigma inovador da Justiça Restaurativa -->
-**Questão 40** (EM13CHS603) — Diante da falência e ineficácia comprovada do sistema prisional tradicional retributivo, criminólogos e juízes têm implementado o modelo da Justiça Restaurativa. Qual é a lógica central desse paradigma contemporâneo de resolução de conflitos?
-A) A substituição de todos os códigos de processo penal por estatutos de cavalaria medieval redigidos em língua latina.
-B) A imposição de penas de prisão perpétua automáticas para infrações leves de trânsito em vias urbanas.
-C) O confinamento compulsório de todos os ofensores em celas individuais de isolamento sensorial permanente.
-D) A cobrança de juros compostos sobre as indenizações pecuniárias arbitradas por tribunais de júri militar regional.
-E) A substituição do foco na punição e castigo pelo foco na reparação do dano e cura das feridas, reunindo ofensor, vítima e comunidade em círculos de diálogo e responsabilização ativa para restaurar as relações sociais rompidas.
-
-**Gabarito:** E
-**Resolução Comentada:** A Justiça Restaurativa supera a farsa da vingança carcerária: em vez de apenas trancar e embrutecer o jovem, coloca a vítima, o ofensor e a comunidade em uma mesa circular para entender a dor, responsabilizar pelo erro e reparar o dano causado com dignidade.
-
-## Nível Difícil (Questões 41-60)
-
-<!-- id: q41 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: dificil | objeto: A dinâmica dialética da violência em Johan Galtung -->
-**Questão 41** (EM13CHS502) — O sociólogo e matemático norueguês Johan Galtung formulou o célebre 'Triângulo da Violência' para explicar as causas profundas dos conflitos armados e da criminalidade nas sociedades modernas. De que maneira as pontas desse triângulo conceitual interagem na reprodução da violência urbana?
-A) A violência direta (física e interpessoal) é o vértice visível que explode nas ruas, mas ela só se sustenta porque está ancorada na violência estrutural (as privações materiais, miséria e desigualdade institucional) e é legitimada pela violência cultural e simbólica (discursos de ódio, racismo e preconceitos que justificam o sofrimento dos dominados).
-B) A violência cultural elimina completamente qualquer manifestação de conflitos físicos armados entre facções rivais.
-C) A violência estrutural opera exclusivamente no interior de embaixadas consulares durante crises diplomáticas bilaterais.
-D) A violência direta é um fenômeno puramente biológico que ocorre sem qualquer influência das leis e da ação da polícia.
-E) As três formas de violência descritas por Galtung são irrelevantes para a análise da taxa de homicídios no continente sul-americano.
-
-**Gabarito:** A
 **Resolução Comentada:**
-- **Etapa 1:** Analisar as três categorias do Triângulo da Violência de Galtung: a violência direta (física, o ato visível de agressão), a violência estrutural (o déficit social nas instituições) e a violência cultural/simbólica (ideologias e preconceitos que legitimam o uso da força).
-- **Etapa 2:** Compreender a dinâmica causal: combater apenas a violência direta com repressão policial sem mexer na violência estrutural da miséria e na violência simbólica do racismo é enxugar gelo, perpetuando o ciclo da criminalidade urbana.
+Fanon nasceu na Martinica (colônia francesa caribenha) e formou-se médico psiquiatra na França, combinando a clínica psicológica e a luta política revolucionária.
 
-<!-- id: q42 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: A Criminologia Crítica de Alessandro Baratta e o desvio como construção social -->
-**Questão 42** (EM13CHS603) — Em 'Criminologia Crítica e Crítica do Direito Penal', o sociólogo do direito Alessandro Baratta desmantela a premissa de que o direito penal expressa os valores morais universais de toda a sociedade. Qual é a crítica barattiana às funções reais da justiça criminal burguesa?
-A) A defesa de que o código penal moderno deve ser substituído por códigos de conduta de companhias mercantis marítimas.
-B) A demonstração de que o direito penal atua como um mecanismo de controle social desigual e estratificado que reproduz a estrutura de classes, definindo como crimes graves prioritários as condutas típicas dos setores populares e estigmatizando a juventude pobre para consolidar a dominação capitalista.
-C) A afirmação de que todos os crimes contra o patrimônio decorrem de patologias genéticas de degeneração biológica cerebral.
-D) A proposta de que os tribunais criminais estaduais sejam compostos unicamente por executivos de corporações financeiras.
-E) A celebração do sistema penitenciário do século XIX como a mais perfeita instituição de reinserção comunitária e paz social.
+<!-- id: q02 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 2
 
-**Gabarito:** B
+Em qual conflito armado histórico Frantz Fanon atuou como combatente e diplomata da Frente de Libertação Nacional (FLN)?
+
+A) Na Guerra Civil Americana travada entre estados do norte e do sul.
+B) Na Guerra de Libertação da Argélia contra a dominação colonial francesa.
+C) Na Guerra dos Trinta Anos entre principados católicos e protestantes.
+D) Na Guerra do Peloponeso travada entre as cidades de Atenas e Esparta.
+E) Na Guerra da Crimeia entre impérios militares da Europa continental.
+
+**Gabarito:** (B)
+
 **Resolução Comentada:**
-- **Etapa 1:** Compreender a ruptura teórica de Alessandro Baratta: a rejeição do mito do 'interesse geral' do direito penal e a denúncia da seletividade do processo de criminalização primária (a elaboração da lei) e secundária (a ação da polícia e dos juízes).
-- **Etapa 2:** Reconhecer que o sistema penal funciona como uma ferramenta de conservação das desigualdades de classe: pune duramente o furto e o pequeno tráfico cometidos por jovens marginalizados, preservando a imunidade dos grandes sonegadores e das elites econômicas.
+Fanon aderiu à Frente de Libertação Nacional (FLN) na Guerra da Argélia (1954-1962), tornando-se uma das vozes mais lúcidas da revolução anticolonial mundial.
 
-<!-- id: q43 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: Loïc Wacquant e a genealogia do Estado penal no pós-fordismo -->
-**Questão 43** (EM13CHS603) — Ao analisar a transição societária nos Estados Unidos e sua posterior importação para a América Latina em 'As Prisões da Miséria', Loïc Wacquant articula o desmonte do gueto industrial ao superencarceramento da juventude negra. Como Wacquant sintetiza a função do cárcere na modernidade neoliberal?
-A) Como uma instituição educacional que oferece cursos de graduação gratuita para todos os trabalhadores do setor industrial automobilístico.
-B) Como uma agência estatal de crédito imobiliário que distribui subsídios para aquisição de residências em bairros planejados.
-C) Como a ponta de lança de um novo governo da insegurança social, onde o confinamento penitenciário substitui as políticas públicas de proteção e previdência, operando como uma lixeira humana para gerenciar as populações tornadas supérfluas pela desregulamentação trabalhista.
-D) Como um modelo hospitalar avançado destinado a erradicar doenças infecciosas e respiratórias em comunidades agrícolas.
-E) Como um tribunal arbitral internacional que media litígios tributários entre empresas mineradoras transnacionais.
+<!-- id: q03 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 3
 
-**Gabarito:** C
+Ao trabalhar no Hospital Psiquiátrico de Blida-Joinville, qual diagnóstico clínico e político inovador Fanon estabeleceu sobre o sofrimento psíquico dos pacientes argelinos?
+
+A) Concluiu que as doenças mentais decorriam unicamente de carências vitamínicas alimentares.
+B) Afirmou que os distúrbios psiquiátricos eram causados por influências de climas áridos tropicais.
+C) Compreendeu que a loucura e as perturbações mentais na Argélia eram sintomas clínicos diretos da violência estrutural e da desumanização da ocupação colonial.
+D) Sustentou que os transtornos psíquicos resultavam da leitura excessiva de romances literários.
+E) Defendeu que as alucinações de pacientes eram originadas por disputas corporativas de artesãos.
+
+**Gabarito:** (C)
+
 **Resolução Comentada:**
-- **Etapa 1:** Compreender o colapso do pacto fordista/keynesiano: a retirada do Estado de Bem-Estar Social, a precarização do emprego e a desindustrialização geraram uma massa de trabalhadores descartáveis pelo mercado econômico.
-- **Etapa 2:** Identificar a tese de Wacquant: diante da miséria e da revolta potencial dessa massa empobrecida e racializada, o neoliberalismo constrói o 'Estado penal', trocando o investimento em creches e salários por celas de concreto para vigiar e punir a pobreza.
+Fanon diagnosticou que era impossível curar mentes oprimidas sem derrubar o colonialismo: a loucura era o efeito direto das torturas, da opressão e da humilhação racial imposta pela França.
 
-<!-- id: q44 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: A análise dogmática e sociológica da Lei nº 11.343/2006 (Artigos 28 e 33) -->
-**Questão 44** (EM13CHS603) — A arquitetura jurídica da Lei Federal de Drogas de 2006 estabeleceu o tratamento diferenciado entre o porte para consumo pessoal (Artigo 28) e o tráfico de entorpecentes (Artigo 33). Qual distorção estrutural foi comprovada por juristas e sociólogos na aplicação prática dessa lei?
-A) A obrigatoriedade de que todos os inquéritos policiais de tráfico sejam submetidos à chancela prévia da Organização das Nações Unidas.
-B) A fixação de penas de prisão perpétua automáticas para motoristas que transportarem sementes de girassol entre estados vizinhos.
-C) A concessão automática de indenizações em dinheiro pelo Estado a indivíduos flagrados comercializando substâncias entorpecentes em vias públicas.
-D) A inexistência de um critério objetivo de pesagem que diferencie a conduta de consumo da de mercancia, conferindo à autoridade policial poder discricionário absoluto que é exercido com viés racial e geográfico, multiplicando a taxa de encarceramento da juventude negra e periférica.
-E) A determinação judicial de que as sentenças de tráfico sejam proferidas com base em votações secretas em assembleias de bairro.
+<!-- id: q04 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 4
 
-**Gabarito:** D
+O que estabelece o conceito de 'Sociogênese' formulado por Frantz Fanon em Pele Negra, Máscaras Brancas (1952)?
+
+A) A tese de que o racismo decorre de determinantes genéticos e biológicos herdados da linhagem familiar.
+B) A ideia de que o preconceito social é uma ilusão linguística gerada por poetas medievais.
+C) A afirmação de que os conflitos étnicos decorrem de variações sazonais nas temperaturas continentais.
+D) A demonstração de que a neurose e o complexo de inferioridade do homem negro são fabricados deliberadamente pela estrutura econômica e social racista do colonialismo.
+E) A teoria de que as condutas humanas são reguladas exclusivamente por impulsos biológicos inatos.
+
+**Gabarito:** (D)
+
 **Resolução Comentada:**
-- **Etapa 1:** Analisar o texto dos Artigos 28 e 33 da Lei 11.343/2006: o Artigo 28 despenalizou o uso com medidas socioeducativas, enquanto o Artigo 33 elevou a pena mínima de tráfico para cinco anos sem estabelecer uma quantidade limite de gramas.
-- **Etapa 2:** Identificar o impacto sociológico dessa omissão legislativa: a distinção ficou a cargo do juízo do policial no momento do flagrante, operando um filtro racista e classista que enquadra o jovem de periferia como traficante hediondo e o jovem rico como usuário.
+A sociogênese fanoniana rompe com o biologismo e o individualismo: o complexo de inferioridade do negro não é congênito nem individual, mas gerado pela estrutura social e econômica da supremacia branca.
 
-<!-- id: q45 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: A ADPF 347 e o Estado de Coisas Inconstitucional no sistema penitenciário -->
-**Questão 45** (EM13CHS603) — A declaração do Estado de Coisas Inconstitucional (ECI) na ADPF 347 pelo Plenário do STF representou um marco histórico na jurisdição constitucional brasileira. Quais consequências político-institucionais e orçamentárias foram fixadas por essa decisão da corte?
-A) A demolição de todos os prédios que abrigam fóruns de justiça e a transferência de juízes para tarefas na agricultura familiar.
-B) A supressão do direito de defesa técnica e o julgamento sumário de crimes contra a vida por tribunais militares estaduais.
-C) A isenção fiscal integral para fabricantes de armamentos leves que instalem fábricas nos municípios do semiárido nordestino.
-D) A proibição de atuação da Defensoria Pública da União em processos penais que discutam crimes contra a administração pública.
-E) A constatação da falência estrutural e sistêmica do sistema prisional, com a ordem de descongelamento compulsório do Fundo Penitenciário Nacional (FUNPEN), a obrigatoriedade de audiências de custódia e a imposição de planos governamentais integrados para superação da superlotação.
+<!-- id: q05 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 5
 
-**Gabarito:** E
+Em Pele Negra, Máscaras Brancas, como Fanon conceitua a chamada 'Zona do Não-Ser' (*Zone de Non-Être*)?
+
+A) Um parque ecológico de preservação de espécies vegetais endêmicas em ilhas oceânicas.
+B) Um distrito comercial portuário isento de tributação sobre mercadorias estrangeiras.
+C) Uma câmara de debates diplomáticos instalada em palácios governamentais europeus.
+D) Um estágio místico alcançado por monges em práticas de meditação solitária nas montanhas.
+E) Uma região despojada em que o sistema racista nega ao negro o estatuto pleno de humanidade, razão e dignidade, reduzindo-o a mero corpo explorável.
+
+**Gabarito:** (E)
+
 **Resolução Comentada:**
-- **Etapa 1:** Compreender os pressupostos do Estado de Coisas Inconstitucional na ADPF 347: quadro de violação massiva e persistente de direitos humanos, omissão estrutural dos três poderes e incapacidade dos remédios judiciais ordinários.
-- **Etapa 2:** Analisar as ordens concretas expedidas pelo STF: desbloqueio dos bilhões do FUNPEN que estavam retidos pela Fazenda para fazer superávit primário, institucionalização das audiências de custódia e exigência de um plano nacional de intervenção no cárcere.
+A zona do não-ser representa o rebaixamento humano: na sociedade colonial eurocêntrica, apenas o branco é reconhecido como sujeito e cidadão de plenos direitos; o negro é empurrado para o vazio da desumanização.
 
-<!-- id: q46 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: dificil | objeto: Michel Misse e a teoria da 'sujeição criminal' -->
-**Questão 46** (EM13CHS502) — O sociólogo brasileiro Michel Misse formulou o seminal conceito de 'sujeição criminal' em 'Crime e Violência no Brasil Contemporâneo' (2006). Como Misse descreve esse processo social de rotulação extrema que opera na segurança pública brasileira?
-A) Como a construção social e institucional de um tipo de indivíduo que é percebido pelo Estado e pela sociedade não como alguém que cometeu um crime, mas como alguém que 'carrega o crime em seu próprio ser e corpo' (o 'bandido'), legitimando preventivamente sua eliminação física ou sua reclusão sem devido processo legal.
-B) Como a obrigação de que todos os servidores públicos prestem exames de letramento em línguas clássicas a cada dois anos.
-C) Como a suspensão compulsória de inquéritos policiais contra acusados de desvios orçamentários em obras rodoviárias estaduais.
-D) Como a concessão de passaportes diplomáticos vitalícios para magistrados aposentados de tribunais superiores.
-E) Como a fixação de tetos de gastos salariais para operários da construção civil contratados por empreiteiras privadas.
+<!-- id: q06 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 6
 
-**Gabarito:** A
+O que Fanon define como o fenômeno psíquico da 'Epidermalização da Inferioridade'?
+
+A) A introjeção inconsciente, gravada no próprio corpo, de que a cultura e a estética brancas representam o padrão universal de beleza e humanidade, enquanto a cultura negra é associada ao atraso.
+B) Uma doença de pele inflamatória comum a trabalhadores de lavouras canavieiras.
+C) A pigmentação artificial de tecidos de algodão para comercialização em bazares metropolitanos.
+D) A transmissão genética de características físicas adaptadas a climas equatoriais úmidos.
+E) O procedimento cirúrgico adotado por médicos para tratamento de queimaduras causadas por fogo.
+
+**Gabarito:** (A)
+
 **Resolução Comentada:**
-- **Etapa 1:** Definir a categoria analítica de 'sujeição criminal' de Michel Misse: a transição do ato delituoso para o ser existencial do sujeito, transformando o indivíduo pobre e negro em uma encarnação ambulante da criminalidade.
-- **Etapa 2:** Identificar a função sociopolítica da sujeição criminal: desumaniza a pessoa rotulada como 'bandido', justificando para a sociedade a tortura em delegacias, a execução em becos de favela e a negação de qualquer direito humano fundamental.
+A epidermalização da inferioridade é a colonização mental: o colonizado passa a sentir na própria pele uma suposta inferioridade, valorizando tudo o que é europeu e rejeitando suas raízes ancestrais.
 
-<!-- id: q47 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: dificil | objeto: Gabriel Feltran e a coexistência entre a ordem estatal e a ordem do crime -->
-**Questão 47** (EM13CHS601) — Em suas pesquisas etnográficas sobre as periferias paulistanas, Gabriel Feltran analisa a emergência do PCC e a governança do crime. De que maneira Feltran descreve a relação prática entre o poder estatal e as lideranças das facções nos bairros populares?
-A) Como a destruição total de todas as escolas públicas e postos de saúde por milícias armadas subordinadas a governadores civis.
-B) Como uma complexa coexistência e mútua regulação na qual as facções prisionais monopolizam o controle da violência e gerenciam tribunais comunitários locais de conflitos cotidianos ('debates'), interagindo silenciosamente com as agências estatais que toleram essa ordem para manter a paz aparente nas ruas.
-C) Como a rendição incondicional de todos os integrantes de facções armadas em troca de aposentadorias precoces pagas pelo Tesouro.
-D) Como a obrigatoriedade de que os moradores das periferias votem compulsoriamente em generais da ativa em eleições legislativas.
-E) Como a erradicação de qualquer forma de comércio informal ou venda de produtos alimentícios em feiras livres de bairro.
+<!-- id: q07 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 7
 
-**Gabarito:** B
+Qual é a trágica metáfora das 'Máscaras Brancas' adotadas por indivíduos colonizados na obra de Frantz Fanon?
+
+A) O uso obrigatório de máscaras de carnaval veneziano durante celebrações cívicas municipais.
+B) A tentativa angustiada e ilusória de indivíduos negros de assimilar a língua, a vestimenta e os costumes da elite metropolitana branca na esperança de escapar do desprezo racista.
+C) O disfarce utilizado por espiões militares para atravessar postos de fiscalização aduaneira.
+D) A proteção facial utilizada por mineradores de carvão para evitar a inalação de partículas tóxicas.
+E) O ritual religioso de pintura corporal praticado por congregações monásticas beneditinas.
+
+**Gabarito:** (B)
+
 **Resolução Comentada:**
-- **Etapa 1:** Analisar as pesquisas de campo de Gabriel Feltran: o Primeiro Comando da Capital (PCC) não opera em uma guerra contínua e irracional contra o Estado, mas estabeleceu um poder normativo nas periferias que regula o crime, o comércio e as mortes.
-- **Etapa 2:** Compreender a acomodação institucional: a redução drástica da taxa de homicídios em São Paulo a partir dos anos 2000 esteve profundamente ligada à 'gestão da violência' monopolizada pelo PCC através do 'proceder', gerando um pacto silencioso de coexistência com o aparelho estatal.
+Usar a máscara branca é o drama da assimilação colonial: o colonizado tenta falar francês polido e vestir-se como a burguesia europeia para ser respeitado, mas continua sendo discriminado pela cor de sua pele.
 
-<!-- id: q48 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: dificil | objeto: Achille Mbembe e a soberania contemporânea como poder de matar -->
-**Questão 48** (EM13CHS502) — No ensaio 'Necropolítica', Achille Mbembe desconstrói a visão liberal clássica que fundamenta a soberania do Estado moderno na defesa da vida e do bem comum. Qual é a nova definição de soberania postulada por Mbembe a partir da experiência colonial e periférica?
-A) A capacidade dos bancos centrais de emitir títulos da dívida pública com taxas de juros flutuantes no mercado internacional.
-B) A faculdade de governantes municipais de decretar feriados prolongados para servidores da administração direta.
-C) A expressão máxima da soberania contemporânea reside no poder de ditar quem pode viver e quem deve morrer, manifestando-se na produção de 'mundos da morte' onde o Estado cria condições materiais e armadas que impõem a populações inteiras o status de mortos-vivos.
-D) A celebração solene de tratados aduaneiros de navegação costeira entre nações do hemisfério ocidental.
-E) A obrigatoriedade de que os estudantes do ensino médio aprendam astronomia clássica antes de ingressar no mercado de trabalho.
+<!-- id: q08 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 8
 
-**Gabarito:** C
+Qual episódio doloroso vivenciado na França ilustra a destruição da subjetividade negra pelo olhar racista da criança metropolitana?
+
+A) A expulsão arbitrária de estudantes estrangeiros de salas de conferência universitária.
+B) A reprovação indevida de candidatos negros em testes escritos de admissão para os correios.
+C) O grito aterrorizado de uma criança branca ao apontar para Fanon na praça: 'Olhe, um preto! Mamãe, o preto vai me comer!', congelando o homem em objeto perigoso.
+D) A cobrança de tarifas inflacionadas para o embarque de passageiros antilhanos em trens suburbanos.
+E) A interdição de acesso a bibliotecas municipais durante feriados nacionais de comemoração cívica.
+
+**Gabarito:** (C)
+
 **Resolução Comentada:**
-- **Etapa 1:** Analisar a crítica de Mbembe à tradição política ocidental (Hobbes, Locke): a ilusão de que o Estado soberano existe para proteger os indivíduos do estado de natureza e garantir a autopreservação da vida.
-- **Etapa 2:** Reconhecer a formulação necropolítica: no capitalismo contemporâneo e nas margens do mundo globalizado, a soberania real se exerce pela gestão e produção industrial da morte, pela criação de zonas de exceção permanente e pelo extermínio dos corpos supérfluos.
+Fanon descreve a cena em que o olhar da criança branca o desumaniza: ele deixa de ser um médico e cidadão e é reduzido instantaneamente ao estereótipo do monstro negro devorador e selvagem.
 
-<!-- id: q49 | tipo: multipla-escolha | habilidade: EM13CHS502 | dificuldade: dificil | objeto: O Atlas da Violência e a 'juventude descartável' negra -->
-**Questão 49** (EM13CHS502) — A análise das séries históricas de homicídios no Brasil pelo IPEA e FBSP aponta um fenômeno sociológico alarmante: enquanto as taxas de homicídio de jovens brancos mantiveram-se estáveis ou declinantes nas últimas décadas, as de jovens negros sofreram uma elevação vertiginosa. O que essa disparidade revela sobre as políticas públicas nacionais?
-A) Que as taxas de mortalidade juvenil decorrem exclusivamente do consumo abusivo de refrigerantes e alimentos ultraprocessados nas escolas.
-B) Que a criminalidade violenta no país atinge unicamente trabalhadores rurais empregados em lavouras de exportação de soja.
-C) Que a posse de automóveis particulares de luxo é o principal fator de vitimização por armas de fogo nas capitais metropolitanas.
-D) Que as políticas públicas de segurança e prevenção no Brasil atuam com profunda seletividade racial, operando como uma engrenagem que protege os territórios e cidadãos brancos enquanto trata a juventude negra periférica como corpos descartáveis e alvos prioritários da letalidade estatal e armada.
-E) Que a igualdade absoluta de tratamento perante a polícia é plenamente assegurada em todas as abordagens de rotina nas favelas.
+<!-- id: q09 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 9
 
-**Gabarito:** D
+Na obra Os Condenados da Terra (1961), como Fanon descreve a estrutura física do 'Mundo Colonial Compartimentado'?
+
+A) Uma comunidade integrada de cidadãos que compartilham praças e teatros em perfeita fraternidade.
+B) Uma federação pacífica de bairros autônomos governados por conselhos comunitários de artesãos.
+C) Um sistema de distritos rurais articulados por canais fluviais de navegação comercial livre.
+D) Um espaço violentamente cindido em dois: a cidade rica, limpa e saciada do colono, e a cidade faminta, enlameada e confinada do colonizado, separadas por quartéis e baionetas.
+E) Uma vila ecológica planejada em torno de hortas comunitárias e bibliotecas populares abertas.
+
+**Gabarito:** (D)
+
 **Resolução Comentada:**
-- **Etapa 1:** Examinar as estatísticas do Atlas da Violência: a taxa de homicídios de jovens negros (15 a 29 anos) é quatro vezes superior à dos jovens brancos, evidenciando um abismo de proteção que se aprofunda a cada década.
-- **Etapa 2:** Concluir sociologicamente: a existência de um racismo estrutural e institucional que normaliza o genocídio da juventude negra, gerando comoção pública quando morre um jovem branco de classe média e silêncio cúmplice perante as chacinas cotidianas nas favelas.
+O mundo colonial é cindido: de um lado a cidade do colono (pedra, asfalto, fartura, guardada pela polícia) e do outro a cidade do nativo (lama, fome, amontoamento, cerca de arame e miséria).
 
-<!-- id: q50 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: A militarização da segurança pública e a herança da doutrina do inimigo interno -->
-**Questão 50** (EM13CHS603) — Especialistas em direitos humanos denunciam que a transição democrática brasileira em 1985 foi inconclusa no que se refere ao aparelho de segurança pública. Qual herança autoritária da ditadura militar permanece ativa no modelo operacional das polícias militares?
-A) A exigência de que todos os batalhões policiais utilizem armas de brinquedo durante operações de resgate marítimo.
-B) A obrigatoriedade de julgamento de todos os crimes cometidos por policiais perante tribunais eclesiásticos diocesanos.
-C) A transferência de todas as viaturas de patrulhamento ostensivo para cooperativas de transporte escolar de periferia.
-D) A proibição de que oficiais da polícia militar prestem depoimentos perante comissões parlamentares de inquérito legislativo.
-E) A preservação da estrutura militarizada herdada da Doutrina de Segurança Nacional, que mantém o treinamento das tropas baseado na lógica de guerra contra um 'inimigo interno', enxergando a população civil pobre das favelas como tropa adversária a ser combatida e eliminada.
+<!-- id: q10 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 10
 
-**Gabarito:** E
+Como a ideologia colonial opera a justificação de seu domínio através do chamado 'Maniqueísmo Desumanizador'?
+
+A) Apresentando os povos colonizados como parceiros comerciais iguais em tratados de livre navegação.
+B) Ensinando línguas clássicas aos camponeses para integrá-los como parlamentares nos tribunais.
+C) Distribuindo terras férteis públicas para as famílias nativas com títulos de posse perpétua.
+D) Organizando torneios esportivos entre soldados metropolitanos e trabalhadores rurais locais.
+E) Rotulando o colonizado não apenas como alguém sem valores morais, mas como a própria encarnação do Mal absoluto, preguiçoso e irracional por natureza, para legitimar a violência armada contínua.
+
+**Gabarito:** (E)
+
 **Resolução Comentada:**
-- **Etapa 1:** Compreender a transição tutelada do regime militar: a Constituição de 1988 manteve as polícias militares sob a hierarquia de forças auxiliares e reserva do Exército (Artigo 144), preservando a justiça militar própria e regulamentos disciplinares arcaicos.
-- **Etapa 2:** Identificar a consequência estrutural: a permanência da Doutrina do Inimigo Interno, que em vez de proteger o cidadão contra a violência, prepara o policial para uma guerra urbana onde a favela é o campo de batalha e o jovem negro é o inimigo a ser abatido.
+O maniqueísmo colonial divide o mundo entre o Bem (o colonizador branco civilizado) e o Mal (o colonizado bestial e maligno); ao animalizar o nativo, o colonizador justifica o chicote e o canhão.
 
-<!-- id: q51 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: O custo econômico e social do modelo proibicionista de guerra às drogas -->
-**Questão 51** (EM13CHS603) — A economia política do sistema de justiça criminal analisa os gastos tributários despendidos pelo Estado brasileiro na manutenção da política proibicionista de 'guerra às drogas'. Qual é o balanço orçamentário e de segurança pública resultante desse modelo?
-A) O desperdício de bilhões de recursos públicos do orçamento fiscal em policiamento ostensivo repressivo e custeio carcerário de infratores varejistas não violentos, enquanto o consumo de substâncias não diminuiu e o crime organizado acumulou lucros astronômicos com o comércio desregulamentado.
-B) A redução imediata a zero do consumo de entorpecentes em todas as capitais estaduais da federação brasileira.
-C) O enriquecimento imediato de todas as prefeituras municipais através de royalties cobrados sobre a venda legal de tabaco.
-D) A destinação integral das verbas apreendidas em operações policiais para a construção de colégios técnicos agrícolas federais.
-E) A erradicação definitiva de armas de fogo ilegais em todas as fronteiras territoriais com países sul-americanos.
+<!-- id: q11 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 11
 
-**Gabarito:** A
+Por que, para Frantz Fanon, o colonialismo não pode ser derrubado unicamente através de debates retóricos amigáveis em mesas diplomáticas?
+
+A) Porque o colonialismo não é uma máquina discursiva racional, mas a própria violência material armada em estado puro, que só recua quando confrontada por uma força revolucionária equivalente.
+B) Porque os representantes diplomáticos desconheciam os dialetos regionais dos países africanos.
+C) Porque as salas consulares eram desprovidas de equipamentos de iluminação adequados para sessões noturnas.
+D) Porque as leis comerciais europeias proibiam a assinatura de acordos bilaterais com territórios ultramarinos.
+E) Porque os tratados de paz internacionais dependiam da anuência de comitês de navegadores marítimos mercantes.
+
+**Gabarito:** (A)
+
 **Resolução Comentada:**
-- **Etapa 1:** Analisar a contabilidade do proibicionismo: o Estado gasta dezenas de bilhões de reais por ano com diárias de policiais, munição, combustível de viaturas e alimentação de quase um milhão de presos que não cometeram crimes violentos.
-- **Etapa 2:** Identificar o fracasso absoluto do modelo: a proibição cria um mercado negro hiperlucrativo que financia a compra de fuzis pelas facções, não diminui o uso de drogas e retira verbas preciosas da saúde pública, da educação e da inteligência policial.
+O colonialismo entrou pela espada e pelo canhão e governa pelo medo da baioneta; pretender que ele saia por cortesias discursivas é uma ilusão burguesa: a libertação exige força real.
 
-<!-- id: q52 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: A criminologia feminista e o papel subalterno da mulher no narcotráfico -->
-**Questão 52** (EM13CHS603) — A criminologia feminista investiga as singularidades da criminalização da mulher no sistema de justiça contemporâneo. De que maneira as pesquisas sociológicas caracterizam a atuação das mulheres encarceradas por tráfico de drogas no Brasil?
-A) Como comandantes supremas de cartéis transnacionais que acumulam mansões em paraísos fiscais europeus.
-B) Como agentes subalternas que ocupam as posições mais vulneráveis, visíveis e mal remuneradas da cadeia do crime (o papel de 'mula' ou pequenas vendedoras domésticas), motivadas primordialmente pelo desespero econômico para garantir o sustento básico de seus filhos pequenos.
-C) Como pilotos de aeronaves clandestinas especializadas em rotas marítimas internacionais de contrabando de café solúvel.
-D) Como diretoras de bancos de investimento que lavam dinheiro através de fundos imobiliários cotados em bolsa.
-E) Como proprietárias de empresas multinacionais de defensivos químicos agrícolas instaladas nas capitais do Sul.
+<!-- id: q12 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 12
 
-**Gabarito:** B
+Qual função libertadora individual Fanon atribui à práxis da violência revolucionária anticolonial em Os Condenados da Terra?
+
+A) A desintoxicação psíquica do colonizado, libertando-o do secular complexo de inferioridade e devolvendo-lhe a dignidade e a consciência de ser um homem livre e soberano.
+B) A celebração sádica de castigos corporais contra adversários desarmados capturados em campos rurais.
+C) A formação de corporações financeiras dedicadas à especulação imobiliária em praças litorâneas.
+D) A imposição de tributos extraordinários sobre a comercialização de grãos de cereais colhidos em aldeias.
+E) A criação de academias de oratória clássica para jovens aspirantes a carreiras burocráticas metropolitanas.
+
+**Gabarito:** (B)
+
 **Resolução Comentada:**
-- **Etapa 1:** Desconstruir a narrativa midiática que pinta a mulher presa como grande chefe do narcotráfico: as mulheres não ocupam postos de comando armado nem decidem rotas milionárias nas facções.
-- **Etapa 2:** Identificar a realidade concreta: são mães solos, jovens e periféricas que assumem o risco extremo de transportar pequenas quantidades para sustentar a casa na ausência de pensão alimentícia ou emprego formal, sendo facilmente presas em flagrante.
+Fanon demonstra que, ao enfrentar o opressor na luta pela liberdade, o colonizado desintoxica sua alma: perde o medo paralisante, percebe que o colonizador não é um deus e refaz sua autoimagem de ser humano digno.
 
-<!-- id: q53 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: A negligência estatal e o crime sanitário nas prisões brasileiras -->
-**Questão 53** (EM13CHS603) — A proliferação descontrolada de tuberculose e outras moléstias nas prisões brasileiras é analisada pela criminologia social e pela bioética jurídica como uma forma de pena cruel vedada pela Constituição. Sob qual fundamento jurídico essa situação é tipificada internacionalmente?
-A) Como um programa inovador de vacinação compulsória experimental gerido por universidades europeias de medicina.
-B) Como uma medida de incentivo ao isolamento domiciliar de pessoas acometidas por gripes sazonais passageiras.
-C) Como tratamento desumano, degradante e tortura institucional continuada praticada pelo Estado, que ao negar assistência médica básica, ventilação e condições higiênicas mínimas, submete os apenados a uma pena adicional de morte lenta por infecção biológica.
-D) Como o cumprimento rigoroso dos padrões de vigilância sanitária estabelecidos pela Organização Mundial da Saúde.
-E) Como a comprovação de que o sistema de justiça penal brasileiro respeita a dignidade física dos custodiados provisórios.
+<!-- id: q13 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 13
 
-**Gabarito:** C
+Antes do início da revolta anticolonial armada, como se canalizava a agressividade reprimida das populações colonizadas subjugadas?
+
+A) Em investimentos bancários de poupança financeira depositados em cooperativas rurais.
+B) Na redação de petições pacíficas dirigidas anualmente aos monarcas das potências europeias.
+C) Em guerras tribais fratricidas entre vizinhos, disputas violentas internas e rituais de possessão mágica, voltando a raiva contra seus próprios irmãos.
+D) Na organização de festivais de teatro cômico encenados nos pátios de casernas militares.
+E) Na edificação de templos de pedra dedicados a divindades mitológicas do mar Mediterrâneo.
+
+**Gabarito:** (C)
+
 **Resolução Comentada:**
-- **Etapa 1:** Analisar as garantias da Constituição de 1988 (Artigo 5º, XLVII e XLIX: vedação de penas cruéis e garantia da integridade física e moral) e da Convenção Americana sobre Direitos Humanos (Pacto de San José da Costa Rica).
-- **Etapa 2:** Concluir pela responsabilidade civil e penal do Estado: jogar um cidadão em uma masmorra insalubre onde a chance de contrair tuberculose multirresistente é altíssima equivale a aplicar uma pena clandestina de lesão corporal gravíssima ou morte por omissão deliberada.
+O colonizado, sem poder atingir o colonizador fortemente armado, descarregava a raiva acumulada em conflitos internos entre os próprios oprimidos; a luta de libertação redireciona essa energia contra o verdadeiro carrasco.
 
-<!-- id: q54 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: As evidências estatísticas sobre as câmeras corporais policiais -->
-**Questão 54** (EM13CHS603) — Estudos conduzidos por pesquisadores da Fundação Getulio Vargas (FGV) e da Universidade de São Paulo (USP) analisaram os impactos do uso obrigatório de câmeras operacionais portáteis (COPs) na Polícia Militar do Estado de São Paulo. Qual resultado empírico irrefutável foi atestado pelos relatórios?
-A) A ampliação generalizada dos índices de latrocínio e agressão armada contra estabelecimentos comerciais de periferia.
-B) A recusa de todos os novos recrutas em prestar juramento à bandeira nacional nos centros de formação de praças.
-C) A destruição automática dos arquivos eletrônicos de fiscalização pelas empresas fornecedoras dos softwares de gravação.
-D) Uma queda histórica de mais de oitenta por cento na letalidade provocada por policiais nos batalhões que adotaram o equipamento, acompanhada pela redução expressiva da morte de policiais em serviço e queda de mais de trinta por cento nas queixas de agressão em abordagens.
-E) A elevação dos custos com indenizações judiciais devidas pelo Estado a motoristas de transporte de carga pesada.
+<!-- id: q14 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 14
 
-**Gabarito:** D
+No capítulo 'Desventuras da Consciência Nacional', qual advertência contundente Fanon faz a respeito da 'Burguesia Nacionalista Intermediária'?
+
+A) Elogia a classe como uma elite produtiva e criativa que moderniza as fábricas e promove a justiça social.
+B) Afirma que os comerciantes nativos deveriam assumir o controle total das escolas militares de aviação.
+C) Recomenda que os ministérios econômicos sejam chefiados exclusivamente por diretores de bancos europeus.
+D) Denuncia que essa burguesia nativa é uma casta parasitária e corrupta, desprovida de ideias, cujo único papel histórico é agir como gerente local submissa dos interesses das multinacionais e do neocolonialismo.
+E) Propõe que os sindicatos operários urbanos sejam extintos para acelerar as colheitas de grãos agrícolas.
+
+**Gabarito:** (D)
+
 **Resolução Comentada:**
-- **Etapa 1:** Examinar as evidências científicas das avaliações do programa de câmeras corporais (2020-2023): os dados comprovam de forma inequívoca que a câmera atua como um regulador comportamental de contenção do uso abusivo da força física.
-- **Etapa 2:** Reconhecer a dupla proteção proporcionada pela transparência: protegeu a vida do morador periférico (evitando execuções ilegais) e protegeu a vida e a carreira do policial (evitando confrontos desnecessários e servindo como prova de defesa contra falsas acusações).
+Fanon profetizou a tragédia do neocolonialismo: a burguesia nacional herda o Estado colonial apenas para enriquecer suas famílias e servir de capataz do capital estrangeiro, traindo as esperanças do povo.
 
-<!-- id: q55 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: dificil | objeto: Michel Foucault e a bifurcação entre ilegalismos populares e burgueses -->
-**Questão 55** (EM13CHS601) — Em 'Vigiar e Punir', Michel Foucault aprofunda a análise da separação dos ilegalismos que marcou a vitória da burguesia e a transição jurídica no século XIX. Como essa bifurcação estruturou o direito penal contemporâneo?
-A) Ao determinar que a posse de terras públicas seja distribuída gratuitamente entre operários fabris aposentados.
-B) Ao exigir que todos os crimes ambientais corporativos sejam julgados por tribunais de júri popular compostos por estudantes.
-C) Ao criar conselhos fiscais paritários entre empresários e lideranças sindicais para fixar o preço da eletricidade.
-D) Ao extinguir as prisões de regime fechado em favor de centros de acolhimento comunitário geridos por famílias rurais.
-E) Ao bifurcar os ilegalismos: os ilegalismos populares contra a propriedade (furtos e roubos) foram transformados em crimes hediondos punidos com o rigor brutal da prisão, enquanto os ilegalismos das elites econômicas (sonegação, fraudes e crimes fiscais) foram despenalizados e convertidos em meras infrações cíveis ou comerciais negociáveis.
+<!-- id: q15 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 15
 
-**Gabarito:** E
+O que caracteriza a chamada 'Falsa Independência' denunciada por Fanon nos processos de descolonização formal?
+
+A) A transformação imediata de todas as cidades periféricas em metrópoles industriais autônomas.
+B) A adoção de moedas cunhadas em barras de ouro puro para circulação nas feiras municipais.
+C) O fechamento obrigatório de todas as rotas marítimas que conectavam o continente africano à Ásia.
+D) A concessão de aposentadorias integrais a todos os camponeses e trabalhadores rurais das províncias.
+E) A mera troca da cor da pele dos governantes nos palácios presidenciais e a troca de bandeiras, mantendo intactas a miséria do povo e a submissão financeira ao imperialismo europeu.
+
+**Gabarito:** (E)
+
 **Resolução Comentada:**
-- **Etapa 1:** Analisar a tese foucaultiana sobre os ilegalismos no Antigo Regime e na sociedade burguesa: a revolução burguesa reorganizou a economia das infrações para proteger o capital acumulado.
-- **Etapa 2:** Compreender a divisão de classes no direito penal moderno: a infração do pobre atenta contra a propriedade alheia e é punida com o sequestro do corpo na prisão; a infração do burguês circula na esfera dos negócios e é tratada com indenizações, multas ou anistias fiscais.
+Mudar a bandeira e colocar ministros negros de terno não é descolonização se as terras continuam nas mãos de estrangeiros e o povo na penúria; Fanon exige uma revolução social de raiz camponesa e popular.
 
-<!-- id: q56 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: As audiências de custódia como mecanismo de contenção da arbitrariedade -->
-**Questão 56** (EM13CHS603) — A implementação das audiências de custódia no Brasil encontrou forte resistência de setores corporativos punitivistas que as acusavam falsamente de 'soltar bandidos'. Sob a perspectiva sociológica e dos direitos humanos, qual barreira fundamental as audiências representam?
-A) Uma barreira essencial contra a tortura policial praticada nas primeiras horas após o flagrante, um instrumento de controle da legalidade das prisões provisórias arbitrárias e uma exigência republicana de humanização do contato do custodiado com o Poder Judiciário.
-B) Um mecanismo de encobrimento de irregularidades funcionais cometidas por agentes penitenciários estaduais.
-C) Uma assembleia corporativa secreta desenhada para aumentar a concessão de gratificações financeiras a delegados civis.
-D) Um procedimento burocrático destinado unicamente a prorrogar o tempo de reclusão de infratores primários sem julgamento formal.
-E) Uma medida cautelar que obriga os detentos a assinar confissões de culpa prévias antes de conversar com defensores públicos.
+<!-- id: q16 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 16
 
-**Gabarito:** A
+Qual é a grande convocação ética e civilizatória final dirigida aos povos do Terceiro Mundo nas últimas páginas de Os Condenados da Terra?
+
+A) Abandonar a obsessão colonial de copiar a Europa (que ergueu seus monumentos sobre genocídios e massacres) e inventar um 'Homem Novo' e uma Nova Humanidade verdadeiramente emancipada.
+B) Imitar servilmente os padrões institucionais, a técnica militar e os costumes da Europa metropolitana.
+C) Submeter todas as decisões comunitárias à aprovação prévia de comitês bancários internacionais.
+D) Retornar a modos tribais ancestrais recusando qualquer contato com o conhecimento científico moderno.
+E) Transferir as capitais dos novos Estados independentes para colônias desabitadas na Groenlândia.
+
+**Gabarito:** (A)
+
 **Resolução Comentada:**
-- **Etapa 1:** Compreender o cenário anterior às audiências de custódia: os cidadãos presos em flagrante ficavam meses amontoados em delegacias sem ver um juiz, dependendo apenas do papel do boletim de ocorrência, tornando a tortura policial invisível e impune.
-- **Etapa 2:** Identificar a função garantista da audiência presencial: a obrigação de apresentar o preso ao magistrado em até 24 horas desincentiva a agressão policial, coíbe o flagrante forjado e evita a banalização da prisão preventiva de acusados não violentos.
+Fanon faz um apelo grandioso: a Europa falou em humanismo enquanto trucidava o mundo; os povos libertados não devem imitá-la, mas forjar um pensamento original e erguer um Homem Novo.
 
-<!-- id: q57 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: O complexo penitenciário-industrial e o risco da privatização no Brasil -->
-**Questão 57** (EM13CHS603) — A sociologia crítica do sistema penal denuncia o surgimento do chamado 'complexo penitenciário-industrial' nos Estados Unidos e as pressões para sua replicação no Brasil através de Parcerias Público-Privadas (PPPs). Qual contradição estrutural reside na mercantilização das prisões?
-A) A ausência de interessados privados na gestão de serviços de alimentação e limpeza predial em estabelecimentos públicos.
-B) A transformação da punição e do encarceramento em um negócio lucrativo que depende do aumento contínuo da criminalização e do número de pessoas presas para gerar dividendos aos acionistas, atuando como um poderoso lobby corporativo contrário a qualquer reforma de desencarceramento.
-C) A proibição de que as empresas concessionárias de presídios recebam pagamentos em moeda corrente nacional.
-D) A redução compulsória de todas as mensalidades escolares cobradas por universidades privadas nas capitais metropolitanas.
-E) A concessão automática de passaportes diplomáticos internacionais a todos os apenados libertados por cumprimento de pena.
+<!-- id: q17 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 17
 
-**Gabarito:** B
+De que modo a Lei Federal nº 10.639/2003 se relaciona diretamente com o estudo da obra e das teses de Frantz Fanon nas salas de aula brasileiras?
+
+A) Ao proibir a inclusão de autores estrangeiros em currículos escolares de ciências humanas.
+B) Ao tornar obrigatório o ensino da História e Cultura Afro-Brasileira e Africana, resgatando o pensamento de intelectuais negros fundamentais para o combate ao racismo estrutural.
+C) Ao determinar que os exames de vestibular devam conter exclusivamente questões sobre o direito romano.
+D) Ao estabelecer que a literatura moderna deva limitar-se ao estudo de poetas do classicismo grego.
+E) Ao restringir as pesquisas acadêmicas sobre relações étnico-raciais a centros de pós-graduação médica.
+
+**Gabarito:** (B)
+
 **Resolução Comentada:**
-- **Etapa 1:** Analisar a lógica capitalista aplicada à pena: a empresa privada visa o lucro e o retorno sobre o investimento; em uma penitenciária privatizada, cada cama ocupada é uma diária paga pelo Estado.
-- **Etapa 2:** Identificar o conflito ético-social insanável: enquanto o objetivo de uma sociedade democrática é esvaziar os presídios e reduzir a criminalidade, o complexo industrial carcerário precisa de celas cheias para faturar, financiando políticos punitivistas que ampliam penas.
+A Lei 10.639/03 repara a omissão racista dos currículos, inserindo mestres como Fanon para que os estudantes compreendam as raízes do colonialismo e a força emancipadora do pensamento negro mundial.
 
-<!-- id: q58 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: A ineficiência investigativa e a baixa taxa de elucidação de homicídios no Brasil -->
-**Questão 58** (EM13CHS603) — Dados consolidados pelo Instituto Sou da Paz e pelo Fórum Brasileiro de Segurança Pública revelam que o Brasil esclarece uma porcentagem alarmantemente baixa dos homicídios cometidos em seu território (menos de dez por cento em vários estados). Qual causa sociológica explica esse abismo entre o punitivismo das prisões e a impunidade dos assassinatos?
-A) A proibição legal do uso de microscópios e testes de balística pelos peritos da polícia científica dos estados.
-B) A recusa terminante de todos os promotores de justiça em denunciar indivíduos acusados de homicídios dolosos nas capitais.
-C) O hiperinvestimento estatal no policiamento ostensivo repressivo e no aprisionamento em flagrante de pequeno tráfico, somado ao sucateamento deliberado da polícia civil, da perícia técnica científica e da investigação metódica de mortes violentas.
-D) A exigência de que todos os inquéritos de assassinatos sejam julgados exclusivamente por cortes consulares estrangeiras.
-E) A substituição dos laboratórios forenses estaduais por museus de arte contemporânea mantidos por fundações privadas.
+<!-- id: q18 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 18
 
-**Gabarito:** C
+Qual movimento político norte-americano dos anos 1960 adotou as obras de Frantz Fanon como guia teórico para organizar patrulhas de autodefesa contra a violência policial racista?
+
+A) O Partido dos Panteras Negras para Autodefesa (*Black Panther Party*), fundado por Huey Newton e Bobby Seale.
+B) A Liga de Veteranos da Marinha Mercante dos portos do Pacífico Norte.
+C) A Associação de Comerciantes Varejistas de Madeira do estado de Nova York.
+D) O Sindicato dos Mineradores de Carvão Betuminoso da Virgínia Ocidental.
+E) A Sociedade Protetora dos Museus de Belas Artes da Nova Inglaterra.
+
+**Gabarito:** (C)
+
 **Resolução Comentada:**
-- **Etapa 1:** Compreender o paradoxo brasileiro da segurança: o Brasil é o terceiro país que mais encarcera no planeta, mas convive com uma impunidade escandalosa para os crimes mais graves contra a vida (homicídios dolosos e latrocínios).
-- **Etapa 2:** Identificar a distorção orçamentária e operacional: os governos gastam tudo no policiamento de confronto que enche cadeia de flagrantes de drogas fáceis, enquanto as delegacias de homicídios e a perícia técnica não têm viatura, computadores ou peritos para investigar as mortes.
+Os Panteras Negras leram Fanon nos guetos dos EUA: compreenderam que o gueto negro era uma colônia interna policiada por tropas armadas brancas e organizaram autodefesa e café comunitário para as crianças.
 
-<!-- id: q59 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: O Estatuto do Desarmamento e a dinâmica dos feminicídios -->
-**Questão 59** (EM13CHS603) — Criminólogos e especialistas em violência de gênero apontam a correlação direta entre o acesso facilitado a armas de fogo e a consumação de feminicídios em ambientes domésticos. De acordo com os relatórios do FBSP, como a presença de uma arma de fogo na residência altera o risco de violência fatal contra a mulher?
-A) Garante a pacificação imediata de desentendimentos conjugais através do diálogo sereno mediado por conselhos de família.
-B) Reduz a taxa de divórcios e separações consensuais em todas as faixas de renda e estratos demográficos das cidades.
-C) Elimina a ocorrência de agressões físicas domésticas devido ao medo recíproco de disparos acidentais entre os moradores.
-D) Multiplica exponencialmente a probabilidade de que episódios de violência doméstica verbal ou física culminem no assassinato da mulher, funcionando como instrumento de intimidação letal e impossibilitando a fuga ou a defesa da vítima perante o agressor.
-E) Subordina o julgamento dos casos de violência de gênero a tribunais marítimos com competência restrita ao litoral.
+<!-- id: q19 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 19
 
-**Gabarito:** D
+Como a cisão colonial fanoniana entre 'a cidade do colono' e 'a cidade do colonizado' pode ser observada no espaço urbano das metrópoles brasileiras contemporâneas?
+
+A) Na completa ausência de disparidades de renda ou infraestrutura entre bairros nobres e favelas.
+B) Na ocupação uniforme de todas as residências municipais por famílias de artesãos cooperados.
+C) Na proibição legal do tráfego de veículos automotores em áreas residenciais metropolitanas.
+D) Na drástica divisão entre bairros nobres litorâneos bem protegidos e as favelas e periferias negligenciadas pelo Estado, submetidas a incursões policiais armadas rotineiras e falta de saneamento.
+E) Na concessão de isenção de impostos prediais exclusivamente para proprietários de edifícios antigos.
+
+**Gabarito:** (D)
+
 **Resolução Comentada:**
-- **Etapa 1:** Examinar a criminologia da violência doméstica: as agressões contra a mulher seguem uma escalada contínua de ameaças, controle e agressões físicas que ocorrem no interior do lar.
-- **Etapa 2:** Compreender o impacto da arma de fogo: a presença de um revólver ou pistola na casa transforma um episódio de violência em assassinato consumado no calor do momento, sendo a arma de fogo o meio utilizado na maioria esmagadora dos feminicídios no país.
+O Brasil reflete o modelo compartimentado de Fanon: bairros ricos cheios de asfalto, segurança privada e jardins floridos, enquanto a poucos quilômetros a favela negra vive sob tiroteios, lama e sem esgoto.
 
-<!-- id: q60 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: A refundação democrática da segurança pública e a dignidade profissional do policial -->
-**Questão 60** (EM13CHS603) — O debate contemporâneo sobre a refundação da segurança pública no Brasil recusa a falsa oposição que coloca os direitos humanos contra os policiais. Sob qual perspectiva a segurança cidadã integra a valorização e a proteção dos trabalhadores da segurança?
-A) Exigindo que os policiais trabalhem sem salários fixos em troca de participação em comissões sobre bens leiloados.
-B) Proibindo que os agentes de segurança tenham acesso a atendimento psicológico gratuito e planos de saúde pública.
-C) Subordinando a carreira policial a julgamentos sumários por superiores militares sem direito ao contraditório e ampla defesa.
-D) Defendendo que os policiais habitem compulsoriamente em alojamentos coletivos afastados de suas famílias e bairros de origem.
-E) Compreendendo que o policial é um trabalhador que também é vítima do modelo bélico e desumano da segurança, exigindo salários dignos, desmilitarização dos regulamentos disciplinares, apoio à saúde mental contra o suicídio e treinamento focado na preservação de todas as vidas, inclusive a sua.
+<!-- id: q20 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: basico | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 20
 
-**Gabarito:** E
+Qual célebre filósofo existencialista francês assinou o inflamado prefácio da primeira edição de Os Condenados da Terra em 1961?
+
+A) Jean-Paul Sartre, que convocou os intelectuais europeus a escutarem a voz impetuosa da revolução anticolonial.
+B) Auguste Comte, que defendeu a aplicação de leis positivistas à administração hospitalar.
+C) Montesquieu, que sugeriu a tripartição de cargos consulares em províncias ultramarinas.
+D) Jean-Jacques Rousseau, que redigiu tratados sobre a educação campestre de jovens fidalgos.
+E) René Descartes, que propôs o método dedutivo para o planejamento de estradas coloniais.
+
+**Gabarito:** (E)
+
 **Resolução Comentada:**
-- **Etapa 1:** Desconstruir a falsa oposição 'direitos humanos versus polícia': a polícia militarizada brasileira é uma das que mais mata no mundo, mas é também uma das que mais morre em serviço e por suicídio decorrente de estresse pós-traumático e assédio moral.
-- **Etapa 2:** Reconhecer a segurança cidadã como projeto civilizatório: proteger os direitos humanos da população exige proteger os direitos humanos, a saúde mental, a carreira civil e a dignidade do próprio policial, que não pode ser descartado como bucha de canhão pelo Estado.
+Jean-Paul Sartre escreveu o célebre prefácio de Os Condenados da Terra, afirmando aos europeus que a violência que retornava das colônias era o espelho exato da violência com que a Europa as subjugou.
+
+## Nível Intermediário
+
+<!-- id: q21 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 21
+
+Como Frantz Fanon articula o marxismo e a questão racial em Os Condenados da Terra, subvertendo a ortodoxia eurocêntrica que reduzia todos os conflitos sociais unicamente à classe econômica?
+
+A) Demonstrando que, no contexto colonial, a infraestrutura econômica é inseparável da raça: você é rico porque é branco, e você é branco porque é rico; a análise marxista precisa ser estendida para compreender a clivagem racial.
+B) Afirmando que a economia é irrelevante e que apenas a cor da pele determina as disputas mundiais.
+C) Sustentando que os camponeses colonizados deveriam rejeitar greves em favor de petições de caridade.
+D) Provando que a luta operária industrial deve ser subordinada aos interesses da nobreza imperial.
+E) Defendendo que a distribuição de rendas deve ser administrada por companhias mercantis de navegação.
+
+**Gabarito:** (A)
+
+**Resolução Comentada:**
+Fanon estende Marx: na colônia, raça e classe coincidem; o colono branco é o dono da terra e do capital, e o negro colonizado é o proletário explorado; não há como entender a economia colonial sem enxergar o racismo.
+
+<!-- id: q22 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 22
+
+Em Pele Negra, Máscaras Brancas, Fanon analisa a assimilação linguística da língua francesa pelos antilhanos: qual é a armadilha psíquica e cultural oculta no domínio polido da língua da metrópole?
+
+A) A perda da capacidade de ler romances traduzidos de autores clássicos do Mediterrâneo.
+B) A crença ingênua de que falar perfeitamente a língua do colonizador concede ao homem negro o estatuto de homem branco igual, quando na verdade expressa a submissão ao imaginário cultural do dominador.
+C) O encarecimento das mensalidades cobradas por escolas particulares de gramática no Caribe.
+D) A dificuldade de comerciar gêneros agrícolas com portos mercantes do oceano Pacífico.
+E) A imposição de tributos postais extraordinários sobre cartas remetidas para o exterior.
+
+**Gabarito:** (B)
+
+**Resolução Comentada:**
+Fanon alerta: dominar o francês é vestir o mundo do branco; o antilhano que fala a língua metropolitana pensa que se tornou igual ao europeu, mas o sistema racista o reduz à sua cor na primeira esquina.
+
+<!-- id: q23 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 23
+
+Por que Fanon adverte que os movimentos de 'Negritude', ao exaltarem a pureza mística da cultura ancestral negra, correm o risco de cair em uma armadilha essencialista se não avançarem para a luta política concreta?
+
+A) Porque as cerimônias poéticas exigiam a utilização de tecidos caros importados do Oriente.
+B) Porque os livros de poemas africanos eram censurados por corporações de livreiros metropolitanos.
+C) Porque o apego nostálgico e estético a um passado ancestral glorioso, desprovido de engajamento revolucionário no presente, transforma a identidade em fetiche inofensivo que não perturba a dominação colonial.
+D) Porque os governos coloniais subsidiavam companhias de teatro cômico itinerantes no interior.
+E) Porque as danças folclóricas dependiam da autorização de magistrados de comarcas provinciais.
+
+**Gabarito:** (C)
+
+**Resolução Comentada:**
+Fanon admirava Aimé Césaire, mas alertava: poetizar um passado idílico não liberta a África do exército francês; a identidade negra deve ser uma faísca de luta política presente, não um museu estético passivo.
+
+<!-- id: q24 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 24
+
+Qual é a crítica contundente de Frantz Fanon ao papel dos intelectuais colonizados ocidentalizados no início dos processos de insurreição popular anticolonial?
+
+A) Acusa-os de terem estudado unicamente ciências exatas e esquecido a história das artes visuais.
+B) Mostra que os acadêmicos nativos desconheciam a língua oficial das capitais europeias metropolitanas.
+C) Comprova que os professores universitários eram remunerados em moedas metálicas desvalorizadas.
+D) Denuncia que muitos intelectuais assimilados sentem horror à violência das massas camponesas, preferindo conciliações tíbias e reformas graduais que preservam seus privilégios de classe perante o colonizador.
+E) Afirma que os escritores das colônias recusavam publicar livros em tipografias mecanizadas modernas.
+
+**Gabarito:** (D)
+
+**Resolução Comentada:**
+O intelectual ocidentalizado teme o levante do povo: acostumado aos salões burgueses, ele prega prudência e moderação, enquanto o camponês empobrecido na aldeia sabe que só a força quebra o jugo do colono.
+
+<!-- id: q25 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 25
+
+Como a categoria fanoniana de 'Lumpemproletariado' difere da visão clássica marxista, assumindo um papel de vanguarda revolucionária em Os Condenados da Terra?
+
+A) Marx tratava os marginalizados urbanos desocupados com desconfiança e potencial reacionário, enquanto Fanon os enxerga como uma força explosiva indispensável, disposta a pegar em armas contra a colônia.
+B) Fanon afirmava que os marinheiros mercantes deveriam constituir o comitê central do governo transitório.
+C) Marx defendia que os mendigos urbanos fossem deportados para colonizar províncias árticas desabitadas.
+D) Fanon sustentava que os banqueiros metropolitanos eram a classe mais generosa nas revoluções cívicas.
+E) Marx considerava os camponeses proprietários a única classe capaz de dirigir revoluções industriais.
+
+**Gabarito:** (E)
+
+**Resolução Comentada:**
+Marx via o lumpemproletariado (desempregados, marginalizados) como massa instável vendível; Fanon o resgata: nas cidades coloniais, essa massa sem nada a perder é ponta de lança da revolta armada.
+
+<!-- id: q26 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 26
+
+Ao investigar os distúrbios psiquiátricos causados pela Guerra da Argélia, qual descoberta estarrecedora Fanon relata sobre o estado mental dos policiais e militares torturadores franceses?
+
+A) Constatou que os próprios algozes desenvolviam psicoses gravíssimas, insônia crônica, delírios persecutórios e acessos de agressividade doméstica contra esposas e filhos, provando que a tortura desumaniza quem a pratica.
+B) Verificou que os torturadores eram dotados de imunidade psicológica perfeita a qualquer sentimento de culpa.
+C) Comprovou que os oficiais do exército metropolitano recebiam treinamentos regulares de meditação budista.
+D) Observou que os interrogadores militares eram recrutados exclusivamente entre monges eremitas alpinos.
+E) Descobriu que as sessões de espancamento eram supervisionadas por comissões de filologia clássica.
+
+**Gabarito:** (A)
+
+**Resolução Comentada:**
+A violência colonial é um bumerangue venenoso: Fanon atendeu os próprios torturadores franceses enlouquecidos pelo horror que causavam, provando clinicamente que a opressão corrói a humanidade do algoz.
+
+<!-- id: q27 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 27
+
+De que modo a denúncia fanoniana sobre as 'Desventuras da Consciência Nacional' antecipou o surgimento de ditaduras militares e o enriquecimento de oligarquias na África pós-colonial?
+
+A) Mostrando que os generais africanos eram formados em academias navais do mar Báltico.
+B) Evidenciando que a burguesia nacionalista sem base produtiva, incapaz de saciar as necessidades do povo, recorre à demagogia étnica e ao autoritarismo policial para se perpetuar no poder como ditadura neocolonial.
+C) Provando que as constituições pós-coloniais proibiam a existência de tribunais de justiça civis.
+D) Afirmando que a crise financeira dos novos países decorria da exportação desregulada de sal marinho.
+E) Demonstrando que os conflitos políticos surgiam de rivalidades esportivas entre cidades vizinhas.
+
+**Gabarito:** (B)
+
+**Resolução Comentada:**
+Fanon profetizou: sem projeto socialista e popular, os libertadores de ontem viram os tiranos de hoje; a burguesia nacional, incapaz de gerar riqueza, transforma o partido único em instrumento de pilhagem do país.
+
+<!-- id: q28 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 28
+
+Qual é a distinção crucial estabelecida por Fanon entre o 'Camponês das Colônias' e o 'Proletário Urbano da Metrópole' na direção das revoluções de libertação?
+
+A) Nas colônias, o proletariado urbano é uma minoria relativamente privilegiada com empregos estáveis, enquanto os camponeses famintos do campo são a massa verdadeiramente revolucionária sem nada a perder.
+B) Nas colônias ultramarinas, os operários fabris recebiam remunerações em lingotes de prata e joias.
+C) Na metrópole europeia, os camponeses dominavam as comissões de acionistas de ferrovias a vapor.
+D) Na metrópole, os trabalhadores rurais lideravam os sindicatos de navegação fluvial em botes a remo.
+E) Nas possessões imperiais, os artesãos de cerâmica controlavam a totalidade dos postos de alfândega.
+
+**Gabarito:** (C)
+
+**Resolução Comentada:**
+Ao contrário da Europa onde a fábrica liderava, na colônia o camponês espoliado pela metrópole é o motor da revolução; o pequeno operário da cidade colonial muitas vezes teme perder o pouco que tem.
+
+<!-- id: q29 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 29
+
+Como a crítica de Fanon à modernidade europeia desconstrói o discurso colonial de que a Europa estava cumprindo uma 'Missão Civilizadora' na África e na Ásia?
+
+A) Afirmando que as ferrovias e escolas construídas pelo império compensavam as mortes acidentais de nativos.
+B) Provando que os governadores coloniais eram orientados por diretrizes formuladas por conselhos de astrônomos.
+C) Demonstrando que os manuais escolares franceses ensinavam com fidelidade a história das monarquias africanas.
+D) Evidenciando que a dita 'missão civilizadora' foi a máscara hipócrita para pilhagens massivas, destruição de línguas nativas, imposição de trabalhos forçados e assassinato em massa dos povos subjugados.
+E) Sustentando que as epidemias que dizimaram populações nativas foram causadas por eventos meteorológicos solares.
+
+**Gabarito:** (D)
+
+**Resolução Comentada:**
+A civilização foi uma farsa: por trás de belos discursos de liberdade e direitos do homem, a Europa usou trabalho escravo, tortura e pilhagem para enriquecer suas metrópoles e pauperizar o Terceiro Mundo.
+
+<!-- id: q30 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 30
+
+Por que, para Fanon, a solidariedade revolucionária entre os povos do Terceiro Mundo (África, Ásia e América Latina) é essencial para resistir ao imperialismo ocidental?
+
+A) Porque os tratados de navegação fluvial dependiam da padronização de bandeiras marítimas.
+B) Porque os países periféricos precisavam unificar suas regras gramaticais para a impressão de jornais.
+C) Porque os comitês de embaixadores eram obrigados a falar fluentemente a língua grega clássica.
+D) Porque a exportação de grãos de café dependia da autorização de magistrados de comarcas alpinas.
+E) Porque o imperialismo atua como uma rede global de exploração econômica e militar; nações isoladas tornam-se presas fáceis de chantagens financeiras e invasões de potências dominantes metropolitanas.
+
+**Gabarito:** (E)
+
+**Resolução Comentada:**
+Fanon defende o internacionalismo tricontinental: um país isolado não aguenta a pressão do capital estrangeiro e das armadas imperiais; a libertação autêntica exige aliança firme entre todos os oprimidos do planeta.
+
+<!-- id: q31 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 31
+
+Em Pele Negra, Máscaras Brancas, qual é a crítica de Fanon à psicanálise ortodoxa freudiana e ao complexo de Édipo quando aplicados mecanicamente às populações colonizadas da Martinica?
+
+A) Demonstra que o sofrimento psíquico do antilhano não nasce da rivalidade com a figura paterna no lar, mas do choque traumático com o mundo branco colonizador que o rotula como inferior e perigoso.
+B) Afirma que os livros de Sigmund Freud eram redigidos em língua de difícil tradução para idiomas caribenhos.
+C) Sustenta que as consultas psicanalíticas deveriam ser realizadas ao ar livre em praias tropicais.
+D) Comprova que os sonhos dos colonizados continham exclusivamente menções a tempestades marítimas.
+E) Determina que a psicanálise só pode ser aplicada a cidadãos que possuam patentes de oficiais da marinha.
+
+**Gabarito:** (A)
+
+**Resolução Comentada:**
+A neurose antilhana não vem do pai, vem do colonialismo: o drama psíquico de um jovem negro caribenho é deflagrado quando a sociedade racista branca o rejeita, tornando Freud insuficiente sem a sociogênese política.
+
+<!-- id: q32 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 32
+
+Qual é a denúncia de Frantz Fanon sobre a cumplicidade de certos ramos da Igreja e de missionários religiosos na consolidação da dominação colonial?
+
+A) Mostra que os missionários dedicavam suas manhãs à catalogação botânica de sementes silvestres.
+B) Evidencia que certas instituições religiosas atuaram como ponta de lança da pacificação dos nativos, pregando a resignação passiva perante o sofrimento terreno enquanto as terras eram confiscadas pelos colonos.
+C) Comprova que os edifícios de mosteiros eram construídos com pedras importadas de montanhas nórdicas.
+D) Afirma que as congregações religiosas incentivavam a criação de milícias armadas de trabalhadores rurais.
+E) Determina que as orações em capelas coloniais eram pronunciadas em línguas tribais sem censura.
+
+**Gabarito:** (B)
+
+**Resolução Comentada:**
+Fanon lembra a célebre verdade colonial: quando o branco chegou, ele tinha a Bíblia e o negro tinha a terra; os missionários ensinaram o negro a fechar os olhos e orar; quando abriu os olhos, o branco tinha a terra e o negro a Bíblia.
+
+<!-- id: q33 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 33
+
+De que modo as teorias de Fanon sobre a libertação armada influenciaram líderes das guerras de descolonização nas colônias portuguesas da África nas décadas de 1960 e 1970?
+
+A) Estimulando a assinatura de pactos de vassalagem voluntária com os monarcas de Lisboa.
+B) Promovendo a importação compulsória de manuais didáticos de teologia escolástica medieval.
+C) Inspirando líderes como Amílcar Cabral (Guiné-Bissau), Samora Machel (Moçambique) e Agostinho Neto (Angola) a unirem a guerrilha camponesa, a alfabetização popular e a construção de uma nova sociedade sem classes.
+D) Incentivando a criação de empresas de exportação de azeite chefiadas por fidalgos metropolitanos.
+E) Exigindo que os exércitos guerrilheiros utilizassem unicamente uniformes de seda branca nas matas.
+
+**Gabarito:** (C)
+
+**Resolução Comentada:**
+FRELIMO, MPLA e PAIGC colocaram Fanon em prática: a luta anticolonial contra o fascismo português educou o povo, integrou mulheres na liderança e refundou a soberania de Moçambique, Angola e Guiné-Bissau.
+
+<!-- id: q34 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 34
+
+Como a categoria fanoniana de 'Alienação Cultural' explica o menosprezo que indivíduos colonizados sentem por suas próprias tradições ancestrais e culinárias?
+
+A) Como uma preferência gastronômica espontânea e livre motivada pelo paladar individual de cada cidadão.
+B) Como uma determinação biológica regulada pelo funcionamento de glândulas salivares humanas.
+C) Como uma consequência da carência de sal marinho nas feiras comerciais de províncias agrícolas.
+D) Como o efeito planejado da hegemonia cultural colonizadora, que convence o oprimido de que seus costumes ancestrais são primitivos e vergonhosos, fazendo-o desejar imitar a cultura do opressor para ser aceito.
+E) Como um fenômeno decorrente da ausência de fornos industriais em aldeias tradicionais de pescadores.
+
+**Gabarito:** (D)
+
+**Resolução Comentada:**
+A alienação cultural destrói a autoestima: o colonizado tem vergonha de seu prato, de sua dança e de sua fé ancestral, sonhando em consumir o que vem da Europa para sentir-se pertencente ao mundo 'civilizado'.
+
+<!-- id: q35 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 35
+
+Ao proclamar a necessidade de criar um 'Homem Novo', qual modelo civilizatório Fanon rejeita de modo absoluto e enfático?
+
+A) O modelo comunista de conselhos operários organizados em cooperativas rurais autônomas.
+B) O modelo astronômico heliocêntrico desenvolvido por cientistas do Renascimento científico.
+C) O modelo de tribunais arbitrais comunitários praticado por aldeias pesqueiras tradicionais.
+D) O modelo de conservação ecológica adotado por guardas florestais em reservas naturais.
+E) O modelo eurocêntrico capitalista, que proclamou os direitos humanos em seus parlamentos metropolitanos enquanto promovia o massacre, o racismo e a escravização nas terras do Sul Global.
+
+**Gabarito:** (E)
+
+**Resolução Comentada:**
+O Homem Novo não nasce de imitar a Europa burguesa: Fanon alerta que tentar copiar a Europa levará ao mesmo cinismo, à mesma crueldade imperialista e à desumanização que os povos colonizados sofreram.
+
+<!-- id: q36 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 36
+
+Como a teoria pós-colonial de Edward Said, expressa em Orientalismo (1978), dá continuidade às teses de Frantz Fanon sobre a fabricação do colonizado pelo dominador?
+
+A) Demonstrando como o Ocidente construiu discursivamente e academicamente o 'Oriente' como um espaço exótico, irracional e bárbaro, justificando a intervenção militar imperialista sob a capa de estudos científicos.
+B) Provando que os mercadores árabes dominavam as rotas comerciais de especiarias no mar Cáspio.
+C) Sustentando que as pinturas renascentistas representavam fielmente os desertos do Oriente Médio.
+D) Comprovando que as traduções da literatura árabe foram realizadas exclusivamente por monges copistas.
+E) Determinando que o comércio de tapetes artesanais dependia da chancela de conselhos consulares britânicos.
+
+**Gabarito:** (A)
+
+**Resolução Comentada:**
+Said bebe diretamente em Fanon: o império inventa o 'oriental' ou o 'negro' como seres inferiores para justificar sua invasão e pilhagem; o saber acadêmico do colonizador serve à sua geopolítica de dominação.
+
+<!-- id: q37 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 37
+
+Qual é o significado da célebre afirmação de Fanon em Os Condenados da Terra: 'A descolonização é verdadeiramente a criação de homens novos'?
+
+A) Que os novos governantes republicanos deveriam receber títulos honoríficos de cavalaria medieval.
+B) Que o processo de libertação transforma radicalmente a subjetividade do colonizado: a criatura humilhada e passiva morre na luta, e em seu lugar nasce um cidadão ativo, confiante e senhor de seu próprio destino.
+C) Que as certidões de nascimento emitidas nas províncias ultramarinas deveriam conter selos em ouro.
+D) Que as crianças nascidas após a independência deveriam prestar serviços em marinhas mercantes mercenárias.
+E) Que os jovens estudantes deveriam memorizar códigos jurídicos em línguas mortas do Mediterrâneo.
+
+**Gabarito:** (B)
+
+**Resolução Comentada:**
+Descolonização não é evento burocrático no cartório: é o parto do homem novo; ao pegar o leme da própria história, o colonizado enterra o servo covarde e levanta-se como cidadão soberano e altivo.
+
+<!-- id: q38 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 38
+
+Por que, segundo Fanon, as massas populares colonizadas sentem profunda aversão aos acordos de 'compromisso pacífico' costurados nos bastidores pelas elites metropolitanas e burguesas nativas?
+
+A) Porque os acordos eram redigidos em folhas de papel fabricadas com fibras vegetais ásperas.
+B) Porque as cerimônias de assinatura de tratados ocorriam em salões de baile com ingressos caros.
+C) Porque esses conchavos de cúpula negociam a independência formal por cima do povo, mantendo intactas as fazendas coloniais, a exploração do trabalho e a subordinação bancária do país.
+D) Porque os governadores coloniais exigiam o pagamento de tributos em caravelas de madeira maciça.
+E) Porque as leis eleitorais aprovadas nos parlamentos concediam isenções tributárias a tecelões.
+
+**Gabarito:** (C)
+
+**Resolução Comentada:**
+O povo sabe que o 'acordo de paz' das elites é traição: os ricos nativos ganham os ministérios e as mansões dos colonos, enquanto os camponeses que sangraram na lavoura continuam na mesma miséria sem terra.
+
+<!-- id: q39 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 39
+
+De que modo a psiquiatria praticada por Fanon em Blida prefigurou os princípios fundamentais da Luta Antimanicomial contemporânea?
+
+A) Ao trancar os internos em celas de pedra escuras e proibir a realização de atividades coletivas.
+B) Ao prescrever tratamentos farmacêuticos experimentais em doses massivas a todos os enfermos internados.
+C) Ao transferir os hospitais psiquiátricos para fortalezas militares desativadas nas ilhas costeiras.
+D) Ao derrubar as correntes, respeitar as referências linguísticas e culturais árabes dos pacientes, introduzir a terapia ocupacional e associar a saúde mental à conquista da liberdade e dos direitos civis.
+E) Ao exigir que os pacientes realizassem marchas em formação militar antes das refeições comunitárias.
+
+**Gabarito:** (D)
+
+**Resolução Comentada:**
+Fanon foi pioneiro da antipsiquiatria e da reforma manicomial: em Blida, ele humanizou o asilo, aboliu maus-tratos e mostrou que a loucura não se cura com jaulas, mas com dignidade, escuta e liberdade social.
+
+<!-- id: q40 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: intermediario | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 40
+
+Como a crítica fanoniana à burguesia nacionalista auxilia a compreensão das desigualdades regionais e do subdesenvolvimento persistente na América Latina?
+
+A) Demonstrando que os países latino-americanos enriqueceram graças à exportação de tecidos finos para a Europa.
+B) Provando que as constituições republicanas do continente foram redigidas por generais prussianos.
+C) Sustentando que as crises econômicas regionais decorrem unicamente da ausência de minas de carvão vegetal.
+D) Afirmando que a estabilidade social foi alcançada com a abolição definitiva de tarifas alfandegárias.
+E) Evidenciando que as elites locais latino-americanas historicamente atuaram como sócias menores do imperialismo, exportando matérias-primas baratas e explorando a classe trabalhadora sem projeto nacional.
+
+**Gabarito:** (E)
+
+**Resolução Comentada:**
+A análise de Fanon se aplica à perfeição à América Latina: nossas elites agroexportadoras e financeiras sempre preferiram mandar o dinheiro para a Suíça e explorar o povo a construir uma nação soberana e justa.
+
+## Nível Difícil
+
+<!-- id: q41 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 41
+
+Examine a tese existencial e estrutural da 'Zona do Não-Ser' formulada em Pele Negra, Máscaras Brancas: de que maneira o colonialismo estrutura uma linha de fratura humana e política na modernidade ocidental, onde a plenitude do estatuto de Sujeito de Direito é negada ao corpo racializado?
+
+A) Demonstrando que a concepção moderna eurocêntrica de humanidade se ergueu sobre uma exclusão originária: o homem branco é definido como o paradigma universal da Razão e da Moralidade (a Zona do Ser), enquanto o sujeito negro é despojado de agência e empurrado para a Zona do Não-Ser, onde a lei constitucional não se aplica e a violência soberana opera sem cometer crime nem escândalo ético.
+B) Provando que as faculdades de direito medievais realizavam audiências unicamente em dias ensolarados.
+C) Determinando que os contratos comerciais ultramarinos deveriam ser arquivados em baús de mogno maciço.
+D) Afirmando que as teorias filosóficas clássicas foram formuladas exclusivamente por navegadores de caravelas.
+E) Comprovando que as distinções sociais das colônias dependiam de certificados de pontualidade burocrática.
+
+**Gabarito:** (A)
+
+**Resolução Comentada:**
+- **Etapa 1:** Compreender a cartografia humana e existencial do mundo moderno: na Zona do Ser habitam os sujeitos metropolitanos brancos, protegidos por garantias legais, contratos e direitos humanos universais.
+- **Etapa 2:** Desvelar a Zona do Não-Ser de Fanon: para que a Zona do Ser exista, cria-se a margem desumanizada do colonizado; na Zona do Não-Ser, a vida é descartável, o trabalho é superexplorado e a violência policial é a norma invisível que sustenta a ordem.
+
+<!-- id: q42 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 42
+
+Analise a dialética do reconhecimento em Frantz Fanon em contraponto à clássica 'Dialética do Senhor e do Escravo' de G. W. F. Hegel: por que, no contexto da escravidão colonial racializada, a superação dialética hegeliana do reconhecimento mútuo fracassa redondamente?
+
+A) Porque os operários têxteis alemães recusavam produzir uniformes para os generais da corte prussiana.
+B) Porque na dialética de Hegel o senhor deseja o reconhecimento humano da consciência do escravo, ao passo que no colonialismo racista o colono branco não quer o reconhecimento do negro, quer unicamente o seu trabalho servil gratuito; não havendo desejo de reconhecimento mútuo, a libertação não vem do trabalho dócil, mas da ruptura armada radical.
+C) Comprovando que os tratados filosóficos hegelianos foram traduzidos incorretamente por tipógrafos parisienses.
+D) Determinando que as disputas de terras rurais eram resolvidas por torneios de esgrima entre mestres e alunos.
+E) Afirmando que os exércitos imperiais europeus eram compostos unicamente por marinheiros veteranos mercenários.
+
+**Gabarito:** (B)
+
+**Resolução Comentada:**
+- **Etapa 1:** Relembrar a tese de Hegel: senhor e escravo travam uma luta até a morte por reconhecimento, e o escravo liberta-se pelo domínio técnico do trabalho transformador da matéria.
+- **Etapa 2:** Revelar a ruptura fanoniana: no racismo colonial, o senhor não vê uma 'consciência' no negro, mas uma besta de carga; o trabalho não liberta o escravo negro, apenas o desgasta até a morte; por isso, a libertação exige a revolta violenta que força o opressor a reconhecer a humanidade do outro.
+
+<!-- id: q43 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 43
+
+Ao dissecar o primeiro capítulo de Os Condenados da Terra ('Da Violência'), Fanon estabelece a fórmula dialética: 'O colonialismo não é uma máquina pensante, é a violência em estado puro; logo, só pode vergar diante de uma violência maior.' Analise os fundamentos materiais e históricos dessa proposição para refutar a tese liberal da 'transição pacífica negociada'.
+
+A) Mostrando que os armamentos militares metropolitanos eram construídos com ligas metálicas deterioráveis.
+B) Determinando que as assembleias parlamentares metropolitanas fechavam suas portas em períodos de seca fluvial.
+C) Evidenciando que o colonialismo é um sistema edificado e sustentado exclusivamente pela coerção armada (invasões, canhões, polícias e prisões); pretender que essa máquina de dominação material abdique espontaneamente de seus lucros e de sua hegemonia por persuasão moral é uma fantasia alienante: a violência anticolonial é a contra-violência necessária para desmantelar a opressão.
+D) Afirmando que as rebeliões camponesas eram financiadas por companhias mercantis de exportação de seda.
+E) Comprovando que as disputas coloniais territoriais decorriam da escassez de cavalos de corrida nas metrópoles.
+
+**Gabarito:** (C)
+
+**Resolução Comentada:**
+- **Etapa 1:** Analisar a natureza intransigente do império: o colonizador não ocupa a África por engano moral ou desinformação, mas por sede de matérias-primas e exploração capitalista armada.
+- **Etapa 2:** Desmistificar a conciliação liberal pacífica: a metrópole jamais entrega o poder por gentileza diplomática; a contra-violência revolucionária atua como a única força capaz de romper a cerca do colono e forçar o fim do império.
+
+<!-- id: q44 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 44
+
+Examine a tese psicológica revolucionária de Fanon sobre a função desintoxicante da violência anticolonial no nível dos indivíduos: de que maneira o ato de pegar em armas contra o colonizador opera uma cura terapêutica da alienação e da neurose colonial?
+
+A) Comprovando que as substâncias químicas da pólvora possuíam propriedades medicinais ansiolíticas.
+B) Determinando que os soldados revolucionários deviam jejuar antes das marchas pelas florestas equatoriais.
+C) Afirmando que as táticas de guerrilha foram ensinadas por conselhos de astrônomos de mosteiros medievais.
+D) Demonstrando que a repressão secular inculcou no colonizado um sentimento de impotência, paralisia e temor reverencial perante o dominador branco; ao engajar-se na luta e ver a vulnerabilidade física do opressor, o oprimido expulsa o medo introjetado, recupera a autoestima destruída e renasce psiquicamente como ser humano soberano e audaz.
+E) Provando que as patrulhas camponesas utilizavam unicamente instrumentos musicais de percussão nas batalhas.
+
+**Gabarito:** (D)
+
+**Resolução Comentada:**
+- **Etapa 1:** Compreender a patologia da servidão colonial: séculos de chicote fazem o oprimido acreditar que o branco é invencível e quase sobrenatural, gerando depressão, raiva autodestrutiva e passividade.
+- **Etapa 2:** Desvelar a cura pela práxis libertadora: ao disparar contra a tropa colonial, o combatente vê o dominador sangrar e tombar; o mito do semideus branco cai por terra e o colonizado cura sua mente, tornando-se um homem livre de pé.
+
+<!-- id: q45 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 45
+
+Analise a anatomia sociológica do 'Mundo Colonial Compartimentado' e seu maniqueísmo desumanizador: de que forma a produção espacial de cidades segregadas antecipa a lógica dos estados de segregação racial (como o Apartheid sul-africano) e a segregação socioespacial contemporânea?
+
+A) Provando que os planos urbanos metropolitanos eram projetados por arquitetos de caravelas mercantes.
+B) Determinando que os muros de contenção das cidades coloniais deviam ser pintados de tintas amarelas.
+C) Afirmando que a divisão dos bairros obedecia a critérios de classificação astronômica das constelações.
+D) Comprovando que as ruas asfaltadas eram reservadas exclusivamente a funcionários dos correios imperiais.
+E) Evidenciando que a segregação colonial não é mera disparidade acidental de rendimentos, mas uma partição institucionalizada pela força das armas: erguem-se barreiras intransponíveis que confinam o negro na zona de precarização e violência, enquanto o branco desfruta de segurança e privilégios, naturalizando a divisão do gênero humano em espécies biológicas e morais irreconciliáveis.
+
+**Gabarito:** (E)
+
+**Resolução Comentada:**
+- **Etapa 1:** Analisar a geografia de classes e raças na colônia: o mundo fanoniano é dividido fisicamente pelo fuzil policial; não há passagem livre entre a casbah e os bulevares do colonizador.
+- **Etapa 2:** Conectar ao Apartheid e às cidades atuais: essa cisão materializou-se nas leis do Apartheid e segue viva nas metrópoles de hoje, onde a favela periférica é cercada por operações policiais violentas para proteger os bairros ricos.
+
+<!-- id: q46 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 46
+
+Investigue a advertência fanoniana sobre as 'Desventuras da Consciência Nacional': por que a tomada do poder pela burguesia nacionalista sem um projeto socialista e sem a mobilização permanente das massas camponesas converte fatalmente o novo Estado em uma ditadura neocolonial burocrática e corrupta?
+
+A) Demonstrando que a burguesia nacionalista periférica não tem vocação industrial nem capital produtivo acumulado; ela é meramente intermediária e compradora, usando a máquina do Estado para desviar recursos públicos, manter o monopólio familiar dos negócios e reprimir o povo insatisfeito, atuando como capitão-do-mato a serviço das corporações imperialistas metropolitanas.
+B) Comprovando que os ministros de finanças pós-coloniais desconheciam o funcionamento de calculadoras mecânicas.
+C) Determinando que os embaixadores africanos deveriam prestar juramentos de obediência a generais prussianos.
+D) Afirmando que a crise de alimentos resultava unicamente da proliferação de pragas de gafanhotos migratórios.
+E) Provando que os parlamentos das nações independentes realizavam reuniões em palácios de madeira frágil.
+
+**Gabarito:** (A)
+
+**Resolução Comentada:**
+- **Etapa 1:** Descrever o perfil raquítico da burguesia nacional: ao contrário da burguesia europeia do século XIX que construiu indústrias e estradas de ferro, a elite local pós-colonial é parasita e preguiçosa.
+- **Etapa 2:** Diagnosticar o golpe neocolonial: sem base econômica real, essa burguesia vira sócia de bancos estrangeiros; para abafar os protestos da população esfomeada, militariza o governo e instaura uma ditadura de partido único corrupta.
+
+<!-- id: q47 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 47
+
+Examine o manifesto final de Os Condenados da Terra: 'Não prestemos homenagem à Europa criando estados, instituições e sociedades que nela se inspirem.' Como essa recusa radical do eurocentrismo lança as bases para as epistemologias descoloniais contemporâneas e a superação do pensamento colonial universalizante?
+
+A) Afirmando que as universidades europeias deveriam ser transferidas compulsoriamente para florestas equatoriais.
+B) Evidenciando que o universalismo abstrato europeu é falso e cúmplice da barbárie: a Europa ergueu suas catedrais e discursos de liberdade ao mesmo tempo em que massacrava civilizações inteiras pelo mundo; superar o colonialismo exige criar novos caminhos civilizatórios, fundados em saberes ancestrais, soberania popular e na dignidade emancipada de todos os povos.
+C) Determinando que os manuais didáticos de ciências exatas devam ser eliminados de todas as escolas públicas.
+D) Comprovando que os tratados diplomáticos internacionais deveriam ser escritos unicamente em pergaminhos de couro.
+E) Afirmando que a ciência moderna foi inventada por navegadores solitários em travessias oceânicas sem bússola.
+
+**Gabarito:** (B)
+
+**Resolução Comentada:**
+- **Etapa 1:** Desmascarar o humanismo abstrato da Europa: Fanon aponta a contradição insolúvel: a Europa fala de direitos humanos em Paris e pratica torturas e estupros na Argélia e no Congo.
+- **Etapa 2:** Compreender a desobediência descolonial: a verdadeira libertação não é se tornar uma 'cópia de segunda mão' da França ou da Inglaterra; os povos descolonizados precisam pensar com a própria cabeça e refundar o humanismo em bases comunitárias e fraternas.
+
+<!-- id: q48 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 48
+
+Analise a relação entre a 'Epidermalização da Inferioridade' e a alienação estética no Brasil contemporâneo: de que modo o alisamento químico de cabelos, a busca por procedimentos de clareamento e a ausência histórica de representatividade negra nos meios de comunicação corporativos confirmam as análises de Fanon?
+
+A) Provando que as tendências de moda capilar são geradas unicamente por variações sazonais de umidade do ar.
+B) Determinando que os produtos cosméticos sejam formulados exclusivamente com extratos minerais marinhos.
+C) Demonstrando como a ideologia do branqueamento e o mito da democracia racial brasileira operam a introjeção psíquica de que os traços fenotípicos negros são indesejáveis ou feios, impelindo os sujeitos a mascararem seus corpos e identidades para atender ao padrão eurocêntrico dominante, reproduzindo a neurose da máscara branca analisada por Fanon.
+D) Afirmando que as emissoras de televisão comerciais foram criadas por congregações religiosas beneditinas.
+E) Comprovando que as campanhas publicitárias do século XX eram fiscalizadas por comitês de tecelões industriais.
+
+**Gabarito:** (C)
+
+**Resolução Comentada:**
+- **Etapa 1:** Identificar o mecanismo psíquico das 'máscaras brancas': a sociedade racista emite o sinal contínuo de que a beleza e a civilidade são privilégios brancos, ensinando o negro a odiar seu reflexo.
+- **Etapa 2:** Diagnosticar os reflexos corporais no Brasil: o alisamento forçado e o embranquecimento estético foram estratégias dolorosas de aceitação social; o movimento contemporâneo de valorização da estética afro desfaz essa neurose, recuperando o orgulho fanoniano.
+
+<!-- id: q49 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 49
+
+Examine o conceito de 'Maniqueísmo Colonial' em articulação com a criminalização das religiões de matriz africana (Candomblé e Umbanda) no Brasil: como o discurso colonialista que associava a cultura negra à feitiçaria e ao diabo continua operando na violência contemporânea contra terreiros?
+
+A) Comprovando que os terreiros religiosos foram construídos com materiais cerâmicos de baixa resistência física.
+B) Determinando que os sacerdotes religiosos devam registrar suas liturgias em cartórios judiciais civis.
+C) Afirmando que os conflitos teológicos surgiram da escassez de velas artesanais em feiras metropolitanas.
+D) Evidenciando que a partição maniqueísta construída pelo colonizador classificava a fé europeia branca como sagrada e racional, rebaixando as práticas espirituais africanas à condição de demoníacas e primitivas; esse estigma secular é mobilizado hoje por fundamentalismos religiosos e grupos armados que atacam e incendeiam terreiros, reproduzindo o ódio colonial.
+E) Provando que os rituais ancestrais dependiam de autorização prévia concedida por magistrados de cortes navais.
+
+**Gabarito:** (D)
+
+**Resolução Comentada:**
+- **Etapa 1:** Descrever o maniqueísmo religioso colonial: para justificar a escravização e a destruição das culturas africanas, a Igreja e o Estado colonizador rotularam os Orixás e as divindades ancestrais como demônios e feitiçaria.
+- **Etapa 2:** Reconhecer a permanência da violência racista hoje: a perseguição e depredação de terreiros no Brasil atual não é disputa teológica isolada, mas a reativação viva do racismo religioso fanoniano, que busca erradicar a memória e a dignidade negra.
+
+<!-- id: q50 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 50
+
+Analise a crítica de Frantz Fanon ao 'Nacionalismo Burguês Chauvinista': por que, após a independência formal, o nacionalismo que não se aprofunda em uma consciência social e política internacionalista degenera facilmente em racismo interétnico, xenofobia e perseguição a minorias vizinhas?
+
+A) Mostrando que as emissoras de rádio estatais transmitiam músicas gravadas em discos de cera frágeis.
+B) Determinando que as fronteiras nacionais deveriam ser delimitadas por cercas de bambu entrelaçado.
+C) Afirmando que as desavenças geopolíticas africanas decorriam da ausência de linhas telefônicas transcontinentais.
+D) Comprovando que os tratados de comércio de carnes dependiam de aprovação por tribunais arbitrais marítimos.
+E) Evidenciando que, quando a independência formal não melhora a vida material do povo e a miséria persiste, a burguesia nacional manipuladora desvia a frustração das massas elegendo bodes expiatórios: incita o ódio contra trabalhadores migrantes vizinhos e minorias étnicas locais, substituindo a luta de libertação por um ultranacionalismo tribal reacionário e sangrento.
+
+**Gabarito:** (E)
+
+**Resolução Comentada:**
+- **Etapa 1:** Identificar o esgotamento da euforia da independência: passada a festa da bandeira nova, o povo percebe que o estômago continua vazio e os hospitais continuam sem remédios.
+- **Etapa 2:** Revelar a manobra divisionista das oligarquias: para escapar da fúria popular, os governantes culpam os estrangeiros do país ao lado ou uma etnia minoritária; o nacionalismo vazio vira xenofobia fratricida, exatamente como Fanon anteviu em sua crítica premonitória.
+
+<!-- id: q51 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 51
+
+Investigue a tese de Frantz Fanon sobre a 'Cultura Nacional' em Os Condenados da Terra: de que maneira o filósofo desmistifica a ideia de que a cultura de um povo liberto se reduz a costumes folclóricos imutáveis, definindo-a como a própria práxis viva de luta pela emancipação?
+
+A) Demonstrando que a cultura nacional autêntica não é um relicário congelado no passado nem peças de museu folclóricas para turistas europeus admirarem; ela é o conjunto vivo dos esforços de um povo para afirmar sua soberania, recriando artes, canções, literatura e pensamento no próprio calor do combate diário por sua liberdade e sobrevivência digna.
+B) Comprovando que as danças festivas tradicionais deveriam ser ensinadas exclusivamente por acadêmicos da corte.
+C) Determinando que as festas populares municipais fossem financiadas unicamente por companhias mercantis de sal.
+D) Afirmando que os instrumentos musicais de sopro eram fabricados com chifres de animais silvestres extintos.
+E) Provando que as lendas orais eram transcritas por conselhos de escrivães de alfândegas portuárias.
+
+**Gabarito:** (A)
+
+**Resolução Comentada:**
+- **Etapa 1:** Afastar a visão reificada e folclorizada da cultura: o colonizador adora transformar a cultura negra em dança exótica e batuque inofensivo para consumo de entretenimento burguês.
+- **Etapa 2:** Resgatar a definição revolucionária de Fanon: cultura é ação histórica; a canção, o teatro e a literatura colonial só ganham vida verdadeira quando cantam e organizam a resistência do povo contra a opressão.
+
+<!-- id: q52 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 52
+
+Analise a influência das reflexões fenomenológicas de Maurice Merleau-Ponty sobre a corporalidade na obra Pele Negra, Máscaras Brancas: como Fanon adapta a ideia de 'Esquema Corporal' para forjar o conceito de 'Esquema Histórico-Racial'?
+
+A) Sustentando que os movimentos dos membros superiores dependem do equilíbrio hídrico em climas secos.
+B) Demonstrando que, ao passo que Merleau-Ponty descrevia o corpo como uma experiência fenomenológica espacial de abertura ao mundo, no sujeito negro esse esquema corporal é quebrado e sobreposto por um 'esquema histórico-racial' construído pelo branco, onde o negro é compelido a se perceber através de lendas racistas, medos e narrativas desumanizadoras pré-fabricadas pelo colonizador.
+C) Determinando que os reflexos musculares humanos eram medidos por cronômetros mecânicos em hospitais.
+D) Afirmando que os exames neurológicos eram conduzidos unicamente por astrônomos de cortes imperiais.
+E) Comprovando que as sensações táteis dos trabalhadores rurais eram reduzidas pelo calor das lavouras.
+
+**Gabarito:** (B)
+
+**Resolução Comentada:**
+- **Etapa 1:** Relembrar o esquema corporal de Merleau-Ponty: o ser humano comum navega no espaço de forma fluida, com o corpo sendo a âncora natural e imediata de sua percepção do mundo.
+- **Etapa 2:** Revelar a fratura do corpo negro em Fanon: o racismo destrói essa harmonia; o negro entra numa sala e não é apenas um corpo no espaço, mas um corpo cercado por séculos de estigmas e preconceitos brancos, sentindo o peso esmagador do olhar do outro.
+
+<!-- id: q53 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 53
+
+Examine a relação entre as reflexões de Frantz Fanon e o pensamento de Achille Mbembe em Crítica da Razão Negra: de que modo Mbembe retoma a análise fanoniana da desumanização do homem negro para denunciar a 'Universalização da Condição Negra' no capitalismo neoliberal global?
+
+A) Comprovando que as rotas de comércio marítimo de café foram desativadas por acordos alfandegários mundiais.
+B) Determinando que os bancos centrais devam emitir moedas unicamente com efígies de filósofos gregos.
+C) Evidenciando que a condição que no colonialismo clássico era reservada quase exclusivamente ao homem negro (corpo sem direitos, vida descartável, força de trabalho precarizada e exposta à morte violenta) generaliza-se hoje para parcelas gigantescas da humanidade empobrecida pelo neoliberalismo, transformando multidões de trabalhadores de todas as cores em vidas nuas descartáveis.
+D) Afirmando que as teorias de Mbembe foram copiadas de códigos militares de infantaria da Guerra da Crimeia.
+E) Provando que as perseguições trabalhistas decorriam de disputas corporativas de carpinteiros navais.
+
+**Gabarito:** (C)
+
+**Resolução Comentada:**
+- **Etapa 1:** Resgatar a base fanoniana da desumanização: o negro foi a primeira mercadoria humana viva do capitalismo, explorado até o bagaço nos canaviais e minas coloniais sem qualquer direito cidadão.
+- **Etapa 2:** Analisar a tese contemporânea de Mbembe: com a precarização neoliberal, a uberização e a destruição de direitos sociais, o sistema trata hoje milhões de seres humanos como tratava o escravo de ontem: corpos descartáveis substituíveis a qualquer instante.
+
+<!-- id: q54 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 54
+
+Ao investigar os perigos da alienação religiosa nas colônias, de que maneira Fanon explica o recurso obsessivo a rituais de transe, possessão e mitos mágicos entre populações profundamente subjugadas?
+
+A) Mostrando que os sacerdotes locais eram remunerados por companhias mercantis de navegação transatlântica.
+B) Determinando que as cerimônias espirituais deviam ocorrer exclusivamente em noites de lua cheia de verão.
+C) Afirmando que as práticas mágicas foram ensinadas por navegadores espanhóis em expedições marítimas.
+D) Demonstrando que, diante da impossibilidade de combater abertamente as metralhadoras e a polícia do colonizador, o colonizado descarrega a angústia titânica e a energia muscular acumulada em transes espirituais catárticos, lutando contra espíritos invisíveis e zumbis para não enfrentar a terrível realidade material do opressor de carne e osso.
+E) Comprovando que as oferendas rituais consistiam unicamente em ferramentas metálicas agrícolas desgastadas.
+
+**Gabarito:** (D)
+
+**Resolução Comentada:**
+- **Etapa 1:** Descrever o sofrimento psíquico da impotência diante da força militar: o colono tem fuzis e canhões; o colonizado vive acuado e aterrorizado pela violência diária do Estado colonial.
+- **Etapa 2:** Compreender o transe mágico como fuga compensatória: o colonizado canaliza a fúria em brigas contra fantasmas e demônios sobrenaturais; ao ingressar na luta política real, os mitos desvanecem e o colonizado enfrenta o carrasco humano real.
+
+<!-- id: q55 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 55
+
+Analise a crítica de Frantz Fanon ao 'Pacifismo Abstrato' das elites liberais ocidentais: por que, segundo o autor, os apelos ocidentais à não-violência dirigidos aos povos do Terceiro Mundo constituem uma hipocrisia descarada?
+
+A) Comprovando que os tratados de desarmamento naval eram redigidos por comissões de mercadores têxteis.
+B) Determinando que as bandeiras de paz internacional fossem tecidas com fios de algodão cru colhidos no outono.
+C) Afirmando que os congressos pacifistas eram financiados exclusivamente por ordens monásticas contemplativas.
+D) Provando que as leis de neutralidade bélica dependiam de aval de magistrados de comarcas alpinas isoladas.
+E) Evidenciando que a Europa usou a violência mais brutal e desenfreada durante séculos para invadir, pilhar, escravizar e reprimir as colônias; exigir que os oprimidos sejam pacíficos e cordiais diante do genocídio que sofrem equivale a exigir que aceitem a escravidão eterna de cabeça baixa, desarmando moralmente a legítima resistência dos povos.
+
+**Gabarito:** (E)
+
+**Resolução Comentada:**
+- **Etapa 1:** Recordar o histórico sanguinário da Europa imperialista: canhoneiras, massacres de aldeias, decapitações e pilhagens foram os métodos com que o Ocidente dominou os continentes.
+- **Etapa 2:** Desnudar o duplo padrão ético liberal: quem usou fuzis para roubar terras não tem autoridade moral para pregar não-violência para o espoliado; o pacifismo pregado pelo senhor só serve para manter o escravo de joelhos.
+
+<!-- id: q56 | tipo: multipla-escolha | habilidade: EM13CHS101 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 56
+
+Examine o papel político das mulheres argelinas na Guerra de Libertação Nacional narrado por Fanon na obra Sociologia de uma Revolução (Ano V da Revolução Argelina): de que maneira a participação feminina na guerrilha revolucionou as relações tradicionais de gênero no interior da sociedade colonizada?
+
+A) Demonstrando que as mulheres quebraram a clausura do lar tradicional e ingressaram na linha de frente como mensageiras, estrategistas, combatentes e operadoras da clandestinidade armada urbana (transportando explosivos sob o véu ou vestidas à moda ocidental), desestabilizando tanto o patriarcado tradicional quanto a vigilância colonial francesa.
+B) Provando que as mulheres argelinas atuavam unicamente na preparação de alimentos para os soldados em casernas.
+C) Determinando que os pelotões femininos deviam realizar juramentos cívicos em capelas católicas metropolitanas.
+D) Afirmando que a adesão das mulheres decorreu de decretos de alistamento compulsório baixados pelo parlamento.
+E) Comprovando que as combatentes eram remuneradas em moedas de prata emitidas por bancos mercantis britânicos.
+
+**Gabarito:** (A)
+
+**Resolução Comentada:**
+- **Etapa 1:** Descrever o duplo jugo da mulher colonizada: ela estava subjugada pela opressão militar francesa e enclausurada pelas normas patriarcais tradicionais no ambiente familiar.
+- **Etapa 2:** Analisar a revolução de costumes na guerra: a necessidade da luta de libertação colocou as mulheres no comando das ações operacionais mais perigosas da FLN; ao lado dos homens na guerrilha, elas conquistaram autonomia, voz política e respeito histórico.
+
+<!-- id: q57 | tipo: multipla-escolha | habilidade: EM13CHS102 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 57
+
+Analise a advertência de Frantz Fanon sobre o 'Complexo de Édipo Revertido' e o fetiche de assimilação nas relações afetivas inter-raciais em colônias: em Pele Negra, Máscaras Brancas, por que a busca compulsiva pelo casamento com pessoas brancas pode expressar uma forma trágica de alienação racial?
+
+A) Comprovando que as certidões de matrimônio civil eram emitidas com selos fiscais de altos valores monetários.
+B) Evidenciando que, sob a tirania do racismo estrutural que desvaloriza a humanidade negra, alguns sujeitos colonizados acreditam que unir-se afetivamente a uma pessoa branca lhes conferirá branquitude simbólica, redenção social e fuga do desprezo coletivo, utilizando o parceiro como passaporte para ser aceito na Zona do Ser dominante.
+C) Determinando que as cerimônias de bodas rurais deveriam contar com apresentações de corais de monges beneditinos.
+D) Afirmando que os dotes nupciais eram calculados com base na cotação internacional de grãos de cevada.
+E) Provando que as uniões conjugais eram decididas por sorteios anuais realizados em feiras municipais.
+
+**Gabarito:** (B)
+
+**Resolução Comentada:**
+- **Etapa 1:** Investigar a psicologia da alienação amorosa colonial: o racismo penetra na intimidade, nos desejos inconscientes e na escolha de parceiros amorosos.
+- **Etapa 2:** Desvelar a ilusão de embranquecimento afetivo: Fanon demonstra que buscar casar-se com uma pessoa branca apenas para 'clarear a linhagem' ou ser aceito pela sociedade racista é o ápice da máscara branca; a cura reside em valorizar a própria negritude e destruir o padrão eurocêntrico.
+
+<!-- id: q58 | tipo: multipla-escolha | habilidade: EM13CHS601 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 58
+
+Como a tese de Frantz Fanon de que 'A Europa é literalmente a criação do Terceiro Mundo' fundamenta as reivindicações contemporâneas de Reparações Históricas pelos séculos de escravidão e pilhagem colonial?
+
+A) Mostrando que os barcos pesqueiros europeus utilizavam bússolas marítimas desenhadas por artífices asiáticos.
+B) Determinando que as obras de arte clássicas dos museus europeus deveriam ser leiloadas em praças mercantis.
+C) Evidenciando que a opulência material, as indústrias, os palácios, as universidades e os capitais acumulados da Europa ocidental foram construídos com o sangue de milhões de escravizados africanos e o roubo das riquezas minerais e agrícolas do Sul Global; as reparações não são caridade benevolente, mas pagamento de uma dívida histórica concreta.
+D) Afirmando que os orçamentos educacionais das metrópoles eram financiados unicamente por taxas de correios.
+E) Comprovando que as rotas fluviais de carvão mineral foram desativadas por acordos de trégua diplomática.
+
+**Gabarito:** (C)
+
+**Resolução Comentada:**
+- **Etapa 1:** Desmascarar o mito da riqueza europeia autossuficiente: a narrativa liberal afirma que a Europa enriqueceu unicamente por sua genialidade científica e virtudes do trabalho protestante.
+- **Etapa 2:** Expor o sangue da acumulação primitiva: Fanon desnuda a verdade: a riqueza da Europa é o outro lado da moeda da miséria africana; todo tijolo de ouro dos bancos europeus foi arrancado da mina e da senzala; as reparações históricas são exigência elementar de justiça ética e econômica.
+
+<!-- id: q59 | tipo: multipla-escolha | habilidade: EM13CHS602 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 59
+
+Analise a crítica de Frantz Fanon à 'Espontaneidade Revolucionária' em Os Condenados da Terra: por que o filósofo adverte que o ódio cego e a fúria visceral das massas camponesas contra o opressor, se não forem educados por uma sólida formação política emancipatória, podem se esgotar ou ser manipulados por caudilhos reacionários?
+
+A) Comprovando que os camponeses revoltados recusavam utilizar sapatos de couro em suas marchas rurais.
+B) Determinando que os líderes revolucionários deviam receber pensões vitalícias em barras de cobre fundido.
+C) Afirmando que as reuniões de comitês populares deviam ocorrer unicamente em cavernas montanhosas profundas.
+D) Demonstrando que o ressentimento explosivo e a cólera espontânea são necessários como estopim de revolta, mas insuficientes para sustentar a revolução a longo prazo; sem uma pedagogia política lúcida que ensine o povo a distinguir o colono inimigo de classe daquele que pode ser aliado e sem um projeto nacional de reorganização econômica, o movimento corre o risco de cair no fanatismo destrutivo ou na anarquia estéril.
+E) Provando que as estratégias militares eram formuladas por adivinhos e astrólogos de feiras provinciais.
+
+**Gabarito:** (D)
+
+**Resolução Comentada:**
+- **Etapa 1:** Reconhecer o papel indispensável da fúria popular inicial: a raiva do explorado é o combustível vital que desafia a cavalaria e os fuzis coloniais com bravura incomparável.
+- **Etapa 2:** Enfatizar a necessidade da educação e consciência política: Fanon não é apologista cego do caos; ele exige que os combatentes compreendam o sistema, organizem hospitais de campanha, escolas e planos agrícolas; sem clareza teórica, a rebelião queima depressa e o povo volta à servidão sob novos mestres.
+
+<!-- id: q60 | tipo: multipla-escolha | habilidade: EM13CHS603 | dificuldade: dificil | objeto: cap-22-frantz-fanon-filosofia-descolonizacao -->
+### Questão 60
+
+Examine a atualidade e a fecundidade do pensamento de Frantz Fanon para a formulação de uma Pedagogia Antirracista emancipatória no Brasil: de que maneira as categorias de 'Pele Negra, Máscaras Brancas' e 'Os Condenados da Terra' instrumentalizam educadores e estudantes na superação do racismo estrutural?
+
+A) Provando que os currículos escolares modernos devem priorizar exclusivamente o estudo de guerras imperiais antigas.
+B) Determinando que os estabelecimentos de ensino devam suspender as aulas durante os períodos de solstício de verão.
+C) Afirmando que os manuais didáticos de filosofia devem conter unicamente biografias de monarcas absolutistas.
+D) Comprovando que as avaliações pedagógicas devem consistir unicamente em testes de memorização de datas cívicas.
+E) Demonstrando que Fanon fornece ferramentas críticas para desmascarar a falsa neutralidade dos currículos eurocêntricos, desconstruir a naturalização da desigualdade socioespacial brasileira, conscientizar estudantes sobre os impactos psíquicos da discriminação racial e inspirá-los a protagonizarem a construção de uma sociedade democrática, justa e fraterna onde todos os seres humanos tenham reconhecida sua plena e inviolável dignidade humana e social.
+
+**Gabarito:** (E)
+
+**Resolução Comentada:**
+- **Etapa 1:** Reconhecer o impacto de Fanon na prática docente: ele ensina a enxergar como o preconceito molda a autoestima da criança negra e como a arquitetura das cidades perpetua a exclusão colonial.
+- **Etapa 2:** Consolidar a emancipação cidadã: aplicar Fanon na escola brasileira cumpre a Lei 10.639/03, arranca as máscaras da desigualdade e forma jovens conscientes, altivos e comprometidos em refundar a humanidade na terra do Homem Novo.
 
 ## Referências
 
-- BRASIL. Ministério da Educação. **Base Nacional Comum Curricular (BNCC)**: Educação é a Base. Brasília: MEC/SEB, 2018.
-- FÓRUM BRASILEIRO DE SEGURANÇA PÚBLICA. **Anuário Brasileiro de Segurança Pública**. São Paulo: FBSP, 2023.
-- IPEA. **Atlas da Violência**. Brasília: IPEA/FBSP, 2023.
-- MBEMBE, Achille. **Necropolítica**. São Paulo: n-1 edições, 2018.
-- MISSE, Michel. **Crime e Violência no Brasil Contemporâneo**: Estudos de sociologia do crime e da justiça criminal. Rio de Janeiro: Lumen Juris, 2006.
-- WACQUANT, Loïc. **As Prisões da Miséria**. Rio de Janeiro: Jorge Zahar Editor, 2001.
+- FANON, Frantz. *Os condenados da terra*. Tradução de Enid Abreu Dobránszky. Juiz de Fora: Editora UFJF, 2005.
+- FANON, Frantz. *Pele negra, máscaras brancas*. Tradução de Renato da Silveira. Salvador: EDUFBA, 2008.
+- CÉSAIRE, Aimé. *Discurso sobre o colonialismo*. Tradução de Noémia de Sousa. Lisboa: Livraria Sá da Costa Editora, 1978.
+- MBEMBE, Achille. *Crítica da razão negra*. Tradução de Marta Lança. São Paulo: n-1 edições, 2018.
+- BRASIL. Ministério da Educação. *Base Nacional Comum Curricular: Ensino Médio*. Brasília: MEC, 2018.
