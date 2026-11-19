@@ -565,7 +565,7 @@ Não há priorização entre conteúdos de uma mesma disciplina. A produção ob
      * **Eixo V: Pensamento Social Brasileiro, Feminismo Negro e Sociologia Contemporânea** (Capítulos 35 ao 40) — *100% CONCLUÍDO E HOMOLOGADO (6 DE 6 E-BOOKS — 20.477 PALAVRAS)* ✅
    - **Diretório Canônico no Repositório:** `content/medio/volume-unico/sociologia/`
    - **Progresso dos E-books:** 40 de 40 E-books Teóricos Atômicos concluídos (100% CONCLUÍDO COM 151.218 PALAVRAS LIMPAS HOMOLOGADAS COM EXIT CODE 0 NO `validador_educamob.py`). Marco histórico de conclusão integral de 100% de todo o acervo teórico de Sociologia do Ensino Médio da Educamob! ✅ Concluído.
-   - **Progresso das Listas de Exercícios:** 35 de 40 listas homologadas no Padrão-Ouro (2.100 questões atômicas ativas — Lotes 1 a 7 concluídos e validados com Exit Code 0 no `validador_educamob.py` — MARCO HISTÓRICO DE 87,5% DA COLEÇÃO INTEGRAL / 2.100 DE 2.400 QUESTÕES). Execução sequencial autônoma do Lote 8 Final (Capítulos 36 ao 40) em andamento para conclusão definitiva de 100% da obra.
+   - **Progresso das Listas de Exercícios:** 40 de 40 listas homologadas no Padrão-Ouro (2.400 questões atômicas ativas — Lotes 1 a 8 concluídos e validados com Exit Code 0 no `validador_educamob.py` — ✅ 100% CONCLUÍDO E HOMOLOGADO / 2.400 DE 2.400 QUESTÕES ATÔMICAS). Marco histórico de conclusão integral de 100% das listas de exercícios de Sociologia do Ensino Médio da Educamob! ✅ Concluído.
 
 9. **Filosofia (Ensino Médio — Volume Único por 5 Eixos Temáticos)**:
    - **Mapeamento Curricular Canônico:** Arquitetado e homologado no arquivo `mapa_curricular_filosofia_medio.md` na raiz do projeto, estruturado em 5 Grandes Eixos Epistemológicos e Temáticos sem segmentação por série (padrão Volume Único), cobrindo 100% da BNCC (`EM13CHS101` a `EM13CHS606`), Matriz ENEM (`H1` a `H30`) e as Leis 10.639/03 e 11.645/08 (centralidade de filosofias africanas de Kemet, Ubuntu, Fanon, Mbembe, Quilombismo e epistemologias ameríndias) em 40 Capítulos Atômicos:
@@ -1783,3 +1783,46 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
   - Auditoria e Conformidade: Aprovado com **Exit Code 0** no alidador_educamob.py, respeito estrito ao mundo fechado derivado dos e-books base, zero ocorrências de 'R$' e zero termos da blacklist acadêmica.
 - **Total Acumulado de Exercícios de Filosofia EM:** 25 de 40 capítulos concluídos (**62,5% da coleção integral — 1.500 de 2.400 questões homologadas**).
 - **Próximos Passos:** Prosseguimento automático e ininterrupto para o **Lote 6 (Capítulos 26 ao 30)** — Avanço do Eixo IV (Estética Moderna e Iluminismo, Walter Benjamin e a Reprodutibilidade Técnica, Adorno e Horkheimer com a Indústria Cultural, Estética da Negritude com Césaire/Senghor, e Estética Decolonial e Lélia Gonzalez).
+
+
+---
+
+### 173. Produção, Auditoria e Homologação do Lote 8 de Listas de Exercícios de Sociologia do Ensino Médio (Capítulos 36 ao 40 — Conclusão Oficial de 100% do Eixo V e Fechamento Integral da Coleção de Sociologia EM: 40/40 Capítulos Homologados / 2.400 Questões Atômicas no Padrão-Ouro) ✅ Concluído
+- **Data de Homologação:** 19 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 36 ao 40 do componente Sociologia — Ensino Médio (Volume Único), consolidando o **fechamento oficial de 100% do Eixo V: Pensamento Social Brasileiro, Feminismo Negro e Sociologia Contemporânea (6 de 6 Capítulos Concluídos)** e a **CONCLUSÃO DEFINITIVA E HISTÓRICA DE 100% DE TODA A COLEÇÃO DE SOCIOLOGIA DO ENSINO MÉDIO (40 DE 40 LISTAS — 2.400 QUESTÕES ATÔMICAS HOMOLOGADAS COM EXIT CODE 0 NO `validador_educamob.py`)**. Produção e auditoria rigorosa de 300 novas questões atômicas no Padrão-Ouro (60 questões por capítulo: 20 Básicas, 20 Intermediárias e 20 Difíceis com resolução comentada estruturada em Etapa 1 e Etapa 2):
+  1. *Capítulo 36:* Clóvis Moura: Rebeliões da Senzala e o Quilombismo como Práxis (`em-soc-c36-clovis-moura-rebelioes-senzala-quilombismo-exercicios.md` — 60 questões | 97.694 bytes | BNCC `EM13CHS102`, `EM13CHS502`, `EM13CHS601` ✅).
+  2. *Capítulo 37:* O Debate sobre Relações Raciais: Do Mito da Democracia Racial ao Racismo Estrutural (`em-soc-c37-debate-relacoes-raciais-mito-democracia-racismo-estrutural-exercicios.md` — 60 questões | 100.146 bytes | BNCC `EM13CHS102`, `EM13CHS502`, `EM13CHS601` ✅).
+  3. *Capítulo 38:* Lélia Gonzalez: Amefricanidade, Pretuguês e Crítica ao Sexismo e Racismo (`em-soc-c38-lelia-gonzalez-amefricanidade-pretugues-racismo-sexismo-exercicios.md` — 60 questões | 98.640 bytes | BNCC `EM13CHS102`, `EM13CHS201`, `EM13CHS502` ✅).
+  4. *Capítulo 39:* Feminismo Negro e Interseccionalidade: Carneiro, Collins e hooks (`em-soc-c39-feminismo-negro-interseccionalidade-carneiro-collins-hooks-exercicios.md` — 60 questões | 100.990 bytes | BNCC `EM13CHS102`, `EM13CHS502`, `EM13CHS601` ✅).
+  5. *Capítulo 40:* Oyèrónkẹ́ Oyěwùmí: A Invenção das Mulheres e a Descolonização dos Conceitos Sociais (`em-soc-c40-oyeronke-oyewumi-invencao-mulheres-descolonizacao-conceitos-exercicios.md` — 60 questões | 100.778 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS502` — **FECHAMENTO HISTÓRICO DE 100% DA COLEÇÃO DE SOCIOLOGIA DO ENSINO MÉDIO!** ✅).
+- **Métricas Finais Consolidadas de Sociologia do Ensino Médio:**
+  - **40 de 40 listas de exercícios atômicos concluídas e homologadas no disco (100% CONCLUÍDO)**.
+  - **2.400 questões atômicas no Padrão-Ouro** (800 Básicas, 800 Intermediárias e 800 Difíceis com resolução comentada em duas etapas canônicas: `- **Etapa 1:**` e `- **Etapa 2:**`).
+  - **Balanceamento Canônico:** Exatamente 12 de cada alternativa (480 A, 480 B, 480 C, 480 D e 480 E no acervo completo), com ciclo canônico e streak consecutivo máximo = 1.
+  - **Telemetria de dados HTML:** Metatags `<!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... -->` presentes e íntegras em 100% das 2.400 questões.
+  - **Auditoria Draconiana e Segurança:** 100% aprovado pelo `validador_educamob.py` com **Exit Code 0**, aderência estrita ao princípio do mundo fechado derivado dos e-books base, ausência absoluta do caractere `R$` e zero ocorrências de termos banidos.
+  - **Todos os 5 Eixos Temáticos de Sociologia EM 100% Concluídos:**
+    - *Eixo I: Fundamentos da Sociologia e a Imaginação Sociológica* (Capítulos 01 ao 09 — 540 questões) ✅
+    - *Eixo II: Cultura, Socialização, Identidade e Diversidade* (Capítulos 10 ao 18 — 540 questões) ✅
+    - *Eixo III: Trabalho, Estratificação Social e Desigualdades* (Capítulos 19 ao 26 — 480 questões) ✅
+    - *Eixo IV: Estado, Poder, Política, Cidadania e Movimentos Sociais* (Capítulos 27 ao 34 — 480 questões) ✅
+    - *Eixo V: Pensamento Social Brasileiro, Feminismo Negro e Sociologia Contemporânea* (Capítulos 35 ao 40 — 360 questões) ✅
+
+---
+
+### 174. Produção, Auditoria e Homologação do Lote 6 de Listas de Exercícios de Filosofia do Ensino Médio (Capítulos 26 ao 30 — Fechamento Oficial do Eixo IV: Estética Moderna em Kant e Hegel, A Arte Trágica em Nietzsche, A Reprodutibilidade Técnica em Walter Benjamin, A Indústria Cultural em Adorno e Horkheimer, e O Movimento da Negritude em Césaire e Senghor — 300 Questões Padrão-Ouro / 1.800 Questões Acumuladas / MARCO HISTÓRICO DE 75% DA COLEÇÃO INTEGRAL) ✅ Concluído
+- **Data de Homologação:** 19 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 26 ao 30 do componente Filosofia — Ensino Médio (Volume Único), consolidando o **fechamento oficial de 100% do Eixo IV: Estética, Filosofia da Arte e Poéticas da Negritude (Capítulos 25 ao 30 — 6 de 6 Capítulos Concluídos)** e o **MARCO HISTÓRICO DE EXATAMENTE 75,0% DE TODA A OBRA DE FILOSOFIA EM HOMOLOGADA (30 DE 40 CAPÍTULOS / 1.800 DE 2.400 QUESTÕES PADRÃO-OURO)**. Cada capítulo recebeu rigorosamente 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis com resolução comentada estruturada em Etapa 1 e Etapa 2):
+  1. *Capítulo 26:* A Estética Moderna: Kant e Hegel (`em-fil-c26-estetica-moderna-kant-hegel-exercicios.md` — 60 questões | 86.138 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS301`, `EM13CHS302` ✅).
+  2. *Capítulo 27:* A Arte Trágica em Nietzsche: Apolíneo e Dionisíaco (`em-fil-c27-arte-tragica-nietzsche-apolineo-dionisiaco-exercicios.md` — 60 questões | 83.422 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS301`, `EM13CHS302` ✅).
+  3. *Capítulo 28:* A Reprodutibilidade Técnica em Walter Benjamin (`em-fil-c28-reprodutibilidade-tecnica-walter-benjamin-exercicios.md` — 60 questões | 90.190 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS301`, `EM13CHS302`, `EM13CHS603` ✅).
+  4. *Capítulo 29:* Indústria Cultural: Adorno e Horkheimer (`em-fil-c29-industria-cultural-adorno-horkheimer-exercicios.md` — 60 questões | 94.580 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS301`, `EM13CHS302`, `EM13CHS603` ✅).
+  5. *Capítulo 30:* O Movimento da Negritude: Césaire e Senghor (`em-fil-c30-movimento-negritude-cesaire-senghor-exercicios.md` — 60 questões | 95.368 bytes | BNCC `EM13CHS101`, `EM13CHS102`, `EM13CHS301`, `EM13CHS302`, `EM13CHS603`, `EM13CHS606` | Lei 10.639/03 — **FECHAMENTO HISTÓRICO DE 100% DO EIXO IV: 6/6 CAPÍTULOS CONCLUÍDOS E MARCO DE 75% DA COLEÇÃO!** ✅).
+- **Métricas do Lote 6:**
+  - 300 questões atômicas de múltipla escolha distribuídas em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente balanceado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada capítulo (streak máximo de repetição = 1).
+  - Resoluções pedagógicas desdobradas em duas etapas obrigatórias (`- **Etapa 1:**` e `- **Etapa 2:**`) em todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas presentes e válidas em 100% das 300 questões.
+  - Auditoria e Conformidade: Aprovado com **Exit Code 0** no `validador_educamob.py`, respeito estrito ao mundo fechado derivado dos e-books base, zero ocorrências de 'R$' e zero termos da blacklist acadêmica.
+- **Total Acumulado de Exercícios de Filosofia EM:** 30 de 40 capítulos concluídos (**75,0% da coleção integral — 1.800 de 2.400 questões homologadas no disco**).
+- **Próximos Passos:** Prosseguimento automático e ininterrupto para o **Lote 7 (Capítulos 31 ao 35 — Abertura do Eixo V: Temas Contemporâneos, Filosofia da Tecnologia e Existencialismo: Afrofuturismo, Filosofia no Ciberespaço, Kierkegaard, Nietzsche e Sartre/Beauvoir)**.
