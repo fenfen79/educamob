@@ -48,3 +48,21 @@ Este arquivo define as regras e diretrizes comportamentais globais para todos os
 - **REGRA DE CONTEXTO:** Para fins de deploy, manutenção e arquitetura, o servidor backend real da Mob.me (`mobme-api`) e a integração do WhatsApp (`evolution-api`) **NÃO** são hospedados localmente.
 - O ambiente de produção está provisionado na **Oracle Cloud (arquitetura ARM64)**.
 - Ambos os serviços rodam conteinerizados via **Docker** e se comunicam internamente pela rede do Docker para recebimento de Webhooks.
+
+## 🛡️ Protocolo Oficial dos Sentinelas Mob.me (Dupla Trava Mandatória)
+
+O ciclo de observabilidade e reparo da Mob.me opera obrigatoriamente sob o **Protocolo de Dupla Trava**:
+
+1. **Sentinela 1 (Auditoria / Diagnóstico):**
+   - Roda na VPS Oracle Cloud (Read-Only) ou sob demanda.
+   - Analisa sessões reais no Supabase e traz o relatório de conformidade (Wilson 95%) e falhas (P0 a P3).
+2. **Sentinela 2 (Isolamento de Causa-Raiz e Desenho de Solução):**
+   - Identifica a causa-raiz no código (backend ou frontend).
+   - **TRAVA 1 (BLOQUEIO DE EDIÇÃO DE ARQUIVOS):** Apresenta no chat o diagnóstico da causa-raiz e o **desenho da solução técnica SEM editar, commitar ou criar nenhum arquivo no workspace.**
+3. **Aprovação do Desenho pelo Usuário:**
+   - O Agente 2 DEVE obrigatoriamente aguardar a validação e o aval explícito do usuário sobre a proposta antes de realizar qualquer alteração de código.
+4. **Implementação e Testes Locais:**
+   - Somente após a aprovação do usuário no passo 3, o Agente 2 codifica o patch na branch de testes/feature (proibido mexer na `master`), executa `npm run build` / testes e documenta no `diario.md` e `plano_educamob_escola_digital.md`.
+5. **TRAVA 2 (BLOQUEIO DE PRODUÇÃO):**
+   - O Agente 2 apresenta os resultados dos testes locais e **aguarda a autorização expressa** (`"AUTORIZO O DEPLOY EM PRODUÇÃO"`) antes de qualquer comando de deploy (SSH, SCP, Docker, merge ou push).
+
