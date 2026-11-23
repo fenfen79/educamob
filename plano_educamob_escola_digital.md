@@ -1925,3 +1925,74 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
   - **Eixo IV: Estética e Filosofia da Arte (Capítulos 25 ao 32):** 8/8 Capítulos Concluídos (480 questões) ✅
   - **Eixo V: Existencialismo, Filosofias da Diferença e Saberes Tradicionais (Capítulos 33 ao 40):** 8/8 Capítulos Concluídos (480 questões) ✅
   - **TOTAL GERAL DE FILOSOFIA EM HOMOLOGADO:** **40 de 40 capítulos concluídos (EXATAMENTE 100,0% DA COLEÇÃO INTEGRAL — 2.400 DE 2.400 QUESTÕES PADRÃO-OURO HOMOLOGADAS COM EXIT CODE 0 NO VALIDADOR EDUCAMOB)!**
+
+---
+
+### 180. Produção, Auditoria e Homologação do Lote 9 de Listas de Exercícios de Geografia do Ensino Médio (Capítulos 41 ao 45 — Abertura do Eixo V: Globalização, Geopolítica Mundial e Formação Regional do Brasil: A Globalização e o Meio Técnico-Científico-Informacional, A Divisão Internacional do Trabalho (DIT) e as Cadeias Globais de Valor, Comércio Internacional, Blocos Econômicos e Organismos Multilaterais, A Formação Territorial do Brasil e o Arquipélago Econômico, e A Divisão Regional do Brasil: Regiões do IBGE, Complexos Geoeconômicos e Quatro Brasis — 300 Questões Padrão-Ouro / 2.700 Questões Acumuladas / MARCO HISTÓRICO DE 90,0% DA COLEÇÃO INTEGRAL) ✅ Concluído
+- **Data de Homologação:** 19 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 41 ao 45 do componente Geografia — Ensino Médio (Volume Único / Eixo V: Globalização, Geopolítica Mundial e Formação Regional do Brasil), atingindo o **MARCO HISTÓRICO DE EXATAMENTE 90,0% DA COLEÇÃO INTEGRAL DE GEOGRAFIA EM CONCLUÍDA (45 DE 50 CAPÍTULOS / 2.700 DE 3.000 QUESTÕES PADRÃO-OURO)**. Cada capítulo recebeu rigorosamente 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis com resolução estruturada em 4 etapas: Etapa 1, Etapa 2, Etapa 3 e Etapa 4):
+  1. *Capítulo 41:* A Globalização e o Meio Técnico-Científico-Informacional (em-geo-c41-globalizacao-meio-tecnico-cientifico-informacional-exercicios.md — 60 questões | 108.431 bytes | BNCC EM13CHS103, EM13CHS106, EM13CHS202, EM13CHS204, EM13CHS206 ✅).
+  2. *Capítulo 42:* A Divisão Internacional do Trabalho (DIT) e as Cadeias Globais de Valor (em-geo-c42-divisao-internacional-trabalho-dit-cadeias-globais-exercicios.md — 60 questões | 107.276 bytes | BNCC EM13CHS103, EM13CHS201, EM13CHS202, EM13CHS204, EM13CHS206 ✅).
+  3. *Capítulo 43:* Comércio Internacional, Blocos Econômicos e Organismos Multilaterais (em-geo-c43-comercio-internacional-blocos-economicos-organismos-exercicios.md — 60 questões | 91.242 bytes | BNCC EM13CHS103, EM13CHS106, EM13CHS202, EM13CHS204, EM13CHS206 ✅).
+  4. *Capítulo 44:* A Formação Territorial do Brasil e o Arquipélago Econômico (em-geo-c44-formacao-territorial-brasil-arquipelago-economico-exercicios.md — 60 questões | 100.657 bytes | BNCC EM13CHS101, EM13CHS103, EM13CHS201, EM13CHS202, EM13CHS204 ✅).
+  5. *Capítulo 45:* A Divisão Regional do Brasil: Regiões do IBGE, Complexos Geoeconômicos e Quatro Brasis (em-geo-c45-divisao-regional-brasil-ibge-geoeconomicos-geiger-exercicios.md — 60 questões | 91.382 bytes | BNCC EM13CHS103, EM13CHS201, EM13CHS202, EM13CHS204, EM13CHS206 ✅).
+- **Métricas do Lote 9:**
+  - 300 questões de múltipla escolha atômicas, distribuídas estritamente em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente equilibrado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada capítulo (streak máximo de repetição = 1 via rotação circular contínua).
+  - Resoluções detalhadas em 4 etapas estruturadas (- **Etapa 1:**, - **Etapa 2:**, - **Etapa 3:**, - **Etapa 4:**) para todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas <!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... --> presentes e válidas em 100% das 300 questões.
+  - Auditoria e Conformidade: Aprovado com **Exit Code 0** no alidador_educamob.py, respeito integral ao mundo fechado dos e-books base, zero ocorrências de 'R$' e zero termos da blacklist acadêmica.
+- **Total Acumulado de Exercícios de Geografia EM:** 45 de 50 capítulos concluídos (**exatamente 90,0% da coleção integral — 2.700 de 3.000 questões homologadas**).
+- **Próximos Passos:** Prosseguimento automático e ininterrupto para o **Lote 10 Final (Capítulos 46 ao 50 — Fechamento Integral e Definitivo de 100% da Coleção de Geografia do Ensino Médio: A Dinâmica Regional Brasileira Contemporânea: 'Quatro Brasis' e o Crescimento do Nordeste e Centro-Oeste, A Indústria Brasileira: Da Substituição de Importações à Desindustrialização e a Reindustrialização Verde, A Estrutura Fundiária e a Questão Agrária no Brasil: Concentração de Terras, Agronegócio e Conflitos no Campo, A Nova Ordem Geopolítica Mundial: Multipolaridade, Disputa Hegemônica EUA-China e o Papel dos BRICS+, e Focos de Tensão e Conflitos Geopolíticos no Século XXI: Guerras, Terrorismo, Ciberespaço e Deslocamentos Forçados — 300 Questões Finais para Totalizar 3.000 Questões e 100% da Obra)**.
+
+
+### 181. Produção, Auditoria e Homologação do Lote 10 Final de Listas de Exercícios de Geografia do Ensino Médio (Capítulos 46 ao 50 — Conclusão Integral e Definitiva de 100% do Eixo V: Globalização, Geopolítica Mundial e Formação Regional do Brasil: A Dinâmica Regional Brasileira Contemporânea: 'Quatro Brasis' e o Crescimento do Nordeste e Centro-Oeste, A Indústria Brasileira: Da Substituição de Importações à Desindustrialização e a Reindustrialização Verde, A Estrutura Fundiária e a Questão Agrária no Brasil: Concentração de Terras, Agronegócio e Conflitos no Campo, A Nova Ordem Geopolítica Mundial: A Disputa EUA-China e o Papel dos BRICS, e Os Grandes Focos de Tensão e Conflitos Geopolíticos no Século XXI — 300 Questões Padrão-Ouro / 3.000 Questões Acumuladas / MARCO HISTÓRICO SUPREMO DE 100,0% DA COLEÇÃO INTEGRAL CONCLUÍDA) ✅ Concluído
+- **Data de Homologação:** 19 de Novembro de 2026.
+- **Escopo Executado:** Capítulos 46 ao 50 do componente Geografia — Ensino Médio (Volume Único / Eixo V: Globalização, Geopolítica Mundial e Formação Regional do Brasil), consolidando o **fechamento oficial e definitivo de 100% do Eixo V (10 de 10 Capítulos Concluídos)** e o **MARCO HISTÓRICO SUPREMO DE EXATAMENTE 100,0% DE TODA A COLEÇÃO INTEGRAL DE GEOGRAFIA DO ENSINO MÉDIO CONCLUÍDA (50 DE 50 CAPÍTULOS / 3.000 DE 3.000 QUESTÕES PADRÃO-OURO HOMOLOGADAS COM EXIT CODE 0 NO VALIDADOR EDUCAMOB)**. Cada capítulo recebeu rigorosamente 60 questões atômicas de múltipla escolha (20 Básicas, 20 Intermediárias e 20 Difíceis com resolução estruturada em 4 etapas: Etapa 1, Etapa 2, Etapa 3 e Etapa 4):
+  1. *Capítulo 46:* A Dinâmica Regional Brasileira Contemporânea: 'Quatro Brasis' e o Crescimento do Nordeste e Centro-Oeste (`em-geo-c46-dinamica-regional-quatro-brasis-crescimento-nordeste-exercicios.md` — 60 questões | 81.654 bytes | BNCC `EM13CHS103`, `EM13CHS201`, `EM13CHS202`, `EM13CHS204`, `EM13CHS206` ✅).
+  2. *Capítulo 47:* A Indústria Brasileira: Da Substituição de Importações à Desindustrialização e a Reindustrialização Verde (`em-geo-c47-industria-brasil-desindustrializacao-reindustrializacao-verde-exercicios.md` — 60 questões | 82.708 bytes | BNCC `EM13CHS103`, `EM13CHS201`, `EM13CHS204`, `EM13CHS206` ✅).
+  3. *Capítulo 48:* A Estrutura Fundiária e a Questão Agrária no Brasil: Concentração de Terras, Agronegócio e Conflitos no Campo (`em-geo-c48-estrutura-fundiaria-questao-agraria-brasil-exercicios.md` — 60 questões | 87.783 bytes | BNCC `EM13CHS103`, `EM13CHS201`, `EM13CHS204`, `EM13CHS301`, `EM13CHS304` ✅).
+  4. *Capítulo 49:* A Nova Ordem Geopolítica Mundial: A Disputa EUA-China e o Papel dos BRICS (`em-geo-c49-nova-ordem-geopolitica-eua-china-brics-exercicios.md` — 60 questões | 87.695 bytes | BNCC `EM13CHS201`, `EM13CHS204`, `EM13CHS603`, `EM13CHS604` ✅).
+  5. *Capítulo 50:* Os Grandes Focos de Tensão e Conflitos Geopolíticos no Século XXI (`em-geo-c50-focos-tensao-conflitos-geopoliticos-seculo-xxi-exercicios.md` — 60 questões | 83.340 bytes | BNCC `EM13CHS102`, `EM13CHS201`, `EM13CHS204`, `EM13CHS503`, `EM13CHS604` — **FECHAMENTO HISTÓRICO SUPREMO DE 100% DA COLEÇÃO DE GEOGRAFIA DO ENSINO MÉDIO: 50/50 CAPÍTULOS CONCLUÍDOS E 3.000 QUESTÕES PADRÃO-OURO HOMOLOGADAS!** ✅).
+- **Métricas do Lote 10 Final:**
+  - 300 questões de múltipla escolha atômicas, distribuídas estritamente em 100 Básicas, 100 Intermediárias e 100 Difíceis (20/20/20 em 100% dos capítulos).
+  - Gabarito canônico perfeitamente equilibrado: exatamente 12 A, 12 B, 12 C, 12 D e 12 E em cada capítulo (streak máximo de repetição = 1 via rotação circular contínua).
+  - Resoluções detalhadas em 4 etapas estruturadas (`- **Etapa 1:**`, `- **Etapa 2:**`, `- **Etapa 3:**`, `- **Etapa 4:**`) para todas as 100 questões de nível difícil.
+  - Telemetria de dados HTML: metatags completas `<!-- id: qXX | tipo: multipla-escolha | habilidade: ... | dificuldade: ... | objeto: ... -->` presentes e válidas em 100% das 300 questões.
+  - Auditoria e Conformidade: Aprovado com **Exit Code 0** no `validador_educamob.py`, respeito integral ao mundo fechado dos e-books base, zero ocorrências de 'R$' e zero termos da blacklist acadêmica/pedante.
+- **Total Acumulado de Exercícios de Geografia EM:** 50 de 50 capítulos concluídos (**EXATAMENTE 100,0% DA COLEÇÃO INTEGRAL — 3.000 DE 3.000 QUESTÕES HOMOLOGADAS COM EXIT CODE 0**).
+- **Status Geral da Disciplina Geografia:** ✅ **OBRA 100% CONCLUÍDA E HOMOLOGADA NO AMBIENTE EDUCAMOB ESCOLA DIGITAL.**
+
+
+### 182. Sincronização e Ingestão Massiva em Produção (130 E-books Teóricos + 254 Listas de Exercícios / 20.546 Novos Chunks Vetorizados / Acervo 100% Sincronizado no Supabase pgvector e Live Reload em Produção) ✅ Concluído
+- **Data de Execução:** 19 de Novembro de 2026.
+- **Autorização de Governança:** Chave de segurança validada: `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+- **Escopo e Entregas em Produção:**
+  1. *Ingestão Teórica Massiva (`ingest.py`):* 130 novos e-books teóricos fatiados e indexados na tabela `documents` do Supabase via DeepInfra `BAAI/bge-m3` (5.396 chunks inseridos). Total acumulado: 990 e-books indexados. Tabela `available_subjects` sincronizada com 11 disciplinas ativas.
+  2. *Ingestão de Exercícios Massiva (`ingest_exercicios.py`):* 254 listas de exercícios vetorizadas no Supabase (15.150 chunks indexados em 70.38 minutos). Total acumulado: 841 listas de exercícios 100% indexadas.
+  3. *Live Reload sem Downtime:* Endpoint de produção `https://api.educamob.com.br/api/admin/reload-subjects` disparado com sucesso (HTTP 200 OK), recarregando o escopo curricular na memória da API.
+- **Status Geral:** ✅ **BANCO DE DADOS DE PRODUÇÃO E MOTOR DE RAG 100% ATUALIZADOS E SINCRONIZADOS COM O DISCO LOCAL.**
+
+
+### 183. Sincronização Física Integral do Acervo de Conteúdo Markdown na VPS de Produção (861 Arquivos Sincronizados / 701 Novos + 160 Recalibrados / Paridade Absoluta 100% entre Local, VPS e Docker) ✅ Concluído
+- **Data de Execução:** 20 de Novembro de 2026.
+- **Autorização de Governança:** Chave de segurança mandatória validada: `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+- **Escopo e Entregas em Produção:**
+  1. *Auditoria de Paridade e MD5:* Constatada a falta física de 701 arquivos na VPS (decorrente do padrão histórico de "Zero deploys em produção" das Rodadas 136 a 181) e 160 arquivos modificados.
+  2. *Sincronização Atômica via SCP:* Empacotamento de 861 arquivos em tarball comprimido (12.37 MB), transferência via SCP e extração direta em `/home/ubuntu/educamob/content/`.
+  3. *Homologação Docker e API:* Validação física com zero arquivos faltantes na VPS (`Faltando na VPS: 0`), montagem confirmada em `/app/content` dentro do container `mobme-api` e reinicialização com sucesso (`docker restart mobme-api`).
+- **Status Geral:** ✅ **PARIDADE FÍSICA E DIGITAL DE 100% ATINGIDA ENTRE O WORKSPACE LOCAL, BANCO SUPABASE PGVECTOR E ARQUIVOS EM PRODUÇÃO NA VPS/DOCKER.**
+
+
+### 184. Blindagem Arquitetural Mob.me: Resolução Determinística de RAG por Capítulo, Circuit Breaker Anti-Vácuo (TTFT 3.5s) e Desacoplamento de UI no Frontend (Next.js) ✅ Implementado Localmente (Aguardando Trava 2 para Deploy em Produção)
+- **Data de Execução:** 23 de Novembro de 2026.
+- **Branch Git de Trabalho:** `feature/novo-menu-microaprendizagem`.
+- **Status Geral:** 🧪 **Código Implementado e Validado Localmente com 100% de Sucesso nos Testes e Build Next.js.**
+- **Governança (Protocolo de Dupla Trava):**
+  - **Trava 1 (Aprovação Técnica Prévia):** Aprovada formalmente pelo usuário.
+  - **Trava 2 (Bloqueio de Deploy em Nuvem):** **ATIVA**. Nenhum comando de rede ou sincronização com a VPS Oracle Cloud (`137.131.163.113`), containers Docker ou `git push origin master` foi executado. Aguardando a chave expressa `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+- **Escopo e Entregas Técnicas:**
+  1. *Roteamento de Intenção Avaliativa (Caso Pedro):* Captura de intenções informais de diagnóstico ("saber até onde eu sei", "testar meu nível", "o que sei") direcionadas deterministicamente para a Trilha 5: Lista de Exercícios 📝 (`modo_praticar`). Proibição expressa de questionários informais ou nivelamentos improvisados no `prompt_prod.md`.
+  2. *Resolução Determinística de RAG por Acervo Físico (Caso Murilo):* Implementada busca léxica em disco (`content/` e `/app/content`) antes de chamadas vetoriais externas (<5ms). Hard-guardrails de exclusão mútua eliminam o risco de Função Afim substituir Função Quadrática. Testes unitários confirmaram entrega de `funcao-quadratica-exercicios.md` para "Função do 2º Grau" e `funcao-afim-exercicios.md` para "Função Afim".
+  3. *Circuit Breaker de TTFT (3.5 segundos):* Requisição e Time To First Token do DeepSeek monitorados por `asyncio.wait_for(..., timeout=3.5)`. Se a fila da GPU ultrapassar 3.5s, o sistema chaveia automaticamente para o Gemini 2.5 Flash (~600ms), extinguindo os vácuos de 40s a 70s.
+  4. *Frontend Next.js (AbortController & Desacoplamento de Digitação):* `AbortController` com timeout de 10s no client destrava a interface (`isTyping = false`) em caso de oscilações de rede. Atualizações de chunks via `React.startTransition` eliminam o engasgo (input lag) no teclado contra a renderização de KaTeX. Build de produção Turbopack compilado com 100% de sucesso e zero erros de TypeScript.

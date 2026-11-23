@@ -1377,6 +1377,14 @@ export default function ChatApp() {
 
 
 
+    const abortController = new AbortController();
+    let hasReceivedFirstChunk = false;
+    const timeoutId = setTimeout(() => {
+      if (!hasReceivedFirstChunk) {
+        abortController.abort();
+      }
+    }, 10000);
+
     try {
 
       const userId = await getUserId();
@@ -1405,7 +1413,9 @@ export default function ChatApp() {
 
         headers: { "Content-Type": "application/json" },
 
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+
+        signal: abortController.signal
 
       });
 
@@ -1471,6 +1481,8 @@ export default function ChatApp() {
         if (hasNewChunkInBatch) {
           if (isFirstChunk) {
             isFirstChunk = false;
+            hasReceivedFirstChunk = true;
+            clearTimeout(timeoutId);
             const elapsed = Date.now() - sendTimestamp;
             const waitTime = Math.max(0, minLoadingDuration - elapsed);
             if (waitTime > 0) {
@@ -1480,7 +1492,9 @@ export default function ChatApp() {
             // ancora a tela imediatamente no TOPO da resposta (Seção 1) para leitura imediata aos ~6s!
             isStreamingRef.current = false;
             setIsTyping(false);
-            setMessages(prev => [...prev, { id: aiMsgId, role: "ai", text: aiResponseText }]);
+            React.startTransition(() => {
+              setMessages(prev => [...prev, { id: aiMsgId, role: "ai", text: aiResponseText }]);
+            });
             lastRenderTime = Date.now();
             setTimeout(() => {
               const el = document.getElementById(`msg-${aiMsgId}`);
@@ -1492,9 +1506,11 @@ export default function ChatApp() {
             const now = Date.now();
             if (now - lastRenderTime >= 80) {
               lastRenderTime = now;
-              setMessages(prev =>
-                prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
-              );
+              React.startTransition(() => {
+                setMessages(prev =>
+                  prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
+                );
+              });
             }
           }
         }
@@ -1503,14 +1519,19 @@ export default function ChatApp() {
       // Flush final garantido ao término do stream (sem puxar o scroll caso o aluno já esteja lendo)
       isStreamingRef.current = false;
       if (!isFirstChunk) {
-        setMessages(prev =>
-          prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
-        );
+        React.startTransition(() => {
+          setMessages(prev =>
+            prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
+          );
+        });
       }
 
     } catch (e: any) {
-
-      const errorMsg = e.message.includes("logado") ? `⚠️ Ops! ${e.message}` : `⚠️ DEBUG ERROR: ${e.message}`;
+      clearTimeout(timeoutId);
+      const isTimeout = e.name === "AbortError" || abortController.signal.aborted;
+      const errorMsg = isTimeout 
+        ? "⚠️ A resposta demorou um pouco além do esperado. Por favor, tente enviar novamente."
+        : (e.message.includes("logado") ? `⚠️ Ops! ${e.message}` : `⚠️ DEBUG ERROR: ${e.message}`);
 
       setMessages(prev => [...prev, { id: Date.now().toString(), role: "ai", text: errorMsg }]);
 

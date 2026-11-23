@@ -10,6 +10,7 @@ import os
 import time
 import asyncio
 import json
+import uuid
 from fastapi.responses import StreamingResponse, Response
 from openai import AsyncOpenAI
 
@@ -176,6 +177,17 @@ class ChatRequest(BaseModel):
 
 class TitleUpdate(BaseModel):
     title: str
+
+class FeedbackReport(BaseModel):
+    type: str  # "bug" ou "suggestion"
+    category: str = "geral"
+    description: str
+    user_id: str | None = None
+    user_name: str | None = None
+    user_email: str | None = None
+    session_id: str | None = None
+    last_message: str | None = None
+    metadata: dict | None = None
 
 import os
 
@@ -1677,7 +1689,7 @@ async def resolve_active_mode_and_topic(
             elif any(w in msg_clean for w in ["resumo", "resumir", "memorex", "sintese", "síntese"]):
                 target_mode = "modo_resumir"
             elif (
-                any(w in msg_clean for w in ["praticar", "exercicio", "exercício", "exercicios", "exercícios", "questoes", "questões", "treino"])
+                any(w in msg_clean for w in ["praticar", "exercicio", "exercício", "exercicios", "exercícios", "questoes", "questões", "treino", "saber ate onde", "saber até onde", "o que eu sei", "o que sei", "testar", "nivelamento", "meu nivel", "meu nível", "avaliar meu"])
                 and not any(w in msg_clean for w in ["enviar questao", "enviar questão", "resolve questao", "resolve questão"])
             ):
                 target_mode = "modo_praticar"
@@ -2045,6 +2057,75 @@ async def reload_subjects_endpoint():
     await load_available_subjects()
     return {"status": "success", "message": "Matérias recarregadas na memória da API."}
 
+@app.post("/api/feedback")
+async def receive_feedback(report: FeedbackReport):
+    """
+    Recebe relatos de erros e sugestões dos usuários da Mob.me.
+    Persiste localmente em services/mobme-api/data/feedback_reports.json
+    e no Supabase na tabela public.feedback_reports (se disponível).
+    """
+    record = {
+        "id": str(uuid.uuid4()),
+        "type": report.type,
+        "category": report.category,
+        "description": report.description,
+        "user_id": report.user_id,
+        "user_name": report.user_name,
+        "user_email": report.user_email,
+        "session_id": report.session_id,
+        "last_message": report.last_message,
+        "metadata": report.metadata or {},
+        "created_at": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
+        "status": "pending"
+    }
+
+    # 1. Persistência em arquivo JSON local garantida (nunca perde dados)
+    try:
+        data_dir = os.path.join(os.path.dirname(__file__), "data")
+        os.makedirs(data_dir, exist_ok=True)
+        feedback_file = os.path.join(data_dir, "feedback_reports.json")
+        existing_reports = []
+        if os.path.exists(feedback_file):
+            try:
+                with open(feedback_file, "r", encoding="utf-8") as f:
+                    existing_reports = json.load(f)
+            except Exception:
+                existing_reports = []
+        existing_reports.append(record)
+        with open(feedback_file, "w", encoding="utf-8") as f:
+            json.dump(existing_reports, f, ensure_ascii=False, indent=2)
+        print(f"📝 [FEEDBACK] Relato registrado localmente ({record['type']}: {record['category']})")
+    except Exception as e:
+        print(f"⚠️ Erro ao salvar feedback em arquivo local: {e}")
+
+    # 2. Persistência no Supabase (se disponível)
+    if supabase_client:
+        try:
+            db_payload = {
+                "id": record["id"],
+                "type": record["type"],
+                "category": record["category"],
+                "description": record["description"],
+                "user_name": record["user_name"],
+                "user_email": record["user_email"],
+                "metadata": {
+                    **(record["metadata"]),
+                    "last_message": record["last_message"]
+                },
+                "status": record["status"]
+            }
+            if record["user_id"] and record["user_id"] != "00000000-0000-0000-0000-000000000001":
+                db_payload["user_id"] = record["user_id"]
+            if record["session_id"]:
+                db_payload["session_id"] = record["session_id"]
+
+            await supabase_client.table("feedback_reports").insert(db_payload).execute()
+            print(f"✅ [FEEDBACK] Relato salvo no Supabase com sucesso!")
+        except Exception as db_err:
+            print(f"ℹ️ [FEEDBACK] Supabase table feedback_reports não disponível ou ignorada: {db_err}")
+
+    return {"success": True, "message": "Feedback recebido com sucesso!", "id": record["id"]}
+
 # =====================================================================
 # MOTOR DETERMINÍSTICO DE EXERCÍCIOS (TRILHA PRATICAR - TOLERÂNCIA ZERO)
 # =====================================================================
@@ -2178,12 +2259,73 @@ def extract_round_items(full_ex_text: str) -> list[dict]:
 async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = None, session_discipline: str | None = None) -> tuple[str | None, str | None]:
     """
     Localiza fisicamente o arquivo -exercicios.md mais adequado no repositório,
-    com desambiguação inteligente de série (grade-aware) e foco no acervo homologado.
+    com matching determinístico léxico por capítulo e foco no acervo homologado.
     """
     global deepinfra_client, supabase_client
     if not topic:
         return None, None
+
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    content_dir = os.path.join(project_root, "content")
+    if os.path.isdir("/app/content"):
+        project_root = "/app"
+        content_dir = "/app/content"
+    elif os.path.isdir("/content"):
+        project_root = "/"
+        content_dir = "/content"
+
+    # 1. BUSCA DETERMINÍSTICA DIRETA NO ACERVO FÍSICO (Zero Latência & Zero Risco de Colisão Vetorial)
+    topic_clean = strip_accents(topic.lower())
+    t_words = [w for w in re.findall(r'[a-z0-9]+', topic_clean) if len(w) > 1 and w not in ["de", "da", "do", "em", "para", "com", "sobre", "ajuda", "estudar"]]
+    if any(w in topic_clean for w in ["quadratica", "2 grau", "2º grau", "2o grau", "segundo grau"]):
+        if "funcao" in topic_clean or "funções" in topic_clean:
+            t_words = ["funcao", "quadratica"]
+        elif "equac" in topic_clean:
+            t_words = ["equacoes", "quadraticas"]
+    elif any(w in topic_clean for w in ["afim", "1 grau", "1º grau", "1o grau", "primeiro grau"]):
+        t_words = ["funcao", "afim"]
+
+    if os.path.isdir(content_dir) and t_words:
+        best_local_file = None
+        best_local_score = -1
+        norm_disc = strip_accents(session_discipline.lower()) if session_discipline else None
         
+        for dirpath, _, filenames in os.walk(content_dir):
+            for fname in filenames:
+                if fname.endswith("-exercicios.md"):
+                    full_p = os.path.join(dirpath, fname).replace("\\", "/")
+                    p_lower = strip_accents(full_p.lower())
+                    
+                    if norm_disc and norm_disc not in p_lower:
+                        continue
+                    if "quadratica" in t_words and "afim" in p_lower:
+                        continue
+                    if "afim" in t_words and "quadratica" in p_lower:
+                        continue
+                        
+                    matches = sum(1 for w in t_words if w in p_lower)
+                    score = 0
+                    if matches == len(t_words):
+                        score += 100
+                    elif matches > 0:
+                        score += matches * 20
+                        
+                    if user_grade:
+                        ug = user_grade.lower()
+                        if ("médio" in ug or "medio" in ug or "série" in ug or "serie" in ug) and "medio" in p_lower:
+                            score += 30
+                        elif "9" in ug and "9-ano" in p_lower:
+                            score += 30
+                            
+                    if score > best_local_score:
+                        best_local_score = score
+                        best_local_file = full_p
+                        
+        if best_local_file and best_local_score >= 100:
+            rel_p = os.path.relpath(best_local_file, project_root).replace("\\", "/")
+            return best_local_file, rel_p
+
+    # 2. BUSCA VETORIAL NO SUPABASE (Caso a busca direta não encontre com score suficiente)
     if deepinfra_client is None:
         deepinfra_client = AsyncOpenAI(
             api_key=os.getenv("DEEPINFRA_API_TOKEN", ""),
@@ -2215,38 +2357,52 @@ async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = N
         print(f"Erro na busca vetorial de exercícios: {e}")
         docs_data = []
 
-    # Calibração Curricular por Série do Estudante (Grade-Aware Rerank)
-    if user_grade and user_grade != "Não informada":
-        ug_lower = user_grade.lower()
-        def grade_score(doc):
-            src = doc.get("metadata", {}).get("source", "").lower()
+    topic_clean = strip_accents(topic.lower())
+    is_quadratica = any(term in topic_clean for term in ["segundo grau", "2 grau", "2º grau", "2o grau", "quadratica", "quadrática", "parabola", "bhaskara"])
+    is_afim = any(term in topic_clean for term in ["primeiro grau", "1 grau", "1º grau", "1o grau", "afim", "linear"])
+
+    # Hard-Guardrail Determinístico: descarta imediatamente documentos em conflito direto
+    if is_quadratica:
+        docs_data = [d for d in docs_data if not any(term in d.get("metadata", {}).get("source", "").lower() for term in ["funcao-afim", "cap-12-funcao-afim"])]
+    elif is_afim:
+        docs_data = [d for d in docs_data if not any(term in d.get("metadata", {}).get("source", "").lower() for term in ["funcao-quadratica", "cap-13-funcao-quadratica"])]
+
+    # Scoring Combinado: Especificidade Léxica do Tópico + Série do Estudante (Grade-Aware)
+    def combined_topic_grade_score(doc):
+        src = doc.get("metadata", {}).get("source", "").lower()
+        score = 0
+        # 1. Boost léxico de alta prioridade para o capítulo correto
+        if is_quadratica:
+            if "funcao" in topic_clean and ("cap-13-funcao-quadratica" in src or "funcao-quadratica" in src):
+                score += 100
+            elif "equac" in topic_clean and ("cap-10-equacoes-quadraticas" in src or "equacoes-quadraticas" in src):
+                score += 80
+            elif "cap-13-funcao-quadratica" in src or "funcao-quadratica" in src:
+                score += 90
+            elif "equacoes-segundo-grau" in src or "segundo-grau" in src:
+                score += 50
+        elif is_afim:
+            if "cap-12-funcao-afim" in src or "funcao-afim" in src:
+                score += 100
+                
+        # 2. Calibração Curricular por Série
+        if user_grade and user_grade != "Não informada":
+            ug_lower = user_grade.lower()
             if "9" in ug_lower and "9-ano" in src:
-                return 10
-            if "8" in ug_lower and "8-ano" in src:
-                return 10
-            if "7" in ug_lower and "7-ano" in src:
-                return 10
-            if "6" in ug_lower and "6-ano" in src:
-                return 10
-            if "5" in ug_lower and "5-ano" in src:
-                return 10
-            if ("médio" in ug_lower or "medio" in ug_lower or "série" in ug_lower or "serie" in ug_lower) and "medio" in src:
-                return 10
-            return 0
-        docs_data = sorted(docs_data, key=grade_score, reverse=True)
-    elif any(term in topic.lower() for term in ["segundo grau", "2º grau", "2o grau", "quadrática", "quadratica"]):
-        # Priorização pedagógica para tópicos polissêmicos de Equações de 2º Grau:
-        # Se nenhuma série estiver informada, prioriza 9º Ano ou Ensino Médio sobre a introdução do 8º ano
-        def topic_score(doc):
-            src = doc.get("metadata", {}).get("source", "").lower()
-            if "9-ano" in src and "equacoes-segundo-grau" in src:
-                return 10
-            if "medio" in src and "equacoes-quadraticas" in src:
-                return 8
-            if "8-ano" in src:
-                return 4
-            return 0
-        docs_data = sorted(docs_data, key=topic_score, reverse=True)
+                score += 10
+            elif "8" in ug_lower and "8-ano" in src:
+                score += 10
+            elif "7" in ug_lower and "7-ano" in src:
+                score += 10
+            elif "6" in ug_lower and "6-ano" in src:
+                score += 10
+            elif "5" in ug_lower and "5-ano" in src:
+                score += 10
+            elif ("médio" in ug_lower or "medio" in ug_lower or "série" in ug_lower or "serie" in ug_lower) and "medio" in src:
+                score += 10
+        return score
+
+    docs_data = sorted(docs_data, key=combined_topic_grade_score, reverse=True)
 
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     if os.path.isdir("/app/content"):
@@ -2805,6 +2961,14 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                         print(f"[{time.time()-t_rag_start:.2f}s] Supabase Vector Search ({match_count} chunks)")
                         
                         docs_data = response.data or []
+                        
+                        # Filtro Determinístico contra Contaminação de Capítulos Conflitantes (ex: Função Afim vs Função Quadrática)
+                        if current_topic:
+                            c_top_clean = strip_accents(current_topic.lower())
+                            if any(term in c_top_clean for term in ["segundo grau", "2 grau", "2º grau", "2o grau", "quadratica", "quadrática", "parabola"]):
+                                docs_data = [d for d in docs_data if not any(term in d.get("metadata", {}).get("source", "").lower() for term in ["funcao-afim", "cap-12-funcao-afim"])]
+                            elif any(term in c_top_clean for term in ["primeiro grau", "1 grau", "1º grau", "1o grau", "afim", "linear"]):
+                                docs_data = [d for d in docs_data if not any(term in d.get("metadata", {}).get("source", "").lower() for term in ["funcao-quadratica", "cap-13-funcao-quadratica"])]
                         if active_mode == "modo_praticar":
                             # Prioriza os 15 itens oficiais da rodada estruturada determinística
                             round_data = session_state.get("praticar_round")
@@ -2950,16 +3114,31 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                 full_text = ""
                 
                 try:
-                    # Rota Principal: DeepSeek via DeepInfra (Fail-Fast)
+                    # Rota Principal: DeepSeek via DeepInfra (Fail-Fast de 3.5s no TTFT)
                     max_toks = 8192 if active_mode in {"modo_aprender", "modo_resumir"} else (700 if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} else 4096)
-                    response = await deepinfra_client.chat.completions.create(
-                        model="deepseek-ai/DeepSeek-V4-Flash-0731",
-                        messages=openai_messages,
-                        max_tokens=max_toks,
-                        stream=True
+                    
+                    # 1. Timeout de conexão e criação do stream: 3.5 segundos
+                    response = await asyncio.wait_for(
+                        deepinfra_client.chat.completions.create(
+                            model="deepseek-ai/DeepSeek-V4-Flash-0731",
+                            messages=openai_messages,
+                            max_tokens=max_toks,
+                            stream=True
+                        ),
+                        timeout=3.5
                     )
                     
-                    async for chunk in response:
+                    # 2. Timeout do primeiro chunk (Time To First Token - 3.5 segundos)
+                    chunk_iter = response.__aiter__()
+                    first_chunk = await asyncio.wait_for(chunk_iter.__anext__(), timeout=3.5)
+                    
+                    if first_chunk.choices and first_chunk.choices[0].delta.content is not None:
+                        text = first_chunk.choices[0].delta.content
+                        full_text += text
+                        yield f"data: {json.dumps({'chunk': text})}\n\n"
+                        await asyncio.sleep(0)
+                        
+                    async for chunk in chunk_iter:
                         if chunk.choices and chunk.choices[0].delta.content is not None:
                             text = chunk.choices[0].delta.content
                             full_text += text
@@ -2968,7 +3147,7 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                             
                 except Exception as e:
                     error_str = str(e).lower()
-                    print(f"[{time.time()-t_start:.2f}s] AVISO: Falha no DeepSeek ({error_str}). Acionando Fallback para Gemini...")
+                    print(f"[{time.time()-t_start:.2f}s] AVISO: Falha ou timeout no DeepSeek ({error_str}). Acionando Fallback Gemini 2.5 Flash...")
                     
                     # Fallback de Resiliência usando Gemini
                     max_toks = 8192 if active_mode in {"modo_aprender", "modo_resumir"} else (700 if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} else 4096)
