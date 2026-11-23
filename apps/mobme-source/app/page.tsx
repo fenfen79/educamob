@@ -2,7 +2,7 @@
 
 
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
 import ReactMarkdown from "react-markdown";
 
@@ -14,7 +14,33 @@ import rehypeKatex from "rehype-katex";
 
 import "katex/dist/katex.min.css";
 
-import { Sun, Moon, Menu, Paperclip, Send, X, Plus, Edit2, User, MessageCircle } from "lucide-react";
+// Module-level plugin singletons to prevent ReactMarkdown from re-parsing trees on parent renders
+const REMARK_PLUGINS = [remarkGfm, remarkMath];
+const REHYPE_PLUGINS = [rehypeKatex];
+
+import { Sun, Moon, Menu, Paperclip, Send, X, Plus, Edit2, User, MessageCircle, LogOut, MessageSquarePlus, AlertTriangle, Lightbulb, Check, Loader2, Sparkles, Bug } from "lucide-react";
+
+type UserInfo = {
+  id: string;
+  name: string;
+  email: string;
+};
+
+const BUG_CATEGORIES = [
+  "Resposta incorreta ou confusa da IA",
+  "Fórmula matemática ou cálculo errado",
+  "Problema visual ou layout quebrado",
+  "Lentidão ou tutor travou",
+  "Outro problema técnico",
+];
+
+const SUGGESTION_CATEGORIES = [
+  "Nova matéria ou conteúdo",
+  "Nova funcionalidade no chat",
+  "Melhoria no visual ou usabilidade",
+  "Ideia para exercícios / flashcards",
+  "Outra sugestão",
+];
 
 
 
@@ -504,6 +530,281 @@ const getTrackFromInput = (input: string, lastAiText: string = ""): "teoria" | "
 };
 
 
+interface ChatMessageItemProps {
+  msg: Message;
+  markdownComponents: any;
+}
+
+const ChatMessageItem = React.memo(function ChatMessageItem({
+  msg,
+  markdownComponents,
+}: ChatMessageItemProps) {
+  if (msg.role === "user") {
+    return (
+      <div
+        id={`msg-${msg.id}`}
+        className="w-full flex justify-end max-w-3xl"
+      >
+        <div className="flex gap-4 w-full flex-row-reverse">
+          <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-[var(--accent-primary)]">
+            <User size={20} className="text-white" />
+          </div>
+          <div className="flex flex-col max-w-[85%] md:max-w-[75%] items-end">
+            <div className="px-5 py-4 rounded-2xl overflow-hidden bg-[var(--accent-primary)] text-black rounded-tr-sm">
+              {msg.imageUrl && (
+                <img src={msg.imageUrl} alt="Anexo" className="max-w-full rounded-xl mb-3 max-h-60 object-contain" />
+              )}
+              <div className="whitespace-pre-wrap font-medium">{msg.text}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // msg.role === "ai"
+  const { content: mainText, menu } = splitMessageMenu(msg.text);
+  const isWide = isWidescreenContent(mainText);
+
+  return (
+    <div className="w-full flex flex-col items-center space-y-6">
+      {/* 1. Janela de Leitura / Conteúdo Principal */}
+      <div
+        id={`msg-${msg.id}`}
+        className={`w-full flex ${
+          isWide
+            ? "justify-start max-w-5xl md:max-w-6xl"
+            : "justify-start max-w-3xl"
+        }`}
+      >
+        <div className="flex gap-4 w-full flex-row">
+          <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-[var(--accent-primary)]">
+            <img src="./owl-white.png" alt="Mob.me" className="w-6 h-6 object-contain" />
+          </div>
+          <div className={`flex flex-col ${
+            isWide
+              ? "flex-1 w-full max-w-full items-start min-w-0"
+              : "max-w-[85%] md:max-w-[75%] items-start min-w-0"
+          }`}>
+            <div className={`
+              px-5 py-4 rounded-2xl overflow-hidden
+              ${isWide
+                ? "bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-tl-sm w-full"
+                : "bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-tl-sm"}
+            `}>
+              {msg.imageUrl && (
+                <img src={msg.imageUrl} alt="Anexo" className="max-w-full rounded-xl mb-3 max-h-60 object-contain" />
+              )}
+              <div className="markdown-content prose max-w-none text-[var(--text-primary)]">
+                <ReactMarkdown
+                  remarkPlugins={REMARK_PLUGINS}
+                  rehypePlugins={REHYPE_PLUGINS}
+                  components={markdownComponents}
+                >
+                  {sanitizeContent(mainText)}
+                </ReactMarkdown>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 2. Janela Independente para o Super Menu após Conclusão de Seção */}
+      {menu && (
+        <div
+          id={`msg-${msg.id}-menu`}
+          className="w-full flex justify-start max-w-3xl animate-[fadeIn_0.3s_ease-in-out]"
+        >
+          <div className="flex gap-4 w-full flex-row">
+            <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-[var(--accent-primary)]">
+              <img src="./owl-white.png" alt="Mob.me" className="w-6 h-6 object-contain" />
+            </div>
+            <div className="flex flex-col max-w-[85%] md:max-w-[75%] items-start min-w-0">
+              <div className="px-5 py-4 rounded-2xl overflow-hidden bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-tl-sm">
+                <div className="markdown-content prose max-w-none text-[var(--text-primary)]">
+                  <ReactMarkdown
+                    remarkPlugins={REMARK_PLUGINS}
+                    rehypePlugins={REHYPE_PLUGINS}
+                    components={markdownComponents}
+                  >
+                    {sanitizeContent(menu)}
+                  </ReactMarkdown>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+});
+
+// =========================================================================
+// Componente de Input Desacoplado (120 FPS / Zero Lag de Digitação)
+// =========================================================================
+interface ChatInputAreaProps {
+  isTyping: boolean;
+  onSend: (text: string, imagePreview?: string | null, imageBase64?: string | null) => void;
+  keyboardHeight: number;
+}
+
+const ChatInputArea = React.memo(function ChatInputArea({
+  isTyping,
+  onSend,
+  keyboardHeight,
+}: ChatInputAreaProps) {
+  const [text, setText] = useState("");
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [imageBase64, setImageBase64] = useState<string | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!isTyping && typeof window !== "undefined" && window.innerWidth >= 768) {
+      textareaRef.current?.focus();
+    }
+  }, [isTyping]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setText(e.target.value);
+    const target = e.target;
+    target.style.height = "auto";
+    target.style.height = `${Math.min(target.scrollHeight, 160)}px`;
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (!isTyping) {
+        handleSubmit();
+      }
+    }
+  };
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result as string;
+      setImagePreview(result);
+      setImageBase64(result.split(",")[1]);
+    };
+    reader.readAsDataURL(file);
+    e.target.value = "";
+  };
+
+  const handlePaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
+    const items = e.clipboardData?.items;
+    if (!items || items.length === 0) return;
+
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].type.indexOf("image") !== -1) {
+        const file = items[i].getAsFile();
+        if (!file) continue;
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          const result = reader.result as string;
+          setImagePreview(result);
+          setImageBase64(result.split(",")[1]);
+        };
+        reader.readAsDataURL(file);
+        break;
+      }
+    }
+  };
+
+  const removeImage = () => {
+    setImagePreview(null);
+    setImageBase64(null);
+  };
+
+  const handleSubmit = () => {
+    if ((!text.trim() && !imageBase64) || isTyping) return;
+    onSend(text, imagePreview, imageBase64);
+    setText("");
+    setImagePreview(null);
+    setImageBase64(null);
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+    }
+  };
+
+  return (
+    <footer
+      className="fixed bottom-0 left-0 right-0 md:left-[280px] bg-[var(--bg-primary)] pt-3 pb-3 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-20 transition-transform duration-150 ease-out"
+      style={{ transform: `translateY(-${keyboardHeight}px)` }}
+    >
+      <div className="w-full max-w-4xl flex flex-col relative">
+        {imagePreview && (
+          <div className="absolute bottom-full mb-3 left-4 p-2 bg-[var(--bg-elevated)] border border-[var(--border-medium)] rounded-xl shadow-lg w-24 h-24 group">
+            <img src={imagePreview} alt="Preview" className="w-full h-full object-cover rounded-lg" />
+            <button
+              type="button"
+              onClick={removeImage}
+              className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <X size={12} />
+            </button>
+          </div>
+        )}
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+          className="flex items-end gap-2 p-1.5 bg-[var(--bg-input)] border border-[var(--border-medium)] rounded-3xl shadow-sm focus-within:border-[var(--accent-primary)] transition-all"
+        >
+          <input
+            type="file"
+            accept="image/*"
+            className="hidden"
+            ref={fileInputRef}
+            onChange={handleImageUpload}
+          />
+
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            className="p-3 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors shrink-0 mb-0.5"
+            title="Anexar imagem"
+          >
+            <Paperclip size={20} />
+          </button>
+
+          <textarea
+            ref={textareaRef}
+            rows={1}
+            value={text}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            onPaste={handlePaste}
+            placeholder={isTyping ? "Mob.me pensando..." : "Digite sua dúvida ou envie uma foto..."}
+            className="flex-1 max-h-40 bg-transparent text-[var(--text-primary)] placeholder:text-[var(--text-muted)] resize-none py-3.5 px-2 outline-none"
+            style={{ fieldSizing: "content" } as any}
+          />
+
+          <button
+            type="submit"
+            disabled={isTyping || (!text.trim() && !imageBase64)}
+            className="p-3.5 rounded-full shrink-0 transition-colors bg-[var(--accent-primary)] text-white disabled:opacity-50 disabled:cursor-not-allowed m-0.5 shadow-md"
+            title="Enviar mensagem"
+          >
+            <Send size={18} />
+          </button>
+        </form>
+
+        <p className="text-center text-xs text-[var(--text-muted)] mt-2">
+          Eu sei muito e sigo estudando, mas não sou perfeita. Se você desconfiar da minha resposta, fale com seu professor(a) da Educamob.
+        </p>
+      </div>
+    </footer>
+  );
+});
+
 export default function ChatApp() {
 
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -511,8 +812,6 @@ export default function ChatApp() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const [messages, setMessages] = useState<Message[]>([]);
-
-  const [input, setInput] = useState("");
 
   const [isTyping, setIsTyping] = useState(false);
   const [loadingTrack, setLoadingTrack] = useState<"teoria" | "flashcards" | "memorex" | null>(null);
@@ -530,12 +829,6 @@ export default function ChatApp() {
     return () => clearInterval(interval);
   }, [isTyping, loadingTrack]);
 
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
-
-  const [imageBase64, setImageBase64] = useState<string | null>(null);
-
-  
-
   const [sessions, setSessions] = useState<Session[]>([]);
 
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
@@ -550,15 +843,34 @@ export default function ChatApp() {
 
   const isStreamingRef = useRef<boolean>(false);
 
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const isTypingRef = useRef(isTyping);
+  useEffect(() => {
+    isTypingRef.current = isTyping;
+  }, [isTyping]);
 
 
 
   const [isLoadingHistory, setIsLoadingHistory] = useState(false);
 
   const [keyboardHeight, setKeyboardHeight] = useState(0);
+
+  // --- Auth & User State ---
+  const [currentUser, setCurrentUser] = useState<UserInfo>({
+    id: "00000000-0000-0000-0000-000000000001",
+    name: "Estudante",
+    email: ""
+  });
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+
+  // --- Feedback & Report State ---
+  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+  const [feedbackType, setFeedbackType] = useState<"bug" | "suggestion">("bug");
+  const [feedbackCategory, setFeedbackCategory] = useState(BUG_CATEGORIES[0]);
+  const [feedbackDescription, setFeedbackDescription] = useState("");
+  const [includeContext, setIncludeContext] = useState(true);
+  const [isSendingFeedback, setIsSendingFeedback] = useState(false);
+  const [feedbackSentSuccess, setFeedbackSentSuccess] = useState(false);
+  const [feedbackError, setFeedbackError] = useState<string | null>(null);
 
 
 
@@ -738,7 +1050,10 @@ export default function ChatApp() {
 
     if (typeof window !== "undefined" && window.innerWidth >= 768) {
 
-      setTimeout(() => textareaRef.current?.focus(), 50);
+      setTimeout(() => {
+        const el = document.querySelector("textarea");
+        if (el) el.focus();
+      }, 50);
 
     }
 
@@ -858,209 +1173,167 @@ export default function ChatApp() {
 
 
 
-  useEffect(() => {
 
-    if (textareaRef.current) {
-
-      textareaRef.current.style.height = "auto";
-
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-
-    }
-
-  }, [input]);
-
-
-
-  useEffect(() => {
-
-    if (!isTyping && typeof window !== "undefined" && window.innerWidth >= 768) {
-
-      textareaRef.current?.focus();
-
-    }
-
-  }, [isTyping]);
-
-
-
-  useEffect(() => {
-
-    if (typeof window !== "undefined" && window.innerWidth >= 768) {
-
-      textareaRef.current?.focus();
-
-    }
-
-  }, []);
-
-
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-
-    const file = e.target.files?.[0];
-
-    if (!file) return;
-
-    
-
-    const reader = new FileReader();
-
-    reader.onload = () => {
-
-      const result = reader.result as string;
-
-      setImagePreview(result);
-
-      setImageBase64(result.split(",")[1]);
-
-    };
-
-    reader.readAsDataURL(file);
-
-    e.target.value = "";
-
-  };
-
-
-
-  const handlePaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
-
-    const items = e.clipboardData?.items;
-
-    
-
-    if (!items || items.length === 0) {
-
-      console.warn("Nenhum item na área de transferência.");
-
-      return;
-
-    }
-
-
-
-    let foundImage = false;
-
-    let types = [];
-
-    
-
-    for (let i = 0; i < items.length; i++) {
-
-      types.push(items[i].type);
-
-      if (items[i].type.indexOf("image") !== -1) {
-
-        foundImage = true;
-
-        e.preventDefault();
-
-        const file = items[i].getAsFile();
-
-        
-
-        if (!file) {
-
-          console.error("Não foi possível extrair o arquivo da imagem.");
-
-          continue;
-
-        }
-
-        
-
-        const reader = new FileReader();
-
-        reader.onload = () => {
-
-          const result = reader.result as string;
-
-          setImagePreview(result);
-
-          setImageBase64(result.split(",")[1]);
-
-          console.log("Imagem processada com sucesso via Ctrl+V");
-
-        };
-
-        reader.readAsDataURL(file);
-
-        break;
-
-      }
-
-    }
-
-    
-
-    if (!foundImage) {
-
-      console.log("Tipos detectados no Ctrl+V:", types);
-
-      // alert apenas para debug rápido se ele colar algo que não é reconhecido como imagem
-
-      // alert("Nenhuma imagem detectada. Tipos encontrados: " + types.join(", "));
-
-    }
-
-  };
-
-
-
-  const removeImage = () => {
-
-    setImagePreview(null);
-
-    setImageBase64(null);
-
-  };
 
 
 
   const getUserId = async () => {
-
     try {
-
       // @ts-ignore
-
-      if (window.supabase && window.supabase.auth) {
-
-        // @ts-ignore
-
-        const { data } = await window.supabase.auth.getSession();
-
-        if (data?.session?.user) return data.session.user.id;
-
+      const client = window.supabase || window.supabaseClient;
+      if (client && client.auth) {
+        const { data } = await client.auth.getSession();
+        if (data?.session?.user) {
+          const u = data.session.user;
+          const name = u.user_metadata?.full_name || u.user_metadata?.name || (u.email ? u.email.split('@')[0] : "Estudante");
+          setCurrentUser({ id: u.id, name, email: u.email || "" });
+          return u.id;
+        }
       }
 
-      
-
-      const token = localStorage.getItem("sb-jaaiyectjtmlymcjzgpb-auth-token");
-
+      const token = localStorage.getItem("sb-jaaiyectjtmlymcjzgpb-auth-token") || localStorage.getItem("sb-fwmbmtmnwlxwbaxzrldp-auth-token");
       if (token) {
-
         const parsed = JSON.parse(token);
-
-        if (parsed?.user?.id) return parsed.user.id;
-
+        if (parsed?.user?.id) {
+          const u = parsed.user;
+          const name = u.user_metadata?.full_name || u.user_metadata?.name || (u.email ? u.email.split('@')[0] : "Estudante");
+          setCurrentUser({ id: u.id, name, email: u.email || "" });
+          return u.id;
+        }
       }
-
     } catch (e) {
-
       console.error("Erro auth", e);
+    }
+    return "00000000-0000-0000-0000-000000000001";
+  };
 
+  const handleLogout = async () => {
+    try {
+      // @ts-ignore
+      if (window.supabase?.auth) {
+        // @ts-ignore
+        await window.supabase.auth.signOut();
+      }
+      // @ts-ignore
+      if (window.supabaseClient?.auth) {
+        // @ts-ignore
+        await window.supabaseClient.auth.signOut();
+      }
+    } catch (err) {
+      console.error("Erro ao sair:", err);
     }
 
-    return "00000000-0000-0000-0000-000000000001";
+    try {
+      const keysToRemove: string[] = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && (k.startsWith("sb-") || k.includes("supabase.auth.token"))) {
+          keysToRemove.push(k);
+        }
+      }
+      keysToRemove.forEach(k => localStorage.removeItem(k));
+    } catch (e) {}
 
+    if (typeof window !== "undefined") {
+      if (window.location.pathname.includes("/apps/mobme")) {
+        window.location.href = "../login/index.html";
+      } else {
+        window.location.href = "/apps/login/index.html";
+      }
+    }
+  };
+
+  const handleSendFeedback = async () => {
+    if (!feedbackDescription.trim()) {
+      setFeedbackError("Por favor, descreva seu relato antes de enviar.");
+      return;
+    }
+    setFeedbackError(null);
+    setIsSendingFeedback(true);
+
+    let lastAssistantMsg = "";
+    if (includeContext && messages.length > 0) {
+      const last = [...messages].reverse().find(m => m.role === "ai");
+      if (last) {
+        lastAssistantMsg = last.text.substring(0, 300);
+      }
+    }
+
+    const payload = {
+      type: feedbackType,
+      category: feedbackCategory,
+      description: feedbackDescription.trim(),
+      user_id: currentUser.id,
+      user_name: currentUser.name,
+      user_email: currentUser.email,
+      session_id: currentSessionId,
+      last_message: includeContext ? lastAssistantMsg : null,
+      metadata: {
+        url: typeof window !== "undefined" ? window.location.href : "",
+        userAgent: typeof navigator !== "undefined" ? navigator.userAgent : "",
+        messagesCount: messages.length,
+        timestamp: new Date().toISOString(),
+        screenResolution: typeof window !== "undefined" ? `${window.innerWidth}x${window.innerHeight}` : ""
+      }
+    };
+
+    try {
+      const API_BASE = getApiBaseUrl();
+      const res = await fetch(`${API_BASE}/api/feedback`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        setFeedbackSentSuccess(true);
+        setTimeout(() => {
+          setIsFeedbackModalOpen(false);
+          setFeedbackSentSuccess(false);
+          setFeedbackDescription("");
+        }, 2200);
+      } else {
+        await tryFallbackFeedback(payload);
+      }
+    } catch (err) {
+      console.warn("API de feedback indisponível, acionando fallback:", err);
+      await tryFallbackFeedback(payload);
+    } finally {
+      setIsSendingFeedback(false);
+    }
+  };
+
+  const tryFallbackFeedback = async (payload: any) => {
+    try {
+      // @ts-ignore
+      const client = window.supabaseClient || window.supabase;
+      if (client && client.from) {
+        await client.from("feedback_reports").insert([payload]);
+      }
+    } catch (e) {
+      try {
+        const stored = JSON.parse(localStorage.getItem("offline_feedbacks") || "[]");
+        stored.push(payload);
+        localStorage.setItem("offline_feedbacks", JSON.stringify(stored));
+      } catch (lsErr) {}
+    }
+    setFeedbackSentSuccess(true);
+    setTimeout(() => {
+      setIsFeedbackModalOpen(false);
+      setFeedbackSentSuccess(false);
+      setFeedbackDescription("");
+    }, 2200);
   };
 
 
 
-  const handleSend = async (textToSend: string = input) => {
+  const handleSend = async (
+    textToSend: string,
+    imgPreview?: string | null,
+    imgB64?: string | null
+  ) => {
 
-    if (!textToSend.trim() && !imageBase64) return;
+    if (!textToSend.trim() && !imgB64) return;
 
     if (isTyping) return;
 
@@ -1074,7 +1347,7 @@ export default function ChatApp() {
 
       text: textToSend,
 
-      imageUrl: imagePreview || undefined
+      imageUrl: imgPreview || undefined
 
     };
 
@@ -1082,13 +1355,7 @@ export default function ChatApp() {
 
     setMessages(prev => [...prev, newUserMsg]);
 
-    setInput("");
-
-    setImagePreview(null);
-
-    const b64ToSend = imageBase64;
-
-    setImageBase64(null);
+    const b64ToSend = imgB64 || null;
 
     const sendTimestamp = Date.now();
     const lastAiMsg = [...messages].reverse().find(m => m.role === "ai")?.text || "";
@@ -1106,13 +1373,13 @@ export default function ChatApp() {
 
 
 
-    if (textareaRef.current) {
-
-      textareaRef.current.style.height = "auto";
-
-    }
-
-
+    const abortController = new AbortController();
+    let hasReceivedFirstChunk = false;
+    const timeoutId = setTimeout(() => {
+      if (!hasReceivedFirstChunk) {
+        abortController.abort();
+      }
+    }, 30000); // 30s timeout resiliente para redes móveis e RAG
 
     try {
 
@@ -1142,7 +1409,9 @@ export default function ChatApp() {
 
         headers: { "Content-Type": "application/json" },
 
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+
+        signal: abortController.signal
 
       });
 
@@ -1208,6 +1477,8 @@ export default function ChatApp() {
         if (hasNewChunkInBatch) {
           if (isFirstChunk) {
             isFirstChunk = false;
+            hasReceivedFirstChunk = true;
+            clearTimeout(timeoutId);
             const elapsed = Date.now() - sendTimestamp;
             const waitTime = Math.max(0, minLoadingDuration - elapsed);
             if (waitTime > 0) {
@@ -1217,7 +1488,9 @@ export default function ChatApp() {
             // ancora a tela imediatamente no TOPO da resposta (Seção 1) para leitura imediata aos ~6s!
             isStreamingRef.current = false;
             setIsTyping(false);
-            setMessages(prev => [...prev, { id: aiMsgId, role: "ai", text: aiResponseText }]);
+            React.startTransition(() => {
+              setMessages(prev => [...prev, { id: aiMsgId, role: "ai", text: aiResponseText }]);
+            });
             lastRenderTime = Date.now();
             setTimeout(() => {
               const el = document.getElementById(`msg-${aiMsgId}`);
@@ -1229,9 +1502,11 @@ export default function ChatApp() {
             const now = Date.now();
             if (now - lastRenderTime >= 80) {
               lastRenderTime = now;
-              setMessages(prev =>
-                prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
-              );
+              React.startTransition(() => {
+                setMessages(prev =>
+                  prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
+                );
+              });
             }
           }
         }
@@ -1240,51 +1515,47 @@ export default function ChatApp() {
       // Flush final garantido ao término do stream (sem puxar o scroll caso o aluno já esteja lendo)
       isStreamingRef.current = false;
       if (!isFirstChunk) {
-        setMessages(prev =>
-          prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
-        );
+        React.startTransition(() => {
+          setMessages(prev =>
+            prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
+          );
+        });
+      } else {
+        // Trava final anti-vácuo no cliente: se a conexão fechar sem nenhum chunk
+        setMessages(prev => [
+          ...prev,
+          {
+            id: aiMsgId,
+            role: "ai",
+            text: "⚠️ Não foi possível obter uma resposta neste momento. Por favor, tente enviar sua mensagem novamente!"
+          }
+        ]);
       }
 
     } catch (e: any) {
-
-      const errorMsg = e.message.includes("logado") ? `⚠️ Ops! ${e.message}` : `⚠️ DEBUG ERROR: ${e.message}`;
+      clearTimeout(timeoutId);
+      const isTimeout = e.name === "AbortError" || abortController.signal.aborted;
+      const errorMsg = isTimeout 
+        ? "⚠️ A resposta demorou um pouco além do esperado. Por favor, tente enviar novamente."
+        : (e.message.includes("logado") ? `⚠️ Ops! ${e.message}` : `⚠️ DEBUG ERROR: ${e.message}`);
 
       setMessages(prev => [...prev, { id: Date.now().toString(), role: "ai", text: errorMsg }]);
 
     } finally {
       isStreamingRef.current = false;
       setIsTyping(false);
-
-      if (typeof window !== "undefined" && window.innerWidth >= 768) {
-
-        setTimeout(() => textareaRef.current?.focus(), 50);
-
-      }
-
     }
 
   };
 
-
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-
-    if (e.key === "Enter" && !e.shiftKey) {
-
-      e.preventDefault();
-
-      if (!isTyping) {
-
-        handleSend();
-
-      }
-
-    }
-
-  };
+  const handleSendRef = useRef(handleSend);
+  useEffect(() => {
+    handleSendRef.current = handleSend;
+  }, [handleSend]);
 
 
 
+  const markdownComponents = useMemo(() => {
   // Transforma emojis de nmeros em quadradinhos laranjas com glassmorphism sofisticado
   const renderWithBadges = (text: string) => {
     if (typeof text !== "string") return text;
@@ -1309,7 +1580,7 @@ export default function ChatApp() {
             }}
             onClick={(e) => {
               e.stopPropagation();
-              if (!isTyping) {
+              if (!isTypingRef.current) {
                 // Se o texto circundante for explicitamente uma trilha do menu principal, envia o comando com rótulo
                 const isTrackMenu = /Tirar?\s+D[úu]vidas|Leia\s+e\s+Aprenda|Estudo\s+Dirigido|Aprender|Resumo|Flashcards|Lista\s+de\s+Exerc[íi]cios|Praticar|Finalizar/i.test(text);
                 if (isTrackMenu) {
@@ -1322,11 +1593,11 @@ export default function ChatApp() {
                     "6": "6. Finalizar ⏸️",
                     "7": "6. Finalizar ⏸️"
                   };
-                  handleSend(trackLabels[num] || num);
+                  handleSendRef.current(trackLabels[num] || num);
                 } else {
                   // Em listas de desambiguação de temas (ex: 1️⃣ Princípio de Pascal, 2️⃣ Triângulo de Pascal),
                   // envia estritamente o número da opção para evitar colisão com o menu de trilhas!
-                  handleSend(num);
+                  handleSendRef.current(num);
                 }
               }
             }}
@@ -1416,7 +1687,7 @@ export default function ChatApp() {
     return children;
   };
 
-  const markdownComponents = {
+  return {
     p: ({ node, children, ...props }: any) => {
       const textStr = getNodeText(children).trim();
 
@@ -1429,7 +1700,7 @@ export default function ChatApp() {
           <p
             className="my-2.5 leading-relaxed text-[var(--text-primary)] text-[0.98rem] cursor-pointer group"
             onClick={() => {
-              if (!isTyping && num) {
+              if (!isTypingRef.current && num) {
                 const trackLabels: Record<string, string> = {
                   "1": "1. Tirar Dúvidas (texto/imagem) 💬",
                   "2": "2. Leia e Aprenda 📚",
@@ -1438,7 +1709,7 @@ export default function ChatApp() {
                   "5": "5. Lista de Exercícios 📝",
                   "6": "6. Finalizar ⏸️",
                 };
-                handleSend(trackLabels[num] || num);
+                handleSendRef.current(trackLabels[num] || num);
               }
             }}
             {...props}
@@ -1493,8 +1764,8 @@ export default function ChatApp() {
             type="button"
             disabled={isTyping}
             onClick={() => {
-              if (!isTyping) {
-                handleSend(letter.toLowerCase());
+              if (!isTypingRef.current) {
+                handleSendRef.current(letter.toLowerCase());
               }
             }}
             className="w-full text-left my-2 p-3.5 md:p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-primary)] hover:bg-[var(--bg-hover)] active:scale-[0.99] transition-all duration-150 shadow-sm flex items-start gap-3.5 group cursor-pointer"
@@ -1685,6 +1956,7 @@ export default function ChatApp() {
       <hr className="my-7 border-0 h-px bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent" />
     ),
   };
+  }, [theme, isTyping]);
 
   return (
 
@@ -1894,6 +2166,43 @@ export default function ChatApp() {
 
         </div>
 
+        {/* Sidebar Footer: Feedback & User Profile / Logout */}
+        <div className="pt-3 mt-auto border-t border-[var(--border-subtle)] space-y-2 shrink-0">
+          <button
+            onClick={() => {
+              setIsFeedbackModalOpen(true);
+              if (window.innerWidth < 768) setIsSidebarOpen(false);
+            }}
+            className="flex items-center gap-2.5 w-full px-3 py-2 text-xs font-semibold rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors text-left cursor-pointer"
+          >
+            <MessageSquarePlus size={16} className="text-[var(--accent-primary)] shrink-0" />
+            <span className="truncate">Reportar erro ou sugestão</span>
+          </button>
+
+          <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-8 h-8 rounded-full bg-[var(--accent-primary-light)] text-[var(--accent-primary)] flex items-center justify-center shrink-0 font-bold text-xs">
+                {currentUser.name ? currentUser.name.charAt(0).toUpperCase() : <User size={14} />}
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs font-bold text-[var(--text-primary)] truncate">
+                  {currentUser.name || "Estudante"}
+                </div>
+                <div className="text-[10px] text-[var(--text-muted)] truncate">
+                  {currentUser.email || "Aluno Mob.me"}
+                </div>
+              </div>
+            </div>
+            <button
+              onClick={() => setIsLogoutModalOpen(true)}
+              title="Sair da conta"
+              className="p-1.5 text-[var(--text-muted)] hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors shrink-0 cursor-pointer"
+            >
+              <LogOut size={16} />
+            </button>
+          </div>
+        </div>
+
       </aside>
 
 
@@ -1938,41 +2247,62 @@ export default function ChatApp() {
 
 
 
-          <button 
+          <div className="flex items-center gap-2">
 
-            onClick={toggleTheme}
+            <button 
+              onClick={() => setIsFeedbackModalOpen(true)}
+              title="Reportar erro ou enviar sugestão"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full bg-[var(--bg-elevated)] border border-[var(--border-medium)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer"
+            >
+              <MessageSquarePlus size={15} className="text-[var(--accent-primary)]" />
+              <span className="hidden sm:inline">Feedback</span>
+            </button>
 
-            className="flex items-center w-[52px] h-[28px] border-2 border-[var(--text-primary)] rounded-full relative transition-colors cursor-pointer"
+            <button 
 
-            title="Alternar tema"
+              onClick={toggleTheme}
 
-          >
+              className="flex items-center w-[52px] h-[28px] border-2 border-[var(--text-primary)] rounded-full relative transition-colors cursor-pointer"
 
-            {/* Background Icons */}
+              title="Alternar tema"
 
-            <div className="absolute inset-0 flex items-center justify-between px-1.5 w-full pointer-events-none">
+            >
 
-              <Sun size={15} className="text-[var(--text-primary)] stroke-[2.5]" />
+              {/* Background Icons */}
 
-              <Moon size={13} className="text-[var(--text-primary)] stroke-[2.5] fill-[var(--text-primary)]" />
+              <div className="absolute inset-0 flex items-center justify-between px-1.5 w-full pointer-events-none">
 
-            </div>
+                <Sun size={15} className="text-[var(--text-primary)] stroke-[2.5]" />
 
-            
+                <Moon size={13} className="text-[var(--text-primary)] stroke-[2.5] fill-[var(--text-primary)]" />
 
-            {/* Sliding Thumb */}
+              </div>
 
-            <div 
+              
 
-              className={`w-5 h-5 rounded-full bg-[var(--text-primary)] transform transition-transform duration-300 ease-in-out relative z-10 ${
+              {/* Sliding Thumb */}
 
-                theme === "dark" ? "translate-x-[25px]" : "translate-x-[3px]"
+              <div 
 
-              }`}
+                className={`w-5 h-5 rounded-full bg-[var(--text-primary)] transform transition-transform duration-300 ease-in-out relative z-10 ${
 
-            />
+                  theme === "dark" ? "translate-x-[25px]" : "translate-x-[3px]"
 
-          </button>
+                }`}
+
+              />
+
+            </button>
+
+            <button 
+              onClick={() => setIsLogoutModalOpen(true)}
+              title="Sair da conta"
+              className="p-2 text-[var(--text-secondary)] hover:text-red-400 hover:bg-red-500/10 border border-[var(--border-medium)] rounded-full bg-[var(--bg-elevated)] transition-colors cursor-pointer"
+            >
+              <LogOut size={16} />
+            </button>
+
+          </div>
 
         </header>
 
@@ -2007,108 +2337,14 @@ export default function ChatApp() {
               </div>
             ) : (
               <div className="w-full flex flex-col items-center space-y-6">
-                {messages.map(msg => {
-                  if (msg.role === "user") {
-                    return (
-                      <div 
-                        key={msg.id} 
-                        id={`msg-${msg.id}`} 
-                        className="w-full flex justify-end max-w-3xl"
-                      >
-                        <div className="flex gap-4 w-full flex-row-reverse">
-                          <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-[var(--accent-primary)]">
-                            <User size={20} className="text-white" />
-                          </div>
-                          <div className="flex flex-col max-w-[85%] md:max-w-[75%] items-end">
-                            <div className="px-5 py-4 rounded-2xl overflow-hidden bg-[var(--accent-primary)] text-black rounded-tr-sm">
-                              {msg.imageUrl && (
-                                <img src={msg.imageUrl} alt="Anexo" className="max-w-full rounded-xl mb-3 max-h-60 object-contain" />
-                              )}
-                              <div className="whitespace-pre-wrap font-medium">{msg.text}</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  }
+                {messages.map(msg => (
+                  <ChatMessageItem
+                    key={msg.id}
+                    msg={msg}
+                    markdownComponents={markdownComponents}
+                  />
+                ))}
 
-                  // msg.role === "ai"
-                  const { content: mainText, menu } = splitMessageMenu(msg.text);
-                  const isWide = isWidescreenContent(mainText);
-
-                  return (
-                    <div key={msg.id} className="w-full flex flex-col items-center space-y-6">
-                      {/* 1. Janela de Leitura / Conteúdo Principal */}
-                      <div 
-                        id={`msg-${msg.id}`} 
-                        className={`w-full flex ${
-                          isWide 
-                            ? "justify-start max-w-5xl md:max-w-6xl" 
-                            : "justify-start max-w-3xl"
-                        }`}
-                      >
-                        <div className="flex gap-4 w-full flex-row">
-                          <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-[var(--accent-primary)]">
-                            <img src="./owl-white.png" alt="Mob.me" className="w-6 h-6 object-contain" />
-                          </div>
-                          <div className={`flex flex-col ${
-                            isWide 
-                              ? "flex-1 w-full max-w-full items-start min-w-0" 
-                              : "max-w-[85%] md:max-w-[75%] items-start min-w-0"
-                          }`}>
-                            <div className={`
-                              px-5 py-4 rounded-2xl overflow-hidden
-                              ${isWide
-                                ? "bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-tl-sm w-full"
-                                : "bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-tl-sm"}
-                            `}>
-                              {msg.imageUrl && (
-                                <img src={msg.imageUrl} alt="Anexo" className="max-w-full rounded-xl mb-3 max-h-60 object-contain" />
-                              )}
-                              <div className="markdown-content prose max-w-none text-[var(--text-primary)]">
-                                <ReactMarkdown 
-                                  remarkPlugins={[remarkGfm, remarkMath]} 
-                                  rehypePlugins={[rehypeKatex]}
-                                  components={markdownComponents}
-                                >
-                                  {sanitizeContent(mainText)}
-                                </ReactMarkdown>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* 2. Janela Independente para o Super Menu após Conclusão de Seção */}
-                      {menu && (
-                        <div 
-                          id={`msg-${msg.id}-menu`}
-                          className="w-full flex justify-start max-w-3xl animate-[fadeIn_0.3s_ease-in-out]"
-                        >
-                          <div className="flex gap-4 w-full flex-row">
-                            <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center bg-[var(--accent-primary)]">
-                              <img src="./owl-white.png" alt="Mob.me" className="w-6 h-6 object-contain" />
-                            </div>
-                            <div className="flex flex-col max-w-[85%] md:max-w-[75%] items-start min-w-0">
-                              <div className="px-5 py-4 rounded-2xl overflow-hidden bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-tl-sm">
-                                <div className="markdown-content prose max-w-none text-[var(--text-primary)]">
-                                  <ReactMarkdown 
-                                    remarkPlugins={[remarkGfm, remarkMath]} 
-                                    rehypePlugins={[rehypeKatex]}
-                                    components={markdownComponents}
-                                  >
-                                    {sanitizeContent(menu)}
-                                  </ReactMarkdown>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-                
                 {isTyping && (
                   <div className="w-full max-w-3xl flex justify-start animate-[fadeIn_0.3s_ease-in-out]">
                     <div className="flex gap-4 flex-row items-center">
@@ -2149,127 +2385,242 @@ export default function ChatApp() {
 
 
 
-        {/* Input Area */}
-
-        <footer className="fixed bottom-0 left-0 right-0 md:left-[280px] bg-[var(--bg-primary)] pt-3 pb-3 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-20 transition-transform duration-150 ease-out " style={{ transform: `translateY(-${keyboardHeight}px)` }}>
-
-          <div className="w-full max-w-4xl flex flex-col relative">
-
-            
-
-            {imagePreview && (
-
-              <div className="absolute bottom-full mb-3 left-4 p-2 bg-[var(--bg-elevated)] border border-[var(--border-medium)] rounded-xl shadow-lg w-24 h-24 group">
-
-                <img src={imagePreview} alt="Preview" className="w-full h-full object-cover rounded-lg" />
-
-                <button 
-
-                  onClick={removeImage}
-
-                  className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity"
-
-                >
-
-                  <X size={12} />
-
-                </button>
-
-              </div>
-
-            )}
-
-
-
-            <form 
-
-              onSubmit={(e) => { e.preventDefault(); handleSend(); }}
-
-              className="flex items-end gap-2 p-1.5 bg-[var(--bg-input)] border border-[var(--border-medium)] rounded-3xl shadow-sm focus-within:border-[var(--accent-primary)] transition-all"
-
-            >
-
-              <input 
-
-                type="file" 
-
-                accept="image/*" 
-
-                className="hidden" 
-
-                ref={fileInputRef}
-
-                onChange={handleImageUpload}
-
-              />
-
-              <button 
-
-                type="button" 
-
-                onClick={() => fileInputRef.current?.click()}
-
-                className="p-3 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors shrink-0 mb-0.5"
-
-              >
-
-                <Paperclip size={20} />
-
-              </button>
-
-              
-
-              <textarea
-
-                ref={textareaRef}
-
-                rows={1}
-
-                value={input}
-
-                onChange={e => setInput(e.target.value)}
-
-                onKeyDown={handleKeyDown}
-
-                onPaste={handlePaste}
-
-                placeholder={isTyping ? "Mob.me pensando..." : "Digite sua dúvida ou envie uma foto..."}
-
-                className="flex-1 max-h-40 bg-transparent text-[var(--text-primary)] placeholder:text-[var(--text-muted)] resize-none py-3.5 px-2 outline-none"
-
-              />
-
-              
-
-              <button 
-
-                type="submit"
-
-                disabled={isTyping || (!input.trim() && !imageBase64)}
-
-                className="p-3.5 rounded-full shrink-0 transition-colors bg-[var(--accent-primary)] text-white disabled:opacity-50 disabled:cursor-not-allowed m-0.5 shadow-md"
-
-              >
-
-                <Send size={18} />
-
-              </button>
-
-            </form>
-
-            
-
-            <p className="text-center text-xs text-[var(--text-muted)] mt-2">
-
-              Eu sei muito e sigo estudando, mas não sou perfeita. Se você desconfiar da minha resposta, fale com seu professor(a) da Educamob.
-
-            </p>
-
-          </div>
-
-        </footer>
+        {/* Input Area Desacoplado (120 FPS / Zero Lag de Digitação) */}
+        <ChatInputArea
+          isTyping={isTyping}
+          onSend={handleSend}
+          keyboardHeight={keyboardHeight}
+        />
 
       </div>
+
+      {/* Modal de Confirmação de Logout */}
+      {isLogoutModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-[var(--bg-card)] border border-[var(--border-medium)] rounded-2xl p-6 max-w-sm w-full shadow-2xl space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center shrink-0">
+                <LogOut size={20} />
+              </div>
+              <div>
+                <h3 className="font-bold text-base text-[var(--text-primary)]">Sair da conta</h3>
+                <p className="text-xs text-[var(--text-secondary)] mt-0.5">Deseja realmente encerrar sua sessão na Mob.me?</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-end gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => setIsLogoutModalOpen(false)}
+                className="px-4 py-2 rounded-xl text-xs font-semibold text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="px-4 py-2 rounded-xl text-xs font-semibold bg-red-600 hover:bg-red-700 text-white transition-colors shadow-sm cursor-pointer"
+              >
+                Sim, sair
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Reportar Erro ou Enviar Sugestão */}
+      {isFeedbackModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
+          <div className="bg-[var(--bg-card)] border border-[var(--border-medium)] rounded-2xl p-6 max-w-lg w-full shadow-2xl space-y-4 my-8">
+            {feedbackSentSuccess ? (
+              <div className="py-8 flex flex-col items-center justify-center text-center space-y-3 animate-in zoom-in-95 duration-200">
+                <div className="w-14 h-14 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center mb-1">
+                  <Check size={32} />
+                </div>
+                <h3 className="text-lg font-bold text-[var(--text-primary)]">
+                  Relato enviado com sucesso!
+                </h3>
+                <p className="text-xs text-[var(--text-secondary)] max-w-sm">
+                  Muito obrigado pela sua colaboração! Nossa equipe pedagógica e de tecnologia analisa cada mensagem para deixar a Mob.me cada dia melhor.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsFeedbackModalOpen(false);
+                    setFeedbackSentSuccess(false);
+                    setFeedbackDescription("");
+                  }}
+                  className="mt-2 px-5 py-2 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-dark)] text-white text-xs font-bold rounded-xl transition-colors cursor-pointer shadow-sm"
+                >
+                  Fechar
+                </button>
+              </div>
+            ) : (
+              <>
+                {/* Header do Modal */}
+                <div className="flex items-center justify-between pb-3 border-b border-[var(--border-subtle)]">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-[var(--accent-primary)] flex items-center justify-center text-white shadow-sm shrink-0">
+                      <MessageSquarePlus size={18} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-base text-[var(--text-primary)]">
+                        Ajude a Mob.me a evoluir
+                      </h3>
+                      <p className="text-[11px] text-[var(--text-secondary)]">
+                        Relate um problema ou envie sua ideia de melhoria
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsFeedbackModalOpen(false);
+                      setFeedbackError(null);
+                    }}
+                    className="p-1.5 text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-hover)] rounded-lg transition-colors cursor-pointer"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+
+                {/* Abas: Reportar Erro vs Sugestão */}
+                <div className="grid grid-cols-2 gap-2 p-1 bg-[var(--bg-secondary)] border border-[var(--border-subtle)] rounded-xl">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFeedbackType("bug");
+                      setFeedbackCategory(BUG_CATEGORIES[0]);
+                      setFeedbackError(null);
+                    }}
+                    className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                      feedbackType === "bug"
+                        ? "bg-[var(--bg-card)] text-red-400 shadow-sm border border-[var(--border-medium)]"
+                        : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                    }`}
+                  >
+                    <Bug size={14} />
+                    Reportar Erro
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFeedbackType("suggestion");
+                      setFeedbackCategory(SUGGESTION_CATEGORIES[0]);
+                      setFeedbackError(null);
+                    }}
+                    className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                      feedbackType === "suggestion"
+                        ? "bg-[var(--bg-card)] text-[var(--accent-primary)] shadow-sm border border-[var(--border-medium)]"
+                        : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                    }`}
+                  >
+                    <Lightbulb size={14} />
+                    Enviar Sugestão
+                  </button>
+                </div>
+
+                {/* Seletor de Categoria */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-[var(--text-primary)]">
+                    Categoria do relato
+                  </label>
+                  <select
+                    value={feedbackCategory}
+                    onChange={(e) => setFeedbackCategory(e.target.value)}
+                    className="w-full bg-[var(--bg-input)] text-[var(--text-primary)] border border-[var(--border-medium)] rounded-xl px-3 py-2 text-xs outline-none focus:border-[var(--accent-primary)] transition-colors cursor-pointer"
+                  >
+                    {(feedbackType === "bug" ? BUG_CATEGORIES : SUGGESTION_CATEGORIES).map((cat) => (
+                      <option key={cat} value={cat} className="bg-[var(--bg-card)] text-[var(--text-primary)]">
+                        {cat}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Textarea */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-[var(--text-primary)]">
+                    {feedbackType === "bug" ? "O que aconteceu? (descreva o erro)" : "Qual é a sua sugestão ou ideia?"}
+                  </label>
+                  <textarea
+                    rows={4}
+                    value={feedbackDescription}
+                    onChange={(e) => {
+                      setFeedbackDescription(e.target.value);
+                      if (feedbackError) setFeedbackError(null);
+                    }}
+                    placeholder={
+                      feedbackType === "bug"
+                        ? "Ex: A Mob.me errou o cálculo da raiz quadrada, a fórmula não renderizou, ou o botão de imagem travou..."
+                        : "Ex: Gostaria de poder praticar mais simulados de Biologia, ou receber lembretes de revisão..."
+                    }
+                    className="w-full bg-[var(--bg-input)] text-[var(--text-primary)] border border-[var(--border-medium)] rounded-xl p-3 text-xs outline-none focus:border-[var(--accent-primary)] transition-colors resize-none placeholder:text-[var(--text-muted)]"
+                  />
+                </div>
+
+                {/* Opção de Contexto */}
+                <label className="flex items-start gap-2.5 cursor-pointer text-xs text-[var(--text-secondary)] select-none">
+                  <input
+                    type="checkbox"
+                    checked={includeContext}
+                    onChange={(e) => setIncludeContext(e.target.checked)}
+                    className="mt-0.5 accent-[var(--accent-primary)] rounded cursor-pointer"
+                  />
+                  <span>
+                    Incluir dados da conversa atual (ajuda a equipe a diagnosticar e corrigir o problema mais rápido)
+                  </span>
+                </label>
+
+                {/* Identificação do Usuário */}
+                <div className="flex items-center justify-between text-[11px] px-3 py-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
+                  <span>Enviando como: <strong className="text-[var(--text-primary)]">{currentUser.name || "Estudante"}</strong></span>
+                  <span className="truncate max-w-[180px]">{currentUser.email || "Aluno Mob.me"}</span>
+                </div>
+
+                {/* Mensagem de Erro (Validação) */}
+                {feedbackError && (
+                  <div className="flex items-center gap-2 text-xs text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl p-2.5">
+                    <AlertTriangle size={14} className="shrink-0" />
+                    <span>{feedbackError}</span>
+                  </div>
+                )}
+
+                {/* Botões de Ação */}
+                <div className="flex items-center justify-end gap-2 pt-2 border-t border-[var(--border-subtle)]">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsFeedbackModalOpen(false);
+                      setFeedbackError(null);
+                    }}
+                    className="px-4 py-2 rounded-xl text-xs font-semibold text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="button"
+                    disabled={isSendingFeedback}
+                    onClick={handleSendFeedback}
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-dark)] text-white transition-colors cursor-pointer shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSendingFeedback ? (
+                      <>
+                        <Loader2 size={14} className="animate-spin" />
+                        <span>Enviando...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send size={14} />
+                        <span>Enviar relato</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
 
     </div>
 

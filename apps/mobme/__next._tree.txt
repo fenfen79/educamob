@@ -1,4 +1,4 @@
-:HL["/apps/mobme/_next/static/chunks/0qhnbqrh97x1_.css","style"]
+:HL["/apps/mobme/_next/static/chunks/40zvt2yhxt375.css","style"]
 :HC["/",""]
 :HL["/apps/mobme/_next/static/chunks/3c4-ozf1dxam2.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"Ba4EZyMvBZccUXXUgo0e9"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"wgW_Snp0mhduXvNQHnFVe"}
