@@ -10,6 +10,7 @@ import os
 import time
 import asyncio
 import json
+import uuid
 from fastapi.responses import StreamingResponse, Response
 from openai import AsyncOpenAI
 
@@ -31,6 +32,22 @@ if os.path.exists(".env.lab"):
 elif os.path.exists("services/mobme-api/.env.lab"):
     load_dotenv("services/mobme-api/.env.lab", override=True)
 
+# Detecção Automática e Segura de Ambiente (Safe-by-Default):
+IS_PRODUCTION_SERVER = (
+    os.getenv("IS_PRODUCTION_SERVER", "").lower() == "true"
+    or os.getenv("ENVIRONMENT", "").lower() == "production"
+)
+IS_LAB_ENV = not IS_PRODUCTION_SERVER or os.getenv("ENVIRONMENT") == "lab" or os.path.exists(".env.lab") or os.path.exists("services/mobme-api/.env.lab")
+
+if IS_LAB_ENV:
+    print("=================================================================")
+    print("🧪 [STATUS: AMBIENTE DE TESTES / LAB ATIVO - SAFE-BY-DEFAULT]")
+    print("   Protegido contra vazamento em producao.")
+    print("=================================================================")
+else:
+    print("🟢 [STATUS: SERVIDOR DE PRODUÇÃO ATIVO NA NUVEM]")
+
+
 SUPABASE_URL = os.getenv("SUPABASE_URL", "")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY", "")
 
@@ -47,7 +64,7 @@ from supabase.client import Client, create_client
 supabase_sync_client: Client = None
 
 AVAILABLE_SUBJECTS_CONTEXT = ""
-AVAILABLE_SUBJECTS_LIST = ["Ciências", "Matemática", "Física", "Química", "História", "Geografia", "Cálculo 1"]
+AVAILABLE_SUBJECTS_LIST = ["Ciências", "Matemática", "Física", "Química", "História", "Geografia", "Cálculo 1", "Língua Portuguesa"]
 
 SUBJECT_DISPLAY_MAP = {
     "ciencias": "Ciências",
@@ -60,6 +77,7 @@ SUBJECT_DISPLAY_MAP = {
     "historia": "História",
     "geografia": "Geografia",
     "portugues": "Língua Portuguesa",
+    "lingua-portuguesa": "Língua Portuguesa",
     "literatura": "Literatura",
     "ingles": "Inglês",
     "filosofia": "Filosofia",
@@ -88,12 +106,14 @@ async def load_available_subjects():
                 dynamic_supported.add(norm_disp)
                 if "calculo" in norm_disp:
                     dynamic_supported.update({"calculo", "cálculo", "calculo 1", "cálculo 1"})
+                if "portuguesa" in norm_disp or "portugues" in norm_disp:
+                    dynamic_supported.update({"portugues", "português", "literatura", "redacao", "redação", "gramatica", "gramática", "lingua portuguesa", "língua portuguesa", "lingua-portuguesa"})
             AVAILABLE_SUBJECTS_LIST = display_subjects
             SUPPORTED_DISCIPLINES = dynamic_supported
             NON_SUPPORTED_DISCIPLINES.difference_update(SUPPORTED_DISCIPLINES)
             ALL_DISCIPLINES = SUPPORTED_DISCIPLINES | NON_SUPPORTED_DISCIPLINES
             subjects_str = ", ".join(AVAILABLE_SUBJECTS_LIST)
-            AVAILABLE_SUBJECTS_CONTEXT = f"\n\n--- MATÉRIAS DISPONÍVEIS NO MATERIAL DE CONSULTA ---\nAtualmente, a sua base de dados possui conteúdo focado estritamente nestas matérias: {subjects_str}. Você SÓ TEM PERMISSÃO para ensinar conteúdos dessas matérias. Caso o aluno solicite ajuda em qualquer matéria não listada (ex: Biologia, Literatura, Língua Portuguesa, Filosofia, Sociologia, Inglês, Artes), você DEVE recusar educadamente explicando que a equipe de professores da Educamob ainda está preparando os materiais dessa disciplina e que, por enquanto, você só pode ajudar com as matérias disponíveis ({subjects_str})."
+            AVAILABLE_SUBJECTS_CONTEXT = f"\n\n--- MATÉRIAS DISPONÍVEIS NO MATERIAL DE CONSULTA ---\nAtualmente, a sua base de dados possui conteúdo focado estritamente nestas matérias: {subjects_str}. Você SÓ TEM PERMISSÃO para ensinar conteúdos dessas matérias. Caso o aluno solicite ajuda em qualquer matéria não listada (ex: Biologia, Filosofia, Sociologia, Inglês, Espanhol, Artes), você DEVE recusar educadamente explicando que a equipe de professores da Educamob ainda está preparando os materiais dessa disciplina e que, por enquanto, você só pode ajudar com as matérias disponíveis ({subjects_str})."
         else:
             AVAILABLE_SUBJECTS_CONTEXT = ""
         print(f"Matérias disponíveis atualizadas dinamicamente na memória da API: {AVAILABLE_SUBJECTS_LIST}")
@@ -158,9 +178,20 @@ class ChatRequest(BaseModel):
 class TitleUpdate(BaseModel):
     title: str
 
+class FeedbackReport(BaseModel):
+    type: str  # "bug" ou "suggestion"
+    category: str = "geral"
+    description: str
+    user_id: str | None = None
+    user_name: str | None = None
+    user_email: str | None = None
+    session_id: str | None = None
+    last_message: str | None = None
+    metadata: dict | None = None
+
 import os
 
-# System Prompt Oficial de Produção: v2.0.0 (Codinome: "Mob.me 6 Trilhas")
+# System Prompt Oficial de Produção: v2.0.0 (Codinome: "Mob.me 7 Trilhas")
 PROMPT_FILE = "services/mobme-api/prompts/prompt_prod.md"
 if not os.path.exists(PROMPT_FILE):
     PROMPT_FILE = "prompts/prompt_prod.md"
@@ -203,12 +234,14 @@ GREETINGS = {"oi", "ola", "olá", "bom dia", "boa tarde", "boa noite", "tudo bem
 SUPPORTED_DISCIPLINES = {
     "ciencias", "ciências", "matematica", "matemática", "fisica", "física", 
     "quimica", "química", "historia", "história", "geografia",
-    "calculo", "cálculo", "calculo 1", "cálculo 1", "calculo-1"
+    "calculo", "cálculo", "calculo 1", "cálculo 1", "calculo-1",
+    "lingua-portuguesa", "lingua portuguesa", "língua portuguesa",
+    "portugues", "português", "literatura", "redacao", "redação", "gramatica", "gramática"
 }
 
 NON_SUPPORTED_DISCIPLINES = {
     "biologia", "filosofia", "sociologia", 
-    "portugues", "português", "literatura", "ingles", "inglês", "espanhol", "artes", "redacao", "redação", "gramatica", "gramática"
+    "ingles", "inglês", "espanhol", "artes"
 }
 
 ALL_DISCIPLINES = SUPPORTED_DISCIPLINES | NON_SUPPORTED_DISCIPLINES
@@ -763,11 +796,19 @@ LEGACY_MODE_ALIASES = {
     "modo_treino": "modo_praticar",
     "modo_desafio": "modo_praticar",
     "modo_exercicios": "modo_praticar",
+    "modo_lista_exercicios": "modo_praticar",
     "modo_flashcards": "modo_revisar",
     "modo_memorex": "modo_resumir",
     "modo_resumo": "modo_resumir",
     "modo_socratico": "modo_menu",
-    "modo_sos": "modo_resolve_questao",
+    "modo_sos": "modo_tira_duvidas",
+    "modo_resolve_questao": "modo_tira_duvidas",
+    "modo_estudo_dirigido": "modo_aprender",
+    "modo_leia_e_aprenda": "modo_aprender",
+    "modo_leia_aprenda": "modo_aprender",
+    "modo_tira_duvidas": "modo_tira_duvidas",
+    "modo_tirar_duvidas": "modo_tira_duvidas",
+    "modo_duvidas": "modo_tira_duvidas",
     "modo_conclusao": "modo_conclusao",
 }
 
@@ -813,7 +854,7 @@ def get_or_init_session_state(session_id: str, db_history: list) -> dict:
                 continue
             if cl in ALL_DISCIPLINES:
                 continue
-            if cl in {"1", "2", "3", "4", "5", "6", "7", "8"} or "bora ler" in cl or "aprender" in cl:
+            if cl in {"1", "2", "3", "4", "5", "6", "7", "8"} or any(w in cl for w in ["bora ler", "aprender", "leia e aprenda", "leia aprenda", "estudo dirigido", "tira duvidas", "tira dúvidas"]):
                 continue
             if len(content) < 40 and cl not in ALL_DISCIPLINES and cl not in INVALID_TOPIC_WORDS and not state["topic"]:
                 # Não atribui tema cegamente se não for validado
@@ -1032,6 +1073,32 @@ SEMANTIC_TOPIC_CACHE["funcoes matematica"] = SEMANTIC_TOPIC_CACHE["funcoes matem
 SEMANTIC_TOPIC_CACHE["funcao matematica"] = SEMANTIC_TOPIC_CACHE["funcoes matematicas"]
 SEMANTIC_TOPIC_CACHE["funcoes|quimica"] = SEMANTIC_TOPIC_CACHE["funcoes quimicas"]
 
+# Mapeamento Canônico: Sexualidade e Reprodução Humana -> Ciências (8º Ano BNCC EF08CI07-EF08CI11)
+SEMANTIC_TOPIC_CACHE["reproducao e sexualidade humana"] = {
+    "desambiguar": True,
+    "fora_do_escopo": False,
+    "motivo": "REGRA_2",
+    "disciplina_identificada": "Ciências",
+    "tema_raiz": "Reprodução e Sexualidade Humana",
+    "opcoes": [
+        "**Sistema Reprodutor e Fecundação** (Anatomia feminina e masculina, gametas e fecundação)",
+        "**Métodos Contraceptivos e ISTs** (Prevenção à gravidez precoce e infecções sexualmente transmissíveis)",
+        "**Puberdade e Hormônios** (Transformações corporais, ciclo menstrual e ação hormonal)"
+    ],
+    "clean_names": [
+        "Sistema Reprodutor e Fecundação",
+        "Métodos Contraceptivos e ISTs",
+        "Puberdade e Hormônios"
+    ]
+}
+SEMANTIC_TOPIC_CACHE["sexo"] = SEMANTIC_TOPIC_CACHE["reproducao e sexualidade humana"]
+SEMANTIC_TOPIC_CACHE["sexualidade"] = SEMANTIC_TOPIC_CACHE["reproducao e sexualidade humana"]
+SEMANTIC_TOPIC_CACHE["reproducao humana"] = SEMANTIC_TOPIC_CACHE["reproducao e sexualidade humana"]
+SEMANTIC_TOPIC_CACHE["sistema reprodutor"] = SEMANTIC_TOPIC_CACHE["reproducao e sexualidade humana"]
+SEMANTIC_TOPIC_CACHE["sistema reprodutor e fecundacao"] = {"desambiguar": False, "fora_do_escopo": False, "motivo": "ESPECIFICO", "disciplina_identificada": "Ciências", "tema_formatado": "Sistema Reprodutor e Fecundação"}
+SEMANTIC_TOPIC_CACHE["metodos contraceptivos e ists"] = {"desambiguar": False, "fora_do_escopo": False, "motivo": "ESPECIFICO", "disciplina_identificada": "Ciências", "tema_formatado": "Métodos Contraceptivos e ISTs"}
+SEMANTIC_TOPIC_CACHE["puberdade e hormonios"] = {"desambiguar": False, "fora_do_escopo": False, "motivo": "ESPECIFICO", "disciplina_identificada": "Ciências", "tema_formatado": "Puberdade e Hormônios"}
+
 async def analyze_topic_curricular_rules(term: str, current_discipline: str = None) -> dict:
     """
     ÁRBITRO CURRICULAR SEMÂNTICO (Solução 1 - LLM-First):
@@ -1067,20 +1134,33 @@ async def analyze_topic_curricular_rules(term: str, current_discipline: str = No
 
 Sua missão é inspecionar o assunto de estudo solicitado pelo estudante e verificar o enquadramento curricular:
 
-1. FORA DO ESCOPO (Disciplinas ainda não presentes na lista [{active_subjects_str}]):
-Se o estudante pedir uma disciplina ou tema que NÃO pertença a [{active_subjects_str}] (ex: Língua Portuguesa, Gramática, Literatura, Redação, Filosofia, Sociologia, Inglês, Espanhol, Artes, ou Biologia de Ensino Médio caso "Biologia" não esteja listada acima):
-- Nota importante 1: Tópicos de Ciências do Ensino Fundamental (como células, seres vivos, corpo humano, ecologia básica, astronomia e matéria/energia do 5º ao 9º ano) pertencem à disciplina "Ciências" (dentro do escopo). Porém, se o estudante pedir explicitamente a matéria "Biologia" ou um tema exclusivo de Biologia avançada não coberto em Ciências (e "Biologia" não estiver na lista ativa), classifique como fora do escopo!
-- Nota importante 2: As disciplinas "História" e "Geografia" FAZEM PARTE do acervo ativo da Educamob (dentro do escopo)! Todo tema de História (Antiguidade, Idade Média, Brasil Colonial, Império, República, Revoluções, Guerras Mundiais, Guerra Fria, etc.) pertence a "História" e todo tema de Geografia (Cartografia, Clima, Relevo, Urbanização, População, Geopolítica, Globalização, etc.) pertence a "Geografia".
+1. FORA DO ESCOPO:
+A) TEMAS NÃO ESCOLARES / ENTRETENIMENTO (Futebol, Campeonatos, Esportes profissionais, Celebridades, Games, Política partidária atual, amenidades, conversas cotidianas):
+Se o estudante solicitar amenidades, resultados ou notícias de esportes (ex: "campeonato brasileiro", "qual a classificação atual", "escalação do time", "quem ganhou o jogo", "BBB", "games", "fofoca"):
 Retorne ESTRITAMENTE em formato JSON:
 {{
   "desambiguar": false,
   "fora_do_escopo": true,
-  "disciplina_identificada": "Nome real da disciplina fora do escopo (ex: Língua Portuguesa, Filosofia, Biologia, etc.)",
+  "disciplina_identificada": "Não Escolar",
+  "tema_formatado": "Tema solicitado"
+}}
+
+B) DISCIPLINAS ESCOLARES NÃO HOMOLOGADAS (ex: Filosofia, Sociologia, Inglês, Espanhol, Artes, ou temas exclusivos de Biologia do Ensino Médio):
+Se pedir uma matéria da grade escolar que não pertença a [{active_subjects_str}], retorne o nome real dessa matéria (ex: "Filosofia", "Sociologia", "Inglês", "Espanhol", "Artes").
+ATENÇÃO CRÍTICA: NUNCA atribua "Biologia" nem qualquer disciplina científica a perguntas de esportes, tabelas de campeonato ou conversas informais!
+- Nota de Ciências: Tópicos de Ciências do Ensino Fundamental (anatomia humana, reprodução e sexualidade humana, puberdade, métodos contraceptivos, células, seres vivos, ecologia, astronomia, matéria e energia do 5º ao 9º ano) pertencem à disciplina "Ciências" (DENTRO DO ESCOPO)!
+- Nota de História e Geografia: "História" e "Geografia" FAZEM PARTE do acervo ativo da Educamob (DENTRO DO ESCOPO)!
+- Nota de Língua Portuguesa: "Língua Portuguesa" FAZ PARTE do acervo ativo da Educamob (DENTRO DO ESCOPO)! Todo tema de Língua Portuguesa, Gramática, Morfossintaxe, Concordância, Regência, Pontuação, Produção Textual, Redação ENEM, Gêneros Textuais, Figuras de Linguagem e Literatura pertence a "Língua Portuguesa".
+Retorne ESTRITAMENTE em formato JSON:
+{{
+  "desambiguar": false,
+  "fora_do_escopo": true,
+  "disciplina_identificada": "Nome real da disciplina não homologada",
   "tema_formatado": "Nome do assunto"
 }}
 
 2. DENTRO DO ESCOPO ({active_subjects_str}):
-Verifique se ativa o PROTOCOLO DE DESAMBIGUAÇÃO antes de apresentar o Menu de Trilhas de 6 opções:
+Verifique se ativa o PROTOCOLO DE DESAMBIGUAÇÃO antes de apresentar o Menu de Trilhas de 7 opções:
 - REGRA 1 (Interdisciplinar): O termo abrange disciplinas escolares diferentes da Educação Básica (ex: 'Bernoulli' envolve Física e Matemática; 'Newton' isolado envolve Física e Matemática; 'Funções' envolve Matemática e Química; 'Ondas' envolve Física e Ciências).
   * REGRA DE OURO SOBRE CÁLCULO 1: 'Cálculo 1' só deve ser considerado na REGRA 1 se o estudante usar termos exclusivos do ensino superior (ex: Limites, Derivadas, Integrais, Teorema Fundamental do Cálculo). Tópicos clássicos de Física, Química ou Matemática da Educação Básica (como Leis de Newton, Segunda Lei de Newton, Cinemática, Termodinâmica, Óptica) NUNCA colidem com Cálculo 1 na REGRA 1 e pertencem estritamente à sua disciplina escolar (ex: Física).
 - REGRA 2 (Densidade Curricular): O tema abrange 3 OU MAIS capítulos diferentes de livro didático da BNCC, ainda que sejam da MESMA matéria (ex: 'Funções Químicas' ou 'Funções Inorgânicas' abrange Ácidos/Bases, Sais e Óxidos na Química; 'Cinemática' abrange MU, MUV, Queda Livre e Lançamentos na Física; 'Eletromagnetismo' abrange Campo, Força Magnética e Indução; 'Reações Orgânicas' abrange Substituição, Adição e Eliminação).
@@ -1166,7 +1246,38 @@ async def resolve_active_mode_and_topic(
     extracted_text: str = ""
 ):
     state = get_or_init_session_state(session_id, db_history)
-    msg_clean = current_message.strip().lower()
+    # 0. Sanitização Universal de Emojis e Símbolos Decorativos no Input
+    # Transforma "2. Praticar📝" em "2. praticar", "3. Flashcards 🃏" em "3. flashcards"
+    msg_raw = current_message.strip().lower()
+    msg_clean = re.sub(r'[\U00010000-\U0010ffff\u2600-\u27ff\u2b50\ufe0f\u20e3]', '', msg_raw).strip()
+    msg_clean = re.sub(r'\s+', ' ', msg_clean)
+
+    # 0.0 Detecção de Menu Recém-Exibido no Histórico:
+    # Se a última mensagem da IA continha as opções do menu (ex: ao concluir a teoria),
+    # o backend força a quebra de estudo ativo para que o aluno possa escolher a próxima trilha livremente.
+    last_ai_had_menu = False
+    for m in reversed(db_history):
+        if m.get("role") == "ai":
+            c_last = m.get("content", "")
+            has_prompt = any(p in c_last for p in [
+                "Como você prefere começar?", 
+                "O que você gostaria de fazer agora?", 
+                "Qual caminho você prefere agora?",
+                "Qual caminho você prefere seguir?",
+                "Qual das opções você prefere?",
+                "O que prefere fazer agora?",
+                "Como você gostaria de continuar?",
+                "Menu de Trilhas",
+                "menu de trilhas"
+            ])
+            has_options = any(o in c_last for o in [
+                "1. Aprender", "2. Praticar", "1. Tirar Dúvidas", "2. Leia e Aprenda", "2. Estudo Dirigido", 
+                "1. Leia e Aprenda", "1. Estudo Dirigido", "3. Flashcards", "4. Flashcards", "3. Resumo", "5. Lista de Exercícios",
+                "1️⃣", "2️⃣"
+            ])
+            if (has_prompt and has_options) or ("1. Tirar Dúvidas" in c_last and ("2. Leia e Aprenda" in c_last or "2. Estudo Dirigido" in c_last)) or ("1. Aprender" in c_last and "2. Praticar" in c_last):
+                last_ai_had_menu = True
+            break
     
     # 0.0 Retomada de trilha pausada por envio prévio de imagem
     if state.get("paused_track") and not has_image:
@@ -1192,14 +1303,38 @@ async def resolve_active_mode_and_topic(
                     state["topic"] = analysis.get("tema_formatado") or first_line or "Questão Enviada"
                 except Exception:
                     state["topic"] = "Questão Enviada"
-            state["current_mode"] = "modo_resolve_questao"
+            state["current_mode"] = "modo_tira_duvidas"
             state["pending_track"] = None
             save_session_states()
-            return "modo_resolve_questao", state.get("topic"), state
+            return "modo_tira_duvidas", state.get("topic"), state
 
-    # 0.1 Tratamento Híbrido Inteligente para envio de imagem em qualquer momento
+    # 0.08 Mapeamento Curricular Imediato: Sexualidade e Reprodução Humana -> Ciências (8º Ano BNCC EF08CI07-EF08CI11)
+    if not state.get("topic") and msg_clean in {"sexo", "sexualidade", "reproducao humana", "reprodução humana", "sistema reprodutor", "reproducao", "reprodução"}:
+        state["discipline"] = "Ciências"
+        state["pending_disambiguation"] = "Reprodução e Sexualidade Humana"
+        state["disambiguation_options"] = [
+            "**Sistema Reprodutor e Fecundação** (Anatomia feminina e masculina, gametas e fecundação)",
+            "**Métodos Contraceptivos e ISTs** (Prevenção à gravidez precoce e infecções sexualmente transmissíveis)",
+            "**Puberdade e Hormônios** (Transformações corporais, ciclo menstrual e ação hormonal)"
+        ]
+        state["clean_names"] = [
+            "Sistema Reprodutor e Fecundação",
+            "Métodos Contraceptivos e ISTs",
+            "Puberdade e Hormônios"
+        ]
+        state["disambiguation_depth"] = 1
+        state["disambiguation_reason"] = "REGRA_2"
+        state["current_mode"] = "modo_acolhida"
+        save_session_states()
+        return "modo_acolhida", None, state
+
+    # 0.1 Tratamento Híbrido Inteligente para envio de imagem em qualquer momento (Trilha 1 unificada: Tirar Dúvidas (texto/imagem))
     if has_image:
         current_active = state.get("current_mode", "modo_acolhida")
+        if current_active in {"modo_tira_duvidas", "modo_resolve_questao"}:
+            state["current_mode"] = "modo_tira_duvidas"
+            save_session_states()
+            return "modo_tira_duvidas", state.get("topic"), state
         
         # Se estava em modo ativo de estudo (modo_praticar, modo_aprender, modo_revisar):
         if current_active in {"modo_praticar", "modo_aprender", "modo_revisar"}:
@@ -1208,11 +1343,11 @@ async def resolve_active_mode_and_topic(
                 "topic": state.get("topic"),
                 "discipline": state.get("discipline")
             }
-            state["current_mode"] = "modo_resolve_questao"
+            state["current_mode"] = "modo_tira_duvidas"
             state["from_image_interruption"] = True
             state["pending_track"] = None
             save_session_states()
-            return "modo_resolve_questao", state.get("topic"), state
+            return "modo_tira_duvidas", state.get("topic"), state
             
         # Se estava fora de estudo ativo (modo_menu, modo_acolhida, modo_novo_assunto, modo_conclusao):
         else:
@@ -1228,16 +1363,16 @@ async def resolve_active_mode_and_topic(
                 except Exception:
                     state["topic"] = clean_snippet or "Exercício da Imagem"
             
-            state["current_mode"] = "modo_resolve_questao"
+            state["current_mode"] = "modo_tira_duvidas"
             state["pending_disambiguation"] = None
             state["disambiguation_options"] = None
             state["clean_names"] = None
             state["pending_track"] = None
             save_session_states()
-            return "modo_resolve_questao", state.get("topic"), state
+            return "modo_tira_duvidas", state.get("topic"), state
 
     # 0.2 Interrupção/Pausa em trilhas em andamento (Microciclos, Praticar, Revisar)
-    if state.get("current_mode") in {"modo_aprender", "modo_praticar", "modo_revisar"} and any(w in msg_clean for w in PAUSE_TRIGGERS):
+    if state.get("current_mode") in {"modo_aprender", "modo_praticar", "modo_revisar", "modo_tira_duvidas"} and any(w in msg_clean for w in PAUSE_TRIGGERS):
         # NÃO fecha com relatório parcial. Mantém no modo para a IA acolher a pausa e oferecer o Menu de Trilhas
         return state["current_mode"], state["topic"], state
 
@@ -1271,7 +1406,7 @@ async def resolve_active_mode_and_topic(
         for idx in range(min(5, len(clean_names))):
             num_str = str(idx + 1)
             emoji_str = f"{idx + 1}\ufe0f\u20e3"
-            if msg_clean in {num_str, emoji_str} or msg_clean == f"{num_str}." or (msg_clean.startswith(f"{num_str}.") and not any(w in msg_clean for w in ["aprender", "praticar", "flashcards", "resumo", "finalizar"])):
+            if msg_clean in {num_str, emoji_str} or msg_clean == f"{num_str}." or (msg_clean.startswith(f"{num_str}.") and not any(w in msg_clean for w in ["leia e aprenda", "leia aprenda", "estudo dirigido", "aprender", "praticar", "flashcards", "resumo", "enviar questao", "tira duvidas", "tira dúvidas", "finalizar"])):
                 selected_topic = clean_names[idx]
                 break
         
@@ -1325,6 +1460,26 @@ async def resolve_active_mode_and_topic(
 
         # 1.5.3 Processamento do tema selecionado com DESAMBIGUAÇÃO EM CASCATA (Teto Máximo = 2 níveis)
         if selected_topic:
+            # Blindagem de Acolhida: bloqueia na largada tópicos de disciplinas não suportadas mesmo sem citar o nome da matéria
+            _topic_lower = strip_accents(selected_topic.lower())
+            _non_supported_cues = {
+                "biologia": ["citologia", "genetica", "fotossintese", "mitose", "meiose", "angiospermas", "pteridofitas", "briofitas", "gimnospermas", "dna", "rna", "cladograma"],
+                "filosofia": ["empirismo", "racionalismo", "imperativo categorico", "sartre", "nietzsche", "maieutica", "alegoria da caverna"],
+                "sociologia": ["durkheim", "weber", "karl marx", "estratificacao social", "fato social"]
+            }
+            for disc_key, cues in _non_supported_cues.items():
+                if any(c in _topic_lower for c in cues) or any(c in msg_clean for c in cues):
+                    state["topic"] = None
+                    state["pending_disambiguation"] = None
+                    state["disambiguation_options"] = None
+                    state["clean_names"] = None
+                    state["disambiguation_depth"] = 0
+                    state["disambiguation_reason"] = None
+                    state["discipline"] = None
+                    state["out_of_scope_discipline"] = SUBJECT_DISPLAY_MAP.get(disc_key, disc_key.title())
+                    state["current_mode"] = "modo_acolhida"
+                    save_session_states()
+                    return "modo_acolhida", None, state
             current_depth = state.get("disambiguation_depth", 1)
             prev_reason = state.get("disambiguation_reason", "REGRA_1")
             had_discipline_in_level1 = bool(state.get("discipline"))
@@ -1339,7 +1494,7 @@ async def resolve_active_mode_and_topic(
 
             # Guardrail contra temas fora do escopo selecionados
             norm_non_supported = {strip_accents(d) for d in NON_SUPPORTED_DISCIPLINES}
-            if norm_disc and norm_disc in norm_non_supported:
+            if norm_disc and (norm_disc in norm_non_supported or norm_disc in {"nao escolar", "entretenimento", "geral"}):
                 state["topic"] = None
                 state["pending_disambiguation"] = None
                 state["disambiguation_options"] = None
@@ -1347,7 +1502,19 @@ async def resolve_active_mode_and_topic(
                 state["disambiguation_depth"] = 0
                 state["disambiguation_reason"] = None
                 state["discipline"] = None
-                state["out_of_scope_discipline"] = SUBJECT_DISPLAY_MAP.get(norm_disc, disc_id)
+                state["out_of_scope_discipline"] = "Não Escolar" if norm_disc in {"nao escolar", "entretenimento", "geral"} else SUBJECT_DISPLAY_MAP.get(norm_disc, disc_id)
+                state["current_mode"] = "modo_acolhida"
+                save_session_states()
+                return "modo_acolhida", None, state
+            elif analysis.get("fora_do_escopo"):
+                state["topic"] = None
+                state["pending_disambiguation"] = None
+                state["disambiguation_options"] = None
+                state["clean_names"] = None
+                state["disambiguation_depth"] = 0
+                state["disambiguation_reason"] = None
+                state["discipline"] = None
+                state["out_of_scope_discipline"] = "Não Escolar"
                 state["current_mode"] = "modo_acolhida"
                 save_session_states()
                 return "modo_acolhida", None, state
@@ -1385,19 +1552,19 @@ async def resolve_active_mode_and_topic(
                 save_session_states()
                 return "modo_menu", state["topic"], state
         else:
-            # Verifica se o estudante clicou em uma trilha do menu (ex: "4. Resumo", "praticar") durante a desambiguação
+            # Verifica se o estudante clicou em uma trilha do menu (ex: "3. Resumo", "lista de exercicios") durante a desambiguação
             pre_track = None
-            if msg_clean.startswith("1️⃣") or msg_clean.startswith("1.") or msg_clean in {"aprender", "microciclos", "bora ler"}:
+            if msg_clean.startswith("1️⃣") or msg_clean.startswith("1.") or any(w in msg_clean for w in ["tirar duvidas", "tirar dúvidas", "tira duvidas", "tira dúvidas", "enviar questao", "enviar questão", "resolve questao", "resolve questão", "resolver questao", "resolver questão"]):
+                pre_track = "modo_tira_duvidas"
+            elif msg_clean.startswith("2️⃣") or msg_clean.startswith("2.") or any(w in msg_clean for w in ["leia e aprenda", "leia aprenda", "estudo dirigido", "aprender", "microciclos", "bora ler", "teoria"]):
                 pre_track = "modo_aprender"
-            elif msg_clean.startswith("2️⃣") or msg_clean.startswith("2.") or msg_clean in {"praticar", "exercicios", "exercícios", "treino", "desafio"}:
-                pre_track = "modo_praticar"
-            elif msg_clean.startswith("3️⃣") or msg_clean.startswith("3.") or msg_clean in {"revisar", "flashcards", "flashcard"}:
-                pre_track = "modo_revisar"
-            elif msg_clean.startswith("4️⃣") or msg_clean.startswith("4.") or msg_clean in {"resumir", "memorex", "resumo"}:
+            elif msg_clean.startswith("3️⃣") or msg_clean.startswith("3.") or any(w in msg_clean for w in ["resumir", "memorex", "resumo"]):
                 pre_track = "modo_resumir"
-            elif msg_clean.startswith("5️⃣") or msg_clean.startswith("5.") or "enviar questao" in msg_clean or "enviar questão" in msg_clean or "resolve questao" in msg_clean or "resolve questão" in msg_clean or "resolver questao" in msg_clean or "resolver questão" in msg_clean:
-                pre_track = "modo_resolve_questao"
-            elif msg_clean.startswith("6️⃣") or msg_clean.startswith("6.") or msg_clean in {"finalizar", "encerrar"}:
+            elif msg_clean.startswith("4️⃣") or msg_clean.startswith("4.") or any(w in msg_clean for w in ["revisar", "flashcards", "flashcard"]):
+                pre_track = "modo_revisar"
+            elif msg_clean.startswith("5️⃣") or msg_clean.startswith("5.") or any(w in msg_clean for w in ["lista de exercicios", "lista de exercícios", "praticar", "exercicios", "exercícios", "treino", "desafio"]):
+                pre_track = "modo_praticar"
+            elif msg_clean.startswith("6️⃣") or msg_clean.startswith("6.") or msg_clean.startswith("7️⃣") or msg_clean.startswith("7.") or any(w in msg_clean for w in ["finalizar", "encerrar", "sair", "tchau"]):
                 pre_track = "modo_conclusao"
 
             if pre_track:
@@ -1472,10 +1639,17 @@ async def resolve_active_mode_and_topic(
             return "modo_acolhida", None, state
 
     # 4. Seleção do Menu Canônico de 6 Trilhas
+    # 1. Tirar Dúvidas (texto/imagem) -> modo_tira_duvidas
+    # 2. Leia e Aprenda               -> modo_aprender
+    # 3. Resumo                       -> modo_resumir
+    # 4. Flashcards                   -> modo_revisar
+    # 5. Lista de Exercícios          -> modo_praticar
+    # 6. Finalizar                    -> modo_conclusao
     target_mode = None
     is_short_choice = len(msg_clean) <= 75
     current_active_mode = state.get("current_mode")
-    in_active_study = current_active_mode in {"modo_aprender", "modo_praticar", "modo_revisar", "modo_resolve_questao"}
+    # Se a última mensagem exibiu o menu, o aluno NÃO está mais em meio a um quiz/etapa ativa
+    in_active_study = (current_active_mode in {"modo_aprender", "modo_praticar", "modo_revisar", "modo_resolve_questao", "modo_tira_duvidas"}) and not last_ai_had_menu
 
     # 4.1. Retorno explícito ao Menu Canônico de Trilhas
     if is_short_choice and msg_clean in {"menu", "ver menu", "voltar", "voltar menu", "mudar trilha", "mudar de trilha", "trilhas", "menu de trilhas", "trocar modo", "trocar de modo", "opcoes", "opções"}:
@@ -1488,90 +1662,90 @@ async def resolve_active_mode_and_topic(
     # 4.2. Reconhecimento de escolha de trilha
     if is_short_choice:
         if in_active_study:
-            # Em modo de estudo pedagógico ativo (microciclos, questões, flashcards ou resolução de dúvidas):
+            # Em modo de estudo pedagógico ativo (Leia e Aprenda / Estudo Dirigido, Lista de Exercícios, Flashcards ou Tirar Dúvidas):
             # Dígitos numéricos isolados (1, 2, 3, 4, 5, 6), letras (a, b, c, d, e) e valores de cálculo
             # são SEMPRE respostas do estudante às perguntas e NÃO escolhas de menu.
             # Apenas comandos ou nomes explícitos de trilha trocam de modo.
-            if (
-                msg_clean in {"1️⃣", "1️⃣ aprender", "1. aprender", "aprender", "aprender microciclos", "modo aprender", "bora ler", "teoria", "quero teoria", "ir para teoria", "ir pra teoria", "sem flashcards, teoria", "sem flash cards, teoria", "sem flashcards", "sem flash cards"}
-                or msg_clean.startswith("1. aprender")
-                or msg_clean.startswith("1️⃣ aprender")
-                or "quero aprender" in msg_clean
-                or ("teoria" in msg_clean and not any(w in msg_clean for w in ["questao", "questão", "exercicio", "exercício"]))
-                or ("explicacao" in msg_clean or "explicação" in msg_clean)
-            ):
-                target_mode = "modo_aprender"
-            elif msg_clean in {"2️⃣", "2️⃣ praticar", "2. praticar", "praticar"} or "quero praticar" in msg_clean or "modo praticar" in msg_clean or "fazer exercicios" in msg_clean or "fazer exercícios" in msg_clean or "lista de exercicios" in msg_clean or "lista de exercícios" in msg_clean:
-                target_mode = "modo_praticar"
-            elif msg_clean in {"3️⃣", "3️⃣ flashcards", "3️⃣ revisar", "3. flashcards", "flashcards"} or "quero flashcards" in msg_clean or "modo flashcards" in msg_clean or "quero revisar" in msg_clean or "modo revisar" in msg_clean or "flashcards" in msg_clean or "ver flashcards" in msg_clean:
+            if any(w in msg_clean for w in ["flashcard", "flashcards", "cartao", "cartão", "cartoes", "cartões", "revisar", "revisao", "revisão"]) or msg_clean in {"4️⃣", "4. flashcards", "4️⃣ flashcards", "3. flashcards", "3️⃣ flashcards"}:
                 target_mode = "modo_revisar"
-            elif msg_clean in {"4️⃣", "4️⃣ resumo", "4️⃣ resumir", "4. resumo", "resumo"} or "quero resumo" in msg_clean or "quero resumir" in msg_clean or "resumir memorex" in msg_clean or "modo resumir" in msg_clean or "ver memorex" in msg_clean or "fazer resumo" in msg_clean:
+            elif any(w in msg_clean for w in ["resumo", "resumir", "memorex", "sintese", "síntese"]) or msg_clean in {"3️⃣", "3. resumo", "3️⃣ resumo", "4. resumo", "4️⃣ resumo"}:
                 target_mode = "modo_resumir"
-            elif msg_clean in {"5️⃣", "5️⃣ enviar questão", "5️⃣ enviar questao", "5. enviar questão", "5. enviar questao", "5️⃣ resolve questao", "5️⃣ resolve questão"} or "enviar questao" in msg_clean or "enviar questão" in msg_clean or "resolve questao" in msg_clean or "resolve questão" in msg_clean or "resolver questao" in msg_clean or "resolver questão" in msg_clean or "tirar duvida de questao" in msg_clean or "tirar dúvida de questão" in msg_clean:
-                target_mode = "modo_resolve_questao"
-            elif msg_clean in {"6️⃣", "6️⃣ finalizar", "6. finalizar", "8️⃣"} or msg_clean in {"finalizar", "encerrar", "sair", "tchau", "concluir a sessao", "concluir a sessão", "encerrar sessao", "encerrar sessão"}:
+            elif (
+                any(w in msg_clean for w in ["praticar", "exercicio", "exercício", "exercicios", "exercícios", "questoes", "questões", "treino"])
+                and not any(w in msg_clean for w in ["enviar questao", "enviar questão", "resolve questao", "resolve questão"])
+            ) or msg_clean in {"5️⃣", "5. praticar", "5️⃣ praticar", "2. praticar", "2️⃣ praticar", "5. lista de exercicios", "5. lista de exercícios"}:
+                target_mode = "modo_praticar"
+            elif any(w in msg_clean for w in ["leia e aprenda", "leia aprenda", "estudo dirigido", "aprender", "teoria", "microciclo", "bora ler"]) or msg_clean in {"2️⃣", "2. leia e aprenda", "2️⃣ leia e aprenda", "2. estudo dirigido", "2️⃣ estudo dirigido", "1. estudo dirigido", "1️⃣ estudo dirigido", "1. aprender", "2. aprender"}:
+                target_mode = "modo_aprender"
+            elif any(w in msg_clean for w in ["tirar duvida", "tirar dúvida", "tirar duvidas", "tirar dúvidas", "tira duvida", "tira dúvida", "tira duvidas", "tira dúvidas", "enviar questao", "enviar questão", "resolve questao", "resolve questão"]) or msg_clean in {"1️⃣", "1. tirar duvidas", "1. tirar dúvidas", "1️⃣ tirar duvidas", "1️⃣ tirar dúvidas"}:
+                target_mode = "modo_tira_duvidas"
+            elif any(w in msg_clean for w in ["finalizar", "encerrar", "sair", "tchau", "concluir"]) or msg_clean in {"6️⃣", "6. finalizar", "6️⃣ finalizar", "7. finalizar", "7️⃣ finalizar"}:
                 target_mode = "modo_conclusao"
         else:
-            # Fora de estudo ativo (ex: em modo_menu ou modo_acolhida):
-            # Dígitos numéricos 1..6 e ordinais selecionam a respectiva trilha canônica
-            if state.get("topic"):
+            # Fora de estudo ativo (ex: em modo_menu, modo_acolhida, ou após exibição de menu):
+            # 1. Prioridade Semântica Universal: o nome textual explícito SEMPRE prevalece sobre qualquer dígito
+            if any(w in msg_clean for w in ["flashcard", "flashcards", "cartao", "cartão", "cartoes", "cartões", "revisar", "revisao", "revisão"]):
+                target_mode = "modo_revisar"
+            elif any(w in msg_clean for w in ["resumo", "resumir", "memorex", "sintese", "síntese"]):
+                target_mode = "modo_resumir"
+            elif (
+                any(w in msg_clean for w in ["praticar", "exercicio", "exercício", "exercicios", "exercícios", "questoes", "questões", "treino", "saber ate onde", "saber até onde", "o que eu sei", "o que sei", "testar", "nivelamento", "meu nivel", "meu nível", "avaliar meu"])
+                and not any(w in msg_clean for w in ["enviar questao", "enviar questão", "resolve questao", "resolve questão"])
+            ):
+                target_mode = "modo_praticar"
+            elif any(w in msg_clean for w in ["leia e aprenda", "leia aprenda", "estudo dirigido", "aprender", "teoria", "microciclo", "bora ler", "me explica"]):
+                target_mode = "modo_aprender"
+            elif any(w in msg_clean for w in ["tirar duvida", "tirar dúvida", "tirar duvidas", "tirar dúvidas", "tira duvida", "tira dúvida", "tira duvidas", "tira dúvidas", "duvida", "dúvida", "enviar questao", "enviar questão", "resolve questao", "resolve questão"]):
+                target_mode = "modo_tira_duvidas"
+            elif any(w in msg_clean for w in ["finalizar", "encerrar", "sair", "tchau", "concluir"]):
+                target_mode = "modo_conclusao"
+
+            # 2. Casamento ordinal estrito (somente se não houve intenção textual explícita concorrente)
+            if not target_mode:
                 if (
                     msg_clean in {"1", "1️⃣"}
-                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?1(?:[\.,:\s\-]|$)", msg_clean))
+                    or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?1(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("1.")
                     or msg_clean.startswith("1️⃣")
-                    or any(w in msg_clean for w in ["aprender", "microciclo", "bora ler", "teoria", "explicar", "explicacao", "explicação", "explicando", "me explica"])
                 ):
-                    target_mode = "modo_aprender"
+                    target_mode = "modo_tira_duvidas"
                 elif (
                     msg_clean in {"2", "2️⃣"}
-                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?2(?:[\.,:\s\-]|$)", msg_clean))
+                    or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?2(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("2.")
                     or msg_clean.startswith("2️⃣")
-                    or any(w in msg_clean for w in ["praticar", "exercicio", "exercício", "treino", "desafio", "questoes", "questões"])
                 ):
-                    target_mode = "modo_praticar"
+                    target_mode = "modo_aprender"
                 elif (
                     msg_clean in {"3", "3️⃣"}
-                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?3(?:[\.,:\s\-]|$)", msg_clean))
+                    or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?3(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("3.")
                     or msg_clean.startswith("3️⃣")
-                    or any(w in msg_clean for w in ["flashcard", "flashcards", "revisar", "revisao", "revisão"])
                 ):
-                    target_mode = "modo_revisar"
+                    target_mode = "modo_resumir"
                 elif (
                     msg_clean in {"4", "4️⃣"}
-                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?4(?:[\.,:\s\-]|$)", msg_clean))
+                    or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?4(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("4.")
                     or msg_clean.startswith("4️⃣")
-                    or any(w in msg_clean for w in ["resumo", "resumir", "memorex"])
                 ):
-                    target_mode = "modo_resumir"
+                    target_mode = "modo_revisar"
                 elif (
                     msg_clean in {"5", "5️⃣"}
-                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?5(?:[\.,:\s\-]|$)", msg_clean))
+                    or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?5(?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("5.")
                     or msg_clean.startswith("5️⃣")
-                    or any(w in msg_clean for w in ["enviar questao", "enviar questão", "resolve questao", "resolve questão", "resolver questao", "resolver questão", "tirar duvida", "tirar dúvida"])
                 ):
-                    target_mode = "modo_resolve_questao"
-                elif (
-                    msg_clean in {"6", "6️⃣", "8", "8️⃣"}
-                    or bool(re.match(r"^(?:op[cç][aã]o\s*)?[68](?:[\.,:\s\-]|$)", msg_clean))
-                    or msg_clean.startswith("6️⃣")
-                    or msg_clean.startswith("8️⃣")
-                    or any(w in msg_clean for w in ["finalizar", "encerrar", "sair", "tchau", "concluir"])
-                ):
-                    target_mode = "modo_conclusao"
-            else:
-                # Sem tema prévio
-                if msg_clean in {"1", "1️⃣", "aprender", "microciclos", "bora ler"} or msg_clean.startswith("1.") or msg_clean.startswith("1️⃣"):
-                    target_mode = "modo_aprender"
-                elif msg_clean in {"2", "2️⃣", "praticar", "exercicios", "exercícios", "treino", "desafio"} or msg_clean.startswith("2.") or msg_clean.startswith("2️⃣"):
                     target_mode = "modo_praticar"
-                elif msg_clean in {"3", "3️⃣", "flashcards", "flashcard", "revisar"} or msg_clean.startswith("3.") or msg_clean.startswith("3️⃣"):
-                    target_mode = "modo_revisar"
-                elif msg_clean in {"4", "4️⃣", "resumo", "resumir", "memorex"} or msg_clean.startswith("4.") or msg_clean.startswith("4️⃣"):
-                    target_mode = "modo_resumir"
-                elif msg_clean in {"5", "5️⃣", "enviar questao", "enviar questão", "resolve questao", "resolve questão", "resolver questao", "resolver questão"} or msg_clean.startswith("5.") or msg_clean.startswith("5️⃣"):
-                    target_mode = "modo_resolve_questao"
-                elif msg_clean in {"6", "6️⃣", "finalizar", "encerrar"} or msg_clean.startswith("6.") or msg_clean.startswith("6️⃣"):
-                    target_mode = "modo_conclusao"
+                elif (
+                    msg_clean in {"6", "6️⃣", "7", "7️⃣", "8", "8️⃣"}
+                    or bool(re.match(r"^(?:(?:op[cç][aã]o|n[úu]mero|n[ºo]|o|a)\s*)?[678](?:[\.,:\s\-]|$)", msg_clean))
+                    or msg_clean.startswith("6.")
+                    or msg_clean.startswith("6️⃣")
+                    or msg_clean.startswith("7.")
+                    or msg_clean.startswith("7️⃣")
+                ):
+                    target_mode = "modo_conclusao"\
 
     if target_mode:
         if target_mode == "modo_conclusao":
@@ -1617,21 +1791,26 @@ async def resolve_active_mode_and_topic(
         norm_disc = strip_accents(disc_id) if disc_id else None
         norm_supported = {strip_accents(d) for d in SUPPORTED_DISCIPLINES}
 
-        # GUARDRAIL SISTÊMICO: Disciplina fora do acervo oficial (ex: Português, Gramática, Literatura, Filosofia)
+        # GUARDRAIL SISTÊMICO: Disciplina fora do acervo oficial (ex: Filosofia, Sociologia) ou Tema Não Escolar
         norm_non_supported = {strip_accents(d) for d in NON_SUPPORTED_DISCIPLINES}
-        if norm_disc and norm_disc in norm_non_supported:
+        if norm_disc and (norm_disc in norm_non_supported or norm_disc in {"nao escolar", "entretenimento", "geral"}):
             state["topic"] = None
             state["pending_disambiguation"] = None
             state["disambiguation_options"] = None
             state["clean_names"] = None
             state["discipline"] = None
-            state["out_of_scope_discipline"] = SUBJECT_DISPLAY_MAP.get(norm_disc, disc_id)
+            state["out_of_scope_discipline"] = "Não Escolar" if norm_disc in {"nao escolar", "entretenimento", "geral"} else SUBJECT_DISPLAY_MAP.get(norm_disc, disc_id)
             state["current_mode"] = "modo_acolhida"
             save_session_states()
             return "modo_acolhida", None, state
         elif analysis.get("fora_do_escopo"):
-            # Conversa informal, saudação ou texto sem tema curricular (ex: "e ai plito")
+            # Conversa informal, amenidades ou tema não curricular
             state["topic"] = None
+            state["pending_disambiguation"] = None
+            state["disambiguation_options"] = None
+            state["clean_names"] = None
+            state["discipline"] = None
+            state["out_of_scope_discipline"] = "Não Escolar"
             state["current_mode"] = "modo_acolhida"
             save_session_states()
             return "modo_acolhida", None, state
@@ -1686,7 +1865,7 @@ async def resolve_active_mode_and_topic(
             return "modo_menu", state["topic"], state
 
     # 6. Se o tema já está definido e a mensagem é texto livre (conversa dentro da trilha)
-    if state["current_mode"] in {"modo_aprender", "modo_praticar", "modo_revisar", "modo_resumir", "modo_resolve_questao"}:
+    if state["current_mode"] in {"modo_aprender", "modo_praticar", "modo_revisar", "modo_resumir", "modo_resolve_questao", "modo_tira_duvidas"}:
         return state["current_mode"], state["topic"], state
 
     # Caso padrão
@@ -1878,6 +2057,75 @@ async def reload_subjects_endpoint():
     await load_available_subjects()
     return {"status": "success", "message": "Matérias recarregadas na memória da API."}
 
+@app.post("/api/feedback")
+async def receive_feedback(report: FeedbackReport):
+    """
+    Recebe relatos de erros e sugestões dos usuários da Mob.me.
+    Persiste localmente em services/mobme-api/data/feedback_reports.json
+    e no Supabase na tabela public.feedback_reports (se disponível).
+    """
+    record = {
+        "id": str(uuid.uuid4()),
+        "type": report.type,
+        "category": report.category,
+        "description": report.description,
+        "user_id": report.user_id,
+        "user_name": report.user_name,
+        "user_email": report.user_email,
+        "session_id": report.session_id,
+        "last_message": report.last_message,
+        "metadata": report.metadata or {},
+        "created_at": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
+        "status": "pending"
+    }
+
+    # 1. Persistência em arquivo JSON local garantida (nunca perde dados)
+    try:
+        data_dir = os.path.join(os.path.dirname(__file__), "data")
+        os.makedirs(data_dir, exist_ok=True)
+        feedback_file = os.path.join(data_dir, "feedback_reports.json")
+        existing_reports = []
+        if os.path.exists(feedback_file):
+            try:
+                with open(feedback_file, "r", encoding="utf-8") as f:
+                    existing_reports = json.load(f)
+            except Exception:
+                existing_reports = []
+        existing_reports.append(record)
+        with open(feedback_file, "w", encoding="utf-8") as f:
+            json.dump(existing_reports, f, ensure_ascii=False, indent=2)
+        print(f"📝 [FEEDBACK] Relato registrado localmente ({record['type']}: {record['category']})")
+    except Exception as e:
+        print(f"⚠️ Erro ao salvar feedback em arquivo local: {e}")
+
+    # 2. Persistência no Supabase (se disponível)
+    if supabase_client:
+        try:
+            db_payload = {
+                "id": record["id"],
+                "type": record["type"],
+                "category": record["category"],
+                "description": record["description"],
+                "user_name": record["user_name"],
+                "user_email": record["user_email"],
+                "metadata": {
+                    **(record["metadata"]),
+                    "last_message": record["last_message"]
+                },
+                "status": record["status"]
+            }
+            if record["user_id"] and record["user_id"] != "00000000-0000-0000-0000-000000000001":
+                db_payload["user_id"] = record["user_id"]
+            if record["session_id"]:
+                db_payload["session_id"] = record["session_id"]
+
+            await supabase_client.table("feedback_reports").insert(db_payload).execute()
+            print(f"✅ [FEEDBACK] Relato salvo no Supabase com sucesso!")
+        except Exception as db_err:
+            print(f"ℹ️ [FEEDBACK] Supabase table feedback_reports não disponível ou ignorada: {db_err}")
+
+    return {"success": True, "message": "Feedback recebido com sucesso!", "id": record["id"]}
+
 # =====================================================================
 # MOTOR DETERMINÍSTICO DE EXERCÍCIOS (TRILHA PRATICAR - TOLERÂNCIA ZERO)
 # =====================================================================
@@ -2011,12 +2259,73 @@ def extract_round_items(full_ex_text: str) -> list[dict]:
 async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = None, session_discipline: str | None = None) -> tuple[str | None, str | None]:
     """
     Localiza fisicamente o arquivo -exercicios.md mais adequado no repositório,
-    com desambiguação inteligente de série (grade-aware) e foco no acervo homologado.
+    com matching determinístico léxico por capítulo e foco no acervo homologado.
     """
     global deepinfra_client, supabase_client
     if not topic:
         return None, None
+
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    content_dir = os.path.join(project_root, "content")
+    if os.path.isdir("/app/content"):
+        project_root = "/app"
+        content_dir = "/app/content"
+    elif os.path.isdir("/content"):
+        project_root = "/"
+        content_dir = "/content"
+
+    # 1. BUSCA DETERMINÍSTICA DIRETA NO ACERVO FÍSICO (Zero Latência & Zero Risco de Colisão Vetorial)
+    topic_clean = strip_accents(topic.lower())
+    t_words = [w for w in re.findall(r'[a-z0-9]+', topic_clean) if len(w) > 1 and w not in ["de", "da", "do", "em", "para", "com", "sobre", "ajuda", "estudar"]]
+    if any(w in topic_clean for w in ["quadratica", "2 grau", "2º grau", "2o grau", "segundo grau"]):
+        if "funcao" in topic_clean or "funções" in topic_clean:
+            t_words = ["funcao", "quadratica"]
+        elif "equac" in topic_clean:
+            t_words = ["equacoes", "quadraticas"]
+    elif any(w in topic_clean for w in ["afim", "1 grau", "1º grau", "1o grau", "primeiro grau"]):
+        t_words = ["funcao", "afim"]
+
+    if os.path.isdir(content_dir) and t_words:
+        best_local_file = None
+        best_local_score = -1
+        norm_disc = strip_accents(session_discipline.lower()) if session_discipline else None
         
+        for dirpath, _, filenames in os.walk(content_dir):
+            for fname in filenames:
+                if fname.endswith("-exercicios.md"):
+                    full_p = os.path.join(dirpath, fname).replace("\\", "/")
+                    p_lower = strip_accents(full_p.lower())
+                    
+                    if norm_disc and norm_disc not in p_lower:
+                        continue
+                    if "quadratica" in t_words and "afim" in p_lower:
+                        continue
+                    if "afim" in t_words and "quadratica" in p_lower:
+                        continue
+                        
+                    matches = sum(1 for w in t_words if w in p_lower)
+                    score = 0
+                    if matches == len(t_words):
+                        score += 100
+                    elif matches > 0:
+                        score += matches * 20
+                        
+                    if user_grade:
+                        ug = user_grade.lower()
+                        if ("médio" in ug or "medio" in ug or "série" in ug or "serie" in ug) and "medio" in p_lower:
+                            score += 30
+                        elif "9" in ug and "9-ano" in p_lower:
+                            score += 30
+                            
+                    if score > best_local_score:
+                        best_local_score = score
+                        best_local_file = full_p
+                        
+        if best_local_file and best_local_score >= 100:
+            rel_p = os.path.relpath(best_local_file, project_root).replace("\\", "/")
+            return best_local_file, rel_p
+
+    # 2. BUSCA VETORIAL NO SUPABASE (Caso a busca direta não encontre com score suficiente)
     if deepinfra_client is None:
         deepinfra_client = AsyncOpenAI(
             api_key=os.getenv("DEEPINFRA_API_TOKEN", ""),
@@ -2048,38 +2357,52 @@ async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = N
         print(f"Erro na busca vetorial de exercícios: {e}")
         docs_data = []
 
-    # Calibração Curricular por Série do Estudante (Grade-Aware Rerank)
-    if user_grade and user_grade != "Não informada":
-        ug_lower = user_grade.lower()
-        def grade_score(doc):
-            src = doc.get("metadata", {}).get("source", "").lower()
+    topic_clean = strip_accents(topic.lower())
+    is_quadratica = any(term in topic_clean for term in ["segundo grau", "2 grau", "2º grau", "2o grau", "quadratica", "quadrática", "parabola", "bhaskara"])
+    is_afim = any(term in topic_clean for term in ["primeiro grau", "1 grau", "1º grau", "1o grau", "afim", "linear"])
+
+    # Hard-Guardrail Determinístico: descarta imediatamente documentos em conflito direto
+    if is_quadratica:
+        docs_data = [d for d in docs_data if not any(term in d.get("metadata", {}).get("source", "").lower() for term in ["funcao-afim", "cap-12-funcao-afim"])]
+    elif is_afim:
+        docs_data = [d for d in docs_data if not any(term in d.get("metadata", {}).get("source", "").lower() for term in ["funcao-quadratica", "cap-13-funcao-quadratica"])]
+
+    # Scoring Combinado: Especificidade Léxica do Tópico + Série do Estudante (Grade-Aware)
+    def combined_topic_grade_score(doc):
+        src = doc.get("metadata", {}).get("source", "").lower()
+        score = 0
+        # 1. Boost léxico de alta prioridade para o capítulo correto
+        if is_quadratica:
+            if "funcao" in topic_clean and ("cap-13-funcao-quadratica" in src or "funcao-quadratica" in src):
+                score += 100
+            elif "equac" in topic_clean and ("cap-10-equacoes-quadraticas" in src or "equacoes-quadraticas" in src):
+                score += 80
+            elif "cap-13-funcao-quadratica" in src or "funcao-quadratica" in src:
+                score += 90
+            elif "equacoes-segundo-grau" in src or "segundo-grau" in src:
+                score += 50
+        elif is_afim:
+            if "cap-12-funcao-afim" in src or "funcao-afim" in src:
+                score += 100
+                
+        # 2. Calibração Curricular por Série
+        if user_grade and user_grade != "Não informada":
+            ug_lower = user_grade.lower()
             if "9" in ug_lower and "9-ano" in src:
-                return 10
-            if "8" in ug_lower and "8-ano" in src:
-                return 10
-            if "7" in ug_lower and "7-ano" in src:
-                return 10
-            if "6" in ug_lower and "6-ano" in src:
-                return 10
-            if "5" in ug_lower and "5-ano" in src:
-                return 10
-            if ("médio" in ug_lower or "medio" in ug_lower or "série" in ug_lower or "serie" in ug_lower) and "medio" in src:
-                return 10
-            return 0
-        docs_data = sorted(docs_data, key=grade_score, reverse=True)
-    elif any(term in topic.lower() for term in ["segundo grau", "2º grau", "2o grau", "quadrática", "quadratica"]):
-        # Priorização pedagógica para tópicos polissêmicos de Equações de 2º Grau:
-        # Se nenhuma série estiver informada, prioriza 9º Ano ou Ensino Médio sobre a introdução do 8º ano
-        def topic_score(doc):
-            src = doc.get("metadata", {}).get("source", "").lower()
-            if "9-ano" in src and "equacoes-segundo-grau" in src:
-                return 10
-            if "medio" in src and "equacoes-quadraticas" in src:
-                return 8
-            if "8-ano" in src:
-                return 4
-            return 0
-        docs_data = sorted(docs_data, key=topic_score, reverse=True)
+                score += 10
+            elif "8" in ug_lower and "8-ano" in src:
+                score += 10
+            elif "7" in ug_lower and "7-ano" in src:
+                score += 10
+            elif "6" in ug_lower and "6-ano" in src:
+                score += 10
+            elif "5" in ug_lower and "5-ano" in src:
+                score += 10
+            elif ("médio" in ug_lower or "medio" in ug_lower or "série" in ug_lower or "serie" in ug_lower) and "medio" in src:
+                score += 10
+        return score
+
+    docs_data = sorted(docs_data, key=combined_topic_grade_score, reverse=True)
 
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     if os.path.isdir("/app/content"):
@@ -2092,9 +2415,13 @@ async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = N
         for d in ["fisica", "quimica", "matematica", "ciencias", "historia", "geografia", "calculo"]:
             if f"/{d}/" in p or f"\\{d}\\" in p or f"-{d}-" in p or p.startswith(f"{d}/") or f"_{d}_" in p:
                 return d
+        if "/lingua-portuguesa/" in p or "\\lingua-portuguesa\\" in p or "-lingua-portuguesa-" in p or "portugues" in p:
+            return "lingua portuguesa"
         return None
 
     norm_target_disc = strip_accents(session_discipline.lower()) if session_discipline else None
+    if norm_target_disc in ["lingua-portuguesa", "portugues", "portuguesa"]:
+        norm_target_disc = "lingua portuguesa" 
 
     for d in docs_data:
         src = d.get("metadata", {}).get("source", "")
@@ -2232,16 +2559,19 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
 
             save_session_states()
             active_list_str = ", ".join(AVAILABLE_SUBJECTS_LIST)
-            if not disc_name or disc_name.strip().lower() in {"indefinida", "desconhecida", "outro", "outra", "none", "", "nao identificada", "não identificada"}:
+            # Resposta Humanizada de Professora Real (Zero Jargão de TI)
+            disc_clean = (disc_name or "").strip().lower()
+            if disc_clean in {"nao escolar", "não escolar", "entretenimento", "geral", "indefinida", "desconhecida", "outro", "outra", "none", "", "nao identificada", "não identificada"}:
                 out_of_scope_msg = (
-                    f"No momento, o acervo da Educamob no Mob.me possui materiais homologados estritamente para as disciplinas: **{active_list_str}**.\n\n"
-                    f"Qual assunto de **{active_list_str}** você gostaria de estudar hoje?"
+                    "Aqui na Mob.me nosso foco total é te ajudar com as matérias e tarefas da escola! 🎒\n\n"
+                    f"Trabalhamos com conteúdos de **{active_list_str}**. "
+                    "Qual assunto escolar você precisa estudar hoje?"
                 )
             else:
                 out_of_scope_msg = (
-                    f"No momento, o acervo da Educamob no Mob.me possui materiais homologados estritamente para as disciplinas: **{active_list_str}**. "
-                    f"Por isso, ainda não atendo conteúdos de **{disc_name}**.\n\n"
-                    f"Qual assunto de **{active_list_str}** você gostaria de estudar hoje?"
+                    f"No momento, nossa tutoria ainda não atende a conteúdos de **{disc_name}**. 📚\n\n"
+                    f"Apoio você nos estudos de **{active_list_str}**. "
+                    "Que outro assunto escolar você gostaria de ver hoje?"
                 )
             async def direct_out_of_scope_stream():
                 yield f"data: {json.dumps({'session_id': current_session_id})}\n\n"
@@ -2298,11 +2628,11 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         if active_mode == "modo_menu" and current_topic and not has_image:
             super_menu_msg = (
                 f"Tema definido: **{current_topic}**. Como você prefere começar?\n\n"
-                f"1. Aprender📚\n\n"
-                f"2. Praticar📝\n\n"
-                f"3. Flashcards 🃏\n\n"
-                f"4. Resumo 🧠\n\n"
-                f"5. Enviar questão 🖼️\n\n"
+                f"1. Tirar Dúvidas (texto/imagem) 💬\n\n"
+                f"2. Leia e Aprenda 📚\n\n"
+                f"3. Resumo 🧠\n\n"
+                f"4. Flashcards 🃏\n\n"
+                f"5. Lista de Exercícios 📝\n\n"
                 f"6. Finalizar ⏸️\n\n"
                 f"Qual caminho você prefere agora?"
             )
@@ -2317,24 +2647,18 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         system_prompt_base = get_system_prompt_for_mode(active_mode)
         chosen_track_label = session_state.get("pending_track") or active_mode
         state_context = f"\n\n--- ESTADO DA SESSÃO ATUAL ---\nTema atual: {current_topic or 'NENHUM (Ainda não foi informado pelo aluno)'}\nDisciplina informada: {session_state.get('discipline') or 'Geral'}\nTrilha escolhida pelo estudante: {chosen_track_label}"
-        if active_mode == "modo_resolve_questao" and extracted_text:
+        if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} and extracted_text:
             state_context += f"\nTranscrição/descrição da imagem enviada pelo estudante:\n{extracted_text}"
 
-        if active_mode == "modo_resolve_questao" and session_state.get("paused_track"):
+        if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} and session_state.get("paused_track"):
             paused_info = session_state.get("paused_track")
             p_mode = paused_info.get("mode")
-            p_name = "treino de exercícios (Praticar)" if p_mode == "modo_praticar" else ("estudo teórico (Aprender)" if p_mode == "modo_aprender" else "flashcards (Revisar)")
+            p_name = "Lista de Exercícios" if p_mode == "modo_praticar" else ("Leia e Aprenda" if p_mode == "modo_aprender" else "Flashcards")
             state_context += (
                 f"\n\n--- INSTRUÇÃO HÍBRIDA DE RESOLUÇÃO DE IMAGEM EM TRILHA ATIVA ---\n"
-                f"O estudante enviou uma imagem enquanto estava em andamento no {p_name} do tema '{current_topic}'.\n"
+                f"O estudante enviou uma imagem enquanto estava em andamento em {p_name} do tema '{current_topic}'.\n"
                 f"1. Se a imagem contiver claramente o rascunho de cálculo ou a resolução do próprio aluno para a questão que estava na tela: valide a resolução com acolhimento e sobriedade empática, e continue a sequência pedagógica normalmente.\n"
-                f"2. Se a imagem for uma questão nova, externa ou avulsa (de prova, livro ou tarefa): transcreva a questão com clareza, resolva passo a passo com didática acolhedora destacando a resposta final, e ao terminar pergunte gentilmente: 'Quer voltar para onde estávamos no seu {p_name} ou prefere ver o menu?'."
-            )
-        elif active_mode == "modo_resolve_questao" and has_image:
-            state_context += (
-                "\n\n--- INSTRUÇÃO DE ENCERRAMENTO DO MODO 5 (ENVIAR QUESTÃO) ---\n"
-                "Se a imagem estiver legível e com enunciado completo: transcreva a questão, resolva passo a passo destacando a resposta final e, ao final da mensagem, recomende o próximo passo e exiba OBRIGATORIAMENTE o Menu Canônico de 6 Trilhas completo (1. Aprender📚 até 6. Finalizar ⏸️).\n"
-                "Se a imagem estiver cortada ou incompleta: aponte o corte com acolhimento e peça uma nova foto sem inventar os dados ausentes."
+                f"2. Se a imagem for uma dúvida ou questão nova, externa ou avulsa (de prova, livro ou tarefa): transcreva a dúvida/questão com clareza, explique ou resolva passo a passo com base no RAG destacando a resposta final, e ao terminar pergunte gentilmente: 'Quer voltar para onde estávamos em {p_name} ou prefere ver o menu?'."
             )
         
         msg_action_clean = request.message.strip().lower()
@@ -2395,37 +2719,47 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
             llm_user_message = f"[Comando de Retomada]: Quero voltar para onde paramos em {current_topic}.{resumed_detail}"
         elif is_track_switch:
             save_session_states()
-            if active_mode == "modo_aprender":
+            if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} and not has_image:
                 state_context += (
-                    "\nAção do Estudante: O aluno acabou de escolher a Trilha 1 (Aprender). Inicie a primeira etapa de estudos usando exclusivamente o material RAG recuperado para este tema. "
+                    f"\nAção do Estudante: O aluno acabou de escolher a Trilha 1 (Tirar Dúvidas (texto/imagem)). Acolha-o de forma curta e direta, confirmando que este espaço é exclusivo para ele perguntar o que quiser ou enviar questões sobre {current_topic}. "
+                    f"Explique que ele pode enviar sua dúvida por texto ou anexar uma imagem (ex.: foto de livro, caderno, esquema ou exercício). Pergunte qual é a dúvida dele sobre {current_topic}."
+                )
+                llm_user_message = f"[Comando de Trilha]: Escolho a opção 1. Tirar Dúvidas (texto/imagem) 💬 sobre {current_topic}. Diga que posso enviar minha dúvida por texto ou imagem e pergunte qual é a dúvida."
+            elif active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} and has_image:
+                state_context += (
+                    f"\nAção do Estudante: O aluno está na Trilha 1 (Tirar Dúvidas (texto/imagem)) e enviou uma imagem para tirar uma dúvida ou resolver uma questão sobre {current_topic}. "
+                    f"Transcreva sucintamente a pergunta/enunciado essencial da imagem, consulte o material RAG e forneça a resposta estritamente no PADRÃO DE MICROAPRENDIZAGEM (resposta curta, objetiva, passos de cálculo essenciais e gabarito destacado, sem preâmbulos prolixos). "
+                    f"Ao final, verifique se ficou claro e pergunte se ele tem mais alguma dúvida sobre o assunto."
+                )
+                llm_user_message = f"[Comando de Trilha]: Envio esta imagem com minha dúvida sobre {current_topic} na opção 1. Tirar Dúvidas (texto/imagem). Explique detalhadamente usando o acervo oficial."
+            elif active_mode == "modo_aprender":
+                state_context += (
+                    "\nAção do Estudante: O aluno acabou de escolher a Trilha 2 (Leia e Aprenda). Inicie a primeira etapa de estudos usando exclusivamente o material RAG recuperado para este tema. "
                     "Cada etapa deve ter um objetivo curto, um trecho do e-book e uma checagem de compreensão ancorada no trecho ('### [Título do Tópico]', '**Objetivo:**', trecho e '**Checagem:**'). "
                     "REGRA CRÍTICA: Proibido usar a palavra 'microciclo' ou 'miniciclo' no título ou no texto; use apenas o título do conceito no cabeçalho '###'. "
                     "Não exiba o Menu de Trilhas antes de concluir as etapas disponíveis."
                 )
-                llm_user_message = f"[Comando de Trilha]: Escolho a opção 1. Aprender📚 sobre {current_topic}. Inicie imediatamente a primeira etapa de estudos."
+                llm_user_message = f"[Comando de Trilha]: Escolho a opção 2. Leia e Aprenda 📚 sobre {current_topic}. Inicie imediatamente a primeira etapa de estudos."
+            elif active_mode == "modo_resumir":
+                state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 3 (Resumo). Entregue imediatamente a síntese estruturada (600 a 1.000 palavras) usando exclusivamente o material RAG recuperado a partir de '### 🌐 1. Visão Panorâmica', e ao final exiba o Menu de Trilhas de 6 opções."
+                llm_user_message = f"[Comando de Trilha]: Escolho a opção 3. Resumo 🧠 sobre {current_topic}. Ignore qualquer pergunta anterior em aberto e gere imediatamente a síntese estruturada completa."
+            elif active_mode == "modo_revisar":
+                state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 4 (Flashcards). Inicie imediatamente o '🃏 Flashcard 1/10' com uma pergunta aberta conceitual fundamentada exclusivamente no material RAG recuperado. Aguarde a resposta antes de corrigir."
+                llm_user_message = f"[Comando de Trilha]: Escolho a opção 4. Flashcards 🃏 sobre {current_topic}. Ignore qualquer pergunta anterior em aberto e apresente imediatamente o 🃏 Flashcard 1/10."
             elif active_mode == "modo_praticar":
                 if praticar_items:
                     item_1 = praticar_items[0]
                     state_context += (
-                        f"\nAção do Estudante: O aluno acabou de escolher a Trilha 2 (Praticar). Inicie imediatamente a rodada apresentando a Questão 1/15.\n"
+                        f"\nAção do Estudante: O aluno acabou de escolher a Trilha 5 (Lista de Exercícios). Inicie imediatamente a rodada apresentando a Questão 1/15.\n"
                         f"É TERMINANTEMENTE PROIBIDO inventar, alterar dados ou criar outra questão. Transcreva EXATAMENTE o seguinte item oficial homologado da lista RAG:\n\n"
                         f"📝 Questão 1/15 — {item_1['level_label']}\n\n"
                         f"{item_1['body']}\n\n"
                         f"(AVISO DE BLINDAGEM: Não apresente o gabarito ou resolução nesta mensagem. Apenas cabeçalho, enunciado e alternativas com quebra dupla '\\n\\n'. Aguarde a resposta do estudante)."
                     )
-                    llm_user_message = f"[Comando de Trilha]: Escolho a opção 2. Praticar📝 sobre {current_topic}. Apresente a 📝 Questão 1/15 — {item_1['level_label']} da lista oficial."
+                    llm_user_message = f"[Comando de Trilha]: Escolho a opção 5. Lista de Exercícios 📝 sobre {current_topic}. Apresente a 📝 Questão 1/15 — {item_1['level_label']} da lista oficial."
                 else:
-                    state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 2 (Praticar). Inicie imediatamente a '📝 Questão 1/15 — Fácil' selecionada da lista oficial do RAG (5 fáceis/básicos, 5 médios/intermediários e 5 difíceis). Não peça confirmação e não crie questões fora do banco oficial."
-                    llm_user_message = f"[Comando de Trilha]: Escolho a opção 2. Praticar📝 sobre {current_topic}. Ignore qualquer pergunta anterior em aberto e apresente imediatamente a 📝 Questão 1/15 — Fácil da lista oficial do RAG."
-            elif active_mode == "modo_revisar":
-                state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 3 (Flashcards). Inicie imediatamente o '🃏 Flashcard 1/10' com uma pergunta aberta conceitual fundamentada exclusivamente no material RAG recuperado. Aguarde a resposta antes de corrigir."
-                llm_user_message = f"[Comando de Trilha]: Escolho a opção 3. Flashcards 🃏 sobre {current_topic}. Ignore qualquer pergunta anterior em aberto e apresente imediatamente o 🃏 Flashcard 1/10."
-            elif active_mode == "modo_resumir":
-                state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 4 (Resumo). Entregue imediatamente a síntese estruturada (600 a 1.000 palavras) usando exclusivamente o material RAG recuperado a partir de '### 🌐 1. Visão Panorâmica', e ao final exiba o Menu de Trilhas de 6 opções."
-                llm_user_message = f"[Comando de Trilha]: Escolho a opção 4. Resumo 🧠 sobre {current_topic}. Ignore qualquer pergunta anterior em aberto e gere imediatamente a síntese estruturada completa."
-            elif active_mode == "modo_resolve_questao" and not has_image:
-                state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 5 (Enviar questão). Peça de forma curta e direta para ele enviar o enunciado por texto ou anexar a imagem da questão sobre o tema atual."
-                llm_user_message = f"[Comando de Trilha]: Escolho a opção 5. Enviar questão 🖼️ sobre {current_topic}. Peça para eu enviar a questão."
+                    state_context += "\nAção do Estudante: O aluno acabou de escolher a Trilha 5 (Lista de Exercícios). Inicie imediatamente a '📝 Questão 1/15 — Fácil' selecionada da lista oficial do RAG (5 fáceis/básicos, 5 médios/intermediários e 5 difíceis). Não peça confirmação e não crie questões fora do banco oficial."
+                    llm_user_message = f"[Comando de Trilha]: Escolho a opção 5. Lista de Exercícios 📝 sobre {current_topic}. Ignore qualquer pergunta anterior em aberto e apresente imediatamente a 📝 Questão 1/15 — Fácil da lista oficial do RAG."
             elif active_mode == "modo_conclusao":
                 state_context += "\nAção do Estudante: O aluno escolheu a Trilha 6 (Finalizar). Encerre a sessão em 1 ou 2 linhas factuais registrando apenas o que realmente ocorreu na sessão, sem elogios exagerados, sem novos menus e sem novas perguntas."
                 llm_user_message = "[Comando de Trilha]: Escolho a opção 6. Finalizar ⏸️ a sessão de estudo agora."
@@ -2510,6 +2844,16 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                     else:
                         state_context += f"\nInstrução de Progresso dos Flashcards: O estudante respondeu ao último Flashcard ({tot_fc}/{tot_fc}). Conclua com 'Seu aproveitamento: X/{tot_fc} (Z%)', análise concisa e o Menu Canônico de 6 Trilhas."
             
+            elif active_mode in {"modo_tira_duvidas", "modo_resolve_questao"}:
+                state_context += (
+                    f"\nInstrução de Operação do Tirar Dúvidas (PADRÃO MANDATÓRIO DE MICROAPRENDIZAGEM): "
+                    f"O estudante enviou uma dúvida ou questão sobre {current_topic}. "
+                    f"DIRETRIZ DE CONCISÃO: A resposta DEVE ser CURTA e DIRETA (máximo de 2 a 3 parágrafos breves, no padrão de microaprendizagem, ~80 a 150 palavras). "
+                    f"PROIBIDO enrolações ou bajulações de abertura ('Ótima pergunta!', 'Essa dúvida é muito comum...', etc.). Responda à dúvida IMEDIATAMENTE na primeira frase! "
+                    f"Apresente a definição central em 1-2 frases, ilustre o mecanismo com um exemplo prático breve ou fórmula do RAG, conclua com uma frase no formato '**Pense assim:**' ou '**Em resumo:**' e faça uma checagem curta se ficou claro. "
+                    f"Se for questão enviada, mostre apenas os passos essenciais da resolução e o gabarito. Não exiba o Menu de Trilhas completo a cada resposta."
+                )
+
         subjects_ctx = AVAILABLE_SUBJECTS_CONTEXT if active_mode not in {"modo_acolhida", "modo_novo_assunto"} else ""
         
         # Perfil do Aluno com Blindagem de Sigilo (Contexto Estritamente Silencioso)
@@ -2562,6 +2906,13 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                 if active_mode in {"modo_aprender", "modo_resumir", "modo_revisar"}:
                     search_query = f"E-book Teoria: {target_subject}"
                     match_count = 12
+                elif active_mode in {"modo_tira_duvidas", "modo_resolve_questao"}:
+                    q_text = (extracted_text or request.message or "").strip()
+                    if any(p in q_text.lower() for p in ["escolho a opção 1", "escolho a opcao 1", "1. tirar", "1️⃣ tirar", "tirar dúvidas", "tirar duvidas", "tira dúvidas", "tira duvidas"]) and len(q_text) < 80 or not q_text:
+                        search_query = f"E-book Teoria: {target_subject}"
+                    else:
+                        search_query = f"E-book Teoria: {target_subject} - {q_text[:200]}"
+                    match_count = 12
                 elif active_mode == "modo_praticar":
                     search_query = f"E-book Teoria: {target_subject}"
                     match_count = 24
@@ -2610,6 +2961,14 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                         print(f"[{time.time()-t_rag_start:.2f}s] Supabase Vector Search ({match_count} chunks)")
                         
                         docs_data = response.data or []
+                        
+                        # Filtro Determinístico contra Contaminação de Capítulos Conflitantes (ex: Função Afim vs Função Quadrática)
+                        if current_topic:
+                            c_top_clean = strip_accents(current_topic.lower())
+                            if any(term in c_top_clean for term in ["segundo grau", "2 grau", "2º grau", "2o grau", "quadratica", "quadrática", "parabola"]):
+                                docs_data = [d for d in docs_data if not any(term in d.get("metadata", {}).get("source", "").lower() for term in ["funcao-afim", "cap-12-funcao-afim"])]
+                            elif any(term in c_top_clean for term in ["primeiro grau", "1 grau", "1º grau", "1o grau", "afim", "linear"]):
+                                docs_data = [d for d in docs_data if not any(term in d.get("metadata", {}).get("source", "").lower() for term in ["funcao-quadratica", "cap-13-funcao-quadratica"])]
                         if active_mode == "modo_praticar":
                             # Prioriza os 15 itens oficiais da rodada estruturada determinística
                             round_data = session_state.get("praticar_round")
@@ -2671,7 +3030,7 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                                 ]
                                 if ex_docs:
                                     docs_data = ex_docs
-                        elif active_mode in {"modo_aprender", "modo_resumir", "modo_revisar"}:
+                        elif active_mode in {"modo_aprender", "modo_resumir", "modo_revisar", "modo_tira_duvidas"}:
                             # Prioriza chunks teóricos do e-book (sem misturar listas de exercícios na teoria/microciclos)
                             theo_docs = [
                                 d for d in docs_data
@@ -2738,7 +3097,7 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
         if context_str:
             dynamic_system_prompt += f"\n\n--- MATERIAL DE CONSULTA RELEVANTE PARA A PERGUNTA ATUAL ---\n{context_str}\n(Siga suas regras pedagógicas estritamente. Use este material apenas como base de conhecimento. Não complete lacunas com conhecimento externo.)"
             openai_messages[0]["content"] = dynamic_system_prompt
-        elif active_mode in {"modo_aprender", "modo_praticar", "modo_revisar", "modo_resumir", "modo_resolve_questao"}:
+        elif active_mode in {"modo_aprender", "modo_praticar", "modo_revisar", "modo_resumir", "modo_resolve_questao", "modo_tira_duvidas"}:
             dynamic_system_prompt += "\n\n--- MATERIAL DE CONSULTA RELEVANTE PARA A PERGUNTA ATUAL ---\n[NENHUM MATERIAL RECUPERADO NO RAG PARA ESTE TEMA. Aplique estritamente a regra de Lacuna de Material: não preencha a lacuna com conhecimento externo, informe de forma simples a indisponibilidade e ofereça as alternativas do Menu de Trilhas.]"
             openai_messages[0]["content"] = dynamic_system_prompt
 
@@ -2750,21 +3109,36 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                 # 1. Enviar o session_id imediatamente no primeiro chunk
                 yield f"data: {json.dumps({'session_id': current_session_id})}\n\n"
                 
-                # 2. Streaming Multi-LLM (DeepSeek Principal -> Gemini Fallback)
+                # 2. Streaming Multi-LLM (DeepSeek Principal -> Gemini Fallback Resiliente)
                 t_start = time.time()
                 full_text = ""
                 
                 try:
-                    # Rota Principal: DeepSeek via DeepInfra (Fail-Fast)
-                    max_toks = 8192 if active_mode in {"modo_aprender", "modo_resumir"} else 4096
-                    response = await deepinfra_client.chat.completions.create(
-                        model="deepseek-ai/DeepSeek-V4-Flash-0731",
-                        messages=openai_messages,
-                        max_tokens=max_toks,
-                        stream=True
+                    # Rota Principal: DeepSeek via DeepInfra (Timeout realista de 25s no TTFT)
+                    max_toks = 8192 if active_mode in {"modo_aprender", "modo_resumir"} else (700 if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} else 4096)
+                    
+                    # 1. Timeout de conexão e criação do stream: 25 segundos
+                    response = await asyncio.wait_for(
+                        deepinfra_client.chat.completions.create(
+                            model="deepseek-ai/DeepSeek-V4-Flash-0731",
+                            messages=openai_messages,
+                            max_tokens=max_toks,
+                            stream=True
+                        ),
+                        timeout=25.0
                     )
                     
-                    async for chunk in response:
+                    # 2. Timeout do primeiro chunk (Time To First Token - 25 segundos)
+                    chunk_iter = response.__aiter__()
+                    first_chunk = await asyncio.wait_for(chunk_iter.__anext__(), timeout=25.0)
+                    
+                    if first_chunk.choices and first_chunk.choices[0].delta.content is not None:
+                        text = first_chunk.choices[0].delta.content
+                        full_text += text
+                        yield f"data: {json.dumps({'chunk': text})}\n\n"
+                        await asyncio.sleep(0)
+                        
+                    async for chunk in chunk_iter:
                         if chunk.choices and chunk.choices[0].delta.content is not None:
                             text = chunk.choices[0].delta.content
                             full_text += text
@@ -2773,29 +3147,33 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                             
                 except Exception as e:
                     error_str = str(e).lower()
-                    print(f"[{time.time()-t_start:.2f}s] AVISO: Falha no DeepSeek ({error_str}). Acionando Fallback para Gemini...")
+                    print(f"[{time.time()-t_start:.2f}s] AVISO: Falha ou timeout no DeepSeek ({error_str}). Acionando Fallback Gemini 2.5 Flash...")
                     
-                    # Fallback de Resiliência usando Gemini
-                    max_toks = 8192 if active_mode in {"modo_aprender", "modo_resumir"} else 4096
-                    model = genai.GenerativeModel(
-                        "gemini-2.5-flash", 
-                        system_instruction=dynamic_system_prompt,
-                        generation_config={"max_output_tokens": max_toks}
-                    )
-                    response = await call_with_retry_async(model.generate_content_async, google_contents, stream=True)
-                    
-                    async for chunk in response:
-                        try:
-                            text = chunk.text
-                        except ValueError:
-                            continue
-                        if text:
-                            full_text += text
-                            yield f"data: {json.dumps({'chunk': text})}\n\n"
-                            await asyncio.sleep(0)
+                    # Fallback de Resiliência usando Gemini com proteção contra erros de cota (429)
+                    try:
+                        max_toks = 8192 if active_mode in {"modo_aprender", "modo_resumir"} else (700 if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} else 4096)
+                        model = genai.GenerativeModel(
+                            "gemini-2.5-flash", 
+                            system_instruction=dynamic_system_prompt,
+                            generation_config={"max_output_tokens": max_toks}
+                        )
+                        response = await call_with_retry_async(model.generate_content_async, google_contents, stream=True)
+                        
+                        async for chunk in response:
+                            try:
+                                text = chunk.text
+                            except ValueError:
+                                continue
+                            if text:
+                                full_text += text
+                                yield f"data: {json.dumps({'chunk': text})}\n\n"
+                                await asyncio.sleep(0)
+                    except Exception as gemini_err:
+                        print(f"[{time.time()-t_start:.2f}s] ⚠️ Falha no Fallback Gemini ({gemini_err}). Provedores esgotados.")
                 
+                # Trava Final Anti-Vácuo: Se por qualquer motivo nenhum chunk foi emitido, garante mensagem na tela
                 if not full_text.strip():
-                    full_text = "Hmm, não consegui entender isso muito bem. Você poderia tentar explicar de outra forma? 🤔"
+                    full_text = "⚠️ Tive uma instabilidade momentânea na conexão. Por favor, envie sua mensagem novamente!"
                     yield f"data: {json.dumps({'chunk': full_text})}\n\n"
                 
                 print(f"[{time.time()-t_start:.2f}s] API Streaming Completed")
