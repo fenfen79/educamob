@@ -1996,3 +1996,9 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
   2. *Resolução Determinística de RAG por Acervo Físico (Caso Murilo):* Implementada busca léxica em disco (`content/` e `/app/content`) antes de chamadas vetoriais externas (<5ms). Hard-guardrails de exclusão mútua eliminam o risco de Função Afim substituir Função Quadrática. Testes unitários confirmaram entrega de `funcao-quadratica-exercicios.md` para "Função do 2º Grau" e `funcao-afim-exercicios.md` para "Função Afim".
   3. *Circuit Breaker de TTFT (3.5 segundos):* Requisição e Time To First Token do DeepSeek monitorados por `asyncio.wait_for(..., timeout=3.5)`. Se a fila da GPU ultrapassar 3.5s, o sistema chaveia automaticamente para o Gemini 2.5 Flash (~600ms), extinguindo os vácuos de 40s a 70s.
   4. *Frontend Next.js (AbortController & Desacoplamento de Digitação):* `AbortController` com timeout de 10s no client destrava a interface (`isTyping = false`) em caso de oscilações de rede. Atualizações de chunks via `React.startTransition` eliminam o engasgo (input lag) no teclado contra a renderização de KaTeX. Build de produção Turbopack compilado com 100% de sucesso e zero erros de TypeScript.
+
+- **Status do Deploy em Nuvem:** 🏆 **100% Homologado e em Produção na Nuvem (VPS Oracle Cloud 137.131.163.113) sob a chave `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.**
+  - Container `mobme-api` reiniciado e operacional.
+  - Testes de fumaça executados dentro do container de produção com 100% de sucesso nos 3 casos (Pedro, Murilo e Função Afim).
+  - API de produção online em `https://api.educamob.com.br` (Status 200 OK).
+  - Bundle estático do frontend gerado e sincronizado em `apps/mobme` (commit `60bb695` na branch `feature/novo-menu-microaprendizagem`). Zero push na `master`.

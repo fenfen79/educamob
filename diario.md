@@ -9342,3 +9342,21 @@ A partir da auditoria das sessões reais das últimas 36 horas realizada pelo Se
 2. **Build de Produção do Frontend Next.js:**
    - Comando: `npm --prefix apps/mobme-source run build` (Turbopack).
    - Resultado: Compilado com sucesso em 73s, checagem TypeScript concluída em 9.4s com zero erros (`0 errors`), páginas estáticas geradas com sucesso (`3/3`). Status: **APROVADO ✅**.
+
+
+### 🚀 Atualização de Deploy em Produção (Oracle Cloud VPS 137.131.163.113)
+- **Data e Hora de Deploy:** 23 de Novembro de 2026 às 11:51 BRT.
+- **Autorização Formal:** Chave de segurança mandatória validada: `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+- **Procedimentos Executados:**
+  1. Transferência segura via SCP de `main.py` e `prompt_prod.md` para a VPS Oracle Cloud ARM64.
+  2. Atualização atômica dentro do container Docker: `docker cp /home/ubuntu/main.py mobme-api:/app/main.py` e `docker cp /home/ubuntu/prompt_prod.md mobme-api:/app/prompts/prompt_prod.md`.
+  3. Reinicialização graciosa do container `mobme-api` (`docker restart mobme-api`) com Uvicorn online em `0.0.0.0:8080`.
+  4. Bateria de testes de fumaça executada diretamente **dentro do container de produção**:
+     - *Teste 1 (Caso Pedro):* Input `"eu quero saber até onde eu sei"` $\rightarrow$ Roteado para `modo_praticar` (Trilha 5: Lista de Exercícios 📝) ✅.
+     - *Teste 2 (Caso Murilo):* Query `"Função do 2º Grau"` $\rightarrow$ Retornou `/app/content/medio/volume-unico/matematica/cap-13-funcao-quadratica/ebooks/funcao-quadratica-exercicios.md` ✅.
+     - *Teste 3 (Caso Função Afim):* Query `"Função Afim"` $\rightarrow$ Retornou `/app/content/medio/volume-unico/matematica/cap-12-funcao-afim/ebooks/funcao-afim-exercicios.md` ✅.
+  5. Verificação de tráfego HTTPS em produção: `https://api.educamob.com.br/` (HTTP 200 OK) e `https://api.educamob.com.br/docs` (HTTP 200 OK).
+  6. Frontend: bundle de produção estático Turbopack gerado e sincronizado em `apps/mobme` (commit `60bb695`).
+- **Governança:**
+  - Branch de trabalho: `feature/novo-menu-microaprendizagem`.
+  - Zero push na branch `master` e cumprimento integral de todos os guardrails do projeto.
