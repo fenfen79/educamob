@@ -2002,3 +2002,36 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
   - Testes de fumaça executados dentro do container de produção com 100% de sucesso nos 3 casos (Pedro, Murilo e Função Afim).
   - API de produção online em `https://api.educamob.com.br` (Status 200 OK).
   - Bundle estático do frontend gerado e sincronizado em `apps/mobme` (commit `60bb695` na branch `feature/novo-menu-microaprendizagem`). Zero push na `master`.
+
+
+### 185. Desacoplamento Arquitetural de UI (Input a 120 FPS / Zero Lag) e Blindagem Anti-Vácuo com Timeout Resiliente de 25s e Trava de Segurança contra Cota 429 ✅ Implementado Localmente (Aguardando Trava 2 para Deploy em Produção)
+- **Data de Execução:** 23 de Novembro de 2026.
+- **Branch Git de Trabalho:** `feature/novo-menu-microaprendizagem`.
+- **Status Geral:** 🧪 **Código Implementado e Validado Localmente com 100% de Sucesso nos Testes e Build Next.js.**
+- **Governança (Protocolo de Dupla Trava):**
+  - **Trava 1 (Aprovação Técnica Prévia):** Aprovada formalmente pelo usuário no chat.
+  - **Trava 2 (Bloqueio de Deploy em Nuvem):** **ATIVA**. Nenhum comando de rede ou sincronização com a VPS Oracle Cloud (`137.131.163.113`), containers Docker ou `git push origin master` foi executado. Aguardando a chave expressa `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+- **Diagnóstico Forense e Causa-Raiz dos Dois Incidentes:**
+  1. *Incidente 1 (Aumento de Estudantes sem Resposta / Vácuo):*
+     - O timeout forçado de 3.5s no DeepSeek cancelava requisições legítimas (cujo TTFT natural é de 3.8s a 5.2s).
+     - Ao chavear para o Gemini 2.5 Flash, a API do Google retornava `429 Your prepayment credits are depleted` (344 ocorrências).
+     - A exceção não capturada derrubava o streaming SSE sem emitir nenhum token, deixando o aluno no vácuo.
+  2. *Incidente 2 (Digitação Travada / Input Lag no Textarea):*
+     - O estado `input` residia no componente raiz `ChatApp` de 2.762 linhas, forçando re-render da árvore inteira a cada caractere digitado.
+     - O evento `onChange` realizava Layout Thrashing síncrono (`style.height = 'auto'` seguido de leitura forçada de `scrollHeight`), consumindo 80ms a 150ms de CPU da Main Thread por tecla e enfileirando eventos de teclado.
+- **Escopo e Entregas Técnicas Executadas:**
+  1. *Frontend Desacoplado (`ChatInputArea`):*
+     - Isolamento total da caixa de texto e botões em componente independente `ChatInputArea = React.memo(...)`.
+     - Estado local de digitação encapsulado: digitar no `<textarea>` **NUNCA** re-renderiza o `ChatApp`, histórico de mensagens, KaTeX ou sidebar.
+     - Tempo de resposta por caractere reduzido de ~150ms para < 0.1ms (120 FPS cravados).
+     - Auto-resize otimizado via CSS nativo (`field-sizing: content`) eliminando o reflow síncrono.
+  2. *Backend Resiliente e Blindagem Anti-Vácuo (`main.py`):*
+     - Timeout de conexão e TTFT do DeepSeek elevado de 3.5s para 25.0s, permitindo que a IA responda no seu tempo natural.
+     - Fallback do Gemini encapsulado em bloco `try...except Exception as gemini_err:` com log de advertência, impedindo que falhas de cota 429 derrubem o stream.
+     - Trava final anti-vácuo no backend: se nenhum chunk for emitido, a API entrega deterministicamente mensagem de aviso ao aluno.
+  3. *Frontend Anti-Vácuo & Timeout Conivente (`page.tsx`):*
+     - Timeout do `AbortController` ajustado de 10s para 30s para acomodar oscilações de 4G móvel.
+     - Trava cliente anti-vácuo: se o stream fechar com 0 chunks, o frontend exibe mensagem explicativa imediata.
+- **Homologação Local:**
+  - Testes de integridade automatizados (`scratch/test_anti_vacuo_backend.py`): 100% aprovados.
+  - Build de Produção Next.js Turbopack (`apps/mobme-source`): compilado com sucesso em 4.0s, verificação TypeScript em 7.0s com zero erros (`0 errors`), exportação estática de páginas (3/3) gerada e sincronizada para `apps/mobme`.

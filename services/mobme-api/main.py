@@ -3109,15 +3109,15 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                 # 1. Enviar o session_id imediatamente no primeiro chunk
                 yield f"data: {json.dumps({'session_id': current_session_id})}\n\n"
                 
-                # 2. Streaming Multi-LLM (DeepSeek Principal -> Gemini Fallback)
+                # 2. Streaming Multi-LLM (DeepSeek Principal -> Gemini Fallback Resiliente)
                 t_start = time.time()
                 full_text = ""
                 
                 try:
-                    # Rota Principal: DeepSeek via DeepInfra (Fail-Fast de 3.5s no TTFT)
+                    # Rota Principal: DeepSeek via DeepInfra (Timeout realista de 25s no TTFT)
                     max_toks = 8192 if active_mode in {"modo_aprender", "modo_resumir"} else (700 if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} else 4096)
                     
-                    # 1. Timeout de conexão e criação do stream: 3.5 segundos
+                    # 1. Timeout de conexão e criação do stream: 25 segundos
                     response = await asyncio.wait_for(
                         deepinfra_client.chat.completions.create(
                             model="deepseek-ai/DeepSeek-V4-Flash-0731",
@@ -3125,12 +3125,12 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                             max_tokens=max_toks,
                             stream=True
                         ),
-                        timeout=3.5
+                        timeout=25.0
                     )
                     
-                    # 2. Timeout do primeiro chunk (Time To First Token - 3.5 segundos)
+                    # 2. Timeout do primeiro chunk (Time To First Token - 25 segundos)
                     chunk_iter = response.__aiter__()
-                    first_chunk = await asyncio.wait_for(chunk_iter.__anext__(), timeout=3.5)
+                    first_chunk = await asyncio.wait_for(chunk_iter.__anext__(), timeout=25.0)
                     
                     if first_chunk.choices and first_chunk.choices[0].delta.content is not None:
                         text = first_chunk.choices[0].delta.content
@@ -3149,27 +3149,31 @@ async def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks)
                     error_str = str(e).lower()
                     print(f"[{time.time()-t_start:.2f}s] AVISO: Falha ou timeout no DeepSeek ({error_str}). Acionando Fallback Gemini 2.5 Flash...")
                     
-                    # Fallback de Resiliência usando Gemini
-                    max_toks = 8192 if active_mode in {"modo_aprender", "modo_resumir"} else (700 if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} else 4096)
-                    model = genai.GenerativeModel(
-                        "gemini-2.5-flash", 
-                        system_instruction=dynamic_system_prompt,
-                        generation_config={"max_output_tokens": max_toks}
-                    )
-                    response = await call_with_retry_async(model.generate_content_async, google_contents, stream=True)
-                    
-                    async for chunk in response:
-                        try:
-                            text = chunk.text
-                        except ValueError:
-                            continue
-                        if text:
-                            full_text += text
-                            yield f"data: {json.dumps({'chunk': text})}\n\n"
-                            await asyncio.sleep(0)
+                    # Fallback de Resiliência usando Gemini com proteção contra erros de cota (429)
+                    try:
+                        max_toks = 8192 if active_mode in {"modo_aprender", "modo_resumir"} else (700 if active_mode in {"modo_tira_duvidas", "modo_resolve_questao"} else 4096)
+                        model = genai.GenerativeModel(
+                            "gemini-2.5-flash", 
+                            system_instruction=dynamic_system_prompt,
+                            generation_config={"max_output_tokens": max_toks}
+                        )
+                        response = await call_with_retry_async(model.generate_content_async, google_contents, stream=True)
+                        
+                        async for chunk in response:
+                            try:
+                                text = chunk.text
+                            except ValueError:
+                                continue
+                            if text:
+                                full_text += text
+                                yield f"data: {json.dumps({'chunk': text})}\n\n"
+                                await asyncio.sleep(0)
+                    except Exception as gemini_err:
+                        print(f"[{time.time()-t_start:.2f}s] ⚠️ Falha no Fallback Gemini ({gemini_err}). Provedores esgotados.")
                 
+                # Trava Final Anti-Vácuo: Se por qualquer motivo nenhum chunk foi emitido, garante mensagem na tela
                 if not full_text.strip():
-                    full_text = "Hmm, não consegui entender isso muito bem. Você poderia tentar explicar de outra forma? 🤔"
+                    full_text = "⚠️ Tive uma instabilidade momentânea na conexão. Por favor, envie sua mensagem novamente!"
                     yield f"data: {json.dumps({'chunk': full_text})}\n\n"
                 
                 print(f"[{time.time()-t_start:.2f}s] API Streaming Completed")

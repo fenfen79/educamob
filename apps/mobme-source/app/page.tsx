@@ -639,6 +639,172 @@ const ChatMessageItem = React.memo(function ChatMessageItem({
   );
 });
 
+// =========================================================================
+// Componente de Input Desacoplado (120 FPS / Zero Lag de Digitação)
+// =========================================================================
+interface ChatInputAreaProps {
+  isTyping: boolean;
+  onSend: (text: string, imagePreview?: string | null, imageBase64?: string | null) => void;
+  keyboardHeight: number;
+}
+
+const ChatInputArea = React.memo(function ChatInputArea({
+  isTyping,
+  onSend,
+  keyboardHeight,
+}: ChatInputAreaProps) {
+  const [text, setText] = useState("");
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [imageBase64, setImageBase64] = useState<string | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!isTyping && typeof window !== "undefined" && window.innerWidth >= 768) {
+      textareaRef.current?.focus();
+    }
+  }, [isTyping]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setText(e.target.value);
+    const target = e.target;
+    target.style.height = "auto";
+    target.style.height = `${Math.min(target.scrollHeight, 160)}px`;
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (!isTyping) {
+        handleSubmit();
+      }
+    }
+  };
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result as string;
+      setImagePreview(result);
+      setImageBase64(result.split(",")[1]);
+    };
+    reader.readAsDataURL(file);
+    e.target.value = "";
+  };
+
+  const handlePaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
+    const items = e.clipboardData?.items;
+    if (!items || items.length === 0) return;
+
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].type.indexOf("image") !== -1) {
+        const file = items[i].getAsFile();
+        if (!file) continue;
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          const result = reader.result as string;
+          setImagePreview(result);
+          setImageBase64(result.split(",")[1]);
+        };
+        reader.readAsDataURL(file);
+        break;
+      }
+    }
+  };
+
+  const removeImage = () => {
+    setImagePreview(null);
+    setImageBase64(null);
+  };
+
+  const handleSubmit = () => {
+    if ((!text.trim() && !imageBase64) || isTyping) return;
+    onSend(text, imagePreview, imageBase64);
+    setText("");
+    setImagePreview(null);
+    setImageBase64(null);
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+    }
+  };
+
+  return (
+    <footer
+      className="fixed bottom-0 left-0 right-0 md:left-[280px] bg-[var(--bg-primary)] pt-3 pb-3 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-20 transition-transform duration-150 ease-out"
+      style={{ transform: `translateY(-${keyboardHeight}px)` }}
+    >
+      <div className="w-full max-w-4xl flex flex-col relative">
+        {imagePreview && (
+          <div className="absolute bottom-full mb-3 left-4 p-2 bg-[var(--bg-elevated)] border border-[var(--border-medium)] rounded-xl shadow-lg w-24 h-24 group">
+            <img src={imagePreview} alt="Preview" className="w-full h-full object-cover rounded-lg" />
+            <button
+              type="button"
+              onClick={removeImage}
+              className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <X size={12} />
+            </button>
+          </div>
+        )}
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+          className="flex items-end gap-2 p-1.5 bg-[var(--bg-input)] border border-[var(--border-medium)] rounded-3xl shadow-sm focus-within:border-[var(--accent-primary)] transition-all"
+        >
+          <input
+            type="file"
+            accept="image/*"
+            className="hidden"
+            ref={fileInputRef}
+            onChange={handleImageUpload}
+          />
+
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            className="p-3 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors shrink-0 mb-0.5"
+            title="Anexar imagem"
+          >
+            <Paperclip size={20} />
+          </button>
+
+          <textarea
+            ref={textareaRef}
+            rows={1}
+            value={text}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            onPaste={handlePaste}
+            placeholder={isTyping ? "Mob.me pensando..." : "Digite sua dúvida ou envie uma foto..."}
+            className="flex-1 max-h-40 bg-transparent text-[var(--text-primary)] placeholder:text-[var(--text-muted)] resize-none py-3.5 px-2 outline-none"
+            style={{ fieldSizing: "content" } as any}
+          />
+
+          <button
+            type="submit"
+            disabled={isTyping || (!text.trim() && !imageBase64)}
+            className="p-3.5 rounded-full shrink-0 transition-colors bg-[var(--accent-primary)] text-white disabled:opacity-50 disabled:cursor-not-allowed m-0.5 shadow-md"
+            title="Enviar mensagem"
+          >
+            <Send size={18} />
+          </button>
+        </form>
+
+        <p className="text-center text-xs text-[var(--text-muted)] mt-2">
+          Eu sei muito e sigo estudando, mas não sou perfeita. Se você desconfiar da minha resposta, fale com seu professor(a) da Educamob.
+        </p>
+      </div>
+    </footer>
+  );
+});
+
 export default function ChatApp() {
 
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -646,8 +812,6 @@ export default function ChatApp() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const [messages, setMessages] = useState<Message[]>([]);
-
-  const [input, setInput] = useState("");
 
   const [isTyping, setIsTyping] = useState(false);
   const [loadingTrack, setLoadingTrack] = useState<"teoria" | "flashcards" | "memorex" | null>(null);
@@ -665,12 +829,6 @@ export default function ChatApp() {
     return () => clearInterval(interval);
   }, [isTyping, loadingTrack]);
 
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
-
-  const [imageBase64, setImageBase64] = useState<string | null>(null);
-
-  
-
   const [sessions, setSessions] = useState<Session[]>([]);
 
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
@@ -685,9 +843,6 @@ export default function ChatApp() {
 
   const isStreamingRef = useRef<boolean>(false);
 
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const isTypingRef = useRef(isTyping);
   useEffect(() => {
     isTypingRef.current = isTyping;
@@ -895,7 +1050,10 @@ export default function ChatApp() {
 
     if (typeof window !== "undefined" && window.innerWidth >= 768) {
 
-      setTimeout(() => textareaRef.current?.focus(), 50);
+      setTimeout(() => {
+        const el = document.querySelector("textarea");
+        if (el) el.focus();
+      }, 50);
 
     }
 
@@ -1015,159 +1173,7 @@ export default function ChatApp() {
 
 
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const val = e.target.value;
-    setInput(val);
-    const target = e.target;
-    target.style.height = "auto";
-    target.style.height = `${Math.min(target.scrollHeight, 160)}px`;
-  };
 
-
-
-  useEffect(() => {
-
-    if (!isTyping && typeof window !== "undefined" && window.innerWidth >= 768) {
-
-      textareaRef.current?.focus();
-
-    }
-
-  }, [isTyping]);
-
-
-
-  useEffect(() => {
-
-    if (typeof window !== "undefined" && window.innerWidth >= 768) {
-
-      textareaRef.current?.focus();
-
-    }
-
-  }, []);
-
-
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-
-    const file = e.target.files?.[0];
-
-    if (!file) return;
-
-    
-
-    const reader = new FileReader();
-
-    reader.onload = () => {
-
-      const result = reader.result as string;
-
-      setImagePreview(result);
-
-      setImageBase64(result.split(",")[1]);
-
-    };
-
-    reader.readAsDataURL(file);
-
-    e.target.value = "";
-
-  };
-
-
-
-  const handlePaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
-
-    const items = e.clipboardData?.items;
-
-    
-
-    if (!items || items.length === 0) {
-
-      console.warn("Nenhum item na área de transferência.");
-
-      return;
-
-    }
-
-
-
-    let foundImage = false;
-
-    let types = [];
-
-    
-
-    for (let i = 0; i < items.length; i++) {
-
-      types.push(items[i].type);
-
-      if (items[i].type.indexOf("image") !== -1) {
-
-        foundImage = true;
-
-        e.preventDefault();
-
-        const file = items[i].getAsFile();
-
-        
-
-        if (!file) {
-
-          console.error("Não foi possível extrair o arquivo da imagem.");
-
-          continue;
-
-        }
-
-        
-
-        const reader = new FileReader();
-
-        reader.onload = () => {
-
-          const result = reader.result as string;
-
-          setImagePreview(result);
-
-          setImageBase64(result.split(",")[1]);
-
-          console.log("Imagem processada com sucesso via Ctrl+V");
-
-        };
-
-        reader.readAsDataURL(file);
-
-        break;
-
-      }
-
-    }
-
-    
-
-    if (!foundImage) {
-
-      console.log("Tipos detectados no Ctrl+V:", types);
-
-      // alert apenas para debug rápido se ele colar algo que não é reconhecido como imagem
-
-      // alert("Nenhuma imagem detectada. Tipos encontrados: " + types.join(", "));
-
-    }
-
-  };
-
-
-
-  const removeImage = () => {
-
-    setImagePreview(null);
-
-    setImageBase64(null);
-
-  };
 
 
 
@@ -1321,9 +1327,13 @@ export default function ChatApp() {
 
 
 
-  const handleSend = async (textToSend: string = input) => {
+  const handleSend = async (
+    textToSend: string,
+    imgPreview?: string | null,
+    imgB64?: string | null
+  ) => {
 
-    if (!textToSend.trim() && !imageBase64) return;
+    if (!textToSend.trim() && !imgB64) return;
 
     if (isTyping) return;
 
@@ -1337,7 +1347,7 @@ export default function ChatApp() {
 
       text: textToSend,
 
-      imageUrl: imagePreview || undefined
+      imageUrl: imgPreview || undefined
 
     };
 
@@ -1345,13 +1355,7 @@ export default function ChatApp() {
 
     setMessages(prev => [...prev, newUserMsg]);
 
-    setInput("");
-
-    setImagePreview(null);
-
-    const b64ToSend = imageBase64;
-
-    setImageBase64(null);
+    const b64ToSend = imgB64 || null;
 
     const sendTimestamp = Date.now();
     const lastAiMsg = [...messages].reverse().find(m => m.role === "ai")?.text || "";
@@ -1369,21 +1373,13 @@ export default function ChatApp() {
 
 
 
-    if (textareaRef.current) {
-
-      textareaRef.current.style.height = "auto";
-
-    }
-
-
-
     const abortController = new AbortController();
     let hasReceivedFirstChunk = false;
     const timeoutId = setTimeout(() => {
       if (!hasReceivedFirstChunk) {
         abortController.abort();
       }
-    }, 10000);
+    }, 30000); // 30s timeout resiliente para redes móveis e RAG
 
     try {
 
@@ -1524,6 +1520,16 @@ export default function ChatApp() {
             prev.map(msg => msg.id === aiMsgId ? { ...msg, text: aiResponseText } : msg)
           );
         });
+      } else {
+        // Trava final anti-vácuo no cliente: se a conexão fechar sem nenhum chunk
+        setMessages(prev => [
+          ...prev,
+          {
+            id: aiMsgId,
+            role: "ai",
+            text: "⚠️ Não foi possível obter uma resposta neste momento. Por favor, tente enviar sua mensagem novamente!"
+          }
+        ]);
       }
 
     } catch (e: any) {
@@ -1538,31 +1544,6 @@ export default function ChatApp() {
     } finally {
       isStreamingRef.current = false;
       setIsTyping(false);
-
-      if (typeof window !== "undefined" && window.innerWidth >= 768) {
-
-        setTimeout(() => textareaRef.current?.focus(), 50);
-
-      }
-
-    }
-
-  };
-
-
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-
-    if (e.key === "Enter" && !e.shiftKey) {
-
-      e.preventDefault();
-
-      if (!isTyping) {
-
-        handleSend();
-
-      }
-
     }
 
   };
@@ -2404,125 +2385,12 @@ export default function ChatApp() {
 
 
 
-        {/* Input Area */}
-
-        <footer className="fixed bottom-0 left-0 right-0 md:left-[280px] bg-[var(--bg-primary)] pt-3 pb-3 px-4 flex flex-col items-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-20 transition-transform duration-150 ease-out " style={{ transform: `translateY(-${keyboardHeight}px)` }}>
-
-          <div className="w-full max-w-4xl flex flex-col relative">
-
-            
-
-            {imagePreview && (
-
-              <div className="absolute bottom-full mb-3 left-4 p-2 bg-[var(--bg-elevated)] border border-[var(--border-medium)] rounded-xl shadow-lg w-24 h-24 group">
-
-                <img src={imagePreview} alt="Preview" className="w-full h-full object-cover rounded-lg" />
-
-                <button 
-
-                  onClick={removeImage}
-
-                  className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity"
-
-                >
-
-                  <X size={12} />
-
-                </button>
-
-              </div>
-
-            )}
-
-
-
-            <form 
-
-              onSubmit={(e) => { e.preventDefault(); handleSend(); }}
-
-              className="flex items-end gap-2 p-1.5 bg-[var(--bg-input)] border border-[var(--border-medium)] rounded-3xl shadow-sm focus-within:border-[var(--accent-primary)] transition-all"
-
-            >
-
-              <input 
-
-                type="file" 
-
-                accept="image/*" 
-
-                className="hidden" 
-
-                ref={fileInputRef}
-
-                onChange={handleImageUpload}
-
-              />
-
-              <button 
-
-                type="button" 
-
-                onClick={() => fileInputRef.current?.click()}
-
-                className="p-3 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors shrink-0 mb-0.5"
-
-              >
-
-                <Paperclip size={20} />
-
-              </button>
-
-              
-
-              <textarea
-
-                ref={textareaRef}
-
-                rows={1}
-
-                value={input}
-
-                onChange={handleInputChange}
-
-                onKeyDown={handleKeyDown}
-
-                onPaste={handlePaste}
-
-                placeholder={isTyping ? "Mob.me pensando..." : "Digite sua dúvida ou envie uma foto..."}
-
-                className="flex-1 max-h-40 bg-transparent text-[var(--text-primary)] placeholder:text-[var(--text-muted)] resize-none py-3.5 px-2 outline-none"
-
-              />
-
-              
-
-              <button 
-
-                type="submit"
-
-                disabled={isTyping || (!input.trim() && !imageBase64)}
-
-                className="p-3.5 rounded-full shrink-0 transition-colors bg-[var(--accent-primary)] text-white disabled:opacity-50 disabled:cursor-not-allowed m-0.5 shadow-md"
-
-              >
-
-                <Send size={18} />
-
-              </button>
-
-            </form>
-
-            
-
-            <p className="text-center text-xs text-[var(--text-muted)] mt-2">
-
-              Eu sei muito e sigo estudando, mas não sou perfeita. Se você desconfiar da minha resposta, fale com seu professor(a) da Educamob.
-
-            </p>
-
-          </div>
-
-        </footer>
+        {/* Input Area Desacoplado (120 FPS / Zero Lag de Digitação) */}
+        <ChatInputArea
+          isTyping={isTyping}
+          onSend={handleSend}
+          keyboardHeight={keyboardHeight}
+        />
 
       </div>
 
