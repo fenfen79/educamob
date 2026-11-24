@@ -19,6 +19,7 @@ const REMARK_PLUGINS = [remarkGfm, remarkMath];
 const REHYPE_PLUGINS = [rehypeKatex];
 
 import { Sun, Moon, Menu, Paperclip, Send, X, Plus, Edit2, User, MessageCircle, LogOut, MessageSquarePlus, AlertTriangle, Lightbulb, Check, Loader2, Sparkles, Bug } from "lucide-react";
+import { APP_BUILD_TIME } from "./version";
 
 type UserInfo = {
   id: string;
@@ -872,6 +873,50 @@ export default function ChatApp() {
   const [feedbackSentSuccess, setFeedbackSentSuccess] = useState(false);
   const [feedbackError, setFeedbackError] = useState<string | null>(null);
 
+  // --- Camada 2: Sentinela de Versão e Auto-Atualização em Background ---
+  const [hasNewVersion, setHasNewVersion] = useState(false);
+
+  useEffect(() => {
+    let isChecking = false;
+    const checkVersion = async () => {
+      if (isChecking) return;
+      isChecking = true;
+      try {
+        const res = await fetch(`./version.json?t=${Date.now()}`, {
+          cache: "no-store",
+          headers: { "Cache-Control": "no-cache" }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.buildTime && data.buildTime > APP_BUILD_TIME) {
+            console.log(`[VersionWatcher] Nova versao detectada (${data.buildTime} > ${APP_BUILD_TIME})`);
+            setHasNewVersion(true);
+          }
+        }
+      } catch (err) {
+        // Silently ignore network hiccup
+      } finally {
+        isChecking = false;
+      }
+    };
+
+    // 1. Checa a cada 3 minutos em background
+    const interval = setInterval(checkVersion, 3 * 60 * 1000);
+
+    // 2. Checa imediatamente ao voltar para a aba da Mob.me
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        checkVersion();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
 
 
   useEffect(() => {
@@ -1043,30 +1088,32 @@ export default function ChatApp() {
 
 
   const startNewSession = () => {
+    // Se uma nova versao foi disponibilizada no servidor, atualiza silenciosamente ao criar nova conversa
+    if (hasNewVersion) {
+      window.location.reload();
+      return;
+    }
 
     setCurrentSessionId(null);
-
     setMessages([]);
 
     if (typeof window !== "undefined" && window.innerWidth >= 768) {
-
       setTimeout(() => {
         const el = document.querySelector("textarea");
         if (el) el.focus();
       }, 50);
-
     }
-
   };
 
-
-
   const loadSession = async (id: string) => {
+    // Se uma nova versao foi disponibilizada, atualiza ao trocar de conversa
+    if (hasNewVersion) {
+      window.location.reload();
+      return;
+    }
 
     setCurrentSessionId(id);
-
     setIsSidebarOpen(false);
-
     setIsLoadingHistory(true);
 
     
@@ -2306,7 +2353,20 @@ export default function ChatApp() {
 
         </header>
 
-
+        {/* Notificação Flutuante de Atualização Transparente */}
+        {hasNewVersion && (
+          <div className="fixed top-20 z-50 left-1/2 -translate-x-1/2 flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--accent-primary)] text-white shadow-2xl border border-white/25 animate-bounce">
+            <Sparkles size={16} className="text-amber-300" />
+            <span className="text-xs font-bold tracking-wide">Nova versão da Mob.me disponível!</span>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="ml-1 px-3 py-1 text-xs font-extrabold bg-white text-black rounded-full hover:bg-neutral-100 transition-all shadow-sm active:scale-95 cursor-pointer"
+            >
+              Atualizar agora
+            </button>
+          </div>
+        )}
 
         {/* Chat Area */}
 
