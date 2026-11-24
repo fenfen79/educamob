@@ -2004,7 +2004,7 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
   - Bundle estático do frontend gerado e sincronizado em `apps/mobme` (commit `60bb695` na branch `feature/novo-menu-microaprendizagem`). Zero push na `master`.
 
 
-### 185. Desacoplamento Arquitetural de UI (Input a 120 FPS / Zero Lag) e Blindagem Anti-Vácuo com Timeout Resiliente de 25s e Trava de Segurança contra Cota 429 ✅ Implementado Localmente (Aguardando Trava 2 para Deploy em Produção)
+### 185. Desacoplamento Arquitetural de UI (Input a 120 FPS / Zero Lag) e Blindagem Anti-Vácuo com Timeout Resiliente de 25s e Trava de Segurança contra Cota 429 ✅ Concluído e Homologado em Produção
 - **Data de Execução:** 23 de Novembro de 2026.
 - **Branch Git de Trabalho:** `feature/novo-menu-microaprendizagem`.
 - **Status Geral:** 🧪 **Código Implementado e Validado Localmente com 100% de Sucesso nos Testes e Build Next.js.**
@@ -2035,3 +2035,31 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
 - **Homologação Local:**
   - Testes de integridade automatizados (`scratch/test_anti_vacuo_backend.py`): 100% aprovados.
   - Build de Produção Next.js Turbopack (`apps/mobme-source`): compilado com sucesso em 4.0s, verificação TypeScript em 7.0s com zero erros (`0 errors`), exportação estática de páginas (3/3) gerada e sincronizada para `apps/mobme`.
+
+
+### 186. Sistema de Atualização Transparente e Auto-Recuperação de Cache da Mob.me (Self-Updating & Self-Healing SPA em 3 Camadas) ✅ Implementado Localmente (Aguardando Trava 2 para Deploy em Produção)
+- **Data de Execução:** 24 de Novembro de 2026.
+- **Branch Git de Trabalho:** `feature/novo-menu-microaprendizagem`.
+- **Status Geral:** 🧪 **Código Implementado e Validado Localmente com 100% de Sucesso no Build Next.js Turbopack.**
+- **Governança (Protocolo de Dupla Trava):**
+  - **Trava 1 (Aprovação Técnica Prévia):** Aprovada formalmente pelo usuário no chat ("sim").
+  - **Trava 2 (Bloqueio de Deploy em Nuvem):** **ATIVA**. Nenhum comando de rede ou sincronização com GitHub Pages (`master`), servidores ou containers Docker foi executado. Aguardando a chave expressa `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
+- **Motivação e Diagnóstico de Escala:**
+  - Após deploys de novas versões, orientar estudantes a pressionar `Ctrl+Shift+R`, limpar cache do navegador ou reabrir abas não é viável para a escala da Mob.me.
+  - Servidores estáticos e CDNs aplicam cache em arquivos HTML e chunks JavaScript antigos, fazendo com que estudantes permaneçam executando bundles defasados ou enfrentem `ChunkLoadError` ao carregar rotas dinâmicas.
+- **Arquitetura da Solução em 3 Camadas:**
+  1. *Camada 1 (Anti-Cache Estrito no HTML):*
+     - Injeção de meta tags HTTP-Equiv no `<head>` (`apps/mobme-source/app/layout.tsx`): `Cache-Control: no-cache, no-store, must-revalidate`, `Pragma: no-cache`, `Expires: 0`.
+     - Garante que os navegadores sempre consultem o `index.html` fresco do servidor, enquanto os chunks com hash no nome continuam sendo cacheados eficientemente.
+  2. *Camada 2 (Sentinela de Versão e Auto-Atualização Transparente em Background):*
+     - Gerador pré-build (`apps/mobme-source/scripts/generate-version.js`) cria `public/version.json` e `app/version.ts` com timestamp atômico de compilação (`buildTime`).
+     - Polling automático e leve a cada 3 minutos e no evento `visibilitychange` (quando o estudante retorna à aba).
+     - Atualização transparente e imperceptível: ao trocar de conversa (`loadSession`) ou iniciar nova sessão (`startNewSession`), a página é recarregada silenciosamente sem perder o fluxo do aluno.
+     - Pill flutuante não intrusivo com botão "Atualizar agora" exibido no topo da tela caso uma nova versão seja detectada durante uma conversa em andamento.
+  3. *Camada 3 (Auto-Cura Global contra Chunks Órfãos):*
+     - Listener global de erro no `<head>` intercepta exceções do tipo `Loading chunk ... failed` e `Failed to fetch dynamically imported module`.
+     - Ao detectar a quebra provocada pela exclusão de chunks de deploys anteriores na CDN, aciona imediatamente o `window.location.reload()`, curando a aplicação de forma automática e transparente.
+- **Homologação Local:**
+  - `generate-version.js` integrado ao lifecycle `npm run build` do `package.json`.
+  - Next.js Turbopack compilado em 96s com 100% de sucesso, verificação TypeScript concluída em 25.3s com 0 erros.
+  - Exportação estática prerenderizada (3/3) e sincronizada integralmente para `apps/mobme/` incluindo `version.json`.

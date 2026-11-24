@@ -22,6 +22,29 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        {/* Camada 1: Imunização do HTML de Entrada contra Cache do Navegador */}
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
+
+        {/* Camada 3: Mecanismo de Auto-Cura Global para Chunks Desatualizados */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('error', function(e) {
+                if (e && e.message && (
+                  e.message.indexOf('Loading chunk') !== -1 ||
+                  e.message.indexOf('dynamically imported module') !== -1 ||
+                  e.message.indexOf('Failed to fetch dynamically imported module') !== -1
+                )) {
+                  console.warn('⚠️ Chunk desatualizado detectado. Auto-recuperando para a nova versao...');
+                  window.location.reload();
+                }
+              });
+            `,
+          }}
+        />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
