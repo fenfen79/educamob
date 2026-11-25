@@ -20,12 +20,12 @@ distribuicao:
 Qual das situações abaixo é um exemplo de fenômeno determinístico, ou seja, aquele que acontecerá com certeza e podemos prever o resultado?
 
 a) Lançar uma moeda e observar se cairá cara ou coroa.
-b) Sortear um nome em uma urna com 30 papéis.
-c) Soltar uma bola da janela e observar ela cair em direção ao chão.
+b) Soltar uma bola da janela e observar ela cair em direção ao chão.
+c) Sortear um nome em uma urna com 30 papéis.
 d) Escolher uma carta de um baralho embaralhado.
 e) Girar uma roleta colorida e ver em qual cor ela vai parar.
 
-**Gabarito:** C
+**Gabarito:** b
 **Resolução:** A queda da bola devido à gravidade é um fenômeno físico garantido nas condições normais, caracterizando um fenômeno determinístico. Os demais dependem do acaso (são aleatórios).
 
 <!-- id: q02 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -33,12 +33,12 @@ e) Girar uma roleta colorida e ver em qual cor ela vai parar.
 O que caracteriza um fenômeno aleatório?
 
 a) O resultado é sempre o mesmo, não importando quantas vezes seja repetido.
-b) O resultado pode ser previsto com total certeza matemática antes de acontecer.
+b) Ao repeti-lo nas mesmas condições, o resultado individual não pode ser previsto com certeza absoluta.
 c) É um evento impossível de ser estudado ou compreendido pelas ciências.
-d) Ao repeti-lo nas mesmas condições, o resultado individual não pode ser previsto com certeza absoluta.
+d) O resultado pode ser previsto com total certeza matemática antes de acontecer.
 e) Ocorre apenas em situações onde não existem regras ou leis físicas agindo.
 
-**Gabarito:** D
+**Gabarito:** b
 **Resolução:** Um experimento aleatório tem como principal marca a imprevisibilidade de seu resultado individual, mesmo sendo realizado sob as mesmas condições iniciais.
 
 <!-- id: q03 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -46,12 +46,12 @@ e) Ocorre apenas em situações onde não existem regras ou leis físicas agindo
 Em um jogo de tabuleiro, os jogadores utilizam um dado comum de 6 faces (numeradas de 1 a 6). Qual é o Espaço Amostral desse experimento?
 
 a) {1, 3, 5}
-b) {1, 2, 3, 4, 5, 6}
+b) {1, 2, 3, 4, 5, 6, 7}
 c) {Cara, Coroa}
 d) {2, 4, 6}
-e) {1, 2, 3, 4, 5, 6, 7}
+e) {1, 2, 3, 4, 5, 6}
 
-**Gabarito:** B
+**Gabarito:** e
 **Resolução:** O espaço amostral reúne todos os resultados possíveis. Em um dado de 6 faces numeradas de 1 a 6, o conjunto completo de possibilidades é {1, 2, 3, 4, 5, 6}.
 
 <!-- id: q04 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -60,11 +60,11 @@ Ao observar a cor do próximo carro que passará pela rua da escola, a turma de 
 
 a) Pelos números das placas de todos os carros.
 b) Apenas pelas cores branco e preto.
-c) Por todas as cores possíveis de carros que existem na frota local.
-d) Pelo modelo e ano de fabricação dos carros.
+c) Pelo modelo e ano de fabricação dos carros.
+d) Por todas as cores possíveis de carros que existem na frota local.
 e) Pelo número exato de carros que passarão o dia todo.
 
-**Gabarito:** C
+**Gabarito:** d
 **Resolução:** Se a característica observada no experimento é a "cor", o espaço amostral engloba o conjunto de todas as possibilidades de cores que um carro pode ter.
 
 <!-- id: q05 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -74,10 +74,10 @@ Um evento que possui todos os elementos do espaço amostral é chamado de Evento
 a) Sair um número par.
 b) Sair um número maior que 4.
 c) Sair o número 7.
-d) Sair um número menor que 10.
-e) Sair um número ímpar.
+d) Sair um número ímpar.
+e) Sair um número menor que 10.
 
-**Gabarito:** D
+**Gabarito:** e
 **Resolução:** O dado só possui números de 1 a 6. Qualquer número que sair será menor que 10. Portanto, é 100% garantido que o resultado será menor que 10, caracterizando um Evento Certo.
 
 <!-- id: q06 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -87,10 +87,10 @@ Ao retirarmos, sem olhar, uma bola de uma urna que contém apenas bolas azuis, o
 a) Evento Certo
 b) Muito provável
 c) Igualmente provável
-d) Pouco provável
-e) Evento Impossível
+d) Evento Impossível
+e) Pouco provável
 
-**Gabarito:** E
+**Gabarito:** d
 **Resolução:** Como a urna só contém bolas azuis, a cor amarela não faz parte do espaço amostral. Logo, tirar uma bola amarela tem 0% de chance, sendo um Evento Impossível.
 
 <!-- id: q07 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -113,10 +113,10 @@ Em uma caixa há 99 bolas vermelhas e 1 bola preta. Se você puxar uma bola de o
 a) Evento Impossível.
 b) Muito provável.
 c) Igualmente provável.
-d) Pouco provável.
-e) Evento Certo.
+d) Evento Certo.
+e) Pouco provável.
 
-**Gabarito:** D
+**Gabarito:** e
 **Resolução:** A bola preta existe na caixa, portanto não é impossível. Porém, como representa apenas 1 em 100 possibilidades, sua chance de ser sorteada é muito pequena (pouco provável).
 
 <!-- id: q09 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -124,25 +124,25 @@ e) Evento Certo.
 Considere o espaço amostral do lançamento de um dado de 6 faces: {1, 2, 3, 4, 5, 6}. Quantos elementos existem no evento "sair um número ímpar"?
 
 a) 1 elemento.
-b) 2 elementos.
-c) 3 elementos.
+b) 3 elementos.
+c) 2 elementos.
 d) 4 elementos.
 e) 6 elementos.
 
-**Gabarito:** C
+**Gabarito:** b
 **Resolução:** Os números ímpares presentes no dado de 6 faces são 1, 3 e 5. Logo, o evento é composto por 3 elementos.
 
 <!-- id: q10 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
 ### Questão 10
 Quantos resultados possíveis (qual é a cardinalidade) do espaço amostral na situação "escolher um dia da semana aleatório"?
 
-a) 2
+a) 7
 b) 5
-c) 7
+c) 2
 d) 12
 e) 30
 
-**Gabarito:** C
+**Gabarito:** a
 **Resolução:** Os dias da semana são: segunda, terça, quarta, quinta, sexta, sábado e domingo. Portanto, o espaço amostral possui 7 elementos.
 
 <!-- id: q11 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -151,11 +151,11 @@ Qual é o termo matemático usado para descrever qualquer subconjunto de resulta
 
 a) Cardinalidade.
 b) Fenômeno determinístico.
-c) Evento.
-d) Probabilidade.
+c) Probabilidade.
+d) Evento.
 e) Matriz.
 
-**Gabarito:** C
+**Gabarito:** d
 **Resolução:** Por definição, um Evento é qualquer subconjunto (uma parte ou o todo) que selecionamos dentro do Espaço Amostral de um experimento.
 
 <!-- id: q12 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -163,12 +163,12 @@ e) Matriz.
 Um estojo contém 8 lápis de cor: 7 verdes e 1 rosa. Fechando os olhos, Lucas vai pegar um lápis. O que é muito provável que aconteça?
 
 a) Ele pegará o lápis rosa.
-b) Ele pegará um lápis azul.
-c) Ele pegará um lápis verde.
+b) Ele pegará um lápis verde.
+c) Ele pegará um lápis azul.
 d) Ele pegará uma caneta.
 e) Ele não pegará nenhum lápis.
 
-**Gabarito:** C
+**Gabarito:** b
 **Resolução:** A imensa maioria dos lápis no estojo é verde (7 de 8). Portanto, é muito provável (alta chance) que o lápis sorteado ao acaso seja verde.
 
 <!-- id: q13 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -177,11 +177,11 @@ Fernanda tem um saco com balas. Se o evento "pegar uma bala de morango" é um Ev
 
 a) O saco está vazio.
 b) Metade das balas são de morango.
-c) Há muitas balas de morango e poucas de uva.
-d) Todas as balas no saco são de morango.
+c) Todas as balas no saco são de morango.
+d) Há muitas balas de morango e poucas de uva.
 e) Nenhuma bala é de morango.
 
-**Gabarito:** D
+**Gabarito:** c
 **Resolução:** Um Evento Certo possui 100% de chance de ocorrer. Para que seja garantido tirar uma bala de morango sem olhar, todas as balas contidas no recipiente precisam ser exclusivamente de morango.
 
 <!-- id: q14 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -203,11 +203,11 @@ Joãozinho comprou uma roleta que está dividida em 4 fatias iguais: amarela, ve
 
 a) {amarelo, verde}
 b) {azul, vermelho}
-c) {amarela, verde, azul, vermelha}
+c) {amarela, amarela, verde}
 d) {4}
-e) {amarela, amarela, verde}
+e) {amarela, verde, azul, vermelha}
 
-**Gabarito:** C
+**Gabarito:** e
 **Resolução:** O espaço amostral deve listar todos os resultados distintos que podem ocorrer. Na roleta descrita, os resultados são as 4 cores presentes.
 
 <!-- id: q16 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -227,26 +227,26 @@ e) Tirar o número 12.
 ### Questão 17
 O que são eventos "mutuamente exclusivos" em um experimento aleatório?
 
-a) São eventos que não podem ocorrer ao mesmo tempo em uma única tentativa.
-b) São eventos que têm sempre a mesma quantidade de chances.
+a) São eventos que têm sempre a mesma quantidade de chances.
+b) São eventos que não podem ocorrer ao mesmo tempo em uma única tentativa.
 c) São eventos que são impossíveis de acontecer.
 d) São resultados que, somados, dão o valor de 100 reais.
 e) São eventos que acontecem todos os dias.
 
-**Gabarito:** A
+**Gabarito:** b
 **Resolução:** Eventos mutuamente exclusivos são aqueles em que a ocorrência de um inviabiliza completamente a ocorrência do outro na mesma jogada (ex: o dado cair mostrando a face 2 e a face 5 simultaneamente é impossível).
 
 <!-- id: q18 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
 ### Questão 18
 Uma classe tem 10 meninos e 10 meninas. O professor vai sortear um aluno para ajudar a apagar o quadro. As chances de sair um menino ou uma menina são:
 
-a) Impossíveis
+a) Igualmente prováveis
 b) Pouco prováveis
 c) Eventos certos
 d) Muito prováveis
-e) Igualmente prováveis
+e) Impossíveis
 
-**Gabarito:** E
+**Gabarito:** a
 **Resolução:** Como a quantidade de meninos (10) e de meninas (10) é exatamente a mesma, os conjuntos têm o mesmo tamanho, fazendo com que as chances de sorteio sejam perfeitamente iguais.
 
 <!-- id: q19 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: basico | objeto: espaco-amostral -->
@@ -267,12 +267,12 @@ e) Evento Certo
 Lúcia observou que no mês de abril há 30 dias no calendário. Ela escolheu um dia de abril ao acaso. Qual é o espaço amostral dessa situação em termos da quantidade de elementos?
 
 a) 7 elementos
-b) 12 elementos
+b) 30 elementos
 c) 28 elementos
-d) 30 elementos
+d) 12 elementos
 e) 31 elementos
 
-**Gabarito:** D
+**Gabarito:** b
 **Resolução:** O espaço amostral possui um elemento para cada dia possível de ser sorteado naquele mês. Como o mês de abril possui 30 dias, há 30 elementos no conjunto total.
 
 ## Nível Intermediário (Questões 21-40)
@@ -282,12 +282,12 @@ e) 31 elementos
 Marcos disse: "Amanhã pode chover ou não chover. Como só existem essas duas opções, a chance de chover é de 50%". O pensamento de Marcos está:
 
 a) Correto, pois tudo na vida que tem duas opções é sempre 50%.
-b) Correto, pois a chuva é um fenômeno determinístico.
-c) Incorreto, pois a chance de chuva depende das condições do clima (umidade, vento) e não apenas de haver duas palavras possíveis.
+b) Incorreto, pois a chance de chuva depende das condições do clima (umidade, vento) e não apenas de haver duas palavras possíveis.
+c) Correto, pois a chuva é um fenômeno determinístico.
 d) Incorreto, pois é impossível chover amanhã.
 e) Correto, porque Cara e Coroa também são 50%.
 
-**Gabarito:** C
+**Gabarito:** b
 **Resolução:** Essa é a "Falácia dos 50/50". Ter dois resultados nominais (chover ou não chover) não significa que eles têm o mesmo peso estatístico. A meteorologia calcula chances com base em dados físicos, logo, não são eventos simétricos ou equiprováveis por natureza.
 
 <!-- id: q22 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -296,24 +296,24 @@ Qual é o espaço amostral completo ao lançarmos duas moedas ao mesmo tempo? (C
 
 a) {C, K}
 b) {(C, K), (K, C)}
-c) {(C, C), (K, K)}
-d) {(C, C), (C, K), (K, C), (K, K)}
+c) {(C, C), (C, K), (K, C), (K, K)}
+d) {(C, C), (K, K)}
 e) {(C, C, C), (K, K, K)}
 
-**Gabarito:** D
+**Gabarito:** c
 **Resolução:** Em duas etapas, combinamos as opções da Moeda 1 (C, K) com a Moeda 2 (C, K). As duplas formadas são: ambas Caras (C,C), Cara e Coroa (C,K), Coroa e Cara (K,C) e ambas Coroas (K,K). 
 
 <!-- id: q23 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
 ### Questão 23
 Se lançarmos dois dados de 6 faces, quantos resultados possíveis (cardinalidade) terá o espaço amostral total?
 
-a) 12
+a) 36
 b) 24
 c) 30
-d) 36
+d) 12
 e) 64
 
-**Gabarito:** D
+**Gabarito:** a
 **Resolução:** O primeiro dado tem 6 faces. Para cada face do primeiro, o segundo dado também tem 6 opções. Multiplicando as opções (6 x 6), obtemos 36 pares diferentes no espaço amostral.
 
 <!-- id: q24 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -333,13 +333,13 @@ e) Camiseta Vermelha e Calça Preta.
 ### Questão 25
 Se jogarmos duas moedas honestas para cima, qual é a chance (qualitativamente) de cair pelo menos uma "Cara"?
 
-a) Muito provável.
+a) Pouco provável.
 b) Impossível.
-c) Pouco provável.
+c) Muito provável.
 d) Evento Certo.
 e) Eventos Mutuamente Exclusivos.
 
-**Gabarito:** A
+**Gabarito:** c
 **Resolução:** O espaço amostral é {(C,C), (C,K), (K,C), (K,K)}. Os resultados favoráveis (ter pelo menos uma Cara) são três: (C,C), (C,K) e (K,C). Como são 3 de 4 opções (75%), o evento é muito provável.
 
 <!-- id: q26 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -347,12 +347,12 @@ e) Eventos Mutuamente Exclusivos.
 Observe uma tabela de dupla entrada de roupas. Uma pessoa vai sortear 1 calça entre (Jeans, Moletom) e 1 tênis entre (Preto, Branco). Quantos resultados compõem o evento "A calça sorteada é Jeans"?
 
 a) 1 resultado.
-b) 2 resultados.
+b) 4 resultados.
 c) 3 resultados.
-d) 4 resultados.
+d) 2 resultados.
 e) Nenhum resultado.
 
-**Gabarito:** B
+**Gabarito:** d
 **Resolução:** O espaço total tem 4 duplas: (Jeans, Preto), (Jeans, Branco), (Moletom, Preto), (Moletom, Branco). O evento "ser Jeans" tem 2 casos favoráveis: (Jeans, Preto) e (Jeans, Branco).
 
 <!-- id: q27 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -360,25 +360,25 @@ e) Nenhum resultado.
 Laura está escolhendo o seu lanche. Ela deve escolher 1 bebida (Suco, Água, Chá) e 1 salgado (Coxinha, Empada). Se montarmos o espaço amostral, quantas combinações diferentes de lanches ela pode formar?
 
 a) 5
-b) 6
+b) 8
 c) 7
-d) 8
+d) 6
 e) 9
 
-**Gabarito:** B
-**Resolução:** Multiplicando as opções (3 bebidas x 2 salgados), obtemos 6 lanches diferentes. (Suco-Coxinha, Suco-Empada, Água-Coxinha, Água-Empada, Chá-Coxinha, Chá-Empada).
+**Gabarito:** d
+**Resolução:** Multiplicando as opções (3 bebidas x 2 salgados), obtemos 6 lanches diferentes. (suco com coxinha, suco com empada, água com coxinha, água com empada, chá com coxinha, chá com empada).
 
 <!-- id: q28 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
 ### Questão 28
 Um estudante comprou 1 bilhete de uma rifa que vendeu 1000 bilhetes no total. Como ele deve classificar o evento "Meu bilhete será o sorteado"?
 
-a) Evento Certo.
+a) Pouco provável.
 b) Muito provável.
-c) Pouco provável.
+c) Evento Certo.
 d) Impossível de acontecer.
 e) Igualmente provável.
 
-**Gabarito:** C
+**Gabarito:** a
 **Resolução:** Embora a chance não seja zero (portanto, não é impossível), 1 chance em 1000 é uma fração mínima do total. É classificado como pouco provável.
 
 <!-- id: q29 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -398,13 +398,13 @@ e) "DD" é impossível.
 ### Questão 30
 Em um dado numérico de 1 a 6, considere o Evento A = "Sair um número par" e o Evento B = "Sair um número ímpar". Sobre esses eventos, é correto afirmar:
 
-a) Eles são eventos complementares.
+a) O Evento A é mais provável que o B.
 b) Eles não são mutuamente exclusivos.
-c) O Evento A é mais provável que o B.
+c) Eles são eventos complementares.
 d) Juntos eles somam 50% de chance.
 e) É possível que ocorram simultaneamente na mesma jogada.
 
-**Gabarito:** A
+**Gabarito:** c
 **Resolução:** Eventos complementares ocorrem quando um é o oposto do outro e, juntos, eles formam o espaço amostral completo. Se um número inteiro no dado não é par, ele obrigatoriamente é ímpar, e vice-versa.
 
 <!-- id: q31 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -413,11 +413,11 @@ No lançamento de dois dados simultâneos (Dado 1 e Dado 2), João acha que o re
 
 a) Certo, porque a soma dos dados dá 3 nos dois casos.
 b) Certo, pois não importa a ordem no espaço amostral de dados.
-c) Incorreto. No espaço amostral, o resultado de cada dado é independente; (1 no Dado 1, 2 no Dado 2) é um evento diferente de (2 no Dado 1, 1 no Dado 2).
+c) Certo, porque os eventos são complementares.
 d) Incorreto, pois dados nunca caem com números repetidos.
-e) Certo, porque os eventos são complementares.
+e) Incorreto. No espaço amostral, a ordem importa: (1 no Dado 1, 2 no Dado 2) é diferente de (2 no Dado 1, 1 no Dado 2).
 
-**Gabarito:** C
+**Gabarito:** e
 **Resolução:** Em experimentos compostos, a ordem importa na construção do espaço amostral. Ignorar isso reduz a cardinalidade real (que é 36) e causa distorções no cálculo de chances (um dos "Erros Comuns").
 
 <!-- id: q32 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -426,24 +426,24 @@ A professora montou uma urna com as vogais: {A, E, I, O, U}. Ao retirar uma letr
 
 a) Pouco provável.
 b) Muito provável.
-c) Certo.
-d) Impossível.
+c) Impossível.
+d) Certo.
 e) Determinístico.
 
-**Gabarito:** D
+**Gabarito:** c
 **Resolução:** O espaço amostral contém unicamente as cinco vogais. Uma vez que não há consoantes dentro da urna, o número de casos favoráveis é zero, tornando-o um Evento Impossível.
 
 <!-- id: q33 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
 ### Questão 33
 Considere um semáforo de trânsito comum de 3 luzes. Se você tirar uma foto dele funcionando aleatoriamente, qual é o espaço amostral correto das cores que ele pode estar exibindo para os motoristas?
 
-a) {Verde, Azul, Vermelho}
-b) {Verde, Amarelo, Vermelho}
+a) {Verde, Amarelo, Vermelho}
+b) {Verde, Azul, Vermelho}
 c) {Ligar, Desligar}
 d) {Avançar, Parar}
 e) {Amarelo}
 
-**Gabarito:** B
+**Gabarito:** a
 **Resolução:** O espaço amostral lista todas as observações físicas possíveis. Em um semáforo clássico, as luzes acesas possíveis são Verde, Amarelo ou Vermelho.
 
 <!-- id: q34 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -451,12 +451,12 @@ e) {Amarelo}
 Temos 1 bola vermelha e 1 bola azul em um saco. Se retirarmos 1 bola e, EM SEGUIDA, retirarmos a outra bola, qual é o espaço amostral da ordem de cores retiradas?
 
 a) {(Vermelha, Azul)}
-b) {(Vermelha, Azul), (Azul, Vermelha)}
+b) {(Azul, Azul), (Azul, Vermelha)}
 c) {(Azul, Azul), (Vermelha, Vermelha)}
-d) {(Azul, Azul), (Azul, Vermelha)}
+d) {(Vermelha, Azul), (Azul, Vermelha)}
 e) {(Vermelha), (Azul)}
 
-**Gabarito:** B
+**Gabarito:** d
 **Resolução:** Como são retiradas em sequência, há duas possibilidades de ordem: ou tira-se a vermelha primeiro e depois a azul, ou a azul primeiro e depois a vermelha.
 
 <!-- id: q35 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -476,13 +476,13 @@ e) Tabela de preços.
 ### Questão 36
 Em uma roleta, metade do círculo é pintado de Laranja e a outra metade é pintada de Roxo. Girar essa roleta e obter a cor Laranja é um evento:
 
-a) Evento Certo.
+a) Igualmente provável à cor Roxa.
 b) Impossível.
-c) Igualmente provável à cor Roxa.
+c) Evento Certo.
 d) Muito pouco provável.
 e) Mais provável que a cor Roxa.
 
-**Gabarito:** C
+**Gabarito:** a
 **Resolução:** Como a área (e logo as chances físicas) ocupada pelo Laranja é exatamente igual à área ocupada pelo Roxo (metade para cada), não há vantagem para nenhuma das cores. Ambas são igualmente prováveis (50%).
 
 <!-- id: q37 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -491,11 +491,11 @@ e) Mais provável que a cor Roxa.
 
 a) Falácia dos 50/50.
 b) Desconsiderar a ordem dos elementos.
-c) Subjetivismo Intuitivo.
-d) Confundir pouco provável com impossível.
+c) Confundir pouco provável com impossível.
+d) Subjetivismo Intuitivo.
 e) Ignorar resultados exclusivos.
 
-**Gabarito:** C
+**Gabarito:** d
 **Resolução:** Basear a estimativa de um evento aleatório em "sorte" ou sentimentos pessoais é classificado como subjetivismo. A análise probabilística exige observação de casos favoráveis e do espaço amostral.
 
 <!-- id: q38 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -503,12 +503,12 @@ e) Ignorar resultados exclusivos.
 Ao jogar um dado comum, qual dos eventos abaixo é classificado como Muito Provável?
 
 a) Sair um número par.
-b) Sair um número maior que 1.
+b) Sair um número menor que 2.
 c) Sair o número 5.
-d) Sair um número menor que 2.
+d) Sair um número maior que 1.
 e) Sair um número maior que 6.
 
-**Gabarito:** B
+**Gabarito:** d
 **Resolução:** Os números maiores que 1 no dado são 2, 3, 4, 5 e 6 (5 resultados a favor). Como cobre quase todo o espaço amostral (5 de 6), esse evento é Muito Provável.
 
 <!-- id: q39 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: intermediario | objeto: espaco-amostral -->
@@ -530,13 +530,14 @@ Temos 4 cartas de animais: {Gato, Cachorro, Pássaro, Peixe}. Qual é a cardinal
 
 a) 1
 b) 2
-c) 3
-d) 4
+c) 4
+d) 3
 e) 8
 
-**Gabarito:** D
+**Gabarito:** c
 **Resolução:** Como vamos sortear apenas 1 carta, cada animal representa 1 elemento inteiro do espaço amostral. Logo, temos 4 resultados possíveis (|Ω| = 4).
 ## Nível Difícil (Questões 41-60)
+
 
 <!-- id: q41 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: dificil | objeto: espaco-amostral -->
 ### Questão 41
@@ -544,11 +545,11 @@ Uma sorveteria vende potes onde o cliente monta o seu pedido em 3 etapas sucessi
 
 a) 3 combinações.
 b) 6 combinações.
-c) 8 combinações.
-d) 9 combinações.
+c) 9 combinações.
+d) 8 combinações.
 e) 12 combinações.
 
-**Gabarito:** C
+**Gabarito:** d
 **Resolução:**
 **Etapa 1:** A primeira escolha (massa) tem 2 opções.
 **Etapa 2:** A segunda escolha (cobertura) tem 2 opções.
@@ -577,11 +578,11 @@ Na previsão do tempo, o meteorologista afirmou: "Amanhã temos 90% de chance de
 
 a) Certo, pois se tem 90% de chance, obrigatoriamente deve chover o dia todo.
 b) Certo, pois meteorologia é um fenômeno determinístico sem chance de variação.
-c) Errado, pois 90% não é 100%. Se a chance de chover é de 90%, existe 10% de chance de não chover. Um evento com 10% é pouco provável, mas nunca impossível.
+c) Certo, porque o espaço amostral do clima só contém chuva.
 d) Errado, pois chover e fazer sol são eventos mutuamente inclusivos.
-e) Certo, porque o espaço amostral do clima só contém chuva.
+e) Errado, pois 90% não é 100%. Com 10% de chance de não chover, o evento era pouco provável, mas possível.
 
-**Gabarito:** C
+**Gabarito:** e
 **Resolução:**
 **Etapa 1:** Interpretar os dados probabilísticos. 90% de chance de chuva significa 90 chances a favor em 100 possíveis.
 **Etapa 2:** Analisar o evento complementar. Se há 90% para a chuva, restam 10% (10 em 100) para tempo sem chuva.
@@ -594,10 +595,10 @@ Temos 3 envelopes iguais sobre a mesa. Dentro de 2 deles há um prêmio de 50,00
 a) Impossível, pois só a sorte decide.
 b) Um fenômeno determinístico, pois o dinheiro já está lá dentro.
 c) Menos provável que tirar o envelope vazio.
-d) Mais provável (muito provável) que tirar o envelope vazio.
-e) Um evento certo de acontecer.
+d) Um evento certo de acontecer.
+e) Mais provável (muito provável) que tirar o envelope vazio.
 
-**Gabarito:** D
+**Gabarito:** e
 **Resolução:**
 **Etapa 1:** Definir o espaço amostral. O total são 3 envelopes. 
 **Etapa 2:** Analisar os casos favoráveis. Existem 2 envelopes com 50,00 reais (2 chances).
@@ -625,12 +626,12 @@ e) O jogo é classificado como evento impossível para o menino.
 Muitas pessoas compram seguros de carros porque entendem a probabilidade de acidentes. Numa cidade grande, batidas de carro não são raras. Considerando a escala qualitativa, o que representa para a seguradora o evento "Ocorrer pelo menos um acidente na cidade este ano"?
 
 a) Evento Impossível.
-b) Evento Muito Provável.
+b) Pouco provável.
 c) Fenômeno Determinístico.
 d) Igualmente provável a não ocorrer nenhum.
-e) Pouco provável.
+e) Evento Muito Provável.
 
-**Gabarito:** B
+**Gabarito:** e
 **Resolução:**
 **Etapa 1:** Analisar o contexto histórico de uma cidade grande, onde há milhares de carros circulando (condições estocásticas propícias).
 **Etapa 2:** Aplicar a regularidade estatística. A chance de milhares de carros passarem 365 dias sem nenhum raspão ou colisão é microscópica.
@@ -677,11 +678,11 @@ Uma lanchonete tem o "Combo Sorte", que custa 15,00 reais. Nele, você gira duas
 
 a) 1 resultado.
 b) 2 resultados.
-c) 3 resultados.
+c) 8 resultados.
 d) 4 resultados.
-e) 8 resultados.
+e) 3 resultados.
 
-**Gabarito:** C
+**Gabarito:** e
 **Resolução:**
 **Etapa 1:** Determinar a opção fixa na primeira roleta, que é o "Hambúrguer" (1 opção).
 **Etapa 2:** Determinar as opções favoráveis na segunda roleta. Se não pode ser refrigerante, restam Suco, Chá e Água (3 opções).
@@ -692,12 +693,12 @@ e) 8 resultados.
 Uma prova possui uma questão de Múltipla Escolha com 5 alternativas (apenas uma correta). Um estudante, que não estudou nada, resolve "chutar". Qual é a classificação mais precisa do evento "Ele acertar a questão"?
 
 a) Evento Impossível.
-b) Evento Certo, pois todo chute tem uma resposta.
+b) Pouco provável, já que há apenas 1 resposta certa e 4 erradas.
 c) Igualmente provável (pois ou acerta, ou erra).
-d) Pouco provável, já que há apenas 1 resposta certa e 4 erradas.
+d) Evento Certo, pois todo chute tem uma resposta.
 e) Muito provável, pois tem 5 opções.
 
-**Gabarito:** D
+**Gabarito:** b
 **Resolução:**
 **Etapa 1:** Analisar o espaço amostral: 5 alternativas compõem as respostas possíveis.
 **Etapa 2:** Contar casos favoráveis. Há apenas 1 resposta correta.
@@ -708,13 +709,13 @@ e) Muito provável, pois tem 5 opções.
 ### Questão 51
 Considere dois potes. O Pote 1 tem 50 moedas de 1,00 real. O Pote 2 tem 49 moedas de 1,00 real e 1 moeda de 50 centavos. Se um colecionador puder colocar a mão sem ver e tirar apenas uma moeda para tentar pegar a de 50 centavos, qual pote ele deve escolher para que o evento deixe de ser impossível?
 
-a) O Pote 1, pois ele tem mais moedas.
+a) O Pote 2, pois a moeda de 50 centavos existe no seu espaço amostral, mesmo sendo um evento pouco provável de acontecer no primeiro sorteio.
 b) O Pote 1, pois é igualmente provável nos dois.
 c) O Pote 2, pois o evento de tirar a moeda de 50 centavos no Pote 1 é Evento Certo.
-d) O Pote 2, pois a moeda de 50 centavos existe no seu espaço amostral, mesmo sendo um evento pouco provável de acontecer no primeiro sorteio.
+d) O Pote 1, pois ele tem mais moedas.
 e) Qualquer um, a sorte não depende do conteúdo do pote.
 
-**Gabarito:** D
+**Gabarito:** a
 **Resolução:**
 **Etapa 1:** Analisar o espaço amostral do Pote 1. Ele só contém moedas de 1 real. Tirar 50 centavos daqui é impossível.
 **Etapa 2:** Analisar o Pote 2. Ele contém 1 moeda de 50 centavos misturada. O espaço amostral possui esse resultado.
@@ -724,13 +725,13 @@ e) Qualquer um, a sorte não depende do conteúdo do pote.
 ### Questão 52
 Em Genética, Mendel fez um quadro (tabela de dupla entrada) de 4 quadrinhos cruzando genes (DD, Dr, rD, rr). Vimos que "olho escuro" acontece quando tem pelo menos um gene "D", e "olho claro" só acontece se for "rr". Baseado nessas informações, classifique as chances do filhote nascer com olhos escuros ou claros.
 
-a) Olhos escuros são muito prováveis (3 chances em 4) e claros são pouco prováveis (1 chance em 4).
+a) Olhos claros são Evento Certo e escuros são impossíveis.
 b) Olhos escuros e claros são igualmente prováveis, pois são dois tipos de olhos.
-c) Olhos claros são Evento Certo e escuros são impossíveis.
+c) Olhos escuros são muito prováveis (3 chances em 4) e claros são pouco prováveis (1 chance em 4).
 d) Olhos escuros são fenômenos determinísticos sem chance de erro.
 e) Ambos são mutuamente inclusivos.
 
-**Gabarito:** A
+**Gabarito:** c
 **Resolução:**
 **Etapa 1:** Contar no espaço amostral de 4 opções quais resultam em olhos escuros. Temos DD, Dr e rD (onde há o gene dominante). São 3 chances em 4, classificado como Muito Provável.
 **Etapa 2:** Contar as opções de olhos claros. Só ocorre com "rr". É 1 chance em 4, classificado como Pouco Provável.
@@ -742,11 +743,11 @@ Um jogo de dominó comum possui 28 peças, cada uma com uma combinação de dois
 
 a) Impossível, pois cada peça é única.
 b) Um evento complementar do dominó.
-c) Pouco provável (1 chance em 28).
+c) Igualmente provável a sortear qualquer peça que não seja carroção.
 d) Muito provável, por ser a peça mais alta do jogo.
-e) Igualmente provável a sortear qualquer peça que não seja carroção.
+e) Pouco provável (1 chance em 28).
 
-**Gabarito:** C
+**Gabarito:** e
 **Resolução:**
 **Etapa 1:** O espaço amostral possui 28 peças distintas.
 **Etapa 2:** O "carroção de Sena" (6,6) é apenas 1 dessas peças.
@@ -757,13 +758,13 @@ e) Igualmente provável a sortear qualquer peça que não seja carroção.
 ### Questão 54
 Thiago quer descobrir uma senha de cadeado composta por 2 números (rodinhas numéricas de 0 a 9). Se ele sabe que os dois números são ímpares, quantos elementos sobraram no espaço amostral dessa senha? (Lembrando que os ímpares são 1, 3, 5, 7, 9).
 
-a) 5 combinações.
+a) 25 combinações.
 b) 10 combinações.
 c) 20 combinações.
-d) 25 combinações.
+d) 5 combinações.
 e) 100 combinações.
 
-**Gabarito:** D
+**Gabarito:** a
 **Resolução:**
 **Etapa 1:** A primeira rodinha do cadeado só pode ser um número ímpar. Logo, temos 5 opções para ela (1, 3, 5, 7, 9).
 **Etapa 2:** A segunda rodinha também só pode ser ímpar, tendo igualmente 5 opções.
@@ -774,12 +775,12 @@ e) 100 combinações.
 Ao prever eventos de múltiplos estágios, um aluno desenhou uma tabela e declarou que sair (Dado = 2, Moeda = Cara) é o mesmo resultado que (Moeda = Coroa, Dado = 2). Esse aluno cometeu um erro conceitual sobre o espaço amostral. Por quê?
 
 a) Porque o Dado nunca cai no 2.
-b) Porque no lançamento a ordem dos resultados de objetos diferentes define caminhos diferentes na árvore de chances. Cara não é o mesmo que Coroa.
-c) Porque Cara e 2 são igualmente prováveis.
+b) Porque Cara e 2 são igualmente prováveis.
+c) Porque no lançamento a ordem dos resultados de objetos diferentes define caminhos diferentes na árvore de chances. Cara não é o mesmo que Coroa.
 d) Porque a tabela não serve para moedas, só para uniformes.
 e) Porque o aluno não usou a quantia em reais correta.
 
-**Gabarito:** B
+**Gabarito:** c
 **Resolução:**
 **Etapa 1:** O par correto deveria comparar a mesma característica nos mesmos objetos.
 **Etapa 2:** A Moeda apresentou resultados diferentes nas duas descrições (Cara num caso, Coroa no outro).
@@ -790,12 +791,12 @@ e) Porque o aluno não usou a quantia em reais correta.
 Um professor quer dividir a sala de 30 alunos em 3 grupos iguais usando sorteio, colocando o nome de cada aluno numa bolinha. Pedro quer muito cair no Grupo 1. Quantas são as bolinhas favoráveis para Pedro e como se classifica esse evento?
 
 a) 10 bolinhas; Evento pouco provável.
-b) 10 bolinhas; Evento Igualmente Provável (em relação a qualquer outro grupo individual).
+b) 30 bolinhas; Evento Certo.
 c) 1 bolinha; Evento Muito provável.
-d) 30 bolinhas; Evento Certo.
+d) 10 bolinhas; Evento Igualmente Provável (em relação a qualquer outro grupo individual).
 e) 3 bolinhas; Evento Impossível.
 
-**Gabarito:** B
+**Gabarito:** d
 **Resolução:**
 **Etapa 1:** Se os 30 alunos serão divididos em 3 grupos iguais, cada grupo terá 10 alunos (30 / 3 = 10).
 **Etapa 2:** Assim, há 10 vagas (bolinhas favoráveis) para compor o Grupo 1.
@@ -822,7 +823,7 @@ e) Letra A (2 chances).
 Qual das afirmações a seguir é a melhor justificativa matemática para rejeitarmos palpites baseados na pura "sorte" ou em pensamentos supersticiosos ao realizarmos a análise de eventos aleatórios?
 
 a) Porque a sorte é um fenômeno determinístico aprovado pela ciência.
-b) Porque a análise qualitativa busca fundamentar-se apenas nas frequências de casos favoráveis do espaço amostral, excluindo emoções ou pressentimentos subjetivos do cálculo físico.
+b) A análise probabilística baseia-se na contagem objetiva de casos favoráveis do espaço amostral, e não em palpites subjetivos.
 c) Porque a probabilidade sempre funciona baseada no desejo das pessoas que compram os bilhetes.
 d) Porque apenas as tabelas de dupla entrada trazem sorte.
 e) Porque diagramas de árvore são incapazes de contar fenômenos subjetivos.
@@ -838,11 +839,11 @@ Um agricultor plantou sementes sensíveis à temperatura. Se a temperatura notur
 
 a) Evento Impossível, pois ninguém prevê o clima.
 b) Evento Pouco Provável, pois o frio chegará logo.
-c) Evento Muito Provável, devido à alta frequência com que a temperatura favorável se manteve (95%).
+c) Mutuamente exclusivo em relação a todos os climas quentes.
 d) Evento Certo, pois já sobreviveu antes, sobreviverá sempre (é um fenômeno físico determinístico).
-e) Mutuamente exclusivo em relação a todos os climas quentes.
+e) Evento Muito Provável, devido à alta frequência com que a temperatura favorável se manteve (95%).
 
-**Gabarito:** C
+**Gabarito:** e
 **Resolução:**
 **Etapa 1:** A regularidade estatística dos dados mostra que 95 em 100 dias têm clima favorável.
 **Etapa 2:** A fração de chance do evento "não morrer de frio" apoia-se em uma base de 95%.
@@ -850,21 +851,25 @@ e) Mutuamente exclusivo em relação a todos os climas quentes.
 
 <!-- id: q60 | tipo: multipla-escolha | habilidade: EF05MA22 | dificuldade: dificil | objeto: espaco-amostral -->
 ### Questão 60
-Para vencer um jogo complexo, um personagem virtual precisa passar por três portões independentes de cores sorteadas aleatoriamente. 
-Portão 1: Verde (50%), Vermelho (50%).
-Portão 2: Verde (50%), Vermelho (50%).
-Portão 3: Verde (50%), Vermelho (50%).
-A regra diz que ele SÓ VENCE se todos os 3 portões estiverem Verdes. Essa combinação é classificada como o evento de menor chance (pouco provável) em toda a árvore. Quantos caminhos existem no total e quantos dão vitória?
+Em um jogo, um personagem passa por 3 portões independentes (50% Verde, 50% Vermelho cada). Ele só vence se todos os 3 forem Verdes. Quantos caminhos existem no espaço amostral total e quantos resultam em vitória?
 
-a) 2 caminhos totais, 1 dá vitória.
+a) 8 caminhos totais, 1 dá vitória.
 b) 6 caminhos totais, 2 dão vitória.
-c) 8 caminhos totais, 1 dá vitória.
+c) 2 caminhos totais, 1 dá vitória.
 d) 9 caminhos totais, 3 dão vitória.
 e) 12 caminhos totais, 1 dá vitória.
 
-**Gabarito:** C
+**Gabarito:** a
 **Resolução:**
 **Etapa 1:** O experimento tem 3 etapas, cada uma com 2 opções (Verde ou Vermelho).
 **Etapa 2:** Calculamos a cardinalidade multiplicando as etapas: 2 x 2 x 2 = 8 combinações de cores no espaço amostral (Total de 8 caminhos).
 **Etapa 3:** A regra de vitória requer um cenário extremamente específico: a sequência deve ser exatamente (Verde, Verde, Verde).
 **Etapa 4:** Como só há uma combinação de 3 Verdes dentro de 8, existe apenas 1 caminho que dá a vitória. Sendo assim, 8 caminhos totais e apenas 1 dá a vitória.
+
+## Referências
+
+- BRASIL. Ministério da Educação. *Base Nacional Comum Curricular*. Brasília: MEC, 2018.
+- DANTE, Luiz Roberto. *Ápis Matemática 5º ano*. São Paulo: Ática, 2021.
+- TOLEDO, Maria Ângela Leite; TOLEDO, Mauro. *Matemática para o Ensino Fundamental*. São Paulo: FTD, 2020.
+- SMOOTHEYS, Marion. *Atividades e Jogos com Números*. São Paulo: Scipione, 2019.
+- BOYER, Carl B. *História da Matemática*. São Paulo: Edgard Blücher, 2012.

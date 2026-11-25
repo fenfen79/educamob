@@ -1,7 +1,7 @@
 ---
-série: "5º Ano do Ensino Fundamental"
+série: "5º Ano"
 disciplina: "Matemática"
-objeto_de_conhecimento: "Problemas de contagem do tipo: 'Se cada objeto de uma coleção A for combinado com todos os elementos de uma coleção B, quantos agrupamentos desse tipo podem ser formados?'"
+objeto_de_conhecimento: "Problemas de contagem e raciocínio combinatório"
 ebook_fonte: "ef05ma09.md"
 habilidades: "EF05MA09"
 total_exercicios: 60
@@ -11,850 +11,858 @@ distribuicao:
   dificil: 20
 ---
 
-# Exercícios — Problemas de Contagem e o Princípio Multiplicativo
+# Exercícios — Problemas de Contagem e Raciocínio Combinatório
 
 ## Nível Básico (Questões 1-20)
 
-<!-- id: q01 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q01 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 1
-Mário quer comprar um lanche. Ele pode escolher entre 3 tipos de salgado (coxinha, empada ou pastel) e 2 tipos de suco (laranja ou uva). Quantas combinações diferentes de um salgado e um suco Mário pode fazer?
+O princípio fundamental da contagem estabelece como calcular o total de agrupamentos entre duas escolhas independentes. Se temos uma coleção com $m$ elementos e outra coleção com $p$ elementos, o número total de pares possíveis é obtido por:
 
-a) 5
-b) 6
-c) 3
-d) 2
-e) 1
+a) $m + p$
+b) $m \times p$
+c) $m - p$
+d) $m \div p$
+e) $(m + p) \times 2$
 
 **Gabarito:** B
-**Resolução:** Usando o princípio multiplicativo, multiplicamos a quantidade de opções de salgados pela quantidade de opções de sucos: $3 \times 2 = 6$. O erro comum é somar $3 + 2 = 5$.
+**Resolução:** Pelo princípio multiplicativo da contagem, ao combinar cada elemento de uma coleção de tamanho $m$ com todos os elementos de outra coleção de tamanho $p$, o total de agrupamentos formados é dado rigorosamente pelo produto $m \times p$.
 
-<!-- id: q02 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q02 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 2
-Para ir a uma festa, Ana está escolhendo sua roupa. Ela separou 4 blusas diferentes e 3 saias diferentes. De quantas maneiras distintas ela pode se vestir combinando uma blusa e uma saia?
+Na cantina escolar, o estudante pode montar um lanche escolhendo exatamente 1 tipo de suco e 1 tipo de sanduíche. Sabendo que há 3 tipos de suco (laranja, uva e manga) e 4 tipos de sanduíche (queijo, frango, carne e atum), quantas opções de lanche completo podem ser formadas?
 
-a) 7
-b) 1
-c) 12
-d) 16
-e) 9
+a) 7 opções
+b) 12 opções
+c) 10 opções
+d) 14 opções
+e) 15 opções
 
-**Gabarito:** C
-**Resolução:** Multiplicamos as 4 opções de blusas pelas 3 opções de saias. $4 \times 3 = 12$ combinações. Quem responde 7 acabou somando as opções.
+**Gabarito:** B
+**Resolução:** Aplicando o princípio multiplicativo: temos 3 opções de suco e 4 opções de sanduíche. O total de combinações é $3 \times 4 = 12$ opções de lanche. A alternativa (a) representa o erro comum de somar $3 + 4$.
 
-<!-- id: q03 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q03 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 3
-Um fabricante de brinquedos lançou um carrinho que está disponível em 5 cores diferentes. Além disso, o cliente pode escolher o carrinho com 2 tipos de rodas diferentes (esportiva ou clássica). Quantas opções diferentes desse carrinho o cliente pode montar?
+Durante a organização do guarda-roupa, Felipe separou 2 bermudas (uma preta e uma azul) e 5 camisetas de cores diferentes. Quantos trajes diferentes, compostos por 1 bermuda e 1 camiseta, ele conseguirá montar?
 
-a) 7
-b) 3
-c) 5
-d) 10
-e) 2
+a) 7 trajes
+b) 12 trajes
+c) 20 trajes
+d) 15 trajes
+e) 10 trajes
 
-**Gabarito:** D
-**Resolução:** Pelo princípio multiplicativo, temos 5 cores $\times$ 2 tipos de rodas, o que resulta em $5 \times 2 = 10$ opções de montagem.
+**Gabarito:** e
+**Resolução:** O número de trajes possíveis é o produto entre o número de bermudas e o número de camisetas: $2 \times 5 = 10$ combinações diferentes.
 
-<!-- id: q04 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q04 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 4
-Em uma papelaria, os cadernos podem ser comprados escolhendo o tipo de capa (dura ou mole) e o tamanho (pequeno, médio ou grande). Sendo assim, quantas combinações de cadernos (capa e tamanho) podem ser formadas?
+Em uma sorveteria de bairro, o cliente monta sua sobremesa escolhendo 1 sabor de sorvete e 1 tipo de calda. O cardápio disponibiliza 4 sabores de sorvete e 3 tipos de calda. Quantas sobremesas distintas podem ser pedidas?
 
-a) 2
-b) 3
-c) 5
-d) 6
-e) 8
+a) 9 sobremesas
+b) 7 sobremesas
+c) 16 sobremesas
+d) 12 sobremesas
+e) 15 sobremesas
 
-**Gabarito:** D
-**Resolução:** São 2 opções de capa e 3 opções de tamanho. Multiplicando: $2 \times 3 = 6$ combinações.
+**Gabarito:** d
+**Resolução:** Multiplicamos a quantidade de sabores de sorvete pela quantidade de tipos de calda: $4 \times 3 = 12$ sobremesas distintas.
 
-<!-- id: q05 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q05 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 5
-Um restaurante oferece em seu almoço 4 tipos de pratos principais e 4 tipos de sobremesa. Se um cliente quiser escolher exatamente um prato principal e uma sobremesa, quantas refeições diferentes ele pode formar?
+No diagrama de árvore, também conhecido como árvore de possibilidades, cada caminho completo que sai do ponto inicial até a ponta de um ramo terminal representa:
 
-a) 16
-b) 8
-c) 4
-d) 12
-e) 2
+a) Apenas uma das opções descartadas no problema.
+b) O número fixo de ramos principais da primeira etapa.
+c) A soma de todos os números presentes no enunciado.
+d) Um cálculo de divisão entre as grandezas envolvidas.
+e) Uma possibilidade única e completa de agrupamento.
 
-**Gabarito:** A
-**Resolução:** Como são escolhas independentes, fazemos $4 \times 4 = 16$. O erro comum seria somar $4 + 4 = 8$.
+**Gabarito:** e
+**Resolução:** Na representação pelo diagrama de árvore, cada trajeto contínuo da raiz até uma folha (extremidade) mapeia exatamente um evento combinado ou par ordenado completo e único.
 
-<!-- id: q06 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q06 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 6
-Para criar um personagem em um jogo de videogame, o jogador precisa escolher um formato de rosto (entre 6 opções) e um estilo de cabelo (entre 3 opções). Quantos personagens diferentes podem ser criados combinando rosto e cabelo?
+Analisando uma tabela de dupla entrada montada para combinar 3 modelos de automóvel com 2 cores disponíveis de pintura, quantas células centrais de cruzamento serão preenchidas na grade?
 
-a) 9
-b) 12
-c) 15
-d) 18
-e) 3
+a) 5 células
+b) 1 célula
+c) 8 células
+d) 6 células
+e) 9 células
 
-**Gabarito:** D
-**Resolução:** Multiplicamos as 6 opções de rosto pelas 3 opções de cabelo: $6 \times 3 = 18$ personagens distintos.
+**Gabarito:** d
+**Resolução:** Em uma tabela de dupla entrada com 3 linhas e 2 colunas (ou vice-versa), o total de células internas corresponde ao produto $3 \times 2 = 6$ combinações possíveis.
 
-<!-- id: q07 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q07 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 7
-Joana vai comprar uma bola e uma raquete. Na loja, há 5 modelos de bolas e 5 modelos de raquetes disponíveis. De quantas maneiras diferentes ela pode formar um conjunto contendo uma bola e uma raquete?
+Para iniciar o ano letivo, Júlia deseja comprar 1 estojo e 1 mochila. Na papelaria, há 3 modelos de estojo e 4 modelos de mochila. De quantas formas distintas Júlia pode fazer sua escolha?
 
-a) 10
-b) 20
-c) 25
-d) 5
-e) 15
+a) 16 formas
+b) 7 formas
+c) 14 formas
+d) 12 formas
+e) 24 formas
 
-**Gabarito:** C
-**Resolução:** Aplicando o princípio multiplicativo: $5 \times 5 = 25$ maneiras de formar o conjunto.
+**Gabarito:** d
+**Resolução:** A escolha do estojo independe da escolha da mochila. Logo, multiplicamos o número de opções de estojos pelo de mochilas: $3 \times 4 = 12$ formas distintas.
 
-<!-- id: q08 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q08 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 8
-Pedro está desenhando uma árvore de possibilidades para decidir o sabor do seu sorvete. O sorvete tem duas partes: a casquinha (tradicional, chocolate) e o sabor da massa (morango, creme, flocos, chocolate, baunilha). Quantas pontas finais a árvore de possibilidades de Pedro terá?
+O uniforme escolar esportivo de uma equipe é formado por 1 camiseta, 1 calção e 1 boné. Se o time tem 2 modelos de camiseta, 3 modelos de calção e 2 cores de boné, quantos uniformes completos diferentes podem ser criados?
 
-a) 7
-b) 10
-c) 5
-d) 2
-e) 12
+a) 7 uniformes
+b) 8 uniformes
+c) 16 uniformes
+d) 10 uniformes
+e) 12 uniformes
 
-**Gabarito:** B
-**Resolução:** A casquinha tem 2 opções e a massa tem 5 opções. O número de pontas da árvore de possibilidades é $2 \times 5 = 10$.
+**Gabarito:** e
+**Resolução:** Estendendo o princípio multiplicativo para três decisões sucessivas, calculamos $2 \times 3 \times 2 = 12$ combinações diferentes de uniformes.
 
-<!-- id: q09 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q09 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 9
-Na aula de artes, os alunos devem montar um cartão combinando 1 cor de papel (azul, verde, amarelo, vermelho) e 1 tipo de textura (lisa, enrugada). Quantos cartões diferentes podem ser feitos usando essa regra?
+Escolhendo a sobremesa do almoço de domingo, Carlos pode selecionar 1 fruta (banana, maçã) e 1 cobertura doce (mel, calda de chocolate, canela, aveia). Quantas combinações de fruta com cobertura Carlos pode saborear?
 
-a) 4
-b) 2
-c) 6
-d) 10
-e) 8
+a) 6 combinações
+b) 8 combinações
+c) 10 combinações
+d) 12 combinações
+e) 16 combinações
 
-**Gabarito:** E
-**Resolução:** Temos 4 cores de papel e 2 texturas. O total de combinações é $4 \times 2 = 8$.
+**Gabarito:** B
+**Resolução:** Como são 2 variedades de frutas e 4 coberturas doces, o total de agrupamentos é dado por $2 \times 4 = 8$ opções.
 
-<!-- id: q10 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q10 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 10
-O professor de Educação Física pediu para que cada aluno escolhesse uma atividade esportiva (futebol, vôlei ou basquete) e uma atividade recreativa (pula-pula, queimada ou pique-bandeira) para o dia de brincadeiras. Quantas combinações diferentes um aluno pode escolher?
+Ao selecionar papéis e envelopes para cartas de agradecimento, uma professora dispõe de 5 cores de envelope e 3 papéis decorados distintos. Quantos conjuntos diferentes de 1 envelope com 1 papel de carta podem ser formados?
 
-a) 9
-b) 6
-c) 3
-d) 12
-e) 8
+a) 15 conjuntos
+b) 12 conjuntos
+c) 8 conjuntos
+d) 18 conjuntos
+e) 20 conjuntos
 
-**Gabarito:** A
-**Resolução:** Multiplicamos as 3 opções esportivas pelas 3 opções recreativas. $3 \times 3 = 9$.
+**Gabarito:** a
+**Resolução:** O número de pares possíveis entre envelopes e papéis é calculado por $5 \times 3 = 15$ pares ordenados.
 
-<!-- id: q11 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q11 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 11
-Para pintar a fachada de uma casa em um desenho escolar, Roberto dispõe de 7 cores de tinta e 2 tipos de pincel (fino e grosso). Quantos agrupamentos formados por uma cor de tinta e um tipo de pincel ele pode montar?
+No ateliê de artes plásticas, um aluno escolhe 1 tipo de pincel entre 4 modelos disponíveis e 1 pote de tinta guache entre 6 cores fornecidas. Quantas duplas de pincel e cor de tinta o aluno pode escolher?
 
-a) 9
-b) 5
-c) 14
-d) 7
-e) 12
+a) 10 duplas
+b) 20 duplas
+c) 28 duplas
+d) 24 duplas
+e) 30 duplas
 
-**Gabarito:** C
-**Resolução:** Como ele precisa combinar a tinta e o pincel, o total é $7 \times 2 = 14$ combinações.
+**Gabarito:** d
+**Resolução:** O número de escolhas combinadas de pincel e tinta é obtido multiplicando as opções: $4 \times 6 = 24$ duplas diferentes.
 
-<!-- id: q12 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q12 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 12
-Um cinema vende pacotes com ingresso e pipoca. O cliente escolhe entre ingresso comum, 3D ou VIP (3 opções) e entre pipoca salgada, doce, mista ou com manteiga (4 opções). Quantos pacotes diferentes podem ser montados?
+Uma equipe de robótica precisa selecionar 1 chassi metálico e 1 sensor para seu protótipo. O laboratório possui 3 chassis metálicos e 5 sensores diferentes. Quantas montagens experimentais com 1 chassi e 1 sensor podem ser realizadas?
 
-a) 7
-b) 12
-c) 16
-d) 9
-e) 15
+a) 8 montagens
+b) 15 montagens
+c) 18 montagens
+d) 20 montagens
+e) 25 montagens
 
 **Gabarito:** B
-**Resolução:** As 3 opções de ingresso combinadas com as 4 opções de pipoca resultam em $3 \times 4 = 12$ pacotes diferentes.
+**Resolução:** Multiplicamos as 3 opções de chassi pelas 5 opções de sensor: $3 \times 5 = 15$ montagens experimentais possíveis.
 
-<!-- id: q13 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q13 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 13
-Fernanda está organizando uma tabela de dupla entrada para saber quantos "looks" consegue formar usando suas calças (nas linhas) e seus tênis (nas colunas). Ela preencheu uma tabela com 3 linhas e 5 colunas. Quantas combinações (células) ela vai preencher no total?
+Identifique a razão pela qual não devemos somar $3 + 4$ para descobrir as maneiras de vestir 3 calças e 4 camisas:
 
-a) 8
-b) 2
-c) 15
-d) 10
-e) 12
+a) Porque a soma só pode ser usada com números maiores que 10.
+b) Porque as calças e camisas possuem valores financeiros idênticos.
+c) Porque cada uma das 3 calças pode ser combinada separadamente com cada uma das 4 camisas.
+d) Porque a operação correta para qualquer situação com roupas é sempre a subtração.
+e) Porque roupas não podem ser representadas por números matemáticos.
 
-**Gabarito:** C
-**Resolução:** Em uma tabela de dupla entrada, multiplicamos as linhas (3 calças) pelas colunas (5 tênis), totalizando $3 \times 5 = 15$ células.
+**Gabarito:** c
+**Resolução:** O pensamento combinatório lida com o cruzamento de duas variáveis independentes. Como cada calça se emparelha com todas as 4 camisas, a estrutura do problema exige a multiplicação $3 \times 4 = 12$, e não a adição linear de elementos.
 
-<!-- id: q14 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q14 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 14
-Em um pet shop, ao comprar um cãozinho, o dono pode escolher entre 2 tipos de coleiras e 6 cores diferentes para a plaquinha de identificação. Quantas combinações de coleira com plaquinha podem ser feitas?
+Lançando-se dois dados diferentes, sendo o primeiro um dado tetraédrico de 4 faces (numeradas de 1 a 4) e o segundo um cubo com 6 faces (numeradas de 1 a 6), quantos pares de resultados podem surgir?
 
-a) 8
-b) 12
-c) 10
-d) 4
-e) 16
+a) 10 pares
+b) 24 pares
+c) 20 pares
+d) 30 pares
+e) 36 pares
 
-**Gabarito:** B
-**Resolução:** A combinação de 2 coleiras com 6 cores é calculada multiplicando-as: $2 \times 6 = 12$ opções.
+**Gabarito:** b
+**Resolução:** Cada uma das 4 faces do primeiro dado pode ser emparelhada com qualquer uma das 6 faces do segundo dado: $4 \times 6 = 24$ resultados possíveis.
 
-<!-- id: q15 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q15 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 15
-Ricardo tem um cofrinho com moedas de 10 centavos, 25 centavos e 50 centavos. Ele decide combinar uma dessas moedas (3 opções) com uma das notas que ele tem na carteira: de 2 reais, 5 reais, 10 reais, 20 reais ou 50 reais (5 opções). Quantas duplas formadas por "uma moeda e uma nota" ele pode criar?
+Empréstimos em uma biblioteca permitem que o leitor retire 1 livro de aventura e 1 livro de mistério. O acervo possui 6 livros de aventura e 3 livros de mistério. De quantas formas distintas um leitor pode retirar esse par de livros?
 
-a) 8
-b) 2
-c) 10
-d) 15
-e) 20
+a) 9 formas
+b) 15 formas
+c) 27 formas
+d) 21 formas
+e) 18 formas
 
-**Gabarito:** D
-**Resolução:** Multiplicamos as 3 opções de moedas pelas 5 opções de notas: $3 \times 5 = 15$ combinações.
+**Gabarito:** e
+**Resolução:** Multiplicamos a quantidade de livros de aventura pela de mistério: $6 \times 3 = 18$ pares distintos de livros.
 
-<!-- id: q16 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q16 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 16
-Para o festival de música da escola, uma banda precisa escolher qual instrumento de corda usar (violão, guitarra, baixo, cavaquinho) e qual instrumento de percussão (bateria, pandeiro). No total, quantas formações diferentes de "corda e percussão" a banda pode ter?
+O recreio de uma creche serve lanche com 1 porção de fruta e 1 bebida láctea. Se as crianças podem escolher entre 3 frutas (maçã, pera, melancia) e 3 sabores de bebida láctea (morango, chocolate, coco), quantas opções de lanche existem?
 
-a) 8
-b) 6
-c) 10
-d) 4
-e) 2
-
-**Gabarito:** A
-**Resolução:** São 4 instrumentos de corda e 2 de percussão. Pelo princípio multiplicativo: $4 \times 2 = 8$.
-
-<!-- id: q17 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
-### Questão 17
-O uniforme de um time de futebol é composto por um calção, que pode ser branco, preto ou azul (3 opções), e por um meião, que pode ser branco, preto ou vermelho (3 opções). Quantos uniformes diferentes podem ser criados se combinarmos calções e meiões?
-
-a) 3
-b) 6
-c) 9
-d) 12
-e) 4
-
-**Gabarito:** C
-**Resolução:** Multiplicando as opções de calção (3) pelas opções de meião (3), chegamos a $3 \times 3 = 9$ uniformes.
-
-<!-- id: q18 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
-### Questão 18
-Uma montadora de carros oferece um modelo básico que pode vir em 8 cores diferentes. O cliente também deve escolher se o interior do carro será de tecido comum ou couro (2 opções). Quantas configurações diferentes desse carro podem ser escolhidas pelo cliente?
-
-a) 10
-b) 16
-c) 6
-d) 8
-e) 12
+a) 6 opções
+b) 9 opções
+c) 12 opções
+d) 15 opções
+e) 18 opções
 
 **Gabarito:** B
-**Resolução:** Como são escolhas em etapas independentes, multiplicamos $8 \times 2 = 16$ configurações.
+**Resolução:** O número de combinações possíveis é $3 \times 3 = 9$ opções de lanches.
 
-<!-- id: q19 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q17 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 17
+Um cinema de bairro possui 4 salas de exibição e oferece 2 sessões diárias (tarde e noite) para cada sala. Quantas opções de sessão no total esse cinema disponibiliza ao público por dia?
+
+a) 6 opções
+b) 8 opções
+c) 10 opções
+d) 12 opções
+e) 16 opções
+
+**Gabarito:** B
+**Resolução:** O cruzamento das 4 salas com os 2 horários diários resulta em $4 \times 2 = 8$ opções de sessão.
+
+<!-- id: q18 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 18
+As inscrições para uma oficina cultural exigem a escolha de 1 modalidade (teatro, dança ou música) e 1 dia da semana (terça, quarta, quinta ou sexta). Quantas possibilidades de matrícula existem?
+
+a) 12 possibilidades
+b) 10 possibilidades
+c) 7 possibilidades
+d) 15 possibilidades
+e) 16 possibilidades
+
+**Gabarito:** a
+**Resolução:** Multiplicando as 3 modalidades pelas 4 opções de dias da semana, encontramos $3 \times 4 = 12$ possibilidades de matrícula.
+
+<!-- id: q19 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 19
-Se eu desenhar uma árvore de possibilidades tendo 4 caminhos principais (representando 4 tipos de doces) e de cada caminho eu puxar mais 4 galhos (representando 4 tipos de embalagens), quantas pontas haverá no final dessa árvore?
+No setor de jardinagem, uma pessoa escolhe 1 modelo de vaso (cerâmica ou plástico) e 1 espécie de flor entre 7 opções disponíveis. Quantas composições de vaso e flor essa pessoa pode criar?
 
-a) 8
-b) 4
-c) 16
-d) 12
-e) 20
+a) 14 composições
+b) 12 composições
+c) 9 composições
+d) 16 composições
+e) 21 composições
 
-**Gabarito:** C
-**Resolução:** Em uma árvore de possibilidades com 4 opções no primeiro nível e 4 opções no segundo nível, o total de pontas é $4 \times 4 = 16$.
+**Gabarito:** a
+**Resolução:** Com 2 modelos de vaso e 7 espécies de flor, calculamos $2 \times 7 = 14$ composições distintas.
 
-<!-- id: q20 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-de-contagem -->
+<!-- id: q20 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: basico | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 20
-Para a aula de geometria, os alunos podem escolher desenhar uma figura entre círculo, quadrado e triângulo (3 opções), e depois precisam pintar essa figura usando caneta azul, preta ou vermelha (3 opções). Quantos desenhos diferentes com figura e cor podem ser entregues ao professor?
+Para confeccionar chaveiros artesanais, uma artesã dispõe de 4 modelos de pingente metálico e 3 cores de fita de cetim. Quantos modelos de chaveiro combinando 1 pingente e 1 fita ela pode produzir?
 
-a) 9
-b) 6
-c) 12
-d) 3
-e) 8
+a) 7 modelos
+b) 12 modelos
+c) 10 modelos
+d) 15 modelos
+e) 16 modelos
 
-**Gabarito:** A
-**Resolução:** Aplicando a regra da multiplicação: $3 \times 3 = 9$ desenhos possíveis.
+**Gabarito:** b
+**Resolução:** O número de chaveiros diferentes que podem ser confeccionados é $4 \times 3 = 12$ modelos.
 
 ## Nível Intermediário (Questões 21-40)
 
-<!-- id: q21 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q21 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 21
-Lucas está montando um skate personalizado em um site. Ele precisa escolher 1 prancha (entre 4 cores), 1 par de rodinhas (entre 3 tipos) e 1 adesivo decorativo (entre 5 modelos). Quantos skates diferentes Lucas pode montar usando essas três coleções?
+Uma confeitaria especializada oferece 4 tipos de massa de bolo e 5 recheios doces. Contudo, o recheio de frutas vermelhas não pode ser combinado com a massa de nozes por recomendação gastronômica. Quantas combinações válidas de bolo com 1 massa e 1 recheio estão disponíveis?
 
-a) 12
-b) 60
-c) 20
-d) 15
-e) 30
+a) 20 combinações
+b) 19 combinações
+c) 18 combinações
+d) 15 combinações
+e) 9 combinações
 
 **Gabarito:** B
-**Resolução:** Aplicando o princípio multiplicativo para três coleções: $4 \times 3 \times 5 = 60$. Multiplicamos primeiro $4 \times 3 = 12$, e depois $12 \times 5 = 60$.
+**Resolução:** Sem restrições, o total seria $4 \times 5 = 20$ combinações. Como 1 combinação específica (nozes com frutas vermelhas) é proibida, subtraímos essa opção: $20 - 1 = 19$ combinações válidas.
 
-<!-- id: q22 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q22 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 22
-Para criar uma senha simples de acesso a um diário, Maria precisa usar uma vogal (A, E, I, O, U) seguida de um número ímpar de um algarismo (1, 3, 5, 7, 9). Quantas senhas diferentes ela pode formar?
+Lucas planeja seu visual para a apresentação escolar escolhendo 1 calça entre 3 opções, 1 camisa entre 4 opções e 1 par de tênis entre 2 disponíveis. Quantos visuais completos e diferentes ele pode formar?
 
-a) 10
-b) 20
-c) 25
-d) 15
-e) 5
+a) 9 visuais
+b) 14 visuais
+c) 24 visuais
+d) 20 visuais
+e) 28 visuais
 
-**Gabarito:** C
-**Resolução:** Temos 5 opções de vogais e 5 opções de números ímpares (1, 3, 5, 7, 9). Multiplicando as opções: $5 \times 5 = 25$ senhas possíveis.
+**Gabarito:** c
+**Resolução:** Pelo princípio multiplicativo estendido a três decisões independentes: $3 \text{ (calças)} \times 4 \text{ (camisas)} \times 2 \text{ (tênis)} = 24$ visuais completos.
 
-<!-- id: q23 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q23 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 23
-O nutricionista da escola montou um cardápio onde o aluno escolhe: 1 carboidrato (arroz, macarrão, purê), 1 proteína (frango, peixe, carne) e 1 legume (brócolis, cenoura). Quantas refeições diferentes podem ser montadas combinando esses três itens?
+O cardápio de uma pizzaria permite ao cliente escolher o tamanho da pizza (médio ou grande), 1 sabor entre 8 opções e 1 tipo de borda entre 3 alternativas (tradicional, recheada com queijo ou recheada com chocolate). Quantos tipos de pizza podem ser configurados?
 
-a) 8
-b) 9
-c) 18
-d) 24
-e) 12
+a) 48 tipos
+b) 24 tipos
+c) 13 tipos
+d) 52 tipos
+e) 64 tipos
 
-**Gabarito:** C
-**Resolução:** São 3 opções de carboidrato, 3 de proteína e 2 de legume. Multiplicando: $3 \times 3 \times 2 = 18$ pratos diferentes.
+**Gabarito:** a
+**Resolução:** Multiplicamos as possibilidades de cada etapa: $2 \text{ (tamanhos)} \times 8 \text{ (sabores)} \times 3 \text{ (bordas)} = 48$ configurações possíveis de pizza.
 
-<!-- id: q24 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q24 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 24
-Um jogo de videogame permite personalizar um carro de corrida com 5 cores de pintura, 2 tipos de pneu e 3 estilos de aerofólio. Quantas combinações exclusivas de carros podem ser geradas pelos jogadores?
+Em uma gincana de matemática, cada equipe deve indicar 1 representante titular escolhido entre 4 meninos e 1 representante reserva escolhido entre 5 meninas. De quantas formas uma equipe pode formalizar essa dupla de representantes?
 
-a) 30
-b) 10
-c) 25
-d) 15
-e) 40
+a) 9 formas
+b) 15 formas
+c) 30 formas
+d) 25 formas
+e) 20 formas
 
-**Gabarito:** A
-**Resolução:** O cálculo é feito multiplicando as opções de cada etapa: $5 \times 2 \times 3 = 30$ combinações exclusivas.
+**Gabarito:** e
+**Resolução:** Trata-se da escolha combinada de 1 menino entre 4 e 1 menina entre 5: $4 \times 5 = 20$ duplas possíveis de representantes.
 
-<!-- id: q25 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q25 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 25
-Na aula de ciências, a professora explicou sobre genética usando um Quadrado de Punnett. Se uma planta "Pai" pode enviar 2 tipos de genes para a cor da flor e a planta "Mãe" também pode enviar 2 tipos de genes, quantas combinações de genes diferentes a nova planta pode herdar?
+Na fábrica de brinquedos educativos, os carrinhos são montados combinando 3 cores de carroceria, 2 tipos de rodas e 4 modelos de adesivo decorativo. Quantos modelos de carrinho personalizados a fábrica consegue produzir?
 
-a) 2
-b) 4
-c) 6
-d) 8
-e) 10
+a) 9 modelos
+b) 18 modelos
+c) 24 modelos
+d) 30 modelos
+e) 36 modelos
 
-**Gabarito:** B
-**Resolução:** Cada progenitor fornece 2 opções. Pelo princípio multiplicativo, $2 \times 2 = 4$ combinações genéticas no total.
+**Gabarito:** C
+**Resolução:** Pelo princípio multiplicativo: $3 \times 2 \times 4 = 24$ modelos personalizados de carrinho.
 
-<!-- id: q26 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q26 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 26
-Para o acampamento, Tiago quer levar seu uniforme de escoteiro. Ele tem 3 camisas, 2 bermudas e 2 bonés. Desenhar a árvore de possibilidades pode ser demorado. Usando a matemática, descubra quantas combinações diferentes ele pode formar usando uma peça de cada tipo.
+A senha de um cadeado escolar é formada por 1 letra maiúscula (escolhida entre A, B ou C) seguida por 1 algarismo ímpar (escolhido entre 1, 3, 5, 7 ou 9). Quantas senhas distintas podem ser configuradas nesse cadeado?
 
-a) 12
-b) 7
-c) 6
-d) 10
-e) 8
+a) 8 senhas
+b) 12 senhas
+c) 18 senhas
+d) 15 senhas
+e) 20 senhas
 
-**Gabarito:** A
-**Resolução:** Multiplicamos as 3 camisas pelas 2 bermudas e pelos 2 bonés: $3 \times 2 \times 2 = 12$ uniformes diferentes.
+**Gabarito:** d
+**Resolução:** Temos 3 opções de letras e 5 opções de algarismos ímpares. O total de senhas possíveis é $3 \times 5 = 15$.
 
-<!-- id: q27 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q27 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 27
-Uma padaria lançou uma promoção de bolo decorado onde o cliente escolhe: o sabor da massa (baunilha, chocolate ou morango), o recheio (doce de leite ou brigadeiro) e a cobertura (chantilly, chocolate granulado ou marshmallow). Quantas opções diferentes de bolos podem ser encomendadas?
+Mariana desenhou uma bandeira composta por duas faixas horizontais e decidiu pintar a faixa de cima e a de baixo com cores distintas. Ela possui 5 lápis de cores diferentes. De quantas maneiras ela pode colorir a bandeira?
 
-a) 18
-b) 8
-c) 12
-d) 24
-e) 9
+a) 10 maneiras
+b) 15 maneiras
+c) 25 maneiras
+d) 20 maneiras
+e) 30 maneiras
 
-**Gabarito:** A
-**Resolução:** São 3 massas, 2 recheios e 3 coberturas. Fazendo a conta: $3 \times 2 \times 3 = 18$ bolos diferentes.
+**Gabarito:** d
+**Resolução:** Para a faixa superior, ela dispõe de 5 opções de cores. Para a faixa inferior, como as cores não podem ser iguais, restam 4 opções. O total de maneiras é $5 \times 4 = 20$.
 
-<!-- id: q28 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q28 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 28
-Um cofre infantil tem uma senha formada por duas etapas: primeiro o usuário gira um disco escolhendo um número de 1 a 4; depois, gira outro disco escolhendo uma letra de A até D (A, B, C, D). Se ele esquecer a senha, quantas combinações diferentes existem para testar?
+Um restaurante executivo oferece um almoço completo ao valor fixo de 28,00 reais. O cliente escolhe 1 salada de entrada (entre 3 opções), 1 prato principal (entre 4 opções) e 1 sobremesa (entre 2 opções). Quantos cardápios de almoço diferentes podem ser montados?
 
-a) 8
-b) 4
-c) 12
-d) 16
-e) 20
+a) 24 cardápios
+b) 18 cardápios
+c) 9 cardápios
+d) 32 cardápios
+e) 36 cardápios
 
-**Gabarito:** D
-**Resolução:** São 4 opções de números e 4 opções de letras. Multiplicando as opções, temos $4 \times 4 = 16$ combinações diferentes.
+**Gabarito:** a
+**Resolução:** Multiplicamos as opções de entrada, prato principal e sobremesa: $3 \times 4 \times 2 = 24$ cardápios diferentes.
 
-<!-- id: q29 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q29 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 29
-Camila está montando pacotinhos surpresa para sua festa. Cada pacotinho terá 1 brinquedo (io-iô, pião, carrinho, bola ou mola), 1 tipo de doce (bala, pirulito, chocolate) e 1 tipo de suco de caixinha (laranja, uva, maçã, morango). Quantos pacotinhos surpresa diferentes ela pode formar?
+Um torneio de xadrez reuniu duas escolas. A escola A enviou 5 estudantes e a escola B enviou 6 estudantes. Se na primeira rodada cada partida deve ser disputada por 1 estudante da escola A contra 1 estudante da escola B, quantos confrontos individuais distintos são possíveis?
 
-a) 12
-b) 30
-c) 45
-d) 60
-e) 50
+a) 11 confrontos
+b) 30 confrontos
+c) 25 confrontos
+d) 36 confrontos
+e) 60 confrontos
 
-**Gabarito:** D
-**Resolução:** São 5 brinquedos, 3 doces e 4 sucos. Total = $5 \times 3 \times 4 = 60$ pacotinhos diferentes.
+**Gabarito:** b
+**Resolução:** O número de confrontos possíveis entre os jogadores da escola A e os da escola B é $5 \times 6 = 30$ confrontos distintos.
 
-<!-- id: q30 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q30 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 30
-Uma escola vai realizar um torneio onde cada equipe precisa criar um uniforme com 1 camisa e 1 calção. Eles têm à disposição 6 modelos de camisa e alguns modelos de calção. O organizador informou que é possível montar, ao todo, 30 uniformes diferentes. Quantos modelos de calção estão disponíveis?
+Num curso de introdução musical, o aluno deve se inscrever em 1 instrumento de corda (entre violão, violino e violoncelo) e 1 instrumento de percussão (entre bateria, pandeiro, xilofone e triângulo), além de escolher o turno da aula (manhã ou tarde). Quantas opções de matrícula completa existem?
 
-a) 6
-b) 5
-c) 4
-d) 3
-e) 2
+a) 9 opções
+b) 14 opções
+c) 24 opções
+d) 28 opções
+e) 32 opções
 
-**Gabarito:** B
-**Resolução:** O número de camisas (6) multiplicado pelo número de calções ($C$) é 30. Logo, $6 \times C = 30$. $C$ deve ser 5.
+**Gabarito:** C
+**Resolução:** Temos 3 instrumentos de corda, 4 de percussão e 2 turnos: $3 \times 4 \times 2 = 24$ opções de matrícula.
 
-<!-- id: q31 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q31 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 31
-Para presentear a mãe, Sofia quer montar um vaso com flores. Ela pode escolher o tipo de flor (rosa, margarida, orquídea), a cor do vaso (branco, preto, marrom, azul) e a cor da fita para o laço (dourado, prateado). Quantos vasos diferentes Sofia pode montar?
+Uma lanchonete organizou uma tabela de dupla entrada para relacionar tipos de pães e tipos de recheio. Sabendo que foram geradas exatamente 15 opções de sanduíche e que o estabelecimento trabalha com 3 tipos de pão, quantos tipos de recheio o estabelecimento oferece?
 
-a) 24
-b) 9
-c) 12
-d) 18
-e) 30
+a) 3 recheios
+b) 4 recheios
+c) 12 recheios
+d) 6 recheios
+e) 5 recheios
 
-**Gabarito:** A
-**Resolução:** O problema envolve 3 tipos de flores, 4 cores de vasos e 2 cores de fita. Multiplicando: $3 \times 4 \times 2 = 24$ vasos diferentes.
+**Gabarito:** e
+**Resolução:** Sabendo que $\text{Pães} \times \text{Recheios} = \text{Total de Opções}$, temos $3 \times \text{Recheios} = 15$. Logo, $\text{Recheios} = 15 \div 3 = 5$ tipos de recheio.
 
-<!-- id: q32 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q32 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 32
-Bia está organizando uma mala para viajar e levou 4 blusas, 2 casacos e 3 calças. Durante o passeio noturno, ela sempre usará uma combinação com 1 blusa, 1 casaco e 1 calça. Quantas opções distintas de roupa noturna ela terá?
+Beatriz descobriu que combinando todas as suas blusas com todas as suas saias, ela consegue criar exatamente 24 trajes diferentes. Se ela possui 4 blusas, quantas saias Beatriz possui em seu guarda-roupa?
 
-a) 9
-b) 14
-c) 24
-d) 12
-e) 18
+a) 4 saias
+b) 8 saias
+c) 6 saias
+d) 10 saias
+e) 20 saias
 
-**Gabarito:** C
-**Resolução:** Multiplicamos as 4 blusas, pelos 2 casacos e pelas 3 calças: $4 \times 2 \times 3 = 24$.
+**Gabarito:** c
+**Resolução:** Como $\text{Blusas} \times \text{Saias} = 24$ e sabemos que há 4 blusas, calculamos $24 \div 4 = 6$ saias.
 
-<!-- id: q33 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q33 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 33
-O cardápio de uma lanchonete permite que o cliente escolha o pão (hambúrguer, árabe, forma), a carne (bovina, frango, porco) e o queijo (prato, cheddar). Um cliente que deseja testar todas as combinações precisará comprar quantos lanches?
+Em um teste rápido com 3 questões de múltipla escolha, cada questão apresenta 4 opções de resposta (A, B, C ou D). Quantos gabaritos oficiais completos diferentes podem ser gerados para essa prova?
 
-a) 8
-b) 12
-c) 15
-d) 18
-e) 24
+a) 64 gabaritos
+b) 16 gabaritos
+c) 12 gabaritos
+d) 81 gabaritos
+e) 256 gabaritos
+
+**Gabarito:** a
+**Resolução:** Para cada uma das 3 questões há 4 possibilidades independentes. Aplicando a multiplicação sucessiva: $4 \times 4 \times 4 = 64$ gabaritos distintos.
+
+<!-- id: q34 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 34
+Uma gráfica produz cadernos personalizados onde o comprador seleciona 1 tamanho (pequeno, médio ou grande), 1 tipo de capa entre 4 ilustrações disponíveis e 1 formato de miolo (com linhas ou sem linhas). Quantos modelos distintos de caderno podem ser fabricados?
+
+a) 9 modelos
+b) 12 modelos
+c) 20 modelos
+d) 24 modelos
+e) 30 modelos
 
 **Gabarito:** D
-**Resolução:** Há 3 tipos de pão, 3 carnes e 2 queijos. Multiplicando as etapas: $3 \times 3 \times 2 = 18$ lanches.
+**Resolução:** Multiplicamos as escolhas: $3 \text{ (tamanhos)} \times 4 \text{ (capas)} \times 2 \text{ (miolos)} = 24$ modelos distintos.
 
-<!-- id: q34 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
-### Questão 34
-Uma placa de carrinho de rolimã para uma corrida escolar deve ser formada por uma letra vogal (A, E, I, O, U) seguida de dois algarismos, onde o primeiro algarismo pode ser 1 ou 2, e o segundo pode ser 3, 4 ou 5. Quantas placas diferentes podem ser criadas?
-
-a) 15
-b) 30
-c) 10
-d) 20
-e) 25
-
-**Gabarito:** B
-**Resolução:** 5 vogais $\times$ 2 opções no primeiro algarismo $\times$ 3 opções no segundo algarismo. Total: $5 \times 2 \times 3 = 30$ placas diferentes.
-
-<!-- id: q35 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q35 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 35
-Júlio vai escolher um lanche que consiste em um suco (2 sabores), um salgado (3 tipos) e uma sobremesa (4 opções). Se desenharmos uma árvore de possibilidades para descobrir as opções de Júlio, quantas opções haverá no final das três ramificações?
+No parque temático, o bilhete promocional permite curtir 1 atração aquática entre 4 disponíveis e 1 montanha-russa entre 6 opções. Além disso, o visitante escolhe o passeio no turno da manhã ou da tarde. Quantos roteiros promocionais podem ser escolhidos?
 
-a) 24
-b) 9
-c) 12
-d) 18
-e) 20
+a) 12 roteiros
+b) 24 roteiros
+c) 52 roteiros
+d) 48 roteiros
+e) 60 roteiros
 
-**Gabarito:** A
-**Resolução:** No final da árvore teremos o produto das ramificações: $2 \times 3 \times 4 = 24$ pontas (combinações).
+**Gabarito:** d
+**Resolução:** Calculamos o produto de todas as etapas: $4 \text{ (aquáticas)} \times 6 \text{ (montanhas-russas)} \times 2 \text{ (turnos)} = 48$ roteiros promocionais.
 
-<!-- id: q36 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q36 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 36
-Em uma sorveteria, você pode montar um sundae escolhendo 1 sabor de sorvete (4 opções), 1 calda (3 opções) e 1 adicional (castanha ou paçoca). O número total de combinações diferentes para montar esse sundae é:
+Na montagem de um computador de estudos, o cliente seleciona 1 processador entre 3 opções, 1 quantidade de memória RAM entre 2 opções e 1 modelo de gabinete entre 4 cores. Quantas configurações diferentes de computador podem ser encomendadas?
 
-a) 24
-b) 12
-c) 9
-d) 16
-e) 20
+a) 24 configurações
+b) 14 configurações
+c) 9 configurações
+d) 32 configurações
+e) 36 configurações
 
-**Gabarito:** A
-**Resolução:** São 4 sorvetes $\times$ 3 caldas $\times$ 2 adicionais. Multiplicando tudo temos $4 \times 3 \times 2 = 24$ sundaes distintos.
+**Gabarito:** a
+**Resolução:** Pelo princípio fundamental da contagem: $3 \times 2 \times 4 = 24$ configurações distintas de computador.
 
-<!-- id: q37 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q37 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 37
-Ao configurar um alarme de segurança, Carlos precisa colocar uma senha de 3 dígitos, porém o sistema só aceita os números 1, 2 e 3 em qualquer posição, podendo repeti-los. Quantas senhas diferentes Carlos pode criar?
+Uma fábrica de sucos naturais prepara bebidas misturando 1 fruta cítrica (laranja, limão ou tangerina) com 1 erva aromática (hortelã, capim-santo ou gengibre), podendo a bebida ser servida com gelo ou sem gelo. Quantas variedades desse suco aromatizado podem ser preparadas?
 
-a) 9
-b) 6
-c) 27
-d) 12
-e) 15
+a) 8 variedades
+b) 12 variedades
+c) 24 variedades
+d) 18 variedades
+e) 27 variedades
+
+**Gabarito:** d
+**Resolução:** Temos 3 frutas, 3 ervas e 2 modos de servir (com ou sem gelo): $3 \times 3 \times 2 = 18$ variedades de suco.
+
+<!-- id: q38 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 38
+Num sorteio beneficente, retira-se uma ficha numerada de 1 a 6 de uma caixa opaca e, em seguida, gira-se um ponteiro em uma roleta dividida em 4 cores iguais (azul, amarelo, verde e vermelho). Quantos pares de resultados (número e cor) podem ocorrer nesse sorteio?
+
+a) 10 pares
+b) 18 pares
+c) 30 pares
+d) 24 pares
+e) 36 pares
+
+**Gabarito:** d
+**Resolução:** Cada um dos 6 números da ficha pode se combinar com qualquer uma das 4 cores da roleta: $6 \times 4 = 24$ resultados possíveis.
+
+<!-- id: q39 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 39
+Um artista plástico cria pequenos painéis decorativos escolhendo 1 moldura de madeira entre 5 tonalidades e 1 conjunto de pastilhas cerâmicas entre 6 padrões geométricos. Quantos painéis com combinações exclusivas ele consegue montar?
+
+a) 11 painéis
+b) 25 painéis
+c) 30 painéis
+d) 35 painéis
+e) 40 painéis
 
 **Gabarito:** C
-**Resolução:** O primeiro dígito tem 3 opções, o segundo tem 3 opções e o terceiro tem 3 opções. Fazendo $3 \times 3 \times 3 = 27$ senhas diferentes.
+**Resolução:** Multiplicamos a quantidade de molduras pelo número de padrões de pastilhas: $5 \times 6 = 30$ painéis exclusivos.
 
-<!-- id: q38 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
-### Questão 38
-Se uma loja vende bicicletas e oferece a escolha de 3 modelos de quadro, 2 tipos de pneu e 2 formatos de guidão, é correto afirmar que, multiplicando essas coleções, obteremos um total de possibilidades igual a:
-
-a) 7
-b) 6
-c) 8
-d) 12
-e) 10
-
-**Gabarito:** D
-**Resolução:** Multiplicamos as 3 opções de quadro, 2 de pneu e 2 de guidão: $3 \times 2 \times 2 = 12$ possibilidades.
-
-<!-- id: q39 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
-### Questão 39
-Uma fábrica produz canetas que possuem 2 cores de tubo (transparente, fumê), 3 cores de tinta (azul, vermelha, preta) e 2 modelos de tampa (com clipe, sem clipe). Quantas canetas diferentes a fábrica consegue produzir com essas características?
-
-a) 12
-b) 7
-c) 6
-d) 9
-e) 10
-
-**Gabarito:** A
-**Resolução:** Temos 2 cores de tubo $\times$ 3 cores de tinta $\times$ 2 tampas = 12 canetas diferentes.
-
-<!-- id: q40 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-de-contagem -->
+<!-- id: q40 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: intermediario | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 40
-Para uma foto da turma, o fotógrafo pode usar 3 painéis de fundo diferentes, 2 tapetes para o chão e 2 estilos de iluminação. De quantas maneiras diferentes ele pode montar o cenário da foto?
+Um clube municipal oferece turmas de natação com 3 professores especializados, atendendo em 4 faixas de horário (às 8h, 10h, 14h ou 16h) e utilizando 2 piscinas (coberta ou aberta). Quantas turmas distintas com professor, horário e piscina podem ser organizadas?
 
-a) 12
-b) 7
-c) 9
-d) 10
-e) 6
+a) 9 turmas
+b) 18 turmas
+c) 24 turmas
+d) 28 turmas
+e) 32 turmas
 
-**Gabarito:** A
-**Resolução:** Multiplicando as opções de cenário: $3 \times 2 \times 2 = 12$ configurações para a foto.
+**Gabarito:** C
+**Resolução:** Pelo princípio multiplicativo: $3 \text{ (professores)} \times 4 \text{ (horários)} \times 2 \text{ (piscinas)} = 24$ turmas distintas.
 
 ## Nível Difícil (Questões 41-60)
 
-<!-- id: q41 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+
+<!-- id: q41 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 41
-Um programador está montando um computador peça por peça. Ele deve escolher: 1 processador (entre 3 marcas), 1 placa de vídeo (entre 2 modelos), 1 tipo de memória RAM (entre 3 capacidades) e 1 gabinete (entre 4 cores). Quantas configurações distintas de computador ele pode montar ao todo?
+Em um restaurante, escolhe-se 1 proteína (frango, carne ou peixe), 1 carboidrato (arroz branco, integral ou purê) e 1 legume (cenoura, brócolis, abobrinha ou vagem). Sabendo que peixe nunca é servido com purê, quantas opções distintas de marmitas podem ser montadas?
 
-a) 12
-b) 24
-c) 72
-d) 48
-e) 120
+a) 36 opções
+b) 35 opções
+c) 28 opções
+d) 32 opções
+e) 24 opções
 
-**Gabarito:** C
-**Resolução:** 
-**Etapa 1:** Identificar o número de opções para cada peça. São 4 escolhas independentes (3 processadores, 2 placas, 3 memórias, 4 gabinetes).
-**Etapa 2:** Aplicar o princípio multiplicativo multiplicando todas as opções: $3 \times 2 \times 3 \times 4$.
-**Etapa 3:** Resolver passo a passo: $3 \times 2 = 6$; $6 \times 3 = 18$; $18 \times 4 = 72$. Total de 72 computadores.
+**Gabarito:** d
+**Resolução:**
+- **Etapa 1:** Calculamos o produto irrestrito de opções: $3 	ext{ (proteínas)} 	imes 3 	ext{ (carboidratos)} 	imes 4 	ext{ (legumes)} = 36$ combinações teóricas.
+- **Etapa 2:** Determinamos a quantidade de opções que contêm a combinação proibida entre peixe e purê de batata: $1 	ext{ (peixe)} 	imes 1 	ext{ (purê)} 	imes 4 	ext{ (legumes)} = 4$ combinações.
+- **Etapa 3:** Efetuamos a subtração para encontrar as combinações válidas permitidas: $36 - 4 = 32$ opções de marmita.
 
-<!-- id: q42 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q42 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 42
-Numa prova de gincana, o aluno precisa encontrar um baú percorrendo caminhos em um mapa. Ele deve sair da Origem para o Ponto A (4 caminhos), do Ponto A para o Ponto B (3 caminhos) e do Ponto B até o Baú (2 caminhos). Ao lado do Baú, ele deve escolher 1 de 5 chaves para abri-lo. Quantas combinações diferentes de "rota seguida + chave escolhida" existem?
+Uma feira tem bancadas com 1 projeto de física e 1 de química. Há 5 de física e 6 de química. Dois projetos específicos já estão reservados na bancada central. Quantas bancadas com outros pares de projetos podem ser montadas no restante do salão?
 
-a) 14
-b) 120
-c) 24
-d) 60
-e) 140
+a) 20 bancadas
+b) 29 bancadas
+c) 25 bancadas
+d) 30 bancadas
+e) 15 bancadas
 
-**Gabarito:** B
-**Resolução:** 
-**Etapa 1:** Calcular os caminhos até o Baú multiplicando as opções de cada trecho: $4 \times 3 \times 2 = 24$ rotas.
-**Etapa 2:** Para cada rota, há 5 chaves. Multiplicar as rotas pelas chaves: $24 \times 5 = 120$.
-**Etapa 3:** A resposta final é a combinação total de todas as decisões, que dá 120 possibilidades.
+**Gabarito:** a
+**Resolução:**
+- **Etapa 1:** Ao reservar o projeto de física específico e o de química específico para a bancada central, restam disponíveis para o restante do salão $5 - 1 = 4$ projetos de física.
+- **Etapa 2:** Da mesma forma, restam $6 - 1 = 5$ projetos de química para formar as demais bancadas.
+- **Etapa 3:** Multiplicamos os projetos restantes para obter os novos pares possíveis: $4 \times 5 = 20$ bancadas diferentes no restante do salão.
 
-<!-- id: q43 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q43 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 43
-Uma empresa de viagens montou um pacote de férias. O cliente pode escolher o destino (praia, montanha, cidade - 3 opções), o meio de transporte (ônibus, avião - 2 opções), a acomodação (hotel, pousada, chalé - 3 opções) e o tipo de refeição (meia pensão, pensão completa - 2 opções). Quantos pacotes de férias diferentes a empresa oferece?
+Uniformes de voleibol têm 1 camisa (branca, azul ou amarela) e 1 calção (branco, azul, preto ou vermelho). A camisa e o calção não podem ter a mesma cor. Quantos uniformes diferentes podem ser produzidos com essa restrição?
 
-a) 10
-b) 36
-c) 18
-d) 24
-e) 48
+a) 12 uniformes
+b) 7 uniformes
+c) 9 uniformes
+d) 8 uniformes
+e) 10 uniformes
 
-**Gabarito:** B
-**Resolução:** 
-**Etapa 1:** Listar todas as categorias: Destino (3), Transporte (2), Acomodação (3), Refeição (2).
-**Etapa 2:** Multiplicar as quantidades: $3 \times 2 \times 3 \times 2$.
-**Etapa 3:** Realizar as contas parciais: $3 \times 2 = 6$; $3 \times 2 = 6$. Depois, $6 \times 6 = 36$ pacotes diferentes.
+**Gabarito:** e
+**Resolução:**
+- **Etapa 1:** Calculamos o total de uniformes sem restrição de cor: $3 \text{ (camisas)} \times 4 \text{ (calções)} = 12$ combinações.
+- **Etapa 2:** Identificamos os casos em que a cor da camisa e do calção é a mesma: conjunto branco-branco e conjunto azul-azul (são 2 combinações com cores coincidentes).
+- **Etapa 3:** Subtraímos os uniformes de mesma cor do total: $12 - 2 = 10$ uniformes válidos.
 
-<!-- id: q44 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q44 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 44
-Na criação de uma conta em um sistema escolar, a matrícula é formada por 4 caracteres escolhidos nesta ordem: 1 vogal (5 opções), 1 dígito ímpar (5 opções), outro dígito ímpar que não pode ser igual ao primeiro (logo, 4 opções) e 1 letra entre A, B e C (3 opções). Quantas matrículas diferentes podem ser criadas?
+A biblioteca comunitária cria códigos de identificação interna para catalogar livros raros. Cada código é formado por 2 letras distintas escolhidas entre as vogais (A, E, I, O, U) seguidas por 1 algarismo escolhido entre 1, 2 e 3. Quantos códigos diferentes podem ser gerados para esse catálogo?
 
-a) 17
-b) 100
-c) 300
-d) 150
-e) 200
+a) 30 códigos
+b) 45 códigos
+c) 90 códigos
+d) 75 códigos
+e) 60 códigos
 
-**Gabarito:** C
-**Resolução:** 
-**Etapa 1:** Analisar as restrições de cada espaço: 1º caractere = 5; 2º caractere = 5; 3º caractere = 4 (tirando a opção usada antes); 4º caractere = 3.
-**Etapa 2:** Aplicar o princípio multiplicativo com os valores disponíveis: $5 \times 5 \times 4 \times 3$.
-**Etapa 3:** $25 \times 4 = 100$; $100 \times 3 = 300$.
+**Gabarito:** e
+**Resolução:**
+- **Etapa 1:** Para a primeira letra, há 5 vogais disponíveis.
+- **Etapa 2:** Como as letras devem ser distintas, restam 4 opções para a segunda letra ($5 \times 4 = 20$ pares de letras).
+- **Etapa 3:** Para o algarismo final, há 3 opções. Multiplicamos as etapas: $20 \times 3 = 60$ códigos diferentes.
 
-<!-- id: q45 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q45 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 45
-Um sistema de semáforos especial usa 4 luzes separadas que acendem uma de cada vez. Cada luz pode piscar na cor vermelha ou verde (2 opções). Se considerarmos uma sequência como o acendimento da luz 1, seguido da 2, 3 e 4, quantas sequências diferentes de cores o semáforo pode emitir?
+Uma floricultura monta cestas com 1 vaso de flores (4 espécies), 1 chocolate (3 tipos) e 1 cartão (2 formatos, cada um em tinta dourada ou prateada). Quantos tipos de cestas comemorativas completas podem ser montadas?
 
-a) 8
-b) 16
-c) 32
-d) 64
-e) 12
+a) 24 tipos
+b) 36 tipos
+c) 48 tipos
+d) 60 tipos
+e) 72 tipos
 
-**Gabarito:** B
-**Resolução:** 
-**Etapa 1:** Cada uma das 4 luzes é uma escolha independente com 2 opções (vermelho ou verde).
-**Etapa 2:** O número de combinações é $2 \times 2 \times 2 \times 2$.
-**Etapa 3:** Multiplicando, temos $4 \times 2 = 8$; $8 \times 2 = 16$ sequências distintas.
+**Gabarito:** C
+**Resolução:**
+- **Etapa 1:** Determinamos o número de opções de cartões: 2 formatos combinados com 2 cores de tinta ($2 \times 2 = 4$ opções de cartões).
+- **Etapa 2:** Identificamos as opções para os outros itens: 4 vasos de flores e 3 tipos de chocolate.
+- **Etapa 3:** Multiplicamos todas as decisões: $4 \text{ (flores)} \times 3 \text{ (chocolates)} \times 4 \text{ (cartões)} = 48$ tipos de cestas comemorativas.
 
-<!-- id: q46 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q46 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 46
-Um estudante deseja ler um livro de ficção e um de história. Na biblioteca, a seção de ficção tem livros divididos por faixa etária: 4 livros infantis e 3 juvenis. A seção de história tem 5 livros. Se o estudante quiser pegar exatamente um de história e um de ficção (de qualquer faixa etária), quantas duplas de livros ele pode formar?
+Alunos montam mosaicos com 1 placa (madeira ou acrílico), 1 pastilha (quadrada, triangular ou hexagonal) e 1 rejunte (4 cores). Acrílico não pode receber pastilhas triangulares. Quantas combinações viáveis de mosaico podem ser produzidas?
 
-a) 12
-b) 35
-c) 20
-d) 15
-e) 60
+a) 24 combinações
+b) 12 combinações
+c) 18 combinações
+d) 16 combinações
+e) 20 combinações
 
-**Gabarito:** B
-**Resolução:** 
-**Etapa 1:** Primeiro, descubra quantas opções de livros de ficção existem ao todo, somando os infantis e juvenis: $4 + 3 = 7$ livros.
-**Etapa 2:** Agora, use o princípio multiplicativo para combinar a coleção unida de ficção com a coleção de história.
-**Etapa 3:** $7 \times 5 = 35$ combinações possíveis.
+**Gabarito:** e
+**Resolução:**
+- **Etapa 1:** Calculamos o total de montagens sem a restrição técnica: $2 \text{ (bases)} \times 3 \text{ (formatos)} \times 4 \text{ (rejuntes)} = 24$ combinações.
+- **Etapa 2:** Calculamos as combinações inviáveis (base de acrílico com pastilha triangular em qualquer um dos 4 rejuntes): $1 \times 1 \times 4 = 4$ combinações proibidas.
+- **Etapa 3:** Subtraímos as opções inviáveis do total: $24 - 4 = 20$ combinações viáveis de mosaico.
 
-<!-- id: q47 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q47 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 47
-Em uma gincana escolar infantil, as equipes devem montar um boneco escolhendo: cabeça (3 opções), tronco (4 opções), braços (2 opções) e pernas (2 opções). Se uma das opções de cabeça estiver estragada e não puder ser usada, quantas formas diferentes de bonecos ainda poderão ser montadas pelas equipes?
+Um jogo permite escolher 1 classe (Guerreiro, Arqueiro, Mago ou Curandeiro), 1 armadura (3 modelos) e 1 poder (5 disponíveis). O Mago não pode usar armadura pesada (tem 2 opções). Quantos personagens distintos podem ser configurados no jogo?
 
-a) 24
-b) 48
-c) 32
-d) 16
-e) 11
+a) 55 personagens
+b) 60 personagens
+c) 50 personagens
+d) 45 personagens
+e) 40 personagens
 
-**Gabarito:** C
-**Resolução:** 
-**Etapa 1:** Atualizar as opções válidas. Como uma cabeça estragou, sobram $3 - 1 = 2$ opções de cabeça.
-**Etapa 2:** Listar as coleções atualizadas: 2 cabeças, 4 troncos, 2 braços e 2 pernas.
-**Etapa 3:** Multiplicar as possibilidades: $2 \times 4 \times 2 \times 2 = 8 \times 2 = 16 \times 2 = 32$ formas.
+**Gabarito:** a
+**Resolução:**
+- **Etapa 1:** Calculamos o total geral de personagens sem restrições: $4 \text{ (classes)} \times 3 \text{ (armaduras)} \times 5 \text{ (poderes)} = 60$ personagens.
+- **Etapa 2:** Identificamos as configurações inválidas, nas quais o Mago recebe a armadura pesada com qualquer um dos 5 poderes: $1 \times 1 \times 5 = 5$ configurações proibidas.
+- **Etapa 3:** Subtraímos as opções inválidas do total geral: $60 - 5 = 55$ personagens distintos configuráveis.
 
-<!-- id: q48 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q48 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 48
-Marcos tem um código de cadeado formado por três discos numerados de 0 a 9 (ou seja, 10 opções cada). Ele lembra que o primeiro disco parou no número 5, não sendo possível mudá-lo, pois está emperrado. Quantas combinações ele precisará testar nos outros dois discos para ter certeza de que vai abrir o cadeado?
+Uma gráfica produz blocos com 1 papel de capa (3 tipos), 1 quantidade de folhas (50 ou 100) e 1 encadernação (espiral, wire-o ou brochura). Brochura só é feita nos blocos de 100 folhas. Quantos modelos viáveis de bloco podem ser encomendados?
 
-a) 100
-b) 1.000
-c) 500
-d) 30
-e) 20
+a) 18 modelos
+b) 12 modelos
+c) 15 modelos
+d) 10 modelos
+e) 8 modelos
 
-**Gabarito:** A
-**Resolução:** 
-**Etapa 1:** O primeiro disco só tem 1 opção possível (o número 5).
-**Etapa 2:** O segundo e o terceiro discos continuam tendo 10 opções cada um.
-**Etapa 3:** Multiplicando as opções disponíveis: $1 \times 10 \times 10 = 100$ combinações restantes para testar.
+**Gabarito:** c
+**Resolução:**
+- **Etapa 1:** Calculamos o total teórico irrestrito de produtos: $3 \text{ (papéis)} \times 2 \text{ (quantidades)} \times 3 \text{ (encadernações)} = 18$ modelos.
+- **Etapa 2:** Identificamos os modelos inviáveis, que associam os 3 tipos de papel à encadernação em brochura nos blocos de 50 folhas: $3 \times 1 \times 1 = 3$ modelos inviáveis.
+- **Etapa 3:** Subtraímos os modelos inviáveis do total: $18 - 3 = 15$ modelos viáveis de blocos de anotações.
 
-<!-- id: q49 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q49 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 49
-Uma montadora de motos oferece uma versão em 3 cores (azul, preta, prata). Além da cor, o cliente escolhe a cilindrada do motor (125cc ou 150cc) e se quer com partida elétrica ou a pedal. Além disso, existe a opção de banco de couro ou tecido. Quantas configurações exclusivas da moto existem no total?
+Uma caixa de bombons tem 2 camadas de doces. Há 4 sabores disponíveis, mas as duas camadas devem ter sabores diferentes. A caixa pode ser finalizada com fita vermelha, dourada ou verde. Quantas caixas personalizadas diferentes podem ser montadas?
 
-a) 12
-b) 9
-c) 24
-d) 36
-e) 18
+a) 48 caixas
+b) 12 caixas
+c) 24 caixas
+d) 16 caixas
+e) 36 caixas
 
-**Gabarito:** C
-**Resolução:** 
-**Etapa 1:** Separar as 4 etapas de escolha: Cor (3), Motor (2), Partida (2) e Banco (2).
-**Etapa 2:** Aplicar a multiplicação: $3 \times 2 \times 2 \times 2$.
-**Etapa 3:** $6 \times 2 = 12$; $12 \times 2 = 24$ configurações exclusivas da moto.
+**Gabarito:** e
+**Resolução:**
+- **Etapa 1:** Para a camada superior, há 4 opções de sabores de bombons.
+- **Etapa 2:** Para a camada inferior, como o sabor não pode repetir o da camada superior, restam 3 opções ($4 \times 3 = 12$ pares de sabores distintos).
+- **Etapa 3:** Cada arranjo de sabores pode ser combinado com 3 cores de fita de finalização: $12 \times 3 = 36$ caixas comemorativas personalizadas.
 
-<!-- id: q50 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q50 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 50
-Em uma sorveteria, um sundae completo leva 1 sabor de massa (4 opções), 1 calda (3 opções), 1 tipo de confeito (2 opções) e 1 biscoito decorativo (2 opções). Se um cliente disser que não gosta do biscoito e pedir para retirá-lo da montagem do seu sundae, quantas combinações diferentes sobrariam para ele montar o seu doce?
+Em uma excursão, a ida tem 3 rodovias e 2 postos de apoio. Na volta há 2 rodovias alternativas, mas uma delas está interditada para obras. Quantos itinerários completos de ida e volta estão disponíveis para a excursão?
 
-a) 24
-b) 11
-c) 48
-d) 12
-e) 9
+a) 12 itinerários
+b) 6 itinerários
+c) 8 itinerários
+d) 5 itinerários
+e) 4 itinerários
 
-**Gabarito:** A
-**Resolução:** 
-**Etapa 1:** A etapa do biscoito foi eliminada (agora ele tem apenas 1 opção: sem biscoito).
-**Etapa 2:** Restam 3 coleções: 4 massas, 3 caldas e 2 confeitos.
-**Etapa 3:** Multiplicando as opções restantes: $4 \times 3 \times 2 \times 1 = 24$ sundaes diferentes sem o biscoito.
+**Gabarito:** b
+**Resolução:**
+- **Etapa 1:** Calculamos as possibilidades para o trajeto de ida: 3 rodovias combinadas com 2 postos de apoio ($3 \times 2 = 6$ rotas de ida).
+- **Etapa 2:** Analisamos as opções para a volta: como 1 das 2 rodovias está interditada, resta apenas 1 rota de volta válida.
+- **Etapa 3:** Multiplicamos as rotas de ida pelas rotas de volta válidas: $6 \times 1 = 6$ itinerários completos possíveis.
 
-<!-- id: q51 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q51 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 51
-Uma fábrica de brinquedos produz um robô que é montado a partir de partes separadas: a cabeça (3 opções), o corpo com mecanismo de som (3 opções), o modelo de esteira para andar (2 opções) e a cor das luzes do olho (3 cores). O número total de combinações que a fábrica consegue produzir é igual a:
+Uma fábrica oferece tintas com 1 acabamento (fosco ou acetinado), 1 pigmento (6 opções) e 1 embalagem (3,6 L ou 18 L). O azul-cobalto só é vendido na lata de 18 L. Quantas opções comerciais de tinta são disponibilizadas?
 
-a) 11
-b) 54
-c) 36
-d) 81
-e) 18
+a) 22 opções
+b) 24 opções
+c) 20 opções
+d) 18 opções
+e) 16 opções
 
-**Gabarito:** B
-**Resolução:** 
-**Etapa 1:** Identificar todas as 4 coleções independentes: Cabeça (3), Corpo (3), Esteira (2), Luzes (3).
-**Etapa 2:** Multiplicar as opções sucessivamente: $3 \times 3 \times 2 \times 3$.
-**Etapa 3:** Fazendo $9 \times 2 = 18$ e depois $18 \times 3 = 54$. Total de 54 robôs.
+**Gabarito:** a
+**Resolução:**
+- **Etapa 1:** Calculamos o total de opções comerciais sem restrição: $2 \text{ (acabamentos)} \times 6 \text{ (pigmentos)} \times 2 \text{ (volumes)} = 24$ opções.
+- **Etapa 2:** Identificamos as opções que não podem ser produzidas (pigmento azul-cobalto no galão de 3,6 litros nos 2 acabamentos): $2 \times 1 \times 1 = 2$ opções indisponíveis.
+- **Etapa 3:** Subtraímos as opções indisponíveis do total geral: $24 - 2 = 22$ opções comerciais válidas.
 
-<!-- id: q52 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q52 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 52
-Para montar um relógio personalizado, o cliente escolhe a cor da pulseira (4 opções), o estilo do mostrador (numérico ou romano - 2 opções), a cor do ponteiro (3 opções) e se o relógio tem ou não cronômetro (2 opções). Quantos relógios diferentes o cliente pode montar?
+Para a chapa do grêmio, escolhe-se 1 presidente (3 opções), 1 vice (4 opções) e 1 secretário (2 opções). Um candidato a presidente não aceita compor chapa com um vice específico. Quantas chapas diferentes podem concorrer?
 
-a) 48
-b) 24
-c) 11
-d) 36
-e) 12
-
-**Gabarito:** A
-**Resolução:** 
-**Etapa 1:** Mapear as opções: Pulseira (4), Mostrador (2), Ponteiro (3), Cronômetro (2).
-**Etapa 2:** Multiplicar: $4 \times 2 \times 3 \times 2$.
-**Etapa 3:** Resultado: $8 \times 3 = 24$; $24 \times 2 = 48$.
-
-<!-- id: q53 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
-### Questão 53
-Um torneio de videogame tem uma fase de escolha de personagens (4 heróis diferentes). Depois, escolhe-se o mapa de batalha (5 cenários). Por fim, escolhe-se a trilha sonora de fundo (3 músicas) e a condição de clima no cenário (chuva, sol, neve - 3 opções). Quantas partidas diferentes na sua configuração inicial podem ocorrer?
-
-a) 180
-b) 120
-c) 60
-d) 15
-e) 200
-
-**Gabarito:** A
-**Resolução:** 
-**Etapa 1:** Listar as categorias: Personagem (4), Mapa (5), Música (3), Clima (3).
-**Etapa 2:** Aplicar o princípio multiplicativo: $4 \times 5 \times 3 \times 3$.
-**Etapa 3:** Calculando $4 \times 5 = 20$; $20 \times 3 = 60$; $60 \times 3 = 180$ partidas.
-
-<!-- id: q54 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
-### Questão 54
-Para ir de uma cidade A para uma cidade C, passando obrigatoriamente por B e D nessa ordem (A $\rightarrow$ B $\rightarrow$ D $\rightarrow$ C), um viajante encontra os seguintes caminhos: 3 estradas de A para B, 2 estradas de B para D, e 4 estradas de D para C. Além disso, no pedágio final, ele deve escolher pagar com cartão ou dinheiro vivo (2 opções). De quantas formas diferentes a viagem (incluindo o pagamento) pode acontecer?
-
-a) 11
-b) 48
-c) 24
-d) 36
-e) 120
-
-**Gabarito:** B
-**Resolução:** 
-**Etapa 1:** Separar as etapas independentes da viagem: A para B (3), B para D (2), D para C (4) e Pagamento (2).
-**Etapa 2:** Multiplicar os caminhos e escolhas: $3 \times 2 \times 4 \times 2$.
-**Etapa 3:** $6 \times 4 = 24$; $24 \times 2 = 48$ formas diferentes.
-
-<!-- id: q55 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
-### Questão 55
-Na aula de música, a professora organizou um coral. Cada aluno precisa se inscrever escolhendo 1 dia da semana (segunda, quarta, sexta - 3 opções), 1 turno (manhã ou tarde - 2 opções) e 1 tipo de voz (soprano, contralto, tenor - 3 opções). Por fim, o aluno deve escolher 1 camisa do coral que está disponível em 4 tamanhos. Qual o número total de fichas de inscrição diferentes possíveis?
-
-a) 12
-b) 24
-c) 48
-d) 72
-e) 36
-
-**Gabarito:** D
-**Resolução:** 
-**Etapa 1:** São quatro coleções de escolhas: Dia (3), Turno (2), Voz (3), Tamanho (4).
-**Etapa 2:** Produto: $3 \times 2 \times 3 \times 4$.
-**Etapa 3:** Resolvendo: $6 \times 3 = 18$; $18 \times 4 = 72$ inscrições.
-
-<!-- id: q56 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
-### Questão 56
-O painel de uma nave espacial em um brinquedo de parque possui 3 alavancas. A primeira alavanca pode estar para Cima ou para Baixo (2 opções). A segunda pode estar nas posições 1, 2 ou 3 (3 opções). A terceira possui 4 posições diferentes (A, B, C, D). Se, para iniciar o jogo, o jogador também precisar apertar ou não o botão turbo (2 opções), quantas configurações de partida existem?
-
-a) 48
-b) 24
-c) 11
-d) 36
-e) 12
-
-**Gabarito:** A
-**Resolução:** 
-**Etapa 1:** As etapas são: Alavanca 1 (2), Alavanca 2 (3), Alavanca 3 (4), Botão (2).
-**Etapa 2:** Conta multiplicativa: $2 \times 3 \times 4 \times 2$.
-**Etapa 3:** $6 \times 4 = 24$; $24 \times 2 = 48$ configurações do painel.
-
-<!-- id: q57 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
-### Questão 57
-Uma pizzaria monta pizzas especiais onde o cliente escolhe: 1 tipo de massa (fina, grossa, recheada - 3 opções), 1 sabor (calabresa, marguerita, frango, portuguesa - 4 opções), 1 tipo de borda extra (com ou sem - 2 opções) e 1 brinde (guaraná em lata ou suco de caixinha - 2 opções). Quantos combos diferentes o cliente pode pedir?
-
-a) 48
-b) 24
-c) 11
-d) 36
-e) 64
-
-**Gabarito:** A
-**Resolução:** 
-**Etapa 1:** Coleções de escolhas do combo: Massa (3), Sabor (4), Borda (2), Brinde (2).
-**Etapa 2:** Multiplicar as quantidades: $3 \times 4 \times 2 \times 2$.
-**Etapa 3:** $12 \times 2 = 24$; $24 \times 2 = 48$ combos.
-
-<!-- id: q58 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
-### Questão 58
-Na biblioteca da cidade, um estudante pode sentar em 5 setores de estudo, escolher entre 3 tipos de luminárias para ligar em sua mesa, pegar 1 revista para folhear entre 4 categorias disponíveis, e comprar 1 café ou 1 chá (2 opções). Quantos cenários de estudo completos ele pode montar?
-
-a) 14
-b) 60
-c) 120
-d) 100
-e) 24
+a) 24 chapas
+b) 23 chapas
+c) 22 chapas
+d) 20 chapas
+e) 18 chapas
 
 **Gabarito:** C
-**Resolução:** 
-**Etapa 1:** Avaliar o número de opções de cada fase: Setor (5), Luminária (3), Revista (4), Bebida (2).
-**Etapa 2:** Fazer as contas: $5 \times 3 \times 4 \times 2$.
-**Etapa 3:** $15 \times 4 = 60$; $60 \times 2 = 120$ cenários diferentes.
+**Resolução:**
+- **Etapa 1:** Calculamos o número total de chapas sem qualquer restrição de compatibilidade: $3 \text{ (presidentes)} \times 4 \text{ (vice-presidentes)} \times 2 \text{ (secretários)} = 24$ chapas.
+- **Etapa 2:** Identificamos a quantidade de chapas que contêm a dupla incompatível de presidente e vice com os 2 candidatos a secretário: $1 \times 1 \times 2 = 2$ chapas incompatíveis.
+- **Etapa 3:** Subtraímos as chapas incompatíveis do total: $24 - 2 = 22$ chapas completas válidas.
 
-<!-- id: q59 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q53 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 53
+Em um festival, escolhe-se 1 prato salgado em 4 opções, 1 sobremesa em 3 opções e 1 bebida entre suco, refrigerante ou água. Quantas refeições completas distintas (salgado, sobremesa e bebida) o visitante pode saborear?
+
+a) 12 refeições
+b) 24 refeições
+c) 52 refeições
+d) 48 refeições
+e) 36 refeições
+
+**Gabarito:** e
+**Resolução:**
+- **Etapa 1:** Identificamos o número de opções para cada escolha: 4 pratos salgados, 3 sobremesas e 3 tipos de bebida.
+- **Etapa 2:** Aplicamos o princípio multiplicativo entre as três decisões sucessivas: $4 \times 3 = 12$ pares de prato e sobremesa.
+- **Etapa 3:** Multiplicamos o resultado pelas 3 opções de bebida: $12 \times 3 = 36$ refeições completas distintas.
+
+<!-- id: q54 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 54
+Para um estande, há 3 estruturas metálicas, 3 lonas de cobertura e 2 pisos modulares. Uma das estruturas exige lona reforçada especial (não aceita as outras 2). Quantas configurações válidas de estande podem ser contratadas?
+
+a) 14 configurações
+b) 16 configurações
+c) 18 configurações
+d) 12 configurações
+e) 10 configurações
+
+**Gabarito:** a
+**Resolução:**
+- **Etapa 1:** Calculamos o total teórico irrestrito de configurações: $3 \text{ (estruturas)} \times 3 \text{ (lonas)} \times 2 \text{ (pisos)} = 18$ configurações.
+- **Etapa 2:** Identificamos as configurações proibidas da estrutura metálica especial combinada com as outras 2 lonas comuns nos 2 pisos: $1 \times 2 \times 2 = 4$ configurações proibidas.
+- **Etapa 3:** Subtraímos as opções proibidas do total geral: $18 - 4 = 14$ configurações válidas de estande.
+
+<!-- id: q55 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 55
+Em um parque, o turista escolhe 1 trilha (leve, moderada ou avançada), 1 guia entre 4 credenciados e 1 horário (9h ou 14h). A trilha avançada só pode ser feita com o guia sênior. Quantas opções de passeio seguro a agência pode oferecer?
+
+a) 24 opções
+b) 20 opções
+c) 18 opções
+d) 16 opções
+e) 14 opções
+
+**Gabarito:** C
+**Resolução:**
+- **Etapa 1:** Para as trilhas leve e moderada (2 opções), qualquer um dos 4 guias pode atuar nos 2 horários disponíveis: $2 	imes 4 	imes 2 = 16$ opções de passeio.
+- **Etapa 2:** Para a trilha avançada (1 opção), apenas o guia sênior pode atuar nos 2 horários de saída: $1 	imes 1 	imes 2 = 2$ opções de passeio.
+- **Etapa 3:** Somamos as opções possíveis de cada categoria de trilha: $16 + 2 = 18$ opções de passeio seguro.
+
+<!-- id: q56 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 56
+Um pacote automotivo inclui 1 óleo (mineral, semissintético ou sintético), 1 alinhamento (convencional ou 3D) e 1 higienização (ozônio ou spray). O óleo sintético não pode usar spray. Quantos pacotes distintos podem ser contratados?
+
+a) 12 pacotes
+b) 8 pacotes
+c) 9 pacotes
+d) 10 pacotes
+e) 6 pacotes
+
+**Gabarito:** d
+**Resolução:**
+- **Etapa 1:** Calculamos o número de pacotes sem restrição de serviço: $3 \text{ (óleos)} \times 2 \text{ (alinhamentos)} \times 2 \text{ (higienizações)} = 12$ pacotes teóricos.
+- **Etapa 2:** Calculamos os pacotes que combinam óleo sintético com higienização em spray nos 2 tipos de alinhamento: $1 \times 2 \times 1 = 2$ pacotes proibidos.
+- **Etapa 3:** Subtraímos os pacotes inválidos do total: $12 - 2 = 10$ pacotes promocionais válidos.
+
+<!-- id: q57 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 57
+Kits de adoção contêm 1 coleira (pequena, média ou grande), 1 ração (filhote ou adulto) e 1 brinquedo (3 opções). A coleira grande nunca acompanha ração de filhote. Quantos tipos de kits válidos podem ser preparados?
+
+a) 18 tipos
+b) 12 tipos
+c) 15 tipos
+d) 10 tipos
+e) 9 tipos
+
+**Gabarito:** c
+**Resolução:**
+- **Etapa 1:** Calculamos o total irrestrito de kits possíveis: $3 \text{ (tamanhos de coleira)} \times 2 \text{ (tipos de ração)} \times 3 \text{ (brinquedos)} = 18$ tipos teóricos.
+- **Etapa 2:** Identificamos as combinações inadequadas que unem coleira grande com ração de filhote nos 3 tipos de brinquedo: $1 \times 1 \times 3 = 3$ kits inadequados.
+- **Etapa 3:** Efetuamos a subtração para obter os kits válidos: $18 - 3 = 15$ tipos de kits de boas-vindas.
+
+<!-- id: q58 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
+### Questão 58
+Uma designer cria brincos com 1 metal (prata ou ouro), 1 pedra (4 tipos) e 1 fecho (3 tipos). O ouro só pode receber o fecho de tarraxa. Quantos modelos de brincos viáveis a designer pode lançar na coleção?
+
+a) 24 modelos
+b) 16 modelos
+c) 20 modelos
+d) 14 modelos
+e) 12 modelos
+
+**Gabarito:** b
+**Resolução:**
+- **Etapa 1:** Para as peças em prata de lei (1 metal), qualquer uma das 4 pedras pode ser montada com os 3 tipos de fecho: $1 \times 4 \times 3 = 12$ modelos em prata.
+- **Etapa 2:** Para as peças em ouro amarelo (1 metal), as 4 pedras só podem receber o fecho de tarraxa tradicional (1 fecho): $1 \times 4 \times 1 = 4$ modelos em ouro.
+- **Etapa 3:** Somamos os modelos viáveis dos dois metais: $12 + 4 = 16$ modelos exclusivos de brincos.
+
+<!-- id: q59 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 59
-No sistema escolar, o login do aluno é composto de 2 letras maiúsculas seguidas de 2 dígitos pares. Considere que o sistema usa apenas as letras A, B e C (3 opções) e os dígitos 2, 4, 6 e 8 (4 opções). Se o sistema permite que as letras e os números sejam repetidos, quantos logins diferentes podem ser gerados?
+Um time escolhe para o 1º tempo 1 de 3 camisas e 1 de 2 calções. No 2º tempo, troca a camisa por uma das outras 2, mantendo o mesmo calção do 1º tempo. Quantas combinações de uniforme (camisa 1, camisa 2 e calção fixo) o clube pode registrar?
 
-a) 144
-b) 24
-c) 72
-d) 14
-e) 64
+a) 4 combinações
+b) 10 combinações
+c) 8 combinações
+d) 6 combinações
+e) 12 combinações
 
-**Gabarito:** A
-**Resolução:** 
-**Etapa 1:** A senha tem 4 espaços: [Letra] [Letra] [Número] [Número].
-**Etapa 2:** Há 3 opções para a primeira letra, 3 opções para a segunda letra, 4 opções para o primeiro número e 4 opções para o segundo número.
-**Etapa 3:** Multiplicando tudo: $3 \times 3 \times 4 \times 4 = 9 \times 16 = 144$ logins.
+**Gabarito:** e
+**Resolução:**
+- **Etapa 1:** O time escolhe a camisa do 1º tempo entre 3 modelos disponíveis.
+- **Etapa 2:** Para o 2º tempo, como a camisa deve ser diferente da usada no 1º tempo, restam 2 modelos de camisa ($3 \times 2 = 6$ pares de camisas ordenados).
+- **Etapa 3:** Multiplicamos o número de pares de camisas pelas 2 opções de calção fixo: $6 \times 2 = 12$ combinações de registro de uniforme.
 
-<!-- id: q60 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-de-contagem -->
+<!-- id: q60 | tipo: multipla-escolha | habilidade: EF05MA09 | dificuldade: dificil | objeto: problemas-contagem-raciocinio-combinatorio -->
 ### Questão 60
-Beto quer pintar um boneco de argila que ele mesmo fez. O boneco tem 4 partes a serem pintadas: chapéu, rosto, camisa e calça. Ele tem 2 cores para o chapéu, 3 cores para o rosto, 3 cores para a camisa e 2 cores para a calça. Se ele decidir que quer deixar o rosto na cor natural da argila (sem usar nenhuma de suas 3 cores de tinta), de quantas maneiras ele poderá pintar as roupas do boneco?
+Para uma peça, há 3 painéis de fundo, 4 esquemas de luz e 2 trilhas sonoras. O painel noturno exige um esquema de iluminação específico (não aceita os outros 3). Quantas composições cenográficas completas podem ser encenadas?
 
-a) 12
-b) 10
-c) 36
-d) 18
-e) 24
+a) 18 composições
+b) 20 composições
+c) 24 composições
+d) 16 composições
+e) 12 composições
 
-**Gabarito:** A
-**Resolução:** 
-**Etapa 1:** Como Beto não vai pintar o rosto, há apenas 1 opção para o rosto (a cor natural). 
-**Etapa 2:** As outras opções permanecem as mesmas: Chapéu (2), Rosto (1), Camisa (3) e Calça (2).
-**Etapa 3:** Multiplicando as opções disponíveis: $2 \times 1 \times 3 \times 2 = 12$ maneiras de pintar.
+**Gabarito:** a
+**Resolução:**
+- **Etapa 1:** Para os 2 painéis comuns, todos os 4 esquemas de luz e as 2 trilhas sonoras podem ser utilizados livremente: $2 	imes 4 	imes 2 = 16$ composições.
+- **Etapa 2:** Para o painel noturno (1 opção), utiliza-se exclusivamente o esquema de luz azulada (1 opção) com as 2 trilhas sonoras: $1 	imes 1 	imes 2 = 2$ composições.
+- **Etapa 3:** Somamos as composições viáveis dos dois grupos de painéis: $16 + 2 = 18$ composições cenográficas completas.
+
+## Referências
+- BRASIL. Ministério da Educação. Base Nacional Comum Curricular (BNCC). Brasília: MEC, 2018.
+- DANTE, Luiz Roberto. Projeto Teláris: Matemática - 5º Ano. São Paulo: Ática, 2019.
+- SMOLE, Kátia Stocco; DINIZ, Maria Ignez. Cadernos do Mathema: Jogos de Matemática de 1º a 5º ano. Porto Alegre: Artmed, 2014.
+- TOLEDO, Marília; TOLEDO, Mauro. Teoria e Prática de Matemática: Como dois e dois. São Paulo: FTD, 2010.
+- IMENES, Luiz Márcio; LELLIS, Marcelo. Matemática para todos: 5º ano. São Paulo: Scipione, 2012.

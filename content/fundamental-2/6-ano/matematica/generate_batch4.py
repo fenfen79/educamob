@@ -681,4 +681,3 @@ for f in files:
     os.makedirs(os.path.dirname(full_path), exist_ok=True)
     with open(full_path, "w", encoding="utf-8") as file:
         file.write(f["content"])
-    print(f"File created: {full_path}")

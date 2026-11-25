@@ -2065,13 +2065,13 @@ Para garantir o pleno funcionamento do fluxo de autenticação e comunicação p
   - Exportação estática prerenderizada (3/3) e sincronizada integralmente para `apps/mobme/` incluindo `version.json`.
 
 
-### 187. Resolução Curricular por Ground-Truth em Memória e Blindagem Monotemática Anti-Loop da Mob.me (Sprint 187) 🧪 Implementado e Validado Localmente
+### 187. Resolução Curricular por Ground-Truth em Memória e Blindagem Monotemática Anti-Loop da Mob.me (Sprint 187) ✅ Concluído e Homologado em Produção
 - **Data de Execução:** 25 de Novembro de 2026.
 - **Branch Git de Trabalho:** `feature/novo-menu-microaprendizagem`.
-- **Status Geral:** 🧪 **Código Implementado e Validado Localmente com 100% de Sucesso nos Testes de Integração e Regressão.**
+- **Status Geral:** ✅ **Código Homologado e em Execução na Nuvem (VPS Oracle Cloud ARM64 `137.131.163.113`).**
 - **Governança (Protocolo de Dupla Trava):**
   - **Trava 1 (Aprovação Técnica Prévia):** Aprovada formalmente pelo usuário no chat ("autorizo").
-  - **Trava 2 (Deploy em Nuvem):** Aguardando autorização expressa do usuário ("AUTORIZO O DEPLOY EM PRODUÇÃO").
+  - **Trava 2 (Deploy em Nuvem):** **HOMOLOGADO EM PRODUÇÃO** sob a autorização expressa: `"AUTORIZO O DEPLOY EM PRODUÇÃO"`.
 - **Motivação e Diagnóstico Forense de Causa-Raiz (Caso Luiza Petracioli - Sessões `3b0f771c`, `a4bf3156` e `ad00a2e2`):**
   - Estudante tentou estudar "função do 1 grau" e o sistema respondeu com "Função do 2º Grau" (latência de 458ms). Ao tentar novamente em nova sessão, o erro repetiu-se em 180ms.
   - Ao digitar "menu" (Turno 21) e em seguida "função do 1 grau" (Turno 23), o backend entrou em loop reexibindo o menu idêntico de 2º Grau (Falha P0 `MENU_EM_LOOP`).
