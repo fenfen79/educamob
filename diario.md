@@ -9438,3 +9438,36 @@ A partir da auditoria das sessões reais das últimas 36 horas realizada pelo Se
   - `generate-version.js` integrado ao lifecycle `npm run build` do `package.json`.
   - Next.js Turbopack compilado em 96s com 100% de sucesso, verificação TypeScript concluída em 25.3s com 0 erros.
   - Exportação estática prerenderizada (3/3) e sincronizada integralmente para `apps/mobme/` incluindo `version.json`.
+
+
+### 187. Resolução Curricular por Ground-Truth em Memória e Blindagem Monotemática Anti-Loop da Mob.me (Sprint 187) 🧪 Implementado e Validado Localmente
+- **Data de Execução:** 25 de Novembro de 2026.
+- **Branch Git de Trabalho:** `feature/novo-menu-microaprendizagem`.
+- **Status Geral:** 🧪 **Código Implementado e Validado Localmente com 100% de Sucesso nos Testes de Integração e Regressão.**
+- **Governança (Protocolo de Dupla Trava):**
+  - **Trava 1 (Aprovação Técnica Prévia):** Aprovada formalmente pelo usuário no chat ("autorizo").
+  - **Trava 2 (Deploy em Nuvem):** Aguardando autorização expressa do usuário ("AUTORIZO O DEPLOY EM PRODUÇÃO").
+- **Motivação e Diagnóstico Forense de Causa-Raiz (Caso Luiza Petracioli - Sessões `3b0f771c`, `a4bf3156` e `ad00a2e2`):**
+  - Estudante tentou estudar "função do 1 grau" e o sistema respondeu com "Função do 2º Grau" (latência de 458ms). Ao tentar novamente em nova sessão, o erro repetiu-se em 180ms.
+  - Ao digitar "menu" (Turno 21) e em seguida "função do 1 grau" (Turno 23), o backend entrou em loop reexibindo o menu idêntico de 2º Grau (Falha P0 `MENU_EM_LOOP`).
+  - *Causa-Raiz 1:* Desconexão estrutural entre o backend e o acervo físico. Modelos de linguagem sem catálogo sofrem drift de atenção entre números vizinhos (1º vs 2º grau) e gravavam valores corrompidos no cache em memória. Remendos estáticos (`SEMANTIC_TOPIC_CACHE` ou `if/else` manuais) são frágeis e não escalam para os 1.000+ capítulos.
+  - *Causa-Raiz 2:* Na máquina de estados de `resolve_active_mode_and_topic`, se a sessão já possui um `topic` e está em `modo_menu`, mensagens com novos assuntos que não continham gatilhos verbais literais (`CHANGE_TOPIC_TRIGGERS`) caíam no fallback neutro de `modo_menu`, disparando a repetição em loop do menu antigo.
+- **Arquitetura da Solução de Excelência:**
+  1. *Curriculum Ground Truth Index (`curriculum_catalog.json` / `build_catalog.py`):*
+     - 1.008 capítulos atômicos do acervo `content/` indexados com metadados do YAML frontmatter (`objeto_de_conhecimento`, `palavras_chave`, `disciplina`, `série`, `h1_title`, paths de e-book e exercícios).
+     - Geração automática e carregamento instantâneo em memória (`< 5ms`).
+  2. *Curricular Entity Matcher (`curriculum_matcher.py`):*
+     - Algoritmo de busca e entity linking em memória (`< 15ms`) com índice invertido por tokens.
+     - Stemmer morfológico da Língua Portuguesa (`stem_pt`: "funções" -> "funcao", "equações" -> "equacao", plurais em -s).
+     - Ponderação posicional de termos nucleares e regra universal de exclusão de ordinais conflitantes (1º vs 2º vs 3º grau).
+  3. *Desambiguação Orgânica Dinâmica:*
+     - Consultas amplas (ex: "funções", "revolução", "termodinâmica") geram automaticamente opções de desambiguação estruturadas a partir dos capítulos reais contíguos do catálogo, sem necessidade de listas manuais de exceções.
+  4. *Blindagem Monotemática e Quebra de Loop (`main.py`):*
+     - No bloco `state.get("topic")`, qualquer mensagem textual que represente um capítulo curricular distinto (`curriculum_matcher.is_different_topic(...)`) é encaminhada compulsoriamente para `modo_novo_assunto`.
+     - `modo_novo_assunto` emite a recusa amigável, orienta o clique em **+ Nova Conversa** no menu lateral e NÃO exibe o menu de trilhas, aniquilando o loop `MENU_EM_LOOP`.
+  5. *Aceleração Drástica na Resolução de Exercícios:*
+     - `resolve_exercise_file_for_topic` consome diretamente o caminho do exercício já indexado pelo matcher, eliminando varreduras lentas em disco com `os.walk` no runtime.
+- **Validação e Testes Automatizados Locais:**
+  - `services/mobme-api/test_curriculum_matcher.py`: 100% de sucesso em 7 cenários (resolução direta de 1º grau, 2º grau, dinâmica de Newton, desambiguação de "funções", detecção de novo assunto e contenção de dúvidas).
+  - `services/mobme-api/test_variations.py`: 100% de sucesso em 13 variações lexicais em todo o acervo (afim, quadrática, termodinâmica, fotossíntese, era vargas, crise de 1929, guerra fria).
+  - `services/mobme-api/test_integration_flow.py`: 100% de sucesso no fluxo E2E simulando os 7 passos da sessão de Luiza, garantindo transição para `modo_novo_assunto` e resolução instantânea de exercícios de Matemática e Física.

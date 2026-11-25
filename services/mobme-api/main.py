@@ -19,6 +19,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores.supabase import SupabaseVectorStore
 from memory import get_or_create_user, get_or_create_session, save_message, get_session_history, get_user_sessions, update_session_title, add_to_transient_cache
 from whatsapp import process_whatsapp_message
+from curriculum_matcher import curriculum_matcher
 
 import os
 from dotenv import load_dotenv
@@ -1590,8 +1591,8 @@ async def resolve_active_mode_and_topic(
 
     # 2. SESSÃO ESTRITAMENTE MONOTEMÁTICA (Se o tema já está definido, NUNCA ceder à troca de assunto):
     if state.get("topic"):
-        # 2.0 Tentativa de mudar de assunto ou matéria:
-        if any(trigger in msg_clean for trigger in CHANGE_TOPIC_TRIGGERS) or any(w in msg_clean for w in ["nem falei", "nem tinha falado"]) or msg_clean in ALL_DISCIPLINES:
+        # 2.0 Tentativa de mudar de assunto ou matéria (incluindo menção a outro tópico curricular):
+        if any(trigger in msg_clean for trigger in CHANGE_TOPIC_TRIGGERS) or any(w in msg_clean for w in ["nem falei", "nem tinha falado"]) or msg_clean in ALL_DISCIPLINES or curriculum_matcher.is_different_topic(state["topic"], current_message, current_discipline=state.get("discipline")):
             state["current_mode"] = "modo_novo_assunto"
             save_session_states()
             return "modo_novo_assunto", state["topic"], state
@@ -1784,6 +1785,38 @@ async def resolve_active_mode_and_topic(
             save_session_states()
             return "modo_acolhida", None, state
 
+        # 5.0 MATCHING NO CATÁLOGO CURRICULAR REAL (Ground Truth Educamob - Resolução Determinística em <15ms)
+        c_match = curriculum_matcher.match(
+            raw_topic, 
+            user_grade=state.get("grade_level"), 
+            session_discipline=state.get("discipline")
+        )
+        if c_match.is_match:
+            if c_match.is_broad:
+                state["pending_disambiguation"] = c_match.canonical_topic
+                state["disambiguation_options"] = c_match.options
+                state["clean_names"] = c_match.clean_names
+                state["disambiguation_depth"] = 1
+                state["disambiguation_reason"] = "CATALOGO_AMPLO"
+                state["current_mode"] = "modo_acolhida"
+                save_session_states()
+                return "modo_acolhida", None, state
+            else:
+                state["topic"] = c_match.canonical_topic
+                if c_match.discipline and not state.get("discipline"):
+                    state["discipline"] = c_match.discipline
+                if state.get("pending_track"):
+                    chosen = state.pop("pending_track")
+                    state["current_mode"] = chosen
+                    state["just_selected_track"] = True
+                    save_session_states()
+                    return chosen, state["topic"], state
+                else:
+                    state["current_mode"] = "modo_menu"
+                    save_session_states()
+                    return "modo_menu", state["topic"], state
+
+        # 5.1 FALLBACK: ÁRBITRO CURRICULAR SEMÂNTICO (LLM-First para dúvidas conceituais abertas)
         analysis = await analyze_topic_curricular_rules(raw_topic, current_discipline=state.get("discipline"))
         
         # Se a LLM identificou a disciplina com clareza e o estado da sessão ainda não tem, atualiza automaticamente
@@ -2273,6 +2306,18 @@ async def resolve_exercise_file_for_topic(topic: str, user_grade: str | None = N
     elif os.path.isdir("/content"):
         project_root = "/"
         content_dir = "/content"
+
+    # 0. RESOLUÇÃO DIRETA VIA CATÁLOGO CURRICULAR HOMOLOGADO (Ground Truth <1ms)
+    c_res = curriculum_matcher.match(topic, user_grade=user_grade, session_discipline=session_discipline)
+    if c_res.is_match and c_res.exercise_path:
+        cand_path = c_res.exercise_path
+        if not os.path.exists(cand_path):
+            if "content/" in cand_path:
+                rel_part = cand_path.split("content/", 1)[1]
+                cand_path = os.path.join(content_dir, rel_part).replace("\\", "/")
+        if os.path.exists(cand_path):
+            rel_p = os.path.relpath(cand_path, project_root).replace("\\", "/")
+            return cand_path, rel_p
 
     # 1. BUSCA DETERMINÍSTICA DIRETA NO ACERVO FÍSICO (Zero Latência & Zero Risco de Colisão Vetorial)
     topic_clean = strip_accents(topic.lower())
